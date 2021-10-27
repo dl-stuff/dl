@@ -58,6 +58,10 @@
         "`s2, xf",
         "`fsf, xf=5"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Akasha",
         "Dragonyule_Xainfried",
@@ -69,46 +73,11 @@
       ]
     },
     "META": {
-      "tdps": 1763192.7053315127,
+      "tdps": 2114974.216069926,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 48510.01920418749,
-        "team": 0.05488648041057442,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 48510.01920418749,
@@ -145,15 +114,53 @@
       ]
     },
     "META": {
-      "tdps": 624827.6498048566,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 104970.89214919417,
+        "team": 0.16709075519220656,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s2.check()",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf=5",
+        "`s2, xf>3",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97929.01350206435,
-        "team": 0.1558656365228249,
+        "dps": 108484.40878566542,
+        "team": 0.15992500093855025,
         "noaff": false,
         "nihil": false
       },
@@ -164,6 +171,10 @@
         "`s4, xf=5",
         "`s2, xf>3",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -176,10 +187,11 @@
       ]
     },
     "META": {
-      "tdps": -678526.7568898726,
-      "pref": "TEAMBUFF",
+      "tdps": 490320.5597203509,
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -209,11 +221,50 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51137.88408508485,
+        "team": 0.054907342403705435,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, xf",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Akasha",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51137.88408508485,
@@ -223,45 +274,47 @@
       }
     },
     "META": {
-      "tdps": -28573.663173642628,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 20647.831954807785,
-        "team": 0.0,
+        "dps": 31547.760095104688,
+        "team": 0.05492297490009613,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
         "Sweet_Surprise",
         "A_Choice_Blend",
-        "The_Plaguebringer"
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Vayu",
-      "slots.w": "chimeratech",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
+        "`dragon, xf",
         "`s1",
-        "`s4, cancel",
-        "`s2, x=5"
+        "`s4",
+        "`s2, xf>3",
+        "`s3, xf=5",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
+        "Mona",
+        "Nino",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Cleo"
+        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
@@ -289,7 +342,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

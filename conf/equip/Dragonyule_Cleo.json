@@ -68,46 +68,49 @@
       ]
     },
     "META": {
-      "tdps": 174436.2393296277,
+      "tdps": 228991.83418787038,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36073.428577295985,
-        "team": 0.1724639733736782,
-        "noaff": false,
+        "dps": 60858.615604486884,
+        "team": 0.17634868900272055,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Once_in_a_Lifetime",
         "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "Dueling_Dancers",
+        "Having_a_Summer_Ball"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=5",
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
         "`s4",
-        "`s1, x=5 or s",
-        "`s2, x=5"
+        "`s1",
+        "`s2, cancel"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
-        "Catherine",
+        "Blade",
         "Hunter_Sarisse",
         "Summer_Estelle"
       ],
       "share": [
         "Weapon",
-        "Elisanne"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 212900.40325979682,
-      "pref": "PERSONAL",
+      "tdps": 20143.19174682258,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -199,48 +202,6 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 40094.369650683235,
-        "team": 0.20629557819669592,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Once_in_a_Lifetime",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s1, x=5 or s",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Estelle",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Elisanne"
-      ]
-    },
-    "META": {
-      "tdps": 267321.3811909209,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

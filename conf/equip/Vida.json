@@ -1,8 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 63862.86741645729,
+        "dps": 64630.291732401136,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -16,14 +16,53 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, not buff(s2) and buff(s3)",
         "`s3, not buff(s3) and fsc",
         "`s2, not buff(s2)",
         "`s1, fsc and buff (s3)",
         "`s4, fsc",
         "`fs, xf=3"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Axe2",
+        "Blade",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64630.291732401136,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`s3, not buff(s3) and fsc",
+        "`s2, not buff(s2)",
+        "`s1, fsc and buff (s3)",
+        "`s4, fsc",
+        "`fs, xf=3"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Axe2",
@@ -36,48 +75,24 @@
       ]
     },
     "META": {
-      "tdps": 211125.1118863953,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63012.85058670663,
+        "dps": 59397.350993523985,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "The_Warrioresses",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`dragon, not buff(s2) and buff(s3)",
-        "`s3, not buff(s3) and fsc",
-        "`s2, not buff(s2)",
-        "`s1, fsc and buff (s3)",
-        "`s4, fsc",
-        "`fs, xf=3"
-      ],
       "coabs": [
         "Blade",
         "Forte",
         "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 208472.63543022997,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -125,7 +140,64 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34729.137791664834,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Twinfold_Bonds",
+        "Having_a_Summer_Ball",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`dragon, fsc",
+        "`s1, fsc",
+        "`s2",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`fs, xf=3"
+      ],
+      "coabs": [
+        "Delphi",
+        "Grace",
+        "Ieyasu"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66484.36989148644,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Grace",
+        "Ieyasu",
+        "Vania"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 91404.0811180445,
@@ -142,7 +214,6 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, not buff(s2) and s2.check() and (xf or fsc)",
         "`s3, not buff(s3) and fscf",
@@ -168,17 +239,17 @@
       ]
     },
     "META": {
-      "tdps": 416934.9368589191,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63231.428380962156,
+        "dps": 66484.36989148644,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -190,7 +261,6 @@
       ]
     },
     "META": {
-      "tdps": 171756.05572944254,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -245,11 +315,54 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49822.409833084756,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, not buff(s2)",
+        "`s3",
+        "`s2, not buff(s2)",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, xf=3"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54413.495893514584,
-        "team": 0.09188774858199171,
+        "dps": 52478.94055159747,
+        "team": 0.08284813286004583,
         "noaff": false,
         "nihil": false
       },
@@ -273,10 +386,10 @@
       ]
     },
     "META": {
-      "tdps": 202028.342023603,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

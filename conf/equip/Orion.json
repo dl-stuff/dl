@@ -1,5 +1,39 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66635.03155977113,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, xf=4 or x=5",
+        "`s1, buff(s3) and cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 66635.03155977113,
@@ -35,7 +69,45 @@
       ]
     },
     "META": {
-      "tdps": 19395548.28293765,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11067.97143913457,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, xf=4 or x=5",
+        "`s1, buff(s3) and cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
@@ -114,7 +186,8 @@
       "tdps": 18903248.108590387,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -138,42 +211,21 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32130.807125887935,
-        "team": 0.00579484469253367,
+        "dps": 49015.200407729644,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Giovanni",
-      "acl": [
-        "`dragon, trickery<=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, xf=4 or x=5",
-        "`s1, buff(s3) and cancel"
-      ],
       "coabs": [
         "Blade",
         "Bow",
         "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53755.01953706004,
-        "team": 0.12832147635627403,
+        "dps": 55817.357555709496,
+        "team": 0.10847451089420458,
         "noaff": false,
         "nihil": false
       },
@@ -206,7 +258,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -225,7 +278,6 @@
       ]
     },
     "META": {
-      "tdps": 2913692.1138881077,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

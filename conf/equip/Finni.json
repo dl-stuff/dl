@@ -59,6 +59,9 @@
         "`s2, self.sr.count=2",
         "end"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Pipple",
         "Summer_Celliera",
@@ -75,45 +78,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 46770.422546959955,
-        "team": 0.06659864676617061,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Entwined_Flames",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon, self.sr.count=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
-        "else",
-        "`s2, self.sr.count=2",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46770.422546959955,
-        "team": 0.06659864676617061,
+        "dps": 48066.6636064672,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -124,7 +92,7 @@
         "Entwined_Flames",
         "His_Clever_Brother"
       ],
-      "slots.d": "Summer_Marishiten",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon, self.sr.count=1",
         "`s3, not buff(s3)",
@@ -149,7 +117,6 @@
       ]
     },
     "META": {
-      "tdps": 41980827.33117552,
       "pref": "PERSONAL"
     }
   },
@@ -172,18 +139,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 51612.44586825953,
-        "team": 0.06659864676617061,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52944.11764880248,
-        "team": 0.06660719271815996,
+        "dps": 53611.09450195426,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -214,7 +173,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -262,40 +221,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44681.724870804486,
-        "team": 0.06663897012639433,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
-        "else",
-        "`s2, self.sr.count=2",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Yurius"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44681.724870804486,
-        "team": 0.06663897012639433,
+        "dps": 45175.21295606222,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -326,7 +255,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

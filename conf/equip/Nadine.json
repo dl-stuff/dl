@@ -1,8 +1,47 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 106479.93787829702,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "Amaterasu_Oblation",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, fsc",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "ds1, x=2",
+        "dodge, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Joe",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106165.70607852298,
+        "dps": 106479.93787829702,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -40,50 +79,10 @@
       ]
     },
     "META": {
-      "tdps": 533273.6432278398,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39104.53294420561,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, cancel",
-        "`s2",
-        "`s1",
-        "`s4, fsc",
-        "`fs, x=5"
-      ],
-      "dacl": [
-        "ds1, x=2",
-        "dodge, x=2"
-      ],
-      "coabs": [
-        "Blade",
-        "Joe",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 39149.721346298524,
@@ -130,17 +129,17 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 108135.62009505753,
+        "dps": 111406.73292156725,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 555276.6658365044,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

@@ -63,6 +63,9 @@
         "`s1",
         "`s2"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Ieyasu",
         "Summer_Patia",
@@ -74,12 +77,12 @@
       ]
     },
     "META": {
-      "tdps": 285252.3402214072,
+      "tdps": 57430.185518132304,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 33641.441634834744,
         "team": 0.043940175615605946,
@@ -197,7 +200,7 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 47533.72113807923,
         "team": 0.043940175615605946,
@@ -206,10 +209,10 @@
       }
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -249,7 +252,7 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 27629.58183349875,
         "team": 0.043940175615605946,
@@ -282,11 +285,19 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27629.58183349875,
+        "team": 0.043940175615605946,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

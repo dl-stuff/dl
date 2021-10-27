@@ -26,6 +26,9 @@
         "`s4, cancel",
         "`s1, cancel"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Hunter_Sarisse",
@@ -38,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 20015.49628401114,
+        "dps": 42600.994669620566,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -48,6 +51,49 @@
         "Candy_Couriers",
         "Emissaries_of_the_Heavens",
         "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, dgauge>=2700",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "s1",
+        "s2"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 209839.7741245955,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8475.940608657254,
+        "team": 0.08124573008551868,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Emissaries_of_the_Heavens",
+        "Proper_Maintenance",
+        "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
@@ -67,23 +113,165 @@
       ],
       "coabs": [
         "Blade",
-        "Faeblessed_Tobias",
+        "Hunter_Sarisse",
         "Xander"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40696.41019633546,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, cancel",
+        "if aff(frostbite)",
+        "`dragon, not in_drg",
+        "else",
+        "`dragon, in_drg",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "dacl": [
+        "`s3, cancel",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Dagger"
+      ],
+      "share": [
+        "Xander",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": -207064.62079399408,
-      "pref": "TEAMBUFF"
+      "tdps": 396580.4671059411,
+      "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 16013.786088891611,
+        "team": 0.12959521654086892,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 20743.469399411384,
+        "dps": 61836.02376070727,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "dacl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ]
+    },
+    "META": {
+      "tdps": 353579.6991192591,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46596.75892245085,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Emissaries_of_the_Heavens",
+        "His_Clever_Brother",
+        "Snipers_Allure"
+      ],
+      "acl": [
+        "`s3",
+        "`dragon, not in_drg and x=5",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, x=5"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32119.743378222956,
+        "team": 0.0649381283943355,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Emissaries_of_the_Heavens",
+        "Proper_Maintenance",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20772.312403808686,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -108,153 +296,18 @@
         "`s1, cancel"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Dagger"
+        "Catherine",
+        "Hunter_Sarisse",
+        "Xander"
       ],
       "share": [
         "Summer_Celliera",
         "Summer_Julietta"
       ]
     },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 16013.786088891611,
-        "team": 0.12959521654086892,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 23090.913014534435,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
-        "His_Clever_Brother",
-        "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "queue prep and not buff(s3)",
-        "`s3",
-        "`s4",
-        "`s1",
-        "`s2",
-        "end",
-        "`dragon, not in_drg and dgauge>=1800",
-        "`s2, in_drg or x=5",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5",
-        "`dodge, fsc and speed()=1"
-      ],
-      "coabs": [
-        "Gala_Mascula",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
-      ]
-    },
-    "META": {
-      "tdps": 54609.476449394984,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 22039.263184725467,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
-        "His_Clever_Brother",
-        "Snipers_Allure"
-      ],
-      "acl": [
-        "`s3",
-        "`dragon, not in_drg and x=5",
-        "`s2, not (not in_drg and dgauge>=1500)",
-        "`s1",
-        "`s4",
-        "`fs, x=5"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 23922.54410437246,
-        "team": 0.1299541767133557,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 23922.54410437246,
-        "team": 0.1299541767133557,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
-        "Proper_Maintenance",
-        "From_Whence_He_Comes",
-        "His_Clever_Brother"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Elisanne"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 20772.312403808686,
+        "dps": 20186.656439976945,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -269,7 +322,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

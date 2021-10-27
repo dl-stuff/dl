@@ -1,5 +1,46 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 88730.52013300096,
+        "team": 0.14555071283984025,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Flower_in_the_Fray",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, duration-now<1 and fsc",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=3 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Grace",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 91909.1232324155,
@@ -40,8 +81,8 @@
       ]
     },
     "META": {
-      "tdps": 228331.66140252782,
-      "pref": "PERSONAL"
+      "tdps": 32903.1188636399,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NORMAL-MONO": {
@@ -51,6 +92,28 @@
         "team": 0.04894579485052755,
         "noaff": false,
         "nihil": false
+      },
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56644.63646335881,
+        "team": 0.04906680538819533,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
@@ -75,9 +138,9 @@
         "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
+        "Grace",
         "Mona",
-        "Nino",
-        "Yukata_Lathna"
+        "Nino"
       ],
       "share": [
         "Weapon",
@@ -85,23 +148,42 @@
       ]
     },
     "META": {
-      "tdps": 215731.1442241061,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 107624.52304218063,
-        "team": 0.1652742862114628,
+        "dps": 98383.66925148459,
+        "team": 0.24473161170079388,
         "noaff": false,
         "nihil": false
       },
       "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, duration-now<1 and fsc",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=2 or hits=0"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 108283.98515103912,
+        "team": 0.22659372235081326,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
@@ -110,8 +192,13 @@
         "`fs, x=2 or hits=0"
       ],
       "dacl": [
-        "ds1, blood_moon=0 and fsc",
-        "fs"
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Akasha",
+        "Grace",
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -119,7 +206,7 @@
       ]
     },
     "META": {
-      "tdps": 386368.48170359177,
+      "tdps": 545836.1614475889,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -154,10 +241,42 @@
       ]
     },
     "META": {
-      "tdps": 221865.68250585656,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69918.8384542168,
+        "team": 0.04967763806087326,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`s3, fsc",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=3 or hits=0"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -188,7 +307,6 @@
       ]
     },
     "META": {
-      "tdps": 200521.69299595655,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

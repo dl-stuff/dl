@@ -72,45 +72,11 @@
       ]
     },
     "META": {
-      "tdps": 352182.6926795276,
+      "tdps": 456361.22749631904,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 26232.25555808867,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon, energy()=5 and not inspiration()=5 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, not energy()=5 and cancel"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 26232.25555808867,
@@ -281,7 +247,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -292,7 +258,10 @@
         "team": 0.06345877199531791,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "dacl": [
+        "ds1,x=3"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
@@ -373,28 +342,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 15103.840707715133,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "Taiko_Tandem",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Cupid",
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 31385.84577070119,
@@ -432,7 +379,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

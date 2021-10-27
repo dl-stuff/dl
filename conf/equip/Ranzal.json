@@ -1,5 +1,42 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66938.69246675471,
+        "team": 0.05485612717622111,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Saiga"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 66938.69246675471,
@@ -38,7 +75,6 @@
       ]
     },
     "META": {
-      "tdps": 384060.05045169854,
       "pref": "PERSONAL"
     }
   },
@@ -116,15 +152,15 @@
       ]
     },
     "META": {
-      "tdps": 152238.99605581147,
+      "tdps": 374246.98124187527,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84573.08349200622,
-        "team": 0.12388069832417736,
+        "dps": 92868.61592692645,
+        "team": 0.1374324793710216,
         "noaff": false,
         "nihil": false
       },
@@ -132,8 +168,11 @@
         "`dragon",
         "`s3, not buff(s3) and x=4",
         "`s1, buff(s3)",
-        "`s4, x=4",
-        "`fsf, x=4"
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "share": [
         "Weapon",
@@ -141,10 +180,10 @@
       ]
     },
     "META": {
-      "tdps": 2136766.6096846596,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -195,10 +234,10 @@
       }
     },
     "META": {
-      "tdps": 154009.968301714,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -219,7 +258,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

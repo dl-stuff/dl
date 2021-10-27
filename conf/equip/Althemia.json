@@ -1,5 +1,42 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 96045.3239003514,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3) and cancel"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 96045.3239003514,
@@ -24,6 +61,9 @@
         "`s4",
         "`s1, buff(s3) and cancel"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Bow",
         "Delphi",
@@ -35,49 +75,14 @@
       ]
     },
     "META": {
-      "tdps": 233770.32489964965,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 53348.14987763307,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`dragon, x=5",
-        "`s4",
-        "`s3",
-        "`s2",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Joker"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Halloween_Melsa"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53348.14987763307,
-        "team": 0.0,
+        "dps": 57130.63062657005,
+        "team": 0.033269547836871145,
         "noaff": false,
         "nihil": true
       },
@@ -90,13 +95,16 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, x=5",
         "`s4",
         "`s3",
         "`s2",
         "`s1, cancel"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Delphi",
@@ -130,13 +138,6 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon, x=5 and trickery<=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3) and cancel"
-      ],
       "dacl": [
         "queue",
         "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
@@ -173,14 +174,15 @@
       "tdps": 85033.66825295283,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67743.36630988611,
+        "dps": 65860.78863567536,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -194,6 +196,7 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`dragon, x=5",
         "`s3",
@@ -215,7 +218,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -255,15 +258,16 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41024.79948517921,
-        "team": 0.0,
+        "dps": 44871.03475399969,
+        "team": 0.03332053630974749,
         "noaff": false,
         "nihil": true
       },
@@ -297,7 +301,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

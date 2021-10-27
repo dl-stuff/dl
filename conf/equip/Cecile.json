@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 85229.6474739705,
-        "team": 0.23956793301691182,
+        "dps": 104931.82486571267,
+        "team": 0.4903651043979413,
         "noaff": false,
         "nihil": false
       },
@@ -18,17 +18,17 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if manachew_mode.get()",
+        "`dragon, dgauge>=1000 and amp_lvl(team)",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s4, not have_buff(s4_00)",
         "`s2",
         "`s1",
-        "else",
-        "`dragon, s=1",
-        "`s4, s",
-        "`s2",
-        "`s1",
-        "end",
         "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -37,13 +37,13 @@
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98349.26685326826,
-        "team": 0.1094103145747394,
+        "dps": 104931.82486571267,
+        "team": 0.4903651043979413,
         "noaff": false,
         "nihil": false
       },
@@ -58,35 +58,29 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
+        "`dragon, dgauge>=1000 and amp_lvl(team)",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
-        "if manachew_mode.get()",
+        "`s4, not have_buff(s4_00)",
         "`s2",
         "`s1",
-        "else",
-        "`dragon, s=1",
-        "`s4, s",
-        "`s2",
-        "`s1",
-        "end",
         "`fs"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fstc(0.5), x=3",
-        "`sack, fsc"
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
+        "Gala_Notte",
+        "Mona"
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 101357.05684125204,
       "pref": "PERSONAL"
     }
   },
@@ -182,27 +176,18 @@
       ]
     },
     "META": {
-      "tdps": 90908.28024148647,
+      "tdps": 80851.90510134082,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 109467.00815708909,
-        "team": 0.5224372007887671,
+        "dps": 114116.28029874526,
+        "team": 0.501638299746342,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "`s3, not buff(s3)",
         "if manachew_mode.get()",
@@ -219,17 +204,39 @@
         "`ds1, blood_moon=0 and x=1",
         "`dfs, x=3"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ],
       "share": [
         "Weapon",
         "Akasha"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 127193.93638550646,
+        "team": 0.4903651043979413,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Enter_the_Blue_Rose",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, not have_buff(s4_00)",
+        "`fs"
+      ]
+    },
     "META": {
+      "tdps": 1160066.483600542,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -262,44 +269,19 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60947.80609675699,
-        "team": 0.5224372007887671,
+        "dps": 75148.92095995843,
+        "team": 0.4903651043979412,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "The_Plaguebringer",
+        "Worthy_Rivals",
+        "Enter_the_Blue_Rose",
+        "Lord_of_the_Skies",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "if manachew_mode.get()",
-        "`dragon, manachew_gauge<=5000",
-        "`s2",
-        "`s1",
-        "else",
-        "`s4",
-        "`s1",
-        "end",
-        "`fs"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0 and x=1",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {

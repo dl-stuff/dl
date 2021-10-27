@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61055.36787123936,
+        "team": 0.1987371461264566,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Sweet_Surprise",
+        "Beautiful_Nothingness",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 61055.36787123936,
@@ -26,6 +65,9 @@
         "`fs, x=5",
         "`dodge, fsc"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Bow",
         "Ieyasu",
@@ -37,7 +79,6 @@
       ]
     },
     "META": {
-      "tdps": 380389.1967289814,
       "pref": "PERSONAL"
     }
   },
@@ -80,7 +121,6 @@
       ]
     },
     "META": {
-      "tdps": 96992.85722582192,
       "pref": "PERSONAL"
     }
   },
@@ -151,7 +191,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -185,7 +225,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -212,11 +253,6 @@
         "`s2, cancel",
         "`s1",
         "`s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Joker"
       ],
       "share": [
         "Summer_Celliera",
@@ -255,7 +291,8 @@
       "tdps": 312826.4420134939,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

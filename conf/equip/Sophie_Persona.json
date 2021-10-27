@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45686.24146326746,
-        "team": 0.049922226717687944,
+        "dps": 63226.40143502962,
+        "team": 0.06243636000572091,
         "noaff": true,
         "nihil": false
       },
@@ -19,11 +19,18 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`ex",
-        "`dragon, not in_drg",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, x=6 and not in_drg",
-        "`s4, not buff(s4)",
+        "`s2, x=6",
+        "`s4, fsc",
+        "`fs, x=6"
+      ],
+      "dacl": [
+        "`ex",
+        "`sack, not buff(s2) and x=6",
+        "`s1",
+        "`s4, fsc",
         "`fs, x=6"
       ],
       "coabs": [
@@ -33,7 +40,7 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "PERSONAL": {
@@ -84,19 +91,6 @@
     }
   },
   "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42460.05650922242,
-        "team": 0.049922226717687944,
-        "noaff": true,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Gala_Zena"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 55637.35048148198,
@@ -134,9 +128,9 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28831.262122285836,
+        "dps": 29691.244474977375,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
@@ -148,46 +142,17 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`ex",
-        "`dragon, not in_drg",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, x=6 and not in_drg",
-        "`s4, x=1 or s",
+        "`s2, x=6",
+        "`s4, fsc",
         "`fs, x=6"
       ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Gala_Zena"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 29978.984398461114,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Moonlight_Party",
-        "A_Small_Courage",
-        "Lord_of_the_Skies",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`ex",
-        "`dragon, not in_drg",
+      "dacl": [
         "`s3, not buff(s3)",
         "`s1",
         "`s2, x=6 and not in_drg",
@@ -200,18 +165,13 @@
         "Gala_Zena"
       ],
       "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
+        "Weapon",
+        "Akasha"
       ]
     },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28831.262122285836,
+        "dps": 33575.46312182334,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -235,6 +195,13 @@
         "`s4, x=1 or s",
         "`fs, x=6"
       ],
+      "dacl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=6 and not in_drg",
+        "`s4, x=1 or s",
+        "`fs, x=6"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -246,11 +213,7 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -307,17 +270,18 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -90352.68746818864,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45418.30574266482,
+        "dps": 48745.43232911459,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -340,7 +304,11 @@
         "`fs, x=6"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ex",
+        "`sack, not buff(s2) and x=6",
+        "`s1",
+        "`s4, fsc",
+        "`fs, x=6"
       ],
       "coabs": [
         "Blade",
@@ -352,26 +320,40 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 29978.984398461114,
+        "dps": 29691.244474977375,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`ex",
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=6",
+        "`s4, fsc",
+        "`fs, x=6"
+      ],
       "coabs": [
         "Blade",
         "Dagger2",
         "Gala_Zena"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

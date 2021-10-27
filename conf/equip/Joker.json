@@ -2,40 +2,6 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33518.50421363566,
-        "team": 0.05794675268929165,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Levins_Champion",
-        "Worthy_Rivals",
-        "Having_a_Summer_Ball",
-        "Lord_of_the_Skies",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, s2.check() and not in_drg and dgauge>=1900",
-        "`s2, in_drg or xf>2",
-        "`s1",
-        "`s4, not energy()=5 and xf=6"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
         "dps": 79041.17179413927,
         "team": 0.10680259274256111,
         "noaff": true,
@@ -73,7 +39,47 @@
         "Dragonyule_Lily"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 95284.80605213907,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, xf=6 and s2.check()",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, xf=6",
+        "`s1"
+      ],
+      "dacl": [
+        "`s4, cancel",
+        "`s2, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "META": {
+      "tdps": 152090.26148975382,
       "pref": "PERSONAL"
     }
   },
@@ -152,15 +158,15 @@
       ]
     },
     "META": {
-      "tdps": 227482.1543363818,
+      "tdps": 810748.5192757341,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 113547.36600034416,
-        "team": 0.1027176582909963,
+        "dps": 92466.22868072252,
+        "team": 0.10929764855736868,
         "noaff": false,
         "nihil": false
       },
@@ -177,7 +183,7 @@
         "`dragon, xf=6 and s2.check()",
         "`s3, not buff(s3)",
         "`s4, xf=6 and energy()<5",
-        "`s2, xf=6",
+        "`s2",
         "`s1, xf"
       ],
       "dacl": [
@@ -193,6 +199,82 @@
       "share": [
         "Weapon",
         "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 113610.90770275949,
+        "team": 0.10304181554197535,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, xf=6 and s2.check()",
+        "`s3, not buff(s3)",
+        "`s4, x=6 and energy()<5",
+        "`s2, xf=6",
+        "`s1, xf"
+      ],
+      "dacl": [
+        "s4, x=6 and energy()<5",
+        "s2",
+        "s1, xf"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 3379994.1542569334,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79041.17179413927,
+        "team": 0.10680259274256111,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, s2.check() and not in_drg and dgauge>=1900",
+        "`s2, in_drg or xf>2",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Dagger",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {

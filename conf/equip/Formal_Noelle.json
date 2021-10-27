@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 150067.9632183683,
+      "tdps": 148870.5467919951,
       "pref": "PERSONAL"
     }
   },
@@ -83,34 +83,14 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s1, x=5 or s",
-        "`s4",
-        "`s3",
-        "`fs, fs_prep_c",
-        "`dodge, fscf and fs_prep_c"
-      ],
       "coabs": [
         "Blade",
         "Mona",
         "Wand"
-      ],
-      "share": [
-        "Tobias",
-        "Templar_Hope"
       ]
     },
     "META": {
-      "tdps": 199412.54935359876,
+      "tdps": 196952.5050722526,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -118,29 +98,33 @@
       }
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 25455.951804010117,
-        "team": 0.0,
+        "dps": 34711.69688624862,
+        "team": 0.033331401963764044,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Springtime_Breeze",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon",
-        "`s1, x>=4",
-        "`s2",
         "`s3, not buff(s3)",
-        "`s4"
+        "`s1, not have_buff(s1_20)",
+        "`s4",
+        "`s2"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -148,7 +132,49 @@
         "Mona"
       ],
       "share": [
-        "Summer_Celliera",
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34711.69688624862,
+        "team": 0.033331401963764044,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Springtime_Breeze",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1, not have_buff(s1_20)",
+        "`s4",
+        "`s2"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
         "Formal_Joachim"
       ]
     },
@@ -186,49 +212,6 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 3236.241389697586,
-        "team": 0.6032702451288315,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s1, x=5 or s",
-        "`s4",
-        "`s3",
-        "`fs, fs_prep_c",
-        "`dodge, fscf and fs_prep_c"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Tobias",
-        "Templar_Hope"
-      ]
-    },
-    "META": {
-      "tdps": 204227.23708877745,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
@@ -247,6 +230,43 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29025.47949635738,
+        "team": 0.17436562020318774,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Springtime_Breeze",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1, not have_buff(s1_20)",
+        "`s4",
+        "`s2"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29025.47949635738,
@@ -264,38 +284,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 15959.278947948305,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Springtime_Breeze",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon",
-        "`s1, x>=4",
-        "`s2",
-        "`s3, not buff(s3)",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 15959.278947948305,
@@ -327,7 +315,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

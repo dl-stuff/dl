@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63556.30991215787,
-        "team": 0.04997619883530454,
+        "dps": 63280.1983742598,
+        "team": 0.06228748145736263,
         "noaff": false,
         "nihil": false
       },
@@ -17,18 +17,19 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, fsc",
-        "`s2, fsc",
-        "`s4, fsc",
+        "`s2",
+        "`s4",
         "`s1, fsc or aff_timeleft(frostbite)<4",
         "`dodge, fsc",
-        "`fs2, aff(frostbite)",
-        "`dodge, x=4"
+        "`fs2, aff(frostbite)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Cleo",
-        "Lazry"
+        "Catherine",
+        "Dragonyule_Cleo"
       ],
       "share": [
         "Weapon",
@@ -37,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63556.30991215787,
-        "team": 0.04997619883530454,
+        "dps": 65065.59374375884,
+        "team": 0.062144230037132604,
         "noaff": false,
         "nihil": false
       },
@@ -52,18 +53,19 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, fsc",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`s1, fsc or aff_timeleft(frostbite)<5",
         "`dodge, fsc",
-        "`fs2, aff(frostbite)",
-        "`dodge, x=4"
+        "`fs2, aff(frostbite)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Cleo",
-        "Lazry"
+        "Catherine",
+        "Dragonyule_Cleo"
       ],
       "share": [
         "Weapon",
@@ -71,11 +73,12 @@
       ]
     },
     "META": {
+      "tdps": 12463369.414642543,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 39272.57354792466,
         "team": 0.0,
@@ -102,41 +105,6 @@
       ],
       "dacl": [
         "ds1,x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Lazry"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 39272.57354792466,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Initios_Sentinel",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
-        "`fs2, aff(frostbite)",
-        "`dodge, x=4"
       ],
       "coabs": [
         "Blade",
@@ -169,31 +137,11 @@
         "`fs2, aff(frostbite)",
         "`dodge, fsc"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Dragonyule_Cleo",
         "Gala_Mascula",
         "Grace"
       ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 64922.41266763252,
-        "team": 0.04992878860295131,
-        "noaff": false,
-        "nihil": false
-      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -228,9 +176,6 @@
         "`fs2, aff(frostbite)",
         "`dodge, x=4"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",
@@ -245,14 +190,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 12522.212355914191,
+        "dps": 13614.572453328863,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -274,11 +219,19 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 7943.513924065124,
+        "dps": 8680.381299661372,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -309,9 +262,6 @@
         "`fs2, aff(frostbite)",
         "`dodge, x=4"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -326,18 +276,26 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 7943.513924065124,
+        "dps": 8680.381299661372,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -347,7 +305,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }

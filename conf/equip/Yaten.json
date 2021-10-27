@@ -1,5 +1,46 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 95835.9187399258,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Emissaries_of_the_Heavens",
+        "Jewels_of_the_Sun",
+        "A_Small_Courage",
+        "Luck_of_the_Draw",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 95835.9187399258,
@@ -42,38 +83,33 @@
       ]
     },
     "META": {
-      "tdps": 373509.64303765394,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 23587.020543945015,
+        "dps": 37123.48862628821,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Castle_Cheer_Corps",
-        "Emissaries_of_the_Heavens",
-        "Jewels_of_the_Sun",
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
         "A_Small_Courage",
-        "Luck_of_the_Draw",
-        "Mask_of_Determination_Bow",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`s3, not buff(s3)",
+        "`dragon",
+        "`s3",
+        "`s4",
         "`s1",
-        "`s2, energy()<5 and cancel",
-        "`s4, energy()<5",
-        "if not buff(s3)",
-        "`fs, x=5",
-        "else",
-        "`fs, x=4",
-        "end"
+        "`fs, x=4"
       ],
       "dacl": [
         "ds1,x=3"
@@ -84,8 +120,8 @@
         "Vania"
       ],
       "share": [
-        "Weapon",
-        "Summer_Luca"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -130,10 +166,36 @@
       ]
     },
     "META": {
-      "tdps": 658062.2008254712,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51618.271073163975,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -147,28 +209,10 @@
       }
     },
     "META": {
-      "tdps": 355601.2223851262,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 23269.176106217474,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Gala_Bahamut"
-    },
-    "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

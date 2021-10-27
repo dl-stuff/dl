@@ -1,9 +1,48 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77309.40132341966,
+        "team": 0.06953836300261426,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, fscf",
+        "`s3, not buff(s3)",
+        "`s2, fscf",
+        "`s1, fscf and buff(s3)",
+        "`s4",
+        "`fs, xf=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100834.40525134087,
-        "team": 0.0695383630026142,
+        "dps": 77309.40132341966,
+        "team": 0.06953836300261426,
         "noaff": false,
         "nihil": false
       },
@@ -40,15 +79,14 @@
       ]
     },
     "META": {
-      "tdps": 2312848.57968358,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69231.20113869947,
-        "team": 0.07406442101120218,
+        "dps": 55577.51802901541,
+        "team": 0.0740720494380561,
         "noaff": false,
         "nihil": true
       },
@@ -91,43 +129,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 81514.68035701646,
-        "team": 0.1404281624670973,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "`s1, x>2",
-        "`s2",
-        "`s4, cancel",
-        "`fs, xf=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 117456.42291090054,
-        "team": 0.14580343951975594,
+        "dps": 107464.59431052358,
+        "team": 0.17527820240461991,
         "noaff": false,
         "nihil": false
       },
@@ -141,12 +144,55 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, fscf",
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, (xf or fscf) and buff(s3)",
         "`s4, xf or fscf",
         "`fs, x=5 or hits=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 104855.42070777112,
+        "team": 0.1275868118076775,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s1.check() or s2.check()",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, (xf or fscf) and buff(s3)",
+        "`s4, xf or fscf",
+        "`fs, x=5 or hits=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "share": [
         "Weapon",
@@ -154,17 +200,19 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -54709.53079987857,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86233.94438399145,
-        "team": 0.06938504981650905,
+        "dps": 72239.24114436745,
+        "team": 0.069531441145141,
         "noaff": false,
         "nihil": true
       },
@@ -210,25 +258,25 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52355.43950891762,
-        "team": 0.0695383630026142,
+        "dps": 49014.017861697546,
+        "team": 0.06953836300261426,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 139729.16082467278,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36410.13958655413,
-        "team": 0.07406442101120218,
+        "dps": 33803.845805831756,
+        "team": 0.0740720494380561,
         "noaff": false,
         "nihil": true
       }

@@ -1,5 +1,45 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 108934.09875403251,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, duration-now<15 and s=1",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=5 and buff(s3)"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Axe2",
+        "Delphi",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 108934.09875403251,
@@ -41,7 +81,6 @@
       ]
     },
     "META": {
-      "tdps": 637604.7604741623,
       "pref": "PERSONAL"
     }
   },
@@ -53,41 +92,13 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon, duration-now<15 and s=1",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2",
-        "`s4",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fsf, xf=5 and not buff(s3)",
-        "`fs, xf=5 and buff(s3)"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Bow",
         "Delphi",
         "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 552320.5774621929,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,6 +107,46 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54500.17288112403,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon, s=1",
+        "`s4, cancel",
+        "`s3, cancel",
+        "`s1, cancel",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Delphi",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
         "dps": 54500.17288112403,
@@ -131,43 +182,12 @@
         "Formal_Joachim"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 54500.17288112403,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragonyule_Dreaming",
-        "Memory_of_a_Friend",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon, s=1",
-        "`s4, cancel",
-        "`s3, cancel",
-        "`s1, cancel",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Delphi",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "META": {
-      "pref": "PERSONAL"
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -257,7 +277,8 @@
       "tdps": 131087.94966337696,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -301,7 +322,51 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70879.00478124883,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s1, bleed_timeleft()<=2",
+        "`s4",
+        "`s3, xf=5",
+        "`dragon, xf=5 and dshift_count=0",
+        "`dragon, xf=5 and dshift_count=1",
+        "`dragon, s=1 and dshift_count=2",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Joker",
+        "Summer_Prince",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -350,7 +415,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -419,29 +485,29 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 44647.32762466355,
+        "dps": 47345.85133727171,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragonyule_Dreaming",
-        "Levins_Champion",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Howling_to_the_Heavens",
         "A_Small_Courage",
         "Chariot_Drift",
-        "Savage_Hawk_Lance",
+        "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`s1, bleed_timeleft()<=0.5",
+        "`s1, bleed_timeleft()<=0.6",
         "`s4, xf",
         "`s3, xf=5",
         "`dragon, xf=5",
@@ -453,15 +519,15 @@
         "Wand"
       ],
       "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+        "Gala_Mym",
+        "Summer_Julietta"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

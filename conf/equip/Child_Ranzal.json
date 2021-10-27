@@ -2,21 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 26759.26731724454,
-        "team": 0.0998040156976261,
+        "dps": 61934.24576860055,
+        "team": 0.12706023958999463,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Me_and_My_Bestie",
+        "Emissaries_of_the_Heavens",
+        "Sisters_Day_Out",
         "The_Cutie_Competition",
+        "Entwined_Flames",
         "His_Clever_Brother",
-        "Liber_Grimortis",
-        "Mask_of_Determination_Bow",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
         "`s3, not buff(s3)",
         "`s4",
@@ -25,9 +25,12 @@
         "`dragon",
         "`fsf, x=4"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
-        "Blade",
         "Halloween_Mym",
+        "Nobunaga",
         "Yuya"
       ],
       "share": [
@@ -74,45 +77,10 @@
       ]
     },
     "META": {
-      "tdps": 570289.047356585,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 41212.34525046516,
-        "team": 0.09854599700085032,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Jewels_of_the_Sun",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "Chariot_Drift",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`s1",
-        "`s2",
-        "`s3",
-        "`s4",
-        "`dragon"
-      ],
-      "coabs": [
-        "Nobunaga",
-        "Wand",
-        "Yuya"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 44416.951177084986,
@@ -151,7 +119,6 @@
       ]
     },
     "META": {
-      "tdps": 654187.6421651026,
       "pref": "PERSONAL"
     }
   },
@@ -208,14 +175,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42354.239562252915,
-        "team": 0.09854599700085032,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 56464.186574757914,
@@ -246,19 +205,11 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 18839.656300252285,
-        "team": 0.0998040156976261,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45065.5146543207,
@@ -293,22 +244,10 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Horus",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2",
-        "`dragon",
-        "`fsf, x=4"
-      ],
       "coabs": [
         "Blade",
         "Halloween_Mym",
         "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
@@ -329,7 +268,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

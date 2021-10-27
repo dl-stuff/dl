@@ -29,6 +29,9 @@
         "`s1, fsc",
         "`fs, x=2"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Albert",
         "Cleo",
@@ -83,7 +86,7 @@
       ]
     },
     "META": {
-      "tdps": 408983.81399660074,
+      "tdps": 683169.4441313698,
       "pref": "PERSONAL"
     }
   },
@@ -105,18 +108,6 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Daikokuten",
-      "acl": [
-        "if (s=2 or fsc) and buff(s3,1)",
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
-        "end",
-        "`s4",
-        "`s2, cancel",
-        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
-        "`s1, fsc",
-        "`fs, x=2"
-      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -134,45 +125,16 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Mana_Fount",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
-      ],
       "slots.d": "Daikokuten",
-      "acl": [
-        "if buff(s3,1) and fsc",
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count=2",
-        "`dragon, dshift_count=3",
-        "end",
-        "`s3, fsc",
-        "`s4, cancel",
-        "`s2, cancel",
-        "`s1, fsc",
-        "`fs, x=4 or hits=3"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 961526.9270216727,
-      "pref": "PERSONAL",
+      "tdps": 38897.39221968025,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -261,7 +223,7 @@
       ]
     },
     "META": {
-      "tdps": 354685837.23033786,
+      "tdps": 333607631.312779,
       "pref": "PERSONAL"
     }
   },
@@ -273,36 +235,10 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Dragon_Brethren",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon, cancel",
-        "`s4, fsc",
-        "`s2, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
-        "`fs, x=4 or hits=0"
-      ],
-      "dacl": [
-        "ds1, x=3",
-        "dodge, x=3"
-      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -316,8 +252,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 123010.94734015147,
-        "team": 0.19300622228029343,
+        "dps": 132462.0310184226,
+        "team": 0.1845456533553546,
         "noaff": false,
         "nihil": false
       },
@@ -330,7 +266,12 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten"
+      "slots.d": "Daikokuten",
+      "coabs": [
+        "Cleo",
+        "Dagger2",
+        "Peony"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

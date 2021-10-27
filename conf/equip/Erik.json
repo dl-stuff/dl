@@ -1,5 +1,40 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 73608.16625095048,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, aff(poison) and cancel",
+        "`s1, aff(poison) or cancel",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 73608.16625095048,
@@ -36,7 +71,46 @@
       ]
     },
     "META": {
-      "tdps": 1826786.5977870931,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13794.678247231466,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, aff(poison) and cancel",
+        "`s1, aff(poison) or cancel",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
@@ -75,7 +149,6 @@
       ]
     },
     "META": {
-      "tdps": 1776251.9888254465,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

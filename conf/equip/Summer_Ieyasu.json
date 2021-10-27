@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11059.392499211548,
-        "team": 0.0,
+        "dps": 82131.77702852392,
+        "team": 0.31188982192231574,
         "noaff": false,
         "nihil": false
       },
@@ -16,83 +16,71 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon,  dshift_count=0 and cancel",
-        "`dragon,  dshift_count=1",
-        "`dragon,  dshift_count=2",
-        "`dragon,  dshift_count>=3",
-        "queue prep and now=0",
+        "`dragon",
+        "`s3, not buff(s3)",
         "`s4",
+        "queue (s1.phase>0 or bleed_stack=0) and s1.check()",
         "`fs",
-        "`s3,fsc",
-        "`fs",
-        "`s1,fsc",
+        "`s1, fsc",
         "end",
-        "queue s1.phase>0",
-        "`fs",
-        "`s1,fsc",
-        "`fs",
-        "`s1,fsc",
-        "end",
-        "`s1, bleed_stack=0",
-        "`fs, s=1",
         "`s2, cancel",
-        "`s3, fsc",
-        "`s4",
         "`fs, x=4"
       ],
-      "coabs": [
-        "Blade",
-        "Pipple",
-        "Tiki"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 8945.007100274866,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
-        "The_Shining_Overlord",
-        "Chariot_Drift",
-        "Dueling_Dancers"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon,  dshift_count=0",
-        "`dragon,  dshift_count=1",
-        "`dragon,  dshift_count>=2",
-        "queue prep and now=0",
-        "`s3",
-        "`s4",
-        "`fs",
-        "`s1,fsc",
-        "end",
-        "`s1,  bleed_stack<3 or s1.phase=0",
-        "`s2, not s1.charged=0",
-        "`s4, cancel",
-        "`fs, x=4"
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
+        "Gala_Mascula",
         "Tiki",
-        "Xainfried",
         "Yurius"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82801.81871704968,
+        "team": 0.30968888862261945,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Emissaries_of_the_Heavens",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "queue (s1.phase>0 or bleed_stack=0) and s1.check()",
+        "`fs",
+        "`s1, fsc",
+        "end",
+        "`s2, cancel",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": -191425.76213590222,
-      "pref": "TEAMBUFF"
+      "tdps": 304435.25417977007,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -153,54 +141,42 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 14028.981913990883,
-        "team": 0.0,
+        "dps": 83237.90502638972,
+        "team": 0.3163571104091473,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
         "The_Shining_Overlord",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "acl": [
-        "`dragon,  dshift_count=0 and x=1",
-        "`dragon,  dshift_count=1 and x=1",
-        "`dragon,  dshift_count=2",
-        "`dragon,  dshift_count>=3",
-        "queue prep and now=0",
-        "`s3",
-        "`fs,x=2",
-        "`s4,fsc",
+        "`dragon",
+        "`s3, not buff(s3)",
+        "queue (s1.phase>0 or bleed_stack=0) and s1.check()",
         "`fs",
-        "`s1,fsc",
+        "`s1, fsc",
         "end",
-        "queue s1.phase>0",
-        "`fs",
-        "`s1,fsc",
-        "`fs",
-        "`s1,fsc",
-        "end",
-        "`s1,  bleed_stack=0",
-        "`s2",
-        "`s4, cancel",
+        "`s2, cancel",
+        "`s4",
         "`fs, x=4"
-      ],
-      "coabs": [
-        "Pipple",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86958.36653588816,
+        "team": 0.30968888862261945,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "META": {
+      "tdps": 557939.0771037429,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -209,29 +185,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 62237.66535537523,
-        "team": 0.2624727396037172,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon,  dshift_count=0 and x=1",
-        "`dragon,  dshift_count=1 and x=1",
-        "`dragon,  dshift_count=2",
-        "`dragon,  dshift_count>=3",
-        "`s1,  bleed_stack=0",
-        "`s2, not s1.charged=0",
-        "`s3, fsc or (duration-now<20 and x=2)",
-        "`s4, x>1 or fsc",
-        "`fs, x=4"
-      ],
-      "share": [
-        "The_Prince",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 75501.30213142086,
@@ -251,8 +204,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 11600.744082811549,
-        "team": 0.0,
+        "dps": 73010.14983046085,
+        "team": 0.30968888862261945,
         "noaff": false,
         "nihil": false
       },
@@ -260,40 +213,13 @@
         "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "Chariot_Drift",
         "The_Queen_of_the_Knife"
       ],
-      "acl": [
-        "`dragon,  dshift_count=0 and x=1",
-        "`dragon,  dshift_count=1 and x=1",
-        "`dragon,  dshift_count=2",
-        "`dragon,  dshift_count>=3",
-        "queue prep and now=0",
-        "`s3",
-        "`fs,x=2",
-        "`s4,fsc",
-        "`fs",
-        "`s1,fsc",
-        "end",
-        "queue s1.phase>0",
-        "`fs",
-        "`s1,fsc",
-        "`fs",
-        "`s1,fsc",
-        "end",
-        "`s1,  bleed_stack=0",
-        "`s2",
-        "`s4, cancel",
-        "`fs, x=4"
-      ],
       "coabs": [
-        "Pipple",
+        "Blade",
         "Tiki",
         "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -335,8 +261,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52347.76750578322,
-        "team": 0.2624727396037172,
+        "dps": 52592.5841313233,
+        "team": 0.2472982371245038,
         "noaff": false,
         "nihil": true
       },
@@ -357,7 +283,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 16133.420247249986,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

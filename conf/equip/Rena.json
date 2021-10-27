@@ -1,5 +1,43 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 79557.59371621774,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1 and not s2.check()",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s2, s=1",
+        "`s4, x=5",
+        "`fsf, x=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Serena",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 79557.59371621774,
@@ -39,7 +77,6 @@
       ]
     },
     "META": {
-      "tdps": 342877.47460228653,
       "pref": "PERSONAL"
     }
   },
@@ -112,10 +149,10 @@
       ]
     },
     "META": {
-      "tdps": 478856.3585946029,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -158,10 +195,10 @@
       }
     },
     "META": {
-      "tdps": 258380.71595984828,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

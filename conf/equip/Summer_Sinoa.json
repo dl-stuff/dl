@@ -1,5 +1,45 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 75605.73630334063,
+        "team": 0.21441233808365037,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3) and x=5",
+        "`s2, overload>2 and x>=2",
+        "`s4",
+        "`s1",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Meene",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Noelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 75605.73630334063,
@@ -41,45 +81,10 @@
       ]
     },
     "META": {
-      "tdps": 94522.3741962383,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 63848.045712344036,
-        "team": 0.054827117906665085,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon",
-        "`s4",
-        "`s3",
-        "`s1",
-        "`s2, overload>2"
-      ],
-      "coabs": [
-        "Eleonora",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 64871.180407360785,
@@ -119,40 +124,48 @@
       ]
     },
     "META": {
-      "tdps": 26769372.780588944,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 89327.12200441606,
-        "team": 0.23538922403307994,
+        "dps": 98023.75633853574,
+        "team": 0.37900095206716944,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Bloody_Little_Queen",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "Hastened_Squall",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s2, overload>2 and cancel",
-        "`s4, fsc",
-        "`s1, buff(s3)",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3) and fsc",
+        "`s4, not have_buff(s4_00)",
+        "`s2, overload=3 and xf",
+        "`s1, buff(s3) and xf",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Humanoid_Midgardsormr",
         "Mona",
         "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
@@ -164,14 +177,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 69563.66192702827,
-        "team": 0.054827117906665085,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 69563.66192702827,
@@ -189,7 +194,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -203,22 +208,14 @@
       }
     },
     "META": {
-      "tdps": 222986.28582967186,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34008.33703010299,
-        "team": 0.054827117906665085,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 34008.33703010299,
@@ -236,7 +233,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

@@ -57,6 +57,10 @@
         "`s1, fsc or dgauge>=500",
         "`fs, x=4 or hits=3"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
@@ -95,29 +99,35 @@
       }
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 25385.961209612444,
-        "team": 0.0,
+        "dps": 37548.935513070865,
+        "team": 0.07405614837193762,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "Brothers_in_Arms",
         "Sweet_Surprise",
         "The_Shining_Overlord",
+        "Beautiful_Nothingness",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, cancel",
-        "`s3",
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
         "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
+        "`s2",
+        "`s1, fsc or dgauge>=500",
+        "`fs, x=4 or hits=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -125,7 +135,51 @@
         "Yukata_Lathna"
       ],
       "share": [
-        "Gala_Mym",
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37548.935513070865,
+        "team": 0.07405614837193762,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "Beautiful_Nothingness",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, fsc or dgauge>=500",
+        "`fs, x=4 or hits=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
         "Formal_Joachim"
       ]
     },
@@ -140,8 +194,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80769.0131014224,
-        "team": 0.23335994162530743,
+        "dps": 89613.10351465968,
+        "team": 0.2394318938196315,
         "noaff": false,
         "nihil": false
       },
@@ -153,10 +207,14 @@
         "FirstRate_Hospitality",
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ]
     },
     "META": {
-      "tdps": 94375.80194293112,
+      "tdps": 106139.20808029194,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,8 +253,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51999.2600507798,
-        "team": 0.20630067182388837,
+        "dps": 49332.663611533426,
+        "team": 0.2064082931371922,
         "noaff": false,
         "nihil": false
       },
@@ -217,7 +275,7 @@
       ]
     },
     "META": {
-      "tdps": 56803.069105542505,
+      "tdps": 53611.39025732278,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -228,7 +286,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 17761.256584490842,
+        "dps": 16851.724929394433,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -257,41 +315,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 15340.781786479529,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, cancel and aff(stormlash)",
-        "`s3, cancel",
-        "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

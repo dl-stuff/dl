@@ -1,5 +1,46 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44154.47585233171,
+        "team": 0.3441538932307955,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "queue buff(s3) and (s=1 and dgauge>=500)",
+        "`dragon",
+        "`fs",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, s=1",
+        "`s2, fscf",
+        "`fs, x=2"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Forte",
+        "Gala_Alex",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 48668.81153418699,
@@ -42,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 121997.68870454325,
+      "tdps": 45892.77670505025,
       "pref": "PERSONAL"
     }
   },
@@ -124,15 +165,15 @@
       ]
     },
     "META": {
-      "tdps": 78054.50510461509,
+      "tdps": 81603.14890268625,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60503.342273790724,
-        "team": 0.27202006968138676,
+        "dps": 64286.661920672515,
+        "team": 0.3165236827287928,
         "noaff": false,
         "nihil": false
       },
@@ -150,9 +191,14 @@
         "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4, s=1",
+        "`s4",
         "`s2, fscf",
         "`fs, x=3"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4",
+        "end"
       ],
       "coabs": [
         "Gala_Alex",
@@ -233,10 +279,10 @@
       }
     },
     "META": {
-      "tdps": 50155.943316690296,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

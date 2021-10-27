@@ -72,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 225458.31059473415,
+      "tdps": 219891.65660185862,
       "pref": "PERSONAL"
     }
   },
@@ -135,6 +135,9 @@
         "`s1, (sunflowers > 0 and x=5) or not afflics.scorchrend",
         "`s2"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Kimono_Elisanne",
@@ -146,7 +149,7 @@
       ]
     },
     "META": {
-      "tdps": 769131.3773567872,
+      "tdps": 683905.1114778733,
       "pref": "PERSONAL"
     }
   },
@@ -286,40 +289,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 33422.76199948794,
-        "team": 0.06658408268291817,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Honest_Repose",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`dragon, s1.check()",
-        "`s3, not buff(s3)",
-        "`s1, (sunflowers > 0 and x=4) or duration-now<4 or aff_timeleft(scorchrend) < 2",
-        "`s4, cancel",
-        "`s2"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50846.84812090051,
@@ -407,9 +376,6 @@
         "`s4, cancel",
         "`s1, (sunflowers > 0 and x=5) or not afflics.scorchrend",
         "`s2"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "share": [
         "Summer_Celliera",

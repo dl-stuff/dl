@@ -1,17 +1,17 @@
 {
   "SELF-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 78069.11104533033,
-        "team": 0.0720888514435092,
+        "dps": 80431.20285041418,
+        "team": 0.07208885144350924,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Queen_of_the_Knife",
+        "The_Plaguebringer",
         "The_Warrioresses",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
@@ -24,6 +24,48 @@
         "`s1, fsc",
         "`fs"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 100168.0135728729,
+        "team": 0.0702205650279559,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s1.check()",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1(all)",
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
@@ -35,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 940531.3927869444,
+      "tdps": 10564124.728495218,
       "pref": "PERSONAL"
     }
   },
@@ -76,31 +118,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58700.375775622095,
-        "team": 0.06851063452672089,
+        "dps": 68945.62769664431,
+        "team": 0.06885156785888812,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "A_Small_Courage",
+        "The_Plaguebringer",
         "The_Warrioresses",
-        "Savage_Hawk_Lance",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s",
-        "`s3, s",
-        "`s4, fsc",
-        "`s1, fsc",
+        "`dragon, s1.check()",
+        "`s3, not buff(s3)",
+        "`s4, not amp_lvl(team)",
+        "`s3, not amp_lvl(team)",
+        "`s1(all)",
         "`fs"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs, x=3"
       ],
       "coabs": [
         "Mona",
@@ -113,39 +156,29 @@
       ]
     },
     "META": {
-      "tdps": 653653.6786055241,
+      "tdps": 2691921.3463651384,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 81503.24741632106,
-        "team": 0.17416495763554077,
+        "dps": 113468.3797187273,
+        "team": 0.14756120932827313,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1, fsc",
+        "`s1(all)",
         "`fs"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "share": [
         "Weapon",
@@ -154,71 +187,83 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88589.58073237842,
-        "team": 0.17416495763554077,
+        "dps": 118355.58095452988,
+        "team": 0.13884759499391527,
         "noaff": false,
         "nihil": false
       },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, fsc",
-        "`fs"
-      ],
       "share": [
         "Weapon",
         "Akasha"
       ]
     },
     "META": {
+      "tdps": 560869.5827324267,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60477.51778067857,
-        "team": 0.0740150183133509,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 66157.54699956479,
-        "team": 0.05491113303853135,
+        "dps": 82167.3706839911,
+        "team": 0.07947192892267871,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Queen_of_the_Knife",
+        "The_Plaguebringer",
         "The_Warrioresses",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`s3, fsc",
+        "`dragon, s1.check()",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s3",
+        "`s1(all)",
         "`fs"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
       "coabs": [
-        "Blade",
-        "Grace",
-        "Mona"
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82402.93574535719,
+        "team": 0.06885156785888812,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, s1.check()",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s3",
+        "`s1(all)",
+        "`fs"
       ]
     },
     "META": {
-      "tdps": 297323.24797683686,
-      "pref": "PERSONAL",
+      "tdps": 22180.513444992648,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -228,22 +273,19 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45264.66696658225,
-        "team": 0.17416495763554077,
+        "dps": 70658.0966930419,
+        "team": 0.13884759499391525,
         "noaff": false,
         "nihil": false
       },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, fsc",
-        "`fs"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Hastened_Squall",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "share": [
         "Weapon",
@@ -253,62 +295,65 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29421.49037275103,
-        "team": 0.07399207851906185,
+        "dps": 46743.309910824806,
+        "team": 0.07334479330016891,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Holywyrms_Advent",
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "A_Small_Courage",
+        "Worthy_Rivals",
+        "Flowers_Under_the_Moon",
         "The_Warrioresses",
-        "Mask_of_Determination_Bow",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon",
+        "`dragon, s1.check()",
         "`s3, not buff(s3)",
-        "`s4, charged_in(fs,s1)",
-        "`s1, fsc",
+        "`s4",
+        "`s3",
+        "`s1(all)",
         "`fs"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
+        "Wand",
         "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31052.455899392582,
-        "team": 0.0740150183133509,
+        "dps": 48422.6689478251,
+        "team": 0.06885156785888809,
         "noaff": false,
         "nihil": true
       },
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Yukata_Lathna"
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "Lord_of_the_Skies",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
+      "tdps": 373753.5672195388,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

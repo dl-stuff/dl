@@ -1,5 +1,48 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 121502.17310964085,
+        "team": 0.02499316575767458,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Agni",
+      "acl": [
+        "`dragon, a3_buffcount=1 and s=1",
+        "`dragon, a3_buffcount=2 and s=2",
+        "`dragon, a3_buffcount=3 and s=1",
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s1, x=5 or s",
+        "`s2, x=5"
+      ],
+      "dacl": [
+        "`s4, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "`sack, not aff(scorchrend) and s1.check()"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 121502.17310964085,
@@ -44,7 +87,6 @@
       ]
     },
     "META": {
-      "tdps": 275826.26530062954,
       "pref": "PERSONAL"
     }
   },
@@ -124,7 +166,7 @@
       ]
     },
     "META": {
-      "tdps": 180988.93411436654,
+      "tdps": 76446255.4318454,
       "pref": "PERSONAL"
     }
   },
@@ -164,7 +206,6 @@
       ]
     },
     "META": {
-      "tdps": 313212.1525333296,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,7 +228,10 @@
         "team": 0.061631513746092444,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "dacl": [
+        "ds1,x=3"
+      ]
     },
     "META": {
       "tdps": 86509015.43843317,
@@ -230,7 +274,6 @@
       ]
     },
     "META": {
-      "tdps": 127482.35753270467,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -239,100 +282,13 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 31585.80941690338,
-        "team": 0.0370145804966861,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, not in_drg and s=1",
-        "`s4, x=5",
-        "`s3, x=5",
-        "`s1, x=5",
-        "`s2, x=5",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Halloween_Mym",
-        "Marth"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 34417.02266731099,
-        "team": 0.04935120393480338,
+        "dps": 34678.87104729613,
+        "team": 0.06172263428252864,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`dragon, not in_drg and s=1",
-        "`s4, x=5",
-        "`s3, x=5",
-        "`s1, x=5",
-        "`s2, x=5",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 32843.57355944604,
-        "team": 0.06171372319546182,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "`s4, x=5",
         "`s3, x=5",
@@ -341,20 +297,23 @@
         "`fsf, x=5",
         "`dragon, not in_drg and cancel"
       ],
+      "dacl": [
+        "`s4, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "`sack, not aff(scorchrend) and s1.check()"
+      ],
       "coabs": [
         "Blade",
         "Gala_Laxi",
         "Halloween_Mym"
-      ],
-      "share": [
-        "The_Prince",
-        "Seimei"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

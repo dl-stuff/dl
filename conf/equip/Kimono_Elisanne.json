@@ -1,5 +1,45 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26340.835804191604,
+        "team": 0.47253685833069287,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Dragon_and_Tamer",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Promised_Piety_Bow",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Cerberus",
+      "acl": [
+        "`dragon, s",
+        "`s3",
+        "`s1(3), ny_buff.level=0",
+        "`s1(1), ny_buff.timeleft(3)<2",
+        "`s2",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Ezelith",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Summer_Verica"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47549.134781934,
@@ -41,36 +81,37 @@
       ]
     },
     "META": {
-      "tdps": 128410.13829860714,
+      "tdps": 2222916.0817601723,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39710.46039499166,
-        "team": 0.4578781693375969,
+        "dps": 46966.34827078235,
+        "team": 0.4629961027656204,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Mask_of_Determination_Bow",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(), s=4",
+        "`dragon, s",
         "`s3",
         "`s1(3), ny_buff.level=0",
         "`s1(1), ny_buff.timeleft(3)<2",
         "`s2",
         "`s4",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "dacl": [
         "ds1,x=3"
@@ -86,11 +127,18 @@
       ]
     },
     "META": {
-      "tdps": 653445.1129181995,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29217.66649257172,
+        "team": 0.47253685833069287,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 78321.03472866173,
@@ -127,7 +175,7 @@
       ]
     },
     "META": {
-      "tdps": 183774.8088495528,
+      "tdps": 587026.626126729,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -142,32 +190,13 @@
         "team": 0.4629961027656204,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, s",
-        "`s3",
-        "`s1(3), ny_buff.level=0",
-        "`s1(1), ny_buff.timeleft(3)<2",
-        "`s2",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ]
+      }
     },
     "META": {
-      "tdps": 695363.0031858768,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -198,7 +227,6 @@
       ]
     },
     "META": {
-      "tdps": 85030.662597365,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -209,8 +237,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33927.30332222872,
-        "team": 0.4578781693375969,
+        "dps": 41793.63720484814,
+        "team": 0.4472850123966373,
         "noaff": false,
         "nihil": true
       },
@@ -230,10 +258,10 @@
       ]
     },
     "META": {
-      "tdps": 345406.77689168166,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

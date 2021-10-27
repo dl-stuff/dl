@@ -78,11 +78,51 @@
       ]
     },
     "META": {
-      "tdps": 193179.7798762001,
+      "tdps": 392766.947967919,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21318.262807647534,
+        "team": 0.03332493730051909,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Gala_Alex",
+        "Heinwald",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 37818.08876183193,
@@ -124,8 +164,8 @@
       ]
     },
     "META": {
-      "tdps": -65918.76502510381,
-      "pref": "TEAMBUFF"
+      "tdps": 495119.48981003446,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -198,10 +238,10 @@
       ]
     },
     "META": {
-      "tdps": 712855.9844730526,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -216,8 +256,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 29532.579939101313,
-        "team": 0.07702180597106718,
+        "dps": 27145.863336943174,
+        "team": 0.07493558559297313,
         "noaff": false,
         "nihil": false
       },
@@ -247,7 +287,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -1144038.5815512997,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

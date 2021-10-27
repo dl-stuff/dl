@@ -1,5 +1,46 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 112051.76218930045,
+        "team": 0.13252166467501783,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "queue s=4 and dgauge=1000",
+        "`s1",
+        "`dragon, x=4",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1, duration-now<3",
+        "`s4, x=5",
+        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
+        "`s1, (sr.count>1 and x=5) or sr.count=3"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 112051.76218930045,
@@ -42,7 +83,6 @@
       ]
     },
     "META": {
-      "tdps": 730527.5983809865,
       "pref": "PERSONAL"
     }
   },
@@ -85,7 +125,6 @@
       ]
     },
     "META": {
-      "tdps": 667365.7413699876,
       "pref": "PERSONAL"
     }
   },
@@ -106,27 +145,10 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "queue s=4 and dgauge=1000",
-        "`s1",
-        "`dragon, x=4",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1, duration-now<3",
-        "`s4, x=5",
-        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
-        "`s1, (sr.count>1 and x=5) or sr.count=3"
-      ],
       "dacl": [
         "queue",
         "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
         "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Delphi",
-        "Vania"
       ],
       "share": [
         "Weapon",
@@ -135,7 +157,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 132038.64335341906,
+        "dps": 132038.64335341903,
         "team": 0.13642042927682285,
         "noaff": false,
         "nihil": false
@@ -171,10 +193,11 @@
       ]
     },
     "META": {
-      "tdps": 125984.32493636209,
+      "tdps": 125984.32493636182,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -259,7 +282,8 @@
       "tdps": 752287.2598848001,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -293,7 +317,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -332,10 +357,10 @@
       ]
     },
     "META": {
-      "tdps": 171088.2941176258,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

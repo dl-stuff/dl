@@ -45,37 +45,42 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 125767.38087093935,
-        "team": 0.10646290609887579,
+        "dps": 130122.31371399127,
+        "team": 0.1451173032350671,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon, dgauge=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
-        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
         "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0",
+        "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
         "else",
         "`dodge, x=5",
         "end"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -83,50 +88,11 @@
       ]
     },
     "META": {
-      "tdps": 357085.4259317417,
+      "tdps": 497237.6888092201,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 78539.23151888496,
-        "team": 0.06664413724582553,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4",
-        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
-        "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0",
-        "else",
-        "`dodge, x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 89392.40668964283,
@@ -171,7 +137,6 @@
       ]
     },
     "META": {
-      "tdps": 156156.81919740187,
       "pref": "PERSONAL"
     }
   },
@@ -186,49 +151,30 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 150180.3888039812,
-        "team": 0.24168526059051168,
+        "dps": 158408.16909676715,
+        "team": 0.2107168141263875,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
       "acl": [
-        "`dragon, dgauge=1000",
+        "`dragon, dgauge>=900 and s=2",
         "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4",
+        "`s4, cancel",
+        "`s2, not c_fs(enhanced) and fsc",
         "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
-        "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
-        "else",
-        "`dodge, x=5",
-        "end"
+        "`fs, x=4 and gauges[fs]<1000",
+        "`fs, (x=3 or hits=0) and gauges[fs]<1000 and not  c_fs(enhanced)",
+        "`dodge, x=5"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "`dfs, x=3",
+        "dodge, fsc"
       ]
     },
     "META": {
-      "tdps": 1136257.7014672535,
+      "tdps": 381062.0016610965,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -237,32 +183,28 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 86453.60414685076,
-        "team": 0.06664413724582553,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98845.2277887594,
-        "team": 0.07032207082805671,
+        "dps": 101524.64380309275,
+        "team": 0.07310145545491983,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "`dragon, gauges[fs]>=1000 and gauges[x]>=1000",
-        "`s3,xf",
+        "`s3, x",
         "`s2, fsc",
-        "`s4,xf",
+        "`s4, cancel",
         "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and Cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel)) and hits>14",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0",
         "else",
         "`dodge, x=5",
         "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0 and x=1",
+        "`fs, x=3"
       ],
       "coabs": [
         "Mona",
@@ -274,15 +216,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79752.46528007044,
-        "team": 0.24641664068984864,
+        "dps": 80364.54885304229,
+        "team": 0.24884591807968318,
         "noaff": false,
         "nihil": false
       },
@@ -350,7 +292,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

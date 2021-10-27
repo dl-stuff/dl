@@ -1,8 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 68806.25979809463,
+        "dps": 68806.25979809464,
         "team": 0.045657653948681196,
         "noaff": false,
         "nihil": false
@@ -25,6 +25,49 @@
         "`s4",
         "`fsf, xf=5"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68806.25979809464,
+        "team": 0.045657653948681196,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, xf=5",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(2, s1)",
+        "`s1, bleed_stack<3 and buff(s2)",
+        "`s4",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Gala_Notte",
@@ -36,15 +79,88 @@
       ]
     },
     "META": {
-      "tdps": 200133.68532761757,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33142.78263014315,
+        "team": 0.054899601132108594,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, xf=5",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(2, s1)",
+        "`s1, bleed_stack<3 and buff(s2)",
+        "`s4",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80424.51907620093,
+        "team": 0.21076273535826304,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(2, s1)",
+        "`s1, buff(s2)",
+        "`s4, cancel",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Humanoid_Midgardsormr"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86784.98240839288,
-        "team": 0.054917870864716334,
+        "dps": 95125.04849314396,
+        "team": 0.05254796618814669,
         "noaff": false,
         "nihil": false
       },
@@ -55,13 +171,34 @@
         "`s1, buff(s2)",
         "`s4",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ]
     },
     "META": {
-      "tdps": 234773.31289237234,
+      "tdps": 92915.0261638132,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35200.20694829158,
+        "team": 0.054899601132108594,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

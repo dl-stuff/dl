@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 122727.52644582497,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, hits>=200",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3) and xf",
+        "`s2, xf",
+        "`s4, cancel"
+      ],
+      "dacl": [
+        "`ds1",
+        "`ds2",
+        "`sack, x=1"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 122727.52644582497,
@@ -40,50 +79,10 @@
       ]
     },
     "META": {
-      "tdps": 832127.4066069002,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 61849.21564633837,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon",
-        "`s1, xf",
-        "`s2",
-        "`s3",
-        "`s4"
-      ],
-      "dacl": [
-        "`ds1",
-        "`ds2",
-        "`sack, x=1"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Wand"
-      ],
-      "share": [
-        "Ranzal",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 70706.85479089769,
@@ -128,10 +127,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 134422.04419702536,
-        "team": 0.0,
+        "dps": 128718.58315099424,
+        "team": 0.033179335012667587,
         "noaff": false,
         "nihil": false
       },
@@ -141,10 +140,33 @@
         "`s1, buff(s3) and xf",
         "`s2, xf",
         "`s4, cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Xainfried"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 134423.7490416151,
+        "team": 0.012329114162517517,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, duration-now>3",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3) and xf",
+        "`s2, xf",
+        "`s4, cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Basileus"
       ]
     },
     "META": {
-      "tdps": 956143.4827951582,
+      "tdps": 273626.1611626916,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -177,7 +199,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -207,7 +230,6 @@
       ]
     },
     "META": {
-      "tdps": 351788.9466626267,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -229,7 +251,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

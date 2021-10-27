@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 114853.05280470982,
-        "team": 0.03331475480507035,
+        "dps": 117732.09074686709,
+        "team": 0.08155270920362692,
         "noaff": false,
         "nihil": false
       },
@@ -56,9 +56,10 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, cancel",
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, cancel",
         "`s2, charged_in(4,s1) and cancel",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
@@ -68,12 +69,12 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
-        "Valentines_Melody"
+        "Valentines_Melody",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -81,7 +82,7 @@
       ]
     },
     "META": {
-      "tdps": 307659.0202123985,
+      "tdps": 1054945.9439672846,
       "pref": "PERSONAL"
     }
   },
@@ -165,28 +166,62 @@
       ]
     },
     "META": {
-      "tdps": 479682.91482779593,
+      "tdps": 213431.9763087475,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 123080.09863541146,
-        "team": 0.11791982129920198,
+        "dps": 127005.97679859532,
+        "team": 0.20929074657979402,
         "noaff": false,
         "nihil": false
       },
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, charged_in(4,s1) and cancel",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs",
+        "`dodge, fsc",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Valentines_Melody",
+        "Yukata_Lathna"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 140856.83636398392,
+        "team": 0.06745643038498278,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, (dgauge>=800 or dshift_count>0) and s=2",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, (charged_in(4,s1) or dgauge>=800) and cancel",
+        "`s1",
+        "`fs, x=4 and hits<50 and c_fs(enhanced)"
       ]
     },
     "META": {
-      "tdps": 489560.4403208776,
+      "tdps": 97655.20740667773,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -274,8 +309,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70413.88359429534,
-        "team": 0.11854082516321944,
+        "dps": 76958.89184413296,
+        "team": 0.16926578443114032,
         "noaff": false,
         "nihil": false
       },
@@ -283,25 +318,14 @@
         "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
         "Summer_Paladyns",
-        "A_Small_Courage",
         "Hastened_Squall",
-        "Mask_of_Determination_Bow",
+        "Lord_of_the_Skies",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, charged_in(4,s1) and cancel",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs, x=1",
-        "`dodge, fsc",
-        "end"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {

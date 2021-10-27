@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 124178.05803046598,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, xf or fsc",
+        "`s1, xf or fsc",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 124178.05803046598,
@@ -40,11 +79,48 @@
       ]
     },
     "META": {
-      "tdps": 596444.614083247,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77878.00410851077,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, x=5",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Ranzal"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 81408.7050526672,
@@ -100,7 +176,6 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, fsc",
         "`s3, not buff(s3)",
@@ -109,15 +184,6 @@
         "`s1, xf or fsc",
         "`fs, xf=4"
       ],
-      "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
@@ -125,8 +191,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 124280.38639427055,
-        "team": 0.0975585638764416,
+        "dps": 125342.04289058663,
+        "team": 0.09750877947486207,
         "noaff": false,
         "nihil": false
       },
@@ -148,16 +214,21 @@
         "`fs, xf=4",
         "`dodge, fsc"
       ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3 and duration-now>10"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 362477.3933272586,
+      "tdps": 1173951.857225223,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -171,14 +242,47 @@
       }
     },
     "META": {
-      "tdps": 49839.51190796428,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44725.73406069007,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, x=5",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Ranzal"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 44725.73406069007,
