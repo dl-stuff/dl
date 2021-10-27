@@ -70,11 +70,9 @@ class Conf(dict):
     def update(self, other, rebase=False):
         for k, v in other.items():
             if isinstance(v, dict):
-                if k in ("interrupt", "cancel") and k in self:
-                    if not (rebase and k in self):
+                if k in ("interrupt", "cancel"):
+                    if not rebase and not k in self:
                         self[k] = Conf(conf=v, parent=self)
-                    else:
-                        continue
                 else:
                     try:
                         self[k].update(v, rebase=rebase)
@@ -108,18 +106,22 @@ if __name__ == "__main__":
     from pprint import pprint
 
     t1 = {
-        "x1.dmg": 0.98,
-        "x1.sp": [130, 130, 130],
-        "x1.startup": 15 / 60.0,
-        "x1.recovery": 33 / 60.0,
-        "x1.hit": 1,
-        "coabs": ["Halloween_Mym", "Dagger2", "Marth"],
+        "sp": 10725,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [{"heal": 30, "iv": 0.16667}],
+        "energizable": True,
+        "cancel": {"any": 0.83333},
     }
     t2 = {
-        "x1.sp": 293,
-        "coabs.paralysis": ["Halloween_Mym", "Dagger2", "Sharena"],
-        None: 333,
+        "sp": 10725,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "attr": [{"utp": -1500}, {"sp": [0.5, "%", "s2"]}, {"dmg": 32.5, "crisis": -0.9, "iv": 1.33333}],
     }
-    conf1 = Conf(t1)
-    conf2 = Conf(t2)
-    pprint(conf1 + conf2)
+
+    t2c = Conf(t2)
+    pprint(t2c)
+    t1c = Conf(t1)
+    t2c.update(t1c, rebase=True)
+    pprint(t2c)
