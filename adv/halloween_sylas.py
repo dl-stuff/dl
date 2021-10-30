@@ -2,7 +2,7 @@ from conf import DEFAULT
 from core.advbase import *
 
 
-class Halloween_Mym(Adv):
+class Halloween_Sylas(Adv):
     comment = "s2 always maxhp buff; proc a3 by s2 only"
 
     def prerun(self):
@@ -53,4 +53,4 @@ class Halloween_Mym(Adv):
                 self.charge_p("a3", 15.0, target=("s1", "s2"))
 
 
-variants = {None: Halloween_Mym}
+variants = {None: Halloween_Sylas}

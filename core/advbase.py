@@ -855,6 +855,7 @@ class DashX(Misc):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act=act)
         self.act_event.dtype = "x"
+        print(conf)
         self.to_x = conf["to_x"] or 1
 
     def getstartup(self):
@@ -1083,7 +1084,7 @@ class Adv(object):
         self.a_dooodge = Dodge("dooodge", self.conf.dooodge)
         self.a_dash = None
         if self.conf["dash"]:
-            self.a_dash = DashX("dash", self.conf.dodge)
+            self.a_dash = DashX("dash", self.conf.dash)
 
     @property
     def ctime(self):
@@ -1859,12 +1860,13 @@ class Adv(object):
             return False
 
     @allow_acl
-    def dfs(self):
+    def dfs(self, n=None):
         if not self.in_dform():
             return False
+        fsn = "dfs" if n is None else f"dfs{n}"
         self.check_deferred_x()
         try:
-            return self.a_fs_dict["dfs"]()
+            return self.a_fs_dict[fsn]()
         except KeyError:
             return False
 
@@ -1914,6 +1916,7 @@ class Adv(object):
                 if not prev.has_follow(x_next.name, "any"):
                     x_next = self.a_x_dict[self.current_x][1]
         elif isinstance(prev, DashX):
+            log("dashx", prev.to_x)
             x_next = self.a_x_dict[self.current_x][prev.to_x]
         else:
             x_next = self.a_x_dict[self.current_x][1]

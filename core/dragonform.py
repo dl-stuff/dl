@@ -250,7 +250,7 @@ class DragonForm:
         cur_d = self.shift_end_timer.timeleft()
         delta_t = value
         if percent:
-            delta_t *= self.conf.duration * (1 + self.adv.sub_mod("dt", "getrektoof"))
+            delta_t *= self.conf.duration
         delta_t = min(max_d, cur_d + delta_t) - cur_d
         if cur_d + delta_t > 0:
             self.shift_end_timer.add(delta_t)
@@ -278,10 +278,12 @@ class DragonForm:
         self.l_s_end.on()
         self.set_dacts_enabled(True)
         self.adv.charge_p("dshift", 1.0, dragon_sp=True)
-        log("shift_end_timer", "on", self.dtime())
-        self.shift_end_timer.on(self.dtime())
         if self.untimed_shift:
+            self.shift_end_timer.on(self.dtime() / (1 + self.adv.sub_mod("dt", "getrektoof")))
             self.shift_end_timer.pause()
+        else:
+            log("shift_end_timer", "on", self.dtime())
+            self.shift_end_timer.on(self.dtime())
         self.reset_allow_end()
         self.shift_event()
 
