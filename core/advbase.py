@@ -741,9 +741,13 @@ class Fs(Action):
         self.enabled = enabled
 
     def charge_speed(self):
+        if self.base.startswith("dfs"):
+            return 1.0
         return self._static.c_spd_func()
 
     def speed(self):
+        if self.base.startswith("dfs"):
+            return super().speed()
         return self._static.f_spd_func() - 1 + super().speed()
 
     def getstartup(self, include_buffer=True):
@@ -1711,8 +1715,8 @@ class Adv(object):
         if self.in_dform():
             if target not in ("ds1", "ds2"):
                 return 0
-            if param == "fs":
-                actkeys = ("dfs",)
+            if param.startswith("fs"):
+                actkeys = ("d"+param,)
             elif isinstance(param, int):
                 actkeys = (f"dx{i}" for i in range(1, min(param, self.dragonform.dx_max) + 1))
             else:
@@ -1736,21 +1740,6 @@ class Adv(object):
             if attr:
                 sp_sum += attr.get("sp", 0)
         return sp_sum
-        # if isinstance(param, str):
-        #     if not self.conf[param]:
-        #         return False
-        #     return self.sp_convert(self.sp_mod(param, target=target), self.conf[param].attr[0]["sp"])
-        # elif isinstance(param, int) and 0 < param:
-        #     if self.in_dform():
-        #         if target not in ("ds1", "ds2"):
-        #             return
-        #         xfmt = "dx{}"
-        #     else:
-        #         suffix = "" if self.current_x == globalconf.DEFAULT else f"_{self.current_x}"
-        #         xfmt = "x{}" + suffix
-        #     for x in range(1, param + 1):
-        #         xconf = self.conf[xfmt.format(x)]
-        #     # return sum(self.sp_convert(self.sp_mod("x"), self.conf[xfmt.format(x)].attr[0]["sp"]) for x in range(1, param + 1))
 
     @allow_acl
     def charged_in(self, param, sn):
@@ -2624,7 +2613,7 @@ class Adv(object):
             onhit(name, base, group, aseq, dtype)
 
         if "sp" in attr:
-            dragon_sp = base in ("ds1", "ds2", "dfs") or group == globalconf.DRG
+            dragon_sp = base in ("ds1", "ds2") or base.startswith("dfs") or group == globalconf.DRG
             if isinstance(attr["sp"], int):
                 value = attr["sp"]
                 self.charge(base, value, dragon_sp=dragon_sp)

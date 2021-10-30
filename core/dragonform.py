@@ -140,9 +140,9 @@ class DragonForm:
     def set_dacts_enabled(self, enabled):
         for xact in self.adv.a_x_dict[DRG].values():
             xact.enabled = enabled
-        fsact = self.adv.a_fs_dict.get("dfs")
-        if fsact:
-            fsact.set_enabled(enabled)
+        for fsn, fsact in self.adv.a_fs_dict:
+            if fsn.startswith("dfs"):
+                fsact.set_enabled(enabled)
         for skey in self.shift_skills:
             self.adv.a_s_dict[skey].set_enabled(enabled)
 
