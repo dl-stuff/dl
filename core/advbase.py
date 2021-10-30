@@ -1916,7 +1916,6 @@ class Adv(object):
                 if not prev.has_follow(x_next.name, "any"):
                     x_next = self.a_x_dict[self.current_x][1]
         elif isinstance(prev, DashX):
-            log("dashx", prev.to_x)
             x_next = self.a_x_dict[self.current_x][prev.to_x]
         else:
             x_next = self.a_x_dict[self.current_x][1]
