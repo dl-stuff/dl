@@ -29,9 +29,11 @@ class DragonForm:
         self.l_s = Listener("s", self.l_ds_pause, order=0)
         self.l_s_end = Listener("s_end", self.l_ds_resume, order=0)
         self.l_s_final_end = Listener("s_end", self.d_shift_end, order=0)
+        self.l_act_end = Listener("act_end", self.d_shift_end, order=0)
         self.l_s.off()
         self.l_s_end.off()
         self.l_s_final_end.off()
+        self.l_act_end.off()
         self.shift_skills = ("ds1", "ds2")
 
         self.allow_end_cd = self.conf.allow_end + self.dstime()
@@ -60,6 +62,9 @@ class DragonForm:
 
         # dragonbattle
         self.is_dragonbattle = False
+
+        # untimed shift
+        self.untimed_shift = False
 
     def set_dragonbattle(self):
         self.is_dragonbattle = True
@@ -142,6 +147,8 @@ class DragonForm:
             self.adv.a_s_dict[skey].set_enabled(enabled)
 
     def auto_dodge(self, index=None):
+        if self.untimed_shift:
+            return False
         index = index or self.dx_max
         d_combo = self.adv.a_x_dict[DRG][index]
         if "dodge" not in d_combo.conf.cancel:
@@ -149,6 +156,8 @@ class DragonForm:
         dodge_t = d_combo.conf.cancel["dodge"] + self.d_dodge.getstartup() + self.d_dodge.getrecovery()
         if d_combo.conf.cancel["dx1"]:
             combo_t = d_combo.conf.cancel["dx1"] / d_combo.speed()
+        elif d_combo.conf.cancel["any"]:
+            combo_t = d_combo.conf.cancel["any"] / d_combo.speed()
         else:
             combo_t = d_combo.getrecovery()
         return dodge_t < combo_t
@@ -174,12 +183,12 @@ class DragonForm:
         self.dragon_gauge_timer.on()
 
     def l_ds_pause(self, e):
-        if self.status and e.base in self.shift_skills:
+        if self.status and not self.untimed_shift and e.base in self.shift_skills:
             self.shift_end_timer.pause()
             log("shift_end_timer", "pause", self.shift_end_timer.timing, self.shift_end_timer.pause_time)
 
     def l_ds_resume(self, e):
-        if self.status and e.act.base in self.shift_skills:
+        if self.status and not self.untimed_shift and e.act.base in self.shift_skills:
             self.shift_end_timer.resume()
             log("shift_end_timer", "resume", self.shift_end_timer.timing, self.shift_end_timer.timing - now())
 
@@ -237,18 +246,19 @@ class DragonForm:
         return self.conf.dracolith + self.adv.mod("da", operator=operator.add, initial=0)
 
     def extend_shift_time(self, value, percent=True):
-        max_d = self.dtime() - self.conf.dshift.startup
+        max_d = self.dtime()
         cur_d = self.shift_end_timer.timeleft()
         delta_t = value
         if percent:
-            delta_t *= max_d
+            delta_t *= self.conf.duration * (1 + self.adv.sub_mod("dt", "getrektoof"))
         delta_t = min(max_d, cur_d + delta_t) - cur_d
         if cur_d + delta_t > 0:
             self.shift_end_timer.add(delta_t)
             log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
-        elif self.can_end:
-            self.d_shift_end()
+        else:
             self.shift_end_timer.off()
+            self.l_act_end.on()
+            self.set_dacts_enabled(False)
 
     def d_shift_start(self, _=None):
         self.status = True
@@ -270,6 +280,8 @@ class DragonForm:
         self.adv.charge_p("dshift", 1.0, dragon_sp=True)
         log("shift_end_timer", "on", self.dtime())
         self.shift_end_timer.on(self.dtime())
+        if self.untimed_shift:
+            self.shift_end_timer.pause()
         self.reset_allow_end()
         self.shift_event()
 
@@ -298,6 +310,7 @@ class DragonForm:
         self.l_s.off()
         self.l_s_end.off()
         self.l_s_final_end.off()
+        self.l_act_end.off()
         self.set_dacts_enabled(False)
         self.adv.set_dacl(False)
         self.end_event()
@@ -333,7 +346,7 @@ class DragonForm:
         return self.d_shift()
 
     def sack(self):
-        if self.status and not self.l_s_final_end.get() and self.allow_end:
+        if self.status and not (self.l_s_final_end.get() or self.l_act_end.get()) and self.allow_end:
             self.d_shift_end(reason="forced")
             self.shift_end_timer.off()
             return True

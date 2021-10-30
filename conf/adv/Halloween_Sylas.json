@@ -1,0 +1,155 @@
+{
+    "c": {
+        "name": "Halloween Sylas",
+        "icon": "110318_02_r05",
+        "att": 472,
+        "hp": 801,
+        "ele": "shadow",
+        "wt": "bow",
+        "spiral": false,
+        "a": [["a", 0.3, "hp70"], ["affres_blind", 100.0]]
+    },
+    "dash": {
+        "startup": 0.23333,
+        "recovery": 1.26667,
+        "to_x": 2,
+        "attr": [
+            {"dmg": 0.9, "sp": 208},
+            {"dmg": 0.9},
+            {"dmg": 0.9}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.6, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.23334}
+    },
+    "fs": {
+        "charge": 0.35,
+        "startup": 0.06667,
+        "recovery": 1.06666,
+        "attr": [
+            {"dmg": 0.31, "odmg": 3.0, "sp": 460},
+            {"dmg": 0.31, "odmg": 3.0},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.06666},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.06666},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.13333},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.13333},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.2},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.2}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 2520,
+        "startup": 0.0,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 18.64, "dispel": 100, "iv": 0.33333},
+            {"afflic": ["poison", 120, 0.582], "iv": 0.33333}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 2520,
+        "startup": 0.0,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 18.64, "dispel": 100, "iv": 0.33333},
+            {"afflic": ["poison", 120, 0.582], "iv": 0.33333},
+            {"dmg": 1.71, "dispel": 100, "iv": 0.7, "msl": 0.13333},
+            {"afflic": ["shadowblight", 120, 0.41], "iv": 0.7, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 0.8, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 0.9, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 1.0, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 1.1, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 1.2, "msl": 0.13333}
+        ]
+    },
+    "s2": {
+        "sp": 6000,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"buff": ["team", 0.15, -1, "maxhp", "buff"], "coei": 1, "iv": 0.33333}
+        ],
+        "DEBUG_attr_R4": [{"buff": ["team", 0.15, -1, "maxhp", "buff"], "coei": 1, "iv": 0.33333}, {"relief": [["all"], 100], "iv": 0.33333}]
+    },
+    "s2_enhanced": {
+        "sp": 6000,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"buff": ["team", 0.15, -1, "maxhp", "buff"], "coei": 1, "iv": 0.33333},
+            {"relief": [["all"], 100], "iv": 0.33333}
+        ]
+    },
+    "s99": {
+        "sp": 2520,
+        "startup": 0.0,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 18.64, "dispel": 100, "iv": 0.33333},
+            {"afflic": ["poison", 120, 0.582], "iv": 0.33333},
+            {"dmg": 1.71, "dispel": 100, "iv": 0.7, "msl": 0.13333},
+            {"afflic": ["shadowblight", 120, 0.41], "iv": 0.7, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 0.8, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 0.9, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 1.0, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 1.1, "msl": 0.13333},
+            {"dmg": 1.71, "iv": 1.2, "msl": 0.13333}
+        ]
+    },
+    "x1": {
+        "startup": 0.36667,
+        "recovery": 1.13333,
+        "attr": [
+            {"dmg": 0.35, "sp": 184},
+            {"dmg": 0.35},
+            {"dmg": 0.35}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.63333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.06666}
+    },
+    "x2": {
+        "startup": 0.27273,
+        "recovery": 1.39394,
+        "attr": [
+            {"dmg": 0.44, "sp": 92},
+            {"dmg": 0.44, "iv": 0.21212}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.57575, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.27272}
+    },
+    "x3": {
+        "startup": 0.48485,
+        "recovery": 1.31515,
+        "attr": [
+            {"dmg": 0.5, "sp": 276},
+            {"dmg": 0.5},
+            {"dmg": 0.5}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.57576, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.42424}
+    },
+    "x4": {
+        "startup": 0.27778,
+        "recovery": 1.38889,
+        "attr": [
+            {"dmg": 0.76, "sp": 414},
+            {"dmg": 0.76, "iv": 0.16666}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.27778}
+    },
+    "x5": {
+        "startup": 0.97222,
+        "recovery": 1.26111,
+        "attr": [
+            {"dmg": 0.42, "sp": 529},
+            {"dmg": 0.42},
+            {"dmg": 0.42},
+            {"dmg": 0.42},
+            {"dmg": 0.42}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.69445, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.41667}
+    }
+}

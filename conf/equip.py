@@ -40,12 +40,6 @@ ABNORMAL_COND = (
     "dumb",
     "fleet",
 )
-HAS_7SLOT = (
-    "light",
-    "flame",
-    "shadow",
-    "wind",
-)
 BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "dacl", "coabs", "share")
 BUILD_META_KEY = "EQMT"
 
@@ -318,7 +312,7 @@ def validate_sim(adv):
         return False, "Using a banned share"
     if not len(adv.slots.c.coab_list) == 3:
         return False, "Less than 3 coabilities"
-    if adv.slots.c.ele in HAS_7SLOT and adv.slots.w.series == "agito":
+    if adv.slots.w.series == "agito":
         if not len(wp_qual_lst) == 7:
             return False, "Less than 7 wyrmprints"
     elif not len(wp_qual_lst) == 5:

@@ -8,7 +8,7 @@ class Gala_Prince(Adv):
     def prerun(self):
         if self.condition("draconic charge"):
             self.dragonform.charge_dprep(500)
-        Modifier("dragonlight_dt", "dt", "hecc", self.DRAGONLIGHT_DT).on()
+        Modifier("dragonlight_dt", "dt", "getrektoof", self.DRAGONLIGHT_DT).on()
         self.dragonform.shift_spd_mod = Modifier("dragonlight_spd", "spd", "buff", 0.10).off()
 
 

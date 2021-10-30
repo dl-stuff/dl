@@ -617,7 +617,7 @@ class Repeat(Action):
         self._static.doing = self.nop
         # if self.extra_charge:
         #     log("extra_charge", now() - self.count0_time, self.extra_charge)
-        if self.extra_charge and now() - self.count0_time > self.extra_charge:
+        if (not self.parent.enabled) or (self.extra_charge and now() - self.count0_time > self.extra_charge):
             self.extra_charge = None
             self.parent.end_event.on()
             self.end_repeat_event.on()
@@ -849,6 +849,18 @@ class Shift(Misc):
         self.act_event.msg = f"{self.dform_name}: {msg}"
 
 
+class DashX(Misc):
+    DASH_TIME = 0.5  # prob
+
+    def __init__(self, name, conf, act=None):
+        super().__init__(name, conf, act=act)
+        self.act_event.dtype = "x"
+        self.to_x = conf["to_x"] or 1
+
+    def getstartup(self):
+        return super().getstartup() + DashX.DASH_TIME
+
+
 class Adv(object):
 
     BASE_CTIME = 2
@@ -1069,6 +1081,9 @@ class Adv(object):
 
         self.a_dodge = Dodge("dodge", self.conf.dodge)
         self.a_dooodge = Dodge("dooodge", self.conf.dooodge)
+        self.a_dash = None
+        if self.conf["dash"]:
+            self.a_dash = DashX("dash", self.conf.dodge)
 
     @property
     def ctime(self):
@@ -1151,6 +1166,9 @@ class Adv(object):
 
     def add_hp(self, delta, percent=True, can_die=False, ignore_dragon=False, source=None):
         if percent:
+            if self.in_dform() and delta < 0 and not ignore_dragon:
+                self.dragonform.extend_shift_time(delta / 100, percent=True)
+                return delta
             delta = self.max_hp * delta / 100
         if delta > 0:
             delta *= self.sub_mod("getrecovery", "buff") + 1
@@ -1309,6 +1327,8 @@ class Adv(object):
             else:
                 self.conf.dacl = DragonBase.DEFAULT_DCONF["dacl"]
             self.using_default_dacl = True
+        else:
+            self.using_default_dacl = (self.slots.d.dform["dacl"] and self.conf.dacl == self.slots.d.dform["dacl"]) or self.conf.dacl == DragonBase.DEFAULT_DCONF["dacl"]
         if self.dacl_source != "init":
             if self._dacl_default is None:
                 self._dacl_default = core.acl.build_acl(self.conf.dacl)
@@ -1891,13 +1911,15 @@ class Adv(object):
                     x_next = self.a_x_dict[self.current_x][prev.index + 1]
                 else:
                     x_next = self.a_x_dict[self.current_x][1]
-                if not prev.has_follow(x_next.name, "x"):
+                if not prev.has_follow(x_next.name, "any"):
                     x_next = self.a_x_dict[self.current_x][1]
+        elif isinstance(prev, DashX):
+            x_next = self.a_x_dict[self.current_x][prev.to_x]
         else:
             x_next = self.a_x_dict[self.current_x][1]
         # special: in dform and if there isn't enough time left to complete next x, try sack instead
         if x_next.group == globalconf.DRG:
-            if self.dragonform.dform_mode == -1 and x_next.getstartup() >= self.dshift_timeleft:
+            if self.dragonform.dform_mode == -1 and not self.dragonform.untimed_shift and x_next.getstartup() >= self.dshift_timeleft:
                 return self.sack()
         elif not x_next.enabled:
             self.current_x = globalconf.DEFAULT
@@ -1945,6 +1967,12 @@ class Adv(object):
     def dooodge(self):
         self.last_c = 0
         return self.a_dooodge()
+
+    @allow_acl
+    def dash(self):
+        if self.in_dform() or not self.a_dash:
+            return False
+        return self.a_dash()
 
     @allow_acl
     def fsf(self):
@@ -2183,6 +2211,7 @@ class Adv(object):
         self.l_defer = Listener("defer", self.l_defer)
         self.l_x = Listener("x", self.l_x)
         self.l_dodge = Listener("dodge", self.l_misc)
+        self.l_dash = Listener("dash", self.l_misc)
         self.l_dshift = Listener("dshift", self.l_misc)
         self.l_fs = Listener("fs", self.l_fs)
         self.l_s = Listener("s", self.l_s)
@@ -2339,7 +2368,7 @@ class Adv(object):
                 targets = [self.a_s_dict[target]]
             except KeyError:
                 return None
-        if isinstance(target, list):
+        if isinstance(target, (list, tuple)):
             targets = []
             for t in target:
                 try:

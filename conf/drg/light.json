@@ -165,6 +165,75 @@
             "cancel": {"any": 1.83333}
         }
     },
+    "Gala_Chronos_Nyx": {
+        "dacl": ["`ds1, cancel and dshift_timeleft<1", "`dodge, fsc", "`fs"],
+        "d": {
+            "name": "Gala Chronos Nyx",
+            "icon": "210164_01",
+            "att": 124,
+            "hp": 371,
+            "ele": "light",
+            "a": [["a", 1.0]]
+        },
+        "dodge": {
+            "recovery": 0.55556,
+            "attr": [
+                {"hp": -5.0}
+            ]
+        },
+        "dfs": {
+            "charge": 0.4,
+            "startup": 0.0,
+            "recovery": 2.5,
+            "attr": [
+                {"dmg": 3.3, "sp": 10},
+                {"dmg": 3.3}, 2,
+                {"hp": -5.0}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"dodge": 0.0, "s": 0.0}
+        },
+        "dx1": {
+            "startup": 0.46667,
+            "recovery": 1.5,
+            "attr": [
+                {"dmg": 3.3, "sp": 15},
+                {"dmg": 3.3}, 2,
+                {"hp": -5.0}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.7, "dodge": 0.0, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.46667,
+            "recovery": 1.5,
+            "attr": [
+                {"dmg": 3.3, "sp": 15},
+                {"dmg": 3.3}, 2,
+                {"hp": -5.0}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.7, "dodge": 0.0, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 4.63333,
+            "cancel": {"any": 4.33333},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 5.0, "iv": 2.33333},
+                {"dmg": 5.0, "iv": 2.33333, "msl": 0.2},
+                {"dmg": 5.0, "iv": 2.33333, "msl": 0.4},
+                {"dmg": 5.0, "iv": 2.33333, "msl": 0.6},
+                {"dmg": 5.0, "iv": 2.33333, "msl": 0.8},
+                {"dmg": 5.0, "iv": 2.33333, "msl": 1.0},
+                {"dmg": 5.0, "iv": 2.33333, "msl": 1.2},
+                {"hp": -50.0, "iv": 2.33333}
+            ]
+        }
+    },
     "Gala_Reborn_Jeanne": {
         "d": {
             "name": "Gala Reborn Jeanne",

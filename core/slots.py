@@ -551,6 +551,12 @@ class Gala_Reborn_Jeanne(Gala_Reborn):
         super().oninit(adv, "gjeanne_buff", "light")
 
 
+class Gala_Chronos_Nyx(DragonBase):
+    def oninit(self, adv):
+        if not super().oninit(adv):
+            adv.dragonform.untimed_shift = True
+
+
 ### LIGHT DRAGONS ###
 
 ### SHADOW DRAGONS ###

@@ -153,7 +153,7 @@ class Timer(object):
     def timeleft(self):
         from core.log import log
 
-        log("timeleft", self.timing - _g_now, self.pause_time)
+        # log("timeleft", self.timing - _g_now, self.pause_time)
         if self.pause_time > 0:
             return self.pause_time
         return self.timing - _g_now
