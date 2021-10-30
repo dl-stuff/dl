@@ -1063,7 +1063,7 @@ class Adv(object):
         for name, fs_conf in self.conf.find(r"^d?fs\d*(_[A-Za-z0-9]+)?$"):
             try:
                 base = name.split("_")[0]
-                if base not in ("fs", "dfs"):
+                if base.startswith("fs") and base != "fs":
                     fs_conf.update(self.conf.fs, rebase=True)
                 if name != base and self.conf[base]:
                     fs_conf.update(self.conf[base], rebase=True)
