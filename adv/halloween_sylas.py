@@ -30,7 +30,10 @@ class Halloween_Mym(Adv):
         if e.name[0] == "x":
             self.sample_buffs["x"].on()
         else:
-            self.sample_buffs[e.name].on()
+            try:
+                self.sample_buffs[e.name].on()
+            except KeyError:
+                return
         if self.all_samples:
             self.current_s["s1"] = "enhanced"
             self.current_s["s2"] = "enhanced"
