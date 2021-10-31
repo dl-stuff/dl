@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10833.849298328889,
-        "team": 0.0,
+        "dps": 85567.5564718105,
+        "team": 0.024662959785867737,
         "noaff": false,
         "nihil": false
       },
@@ -12,20 +12,20 @@
         "OneWinged_Journey",
         "Sweet_Surprise",
         "A_Choice_Blend",
-        "The_Plaguebringer",
+        "Lord_of_the_Skies",
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Lance"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon, hp<100",
         "`s3, not buff(s3)",
-        "`s2",
-        "`dragon, not in_drg",
-        "`s4",
-        "`s1, x=5 or s"
+        "`s2, xf=5"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`s4, xf=5",
+        "`s2, xf=5",
+        "`s1, xf=5"
       ],
       "coabs": [
         "Curran",
@@ -34,12 +34,12 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Basileus"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 10833.849298328889,
+        "dps": 98196.01420597456,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -50,19 +50,19 @@
         "Sweet_Surprise",
         "A_Choice_Blend",
         "The_Plaguebringer",
-        "Testament_of_Eternity",
+        "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Lance"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon, hp<100",
         "`s3, not buff(s3)",
-        "`s2",
-        "`dragon, not in_drg",
-        "`s4",
-        "`s1, x=5 or s"
+        "`s2, xf=5"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`s2, xf=5",
+        "`s4, cancel",
+        "`s1, xf=5"
       ],
       "coabs": [
         "Curran",
@@ -75,13 +75,14 @@
       ]
     },
     "META": {
+      "tdps": 512041.4517887816,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 14200.557971230628,
+        "dps": 14284.192451564844,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -117,54 +118,11 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
+  "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14200.557971230628,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Thunderswift_Lords_Blade_Axe"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`s3",
-        "`s2",
-        "`dragon, not in_drg",
-        "`s4",
-        "`s1, x=5 or s"
-      ],
-      "coabs": [
-        "Delphi",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 106769.01501766585,
-        "team": 0.0,
+        "dps": 63634.700034535366,
+        "team": 0.09021484071750414,
         "noaff": false,
         "nihil": false
       },
@@ -177,24 +135,44 @@
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Lance"
       ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2, xf=5",
-        "`s4, xf=5",
-        "`fs, xf=5 and buff(s3)"
-      ],
       "dacl": [
-        "s2, x=5",
-        "s4, x=5",
-        "s1, x=5 or s"
+        "s2, xf=5",
+        "s4, xf=5",
+        "s1, xf=5"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 110495.87688040678,
+        "team": 0.024662959785867737,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "dacl": [
+        "s2, xf=5",
+        "s4, xf=5",
+        "s1, xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Basileus"
       ]
     },
     "META": {
+      "tdps": 714871.58232336,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -203,9 +181,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 21909.87459290707,
+        "dps": 47684.4832763116,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -216,51 +194,26 @@
         "Welcome_to_the_Opera",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, not in_drg",
+        "`dragon, hp<40",
         "`s1",
-        "`s2",
+        "`s2, hp>30"
+      ],
+      "dacl": [
+        "`s1, dgauge>900",
+        "`s2, dgauge<=900",
         "`s3, xf",
         "`s4",
         "`fsf, x=5"
       ],
       "coabs": [
-        "Delphi",
         "Joker",
+        "Summer_Prince",
         "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Veronica"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 21909.87459290707,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, not in_drg",
-        "`s1",
-        "`s2",
-        "`s3, xf",
-        "`s4",
-        "`fsf, x=5"
       ],
       "share": [
         "Summer_Celliera",
@@ -275,10 +228,63 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 78700.22822889061,
+        "team": 0.02467677141637698,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Worthy_Rivals",
+        "A_Choice_Blend",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "dacl": [
+        "`s2, xf=5",
+        "`s4, cancel",
+        "`s1, xf=5"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79265.52416204513,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Worthy_Rivals",
+        "A_Choice_Blend",
+        "Lord_of_the_Skies",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "tdps": 22908.01837955792,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14135.402963165852,
+        "dps": 14218.586138070841,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -289,8 +295,8 @@
         "Welcome_to_the_Opera",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
@@ -313,7 +319,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 14135.402963165852,
+        "dps": 14218.586138070841,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -324,8 +330,8 @@
         "Welcome_to_the_Opera",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon, not in_drg",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17083.647887719813,
-        "team": 0.24226357466339749,
+        "dps": 17217.84872161393,
+        "team": 0.24229493036150482,
         "noaff": true,
         "nihil": false
       },
@@ -13,8 +13,8 @@
         "The_Lurker_in_the_Woods",
         "Rogues_Banquet",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "PopStar_Siren",
       "acl": [
@@ -24,9 +24,6 @@
         "`fs5, c_fs(auspex) and x=1",
         "`s1, cancel",
         "`s2, cancel"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Dagger",
@@ -40,9 +37,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39270.96468228662,
-        "team": 0.1353218006455614,
-        "noaff": true,
+        "dps": 41006.629106424174,
+        "team": 0.12208934984456138,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -54,7 +51,7 @@
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Jeanne_dArc",
+      "slots.d": "High_Jupiter",
       "acl": [
         "`fs5, c_fs(auspex) and x=1",
         "`s3, not buff(s3)",
@@ -62,9 +59,6 @@
         "`dragon",
         "`s1, cancel",
         "`s2, cancel"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -77,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 207470.99997486797,
+      "tdps": 197900.7986360261,
       "pref": "PERSONAL"
     }
   },
@@ -109,7 +103,7 @@
       ]
     },
     "META": {
-      "tdps": 451851.28449528874,
+      "tdps": 383914.3661568802,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -155,52 +149,54 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35529.58517311338,
+        "dps": 58024.347968269074,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
+        "Rogues_Banquet",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Jeanne_dArc",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon",
-        "`fs5, c_fs(auspex) and cancel",
+        "`s3, not buff(s3)",
+        "`s4, x>2 and not buff(s4)",
+        "`fs5, c_fs(auspex) and x=1",
         "`s1, cancel",
-        "`s2, cancel",
-        "`s3, cancel",
-        "`s4, cancel"
+        "`s2, cancel"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
-        "Blade",
+        "Grace",
         "Mitsuhide",
         "Peony"
       ],
       "share": [
-        "Summer_Celliera",
-        "Ilia"
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
-      "tdps": 422631.5591980901,
+      "tdps": 1188687.7468760996,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47719.35098940626,
-        "team": 0.12208934984456138,
+        "dps": 119266.31904584765,
+        "team": 0.11537839878027036,
         "noaff": false,
         "nihil": false
       },
@@ -208,20 +204,33 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Rogues_Banquet",
+        "Kicking_Back",
         "The_Warrioresses",
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon",
+        "`fs5, x=1",
+        "`s3, not buff(s3)",
+        "`s4, x>2 and not buff(s4)",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "coabs": [
-        "Dagger",
+        "Blade",
         "Grace",
         "Peony"
       ]
     },
     "META": {
-      "tdps": 254927.40350828215,
+      "tdps": 804059.7158843437,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -265,44 +274,49 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57381.309187006234,
+        "dps": 64092.81461844927,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "Springtime_Breeze",
-        "Rogues_Banquet",
-        "The_Warrioresses",
-        "A_Kings_Pride_Sword",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
-        "`dragon, fsc",
-        "`fs5",
-        "`s4",
-        "`s1, cancel and not duration-now<10",
-        "`s2, cancel",
-        "`s3, x=5 or fsc"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
+        "`dragon",
+        "`s3, cancel",
+        "`s4, x>2 and not buff(s4)",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
       ],
       "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 616763.9413758481,
+      "tdps": 753691.1342350874,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34955.79541493451,
+        "team": 0.1236032035030776,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.d": "Gala_Reborn_Jeanne"
+    },
+    "META": {
+      "tdps": 149445.51876372984,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -336,42 +350,8 @@
         "Summer_Celliera"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 28179.320241419497,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Lurker_in_the_Woods",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
-        "A_Kings_Pride_Sword",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4, x>2 and not buff(s4)",
-        "`fs5, c_fs(auspex) and x=1",
-        "`s1, cancel",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Grace",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Hunter_Sarisse"
-      ]
-    },
     "META": {
-      "tdps": 138683.25878088994,
+      "tdps": 900395.0152911773,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

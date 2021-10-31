@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55632.783759806196,
-        "team": 0.09676588863729087,
+        "dps": 122091.80630807004,
+        "team": 0.04993319493331177,
         "noaff": true,
         "nihil": false
       },
@@ -45,10 +45,10 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`s1, dgauge>=500 and not buff(s1)",
         "`dragon, xf and buff(s3,1)",
@@ -56,7 +56,9 @@
         "`s3, xf>3"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
         "Dagger2",
@@ -69,15 +71,15 @@
       ]
     },
     "META": {
-      "tdps": 108081.61184224245,
+      "tdps": 229480.5248790611,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52941.38246099769,
-        "team": 0.09676588863729087,
+        "dps": 53302.122832918554,
+        "team": 0.09676588863729084,
         "noaff": true,
         "nihil": false
       },
@@ -87,7 +89,7 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Daikokuten",
@@ -112,8 +114,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52941.38246099769,
-        "team": 0.09676588863729087,
+        "dps": 53302.122832918554,
+        "team": 0.09676588863729084,
         "noaff": true,
         "nihil": false
       },
@@ -134,8 +136,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5052.5437012699895,
-        "team": 0.16555630309643235,
+        "dps": 5087.021356799749,
+        "team": 0.16555630309643238,
         "noaff": true,
         "nihil": true
       },
@@ -154,6 +156,9 @@
         "`s3",
         "`s4"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Bow",
         "Peony",
@@ -166,9 +171,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 30451.326196215825,
+        "dps": 37925.59470048787,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
@@ -177,17 +182,14 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon",
         "`s4",
         "`s3"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -200,14 +202,14 @@
       ]
     },
     "META": {
-      "tdps": 153414.77201355292,
+      "tdps": 198352.90308796323,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38644.14974332128,
+        "dps": 38906.7103654192,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -218,8 +220,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, aff(flashburn)",
@@ -232,26 +234,7 @@
       ]
     },
     "META": {
-      "tdps": 202901.40220445144,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 20722.315453015948,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.d": "Jeanne_dArc"
-    },
-    "META": {
-      "tdps": 94649.20065664135,
+      "tdps": 204279.07833216316,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

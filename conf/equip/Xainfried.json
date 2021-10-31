@@ -41,19 +41,97 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88841.68966070852,
-        "team": 0.22799360314703188,
+        "dps": 120258.19854591452,
+        "team": 0.2844137290948056,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, dshift_count=0 and dgauge=1000",
+        "`dragon, dshift_count>0",
+        "queue now<1",
+        "`s3",
+        "`s2",
+        "`fs",
+        "`s4, fscf",
+        "`fs",
+        "end",
+        "`s2",
+        "`s4",
+        "`s1, amp_lvl(team)>2 and (xf or fscf)",
+        "`fs, charged_in(fs, s2)",
+        "`fs, charged_in(fs, s4)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 171477.4494709199,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28126.21367264944,
+        "team": 0.7521045560080337,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Gala_Mascula",
+        "Hunter_Sarisse",
+        "Summer_Estelle"
+      ]
+    },
+    "META": {
+      "tdps": 196993.35452298398,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40458.45186515333,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon, dshift_count=0 and s=4",
         "`dragon, dshift_count=1 and fscf",
@@ -79,81 +157,6 @@
         "ds1,x=3"
       ],
       "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "tdps": 102479.98631702141,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28126.21367264944,
-        "team": 0.7521045560080337,
-        "noaff": true,
-        "nihil": false
-      },
-      "coabs": [
-        "Gala_Mascula",
-        "Hunter_Sarisse",
-        "Summer_Estelle"
-      ]
-    },
-    "META": {
-      "tdps": 115844.69978470624,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 39390.14923635001,
-        "team": 0.0997692558820903,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep and not buff(s3)",
-        "`s3",
-        "`s2",
-        "`fs",
-        "`s4, fscf",
-        "end",
-        "`s2",
-        "`s4",
-        "`s1, fscf",
-        "`s1, duration-now<10 and xf=2",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
         "Summer_Celliera",
         "Tiki",
         "Yurius"
@@ -165,102 +168,37 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39390.14923635001,
-        "team": 0.0997692558820903,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep and not buff(s3)",
-        "`s3",
-        "`s2",
-        "`fs",
-        "`s4, fscf",
-        "end",
-        "`s2",
-        "`s4",
-        "`s1, fscf",
-        "`s1, duration-now<10 and xf=2",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 103712.26938200608,
-        "team": 0.2850919691522197,
+        "dps": 124364.8338939352,
+        "team": 0.29640211983650455,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep and not buff(s3)",
+        "`dragon, dshift_count=0 and dgauge>=1000",
+        "`dragon, dshift_count=1 and x=4",
+        "`dragon, dshift_count=2 and s=1",
+        "`dragon, dshift_count=3 and fscf",
+        "`dragon, dshift_count=4",
+        "queue not buff(s3)",
         "`s3",
         "`s2",
-        "`fs",
-        "`s4, fscf",
+        "`s4",
         "end",
         "`s2",
         "`s4",
-        "`s1, fscf",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4)",
+        "`s1, amp_lvl(team) and (xf or fscf)",
+        "`fs, charged_in(fs, s2) or charged_in(fs, s4)",
         "`fs, x=5",
         "`dodge, fscf"
-      ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, x=3"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 140964.60109551804,
+      "tdps": 183167.6688799649,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -271,8 +209,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47472.47145927132,
-        "team": 0.1322339924635127,
+        "dps": 46019.490192027,
+        "team": 0.13197691284564275,
         "noaff": false,
         "nihil": true
       },
@@ -317,60 +255,11 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 47472.47145927132,
-        "team": 0.1322339924635127,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep",
-        "`s2",
-        "`fs",
-        "`s4,fscf",
-        "`fs",
-        "`s3,fscf",
-        "end",
-        "`s2",
-        "`s4",
-        "`s3, fscf",
-        "`s1, fscf or duration-now<10",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s3)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77530.14360696371,
-        "team": 0.23894978200593112,
+        "dps": 84299.53997565266,
+        "team": 0.3024611461737869,
         "noaff": false,
         "nihil": false
       },
@@ -403,7 +292,7 @@
       ]
     },
     "META": {
-      "tdps": 85051.1412480919,
+      "tdps": 108408.59903217264,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -414,8 +303,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38443.13083242986,
-        "team": 0.13328041360466478,
+        "dps": 39725.05596949498,
+        "team": 0.13330739023400046,
         "noaff": false,
         "nihil": true
       },
@@ -455,8 +344,8 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33430.70619929901,
-        "team": 0.1290955267134093,
+        "dps": 33899.045783305766,
+        "team": 0.129102358000468,
         "noaff": false,
         "nihil": true
       },
@@ -490,9 +379,6 @@
         "`fs, x=5",
         "`dodge, fscf"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Blade",
         "Tiki",
@@ -503,7 +389,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

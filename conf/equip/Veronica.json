@@ -46,8 +46,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -125,8 +125,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Chariot_Drift",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -136,9 +136,6 @@
         "`s2, hp < 50",
         "`s1",
         "`fs, charged_in(fs,s1) and x>4"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -203,8 +200,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 151588.64331907773,
-        "team": 0.03331564087715863,
+        "dps": 149110.9903746122,
+        "team": 0.03324349336079068,
         "noaff": false,
         "nihil": false
       },
@@ -214,7 +211,7 @@
         "Welcome_to_the_Opera",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
@@ -240,7 +237,7 @@
       ]
     },
     "META": {
-      "tdps": 798272.0390548108,
+      "tdps": 778296.8827519875,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -249,40 +246,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 70990.02192977187,
-        "team": 0.06166258107779463,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "#`dragon(c3-s-end), cancel",
-        "`s3",
-        "`s1",
-        "`s4",
-        "`fs, charged_in(fs,s1) and x>3"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Joker"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80960.52320668803,
-        "team": 0.026315409772107043,
+        "dps": 87193.37452705512,
+        "team": 0.06664183597394463,
         "noaff": false,
         "nihil": true
       },
@@ -292,29 +259,34 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, s=1",
+        "`dragon",
         "`s4",
         "`s1",
         "`s2",
         "`s3",
         "`fs, charged_in(fs,s1) and x>4"
       ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4",
+        "end"
+      ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Joker"
+        "Ieyasu",
+        "Joker",
+        "Summer_Prince"
       ],
       "share": [
-        "Summer_Celliera",
-        "Curran"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 282073.5269221341,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -414,8 +386,8 @@
         "Jewels_of_the_Sun",
         "A_Small_Courage",
         "Seaside_Memory",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, duration-now<5",
@@ -446,6 +418,15 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Emissaries_of_the_Heavens",
+        "Jewels_of_the_Sun",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
       "slots.d": "Arsene",
       "acl": [
         "`dragon, duration-now<5",

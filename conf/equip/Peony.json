@@ -25,9 +25,6 @@
         "`s1",
         "`s4, cancel"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Bow",
         "Joker",
@@ -51,7 +48,7 @@
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Sisters_of_the_Anvil",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
@@ -62,9 +59,6 @@
         "`s2, not c_fs(peonydreams)",
         "`s1",
         "`s4, cancel"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -105,6 +99,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20694.350593586605,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
+        "`s3",
+        "`s2, not c_fs(peonydreams)",
+        "`s1",
+        "`s4, cancel"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Luca"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 26397.40966165744,
@@ -118,7 +150,7 @@
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Sisters_of_the_Anvil",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "High_Jupiter",
@@ -129,6 +161,9 @@
         "`s2, not c_fs(peonydreams)",
         "`s1",
         "`s4, cancel"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -142,6 +177,33 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20694.350593586605,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Luca"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -166,7 +228,7 @@
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Sisters_of_the_Anvil",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
@@ -201,8 +263,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, aff(flashburn)",
@@ -225,7 +287,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -268,36 +330,15 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31636.115269985923,
+        "dps": 15438.611246367816,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "Jewels_of_the_Sun",
-        "A_Small_Courage",
-        "Chariot_Drift",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s2",
-        "`s1",
-        "`s4, cancel"
-      ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Dagger",
         "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
       ]
     },
     "PERSONAL": {
@@ -313,8 +354,8 @@
         "Jewels_of_the_Sun",
         "A_Small_Courage",
         "Chariot_Drift",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon",
@@ -337,7 +378,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -358,8 +399,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

@@ -2,19 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 95933.10401633216,
-        "team": 0.08690951344044076,
-        "noaff": false,
+        "dps": 73939.66792685135,
+        "team": 0.18947275260050367,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "Moonlight_Party",
-        "Sweet_Surprise",
+        "Twinfold_Bonds",
         "Amaterasu_Oblation",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
+        "Seaside_Memory",
+        "Promised_Piety_Staff",
+        "Ravenous_Fire_Crown"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -31,13 +31,13 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95933.10401633216,
-        "team": 0.08690951344044076,
+        "dps": 98991.98057594454,
+        "team": 0.08629546962227269,
         "noaff": false,
         "nihil": false
       },
@@ -47,16 +47,17 @@
         "Sweet_Surprise",
         "Amaterasu_Oblation",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "`dragon, s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s4, s=1",
+        "`s3, not buff(s3) and xf=3",
+        "`s4, xf>1",
         "`s2",
-        "`s1"
+        "`s1",
+        "`fs, xf>3 and charged_in(fs,s1)"
       ],
       "coabs": [
         "Blade",
@@ -69,6 +70,7 @@
       ]
     },
     "META": {
+      "tdps": 242808.41601904648,
       "pref": "PERSONAL"
     }
   },
@@ -86,7 +88,7 @@
         "Sweet_Surprise",
         "Amaterasu_Oblation",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
@@ -118,8 +120,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 106998.6775202179,
-        "team": 0.08537219383623666,
+        "dps": 116891.84422797133,
+        "team": 0.08629546962227269,
         "noaff": false,
         "nihil": false
       },
@@ -129,19 +131,12 @@
         "The_Cutie_Competition",
         "Amaterasu_Oblation",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3) and xf=3",
-        "`s4, xf>1",
-        "`s2",
-        "`s1",
-        "`fs, xf>3 and charged_in(fs,s1)"
       ]
     },
     "META": {
+      "tdps": 416294.89613699476,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -163,8 +158,8 @@
         "The_Cutie_Competition",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon",
@@ -190,6 +185,46 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80950.34581760658,
+        "team": 0.1832964052574187,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Amaterasu_Oblation",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3) and xf=3",
+        "`s4, xf>1",
+        "`s2",
+        "`s1",
+        "`fs, xf>3 and charged_in(fs,s1)"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 1135084.7841490586,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -204,8 +239,8 @@
         "The_Cutie_Competition",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Mars",
       "acl": [

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10402.26465457353,
-        "team": 0.6173125469479166,
+        "dps": 10473.757882440012,
+        "team": 0.6173125469479173,
         "noaff": true,
         "nihil": false
       },
@@ -21,6 +21,9 @@
         "`s4",
         "`s1, not buff(s1)"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Bow",
         "Renee",
@@ -33,25 +36,22 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42056.89767964461,
-        "team": 0.05983633601215103,
-        "noaff": true,
+        "dps": 43396.31071976061,
+        "team": 0.19124445160999748,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Springtime_Breeze",
         "Dueling_Dancers",
-        "Mana_Fount"
+        "Entwined_Flames"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count=2",
-        "`dragon, dshift_count>=3",
-        "`s3, not buff(s3) and x=5",
+        "`dragon, dshift_count>=1 or dgauge=1000",
+        "`s3, not buff(s3)",
         "`s4",
         "`s1, not buff(s1) and x=5"
       ],
@@ -65,11 +65,11 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 56782.03375160422,
+      "tdps": 77270.63630805146,
       "pref": "PERSONAL"
     }
   },
@@ -107,7 +107,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 19912.05473318907,
+        "dps": 20037.400401473536,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -129,6 +129,9 @@
         "`s4",
         "`s1, not buff(s1) and x=5"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Summer_Celliera",
         "Tiki",
@@ -140,48 +143,14 @@
       ]
     },
     "META": {
-      "tdps": 62804.97666635312,
+      "tdps": 63443.86600124243,
       "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46869.27726826349,
-        "team": 0.05996990655435815,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Springtime_Breeze",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count=2",
-        "`dragon, dshift_count=3",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not buff(s1)"
-      ]
-    },
-    "META": {
-      "tdps": 65430.150092121745,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28371.702362783304,
+        "dps": 28871.303548375847,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -199,7 +168,7 @@
       ]
     },
     "META": {
-      "tdps": 105923.96690703268,
+      "tdps": 108470.44396955663,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -207,10 +176,50 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10473.757882440012,
+        "team": 0.6173125469479173,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28099.37889006036,
+        "dps": 28597.795467598553,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -228,7 +237,7 @@
       ]
     },
     "META": {
-      "tdps": 104535.92881410188,
+      "tdps": 107076.36790608957,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

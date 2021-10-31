@@ -45,37 +45,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 130122.31371399127,
-        "team": 0.1451173032350671,
+        "dps": 135051.60943495223,
+        "team": 0.21071681412638743,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, dgauge=1000",
+        "`dragon, dgauge>=900 and s=2",
         "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
+        "`s4, cancel",
         "`s2, fsc",
-        "`s4",
         "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
-        "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
-        "else",
-        "`dodge, x=5",
-        "end"
+        "`fs, x=4 and gauges[fs]<1000",
+        "`fs, (x=3 or hits=0) and gauges[fs]<1000 and not  c_fs(enhanced)",
+        "`dodge, x=5"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`dfs, x=3",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -88,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 497237.6888092201,
+      "tdps": 1549003.159905558,
       "pref": "PERSONAL"
     }
   },
@@ -106,8 +105,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -121,10 +120,6 @@
         "else",
         "`dodge, x=5",
         "end"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Meene",
@@ -143,19 +138,20 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 144804.32172754066,
-        "team": 0.24641664068984864,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 158408.16909676715,
-        "team": 0.2107168141263875,
+        "dps": 143105.63765668037,
+        "team": 0.2504415343184413,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "FirstRate_Hospitality",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`dragon, dgauge>=900 and s=2",
         "`dragon, dshift_count>0",
@@ -171,10 +167,27 @@
         "`ds1, blood_moon=0",
         "`dfs, x=3",
         "dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Halloween_Lowen"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 159173.62156593418,
+        "team": 0.21071681412638743,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "META": {
-      "tdps": 381062.0016610965,
+      "tdps": 404483.2495124257,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -185,26 +198,35 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 101524.64380309275,
-        "team": 0.07310145545491983,
+        "dps": 114415.5479726413,
+        "team": 0.1265221694609296,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Adventure_in_the_Past",
+        "Sweet_Surprise",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
-        "`dragon, gauges[fs]>=1000 and gauges[x]>=1000",
-        "`s3, x",
-        "`s2, fsc",
+        "`dragon, dgauge>=900 and s=2",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
         "`s4, cancel",
-        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and Cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel)) and hits>14",
-        "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0",
-        "else",
-        "`dodge, x=5",
-        "end"
+        "`s2, fsc",
+        "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "`fs, x=4 and gauges[fs]<1000",
+        "`fs, (x=3 or hits=0) and gauges[fs]<1000 and not  c_fs(enhanced)",
+        "`dodge, x=5"
       ],
       "dacl": [
-        "`ds1, blood_moon=0 and x=1",
-        "`fs, x=3"
+        "`ds1, blood_moon=0",
+        "`dfs, x=3",
+        "`dodge, x=3"
       ],
       "coabs": [
         "Mona",
@@ -223,11 +245,20 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80364.54885304229,
-        "team": 0.24884591807968318,
+        "dps": 82548.58391287598,
+        "team": 0.31435345334719117,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "dacl": [
         "`ds1, blood_moon=0",
         "`dfs"
@@ -259,8 +290,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon",

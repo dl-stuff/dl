@@ -13,8 +13,8 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -23,9 +23,6 @@
         "`s3",
         "`fs, x=4 or hits=0",
         "`s1"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Cleo",
@@ -39,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53433.637418293874,
-        "team": 0.07848745276474013,
+        "dps": 119362.58857504177,
+        "team": 0.025410600146892233,
         "noaff": false,
         "nihil": false
       },
@@ -50,10 +47,10 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
         "`s4",
@@ -62,11 +59,13 @@
         "`s1"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
-        "Cleo",
-        "Dagger2",
+        "Blade",
+        "Gala_Zena",
         "Peony"
       ],
       "share": [
@@ -75,36 +74,15 @@
       ]
     },
     "META": {
+      "tdps": 1242141.308404905,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 50157.12446095697,
-        "team": 0.07848745276474013,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34204.426929988804,
-        "team": 0.03842746042502752,
+        "dps": 34022.65128597867,
+        "team": 0.039855558782329444,
         "noaff": false,
         "nihil": true
       },
@@ -114,8 +92,8 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -137,8 +115,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35830.52999162431,
-        "team": 0.03842746042502752,
+        "dps": 35438.32253048751,
+        "team": 0.039855558782329444,
         "noaff": false,
         "nihil": true
       },
@@ -148,8 +126,8 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -176,8 +154,8 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34204.426929988804,
-        "team": 0.03842746042502752,
+        "dps": 34022.65128597867,
+        "team": 0.039855558782329444,
         "noaff": false,
         "nihil": true
       },
@@ -198,37 +176,32 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60436.28052195345,
-        "team": 0.04026658450076884,
+        "dps": 170206.21200783865,
+        "team": 0.01993558140074198,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
+        "`dragon,buff(s3,1)",
+        "`s3, fsc",
         "`s4, cancel",
-        "`s1",
+        "`s1, fsc",
         "`s2, fsc",
         "`fs, x=4"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
+        "Halloween_Laxi",
+        "Peony"
       ]
     },
     "META": {
@@ -242,8 +215,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46085.09524646334,
-        "team": 0.03851313319434495,
+        "dps": 46020.39497002955,
+        "team": 0.039138090062343506,
         "noaff": false,
         "nihil": true
       },
@@ -253,8 +226,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ]
     },
     "META": {
@@ -314,8 +287,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33817.110635336816,
-        "team": 0.03842746042502752,
+        "dps": 33631.483856519044,
+        "team": 0.039855558782329444,
         "noaff": false,
         "nihil": true
       },

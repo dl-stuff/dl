@@ -2,17 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17398.367614223785,
-        "team": 1.3935602463235217,
+        "dps": 16129.517764618206,
+        "team": 1.6887877742477337,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Castle_Cheer_Corps",
         "Gentle_Winds",
-        "Sisters_Day_Out",
         "The_Chocolatiers",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
@@ -25,7 +27,8 @@
         "`fs, fs_prep_c=1 and x=4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "ds1",
+        "sack"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -39,17 +42,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56144.86254977765,
-        "team": 0.2330536689306165,
+        "dps": 68630.8057548461,
+        "team": 0.2331370837170843,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Summer_Paladyns",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -60,9 +65,6 @@
         "`s1",
         "`fsf, x=4"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Summer_Celliera",
         "Tiki",
@@ -70,19 +72,19 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 33387.57029934154,
+      "tdps": 36067.229818088315,
       "pref": "TEAMBUFF"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 16399.96752234775,
-        "team": 1.2705187542193415,
+        "dps": 13939.324434087654,
+        "team": 1.3722908444262434,
         "noaff": true,
         "nihil": false
       },
@@ -93,8 +95,8 @@
       ]
     },
     "META": {
-      "tdps": 38309.62178006111,
-      "pref": "TEAMBUFF",
+      "tdps": 48010.622628073725,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -104,24 +106,25 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 7966.545726293929,
-        "team": 0.4400643639780373,
-        "noaff": true,
+        "dps": 11925.589439788482,
+        "team": 0.5079560416565887,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Gentle_Winds",
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
         "Sisters_Day_Out",
-        "The_Chocolatiers",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon, dshift_count=0 and s=4",
         "`s1",
         "`s4, cancel",
-        "`s3, s=1",
+        "`s3, cancel",
         "`fs, fs_prep_c=3 and x=5",
         "`fs, fs_prep_c=2 and x=5",
         "`fs, fs_prep_c=1 and x=4"
@@ -132,8 +135,8 @@
         "Tobias"
       ],
       "share": [
-        "Summer_Cleo",
-        "Mikoto"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "PERSONAL": {
@@ -172,30 +175,42 @@
       ]
     },
     "META": {
-      "tdps": 90951.86636232662,
+      "tdps": 61142.90600723996,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68492.11137982357,
-        "team": 0.25746359271009267,
+        "dps": 74779.51222170203,
+        "team": 0.5396666148300774,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Summer_Paladyns",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, energy()<5",
-        "`s2",
+        "`dragon, dshift_count>=1 or dgauge=1000",
         "`s3, not buff(s3)",
+        "`s2",
         "`s4, energy()<5",
-        "`s1",
+        "`s1, cancel",
         "`fsf, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
       ]
     },
     "META": {
-      "tdps": 44973.06070138737,
-      "pref": "PERSONAL",
+      "tdps": 51038.99965327072,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -205,8 +220,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29246.57474106487,
-        "team": 0.5106487439751961,
+        "dps": 29401.95603182785,
+        "team": 0.5106123695543965,
         "noaff": false,
         "nihil": true
       },
@@ -240,8 +255,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49833.81795137649,
-        "team": 0.12074650318126752,
+        "dps": 48433.787585892875,
+        "team": 0.10799403407726796,
         "noaff": false,
         "nihil": true
       },
@@ -271,7 +286,7 @@
       ]
     },
     "META": {
-      "tdps": 52801.03845618165,
+      "tdps": 47270.15606855332,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -282,19 +297,18 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42433.91460917675,
-        "team": 0.2940322255996859,
-        "noaff": false,
+        "dps": 56417.40546295404,
+        "team": 0.3351710607613453,
+        "noaff": true,
         "nihil": false
       },
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Summer_Estelle"
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 22769.357872727687,
+      "tdps": 29763.142917000456,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -305,8 +319,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28970.24812293935,
-        "team": 0.5106487439751961,
+        "dps": 29129.694404258862,
+        "team": 0.5106123695543965,
         "noaff": false,
         "nihil": true
       },

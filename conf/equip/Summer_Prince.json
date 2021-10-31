@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88373.51869990694,
-        "team": 0.07406929217323283,
+        "dps": 88504.61914747534,
+        "team": 0.07392385952785782,
         "noaff": false,
         "nihil": false
       },
@@ -47,7 +47,7 @@
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
         "His_Clever_Brother",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 691002.06084668,
+      "tdps": 691482.3696477603,
       "pref": "PERSONAL"
     }
   },
@@ -155,8 +155,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 99213.0932660351,
-        "team": 0.07402191962137412,
+        "dps": 101945.76922702945,
+        "team": 0.10529562759546948,
         "noaff": false,
         "nihil": false
       },
@@ -166,15 +166,26 @@
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
         "His_Clever_Brother",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
         "`s2, xf",
         "`s1, buff(s3) and xf",
         "`s4"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Vania",
+        "Yaten"
       ]
     },
     "META": {
@@ -188,8 +199,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 20050.771232302788,
-        "team": 0.061718273264913026,
+        "dps": 65847.26958621379,
+        "team": 0.09394748501236588,
         "noaff": false,
         "nihil": true
       },
@@ -199,14 +210,36 @@
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3, s",
+        "`s2",
+        "`s1, cancel",
+        "`s4, xf or fscf"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Alberius",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57421.2079668626,
-        "team": 0.05551467896753809,
+        "dps": 66108.14883643608,
+        "team": 0.08377646389502615,
         "noaff": false,
         "nihil": true
       },
@@ -219,20 +252,67 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3, s",
         "`s2",
         "`s1, cancel",
         "`s4, xf or fscf"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 6023997.531620207,
-      "pref": "PERSONAL",
+      "tdps": 25649.26836869325,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54057.7522853397,
+        "team": 0.049375594991349574,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Alberius",
+        "Ieyasu",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": -264505.6625446028,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },

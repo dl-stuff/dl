@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67659.06627835808,
-        "team": 0.04191075325928364,
+        "dps": 99824.02507051027,
+        "team": 0.032739272191338965,
         "noaff": false,
         "nihil": false
       },
@@ -51,24 +51,26 @@
         "Moonlight_Party",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "queue s2.check() and dgauge>=500 and energy()>2",
-        "`s2",
-        "`dragon, cancel",
-        "end",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s1",
         "`s2, charged_in(5,s1)",
         "`s4, xf",
         "`fsf, xf=5"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "coabs": [
         "Gala_Zena",
-        "Lucretia",
+        "Halloween_Elisanne",
         "Peony"
       ],
       "share": [
@@ -77,14 +79,14 @@
       ]
     },
     "META": {
-      "tdps": 1255858.7621250465,
+      "tdps": 2155536.6701010237,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33359.579195749684,
+        "dps": 33558.02999405873,
         "team": 0.032098741588308645,
         "noaff": false,
         "nihil": true
@@ -95,8 +97,8 @@
         "Worthy_Rivals",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -109,6 +111,9 @@
         "`s2, charged_in(5,s1)",
         "`s4, xf",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Gala_Zena",
@@ -125,10 +130,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 82372.76873539777,
-        "team": 0.14886409186090274,
+        "dps": 121035.1471905233,
+        "team": 0.10671267224965063,
         "noaff": false,
         "nihil": false
       },
@@ -138,8 +143,48 @@
         "Spirit_of_the_Season",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, charged_in(5,s1)",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 127127.93340627076,
+        "team": 0.1240243044135897,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "share": [
         "Weapon",
@@ -157,7 +202,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52794.45672213409,
+        "dps": 53108.52249680473,
         "team": 0.040327187549913435,
         "noaff": false,
         "nihil": true
@@ -168,8 +213,8 @@
         "Spirit_of_the_Season",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, aff(flashburn) and xf",
@@ -199,8 +244,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57696.637118232495,
-        "team": 0.14886409186090274,
+        "dps": 58053.0020815051,
+        "team": 0.14886409186090271,
         "noaff": false,
         "nihil": false
       },
@@ -210,8 +255,8 @@
         "Spirit_of_the_Season",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "share": [
         "Weapon",
@@ -229,7 +274,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30708.709200692105,
+        "dps": 30891.390397602812,
         "team": 0.04676850102553392,
         "noaff": false,
         "nihil": true
@@ -240,8 +285,8 @@
         "Spirit_of_the_Season",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, aff(flashburn) and xf",

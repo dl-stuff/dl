@@ -13,7 +13,7 @@
         "Sweet_Surprise",
         "Chariot_Drift",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
@@ -24,6 +24,9 @@
         "`s2, s2.flames=3 and (s2.count=3 and aff())",
         "`s1",
         "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -48,7 +51,7 @@
         "Sweet_Surprise",
         "Chariot_Drift",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
@@ -59,6 +62,9 @@
         "`s2, s2.flames=3 and (s2.count=3 and aff())",
         "`s1",
         "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -88,7 +94,7 @@
         "Sweet_Surprise",
         "Chariot_Drift",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
@@ -99,6 +105,9 @@
         "`s2, s2.flames=3 and (s2.count=3 and aff())",
         "`s1",
         "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -128,7 +137,7 @@
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
@@ -150,6 +159,45 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43553.55726130364,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s",
+        "`s3",
+        "`s4",
+        "`s2, s2.flames=3 and (s2.count=3 and aff())",
+        "`s1",
+        "`fs, x=4 or hits=0"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

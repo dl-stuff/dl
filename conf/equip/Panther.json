@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 121502.17310964085,
-        "team": 0.02499316575767458,
+        "dps": 91837.13033595677,
+        "team": 0.03470286281417929,
         "noaff": false,
         "nihil": false
       },
@@ -23,15 +23,15 @@
         "`dragon, a3_buffcount=3 and s=1",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
+        "`s2, x=5",
         "`s4, x=5",
-        "`s1, x=5 or s",
-        "`s2, x=5"
+        "`s1, x=5 or s"
       ],
       "dacl": [
+        "`sack, not aff(scorchrend) and s1.check()",
         "`s4, x=5",
         "`s1, x=5",
-        "`s2, x=5",
-        "`sack, not aff(scorchrend) and s1.check()"
+        "`s2, x=5"
       ],
       "coabs": [
         "Blade",
@@ -45,8 +45,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 121502.17310964085,
-        "team": 0.02499316575767458,
+        "dps": 121257.71185517214,
+        "team": 0.024979251955778378,
         "noaff": false,
         "nihil": false
       },
@@ -56,7 +56,7 @@
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Agni",
@@ -71,10 +71,10 @@
         "`s2, x=5"
       ],
       "dacl": [
+        "`sack, not aff(scorchrend) and charged_in(5, s2)",
         "`s4, x=5",
         "`s1, x=5",
-        "`s2, x=5",
-        "`sack, not aff(scorchrend) and s1.check()"
+        "`s2, x=5"
       ],
       "coabs": [
         "Blade",
@@ -87,6 +87,7 @@
       ]
     },
     "META": {
+      "tdps": 3025684.794224037,
       "pref": "PERSONAL"
     }
   },
@@ -139,8 +140,8 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Agni",
       "acl": [
@@ -173,8 +174,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 137028.33187486973,
-        "team": 0.023075452962095427,
+        "dps": 137357.13236278633,
+        "team": 0.023058364934686208,
         "noaff": false,
         "nihil": false
       },
@@ -184,7 +185,7 @@
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
@@ -203,6 +204,11 @@
         "if a3_buffcount<3",
         "`sack, not have_buff(s1_10) and s1.check()",
         "end"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Kimono_Elisanne",
+        "Marth"
       ]
     },
     "META": {
@@ -229,6 +235,7 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.d": "Cerberus",
       "dacl": [
         "ds1,x=3"
       ]
@@ -245,7 +252,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65465.26037015599,
+        "dps": 61317.286654237454,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -256,8 +263,8 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [

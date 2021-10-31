@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51888.257934480556,
-        "team": 0.21896991313358544,
+        "dps": 52238.928315452744,
+        "team": 0.21896991313358558,
         "noaff": false,
         "nihil": false
       },
@@ -13,7 +13,7 @@
         "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Ramiel",
@@ -22,9 +22,6 @@
         "`s1, (x=5 or s) and timeleft(s1)<5",
         "`s4",
         "`dragon"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Audric",
@@ -38,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51888.257934480556,
-        "team": 0.21896991313358544,
+        "dps": 52238.928315452744,
+        "team": 0.21896991313358558,
         "noaff": false,
         "nihil": false
       },
@@ -49,7 +46,7 @@
         "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Ramiel",
@@ -58,9 +55,6 @@
         "`s1, (x=5 or s) and timeleft(s1)<5",
         "`s4",
         "`dragon"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Audric",
@@ -79,7 +73,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 17229.371176131397,
+        "dps": 17345.810432231967,
         "team": 0.08317807683192244,
         "noaff": false,
         "nihil": true
@@ -90,7 +84,7 @@
         "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Ramiel",
@@ -99,6 +93,9 @@
         "`s1, (x=5 or s) and timeleft(s1)<5",
         "`s4",
         "`dragon"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Audric",
@@ -115,10 +112,27 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57232.40911201597,
+        "team": 0.21896991313358558,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69301.72532319909,
-        "team": 0.14355549703665046,
+        "dps": 78921.16097766424,
+        "team": 0.16295848067064003,
         "noaff": false,
         "nihil": false
       },
@@ -126,21 +140,26 @@
         "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Welcome_to_the_Opera",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`s3, not buff(s3)",
         "`s4, x=5",
         "`s1, (x=5 or s) and timeleft(s1)<14 and not duration-now<10",
-        "`dragon, aff(frostbite) and timeleft(s1)>14"
+        "`dragon"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
       ],
       "coabs": [
         "Alberius",
-        "Forte",
+        "Dagger2",
         "Ieyasu"
       ],
       "share": [
@@ -149,6 +168,7 @@
       ]
     },
     "META": {
+      "tdps": 387220.08904158097,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -156,11 +176,37 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57232.40911201597,
+        "team": 0.21896991313358558,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43552.00935746325,
-        "team": 0.21896991313358544,
+        "dps": 43846.341838865315,
+        "team": 0.21896991313358558,
         "noaff": false,
         "nihil": false
       }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89252.58332666568,
-        "team": 0.5062316734147158,
+        "dps": 92950.6335990497,
+        "team": 0.5375589812705267,
         "noaff": false,
         "nihil": false
       },
@@ -13,12 +13,12 @@
         "Sweet_Surprise",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, dgauge>=1000",
+        "`dragon, dgauge>=1000 and s=1",
         "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s2",
@@ -41,34 +41,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98050.95968706592,
-        "team": 0.1500302514875515,
+        "dps": 92950.6335990497,
+        "team": 0.5375589812705267,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Sweet_Surprise",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=1",
+        "`dragon, dgauge>=1000 and s=1",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s1, x=5 or dgauge>=500",
-        "`s4"
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Nino",
-        "Valentines_Melody",
+        "Humanoid_Midgardsormr",
+        "Mona",
         "Yukata_Lathna"
       ],
       "share": [
@@ -77,14 +79,13 @@
       ]
     },
     "META": {
-      "tdps": 24700.564957877443,
-      "pref": "TEAMBUFF"
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24499.68904610842,
+        "dps": 24938.810214929945,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -95,7 +96,7 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -124,55 +125,16 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 112565.22949437743,
-        "team": 0.5062316734147158,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 120264.18277681821,
-        "team": 0.1327621748785293,
+        "dps": 109455.8591369946,
+        "team": 0.5375589812705267,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, timeleft(s1)>10 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, (x=5 and dgauge<400) or (dgauge>=500 and cancel)",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Yukata_Lathna"
-      ]
+      }
     },
     "META": {
-      "tdps": 20614.67753756819,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -182,15 +144,11 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 96448.053536902,
-        "team": 0.15001809698099836,
-        "noaff": true,
+        "dps": 69189.20132404775,
+        "team": 0.5375589812705267,
+        "noaff": false,
         "nihil": false
-      },
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",

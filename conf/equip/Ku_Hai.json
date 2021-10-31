@@ -86,6 +86,27 @@
     }
   },
   "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 87072.52403152706,
+        "team": 0.04894579485052755,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`s1, duration-now<1",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=3 or hits=0"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 87072.52403152706,
@@ -132,10 +153,6 @@
         "`s1, duration-now<1",
         "`fs, x=1 and buff(s2)",
         "`fs, x=3 or hits=0"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Grace",
@@ -215,6 +232,31 @@
     }
   },
   "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 89280.70223317714,
+        "team": 0.04960615428447421,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, fsc and not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2 or hits=0",
+        "end",
+        "`s1, duration-now<2 and fscf"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 89280.70223317714,
@@ -244,7 +286,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -284,26 +326,29 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52480.70296136917,
-        "team": 0.19234077989654425,
+        "dps": 54545.72115604343,
+        "team": 0.14555071283984025,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon, fsc and not buff(s2)",
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2 or hits=0",
-        "end",
-        "`s1, duration-now<3 and fsc"
+        "`s1, duration-now<1 and fsc",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=3 or hits=0"
       ],
-      "share": [
-        "Weapon",
-        "Akasha"
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Grace",
+        "Mona",
+        "Yukata_Lathna"
       ]
     },
     "META": {

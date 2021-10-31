@@ -45,8 +45,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54606.62432104643,
-        "team": 0.17458308062756886,
+        "dps": 72516.65924162148,
+        "team": 0.1325556287987275,
         "noaff": false,
         "nihil": false
       },
@@ -56,10 +56,10 @@
         "Emissaries_of_the_Heavens",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
         "queue prep",
@@ -74,7 +74,7 @@
         "`s3"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<2"
       ],
       "coabs": [
         "Blade",
@@ -87,14 +87,15 @@
       ]
     },
     "META": {
+      "tdps": 426150.8642854309,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52626.97441942784,
-        "team": 0.16770227384519798,
+        "dps": 68674.58434847127,
+        "team": 0.14539666858765588,
         "noaff": false,
         "nihil": false
       },
@@ -104,7 +105,7 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "coabs": [
@@ -122,48 +123,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 52729.57795107556,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon",
-        "queue now=0",
-        "`s3",
-        "`s4",
-        "`s1",
-        "`s2",
-        "end",
-        "`s3",
-        "`s4",
-        "`s1"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Malora",
-        "Peony"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Ryszarda"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54837.11315208002,
@@ -177,8 +136,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -192,9 +151,6 @@
         "`s3",
         "`s4",
         "`s1"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -235,8 +191,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67079.94044908097,
-        "team": 0.16770227384519784,
+        "dps": 143712.31870071008,
+        "team": 0.09520049683279869,
         "noaff": false,
         "nihil": false
       },
@@ -246,8 +202,13 @@
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ]
     },
     "META": {
@@ -261,8 +222,8 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64849.01963344099,
-        "team": 0.16770227384519812,
+        "dps": 81276.19124323617,
+        "team": 0.14539666858765607,
         "noaff": false,
         "nihil": false
       },
@@ -272,7 +233,7 @@
         "Spirit_of_the_Season",
         "Snipers_Allure",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "coabs": [
@@ -303,8 +264,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon, s=4",
@@ -332,7 +293,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -361,13 +322,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53935.48125604064,
-        "team": 0.17458308062756875,
+        "dps": 71948.4370730741,
+        "team": 0.1325556287987275,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
+      "tdps": 584325.2504332743,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -378,8 +340,8 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51411.36490440591,
-        "team": 0.16770227384519787,
+        "dps": 67061.65000942495,
+        "team": 0.14539666858765585,
         "noaff": false,
         "nihil": false
       },
@@ -390,6 +352,7 @@
       ]
     },
     "META": {
+      "tdps": 701630.1474145082,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -444,8 +407,8 @@
         "Moonlight_Party",
         "A_Small_Courage",
         "Lord_of_the_Skies",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon",

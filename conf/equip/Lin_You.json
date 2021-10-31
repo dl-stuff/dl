@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117732.09074686709,
-        "team": 0.08155270920362692,
+        "dps": 121485.75778079085,
+        "team": 0.06745643038498278,
         "noaff": false,
         "nihil": false
       },
@@ -51,21 +51,17 @@
         "Sweet_Surprise",
         "Hastened_Squall",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, dgauge>=1000",
-        "`dragon, dshift_count>0",
+        "`dragon, (dgauge>=800 or dshift_count>0) and s=2",
         "`s3, not buff(s3)",
         "`s4, cancel",
-        "`s2, charged_in(4,s1) and cancel",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs",
-        "`dodge, fsc",
-        "end"
+        "`s2, (charged_in(4,s1) or dgauge>=800) and cancel",
+        "`s1",
+        "`fs, x=4 and hits<50 and c_fs(enhanced)"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
@@ -82,7 +78,7 @@
       ]
     },
     "META": {
-      "tdps": 1054945.9439672846,
+      "tdps": 834644.7527585045,
       "pref": "PERSONAL"
     }
   },
@@ -137,7 +133,7 @@
         "Sweet_Surprise",
         "Hastened_Squall",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -150,10 +146,6 @@
         "`fs",
         "`dodge, fsc",
         "end"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Mona",
@@ -206,15 +198,7 @@
         "team": 0.06745643038498278,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon, (dgauge>=800 or dshift_count>0) and s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, (charged_in(4,s1) or dgauge>=800) and cancel",
-        "`s1",
-        "`fs, x=4 and hits<50 and c_fs(enhanced)"
-      ]
+      }
     },
     "META": {
       "tdps": 97655.20740667773,
@@ -279,7 +263,7 @@
         "Sweet_Surprise",
         "Hastened_Squall",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
@@ -309,8 +293,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76958.89184413296,
-        "team": 0.16926578443114032,
+        "dps": 77892.53996500459,
+        "team": 0.15886428510278866,
         "noaff": false,
         "nihil": false
       },
@@ -320,7 +304,7 @@
         "Summer_Paladyns",
         "Hastened_Squall",
         "Lord_of_the_Skies",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "share": [
@@ -358,7 +342,7 @@
         "Summer_Paladyns",
         "Hastened_Squall",
         "Lord_of_the_Skies",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ]
     },

@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58307.835332041876,
+        "dps": 58700.66964130492,
         "team": 0.09167155125499676,
         "noaff": true,
         "nihil": false
@@ -13,8 +13,8 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -25,6 +25,9 @@
         "`s4, xf",
         "`s1, xf=5",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Gala_Zena",
@@ -38,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65817.87821908445,
+        "dps": 92772.50610376135,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -49,10 +52,10 @@
         "Extreme_Teamwork",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, bleed_stack>0 and aff(flashburn)",
         "`s3, not buff(s3)",
@@ -61,6 +64,11 @@
         "`s4, xf",
         "`s1, xf=5",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
         "Gala_Zena",
@@ -73,14 +81,14 @@
       ]
     },
     "META": {
-      "tdps": 81923.37518269304,
+      "tdps": 371672.9562880531,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48767.88806488879,
+        "dps": 49085.95984586061,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -91,8 +99,8 @@
         "Spirit_of_the_Season",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -120,7 +128,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76439.96637594239,
+        "dps": 119986.45784491266,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -131,9 +139,10 @@
         "Spirit_of_the_Season",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, xf",
         "`s3, not buff(s3)",
@@ -143,6 +152,11 @@
         "`s1, xf=5",
         "`fsf, xf=5"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "coabs": [
         "Halloween_Elisanne",
         "Peony",
@@ -150,7 +164,7 @@
       ]
     },
     "META": {
-      "tdps": 197794.52617163144,
+      "tdps": 668536.6110270466,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -161,7 +175,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60225.25479782088,
+        "dps": 60618.05331367088,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -194,7 +208,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58307.835332041876,
+        "dps": 58700.66964130492,
         "team": 0.09167155125499676,
         "noaff": true,
         "nihil": false
@@ -205,8 +219,8 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, xf",
@@ -233,8 +247,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42649.28206963961,
-        "team": 0.024686138277897705,
+        "dps": 42927.44734690179,
+        "team": 0.024686138277897656,
         "noaff": false,
         "nihil": true
       },
@@ -244,8 +258,8 @@
         "Moonlight_Party",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon",

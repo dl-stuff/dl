@@ -35,35 +35,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66340.68248790968,
-        "team": 0.17436562020318774,
+        "dps": 79638.6503655271,
+        "team": 0.20757224128637128,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Springtime_Breeze",
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, not have_buff(s1_20)",
+        "`dragon, aff_timeleft(poison)>14",
+        "`s3, not buff(s3) and x=5",
+        "`s1, not have_buff(s1_20) and cancel",
         "`s4",
         "`s2"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -71,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 148870.5467919951,
+      "tdps": 194969.98509658664,
       "pref": "PERSONAL"
     }
   },
@@ -90,7 +91,7 @@
       ]
     },
     "META": {
-      "tdps": 196952.5050722526,
+      "tdps": 265442.3748186848,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -101,38 +102,38 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34711.69688624862,
-        "team": 0.033331401963764044,
+        "dps": 47706.55047539898,
+        "team": 0.060093249075643625,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Springtime_Breeze",
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, not have_buff(s1_20)",
+        "`dragon, aff_timeleft(poison)>14",
+        "`s1, not have_buff(s1_20) and cancel",
+        "`s2",
         "`s4",
-        "`s2"
+        "`s3, cancel"
       ],
       "dacl": [
         "ds1,x=3"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -143,8 +144,8 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34711.69688624862,
-        "team": 0.033331401963764044,
+        "dps": 41495.04203995085,
+        "team": 0.06665242896725675,
         "noaff": false,
         "nihil": true
       },
@@ -174,11 +175,12 @@
         "Mona"
       ],
       "share": [
-        "Weapon",
+        "Gala_Mym",
         "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 946994.6758725826,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -197,14 +199,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69515.35327937854,
-        "team": 0.17436562020318774,
+        "dps": 82666.69983042285,
+        "team": 0.20757224128637128,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ]
     },
     "META": {
-      "tdps": 154531.11959604375,
+      "tdps": 200735.0496323176,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -212,19 +223,75 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55031.32122980062,
+        "team": 0.07586370004339037,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 27114.86608409328,
-        "team": 0.0,
+        "dps": 46271.18936972032,
+        "team": 0.0765444364400695,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, aff_timeleft(poison)>14",
+        "`s3, not buff(s3) and x=5",
+        "`s1, not have_buff(s1_20) and cancel",
+        "`s4",
+        "`s2"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 12868610.967204362,
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
@@ -232,35 +299,36 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29025.47949635738,
-        "team": 0.17436562020318774,
+        "dps": 34618.21046716163,
+        "team": 0.20757224128637128,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Springtime_Breeze",
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, not have_buff(s1_20)",
+        "`dragon, aff_timeleft(poison)>14",
+        "`s3, not buff(s3) and x=5",
+        "`s1, not have_buff(s1_20) and cancel",
         "`s4",
         "`s2"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -269,8 +337,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 29025.47949635738,
-        "team": 0.17436562020318774,
+        "dps": 34618.21046716163,
+        "team": 0.20757224128637128,
         "noaff": false,
         "nihil": false
       }
@@ -286,7 +354,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 15959.278947948305,
+        "dps": 16108.085560680489,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -306,10 +374,6 @@
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
       ]
     },
     "META": {

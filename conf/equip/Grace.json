@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6343.708895408247,
-        "team": 0.2815281010972512,
+        "dps": 6382.5762584435715,
+        "team": 0.2815281010972514,
         "noaff": false,
         "nihil": false
       },
@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40823.26366704396,
-        "team": 0.08326642129119846,
+        "dps": 40651.81489580735,
+        "team": 0.08323501002136732,
         "noaff": false,
         "nihil": false
       },
@@ -50,7 +50,7 @@
         "The_Synthetic_Dragon",
         "Dueling_Dancers",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Ramiel",
@@ -61,9 +61,6 @@
         "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
         "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
         "`dodge, fsc"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Audric",
@@ -76,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 173909.32430999752,
+      "tdps": 172821.14294264244,
       "pref": "PERSONAL"
     }
   },
@@ -95,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 211542.96544426176,
+      "tdps": 210450.70486107474,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -104,9 +101,43 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 1942.1623452066442,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon, fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Lathna",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 18741.676522312988,
+        "dps": 18855.85557858469,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -117,7 +148,7 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Testament_of_Eternity",
+        "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Axe"
       ],
       "slots.d": "Arsene",
@@ -143,7 +174,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 18741.676522312988,
+        "dps": 18855.85557858469,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -154,7 +185,7 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Testament_of_Eternity",
+        "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Axe"
       ],
       "slots.d": "Arsene",
@@ -182,56 +213,16 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 6535.343109223776,
-        "team": 0.2815281010972512,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60869.53994937298,
-        "team": 0.033320242607420406,
+        "dps": 48344.99625206814,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "The_Synthetic_Dragon",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Testament_of_Eternity",
-        "Thunderswift_Lords_Blade_Lance"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon, buffstack(ro_att)=3 and hp=30",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
-        "`fs, buffstack(ro_att)<3 and (hp<40 and x=3)",
-        "`dodge, fsc"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Summer_Prince"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
+      "slots.d": "Gala_Bahamut"
     },
     "META": {
-      "tdps": 218906.0296911401,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -254,7 +245,7 @@
       ]
     },
     "META": {
-      "tdps": 234174.10863022276,
+      "tdps": 157741.7871424649,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -265,30 +256,27 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33448.60422394915,
-        "team": 0.0,
+        "dps": 49038.05031377293,
+        "team": 0.0665166826334421,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "The_Lurker_in_the_Woods",
+        "Pecorines_Grand_Adventure",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "Savage_Hawk_Lance",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`dragon, fscf",
-        "`s3",
-        "`s4",
-        "`fs, x=5"
+      "slots.d": "Gala_Bahamut",
+      "dacl": [
+        "ds1,ds1.overcharge=2"
       ],
       "coabs": [
+        "Alberius",
         "Ieyasu",
-        "Joker",
         "Summer_Prince"
       ],
       "share": [
@@ -300,71 +288,112 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 33448.60422394915,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`dragon, fscf",
-        "`s3",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Summer_Prince"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 26695.412426728137,
-        "team": 0.06244773444871451,
-        "noaff": false,
+        "dps": 41798.7562614813,
+        "team": 0.0,
+        "noaff": true,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, buff(s3) and buffstack(ro_att)=3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "`dodge, fsc"
+      ],
       "coabs": [
-        "Bow",
-        "Curran",
-        "Lathna"
+        "Audric",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41798.7562614813,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut"
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 1942.1623452066442,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon, fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Lathna",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

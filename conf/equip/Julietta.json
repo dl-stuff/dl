@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57653.3622685726,
-        "team": 0.06413682133891584,
+        "dps": 68729.64677605339,
+        "team": 0.07013769739100677,
         "noaff": true,
         "nihil": false
       },
@@ -52,25 +52,24 @@
         "The_Red_Impulse",
         "A_Small_Courage",
         "Sisters_of_the_Anvil",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, energy()=5 and dshift_count=0",
-        "`dragon, dshift_count>=1 and energy()>=4",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
         "`s4, x>2 and energy()<5",
-        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
+        "`fs, c_fs(enhanced)"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<2"
       ],
       "coabs": [
         "Blade",
-        "Lucretia",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
@@ -79,7 +78,7 @@
       ]
     },
     "META": {
-      "tdps": 259960.2093633944,
+      "tdps": 576903.6520420493,
       "pref": "PERSONAL"
     }
   },
@@ -121,23 +120,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60399.30219893105,
+        "dps": 94777.57114362883,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Lord_of_the_Skies",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Pecorines_Grand_Adventure",
+        "Summer_Paladyns",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, aff(flashburn)",
+        "`dragon",
         "`s4",
         "`s2",
         "`s1",
@@ -146,20 +145,22 @@
         "`fsf, x=4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
-        "Summer_Julietta",
-        "Ryszarda"
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 442319.8842818743,
+      "tdps": 2201090.734479617,
       "pref": "PERSONAL"
     }
   },
@@ -174,8 +175,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75912.0605436141,
-        "team": 0.06413682133891575,
+        "dps": 133817.84045760543,
+        "team": 0.04988681513093683,
         "noaff": false,
         "nihil": false
       },
@@ -185,12 +186,17 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ]
     },
     "META": {
-      "tdps": 475491.9194732141,
+      "tdps": 1325957.1327749928,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -212,8 +218,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon",
@@ -241,7 +247,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56463.78872780274,
+        "dps": 70880.60336218233,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -252,9 +258,10 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "Lord_of_the_Skies",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon",
         "`s3",
@@ -264,13 +271,18 @@
         "`fs, c_fs(enhanced) and (x>3 or (charged_in(fs, s1) and x>1))",
         "#There can be only one"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "share": [
         "Summer_Celliera",
         "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 240981.4636442479,
+      "tdps": 978536.7306776026,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

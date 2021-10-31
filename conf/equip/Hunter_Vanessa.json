@@ -49,8 +49,8 @@
         "Moonlight_Party",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -61,9 +61,6 @@
         "`s2, timeleft(s2)<3 and fsc",
         "`dodge, fsc",
         "`fs2, x=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -129,8 +126,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -140,6 +137,9 @@
         "`s1",
         "`dodge, fsc",
         "`fs2, charged_in(fs2, s1) or charged_in(fs2, s4)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -167,33 +167,38 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71228.48763020085,
-        "team": 0.07681088464495116,
+        "dps": 170079.45616379398,
+        "team": 0.014467643420516155,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ],
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, fsc and timeleft(s2)>15",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s2, timeleft(s2)<3 and fsc",
-        "`s4, fsc",
+        "`dragon, s=2",
+        "`s3, x=5",
+        "`s2, fsc",
+        "`s4",
         "`dodge, fsc",
-        "`fs2, x=5"
+        "`fs2, dgauge>=500 and buff(s3,1)"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
         "Blade",
-        "Gala_Audric",
-        "Peony"
+        "Peony",
+        "Raemond"
       ],
       "share": [
         "Weapon",
@@ -201,7 +206,7 @@
       ]
     },
     "META": {
-      "tdps": 1220858.3052535665,
+      "tdps": 1475939.004412112,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

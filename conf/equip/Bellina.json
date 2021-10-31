@@ -50,8 +50,8 @@
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
@@ -82,19 +82,19 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52144.110657587415,
+        "dps": 54883.475880584774,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Twinfold_Bonds",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
         "A_Small_Courage",
         "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Thunderswift_Lords_Blade_Lance"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
@@ -128,6 +128,32 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 127791.95322343122,
+        "team": 0.04924935001222012,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "The_Cutie_Competition",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, hp<50",
+        "`s3, not buff(s3) and x=4",
+        "`s2"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 138797.5541142191,
@@ -141,12 +167,12 @@
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 2780033.907100783,
+      "tdps": 223466.92673217168,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -157,8 +183,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59179.190235008435,
-        "team": 0.0,
+        "dps": 71483.60049208692,
+        "team": 0.023346128618631393,
         "noaff": false,
         "nihil": true
       },
@@ -168,22 +194,27 @@
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, hp<50",
-        "`s3, not buff(s3) and x=4",
         "`s2"
       ],
+      "dacl": [
+        "`s2, duration-now<2",
+        "`s4, x=3",
+        "`s3, x=3",
+        "`s1, x=3 and dgauge>=900"
+      ],
       "coabs": [
-        "Berserker",
-        "Curran",
-        "Ieyasu"
+        "Dagger2",
+        "Ieyasu",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Curran"
       ]
     },
     "META": {
@@ -208,7 +239,7 @@
         "Worthy_Rivals",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "Testament_of_Eternity",
+        "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Axe"
       ],
       "dacl": [
@@ -244,8 +275,8 @@
         "Seaside_Princess",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`s2, (duration-now)<1.5",

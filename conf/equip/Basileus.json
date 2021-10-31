@@ -68,7 +68,8 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`dfs, x=3",
+        "`sack, dsf"
       ],
       "coabs": [
         "Gala_Notte",
@@ -126,8 +127,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79789.65405541698,
-        "team": 0.08512833540031313,
+        "dps": 88334.41728661068,
+        "team": 0.10745937844018685,
         "noaff": false,
         "nihil": true
       },
@@ -137,18 +138,18 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, fsc",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s3",
-        "`fs, x=3",
-        "`dodge, fsc"
+        "`s4, fsc",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`fs, x=3 and unlocked",
+        "`fs1, x=3 and not unlocked"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
@@ -165,15 +166,15 @@
       ]
     },
     "META": {
-      "tdps": 125569.78453185303,
+      "tdps": 1417149.581500995,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 97684.07200439717,
-        "team": 0.2424485565322136,
+        "dps": 118983.75291995253,
+        "team": 0.25246181694620823,
         "noaff": false,
         "nihil": false
       },
@@ -187,15 +188,28 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2"
+        "`dragon, dgauge=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3) and fsc",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, x=3  and unlocked",
+        "`fs1, x=3 and not unlocked"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3",
+        "`sack, dsf"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -205,6 +219,15 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`dragon, dgauge=1000",
         "`dragon, dshift_count>0",
@@ -217,7 +240,7 @@
       ]
     },
     "META": {
-      "tdps": 264756.33792177576,
+      "tdps": 42732.773230303304,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -232,42 +255,18 @@
         "team": 0.11624618938343152,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon, x=5",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85983.66373836019,
-        "team": 0.110924451375848,
+        "dps": 92053.02002243344,
+        "team": 0.10745937844018685,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon, x=5",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
-      ]
+      }
     },
     "META": {
-      "tdps": 594731.823486813,
+      "tdps": 1050934.5532854428,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

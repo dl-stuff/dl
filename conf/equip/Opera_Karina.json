@@ -13,7 +13,7 @@
         "Welcome_to_the_Opera",
         "Chariot_Drift",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -48,7 +48,7 @@
         "Welcome_to_the_Opera",
         "Chariot_Drift",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -111,7 +111,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 12971.305895048048,
+        "dps": 26929.193948130574,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -122,10 +122,10 @@
         "Welcome_to_the_Opera",
         "Chariot_Drift",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`dragon, dshift_count = 0",
         "`dragon, dshift_count > 0",
@@ -133,9 +133,6 @@
         "`s2",
         "`s1, cancel",
         "`s4, cancel"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Forte",
@@ -154,11 +151,23 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66444.2548297505,
-        "team": 0.021491661900156767,
+        "dps": 73458.95396609115,
+        "team": 0.1269983046815467,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, not have_buff(s4_00)"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -169,41 +178,70 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 48212.87404726997,
-        "team": 0.0,
+        "dps": 47574.89097312253,
+        "team": 0.03330213293501024,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
+        "A_Man_Unchanging",
+        "Crystalian_Envoy",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Plaguebringer",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
+      "dacl": [
+        "ds1,ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63313.29376384715,
+        "team": 0.033282469390846524,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3",
-        "`s2",
         "`s1, cancel",
         "`s4, cancel"
       ],
+      "dacl": [
+        "ds1,ds1.overcharge=2"
+      ],
       "coabs": [
-        "Dagger",
         "Ieyasu",
-        "Wand"
+        "Joker",
+        "Summer_Prince"
       ],
       "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 800384847.1917304,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -225,8 +263,8 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [

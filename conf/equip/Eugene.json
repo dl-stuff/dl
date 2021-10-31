@@ -34,17 +34,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49114.25241909219,
-        "team": 0.3108449957383359,
+        "dps": 52762.61143543081,
+        "team": 0.30384974702096446,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "The_Shining_Overlord",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -54,9 +56,6 @@
         "`s4, inspiration()<5",
         "`s2, fsc",
         "`fs, x=4 or hits=0"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -69,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 79806.44512170886,
+      "tdps": 85719.32769544926,
       "pref": "PERSONAL"
     }
   },
@@ -88,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 103808.13922348025,
+      "tdps": 111202.11817888908,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -165,11 +164,54 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32773.923065223935,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, s=3",
+        "`s3",
+        "`s4, fsc",
+        "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53930.710940136756,
-        "team": 0.34446940517417435,
+        "dps": 51312.67408256056,
+        "team": 0.32985151420474035,
         "noaff": false,
         "nihil": false
       },
@@ -181,12 +223,16 @@
         "His_Clever_Brother"
       ],
       "acl": [
+        "`s2, duration-now<5",
         "`dragon, dgauge>=1000",
         "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
         "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Tiki",
@@ -195,7 +241,7 @@
       ]
     },
     "META": {
-      "tdps": 95366.93195511443,
+      "tdps": 87287.82133812533,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -224,14 +270,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42603.964185765966,
-        "team": 0.31092985318096134,
+        "dps": 41528.64830833789,
+        "team": 0.3038497470209641,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 67191.07938760551,
+      "tdps": 64223.17757501709,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

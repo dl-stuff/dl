@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63576.37729898491,
-        "team": 0.15685803325173836,
+        "dps": 64013.82943636323,
+        "team": 0.1568580332517383,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
         "Howling_to_the_Heavens",
         "Chariot_Drift",
         "Luck_of_the_Draw",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
@@ -79,14 +79,53 @@
       ]
     },
     "META": {
-      "tdps": 135906.1006099811,
+      "tdps": 137895.55228892821,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9756.04847385797,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Proper_Maintenance",
+        "Springtime_Breeze",
+        "From_Whence_He_Comes",
+        "The_Maid_Crusade",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, s=2 and trickery<=1",
+        "queue prep",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 30815.22669448937,
+        "dps": 31027.258070827596,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -97,7 +136,7 @@
         "Howling_to_the_Heavens",
         "Chariot_Drift",
         "Luck_of_the_Draw",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
@@ -133,8 +172,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98437.89721591,
-        "team": 0.15832180831759457,
+        "dps": 102762.73138623503,
+        "team": 0.15818088008827483,
         "noaff": false,
         "nihil": false
       },
@@ -144,7 +183,7 @@
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
         "His_Clever_Brother",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
@@ -171,7 +210,7 @@
       ]
     },
     "META": {
-      "tdps": 296423.14939466515,
+      "tdps": 316019.6092674722,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -179,11 +218,78 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69718.0369869284,
+        "team": 0.06658209261302742,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3",
+        "`s1"
+      ],
+      "dacl": [
+        "ds1,ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36737.70444323725,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44864.256287735414,
-        "team": 0.3405725306423976,
+        "dps": 45172.24889382972,
+        "team": 0.34057253064239734,
         "noaff": true,
         "nihil": false
       },
@@ -219,7 +325,7 @@
       ]
     },
     "META": {
-      "tdps": 308855.4467996617,
+      "tdps": 317370.2842691307,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -230,8 +336,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29504.77323307112,
-        "team": 0.04899346667436225,
+        "dps": 29707.154758053748,
+        "team": 0.048993466674362184,
         "noaff": false,
         "nihil": true
       },
@@ -241,8 +347,8 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon, s",
@@ -264,7 +370,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

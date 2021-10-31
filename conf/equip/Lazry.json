@@ -33,17 +33,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78871.79315132824,
-        "team": 0.03331799224890223,
+        "dps": 85781.38161842505,
+        "team": 0.033317992248902265,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Chariot_Drift",
-        "His_Clever_Brother"
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -53,9 +55,6 @@
         "`s1(high)",
         "`s2(high)",
         "`s4"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -68,15 +67,15 @@
       ]
     },
     "META": {
-      "tdps": 140161.87707854566,
+      "tdps": 154989.5591241709,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60559.02362196464,
-        "team": 0.13769417632182424,
+        "dps": 61209.99197982141,
+        "team": 0.14322058353788117,
         "noaff": false,
         "nihil": true
       },
@@ -165,10 +164,34 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60301.599207892235,
+        "team": 0.033317655525427745,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Summer_Paladyns",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Leviathan",
+      "acl": [
+        "`dragon, cancel",
+        "`s1(high)",
+        "`s2(high)",
+        "`s4, x=4",
+        "`s3, x=4",
+        "`fsf, x=4"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69169.81343065843,
-        "team": 0.03326790276146873,
+        "dps": 68834.2939968827,
+        "team": 0.03329253702837576,
         "noaff": false,
         "nihil": true
       },
@@ -190,10 +213,11 @@
       ]
     },
     "META": {
+      "tdps": 339697664.6863247,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -231,8 +255,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38759.22128349339,
-        "team": 0.12182671687230141,
+        "dps": 38191.279310931895,
+        "team": 0.14076543544767423,
         "noaff": false,
         "nihil": true
       },

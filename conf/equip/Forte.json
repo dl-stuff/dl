@@ -2,23 +2,23 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 121439.62358164568,
-        "team": 0.0,
+        "dps": 109661.78045995654,
+        "team": 0.06665727027043951,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
         "Dueling_Dancers",
         "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -26,12 +26,11 @@
         "`fs, x=5"
       ],
       "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3"
+        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
-        "Cleo",
         "Ieyasu",
+        "Summer_Prince",
         "Vania"
       ],
       "share": [
@@ -52,7 +51,7 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Arsene",
@@ -79,6 +78,7 @@
       ]
     },
     "META": {
+      "tdps": 176692.55092361997,
       "pref": "PERSONAL"
     }
   },
@@ -96,8 +96,8 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -107,6 +107,9 @@
         "`s1, cancel",
         "`s4, cancel",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Delphi",
@@ -125,8 +128,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 142524.96349479866,
-        "team": 0.06664606591199364,
+        "dps": 141877.85253395114,
+        "team": 0.06662155220281832,
         "noaff": false,
         "nihil": false
       },
@@ -136,7 +139,7 @@
         "Welcome_to_the_Opera",
         "Entwined_Flames",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
@@ -147,11 +150,6 @@
         "`s4",
         "`s1, buff(s3) and (fscf or x>3)",
         "`fs, x=5"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
       ],
       "coabs": [
         "Audric",
@@ -172,10 +170,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 70782.82366102614,
-        "team": 0.06664275060421054,
+        "dps": 69832.15384589232,
+        "team": 0.06666581479108644,
         "noaff": false,
         "nihil": true
       },
@@ -188,6 +186,40 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s2, cancel",
+        "`s1",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Aoi",
+        "Lapis"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76981.0007545424,
+        "team": 0.06654906983017564,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
@@ -197,20 +229,18 @@
         "`s4",
         "`fs, x=5"
       ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
-      ],
       "coabs": [
+        "Dagger2",
         "Ieyasu",
-        "Joker",
-        "Vania"
+        "Joker"
       ],
       "share": [
-        "Aoi",
-        "Lapis"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 61234736.41069944,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -284,8 +314,8 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "Lord_of_the_Skies",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon",
@@ -294,9 +324,6 @@
         "`s1",
         "`s4",
         "`fs, x=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Ieyasu",

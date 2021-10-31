@@ -34,17 +34,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102408.7460315635,
-        "team": 0.04162095568133101,
+        "dps": 111798.66516437841,
+        "team": 0.04162095568133119,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose"
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -54,9 +56,6 @@
         "`s4, energy()<5",
         "`s2, energy()=5 and stronger_bullets>=3",
         "`fs"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -69,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 140779.510694395,
+      "tdps": 156253.78796877494,
       "pref": "PERSONAL"
     }
   },
@@ -108,19 +107,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50966.60257864725,
-        "team": 0.036586873357085645,
+        "dps": 55606.42069445066,
+        "team": 0.03660715763363691,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
         "Enter_the_Blue_Rose",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Leviathan",
       "acl": [
         "`dragon, s",
         "`s2",
@@ -128,9 +129,6 @@
         "`s3, s",
         "`s1, s",
         "`fs"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -143,28 +141,30 @@
       ]
     },
     "META": {
-      "tdps": 185475.05901843027,
+      "tdps": 207641.3705448821,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 117205.34465311762,
-        "team": 0.04162095568133101,
+        "dps": 127934.45121588049,
+        "team": 0.04162095568133119,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
         "Enter_the_Blue_Rose",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 165163.8175823496,
+      "tdps": 182845.03160669137,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -175,18 +175,21 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57849.0632472641,
-        "team": 0.09621110374699242,
+        "dps": 63766.16251183559,
+        "team": 0.09572831770423394,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`s1, not have_buff(s1_res_down) or (s4.check() and dgauge>=500)",
-        "`s2",
+        "`dragon",
+        "`s1, not have_buff(s1_res_down)",
+        "`s4",
         "`s3",
-        "`s4, s=1",
-        "`dragon, s=4",
+        "`s2",
         "`fs"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -194,12 +197,12 @@
         "Yurius"
       ],
       "share": [
-        "Seimei",
-        "Eugene"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 305175.8934502051,
+      "tdps": 343547.1031714145,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -210,30 +213,33 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47647.32903047153,
-        "team": 0.08104685478955954,
-        "noaff": false,
+        "dps": 50214.52981651817,
+        "team": 0.04401945256561102,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
         "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose"
+        "The_Prince_of_Dragonyule",
+        "A_Small_Courage",
+        "Beach_Battle",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Reborn_Poseidon",
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",
-        "Yurius"
+        "Pipple"
       ],
       "share": [
         "Eugene",
-        "Seimei"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 215326.55437102052,
+      "tdps": 188575.30669639207,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

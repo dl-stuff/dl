@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63050.683289476605,
-        "team": 0.09644714209071456,
+        "dps": 63483.16563172408,
+        "team": 0.09644714209071453,
         "noaff": false,
         "nihil": false
       },
@@ -13,8 +13,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63050.683289476605,
-        "team": 0.09644714209071456,
+        "dps": 63483.16563172408,
+        "team": 0.09644714209071453,
         "noaff": false,
         "nihil": false
       },
@@ -50,8 +50,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
@@ -81,7 +81,7 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57114.54512924774,
+        "dps": 57506.30983289879,
         "team": 0.06004813553051265,
         "noaff": false,
         "nihil": false
@@ -107,8 +107,50 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25218.371755393822,
-        "team": 0.08329835714895542,
+        "dps": 27085.919244940833,
+        "team": 0.08094631734838312,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, not buff(s1)",
+        "`s2"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25719.234481688763,
+        "team": 0.07549975635049203,
         "noaff": false,
         "nihil": true
       },
@@ -122,16 +164,6 @@
         "Promised_Piety_Staff"
       ],
       "slots.d": "Ramiel",
-      "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not buff(s1)",
-        "`s2"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Forte",
         "Ieyasu",
@@ -143,14 +175,18 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68283.22797463143,
-        "team": 0.09305006422815204,
+        "dps": 68751.6018102504,
+        "team": 0.09305006422815201,
         "noaff": false,
         "nihil": false
       },
@@ -160,8 +196,8 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "share": [
         "Weapon",
@@ -223,10 +259,49 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64939.353894048014,
+        "team": 0.09270874877231344,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, s=1",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)",
+        "`s2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Ieyasu",
+        "Summer_Prince"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38579.69059402464,
+        "dps": 38844.319525557126,
         "team": 0.06004813553051265,
         "noaff": false,
         "nihil": false
@@ -238,8 +313,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41183.52370822521,
-        "team": 0.09644714209071456,
+        "dps": 41466.01306228288,
+        "team": 0.09644714209071453,
         "noaff": false,
         "nihil": false
       }
@@ -302,8 +377,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23875.711650029643,
-        "team": 0.08329835714895542,
+        "dps": 24363.62139857332,
+        "team": 0.07549975635049203,
         "noaff": false,
         "nihil": true
       }

@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 62556.87880829118,
+        "dps": 62987.2263172913,
         "team": 0.26063753053400024,
         "noaff": false,
         "nihil": false
@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62556.87880829118,
+        "dps": 62987.2263172913,
         "team": 0.26063753053400024,
         "noaff": false,
         "nihil": false
@@ -83,8 +83,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30187.697651841594,
-        "team": 0.06863044579008408,
+        "dps": 30372.170706021327,
+        "team": 0.06863044579008414,
         "noaff": false,
         "nihil": true
       },
@@ -105,10 +105,6 @@
         "`s3, not buff(s3)",
         "`s4"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
@@ -126,11 +122,28 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59799.4341152788,
-        "team": 0.21428649940179204,
+        "dps": 65231.55902948353,
+        "team": 0.21846480898110948,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end",
+        "`dragon, not buff(s2)",
+        "`s1, prep or (timeleft(s1)<5 and x=5)",
+        "`s2",
+        "`s3, not buff(s3)",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -143,8 +156,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31478.74574577031,
-        "team": 0.06863044579008408,
+        "dps": 31671.1082252294,
+        "team": 0.06863044579008414,
         "noaff": false,
         "nihil": true
       }
@@ -160,8 +173,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29358.00089269817,
-        "team": 0.21428649940179204,
+        "dps": 29537.40377899139,
+        "team": 0.21428649940179223,
         "noaff": false,
         "nihil": false
       }
@@ -177,8 +190,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 14747.107473231501,
-        "team": 0.06863044579008408,
+        "dps": 14837.225109471237,
+        "team": 0.06863044579008414,
         "noaff": false,
         "nihil": true
       }

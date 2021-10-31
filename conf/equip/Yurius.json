@@ -41,30 +41,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42600.994669620566,
+        "dps": 64812.97824329735,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Bloody_Little_Queen",
-        "Candy_Couriers",
         "Emissaries_of_the_Heavens",
-        "Chariot_Drift",
-        "His_Clever_Brother"
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Leviathan",
       "acl": [
-        "`dragon, dgauge>=2700",
+        "`dragon, dgauge>=2700 and aff_timeleft(frostbite)>15",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2",
-        "`s4",
-        "`fs, x=4"
+        "`s2"
       ],
       "dacl": [
         "s1",
-        "s2"
+        "s2",
+        "`s4, aff_timeleft(frostbite)<3",
+        "sack, not aff(frostbite)"
       ],
       "coabs": [
         "Blade",
@@ -73,11 +75,11 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Jurota"
       ]
     },
     "META": {
-      "tdps": 209839.7741245955,
+      "tdps": 381234.86235821137,
       "pref": "PERSONAL"
     }
   },
@@ -179,21 +181,29 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61836.02376070727,
+        "dps": 74326.44853087701,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "dacl": [
+      "acl": [
+        "`dragon, dgauge>=2700",
         "`s3, not buff(s3)",
         "`s1",
+        "`s2, cancel"
+      ],
+      "dacl": [
+        "`s1",
         "`s2",
-        "`s4",
-        "`fs, x=4"
+        "`s4"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
       ]
     },
     "META": {
-      "tdps": 353579.6991192591,
+      "tdps": 449959.9907963888,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,7 +214,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46596.75892245085,
+        "dps": 50955.83946159402,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -216,20 +226,28 @@
         "His_Clever_Brother",
         "Snipers_Allure"
       ],
+      "slots.d": "Leviathan",
       "acl": [
-        "`s3",
-        "`dragon, not in_drg and x=5",
-        "`s2",
-        "`s1",
+        "`dragon, dgauge>=2700",
         "`s4",
-        "`fs, x=5"
+        "`s1",
+        "`s2",
+        "`s3, x=5"
       ],
       "dacl": [
-        "`s3",
+        "`s4",
         "`s2",
         "`s1",
-        "`s4",
-        "`fs, x=5"
+        "`s3, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Tiki"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -243,8 +261,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32119.743378222956,
-        "team": 0.0649381283943355,
+        "dps": 23723.413809357477,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -269,49 +287,26 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 20772.312403808686,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, cancel",
-        "if aff(frostbite)",
-        "`dragon, not in_drg",
-        "else",
-        "`dragon, in_drg",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Catherine",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 20186.656439976945,
+        "dps": 25724.610717044838,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon, dgauge>=2700",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`s3, x=5"
+      ],
+      "dacl": [
+        "`s4",
+        "`s2",
+        "`s1",
+        "`s3, x=5"
+      ],
       "coabs": [
         "Catherine",
         "Hunter_Sarisse",

@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44374.84492637519,
+        "dps": 71326.27015838391,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -47,10 +47,10 @@
         "Worthy_Rivals",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -59,7 +59,9 @@
         "`s4, cancel"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
         "Blade",
@@ -72,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 132558.62952458562,
+      "tdps": 1049877.3477050439,
       "pref": "PERSONAL"
     }
   },
@@ -90,8 +92,8 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -140,34 +142,39 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73457.15146751862,
-        "team": 0.04989791164488058,
+        "dps": 183439.5578074868,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Mask_of_Determination_Bow",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel"
+        "`dragon, buff(s3, 1)",
+        "`s3, x=5",
+        "`s4",
+        "`s1,x=5",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Peony",
+        "Raemond"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 52817.38355102821,
+      "tdps": 910064.0021525632,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -190,6 +197,9 @@
         "`s2, cancel",
         "`s1, x=5"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "share": [
         "Summer_Celliera",
         "Ilia"
@@ -204,6 +214,31 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39018.98980965711,
+        "team": 0.1216231319820789,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Daikokuten",
+      "dacl": [
+        "`ds1, dshift_timeleft<2"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 40386.58372067376,

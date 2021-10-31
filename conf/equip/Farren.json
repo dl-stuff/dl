@@ -2,14 +2,14 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52327.53996041163,
-        "team": 0.12692938759466393,
+        "dps": 67867.43649613133,
+        "team": 0.13025151244008376,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Castle_Cheer_Corps",
         "Emissaries_of_the_Heavens",
-        "Gentle_Winds",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
@@ -18,15 +18,16 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
+        "`fs, now=0",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s4, x=5",
+        "`s4",
         "`dragon"
       ],
       "dacl": [
         "`s4",
-        "`s1, cancel",
-        "`s2"
+        "`s2, dgauge>=1600 and x=4",
+        "`s1, x=4"
       ],
       "coabs": [
         "Blade",
@@ -40,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58047.1496246174,
-        "team": 0.12312042254952944,
+        "dps": 70369.67404928856,
+        "team": 0.11346889644074953,
         "noaff": true,
         "nihil": false
       },
@@ -54,7 +55,7 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
       "acl": [
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
@@ -63,6 +64,7 @@
       ],
       "dacl": [
         "`s4",
+        "`s2, dgauge>=1600 and x=4",
         "`s1, cancel"
       ],
       "coabs": [
@@ -76,15 +78,54 @@
       ]
     },
     "META": {
-      "tdps": 1501617.7876223628,
+      "tdps": 149096.99139016808,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28088.222462867958,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`fs, now=0",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4",
+        "`dragon"
+      ],
+      "dacl": [
+        "`s4",
+        "`s2, dgauge>=1600 and x=4",
+        "`s1, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 23824.745831294968,
-        "team": 0.00979672587347339,
+        "dps": 53478.04977815143,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -99,14 +140,15 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon, not in_drg",
-        "`s3",
-        "`s1",
-        "`s2",
-        "`s4"
+        "`dragon",
+        "`s3, x=5",
+        "`s1"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`s4",
+        "`s2, dgauge>=1600",
+        "`s1, cancel",
+        "`s3, x=4"
       ],
       "coabs": [
         "Blade",
@@ -114,8 +156,8 @@
         "Peony"
       ],
       "share": [
-        "Sha_Wujing",
-        "Ranzal"
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "META": {
@@ -125,8 +167,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77132.68272340242,
-        "team": 0.10403768449728336,
+        "dps": 90710.2441443005,
+        "team": 0.09600187997833039,
         "noaff": false,
         "nihil": false
       },
@@ -136,12 +178,26 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon, x=5",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)"
+      ],
+      "dacl": [
+        "`s4, cancel",
+        "`s2, dgauge>=1600 and x=4",
+        "`s1, cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 1083586.6015503742,
+      "tdps": 666950.4460720206,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -152,17 +208,95 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29780.932289118715,
-        "team": 0.00979672587347339,
+        "dps": 68380.78060861643,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Cupid",
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s3, x=5"
+      ],
+      "dacl": [
+        "`s4, cancel",
+        "`s2, dgauge>=1600",
+        "`s1, cancel",
+        "`s3, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28088.222462867958,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`fs, now=0",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4",
+        "`dragon"
+      ],
+      "dacl": [
+        "`s4",
+        "`s2, dgauge>=1600 and x=4",
+        "`s1, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

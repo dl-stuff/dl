@@ -27,6 +27,9 @@
         "`dodge, fsc",
         "`fs, x=4"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Gala_Alex",
         "Heinwald",
@@ -50,8 +53,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
@@ -63,9 +66,6 @@
         "`s2",
         "`dodge, fsc",
         "`fs, x=4"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Gala_Alex",
@@ -125,7 +125,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37818.08876183193,
+        "dps": 39608.74933098568,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -139,7 +139,7 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "slots.d": "Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3, not buff(s3) and x=4",
@@ -164,7 +164,7 @@
       ]
     },
     "META": {
-      "tdps": 495119.48981003446,
+      "tdps": 548852.8412941153,
       "pref": "PERSONAL"
     }
   },
@@ -202,21 +202,20 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57184.11332228412,
-        "team": 0.0,
+        "dps": 70334.09136179925,
+        "team": 0.0333193188576073,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3",
@@ -227,14 +226,17 @@
         "`dodge, fsc",
         "`fs, x=4"
       ],
+      "dacl": [
+        "ds1,ds1.overcharge=2"
+      ],
       "coabs": [
+        "Dagger2",
         "Ieyasu",
-        "Joker",
-        "Wand"
+        "Summer_Prince"
       ],
       "share": [
-        "Gala_Chelle",
-        "Summer_Julietta"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -246,18 +248,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 29532.579939101313,
         "team": 0.07702180597106718,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 27145.863336943174,
-        "team": 0.07493558559297313,
         "noaff": false,
         "nihil": false
       },
@@ -267,8 +261,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Lord_of_the_Skies",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
@@ -281,14 +275,16 @@
         "`dodge, fsc",
         "`fs, x=4"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": -1144038.5815512997,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

@@ -2,17 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 66994.52237800776,
+        "dps": 74934.3197790362,
         "team": 0.20880270589263902,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -40,17 +42,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69580.85207473118,
-        "team": 0.08844575721095017,
+        "dps": 78492.37668288112,
+        "team": 0.08844575721095019,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -77,15 +81,55 @@
       ]
     },
     "META": {
-      "tdps": 21488.827400930157,
+      "tdps": 29562.53828979167,
       "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 47282.9896453196,
-        "team": 0.10039018670355072,
+        "dps": 29262.829553242555,
+        "team": 0.0665236924685091,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, xf=5",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx3;ds1;dx3;sack, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48208.571355298685,
+        "team": 0.09974529484819977,
         "noaff": false,
         "nihil": true
       },
@@ -120,76 +164,22 @@
         "Humanoid_Mercury"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 48420.64837783549,
-        "team": 0.0999997222229938,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "OneWinged_Journey",
-        "A_Choice_Blend",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "dacl": [
-        "queue",
-        "dx3;ds1;dx3;sack, x=3",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "META": {
-      "tdps": 2913603.6417275253,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 71956.76188552302,
+        "dps": 80551.68751611316,
         "team": 0.20880270589263902,
         "noaff": false,
         "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 74188.58151213158,
-        "team": 0.08844575721095017,
-        "noaff": false,
-        "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ]
+      "slots.d": "Summer_Marishiten"
     },
     "META": {
-      "tdps": 18543.33838681063,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -199,22 +189,30 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53170.404389236646,
-        "team": 0.10039018670355072,
+        "dps": 36612.72003782784,
+        "team": 0.0665236924685091,
         "noaff": false,
         "nihil": true
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53976.24971987838,
-        "team": 0.0999997222229938,
+        "dps": 55548.50712552128,
+        "team": 0.09974529484819987,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "OneWinged_Journey",
+        "A_Choice_Blend",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
     },
     "META": {
-      "tdps": 2063812.1282948866,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -225,8 +223,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49505.571746739064,
-        "team": 0.20880270589263902,
+        "dps": 49819.15424043521,
+        "team": 0.20880270589263897,
         "noaff": false,
         "nihil": false
       },
@@ -243,8 +241,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36174.89015006392,
-        "team": 0.10039018670355072,
+        "dps": 36656.927557886236,
+        "team": 0.09974529484819977,
         "noaff": false,
         "nihil": true
       },

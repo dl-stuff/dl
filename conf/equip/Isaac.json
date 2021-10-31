@@ -38,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42391.84759961056,
-        "team": 0.44614111991942346,
+        "dps": 40225.268434185535,
+        "team": 0.45678014493744507,
         "noaff": true,
         "nihil": false
       },
@@ -49,8 +49,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "The_Bustling_Hut",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -59,9 +59,6 @@
         "`s1",
         "`s2",
         "`s4, s=1"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -74,15 +71,58 @@
       ]
     },
     "META": {
-      "tdps": 130641.41617942271,
+      "tdps": 127351.43633925474,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40225.268434185535,
+        "team": 0.45678014493744507,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "The_Bustling_Hut",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, s=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Prince",
+        "Hildegarde"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9922.750824679792,
-        "team": 0.5323975870018552,
+        "dps": 9838.631781236443,
+        "team": 0.5014900714257131,
         "noaff": false,
         "nihil": true
       },
@@ -114,8 +154,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36396.88827450374,
-        "team": 0.20394169057053943,
+        "dps": 38624.85861642926,
+        "team": 0.28038659345025535,
         "noaff": false,
         "nihil": true
       },
@@ -150,7 +190,7 @@
       ]
     },
     "META": {
-      "tdps": 99058.540580208,
+      "tdps": 130193.46008834855,
       "pref": "PERSONAL"
     }
   },
@@ -190,7 +230,7 @@
       ]
     },
     "META": {
-      "tdps": 71918.37923732112,
+      "tdps": 79244.01089816967,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -201,8 +241,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57179.67965575285,
-        "team": 0.2592870813694094,
+        "dps": 92253.51904995348,
+        "team": 0.1351532485809617,
         "noaff": false,
         "nihil": false
       },
@@ -212,10 +252,15 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -227,7 +272,7 @@
       ]
     },
     "META": {
-      "tdps": 108446.41202627661,
+      "tdps": 147198.24732995144,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

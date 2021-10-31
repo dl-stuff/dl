@@ -133,8 +133,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50953.60080483162,
-        "team": 0.17256312384003153,
+        "dps": 61722.72825341532,
+        "team": 0.19113539669329754,
         "noaff": false,
         "nihil": false
       },
@@ -149,14 +149,17 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "#`s1, cancel and buff(s3)",
-        "`dragon",
+        "`dragon, (dgauge>=900 and s=2) or dshift_count>0",
         "`s3, not buff(s3)",
         "`s4",
         "`s2"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
       "coabs": [
-        "Dragonyule_Xainfried",
+        "Dagger2",
         "Mona",
         "Yukata_Lathna"
       ],
@@ -166,7 +169,7 @@
       ]
     },
     "META": {
-      "tdps": 79240.0490624012,
+      "tdps": 100359.0757863827,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

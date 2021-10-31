@@ -34,27 +34,73 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 32759.545939738262,
-        "team": 0.10677990398044725,
+        "dps": 43838.17791392705,
+        "team": 0.05561988256260129,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "His_Clever_Brother",
+        "Extreme_Teamwork",
+        "Holywyrms_Advent",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, s=2",
         "`s2",
         "`s1",
         "`s4",
         "`s3, cancel"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<2"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 54434.38823135332,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35263.4979173054,
+        "team": 0.06268267853956133,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Worthy_Rivals",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, s=2",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`s3, cancel"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<2"
       ],
       "coabs": [
         "Malora",
@@ -63,12 +109,16 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Ilia"
       ]
     },
     "META": {
-      "tdps": 41870.58350011918,
-      "pref": "PERSONAL"
+      "tdps": 1214063.1025720704,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -85,7 +135,7 @@
         "Worthy_Rivals",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "High_Jupiter",
@@ -113,8 +163,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50048.822638401616,
-        "team": 0.08359529554902213,
+        "dps": 94857.32136863058,
+        "team": 0.055744577493361216,
         "noaff": false,
         "nihil": false
       },
@@ -124,10 +174,9 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon, s=2",
         "`s3, not buff(s3)",
@@ -135,9 +184,15 @@
         "`s1",
         "`s4"
       ],
-      "share": [
-        "Weapon",
-        "Ilia"
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
       ]
     },
     "META": {
@@ -162,8 +217,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, aff(flashburn)",
@@ -192,8 +247,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36043.281482554376,
-        "team": 0.10677990398044725,
+        "dps": 39447.75549004649,
+        "team": 0.06270702856119129,
         "noaff": false,
         "nihil": false
       },
@@ -203,7 +258,7 @@
         "Worthy_Rivals",
         "Entwined_Flames",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ]
     },

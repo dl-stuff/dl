@@ -51,7 +51,7 @@
         "Sweet_Surprise",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -94,8 +94,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -104,10 +104,6 @@
         "`s3, x=2",
         "`s4",
         "`dodge, x=2"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Gala_Notte",
@@ -126,8 +122,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 104026.25358233468,
-        "team": 0.22222051255706032,
+        "dps": 110022.13228855355,
+        "team": 0.23296540684027112,
         "noaff": false,
         "nihil": false
       },
@@ -140,9 +136,22 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s1, x=2",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
       "dacl": [
-        "ds1, blood_moon=0 and fsc",
-        "fs"
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Nino"
       ],
       "share": [
         "Weapon",
@@ -162,12 +171,12 @@
         "Sweet_Surprise",
         "Dueling_Dancers",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 150191.6546016448,
+      "tdps": 89175.39820746168,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,7 +223,7 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Lord_of_the_Skies",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ]
     },
@@ -228,6 +237,39 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40642.80601948528,
+        "team": 0.1108977008078734,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Holywyrms_Advent",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, x=2",
+        "`s1, x=2",
+        "`s3, x=2",
+        "`s4",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 40642.80601948528,
@@ -241,8 +283,8 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "share": [
         "Gala_Mym",

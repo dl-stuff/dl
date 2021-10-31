@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 82375.0912036003,
-        "team": 0.07863302742232735,
+        "dps": 65380.87087176627,
+        "team": 0.0787718859208039,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -55,8 +55,8 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
@@ -71,9 +71,6 @@
         "`fs, x=5",
         "end"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Blade",
         "Ezelith",
@@ -85,6 +82,7 @@
       ]
     },
     "META": {
+      "tdps": 122385165.60585648,
       "pref": "PERSONAL"
     }
   },
@@ -145,8 +143,8 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
@@ -239,7 +237,7 @@
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
@@ -280,8 +278,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53489.18467702529,
-        "team": 0.012326262409880695,
+        "dps": 54442.444850977605,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -291,9 +289,10 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "if aff(scorchrend)",
         "`dragon, dshift_count=0",
@@ -324,7 +323,7 @@
       ]
     },
     "META": {
-      "tdps": 558746.8894215119,
+      "tdps": 380777.6605326763,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -333,6 +332,49 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46888.60532155086,
+        "team": 0.2199287484828662,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon, fsc and have_buff(gozu_tenno_buff) and buff(s4,0)",
+        "`s3, not buff(s3)",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
+        "`s4",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Marth",
+        "Nobunaga"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 46888.60532155086,
@@ -346,8 +388,8 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon, fsc and have_buff(gozu_tenno_buff) and buff(s4,0)",
@@ -397,8 +439,8 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "share": [
         "Alain",

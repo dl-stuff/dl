@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 77309.40132341966,
-        "team": 0.06953836300261426,
+        "dps": 100834.40525134087,
+        "team": 0.0695383630026142,
         "noaff": false,
         "nihil": false
       },
@@ -13,7 +13,7 @@
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77309.40132341966,
-        "team": 0.06953836300261426,
+        "dps": 100834.40525134087,
+        "team": 0.0695383630026142,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -96,7 +96,7 @@
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -107,10 +107,6 @@
         "`s1, fscf",
         "`s4, cancel",
         "`fs, xf=3"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -126,8 +122,37 @@
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
+  "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55577.51802901541,
+        "team": 0.0740720494380561,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, fscf",
+        "`s2, fscf",
+        "`s3, fscf",
+        "`s1, fscf",
+        "`s4, cancel",
+        "`fs, xf=3"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 107464.59431052358,
         "team": 0.17527820240461991,
@@ -140,8 +165,8 @@
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon, dgauge>=1000",
@@ -166,42 +191,8 @@
         "Akasha"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 104855.42070777112,
-        "team": 0.1275868118076775,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, s1.check() or s2.check()",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, (xf or fscf) and buff(s3)",
-        "`s4, xf or fscf",
-        "`fs, x=5 or hits=5"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "META": {
-      "tdps": -54709.53079987857,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -211,8 +202,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72239.24114436745,
-        "team": 0.069531441145141,
+        "dps": 67188.13992489658,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -222,11 +213,10 @@
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon, fscf",
         "`s2",
         "`s1",
         "`s3, cancel",
@@ -273,6 +263,26 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33803.845805831756,
+        "team": 0.0740720494380561,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, fscf",
+        "`s2, fscf",
+        "`s3, fscf",
+        "`s1, fscf",
+        "`s4, cancel",
+        "`fs, xf=3"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33803.845805831756,

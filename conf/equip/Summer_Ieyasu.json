@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 82131.77702852392,
-        "team": 0.31188982192231574,
+        "dps": 82226.1974232583,
+        "team": 0.3167035571173887,
         "noaff": false,
         "nihil": false
       },
@@ -18,12 +18,12 @@
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "`s4",
         "queue (s1.phase>0 or bleed_stack=0) and s1.check()",
         "`fs",
         "`s1, fsc",
         "end",
         "`s2, cancel",
+        "`s4",
         "`fs, x=4"
       ],
       "dacl": [
@@ -41,36 +41,40 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82801.81871704968,
-        "team": 0.30968888862261945,
+        "dps": 90930.52763370276,
+        "team": 0.296348573049321,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3)",
-        "queue (s1.phase>0 or bleed_stack=0) and s1.check()",
-        "`fs",
-        "`s1, fsc",
+        "queue not buff(s3)",
+        "`s3",
+        "`s1",
+        "`s1",
+        "`s1",
         "end",
-        "`s2, cancel",
-        "`s4",
-        "`fs, x=4"
+        "`s1, s1.phase>0 or bleed_stack<2 and fsc",
+        "`s2, cancel or (amp_lvl(team) and buff(s2))",
+        "`s4, fsc or s=1",
+        "`fs, x=4",
+        "`fs, s1.phase>0 or bleed_stack<2 and s1.check()"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, x=3",
+        "sack, x=3"
       ],
       "coabs": [
-        "Gala_Mascula",
         "Tiki",
+        "Xainfried",
         "Yurius"
       ],
       "share": [
@@ -79,15 +83,15 @@
       ]
     },
     "META": {
-      "tdps": 304435.25417977007,
+      "tdps": 427626.4811280085,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 70496.9684345884,
-        "team": 0.36606517648202497,
+        "dps": 64094.977781133726,
+        "team": 0.35517994796019886,
         "noaff": false,
         "nihil": true
       },
@@ -122,9 +126,59 @@
         "`fs, x=4"
       ],
       "dacl": [
-        "queue",
-        "dx3;ds1;dx3;dx3;dx3;sack",
-        "end"
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "coabs": [
+        "Bow",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70662.8897346018,
+        "team": 0.3446178184734955,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Emissaries_of_the_Heavens",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, x=1",
+        "queue now=0",
+        "`s4",
+        "`fs",
+        "`s3,fsc",
+        "`fs",
+        "`s1,fsc",
+        "end",
+        "queue s1.phase>0",
+        "`fs",
+        "`s1,fsc",
+        "`fs",
+        "`s1,fsc",
+        "end",
+        "`s1, bleed_stack=0",
+        "`fs, s=1",
+        "`s2, cancel",
+        "`s3, fsc",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
       ],
       "coabs": [
         "Blade",
@@ -137,46 +191,49 @@
       ]
     },
     "META": {
+      "tdps": 621835.962315781,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 83237.90502638972,
-        "team": 0.3163571104091473,
+        "dps": 71899.88738577413,
+        "team": 0.3628633952379864,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "queue (s1.phase>0 or bleed_stack=0) and s1.check()",
+        "queue s1.phase>0 and s1.check()",
         "`fs",
         "`s1, fsc",
         "end",
         "`s2, cancel",
         "`s4",
         "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "sack, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86958.36653588816,
-        "team": 0.30968888862261945,
+        "dps": 95199.14103428452,
+        "team": 0.296348573049321,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 557939.0771037429,
+      "tdps": 350286.6411102089,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,25 +244,43 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75501.30213142086,
-        "team": 0.3660651764820251,
+        "dps": 79554.46085532966,
+        "team": 0.2529181984515868,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Dragonyule_Dreaming",
+        "Emissaries_of_the_Heavens",
+        "His_Clever_Brother",
+        "Liber_Grimortis",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "sack, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Yurius"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73010.14983046085,
-        "team": 0.30968888862261945,
+        "dps": 73121.66334400488,
+        "team": 0.3167035571173887,
         "noaff": false,
         "nihil": false
       },

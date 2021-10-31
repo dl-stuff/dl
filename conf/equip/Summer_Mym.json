@@ -53,7 +53,7 @@
         "Welcome_to_the_Opera",
         "Enter_the_Blue_Rose",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Arsene",
@@ -140,8 +140,8 @@
         "Welcome_to_the_Opera",
         "Beautiful_Gunman",
         "Enter_the_Blue_Rose",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -174,15 +174,83 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 86740.03698854761,
-        "team": 0.13943993067270533,
+        "dps": 74284.97239620959,
+        "team": 0.29995199605248213,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Welcome_to_the_Opera",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, buff(s3)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf=1",
+        "`s2, xf=1",
+        "`dodge, xf=1"
+      ],
+      "dacl": [
+        "`s4, xf",
+        "`s1, ((dgauge>1000) and cancel) or duration-now<2",
+        "`s2, cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86900.22140732431,
+        "team": 0.27369204518558343,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Welcome_to_the_Opera",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf=1",
+        "`s2, xf=1",
+        "`dodge, xf=1"
+      ],
+      "dacl": [
+        "`s4, cancel",
+        "`s1, ((dgauge>1000) and cancel) or duration-now<2",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Vania",
+        "Yaten"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
+      "tdps": 480398.8048209392,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -191,15 +259,72 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 57211.030938749136,
-        "team": 0.11099368449205221,
+        "dps": 56219.23903551704,
+        "team": 0.12059419404435905,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s3, xf",
+        "`s4, xf",
+        "`s2, xf",
+        "`dodge, xf=2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58798.165177471994,
+        "team": 0.11648221741706147,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s2",
+        "`s3, xf",
+        "`s4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Wand"
+      ]
     },
     "META": {
+      "tdps": 627174.3192397085,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -229,7 +354,7 @@
         "Worthy_Rivals",
         "Enter_the_Blue_Rose",
         "Lord_of_the_Skies",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
@@ -261,8 +386,8 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "queue prep and now=0",

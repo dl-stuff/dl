@@ -2,15 +2,15 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12011.960249035697,
-        "team": 1.1760162997774748,
+        "dps": 12014.407673699316,
+        "team": 1.1760162997774746,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Halloween_Spectacular",
         "Jewels_of_the_Sun",
         "Sisters_Day_Out",
-        "Wily_Warriors_Flash_and_Heat",
         "Bellathorna",
         "From_Whence_He_Comes",
         "Beneath_the_Boughs",
@@ -24,9 +24,6 @@
         "`s1",
         "`s4, x=4",
         "`fs, x=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Bow",
@@ -51,7 +48,7 @@
         "Sweet_Surprise",
         "Luck_of_the_Draw",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
@@ -77,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 80021.04334460251,
+      "tdps": 80018.07763200447,
       "pref": "PERSONAL"
     }
   },
@@ -114,15 +111,15 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 2238.795150369681,
+        "dps": 2239.2513026008055,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
+        "A_Halloween_Spectacular",
         "Jewels_of_the_Sun",
         "Sisters_Day_Out",
-        "Wily_Warriors_Flash_and_Heat",
         "Bellathorna",
         "From_Whence_He_Comes",
         "Beneath_the_Boughs",
@@ -155,18 +152,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 12361.780817781955,
-        "team": 1.1760162997774748,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85687.40160381516,
-        "team": 0.2979594913750888,
+        "dps": 86608.49587107393,
+        "team": 0.29801413123823384,
         "noaff": false,
         "nihil": false
       },
@@ -176,8 +165,16 @@
         "Welcome_to_the_Opera",
         "His_Clever_Brother",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3, fscf and not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "`fs, x=5"
       ],
       "share": [
         "Weapon",
@@ -185,10 +182,52 @@
       ]
     },
     "META": {
-      "tdps": 83508.97126969302,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60180.5100783691,
+        "team": 0.03327116246946332,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, fscf",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -215,6 +254,50 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23141.431267979875,
+        "team": 0.0332811947820365,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, fscf",
+        "`s3, fscf and not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
