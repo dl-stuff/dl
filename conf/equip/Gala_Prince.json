@@ -13,7 +13,7 @@
         "Sisters_Day_Out",
         "A_Game_of_Cat_and_Boar",
         "Blessed_Days",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Tie_Shan_Gongzhu",
@@ -44,8 +44,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 170346.38963853204,
-        "team": 0.08052478553024822,
+        "dps": 107987.5890294949,
+        "team": 0.08023183321038296,
         "noaff": false,
         "nihil": false
       },
@@ -101,10 +101,25 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Daikokuten",
+      "acl": [
+        "if (s=2 or fsc) and buff(s3,1)",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
+        "end",
+        "`s4",
+        "`s2, cancel",
+        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
+        "`s1, fsc",
+        "`fs, x=2"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -117,15 +132,42 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 168993.14486479067,
-        "team": 0.08052478553024822,
+        "dps": 108813.26732010706,
+        "team": 0.08023183321038296,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Mana_Fount",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3,1) and s=1 or s=2",
+        "`s3, fsc",
+        "`s4",
+        "`s2, cancel",
+        "`s1, dgauge>=500",
+        "`fs, x=4 or hits=3"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Raemond"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -151,8 +193,8 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Mana_Fount",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -181,7 +223,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 142489.10569073368,
+        "dps": 96217.4120016117,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -241,6 +283,7 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
+      "slots.d": "High_Jupiter",
       "acl": [
         "`dragon, cancel",
         "`s4, fsc",
@@ -276,8 +319,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 234951.28061952087,
-        "team": 0.08036752720183805,
+        "dps": 124020.52229672873,
+        "team": 0.06942282872928181,
         "noaff": false,
         "nihil": false
       },
@@ -309,32 +352,10 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 232184.60372038538,
-        "team": 0.08036752720183805,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Halloween_Laxi",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 181392.59317816826,
+        "dps": 121090.85693110833,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -355,16 +376,6 @@
         "`s3, fsc",
         "`s1, fsc",
         "`fs, x=2 or hits=0"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
       ]
     },
     "META": {
@@ -386,14 +397,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116023.60948763706,
-        "team": 0.12629100825482453,
+        "dps": 107956.05118160638,
+        "team": 0.08023183321038298,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 816238.3875169434,
+      "tdps": 503646.3256746973,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -402,12 +413,63 @@
     }
   },
   "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 34384.40021502381,
-        "team": 0.22630983917622444,
+        "dps": 96539.03406830622,
+        "team": 0.22016223437758783,
         "noaff": false,
         "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "if (s=2 or fsc) and buff(s3,1)",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
+        "end",
+        "`s4",
+        "`s2, cancel",
+        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
+        "`s1, fsc",
+        "`fs, x=2"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11890.091678766916,
+        "team": 0.039236625159737255,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
@@ -415,7 +477,7 @@
         "Sisters_Day_Out",
         "A_Game_of_Cat_and_Boar",
         "Blessed_Days",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Tie_Shan_Gongzhu",
@@ -441,28 +503,10 @@
         "Karl"
       ]
     },
-    "META": {
-      "tdps": 65242.51469333245,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 63659.27895804388,
-        "team": 0.0333324971309664,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67772.60092947482,
-        "team": 0.03331549308309078,
+        "dps": 95627.81647659544,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -473,11 +517,63 @@
       ]
     },
     "META": {
-      "tdps": 241902516.47834098,
+      "tdps": 2134172.458944205,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11890.091678766916,
+        "team": 0.039236625159737255,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "A_Game_of_Cat_and_Boar",
+        "Blessed_Days",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "if (s=2 or fsc) and buff(s3,1)",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
+        "end",
+        "`s4",
+        "`s2, cancel",
+        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
+        "`s1, fsc",
+        "`fs, x=2"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Albert",
+        "Cleo",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "tdps": 2134172.458944205,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

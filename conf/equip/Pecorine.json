@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28546.449167377923,
-        "team": 0.11558127890987444,
+        "dps": 36122.313152721435,
+        "team": 0.11558127890987425,
         "noaff": true,
         "nihil": false
       },
@@ -42,7 +42,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 109898.72853495182,
+        "dps": 94792.74404642744,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -84,63 +84,51 @@
       ]
     },
     "META": {
-      "tdps": 703853.4279501188,
+      "tdps": 507611.88530761027,
       "pref": "PERSONAL"
     }
   },
-  "SELF-NORMAL-MONO": {
+  "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 109898.72853495182,
+        "dps": 27421.66378225374,
         "team": 0.0,
         "noaff": true,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
-        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
-        "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
+        "Odd_Sparrows",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Cupid",
+      "slots.w": "chimeratech",
       "acl": [
-        "`s3, not buff(s3) and fsc",
+        "`s3, not buff(s3)",
         "if gourmand_mode.get()",
         "`s4, fsc",
         "`s1, fsc",
-        "else",
-        "`dragon",
-        "`s2",
-        "end",
-        "`fs, x=1"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`fs, dodge",
+        "else",
+        "`dragon, dshift_count=0 and s=2",
+        "`dragon, dshift_count=1",
+        "`s2",
+        "`fs, x=1",
+        "end"
       ],
       "coabs": [
-        "Blade",
+        "Grace",
         "Mitsuhide",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Jiang_Ziya"
       ]
     },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 49334.21908242502,
@@ -195,6 +183,16 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "High_Jupiter",
       "acl": [
         "if gourmand_mode.get()",
         "`s3, fsc",
@@ -214,6 +212,10 @@
         "Blade",
         "Mitsuhide",
         "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "META": {
@@ -227,7 +229,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 141240.3568513959,
+        "dps": 120676.38783183,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -255,49 +257,11 @@
       ]
     },
     "META": {
-      "tdps": 975018.6946096355,
+      "tdps": 731555.105433991,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 141240.3568513959,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if gourmand_mode.get()",
-        "`dragon",
-        "`s4, fsc",
-        "`s1, fsc",
-        "else",
-        "`dragon",
-        "`s2",
-        "end",
-        "`fs, x=1"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -321,13 +285,13 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42626.25943527917,
+        "dps": 42878.69921196866,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Levins_Champion",
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "A_Game_of_Cat_and_Boar",
@@ -361,17 +325,18 @@
       ]
     },
     "META": {
+      "tdps": 222775.5608181829,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59132.74739423536,
+        "dps": 53009.598923003054,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -405,7 +370,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

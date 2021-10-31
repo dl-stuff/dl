@@ -41,23 +41,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92772.50610376135,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 76977.48720976987,
+        "team": 0.049852646654853984,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Dragonyule_Dreaming",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "A_Choice_Blend",
+        "The_Bridal_Dragon",
         "A_Small_Courage",
+        "Dueling_Dancers",
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, bleed_stack>0 and aff(flashburn)",
+        "`dragon, xf",
         "`s3, not buff(s3)",
         "`s2",
         "`fs, charged_in(fs,s2) and xf=5",
@@ -77,11 +77,11 @@
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 371672.9562880531,
+      "tdps": 437046.7792789232,
       "pref": "PERSONAL"
     }
   },
@@ -128,7 +128,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 119986.45784491266,
+        "dps": 99692.509599253,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -142,21 +142,6 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`fs, charged_in(fs,s2) and xf=5",
-        "`s4, xf",
-        "`s1, xf=5",
-        "`fsf, xf=5"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ],
       "coabs": [
         "Halloween_Elisanne",
         "Peony",
@@ -164,7 +149,7 @@
       ]
     },
     "META": {
-      "tdps": 668536.6110270466,
+      "tdps": 447159.8810837591,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -201,45 +186,6 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 58700.66964130492,
-        "team": 0.09167155125499676,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`fs, charged_in(fs,s2) and xf=5",
-        "`s4, xf",
-        "`s1, xf=5",
-        "`fsf, xf=5"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

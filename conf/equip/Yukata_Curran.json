@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33756.22727723768,
-        "team": 0.06345877199531791,
+        "dps": 42093.96741608309,
+        "team": 0.06345877199531774,
         "noaff": false,
         "nihil": false
       },
@@ -13,7 +13,7 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "Taiko_Tandem",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Cupid",
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100958.9740111384,
+        "dps": 77128.86889914211,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -131,8 +131,8 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -157,7 +157,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 167489.43137829867,
+        "dps": 95948.03685333849,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -189,7 +189,7 @@
       ]
     },
     "META": {
-      "tdps": 671548.9849698009,
+      "tdps": 143239.43701871426,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,7 +211,7 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
@@ -238,7 +238,7 @@
       ]
     },
     "META": {
-      "tdps": 716284.7448338935,
+      "tdps": 56226.17985051464,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -249,7 +249,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72593.60127179592,
+        "dps": 64270.81737529222,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -302,15 +302,6 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "Taiko_Tandem",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "`dragon, energy()=5",
         "`s3, not buff(s3)",
@@ -326,36 +317,41 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49104.10729302379,
-        "team": 0.11992315746087753,
+        "dps": 55592.95985974895,
+        "team": 0.10838643465941797,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "Having_a_Summer_Ball",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, energy()=5 and not inspiration()=5",
+        "`dragon, energy()=5",
         "`s3, not buff(s3)",
+        "`s4, energy()<5",
         "`s2",
-        "`s4",
-        "`s1, not energy()=5 and cancel"
+        "`s1"
+      ],
+      "dacl": [
+        "queue",
+        "dx3;dx3;dx3;ds1",
+        "end"
       ],
       "coabs": [
-        "Axe2",
+        "Blade",
         "Lucretia",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
@@ -363,42 +359,6 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 39662.919523320175,
-        "team": 0.06345261795612465,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "Taiko_Tandem",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Cupid",
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
       }
     }
   },

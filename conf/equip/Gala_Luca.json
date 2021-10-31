@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 87265.99586952323,
-        "team": 0.16349223135259763,
+        "dps": 87846.55277038491,
+        "team": 0.16349223135259755,
         "noaff": true,
         "nihil": false
       },
@@ -80,14 +80,14 @@
       ]
     },
     "META": {
-      "tdps": 155735.02056454372,
+      "tdps": 152184.04510804272,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89546.7589924104,
+        "dps": 90142.14967720036,
         "team": 0.133292575425825,
         "noaff": false,
         "nihil": false
@@ -98,8 +98,8 @@
         "Moonlight_Party",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -111,6 +111,9 @@
         "`s4, xf or fsc",
         "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Gala_Audric",
@@ -134,24 +137,23 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30883.665609166394,
-        "team": 0.033237408326380696,
-        "noaff": false,
+        "dps": 24477.725874557706,
+        "team": 0.033317760982047646,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "A_Choice_Blend",
+        "Worthy_Rivals",
         "A_Small_Courage",
-        "Applelicious_Dreams",
+        "Liber_Grimortis",
+        "Promised_Piety_Staff",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, s=1 and buff(s2) and dshift_count=0",
-        "`dragon, s=1 and buff(s2) and dshift_count=1",
+        "`dragon, s=1 and buff(s2)",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -160,23 +162,21 @@
         "`fsf, xf=5"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
+        "ds1,x=3"
       ],
       "coabs": [
-        "Gala_Audric",
-        "Halloween_Elisanne",
+        "Axe2",
+        "Lucretia",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103704.38642024893,
+        "dps": 69934.08675749248,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -216,7 +216,7 @@
       ]
     },
     "META": {
-      "tdps": 2190926.563708169,
+      "tdps": 1364328.2004282244,
       "pref": "PERSONAL"
     }
   },
@@ -239,7 +239,7 @@
       ]
     },
     "META": {
-      "tdps": 306672.84580515046,
+      "tdps": 303121.87034864957,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -247,10 +247,59 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 87846.55277038491,
+        "team": 0.16349223135259755,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Liber_Grimortis",
+        "Promised_Piety_Staff",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Axe2",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 189159.238376947,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 71010.11711324597,
+        "dps": 70940.00716480774,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -264,7 +313,6 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon",
         "`s1",
@@ -284,10 +332,11 @@
       ]
     },
     "META": {
+      "tdps": 1394519.9173283267,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -298,16 +347,7 @@
         "team": 0.133292575425825,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ]
+      }
     },
     "META": {
       "tdps": 169441.63718054304,
@@ -321,8 +361,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44383.1451221126,
-        "team": 0.03318499456402131,
+        "dps": 58061.6287596393,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -355,40 +395,11 @@
       ]
     },
     "META": {
+      "tdps": 1007987.9888440688,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 28832.934534847656,
-        "team": 0.033285441131119156,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, s=1 and buff(s2) and dshift_count=0",
-        "`dragon, s=1 and buff(s2) and dshift_count=1",
-        "`s3, not buff(s3) or duration-now<=2.4",
-        "`s2, charged_in(5, s1)",
-        "`s1",
-        "`s4, xf or fsc",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
-        "`fsf, xf=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

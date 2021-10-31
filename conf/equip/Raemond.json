@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 119362.58857504177,
-        "team": 0.025410600146892233,
+        "dps": 66940.93635912592,
+        "team": 0.025304415848538417,
         "noaff": false,
         "nihil": false
       },
@@ -159,10 +159,31 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Blossoms_on_the_Waters_Edge",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3",
+        "`fs, x=4 or hits=0",
+        "`s1, fsc"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Wand"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -176,8 +197,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 170206.21200783865,
-        "team": 0.01993558140074198,
+        "dps": 88051.5846105337,
+        "team": 0.022851114438836778,
         "noaff": false,
         "nihil": false
       },
@@ -238,6 +259,32 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53433.637418293874,
+        "team": 0.07848745276474013,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Daikokuten",
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Cleo",
+        "Dagger2",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
@@ -252,8 +299,8 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -277,9 +324,9 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

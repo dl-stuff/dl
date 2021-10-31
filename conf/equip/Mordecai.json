@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46516.154116043486,
+        "dps": 46784.75636707446,
         "team": 0.09237489936697887,
         "noaff": true,
         "nihil": false
@@ -13,8 +13,8 @@
         "Worthy_Rivals",
         "A_Choice_Blend",
         "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -40,23 +40,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89305.69331031445,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 68694.92983517352,
+        "team": 0.04993177654930799,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "Dueling_Dancers",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon",
+        "`dragon, fsf",
         "`s3, not buff(s3)",
         "`s1, charged_in(5,s2) or xf=5",
         "`s2, buff(s1)",
@@ -75,11 +75,11 @@
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 463216.0845369958,
+      "tdps": 516224.3495188088,
       "pref": "PERSONAL"
     }
   },
@@ -129,8 +129,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 109311.86931977783,
-        "team": 0.06283071354598542,
+        "dps": 90308.40125957993,
+        "team": 0.04995041865943387,
         "noaff": false,
         "nihil": false
       },
@@ -143,7 +143,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, xf",
         "`s3, not buff(s3)",
@@ -151,11 +150,6 @@
         "`s2, buff(s1)",
         "`s1, charged_in(5, s2) or xf=5",
         "`fsf, xf=5"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
       ],
       "coabs": [
         "Peony",
@@ -168,7 +162,7 @@
       ]
     },
     "META": {
-      "tdps": 2125484.70904597,
+      "tdps": 1025908.724553109,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,45 +205,6 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 55959.8190956575,
-        "team": 0.08834660962010159,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon, fsf",
-        "`s3, not buff(s3)",
-        "`s1, charged_in(5,s2) or xf=5",
-        "`s2, buff(s1)",
-        "`s4, xf or s",
-        "`fsf, xf=5"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 2344336.076354662,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
