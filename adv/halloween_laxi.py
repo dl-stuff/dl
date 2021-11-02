@@ -62,7 +62,7 @@ class Halloween_Laxi(Adv):
             a_hits = self.hits // 15
             if len(self.a3_edge_buffs) < 3 and a_hits > len(self.a3_edge_buffs):
                 self.a3_edge_buffs.append(Selfbuff("a3_edge", 0.25, -1, "edge", "flashburn").on())
-                self.a3_punish_buffs.append(Selfbuff("a3_punisher", 0.25, -1, "flashburn_killer", "passive").on())
+                self.a3_punish_buffs.append(Selfbuff("a3_punisher", 0.07, -1, "flashburn_killer", "passive").on())
             self.buff1990 = min(4, self.hits // 25)
         return result
 
