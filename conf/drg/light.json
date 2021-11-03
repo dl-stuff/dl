@@ -178,7 +178,7 @@
         }
     },
     "Gala_Chronos_Nyx": {
-        "dacl": ["`ds1, cancel and dshift_timeleft<1"],
+        "dacl": ["`ds1, cancel and dshift_timeleft<1", "`dodge, fsc", "`fs3"],
         "d": {
             "name": "Gala Chronos Nyx",
             "icon": "210164_01",
@@ -192,7 +192,7 @@
         },
         "dfs1": {
             "charge": 0.4,
-            "startup": 0.33333,
+            "startup": 0.0,
             "recovery": 2.5,
             "attr": [
                 {"dmg": 3.3, "sp": 10},
@@ -204,11 +204,12 @@
         },
         "dfs2": {
             "charge": 1.2,
-            "startup": 0.33333,
+            "startup": 0.0,
             "recovery": 2.5,
             "attr": [
                 {"dmg": 3.3, "sp": 10},
-                {"dmg": 3.3}, 5,
+                {"dmg": 3.3}, 2,
+                {"dmg": 3.3, "iv": 0.33333}, 3,
                 {"hp": -5.0}
             ],
             "interrupt": {"s": 0.0},
@@ -216,11 +217,13 @@
         },
         "dfs3": {
             "charge": 2.4,
-            "startup": 0.33333,
+            "startup": 0.0,
             "recovery": 2.5,
             "attr": [
                 {"dmg": 3.3, "sp": 10},
-                {"dmg": 3.3}, 11,
+                {"dmg": 3.3}, 2,
+                {"dmg": 3.3, "iv": 0.33333}, 3,
+                {"dmg": 3.3, "iv": 0.66666}, 6,
                 {"hp": -5.0}
             ],
             "interrupt": {"s": 0.0},

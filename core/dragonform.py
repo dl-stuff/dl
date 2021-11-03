@@ -257,8 +257,12 @@ class DragonForm:
             log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
         else:
             self.shift_end_timer.off()
-            self.l_act_end.on()
-            self.set_dacts_enabled(False)
+            doing = self.d_shift.getdoing()
+            if isinstance(doing, S):
+                self.l_act_end.on()
+                self.set_dacts_enabled(False)
+            else:
+                self.shift_end_timer.on(0.00001)
 
     def d_shift_start(self, _=None):
         self.status = True

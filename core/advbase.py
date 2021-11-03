@@ -824,6 +824,7 @@ class Misc(Action):
         self.act_event.dtype = self.name
         self.act_event.conf = self.conf
         self.act_event.msg = "-"
+        self.act_event.logcast = True
 
         self.end_event = Event(f"{name}_end")
         self.end_event.act = self.act_event
@@ -846,11 +847,8 @@ class Shift(Misc):
     def __init__(self, name, dform_name, conf, act=None):
         super().__init__(name, conf, act, atype="s")
         self.act_event.dtype = "x"
+        self.act_event.logcast = False
         self.dform_name = dform_name
-        self.act_event.msg = dform_name
-
-    def set_msg(self, msg):
-        self.act_event.msg = f"{self.dform_name}: {msg}"
 
 
 class DashX(Misc):
@@ -859,7 +857,6 @@ class DashX(Misc):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act=act)
         self.act_event.dtype = "x"
-        print(conf)
         self.to_x = conf["to_x"] or 1
 
     def getstartup(self):
@@ -1716,7 +1713,7 @@ class Adv(object):
             if target not in ("ds1", "ds2"):
                 return 0
             if param.startswith("fs"):
-                actkeys = ("d"+param,)
+                actkeys = ("d" + param,)
             elif isinstance(param, int):
                 actkeys = (f"dx{i}" for i in range(1, min(param, self.dragonform.dx_max) + 1))
             else:
@@ -1973,7 +1970,8 @@ class Adv(object):
             return False
 
     def l_misc(self, e):
-        log("cast", e.name, e.msg)
+        if e.logcast:
+            log("cast", e.name, e.msg)
         self.hit_make(e, e.conf, cb_kind=e.name.strip("#"))
         self.think_pin(e.name)
 

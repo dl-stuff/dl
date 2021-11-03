@@ -17,6 +17,8 @@ class Gala_Luca(Adv):
             self.gluca_crit_mod = Modifier("s1", "crit", "chance", 0).off()
             self.share_dst = "s1"
             self.extra_actmods.append(self.get_gluca_crit_mod)
+            self.a1_crit_mod = Modifier("a1", "crit", "chance", 0)
+            self.a1_crit_mod.get = self.a1_mod_value
 
     def update_icon_avg(self, n_avg, count, c_avg):
         return count + 1, (count * c_avg + n_avg) / (count + 1)
@@ -35,6 +37,10 @@ class Gala_Luca(Adv):
             log("gluca", f"{name}:{aseq}", self.gluca_crit_mod.mod_value)
             return self.gluca_crit_mod
         return None
+
+    def a1_mod_value(self):
+        # for nihil only
+        return self.buff_icon_count() * 0.04
 
     def buff_icon_count(self):
         # not accurate to game

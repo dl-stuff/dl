@@ -7,7 +7,7 @@ class Halloween_Sylas(Adv):
 
     def prerun(self):
         self.sample_buffs = {
-            "x": Selfbuff("sample_x", 1.0, -1, "effect", "buff"),
+            "x5": Selfbuff("sample_x", 1.0, -1, "effect", "buff"),
             "fs": Selfbuff("sample_fs", 1.0, -1, "effect", "buff"),
             "dash": Selfbuff("sample_dash", 1.0, -1, "effect", "buff"),
         }
@@ -27,13 +27,10 @@ class Halloween_Sylas(Adv):
         return all((b.get() for b in self.sample_buffs.values()))
 
     def add_sample(self, e):
-        if e.name[0] == "x":
-            self.sample_buffs["x"].on()
-        else:
-            try:
-                self.sample_buffs[e.name].on()
-            except KeyError:
-                return
+        try:
+            self.sample_buffs[e.name].on()
+        except KeyError:
+            return
         if self.all_samples:
             self.current_s["s1"] = "enhanced"
             self.current_s["s2"] = "enhanced"
