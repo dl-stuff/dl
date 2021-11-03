@@ -621,27 +621,22 @@
                             <li><code>self</code></li>
                             <li><code>team</code></li>
                         </ul>
-                        <p><strong>ID</strong></p>
+                        <p><strong>ID|type</strong></p>
                         <ul>
-                            <li><code>10000</code> - Strength Amp - Default value</li>
-                            <li><code>20000</code> - Defense Amp</li>
-                            <li><code>30000</code> - Critical Damage Amp</li>
+                            <li><code>"10000"</code> - Strength Amp - Default value</li>
+                            <li><code>"20000"</code> - Defense Amp</li>
+                            <li><code>"30000"</code> - Critical Damage Amp</li>
+                            <li><code>2</code> - Strength Amp</li>
+                            <li><code>3</code> - Defense Amp</li>
+                            <li><code>4</code> - Critical Damage Amp</li>
+                            <li><code>att</code> - Strength Amp</li>
+                            <li><code>defense</code> - Defense Amp</li>
+                            <li><code>crit_dmg</code> - Critical Damage Amp</li>
                         </ul>
                         <h4><strong>Amp Time Left</strong></h4>
-                        <p><code>amp_timeleft(level,id)</code></p>
-                        <p><code>`s2, amp_timeleft(team, 20000)&lt;10</code><br /><code>`s1, amp_timeleft(self)&gt;10</code></p>
-                        <p>Returns the time remaining of the specified amp and level in seconds. id field will default to strength amp if only the team value was provided. The following are the valid values for each field:</p>
-                        <p><strong>Level</strong></p>
-                        <ul>
-                            <li><code>self</code></li>
-                            <li><code>team</code></li>
-                        </ul>
-                        <p><strong>ID</strong></p>
-                        <ul>
-                            <li><code>10000</code> - Strength Amp - Default value</li>
-                            <li><code>20000</code> - Defense Amp</li>
-                            <li><code>30000</code> - Critical Damage Amp</li>
-                        </ul>
+                        <p><code>amp_timeleft(level, id|type)</code></p>
+                        <p><code>`s2, amp_timeleft(team, 20000)&lt;10</code><code>`s1, amp_timeleft(self)&gt;10</code></p>
+                        <p>Returns the time remaining of the specified amp and level in seconds. id field will default to strength amp if only the team value was provided. The following are the valid values for each field are same as amp_lvl</p>
                         <h3><strong>Status Related Conditions</strong></h3>
                         <h4><strong>Current HP by Percent</strong></h4>
                         <p><code>hp</code></p>
