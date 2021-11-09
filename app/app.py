@@ -78,8 +78,7 @@ def run_adv_test(advname, variant, wp=None, dra=None, wep=None, acl=None, dacl=N
         conf["slots.w"] = wep
     if acl:
         conf["acl"] = acl
-    if dacl:
-        conf["dacl"] = dacl
+    conf["dacl"] = dacl
 
     result = {}
 
