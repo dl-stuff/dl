@@ -921,7 +921,7 @@ class Affliction_Selfbuff(Ability):
                         *self.buff_args,
                         source=e.source,
                     ).on()
-            elif e.rate > 0 and adv.is_set_cd(afrom, self.cooldown):
+            elif e.rate > 0 and not adv.is_set_cd(afrom, self.cooldown):
                 bufftype(
                     self.name,
                     self.value * e.rate,
