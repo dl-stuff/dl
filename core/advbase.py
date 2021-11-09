@@ -759,6 +759,8 @@ class Fs(Action):
         if include_buffer:
             buffer = self._buffer
             prev = self.getdoing()
+            if prev is self.nop:
+                prev = self.getprev()
             if isinstance(prev, (X, Dodge, S)):
                 bufferable = prev.startup_timer.elapsed() + prev.recovery_timer.elapsed()
                 buffer = max(0, self._buffer - bufferable)
