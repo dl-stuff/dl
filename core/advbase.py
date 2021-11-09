@@ -1,3 +1,4 @@
+import enum
 import operator
 import sys
 import random
@@ -2143,10 +2144,12 @@ class Adv(object):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
                         modified_attr = []
-                        for attr in self.conf[dst_sn].get("attr", []):
+                        hitseq = []
+                        for idx, attr in enumerate(self.conf[dst_sn].get("attr", [])):
                             if isinstance(attr, dict):
                                 if attr.get("ab"):
                                     continue
+                                hitseq.append(idx + 1)
                                 if attr.get("buffele", self.slots.c.ele) != self.slots.c.ele:
                                     attr = dict(attr)
                                     del attr["buff"]
@@ -2155,9 +2158,12 @@ class Adv(object):
                                         continue
                             modified_attr.append(attr)
                         self.conf[dst_sn]["attr"] = modified_attr
-
                         self.conf[dst_sn].owner = owner
                         self.conf[dst_sn].sp = shared_sp
+
+                        for idx, hs in enumerate(hitseq):
+                            self.rebind_function(owner_module, f"{src_sn}_hit{idx+1}", f"{dst_sn}_hit{hs}")
+
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ("before", "proc"):
                         self.rebind_function(owner_module, f"{src_key}_{sfn}", f"{dst_key}_{sfn}")
