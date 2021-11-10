@@ -250,9 +250,9 @@ class DragonForm:
         if percent:
             delta_t *= self.conf.duration
         delta_t = min(max_d, cur_d + delta_t) - cur_d
-        if cur_d + delta_t > 0:
+        log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
+        if cur_d + delta_t > 0.001:
             self.shift_end_timer.add(delta_t)
-            log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
         else:
             self.shift_end_timer.off()
             doing = self.d_shift.getdoing()
