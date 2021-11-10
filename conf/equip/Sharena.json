@@ -13,7 +13,7 @@
         "Moonlight_Party",
         "Lord_of_the_Skies",
         "Snipers_Allure",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
@@ -41,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50643.74894702334,
+        "dps": 51117.036944879066,
         "team": 0.032161891594520126,
         "noaff": false,
         "nihil": false
@@ -78,7 +78,7 @@
       ]
     },
     "META": {
-      "tdps": 73248.7420954124,
+      "tdps": 77526.55819378786,
       "pref": "PERSONAL"
     }
   },
@@ -162,24 +162,47 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54607.313784810394,
-        "team": 0.14279965324010827,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69310.4014733981,
-        "team": 0.032161891594520126,
+        "dps": 120244.87737806905,
+        "team": 0.07424424587162179,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, (xf or fscf) and buff(s3,1)",
+        "`s3, fscf",
+        "`s4",
+        "`s2, fscf",
+        "`s1, fscf",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
-      "tdps": 132893.93666230247,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -190,13 +213,21 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52759.05772600494,
-        "team": 0.029170439291734553,
+        "dps": 69358.78412913803,
+        "team": 0.014611944696092193,
         "noaff": false,
         "nihil": true
       },
+      "slots.d": "Gala_Chronos_Nyx",
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
       ]
     },
     "META": {
@@ -210,42 +241,11 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39835.539882465666,
-        "team": 0.14279965324010827,
+        "dps": 41275.97371523979,
+        "team": 0.032161891594520126,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Levins_Champion",
-        "Moonlight_Party",
-        "Lord_of_the_Skies",
-        "Snipers_Allure",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon, cancel",
-        "`s1",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Malora",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -256,16 +256,21 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27072.732358369856,
+        "team": 0.029170439291734553,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 27072.732358369856,
         "team": 0.029170439291734553,
         "noaff": false,
         "nihil": true
-      },
-      "dacl": [
-        "ds1,x=3"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",

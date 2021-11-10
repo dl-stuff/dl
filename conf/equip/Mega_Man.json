@@ -43,7 +43,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57754.91152133081,
+        "dps": 57181.45700464618,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -54,8 +54,8 @@
         "Sweet_Surprise",
         "The_Plaguebringer",
         "To_the_Extreme",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
@@ -70,7 +70,7 @@
         "end"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 124790.44022555792,
+      "tdps": 113320.36801029857,
       "pref": "PERSONAL"
     }
   },
@@ -128,8 +128,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43909.01717242637,
-        "team": 0.005847595863293769,
+        "dps": 45130.55712942325,
+        "team": 0.005846761776252324,
         "noaff": false,
         "nihil": true
       },
@@ -139,8 +139,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Chariot_Drift",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Agni",
       "acl": [
@@ -164,14 +164,14 @@
       ]
     },
     "META": {
-      "tdps": 632091.8450676551,
+      "tdps": 462811.66815592034,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66598.06927541028,
+        "dps": 71349.12063645355,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -179,15 +179,31 @@
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
+        "The_Cutie_Competition",
+        "His_Clever_Brother",
         "To_the_Extreme",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Cerberus",
+      "acl": [
+        "`dragon, s=4",
+        "`s3, not buff(s3)",
+        "`s4, x=5 or dgauge>=500",
+        "if bleed_stack>=3",
+        "`s2, c_x(metalblade) or c_x(default)",
+        "`s1, c_x(metalblade)",
+        "else",
+        "`s1, c_x(default) and s1.check_full()",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Ieyasu"
       ]
     },
     "META": {
-      "tdps": 301668.7367583662,
+      "tdps": 396697.89883494977,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

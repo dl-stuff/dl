@@ -2,14 +2,14 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 92950.6335990497,
-        "team": 0.5375589812705267,
+        "dps": 95371.73531008611,
+        "team": 0.5375589812705266,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
         "Sweet_Surprise",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -41,14 +41,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92950.6335990497,
-        "team": 0.5375589812705267,
+        "dps": 95371.73531008611,
+        "team": 0.5375589812705266,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
         "Sweet_Surprise",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -85,8 +85,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24938.810214929945,
-        "team": 0.0,
+        "dps": 25743.557096617118,
+        "team": 0.12837484162694332,
         "noaff": false,
         "nihil": true
       },
@@ -99,7 +99,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
@@ -107,12 +107,9 @@
         "`s1, x=5 or dgauge>=500",
         "`s4"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
-        "Nino",
-        "Valentines_Melody",
+        "Humanoid_Midgardsormr",
+        "Mona",
         "Yukata_Lathna"
       ],
       "share": [
@@ -127,11 +124,28 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 109455.8591369946,
+        "dps": 123514.6580012725,
         "team": 0.5375589812705267,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, dgauge>=750 and s=1",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -141,11 +155,52 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68491.5961835946,
+        "team": 0.28305432778191747,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3",
+        "`s2",
+        "`s4, cancel"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69189.20132404775,
-        "team": 0.5375589812705267,
+        "dps": 70749.93990446553,
+        "team": 0.5375589812705266,
         "noaff": false,
         "nihil": false
       }

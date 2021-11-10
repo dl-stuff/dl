@@ -147,8 +147,6 @@ class DragonForm:
             self.adv.a_s_dict[skey].set_enabled(enabled)
 
     def auto_dodge(self, index=None):
-        if self.untimed_shift:
-            return False
         index = index or self.dx_max
         d_combo = self.adv.a_x_dict[DRG][index]
         if "dodge" not in d_combo.conf.cancel:
@@ -260,9 +258,9 @@ class DragonForm:
             doing = self.d_shift.getdoing()
             if isinstance(doing, S):
                 self.l_act_end.on()
-                self.set_dacts_enabled(False)
             else:
                 self.shift_end_timer.on(0.00001)
+            self.set_dacts_enabled(False)
 
     def d_shift_start(self, _=None):
         self.status = True

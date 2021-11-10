@@ -85,17 +85,19 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46077.089284719805,
+        "dps": 50133.828972792246,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -108,9 +110,6 @@
         "`fs, x=2 and s1.charged!=2235",
         "`fs, x=3",
         "end"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -127,14 +126,22 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 79387.11837176049,
-        "team": 0.2049260331046553,
+        "dps": 86925.75008044648,
+        "team": 0.20194279126003775,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Summer_Marishiten",
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`dragon, fsc or x=5",
         "`s3, not buff(s3) and fsc",
@@ -147,9 +154,44 @@
         "Gala_Mascula",
         "Hunter_Sarisse",
         "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 98235.25414759554,
+        "team": 0.09990290547619989,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4, cancel and energy()<5",
+        "`fs, x=1 and not buff(s1, default)"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Xainfried",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 110834.15058996835,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -160,11 +202,20 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52172.882830781695,
+        "dps": 57734.78895347303,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`dragon, cancel",
         "`s3",
@@ -192,10 +243,44 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 68836.30505372646,
+        "team": 0.20194279126003775,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, fsc or x=5",
+        "`s3, not buff(s3) and fsc",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4, energy()<5 and cancel",
+        "`fs, x=3 and not buff(s1, default)"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Hunter_Sarisse",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62655.02715472579,
-        "team": 0.2049260331046553,
+        "dps": 68836.30505372646,
+        "team": 0.20194279126003775,
         "noaff": false,
         "nihil": false
       },
@@ -223,9 +308,44 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44211.188701277664,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4, cancel",
+        "`fs, x=4 and not buff(s1, default)"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41692.53623301379,
+        "dps": 44211.188701277664,
         "team": 0.0,
         "noaff": false,
         "nihil": true

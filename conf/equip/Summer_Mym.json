@@ -176,23 +176,23 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 74284.97239620959,
-        "team": 0.29995199605248213,
+        "dps": 55456.45624266936,
+        "team": 0.3929844194625277,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
+        "Beautiful_Gunman",
         "Enter_the_Blue_Rose",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, buff(s3)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, xf=1",
@@ -200,30 +200,34 @@
         "`dodge, xf=1"
       ],
       "dacl": [
-        "`s4, xf",
-        "`s1, ((dgauge>1000) and cancel) or duration-now<2",
-        "`s2, cancel"
+        "`s4, not buff(s4)",
+        "`s2, not is_cd(s2, 0)"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Joker"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Mikoto"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86900.22140732431,
-        "team": 0.27369204518558343,
+        "dps": 91275.89267116012,
+        "team": 0.2745647106602939,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
+        "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -241,8 +245,8 @@
       ],
       "coabs": [
         "Ieyasu",
-        "Vania",
-        "Yaten"
+        "Summer_Prince",
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -250,7 +254,7 @@
       ]
     },
     "META": {
-      "tdps": 480398.8048209392,
+      "tdps": 302478.6734470934,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

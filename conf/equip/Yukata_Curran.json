@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42093.96741608309,
-        "team": 0.06345877199531774,
+        "dps": 33756.22727723768,
+        "team": 0.06345877199531791,
         "noaff": false,
         "nihil": false
       },
@@ -13,7 +13,7 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "Taiko_Tandem",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Cupid",
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77128.86889914211,
+        "dps": 72702.78025299715,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -74,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 1058998.5374891756,
+      "tdps": 613730.0132223329,
       "pref": "PERSONAL"
     }
   },
@@ -131,8 +131,8 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -157,7 +157,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95948.03685333849,
+        "dps": 110879.25885599942,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -166,22 +166,27 @@
         "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "Dueling_Dancers",
         "Entwined_Flames",
+        "Mana_Fount",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, buff(s3, 1)",
+        "`dragon, buff(s3, 1) and energy()=5 and xf",
         "`s3, x=5",
-        "`s4",
-        "`s1,x=5",
+        "`s4, xf",
+        "`s1, x=5 and energy()<5",
         "`s2, x=5"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
       "coabs": [
-        "Halloween_Laxi",
-        "Peony",
-        "Raemond"
+        "Alfonse",
+        "Gala_Prince",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -189,7 +194,7 @@
       ]
     },
     "META": {
-      "tdps": 143239.43701871426,
+      "tdps": 253501.57544866827,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,7 +216,7 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
@@ -238,7 +243,7 @@
       ]
     },
     "META": {
-      "tdps": 56226.17985051464,
+      "tdps": 193985.31963197546,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -249,7 +254,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64270.81737529222,
+        "dps": 61443.589562695684,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -297,11 +302,20 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39662.919523320175,
-        "team": 0.06345261795612465,
+        "dps": 38297.11216962819,
+        "team": 0.06330544132709637,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "Taiko_Tandem",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`dragon, energy()=5",
         "`s3, not buff(s3)",
@@ -310,48 +324,43 @@
         "`s1, energy()<5"
       ],
       "dacl": [
-        "queue",
-        "dx3;dx3;dx3;dx3;ds1",
-        "end"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55592.95985974895,
-        "team": 0.10838643465941797,
+        "dps": 48591.83950610341,
+        "team": 0.12011147561947952,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
+        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
+        "A_Small_Courage",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, energy()=5",
+        "`dragon, energy()=5 and not inspiration()=5",
         "`s3, not buff(s3)",
-        "`s4, energy()<5",
         "`s2",
-        "`s1"
-      ],
-      "dacl": [
-        "queue",
-        "dx3;dx3;dx3;ds1",
-        "end"
+        "`s4",
+        "`s1, not energy()=5 and cancel"
       ],
       "coabs": [
-        "Blade",
+        "Axe2",
         "Lucretia",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
@@ -359,6 +368,42 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38297.11216962819,
+        "team": 0.06330544132709637,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "Taiko_Tandem",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Cupid",
+      "coabs": [
+        "Lucretia",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
       }
     }
   },

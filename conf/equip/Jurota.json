@@ -33,25 +33,31 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60151.991237443915,
-        "team": 0.06654808168222455,
+        "dps": 74504.55751460265,
+        "team": 0.1405498614487887,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, s=2",
+        "`dragon, xf and dgauge=1000 or dshift_count>0",
         "`s3, not buff(s3)",
         "`s4",
-        "`s2, (charged_in(5, s1) and dgauge<=450) or dgauge>=500",
+        "`s2, charged_in(5, s1)",
         "`s1, xf or buff(s2)"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -60,44 +66,50 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 333763.8362885613,
+      "tdps": 1447343.443605444,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30984.331042688176,
-        "team": 0.0,
+        "dps": 49827.18854501971,
+        "team": 0.1390015191612346,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Holywyrms_Advent",
+        "The_Prince_of_Dragonyule",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
+        "`dragon, xf and dgauge=1000 or dshift_count>0",
+        "`s3",
         "`s4",
-        "`s2, (charged_in(5, s1) and dgauge<=450) or dgauge>=500",
-        "`s1, xf or buff(s2)"
+        "`s1, xf",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Dagger",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Weapon",
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
@@ -114,18 +126,8 @@
         "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 70829.66474013602,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Gala_Reborn_Poseidon"
-    },
     "META": {
-      "tdps": 262809.6074548477,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -135,33 +137,19 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44108.63131883693,
-        "team": 0.0,
+        "dps": 52241.73263525646,
+        "team": 0.13900151916123457,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4, xf=5",
-        "`s1,xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
+        "Holywyrms_Advent",
+        "Moonlight_Party",
+        "A_Choice_Blend",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
@@ -209,82 +197,19 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 21647.825924723416,
-        "team": 0.0666583565915449,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, (charged_in(5, s1) and dgauge<=450) or dgauge>=500",
-        "`s1, xf or buff(s2)"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28241.415061466392,
-        "team": 0.0,
+        "dps": 37599.857794792224,
+        "team": 0.1390015191612346,
         "noaff": false,
         "nihil": true
-      },
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "The_Prince",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Mym"
-      ]
+      }
     },
     "META": {
-      "tdps": 98916.16706283038,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 21647.825924723416,
-        "team": 0.0666583565915449,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Summer_Marishiten"
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

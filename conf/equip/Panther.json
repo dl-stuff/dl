@@ -2,45 +2,41 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 91837.13033595677,
-        "team": 0.03470286281417929,
+        "dps": 86475.3026392959,
+        "team": 0.10605299411507305,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
+        "Moonlight_Party",
         "The_Cutie_Competition",
-        "The_Plaguebringer",
+        "A_Small_Courage",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Agni",
+      "slots.d": "Horus",
       "acl": [
-        "`dragon, a3_buffcount=1 and s=1",
-        "`dragon, a3_buffcount=2 and s=2",
-        "`dragon, a3_buffcount=3 and s=1",
-        "`fs, not buff(s3)",
-        "`s3, not buff(s3) and s1.check()",
-        "`s2, x=5",
-        "`s4, x=5",
-        "`s1, x=5 or s"
-      ],
-      "dacl": [
-        "`sack, not aff(scorchrend) and s1.check()",
+        "`dragon, s=1",
+        "`s3, not buff(s3) and x=5",
         "`s4, x=5",
         "`s1, x=5",
         "`s2, x=5"
       ],
+      "dacl": [
+        "`s4",
+        "`s1, x=5",
+        "`s2, x=5"
+      ],
       "coabs": [
-        "Blade",
         "Gala_Laxi",
-        "Kimono_Elisanne"
+        "Halloween_Mym",
+        "Marth"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Seimei"
       ]
     },
     "PERSONAL": {
@@ -59,7 +55,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Agni",
+      "slots.d": "Cerberus",
       "acl": [
         "`dragon, a3_buffcount=1 and s=1",
         "`dragon, a3_buffcount=2 and s=2",
@@ -87,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 3025684.794224037,
+      "tdps": 429021.87921134,
       "pref": "PERSONAL"
     }
   },
@@ -174,14 +170,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 137357.13236278633,
-        "team": 0.023058364934686208,
+        "dps": 137869.26976510749,
+        "team": 0.023071169292949514,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Me_and_My_Bestie",
-        "Sweet_Surprise",
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
@@ -189,8 +185,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, a3_buffcount=2 and s=2",
-        "`dragon, a3_buffcount=3 and s=1",
+        "`dragon, a3_buffcount>1",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
         "`s4, x=5",
@@ -204,11 +199,6 @@
         "if a3_buffcount<3",
         "`sack, not have_buff(s1_10) and s1.check()",
         "end"
-      ],
-      "coabs": [
-        "Gala_Laxi",
-        "Kimono_Elisanne",
-        "Marth"
       ]
     },
     "META": {

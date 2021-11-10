@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70225.20170665278,
+        "dps": 78820.87767034347,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -44,9 +44,11 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Summer_Paladyns",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -59,9 +61,6 @@
         "`s2, self.sr.count=2",
         "end"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Summer_Celliera",
         "Tiki",
@@ -73,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 69894.51352444533,
+      "tdps": 111140.36843298766,
       "pref": "PERSONAL"
     }
   },
@@ -160,14 +159,24 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75272.23300682973,
+        "dps": 84333.7453969844,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon, self.sr.count=1 and cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if s2_autocharge_buff.get()",
+        "`s1, self.sr.count=2 and cancel",
+        "else",
+        "`s2, self.sr.count=2",
+        "end"
+      ]
     },
     "META": {
-      "tdps": 94112.40186799214,
+      "tdps": 137593.54597754776,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

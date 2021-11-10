@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53714.49645878364,
+        "dps": 53049.19598563876,
         "team": 0.04582807806937854,
         "noaff": false,
         "nihil": false
@@ -24,11 +24,8 @@
         "`s2",
         "`s1"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
-        "Axe2",
+        "Heinwald",
         "Ieyasu",
         "Vania"
       ],
@@ -39,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53714.49645878364,
+        "dps": 53049.19598563876,
         "team": 0.04582807806937854,
         "noaff": false,
         "nihil": false
@@ -61,11 +58,8 @@
         "`s2",
         "`s1"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
-        "Axe2",
+        "Heinwald",
         "Ieyasu",
         "Vania"
       ],
@@ -117,54 +111,11 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32162.130962251635,
-        "team": 0.042798828239123246,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81586.46362655847,
-        "team": 0.07423807621629021,
+        "dps": 79341.48121045952,
+        "team": 0.07432948353986502,
         "noaff": false,
         "nihil": false
       },
@@ -206,20 +157,21 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44227.53676830478,
-        "team": 0.042183025056540494,
+        "dps": 58130.6166655056,
+        "team": 0.07365678528148886,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
         "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s4",
@@ -227,9 +179,17 @@
         "`s3",
         "`s2, xf"
       ],
+      "dacl": [
+        "ds1,ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Alberius",
+        "Dagger2",
+        "Ieyasu"
+      ],
       "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -243,7 +203,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43468.184839722235,
+        "dps": 40105.78063221643,
         "team": 0.04441524553570556,
         "noaff": false,
         "nihil": false
@@ -324,43 +284,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 30706.97177249951,
-        "team": 0.042926134869752025,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "acl": [
-        "`dragon, cancel",
-        "`s4",
-        "`s1",
-        "`s3",
-        "`s2, xf"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 120258.19854591452,
-        "team": 0.2844137290948056,
+        "dps": 120879.00715771972,
+        "team": 0.28359566789166674,
         "noaff": false,
         "nihil": false
       },
@@ -57,8 +57,7 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count=0 and dgauge=1000",
-        "`dragon, dshift_count>0",
+        "`dragon, dshift_count or dgauge=1000",
         "queue now<1",
         "`s3",
         "`s2",
@@ -80,8 +79,8 @@
       ],
       "coabs": [
         "Eugene",
-        "Tiki",
-        "Yurius"
+        "Pipple",
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -89,7 +88,7 @@
       ]
     },
     "META": {
-      "tdps": 171477.4494709199,
+      "tdps": 172367.40844559827,
       "pref": "PERSONAL"
     }
   },
@@ -108,7 +107,7 @@
       ]
     },
     "META": {
-      "tdps": 196993.35452298398,
+      "tdps": 197974.4586233604,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -190,11 +189,16 @@
         "`s4",
         "end",
         "`s2",
-        "`s4",
+        "`s4, fscf",
         "`s1, amp_lvl(team) and (xf or fscf)",
         "`fs, charged_in(fs, s2) or charged_in(fs, s4)",
         "`fs, x=5",
         "`dodge, fscf"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
       ]
     },
     "META": {

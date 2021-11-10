@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79228.90323999515,
-        "team": 0.03975713872386211,
+        "dps": 79247.18963852809,
+        "team": 0.0397615490547528,
         "noaff": false,
         "nihil": false
       },
@@ -13,7 +13,7 @@
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Apollo",
@@ -23,10 +23,7 @@
         "`s4, fsc",
         "`s1, buff(s3)",
         "`s2, fsc",
-        "`fs, x=4"
-      ],
-      "dacl": [
-        "ds1,x=3"
+        "`fs, x=4 or hits=3"
       ],
       "coabs": [
         "Blade",
@@ -40,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105080.76036093538,
-        "team": 0.03331371525657115,
+        "dps": 105095.8363359699,
+        "team": 0.03331729845796993,
         "noaff": false,
         "nihil": false
       },
@@ -61,10 +58,7 @@
         "`s4, fsc",
         "`s1, buff(s3)",
         "`s2, fsc",
-        "`fs, x=4"
-      ],
-      "dacl": [
-        "ds1,x=3"
+        "`fs, x=4 or hits=3"
       ],
       "coabs": [
         "Blade",
@@ -77,14 +71,14 @@
       ]
     },
     "META": {
-      "tdps": 4012130.7022847673,
+      "tdps": 4011117.5549793323,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61411.19014273883,
+        "dps": 61411.190142738815,
         "team": 0.0333263514627019,
         "noaff": false,
         "nihil": true
@@ -107,9 +101,6 @@
         "`s1, cancel",
         "`fs, x=3"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Kimono_Elisanne",
         "Nobunaga",
@@ -127,19 +118,22 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 115551.33224293125,
-        "team": 0.033308022936792823,
+        "dps": 115802.14442858989,
+        "team": 0.033328161913543104,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon, fsc and dshift_count=0",
-        "`dragon, dshift_count>=1 and fsc",
+        "`dragon, fsc",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, buff(s3)",
         "`s2, fsc",
         "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
       ]
     },
     "META": {
@@ -182,8 +176,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43604.55145410839,
-        "team": 0.11770047552788372,
+        "dps": 43551.20339072924,
+        "team": 0.11777848570405335,
         "noaff": false,
         "nihil": false
       },

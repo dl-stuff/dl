@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54584.785678203094,
-        "team": 0.11000687214202955,
+        "dps": 45728.974258285576,
+        "team": 0.11000687214202973,
         "noaff": false,
         "nihil": false
       },
@@ -13,8 +13,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Bustling_Hut",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Cupid",
       "acl": [
@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68729.64677605339,
-        "team": 0.07013769739100677,
+        "dps": 67360.42560726573,
+        "team": 0.07489156941698479,
         "noaff": true,
         "nihil": false
       },
@@ -55,7 +55,7 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -78,7 +78,7 @@
       ]
     },
     "META": {
-      "tdps": 576903.6520420493,
+      "tdps": 616012.0992934561,
       "pref": "PERSONAL"
     }
   },
@@ -96,8 +96,8 @@
         "Moonlight_Party",
         "A_Small_Courage",
         "The_Warrioresses",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -120,7 +120,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64917.219364762,
+        "dps": 64260.47416250918,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -160,43 +160,60 @@
       ]
     },
     "META": {
-      "tdps": 673453.7155883223,
+      "tdps": 639855.0396460412,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64579.73759771286,
-        "team": 0.11000687214202955,
+        "dps": 54101.222040907596,
+        "team": 0.11000687214202973,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96774.69250168074,
-        "team": 0.04993156047444276,
+        "dps": 124525.55696769235,
+        "team": 0.0499790393462207,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, buff(s3,1)",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4, x>2",
+        "`fs, c_fs(enhanced)"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3,x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Raemond"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 535909.9105820942,
+      "tdps": 1173194.6939737191,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,50 +221,10 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 84671.1382368618,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`s3, x=4",
-        "`fs, c_fs(enhanced) and x=1",
-        "`fsf, x=4"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "tdps": 1684051.91485509,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65072.280755477295,
+        "dps": 63987.458146732206,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -276,7 +253,7 @@
       ]
     },
     "META": {
-      "tdps": 681386.5598632882,
+      "tdps": 625887.7101403559,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

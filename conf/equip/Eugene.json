@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52762.61143543081,
-        "team": 0.30384974702096446,
+        "dps": 56844.67855128325,
+        "team": 0.3606950626082971,
         "noaff": false,
         "nihil": false
       },
@@ -50,11 +50,11 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon",
+        "`s2, inspiration()=5 or duration-now<5",
+        "`dragon, dgauge>=1000 or dshift_count>0",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4, inspiration()<5",
-        "`s2, fsc",
+        "`s4",
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
@@ -68,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 85719.32769544926,
+      "tdps": 104945.63395381728,
       "pref": "PERSONAL"
     }
   },
@@ -87,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 111202.11817888908,
+      "tdps": 141947.93899591852,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -210,25 +210,17 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51312.67408256056,
-        "team": 0.32985151420474035,
+        "dps": 65165.34429805858,
+        "team": 0.3613848614630727,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
       "acl": [
-        "`s2, duration-now<5",
-        "`dragon, dgauge>=1000",
-        "`dragon, dshift_count>0",
+        "`s2, inspiration()=5 or duration-now<6 or (s1.phase=2 and checkmate=2)",
+        "`dragon, dgauge>=1000 or dshift_count>0",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4",
+        "`s4, inspiration()<5",
         "`fs, x=4 or hits=0"
       ],
       "dacl": [
@@ -241,7 +233,7 @@
       ]
     },
     "META": {
-      "tdps": 87287.82133812533,
+      "tdps": 122992.56537690022,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

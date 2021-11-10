@@ -2,15 +2,15 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17686.546647789262,
+        "dps": 17690.018682859507,
         "team": 0.9987683775285334,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Halloween_Spectacular",
         "Jewels_of_the_Sun",
         "Proper_Maintenance",
-        "Wily_Warriors_Flash_and_Heat",
         "Blessed_Days",
         "From_Whence_He_Comes",
         "Beneath_the_Boughs",
@@ -25,9 +25,6 @@
         "`s2",
         "`s4, s or x=5 or fsc"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Bow",
         "Joker",
@@ -40,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77101.79542347816,
-        "team": 0.4952192114748102,
+        "dps": 78048.41906293633,
+        "team": 0.49143860097557707,
         "noaff": false,
         "nihil": false
       },
@@ -54,9 +51,8 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, trickery<=4 and buff(fs) and buff(s2) and x=5",
         "`s3, not buff(s3)",
         "`fs, s1.check() and c_fs(galacleo)",
         "`s1, s=3 or fsc",
@@ -79,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 117992.9444453691,
+      "tdps": 118972.71394196684,
       "pref": "PERSONAL"
     }
   },
@@ -98,7 +94,7 @@
       ]
     },
     "META": {
-      "tdps": 132523.35840858554,
+      "tdps": 133544.85179966592,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -107,6 +103,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7766.791286435646,
+        "team": 0.17394656233143693,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Halloween_Spectacular",
+        "Jewels_of_the_Sun",
+        "Proper_Maintenance",
+        "Blessed_Days",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`fs, s1.check() and c_fs(galacleo)",
+        "`s1, s or fsc",
+        "`s2",
+        "`s4, s or x=5 or fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35211.60974485147,
@@ -131,9 +162,6 @@
         "`s3",
         "`s2"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Bow",
         "Summer_Prince",
@@ -145,76 +173,15 @@
       ]
     },
     "META": {
+      "tdps": 378938.0852313729,
       "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19921.428996162424,
-        "team": 1.0240254439126282,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Wily_Warriors_Flash_and_Heat",
-        "Blessed_Days",
-        "Luck_of_the_Draw",
-        "Promised_Piety_Staff",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon",
-        "queue s1.charged>=s1.sp and c_fs(galacleo)",
-        "`fs",
-        "`s1, fsc",
-        "end",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, fsc",
-        "`fs, x=3 and (not c_fs(galacleo) and fs_prep_c)"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 81549.332185568,
-        "team": 0.4366207694237446,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "coabs": [
-        "Dragonyule_Victor",
-        "Ieyasu",
-        "Joker"
-      ]
-    },
-    "META": {
-      "tdps": 104915.58182275218,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63312.61300064661,
-        "team": 0.12098085489423492,
+        "dps": 61671.04135310595,
+        "team": 0.12092067640782708,
         "noaff": false,
         "nihil": true
       },
@@ -252,7 +219,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -267,8 +234,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52954.45794540196,
-        "team": 0.5518029591982256,
+        "dps": 50794.31744751655,
+        "team": 0.6301443694444283,
         "noaff": true,
         "nihil": false
       },
@@ -292,7 +259,7 @@
       ]
     },
     "META": {
-      "tdps": 80929.04161807403,
+      "tdps": 92268.38648080592,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -329,7 +296,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

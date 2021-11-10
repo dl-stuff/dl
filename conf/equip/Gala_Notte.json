@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 122727.52644582497,
+        "dps": 125868.27907409579,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -27,7 +27,7 @@
       "dacl": [
         "`ds1",
         "`ds2",
-        "`sack, x=1"
+        "`sack, x=1 and duration-now>12"
       ],
       "coabs": [
         "Mona",
@@ -41,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 122727.52644582497,
+        "dps": 125868.27907409579,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -66,7 +66,7 @@
       "dacl": [
         "`ds1",
         "`ds2",
-        "`sack, x=1"
+        "`sack, x=1 and duration-now>12"
       ],
       "coabs": [
         "Mona",
@@ -177,24 +177,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80521.4552627842,
+        "dps": 87639.22138024772,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -205,10 +192,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 77432.37746953107,
-        "team": 0.0,
+        "dps": 77554.45806331409,
+        "team": 0.012336671871138393,
         "noaff": false,
         "nihil": false
       },
@@ -221,15 +208,30 @@
         "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Lance"
       ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3) and xf",
-        "`s2, xf",
-        "`s4, cancel"
+      "share": [
+        "Weapon",
+        "Basileus"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78909.88956778737,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Applelicious_Dreams",
+        "Thunderswift_Lords_Blade_Lance"
       ]
     },
     "META": {
+      "tdps": 109870.110726079,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -240,7 +242,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42226.4054560332,
+        "dps": 36179.251440422726,
         "team": 0.0,
         "noaff": false,
         "nihil": true

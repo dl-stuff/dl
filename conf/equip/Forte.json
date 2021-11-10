@@ -2,23 +2,23 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 109661.78045995654,
-        "team": 0.06665727027043951,
+        "dps": 109910.47161529405,
+        "team": 0.06665727027043954,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Pecorines_Grand_Adventure",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
+        "The_Red_Impulse",
+        "Entwined_Flames",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, s=2",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -29,8 +29,8 @@
         "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
+        "Dagger2",
         "Ieyasu",
-        "Summer_Prince",
         "Vania"
       ],
       "share": [
@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 121439.62358164568,
+        "dps": 126218.90368949855,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -61,7 +61,7 @@
         "`s4",
         "`s2",
         "`s1",
-        "`fs, x=5"
+        "`fs, x=5 or charged_in(fs, s2) or hits=0"
       ],
       "dacl": [
         "`ds1, x=3",
@@ -78,8 +78,31 @@
       ]
     },
     "META": {
-      "tdps": 176692.55092361997,
+      "tdps": 244660.965083606,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 108770.4879226671,
+        "team": 0.06665727027043954,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Cleo",
+        "Ieyasu",
+        "Vania"
+      ]
+    },
+    "META": {
+      "tdps": 261763.13095391312,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -126,42 +149,55 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 141877.85253395114,
-        "team": 0.06662155220281832,
+        "dps": 118174.02973353806,
+        "team": 0.12874224639438633,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
         "Welcome_to_the_Opera",
+        "Dueling_Dancers",
         "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Yaten"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 139811.57241335072,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
         "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and fscf",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3) and (fscf or x>3)",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Audric",
-        "Ieyasu",
-        "Summer_Prince"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
+      "dacl": [
+        "`ds1, x=5",
+        "`sack, x=5"
       ]
     },
     "META": {
+      "tdps": 168068.705384623,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -206,14 +242,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76981.0007545424,
-        "team": 0.06654906983017564,
+        "dps": 76451.23726714896,
+        "team": 0.06656846708297467,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -224,15 +260,18 @@
       "acl": [
         "`dragon",
         "`s3",
-        "`s2, cancel",
-        "`s1",
         "`s4",
+        "`s1",
+        "`s2, cancel",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "ds1,ds1.overcharge=2"
       ],
       "coabs": [
         "Dagger2",
         "Ieyasu",
-        "Joker"
+        "Summer_Prince"
       ],
       "share": [
         "Gala_Mym",
@@ -240,7 +279,7 @@
       ]
     },
     "META": {
-      "tdps": 61234736.41069944,
+      "tdps": 67994239.92250045,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -251,11 +290,15 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76828.68313436513,
+        "dps": 80185.19540466623,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "dacl": [
+        "`ds1, x=5",
+        "`sack, x=5"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

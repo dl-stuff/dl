@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47501.55451140403,
-        "team": 0.07478570157214495,
+        "dps": 79404.21562901842,
+        "team": 0.033322359169713364,
         "noaff": true,
         "nihil": false
       },
@@ -51,7 +51,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
         "`s3",
@@ -60,10 +60,15 @@
         "`s1",
         "`fsf, x=4"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
       "coabs": [
-        "Cleo",
-        "Dagger2",
-        "Peony"
+        "Blade",
+        "Peony",
+        "Raemond"
       ],
       "share": [
         "Weapon",
@@ -71,30 +76,8 @@
       ]
     },
     "META": {
-      "tdps": 3100153.2326388652,
+      "tdps": 824996.2254930534,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 44361.50014979833,
-        "team": 0.07579857226787275,
-        "noaff": true,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -135,39 +118,6 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 64211.90152162104,
-        "team": 0.024980387620119553,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ]
-    },
-    "META": {
-      "tdps": 390616.1054239931,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {

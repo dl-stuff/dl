@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 73608.16625095048,
+        "dps": 76817.23310087457,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -24,9 +24,6 @@
         "`s2, aff(poison) and cancel",
         "`s1, aff(poison) or cancel",
         "`fsf, x=4"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Bow",
@@ -40,7 +37,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73608.16625095048,
+        "dps": 76817.23310087457,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -62,9 +59,6 @@
         "`s2, aff(poison) and cancel",
         "`s1, aff(poison) or cancel",
         "`fsf, x=4"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Bow",
@@ -158,6 +152,50 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70379.94995894312,
+        "team": 0.03318646846085245,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

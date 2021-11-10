@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111798.66516437841,
-        "team": 0.04162095568133119,
+        "dps": 115707.56985553706,
+        "team": 0.04147155375811913,
         "noaff": true,
         "nihil": false
       },
@@ -52,10 +52,14 @@
       "acl": [
         "`dragon, s and duration-now<10",
         "`s3, not buff(s3)",
-        "`s1, not have_buff(s1_res_down) and energy()<5 and stronger_bullets>0",
+        "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
         "`s4, energy()<5",
         "`s2, energy()=5 and stronger_bullets>=3",
         "`fs"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -68,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 156253.78796877494,
+      "tdps": 162655.48675973437,
       "pref": "PERSONAL"
     }
   },
@@ -107,8 +111,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55606.42069445066,
-        "team": 0.03660715763363691,
+        "dps": 60872.099409598486,
+        "team": 0.04189196829186692,
         "noaff": false,
         "nihil": true
       },
@@ -124,9 +128,9 @@
       "slots.d": "Leviathan",
       "acl": [
         "`dragon, s",
+        "`s4",
         "`s2",
-        "`s4, s",
-        "`s3, s",
+        "`s3",
         "`s1, s",
         "`fs"
       ],
@@ -141,15 +145,15 @@
       ]
     },
     "META": {
-      "tdps": 207641.3705448821,
+      "tdps": 238801.60039531652,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 127934.45121588049,
-        "team": 0.04162095568133119,
+        "dps": 127788.33494173511,
+        "team": 0.040941962093857205,
         "noaff": false,
         "nihil": false
       },
@@ -161,10 +165,14 @@
         "His_Clever_Brother",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=1"
       ]
     },
     "META": {
-      "tdps": 182845.03160669137,
+      "tdps": 182400.13851570457,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -175,7 +183,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63766.16251183559,
+        "dps": 63868.199201928204,
         "team": 0.09572831770423394,
         "noaff": false,
         "nihil": true
@@ -202,7 +210,7 @@
       ]
     },
     "META": {
-      "tdps": 343547.1031714145,
+      "tdps": 344225.68739528715,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -213,8 +221,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50214.52981651817,
-        "team": 0.04401945256561102,
+        "dps": 51464.680158994226,
+        "team": 0.04355967755924466,
         "noaff": true,
         "nihil": true
       },
@@ -239,7 +247,7 @@
       ]
     },
     "META": {
-      "tdps": 188575.30669639207,
+      "tdps": 194319.71786522138,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

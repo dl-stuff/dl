@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36469.36250258432,
-        "team": 0.02468808685318336,
+        "dps": 36639.70037922332,
+        "team": 0.024678089438603255,
         "noaff": false,
         "nihil": false
       },
@@ -13,8 +13,8 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -168,7 +168,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 113988.28965353494,
+        "dps": 108885.02469366009,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -195,7 +195,7 @@
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3,x=1"
       ],
       "coabs": [
         "Blade",
@@ -208,7 +208,7 @@
       ]
     },
     "META": {
-      "tdps": 553067.0596222125,
+      "tdps": 487688.6377715839,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -238,38 +238,24 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 38046.7552092587,
-        "team": 0.0780573286325936,
+        "dps": 32437.044701320665,
+        "team": 0.024678089438603255,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3) and fsc",
-        "`dragon, buff(s2)",
-        "`s2, illuminating_sun.get() and celestial_wave.get()",
-        "`s1, xf and buff(s3)",
-        "`s4",
-        "`fs, light=sun and not illuminating_sun.get() and xf",
-        "`fs, light=wave and not celestial_wave.get() and xf",
-        "`dodge, fsc"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37631.234814230396,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
+      "tdps": 210477.80565964733,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

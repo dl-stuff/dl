@@ -41,17 +41,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90930.52763370276,
-        "team": 0.296348573049321,
+        "dps": 100710.50154544551,
+        "team": 0.2963485730493209,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Adventure_in_the_Past",
         "Emissaries_of_the_Heavens",
         "The_Red_Impulse",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -83,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 427626.4811280085,
+      "tdps": 908097.2041233262,
       "pref": "PERSONAL"
     }
   },
@@ -141,17 +143,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70662.8897346018,
-        "team": 0.3446178184734955,
+        "dps": 79412.3095420693,
+        "team": 0.34480401281386847,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Adventure_in_the_Past",
         "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
-        "The_Shining_Overlord",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Liber_Grimortis",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -191,7 +195,7 @@
       ]
     },
     "META": {
-      "tdps": 621835.962315781,
+      "tdps": 1476236.266410433,
       "pref": "PERSONAL"
     }
   },
@@ -226,14 +230,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95199.14103428452,
-        "team": 0.296348573049321,
+        "dps": 108873.98831567931,
+        "team": 0.29634857304932083,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "queue not buff(s3)",
+        "`s3",
+        "`s1",
+        "`s1",
+        "`s1",
+        "end",
+        "`s1, s1.phase>0 or bleed_stack<2 and fsc",
+        "`s2, cancel",
+        "`s4, fsc or s",
+        "`fs, x=4",
+        "`fs, s1.phase>0 or bleed_stack<2 and s1.check()"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ]
     },
     "META": {
-      "tdps": 350286.6411102089,
+      "tdps": 555877.618149985,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -244,8 +280,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79554.46085532966,
-        "team": 0.2529181984515868,
+        "dps": 82698.1782367239,
+        "team": 0.3446178184734954,
         "noaff": false,
         "nihil": true
       },
@@ -253,19 +289,10 @@
         "Adventure_in_the_Past",
         "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
+        "A_Small_Courage",
         "His_Clever_Brother",
-        "Liber_Grimortis",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "dacl": [
-        "`ds1, x=3",
-        "sack, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Yurius"
+        "Savage_Hawk_Lance"
       ]
     },
     "META": {

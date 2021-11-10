@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42235.42988278821,
-        "team": 0.2836122113622114,
+        "dps": 73478.2915176722,
+        "team": 0.08312705354994918,
         "noaff": true,
         "nihil": false
       },
@@ -49,16 +49,17 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s1",
+        "`dragon, buff(s3, 1) and cancel",
         "`s3",
-        "`s4"
+        "`s4",
+        "`s1, not buff(s1) and x=5",
+        "`s2, x=5"
       ],
       "coabs": [
+        "Blade",
         "Bow",
-        "Dagger2",
         "Peony"
       ],
       "share": [
@@ -67,8 +68,8 @@
       ]
     },
     "META": {
-      "tdps": 34887.1925448938,
-      "pref": "TEAMBUFF"
+      "tdps": 54328.75871949422,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
@@ -85,21 +86,8 @@
         "Peony"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 40471.24430047604,
-        "team": 0.2836122113622114,
-        "noaff": true,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ]
-    },
     "META": {
-      "tdps": 43051.59813627289,
+      "tdps": 67300.96443876017,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -186,30 +174,10 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon",
-        "`s1",
-        "`s3",
-        "`s4"
-      ],
       "coabs": [
         "Blade",
         "Malora",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Celliera"
       ]
     },
     "META": {
@@ -223,34 +191,39 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 71076.26674059797,
-        "team": 0.14472231619218334,
+        "dps": 94281.88434168711,
+        "team": 0.12470480985897371,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1) and s=1",
+        "`s3, cancel",
+        "`s4",
+        "`s1, x=5 or (dgauge>=500 and buff(s3,1))"
+      ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
+        "Dagger",
+        "Peony",
+        "Raemond"
       ]
     },
     "META": {
-      "tdps": 55125.254693323164,
+      "tdps": 73457.0557984536,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

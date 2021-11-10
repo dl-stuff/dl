@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 84699.05922976632,
+        "dps": 85437.93193568494,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -42,7 +42,7 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 161115.47325555046,
+      "tdps": 162863.6227280757,
       "pref": "PERSONAL"
     }
   },
@@ -112,7 +112,7 @@
       ]
     },
     "META": {
-      "tdps": 192305.91627615903,
+      "tdps": 199698.13574033522,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -161,7 +161,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86280.24097429168,
+        "dps": 92012.83198229942,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -171,7 +171,17 @@
         "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, dshift_count=0 and energy()=5",
+        "`dragon, dshift_count=1 and s=2",
+        "`dragon, dshift_count>=2 and x=3",
+        "`s3, not buff(s3)",
+        "`s2, x=5 or energy()<5",
+        "`s4, not energy()=5 and x>3"
       ],
       "share": [
         "Weapon",
@@ -179,7 +189,7 @@
       ]
     },
     "META": {
-      "tdps": 164856.4992949708,
+      "tdps": 178419.6284599495,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,7 +214,7 @@
       ]
     },
     "META": {
-      "tdps": 119957.42413832757,
+      "tdps": 177310.43026523627,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -215,17 +225,19 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45306.19881561059,
+        "dps": 48568.3069388795,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
         "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`dragon",

@@ -88,15 +88,15 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29262.829553242555,
-        "team": 0.0665236924685091,
+        "dps": 57338.668989470134,
+        "team": 0.10731508903097066,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Moonlight_Party",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
@@ -104,55 +104,14 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, xf=5",
-        "`s4, xf",
-        "`fsf, xf=5"
+        "`dragon, dgauge=1000 or (dshift_count and amp_timeleft(team, att) < 4)",
+        "`s1, cancel",
+        "`s2",
+        "`s3",
+        "`s4"
       ],
       "dacl": [
-        "queue",
-        "dx3;ds1;dx3;sack, x=3",
-        "end"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 48208.571355298685,
-        "team": 0.09974529484819977,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "Seaside_Princess",
-        "A_Choice_Blend",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, xf=5",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "dacl": [
-        "queue",
-        "dx3;ds1;dx3;sack, x=3",
-        "end"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -164,7 +123,45 @@
         "Humanoid_Mercury"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62780.633071507276,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "The_Prince_of_Dragonyule",
+        "His_Clever_Brother",
+        "Rogues_Banquet",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s1, cancel",
+        "`s2",
+        "`s3",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Ranzal"
+      ]
+    },
     "META": {
+      "tdps": 50710.14832281988,
       "pref": "PERSONAL"
     }
   },
@@ -187,29 +184,38 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 36612.72003782784,
-        "team": 0.0665236924685091,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55548.50712552128,
-        "team": 0.09974529484819987,
+        "dps": 62095.98701647339,
+        "team": 0.16334731667821525,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "Moonlight_Party",
-        "OneWinged_Journey",
-        "A_Choice_Blend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, dgauge=1000 or (dshift_count and amp_timeleft(team, att) < 4)",
+        "`s1, xf",
+        "`s2",
+        "`s3",
+        "`s4",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -223,7 +229,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49819.15424043521,
+        "dps": 55425.91733484154,
         "team": 0.20880270589263897,
         "noaff": false,
         "nihil": false
@@ -241,26 +247,11 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36656.927557886236,
-        "team": 0.09974529484819977,
+        "dps": 40183.62960609445,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "Seaside_Princess",
-        "A_Choice_Blend",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, xf=5",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",

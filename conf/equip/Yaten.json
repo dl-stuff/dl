@@ -83,8 +83,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37123.48862628821,
-        "team": 0.0,
+        "dps": 43380.400251181025,
+        "team": 0.033311860069017526,
         "noaff": false,
         "nihil": true
       },
@@ -102,11 +102,9 @@
         "`dragon",
         "`s3",
         "`s4",
+        "`s2",
         "`s1",
         "`fs, x=4"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -123,6 +121,34 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 126098.53136802652,
+        "team": 0.14355523921462204,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "Taiko_Tandem",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5",
+        "`s4, fsc and energy()<5",
+        "`fs, x=4"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 151120.59882747784,
@@ -145,14 +171,10 @@
         "`s2, energy()<5",
         "`s4, fsc and energy()<5",
         "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Vania"
       ]
     },
     "META": {
+      "tdps": 174302.71159969375,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -161,10 +183,50 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70574.45077829197,
+        "team": 0.06665449668378452,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s4, cancel",
+        "`s3, cancel",
+        "`s1",
+        "`s2",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71552.44778343894,
-        "team": 0.05393762463826192,
+        "dps": 70311.83011315673,
+        "team": 0.052436380206554584,
         "noaff": false,
         "nihil": true
       },
@@ -201,7 +263,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -18470.847777609837,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -211,7 +274,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91719.49162665705,
+        "dps": 94594.00442105494,
         "team": 0.0,
         "noaff": false,
         "nihil": false

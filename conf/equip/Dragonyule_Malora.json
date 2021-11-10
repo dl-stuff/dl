@@ -13,7 +13,7 @@
         "Spirit_of_the_Season",
         "Blessed_Days",
         "Chariot_Drift",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Tie_Shan_Gongzhu",
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67932.53691756989,
-        "team": 0.08528415805197098,
+        "dps": 76745.59634904993,
+        "team": 0.08539146185109267,
         "noaff": false,
         "nihil": false
       },
@@ -76,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 582841.0557877898,
+      "tdps": 440909.9453401853,
       "pref": "PERSONAL"
     }
   },
@@ -94,8 +94,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -118,21 +118,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 32917.75121276197,
-        "team": 0.1568690291397263,
+        "dps": 56087.62224269117,
+        "team": 0.05854159309939796,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Blossoms_on_the_Waters_Edge",
+        "Kung_Fu_Masters",
+        "Pecorines_Grand_Adventure",
+        "Entwined_Flames",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon()",
         "`s4",
@@ -141,18 +141,23 @@
         "`s2, def_mod()!=1",
         "`fsf, x=4"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
-        "Eirene",
-        "Sha_Wujing"
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 98604.91291559505,
+      "tdps": 205644.8651849573,
       "pref": "PERSONAL"
     }
   },
@@ -181,35 +186,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86485.35329240045,
-        "team": 0.138884828204105,
+        "dps": 90731.99612937334,
+        "team": 0.10086787754713494,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=4",
-        "`s1",
+        "`dragon, s=1 and buff(s3,1)",
+        "`s3, x=4",
+        "`s1, cancel",
         "`s2, def_mod()!=1",
-        "`s4, x>1",
+        "`s4, cancel",
         "`fsf, x=4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3,x=1"
+      ],
+      "coabs": [
+        "Mitsuhide",
+        "Peony",
+        "Raemond"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 357075.99233656656,
+      "tdps": 315678.3424630613,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -233,8 +239,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47471.0415988272,
-        "team": 0.1317734457185658,
+        "dps": 58061.82903265657,
+        "team": 0.07328646652546715,
         "noaff": false,
         "nihil": true
       },
@@ -252,7 +258,7 @@
       ]
     },
     "META": {
-      "tdps": 154516.78176145372,
+      "tdps": 168495.73558161568,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -263,8 +269,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57183.57682340055,
-        "team": 0.10894201164656828,
+        "dps": 55902.64571737729,
+        "team": 0.10882987509129856,
         "noaff": false,
         "nihil": false
       },
@@ -319,8 +325,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 32562.402301386883,
-        "team": 0.16224165398040544,
+        "dps": 31967.140816683954,
+        "team": 0.1626616824919894,
         "noaff": false,
         "nihil": true
       },
@@ -348,7 +354,7 @@
       ]
     },
     "META": {
-      "tdps": 244217.16409904178,
+      "tdps": 221576.4786801707,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

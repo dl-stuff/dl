@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39097.26659149376,
-        "team": 0.10361082353302543,
+        "dps": 31838.049431117328,
+        "team": 0.10361082353302577,
         "noaff": false,
         "nihil": false
       },
@@ -13,7 +13,7 @@
         "Spirit_of_the_Season",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Cupid",
@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57205.38205845119,
+        "dps": 57522.57644111838,
         "team": 0.07727117284130972,
         "noaff": false,
         "nihil": false
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 963085.3850052011,
+      "tdps": 975127.8523248966,
       "pref": "PERSONAL"
     }
   },
@@ -91,8 +91,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Warrioresses",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -138,9 +138,6 @@
         "`dodge, fsc",
         "`fs2, charged_in(fs2, s1) or charged_in(fs2, s4)"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -157,10 +154,18 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38509.55965840693,
+        "team": 0.10361082353302577,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104019.84297688602,
-        "team": 0.014483714176240838,
+        "dps": 116280.21362221522,
+        "team": 0.016687176489824814,
         "noaff": false,
         "nihil": false
       },
@@ -171,13 +176,13 @@
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, s=2",
         "`s3, x=5",
-        "`s2, fsc",
+        "`s2, buff(s3,1) and fsc",
         "`s4",
         "`dodge, fsc",
         "`fs2, dgauge>=500 and buff(s3,1)"
@@ -185,19 +190,20 @@
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3,x=1"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Raemond"
+        "Dagger",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 894700.7702651543,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -219,8 +225,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`dragon, cancel",
@@ -271,8 +277,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36344.56834987302,
-        "team": 0.10361082353302538,
+        "dps": 29591.402776059906,
+        "team": 0.10361082353302577,
         "noaff": false,
         "nihil": false
       }
@@ -286,7 +292,7 @@
       }
     },
     "META": {
-      "tdps": 51049.63983306552,
+      "tdps": 344272.3576291272,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -295,18 +301,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 24750.33390586107,
-        "team": 0.08001565187552716,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28597.423955467282,
-        "team": 0.10748660659136024,
+        "dps": 28842.438517980914,
+        "team": 0.10689251673393059,
         "noaff": false,
         "nihil": true
       },

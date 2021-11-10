@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 71210.62894505345,
-        "team": 0.08325324692469604,
+        "dps": 71948.49337661196,
+        "team": 0.08251873724147374,
         "noaff": false,
         "nihil": false
       },
@@ -38,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73268.5644891454,
-        "team": 0.08275619634389285,
+        "dps": 71948.49337661196,
+        "team": 0.08251873724147374,
         "noaff": false,
         "nihil": false
       },
@@ -49,7 +49,7 @@
         "Sweet_Surprise",
         "Snipers_Allure",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -62,10 +62,6 @@
         "`fs, x=2",
         "`shielding"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
@@ -77,15 +73,14 @@
       ]
     },
     "META": {
-      "tdps": 4140294.013471382,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 65437.20213826589,
-        "team": 0.07857037200207848,
+        "dps": 48571.023528933,
+        "team": 0.10852150174527896,
         "noaff": false,
         "nihil": true
       },
@@ -108,17 +103,58 @@
         "`s3, cancel",
         "`fs, x=3"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
-        "Blade",
         "Meene",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68051.49738459071,
+        "team": 0.07780050178344794,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`shielding",
+        "`dragon, s",
+        "`s4",
+        "`s1(striking)",
+        "`s2(shielding)",
+        "`s3, cancel",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Meene",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
       ]
     },
     "META": {
+      "tdps": 634109.3675290849,
       "pref": "PERSONAL"
     }
   },
@@ -156,8 +192,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103761.23440407967,
-        "team": 0.2232710248313,
+        "dps": 102290.65952212024,
+        "team": 0.22023006559573896,
         "noaff": false,
         "nihil": false
       },
@@ -180,7 +216,7 @@
       ]
     },
     "META": {
-      "tdps": 105941.23865838087,
+      "tdps": 69011.40972123347,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -188,22 +224,39 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70687.85138939013,
+        "team": 0.07780050178344794,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25356.960014695615,
+        "dps": 26416.222524941717,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Adventure_in_the_Past",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife",
+        "A_Small_Courage",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`shielding",
@@ -215,18 +268,18 @@
         "`fs, xf=2 or hits=0"
       ],
       "coabs": [
-        "Blade",
         "Bow",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+        "Formal_Joachim",
+        "Summer_Celliera"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26064.42086964154,
+        "dps": 26416.222524941717,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -239,13 +292,18 @@
         "`s1(striking), s1.check() and fsc",
         "`s2(shielding), s2.check() and cancel",
         "`fs, xf=2 or hits=0"
+      ],
+      "coabs": [
+        "Bow",
+        "Mona",
+        "Yukata_Lathna"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

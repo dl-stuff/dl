@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46241.375547526404,
-        "team": 0.16861767469248554,
+        "dps": 45943.35420823881,
+        "team": 0.16861767469248515,
         "noaff": true,
         "nihil": false
       },
@@ -13,7 +13,7 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Daikokuten",
@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52208.830836172856,
-        "team": 0.09593577072422915,
+        "dps": 87290.41691891532,
+        "team": 0.049718172538962734,
         "noaff": true,
         "nihil": false
       },
@@ -46,11 +46,11 @@
         "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mana_Fount",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
         "`s3",
@@ -58,8 +58,13 @@
         "`s1, not buff(s1)",
         "`s2"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "coabs": [
-        "Dagger2",
+        "Mitsuhide",
         "Peony",
         "Raemond"
       ],
@@ -69,25 +74,45 @@
       ]
     },
     "META": {
-      "tdps": 82103.72820245217,
+      "tdps": 347747.9885263893,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 49586.495297301735,
-        "team": 0.09593577072422915,
+        "dps": 78980.99206485368,
+        "team": 0.07453293110578871,
         "noaff": true,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
       "coabs": [
-        "Blade",
+        "Mitsuhide",
         "Peony",
         "Raemond"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
       ]
     },
     "META": {
+      "tdps": 334858.17851841735,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,33 +162,70 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56562.72130828627,
-        "team": 0.09603799240774341,
+        "dps": 110709.3329803027,
+        "team": 0.04967091638149566,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s1, not buff(s1) and x=5",
+        "`s4, cancel",
+        "`s3"
+      ]
+    },
+    "META": {
+      "tdps": 544495.5347394294,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 96316.29094196943,
+        "team": 0.08165970922072742,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon, buff(s3, 1)",
-        "`s3",
+        "`s1",
         "`s4",
-        "`s1, not buff(s1)"
+        "`s3"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 142207.09482121342,
+      "tdps": 449940.14343302516,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

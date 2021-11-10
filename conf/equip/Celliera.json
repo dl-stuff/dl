@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74888.17703371456,
+        "dps": 85413.70976911097,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -41,11 +41,11 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -68,7 +68,7 @@
         "end",
         "`s2, not buff(s2)",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, xf=5",
         "`s1, buff(s2) and cancel",
         "`fsf, xf=5"
       ],
@@ -79,78 +79,49 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 253189.4135139088,
+      "tdps": 293880.176704503,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36338.2617628412,
-        "team": 0.037020770521811665,
+        "dps": 54624.39140054715,
+        "team": 0.09996711637244195,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
-        "His_Clever_Brother"
+        "Moonlight_Party",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`s1, cancel",
-        "`s2, not buff(s2)",
-        "`s3",
-        "`s4, cancel",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Seimei"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 47112.22967968463,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if dgauge>=500 and xf=5",
+        "if dgauge>=500 and xf",
         "queue",
         "`fs",
         "`dragon",
-        "`s2, x=2",
+        "`s2, xf=2",
         "end",
         "end",
-        "`s1, cancel",
+        "`s1, buff(s2)",
         "`s2, not buff(s2)",
-        "`s3",
-        "`s4, cancel",
+        "`s4, xf",
+        "`s3, xf>3",
         "`fsf, xf=5"
       ],
       "dacl": [
-        "ds1,x=3"
+        "ds1,x=3",
+        "sack, x=3"
       ],
       "coabs": [
         "Dagger",
@@ -158,12 +129,57 @@
         "Yurius"
       ],
       "share": [
-        "Gala_Mym",
-        "Summer_Julietta"
+        "Summer_Celliera",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62387.83652226431,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_Brethren",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if dgauge>=500 and xf",
+        "queue",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
+        "end",
+        "end",
+        "`s1, buff(s2)",
+        "`s2, not buff(s2)",
+        "`s4, xf",
+        "`s3, xf>3",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=2 and dshift_count=3 and duration-now<3"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 291024.95072315395,
+      "tdps": 77659.98863859713,
       "pref": "PERSONAL"
     }
   },
@@ -178,38 +194,27 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75319.8488400918,
+        "dps": 89959.61606109639,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "if dgauge>=500 and xf=5 and s2.check()",
-        "queue dshift_count=0",
-        "`fs",
         "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count=1",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count>=2",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "end",
         "`s2, not buff(s2)",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, xf=5",
         "`s1, buff(s2) and cancel",
-        "`fsf, xf=5"
+        "`fsf, xf=5",
+        "`fs,dgauge>500"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 247593.9087843355,
+      "tdps": 304189.93258007406,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

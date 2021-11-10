@@ -58,6 +58,11 @@
         "`s2, x=5",
         "`fs, x=5"
       ],
+      "dacl": [
+        "`ds1, cancel and dshift_timeleft<1",
+        "`dodge, fsc",
+        "`fs3"
+      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -169,43 +174,6 @@
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 64937.16928334008,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ],
-      "coabs": [
-        "Cleo",
-        "Dagger2",
-        "Peony"
-      ]
-    },
-    "META": {
-      "tdps": 201496.29508549534,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -244,7 +212,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

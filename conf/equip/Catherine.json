@@ -31,40 +31,40 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85117.48718344815,
+        "dps": 88152.3610130871,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
         "The_Prince_of_Dragonyule",
-        "From_Whence_He_Comes",
-        "Seaside_Memory",
-        "Promised_Piety_Staff",
-        "Ravenous_Fire_Crown"
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon, cancel",
-        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4"
+        "`dragon, aff_timeleft(frostbite)>15 and xf",
+        "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3.1",
+        "`s3, not buff(s3) and xf=3",
+        "`s4, xf",
+        "`s1, xf"
       ],
       "coabs": [
+        "Eugene",
         "Gala_Mascula",
-        "Hunter_Sarisse",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 119234.41267351585,
+      "tdps": 124267.80714588975,
       "pref": "PERSONAL"
     }
   },
@@ -111,28 +111,34 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 90064.89842314279,
+        "dps": 97370.87470331229,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Prince_of_Dragonyule",
-        "From_Whence_He_Comes",
-        "His_Clever_Brother"
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, s=1",
+        "`dragon",
         "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1"
+        "`s4, xf",
+        "`s1, xf"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 127439.78587329794,
+      "tdps": 139556.88288891746,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -143,11 +149,20 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49663.85027308717,
+        "dps": 53784.43618164625,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "The_Prince_of_Dragonyule",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",

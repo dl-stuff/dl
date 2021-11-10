@@ -36,32 +36,34 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43396.31071976061,
-        "team": 0.19124445160999748,
+        "dps": 16721.31458961027,
+        "team": 0.07485171076036963,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Springtime_Breeze",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count>=1 or dgauge=1000",
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not buff(s1) and x=5"
+        "`s1, not is_cd(s1, 0)",
+        "`s4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
+        "Pipple",
         "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -69,8 +71,8 @@
       ]
     },
     "META": {
-      "tdps": 77270.63630805146,
-      "pref": "PERSONAL"
+      "tdps": 11517.06499418192,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -147,6 +149,24 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17312.83224228335,
+        "team": 0.07485171076036963,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 12607.498834217839,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -179,37 +199,24 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 10473.757882440012,
-        "team": 0.6173125469479173,
-        "noaff": true,
+        "dps": 13792.342654219245,
+        "team": 0.07485171076036963,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Once_in_a_Lifetime",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
-        "`s1, not buff(s1)"
-      ],
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Gala_Elisanne",
-        "Templar_Hope"
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 6117.648593956528,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

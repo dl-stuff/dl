@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75610.99643222679,
-        "team": 0.050235539860158406,
+        "dps": 72375.13206184599,
+        "team": 0.05025271906546541,
         "noaff": true,
         "nihil": false
       },
@@ -79,8 +79,50 @@
       ]
     },
     "META": {
-      "tdps": 95953.36558546587,
+      "tdps": 91492.51451683904,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37922.085440999326,
+        "team": 0.15987096217956928,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_Brethren",
+        "Emissaries_of_the_Heavens",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Cupid",
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Prince",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 314300.29931225756,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -97,7 +139,7 @@
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Such_High_Spirits",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
@@ -119,7 +161,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60902.770949537684,
+        "dps": 54338.644703931976,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -156,40 +198,30 @@
       ]
     },
     "META": {
-      "tdps": 1525462.7868690162,
+      "tdps": 750076.0501528787,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91942.13422925606,
-        "team": 0.08261093515250253,
+        "dps": 90799.72470425848,
+        "team": 0.06497539651036106,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration - now < 3",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "The_Prince"
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 124015.55293961546,
+      "tdps": 119328.10688670227,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -206,8 +238,42 @@
         "nihil": true
       }
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58009.108793370855,
+        "team": 0.023258968984800753,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, fsc",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 1673408.7160471687,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -225,38 +291,27 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 14783.651722659508,
-        "team": 0.043813185239860365,
-        "noaff": false,
+        "dps": 53999.0736439975,
+        "team": 0.0,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
+        "Blossoms_on_the_Waters_Edge",
+        "Dragon_Brethren",
         "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
         "Dueling_Dancers",
-        "Such_High_Spirits",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s1, not buff(s1) and cancel",
-        "`s4, fsc",
-        "`s3",
-        "`fs, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Malora",
-        "Peony"
-      ],
       "share": [
-        "Ilia",
-        "Sharena"
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
+      "tdps": 895059.8251793066,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

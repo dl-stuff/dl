@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66014.76683628376,
+        "dps": 74045.12658723207,
         "team": 0.02590023992913403,
         "noaff": true,
         "nihil": false
@@ -41,9 +41,11 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -54,9 +56,6 @@
         "`s2, xf>2",
         "`fs, charged_in(fs,s1) and xf",
         "`fsf, xf=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -69,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 171882.59324669058,
+      "tdps": 204339.91656385447,
       "pref": "PERSONAL"
     }
   },
@@ -88,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 171734.29148314134,
+      "tdps": 205221.8785967795,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -97,35 +96,66 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 44190.97062796277,
-        "team": 0.09826841767296257,
+        "dps": 51579.922612815935,
+        "team": 0.10830435326344699,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
+        "Moonlight_Party",
         "A_Choice_Blend",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, xf=5 or fsc",
-        "`s2, xf>2",
-        "`fs, charged_in(fs,s1) and xf",
-        "`fsf, xf=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
+        "`dragon, cancel",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4"
       ],
       "coabs": [
-        "Dagger",
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Xander",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53590.4624880905,
+        "team": 0.02235015726874278,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "A_Choice_Blend",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, cancel",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
         "Tiki",
         "Yurius"
       ],
@@ -135,14 +165,15 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 23390.828708332523,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74451.26444386729,
-        "team": 0.02590023992913403,
+        "dps": 76889.51834700766,
+        "team": 0.025900239929134188,
         "noaff": false,
         "nihil": false
       },
@@ -151,11 +182,13 @@
         "Emissaries_of_the_Heavens",
         "OneWinged_Journey",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 205981.45544043998,
+      "tdps": 215836.4554302249,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -166,8 +199,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50843.15878543183,
-        "team": 0.12513843690135315,
+        "dps": 53985.137449878086,
+        "team": 0.022393922920557346,
         "noaff": false,
         "nihil": true
       },
@@ -189,15 +222,42 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44548.633689112685,
+        "team": 0.024159054653476442,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4, fsc",
+        "`s1, xf=5 or fsc",
+        "`s2, xf>2",
+        "`fs, charged_in(fs,s1) and xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41289.17736205723,
-        "team": 0.12486332495810547,
+        "dps": 44330.09772966317,
+        "team": 0.12486332495810543,
         "noaff": false,
         "nihil": true
       },
@@ -219,7 +279,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 70738.60064679585,
-        "team": 0.14866253697100187,
+        "dps": 70337.63855477993,
+        "team": 0.14932870107894444,
         "noaff": false,
         "nihil": false
       },
@@ -39,67 +39,52 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 125220.57439394257,
-        "team": 0.07594219391322242,
+        "dps": 109612.23309938557,
+        "team": 0.0622482504136213,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
+        "`dragon, s=1",
+        "`s3",
         "`s2",
         "`s1, aff_timeleft(flashburn)<1",
-        "`s4, not have_buff(s4_00)",
+        "`s4, not buff(s4, 2)",
         "`fs"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
       ],
       "coabs": [
         "Blade",
-        "Grace",
+        "Gala_Audric",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 1691741.6538858672,
+      "tdps": 451015.0584262586,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 111522.94815843081,
+        "dps": 85499.15982140458,
         "team": 0.14120002885316202,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Daikokuten",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -117,54 +102,10 @@
         "Dagger",
         "Gala_Audric",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 122952.28640622443,
-        "team": 0.07591963246465315,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, aff_timeleft(flashburn)<1",
-        "`s4, not have_buff(s4_00)",
-        "`fs"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Prince",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 752749.4317990463,
+      "tdps": 305415.2009564443,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -173,16 +114,53 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30328.95753370106,
+        "team": 0.048830168491687136,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3",
+        "`s1, aff_timeleft(flashburn)<1",
+        "`s2",
+        "`s4",
+        "`fs"
+      ],
+      "dacl": [
+        "`dskill"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64126.33209089868,
+        "dps": 79499.90420372726,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Pecorines_Grand_Adventure",
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
@@ -194,14 +172,13 @@
         "`dragon",
         "`s3",
         "`s2",
-        "`s1, aff_timeleft(flashburn)<1",
-        "`s4, not have_buff(s4_00)",
+        "`s1",
+        "`s4",
         "`fs"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
@@ -210,26 +187,19 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 1006978.8450227665,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 135637.55424731475,
-        "team": 0.14866253697100187,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 189317.25299062592,
-        "team": 0.049726289924823815,
+        "dps": 162716.64067153644,
+        "team": 0.09980133020480195,
         "noaff": false,
         "nihil": false
       },
@@ -239,8 +209,8 @@
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon, buff(s3, 1)",
@@ -250,9 +220,8 @@
         "`fs"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<1",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, cancel"
       ],
       "coabs": [
         "Blade",
@@ -261,232 +230,126 @@
       ]
     },
     "META": {
-      "tdps": 542568.5766942059,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 135637.55424731475,
-        "team": 0.14866253697100187,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, not have_buff(s4_00)",
-        "`fs"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Grace",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 732976.7546163092,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78760.9686916154,
+        "dps": 102662.59880437008,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "coabs": [
-        "Blade",
-        "Gala_Audric",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 89636.61360098176,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Worthy_Rivals",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
         "`dragon",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s2",
-        "`s4",
-        "`fs"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 62600.922859385515,
-        "team": 0.14120002885316202,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Daikokuten",
-      "coabs": [
-        "Dagger",
-        "Gala_Audric",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39188.04043884751,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 53056.71603440884,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Grace",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 50794.41233115506,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, aff_timeleft(flashburn)<1",
         "`s4, not have_buff(s4_00)",
         "`fs"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 101841.44259558174,
+        "team": 0.0622482504136213,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Beautiful_Gunman",
+        "Dueling_Dancers",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, s=1",
+        "`s3",
+        "`s2",
+        "`s1, aff_timeleft(flashburn)<1",
+        "`s4, not buff(s4, 2)",
+        "`fs"
       ],
       "coabs": [
         "Blade",
-        "Grace",
+        "Gala_Audric",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 101841.44259558174,
+        "team": 0.0622482504136213,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Beautiful_Gunman",
+        "Dueling_Dancers",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74489.1972421659,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

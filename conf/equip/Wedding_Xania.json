@@ -22,10 +22,6 @@
         "`s4",
         "`s3, not buff(s3)"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
@@ -58,9 +54,42 @@
         "`s4",
         "`s3, not buff(s3)"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29993.381752689496,
+        "team": 0.07406883576141154,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3, not buff(s3)"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -74,6 +103,23 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48995.93446067529,
+        "team": 0.07392797186611881,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

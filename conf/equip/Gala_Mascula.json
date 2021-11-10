@@ -2,28 +2,32 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 76032.79575154047,
-        "team": 0.28093382967444247,
+        "dps": 94951.01413951832,
+        "team": 0.2947258804201876,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
         "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "A_Choice_Blend",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count>=1 or dgauge=1000",
-        "`s3, not buff(s3) and x=4",
-        "`s1, masterctrl_buff.get() and x=4",
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
+        "`s3, not buff(s3)",
         "`s4",
-        "`s2"
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4",
+        "`fs, x=4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "ds1,x=3",
+        "sack, x=3"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -37,27 +41,28 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79708.7131819137,
-        "team": 0.27316050995819574,
+        "dps": 94951.01413951832,
+        "team": 0.2947258804201876,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
+        "The_Red_Impulse",
+        "A_Choice_Blend",
         "His_Clever_Brother",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count>=1 or dgauge=1000",
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
-        "`s1, masterctrl_buff.get() and x=4"
+        "`s1, masterctrl_buff.get() and x=4",
+        "`fs, x=4"
       ],
       "dacl": [
         "ds1,x=3",
@@ -74,66 +79,29 @@
       ]
     },
     "META": {
-      "tdps": 472889.00554165157,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41739.84636914604,
-        "team": 0.27172052966083476,
+        "dps": 57183.92270330735,
+        "team": 0.32356847807024947,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "Moonlight_Party",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon, dshift_count>=1 or dgauge=1000",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4"
-      ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, x=3"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 51232.01448271261,
-        "team": 0.2596283162346929,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
         "OneWinged_Journey",
         "A_Choice_Blend",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count>=1 or dgauge=1000",
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -153,8 +121,47 @@
         "Humanoid_Mercury"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59420.12758815022,
+        "team": 0.2735443200069788,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Moonlight_Party",
+        "A_Choice_Blend",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "META": {
-      "tdps": 784981.8539462497,
+      "tdps": 44702.49918078618,
       "pref": "PERSONAL"
     }
   },
@@ -191,38 +198,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92956.6787923092,
-        "team": 0.3205590920513537,
+        "dps": 102038.62388409728,
+        "team": 0.2947258804201876,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "queue now=0",
-        "`s3",
-        "`s4",
-        "`s2",
-        "`s1",
-        "end",
-        "`dragon",
-        "`s4, x=4",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ]
+      }
     },
     "META": {
-      "tdps": 1826561.568995719,
+      "tdps": 602918.7622142779,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -231,58 +214,27 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 55275.82387270806,
-        "team": 0.312070588836908,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Proper_Maintenance",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Tiki",
-        "Xander",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60923.786784832286,
-        "team": 0.2613659092526639,
+        "dps": 67037.20692709097,
+        "team": 0.3607899117587926,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Proper_Maintenance",
-        "A_Choice_Blend",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
-        "`dragon, dshift_count>=1 or dgauge=1000",
-        "`s3",
-        "`s4",
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s2.check())",
         "`s2",
-        "`s1, masterctrl_buff.get() and x=4"
+        "`s1, masterctrl_buff.get() and x=4",
+        "`s4, cancel",
+        "`s3, x>2"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
       ]
     },
     "META": {
-      "tdps": 111389.38177767841,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -290,11 +242,50 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66837.9366186992,
+        "team": 0.36354610207963584,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Moonlight_Party",
+        "A_Choice_Blend",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4",
+        "`s4, cancel",
+        "`s3, x>2"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "tdps": 72299.18300083432,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46474.66787625903,
-        "team": 0.2829822269310267,
+        "dps": 53005.620698336315,
+        "team": 0.2735443200069788,
         "noaff": false,
         "nihil": true
       }
@@ -303,7 +294,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

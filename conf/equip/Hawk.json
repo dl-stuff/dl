@@ -2,19 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 75201.39244226467,
-        "team": 0.054840763894285605,
+        "dps": 32711.247223967035,
+        "team": 0.07025325818896942,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Brothers_in_Arms",
         "Dear_Diary",
-        "Memory_of_a_Friend",
+        "Super_Soaking_Androids",
         "A_Small_Courage",
-        "Hastened_Squall",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -25,20 +25,24 @@
         "`s4, xf or s",
         "`s1, fsc or (s=1 or s=4)"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
+        "Gala_Notte",
+        "Lowen",
+        "Templar_Hope"
       ],
       "share": [
         "Weapon",
-        "Halloween_Melsa"
+        "Chitose"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75201.39244226467,
-        "team": 0.054840763894285605,
+        "dps": 77137.34356789189,
+        "team": 0.05437282833755775,
         "noaff": false,
         "nihil": false
       },
@@ -71,6 +75,7 @@
       ]
     },
     "META": {
+      "tdps": 2797537.394113778,
       "pref": "PERSONAL"
     }
   },
@@ -156,16 +161,76 @@
       }
     }
   },
-  "IMMUNE-NORMAL-ANY": {
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
+      "EQMT": {
+        "dps": 73039.5289838375,
+        "team": 0.05488089267467027,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, s=1 or s=4",
+        "`s3",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s4, xf or s",
+        "`s1, fsc or (s=1 or s=4)"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Halloween_Melsa"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 29678.294758188887,
         "team": 0.054840763894285605,
         "noaff": false,
         "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Hastened_Squall",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Halloween_Melsa"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30009.997443694156,
+        "team": 0.05437282833755775,
+        "noaff": false,
+        "nihil": false
       }
     },
     "META": {
+      "tdps": 708864.0321004345,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

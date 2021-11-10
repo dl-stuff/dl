@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 100096.8657241845,
-        "team": 0.09181688241443332,
+        "dps": 75574.67516025344,
+        "team": 0.09335209818692396,
         "noaff": false,
         "nihil": false
       },
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100096.8657241845,
-        "team": 0.09181688241443332,
+        "dps": 75574.67516025344,
+        "team": 0.09335209818692396,
         "noaff": false,
         "nihil": false
       },
@@ -75,6 +75,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51807.82500931987,
+        "team": 0.08349204013170662,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "The_Lurker_in_the_Woods",
+        "Warrior_Maiden",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon, duration-now<8",
+        "`s1, fsc",
+        "`s2",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`fs3"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Ranzal",
+        "Formal_Noelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57364.31315958895,
@@ -114,14 +152,15 @@
       ]
     },
     "META": {
+      "tdps": 1673842.0222664347,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 113279.94122513985,
-        "team": 0.09181688241443332,
+        "dps": 95500.86637853856,
+        "team": 0.13183538589012278,
         "noaff": false,
         "nihil": false
       },
@@ -134,8 +173,26 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs3"
+      ],
       "dacl": [
-        "`ds1, x=5"
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Gala_Alex",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -163,7 +220,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s2",
@@ -187,8 +243,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75179.2308483097,
-        "team": 0.10766377433573389,
+        "dps": 74866.7351390671,
+        "team": 0.10587272198040461,
         "noaff": false,
         "nihil": true
       },
@@ -224,11 +280,11 @@
       ]
     },
     "META": {
-      "tdps": 532547.3334516468,
+      "tdps": 437596.80131435,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -300,14 +356,6 @@
         "`s4, fsc",
         "`fs3"
       ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Delphi",
-        "Wand"
-      ],
       "share": [
         "Summer_Julietta",
         "Summer_Celliera"
@@ -350,7 +398,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

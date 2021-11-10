@@ -2,13 +2,13 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14858.77544285917,
-        "team": 0.9118523027632439,
+        "dps": 15156.330578267516,
+        "team": 0.943622250451189,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Dazzling_Duet",
+        "Castle_Cheer_Corps",
         "Honest_Repose",
         "Jewels_of_the_Sun",
         "Bellathorna",
@@ -20,11 +20,9 @@
       "acl": [
         "`s2",
         "`s3",
-        "`s4, fsc or s",
-        "`fs, x=4 or hits=0"
-      ],
-      "dacl": [
-        "ds1,x=3"
+        "`s4, fsc",
+        "`fs, fs_prep_c=1 and s=3",
+        "`fs, x=4 and not fs_prep_c=1"
       ],
       "coabs": [
         "Gala_Sarisse",
@@ -33,13 +31,13 @@
       ],
       "share": [
         "Karl",
-        "Templar_Hope"
+        "Valentines_Orion"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85668.53270011449,
-        "team": 0.05885000395048608,
+        "dps": 86555.67967831723,
+        "team": 0.058787966201601045,
         "noaff": false,
         "nihil": false
       },
@@ -62,7 +60,7 @@
         "`fs, x=4 or hits=4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "ds1,x=1"
       ],
       "coabs": [
         "Halloween_Mym",
@@ -75,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 83012.38737083256,
+      "tdps": 80692.34021667935,
       "pref": "PERSONAL"
     }
   },
@@ -94,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 96746.79369500077,
+      "tdps": 97953.94432442795,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -184,8 +182,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 100624.19812218235,
-        "team": 0.08797648994045504,
+        "dps": 100983.90059906598,
+        "team": 0.08827935295265013,
         "noaff": false,
         "nihil": false
       },
@@ -200,16 +198,19 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, buff(s2,3)",
+        "`dragon, buff(s2, 3)",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, fsc",
         "`s1, fsc",
-        "`fs, x=4"
+        "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ]
     },
     "META": {
-      "tdps": 104099.9399963825,
+      "tdps": 100316.19027663431,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -266,7 +267,7 @@
       ]
     },
     "META": {
-      "tdps": 31009.346146551088,
+      "tdps": 29534.113298494958,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

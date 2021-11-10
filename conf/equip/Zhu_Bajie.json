@@ -13,7 +13,7 @@
         "The_Synthetic_Dragon",
         "The_Queen_of_the_Knife",
         "The_Warrioresses",
-        "Applelicious_Dreams",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
@@ -38,45 +38,47 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77669.2449023661,
-        "team": 0.0,
+        "dps": 133646.54723823018,
+        "team": 0.06248027358917707,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "The_Synthetic_Dragon",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s=1",
-        "`s3, fsc and not buff(s3)",
-        "`s1, fsc and hp<30",
-        "`s4, fsc",
+        "`dragon, buffstack(ro_att)=6 and buff(s3, 1)",
         "`s2, fsc",
-        "`dodge, fsc",
-        "`fs3"
+        "`s1, fsc",
+        "`s4, not buff(s4, 2)",
+        "`s3",
+        "`fs3, hits>1",
+        "`dodge, fsc"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<2"
+        "`ds1, dshift_timeleft<3 or duration-now<4",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
-        "Halloween_Edward",
-        "Peony",
-        "Wand"
+        "Blade",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Ryszarda"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 72170.47042861322,
+      "tdps": 1378193.4485204692,
       "pref": "PERSONAL"
     }
   },
@@ -126,8 +128,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 84660.95345364703,
-        "team": 0.11588301407784846,
+        "dps": 22973.2773884562,
+        "team": 0.12418598252619403,
         "noaff": false,
         "nihil": false
       },
@@ -135,73 +137,50 @@
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
         "The_Synthetic_Dragon",
-        "Fresh_Perspective",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon(), s=1",
-        "`s3, fsc and not buff(s3)",
-        "`s1, fsc and hp<100",
-        "`s4, fsc",
-        "`s2, fsc or s",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 124075.30084901188,
-        "team": 0.0861127397521235,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "The_Synthetic_Dragon",
-        "A_Small_Courage",
-        "The_Warrioresses",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon, buffstack(ro_att)=6 and s=1",
-        "`s3, fsc and not buff(s3)",
-        "`s1, fsc and hp<100",
-        "if buffstack(ro_att)<6",
-        "`s4, fsc and not have_buff(s2_20)",
-        "else",
-        "`s4, fsc and not have_buff(s4_10)",
-        "end",
-        "`s2, fsc or s=4",
-        "`dodge, fsc",
-        "`fs3"
+        "`dragon, buffstack(ro_att)=6 and buff(s3, 1)",
+        "#`s2, fsc",
+        "#`s1, fsc",
+        "`s4, (buffstack(ro_att)<6 and hp<30) or not buff(s4, 2)",
+        "`s3",
+        "`fs3, hits>1"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`ds1, dshift_timeleft<3",
         "`dodge, fsc",
         "`dfs3"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "Mitsuhide",
+        "Peony"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 163063.09115107043,
+        "team": 0.06248027358917716,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 1323949.7548501357,
+      "tdps": 2270289.3488445967,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -253,43 +232,44 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 78472.64621797095,
-        "team": 0.11078638386689968,
+        "dps": 133198.6527800626,
+        "team": 0.06227088121156855,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "The_Synthetic_Dragon",
-        "A_Small_Courage",
-        "The_Warrioresses",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s=1",
-        "`s3, fsc and not buff(s3)",
-        "`s1, fsc and hp<100",
-        "`s4, fsc",
-        "`s2, fsc or s",
+        "`dragon, buffstack(ro_att)=6 and buff(s3, 1)",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, not buff(s4, 2)",
+        "`s3",
+        "`fs3, hits>1"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<3 or duration-now<4",
         "`dodge, fsc",
-        "`fs3"
+        "`dfs3"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "Mitsuhide",
+        "Peony"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -310,8 +290,8 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "Flowers_Under_the_Moon",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`dragon",

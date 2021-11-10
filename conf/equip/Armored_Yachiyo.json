@@ -182,9 +182,6 @@
         "`s4, fsc",
         "`fs2, c_fs(enhanced) and x=1"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Dagger",
         "Halloween_Mym",
@@ -246,8 +243,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 107523.91021978851,
-        "team": 0.0999911563377285,
+        "dps": 94664.25657087663,
+        "team": 0.10244941659456168,
         "noaff": false,
         "nihil": false
       },
@@ -255,26 +252,32 @@
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Flower_in_the_Fray",
         "The_Warrioresses",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Dreadking_Rathalos",
       "acl": [
-        "`dragon, fsc",
+        "#`dragon, fsc",
         "`s3, not buff(s3)",
         "if not c_fs(enhanced)",
         "`s1, cancel",
-        "`s4, cancel",
-        "`fsf, xf=5",
-        "end",
+        "`fsf, x=5",
+        "else",
+        "`s2, fsc",
         "`s4, fsc",
-        "`fs2, c_fs(enhanced) and xf"
+        "`fs2, c_fs(enhanced) and xf",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Grace",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
+        "Kimono_Elisanne",
+        "Marth"
       ],
       "share": [
         "Weapon",
@@ -319,7 +322,7 @@
       ]
     },
     "META": {
-      "tdps": 226187.5883922117,
+      "tdps": 532092.8523939899,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -330,11 +333,20 @@
   "ALWAYS-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 76502.83332081018,
+        "dps": 76978.76906894275,
         "team": 0.09988987696008896,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "OneWinged_Journey",
+        "The_Cutie_Competition",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -353,10 +365,9 @@
       ]
     },
     "META": {
-      "tdps": 931310.9046851797,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }

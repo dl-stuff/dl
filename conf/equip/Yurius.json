@@ -125,40 +125,39 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40696.41019633546,
+        "dps": 48283.30118807062,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
+        "Bloody_Little_Queen",
         "Emissaries_of_the_Heavens",
         "Moonlight_Party",
+        "A_Small_Courage",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, cancel",
-        "if aff(frostbite)",
-        "`dragon, not in_drg",
-        "else",
-        "`dragon, in_drg",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
+        "`dragon, aff_timeleft(frostbite)>15",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1"
       ],
       "dacl": [
-        "`s3, cancel",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
+        "`s4",
+        "`s2",
+        "`s1",
+        "`s3, aff_timeleft(frostbite)<3",
+        "`sack, not aff(frostbite)"
       ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Dagger"
+        "Dagger",
+        "Tiki"
       ],
       "share": [
         "Xander",
@@ -166,7 +165,7 @@
       ]
     },
     "META": {
-      "tdps": 396580.4671059411,
+      "tdps": 489962.4944906325,
       "pref": "PERSONAL"
     }
   },
@@ -240,11 +239,6 @@
         "`s1",
         "`s3, x=5"
       ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Tiki"
-      ],
       "share": [
         "Summer_Celliera",
         "Summer_Julietta"
@@ -289,7 +283,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25724.610717044838,
+        "dps": 28536.746621226528,
         "team": 0.0,
         "noaff": false,
         "nihil": true
