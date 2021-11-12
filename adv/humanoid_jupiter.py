@@ -13,7 +13,7 @@ class Humanoid_Jupiter(Adv):
             (15.0, 15.0),
         )
         self.overcharged = 0
-        self.overcharged_timer = Timer(self.overcharged_expire)
+        self.overcharged_timer = Timer(self.overcharged_EXPLODE)
 
     def a1_on(self, e):
         if self.dshift_count == 2:
@@ -29,7 +29,7 @@ class Humanoid_Jupiter(Adv):
         self.overcharged = min(self.overcharged + count, len(self.overcharged_params))
         self.overcharged_timer.on(self.overcharged_params[self.overcharged-1][0])
 
-    def overcharged_expire(self, e):
+    def overcharged_EXPLODE(self, e):
         self.dmg_make(f"overcharged_lvl{self.overcharged}", self.overcharged_params[self.overcharged-1][1], "pursuit")
         if self.overcharged == len(self.overcharged_params):
             self.afflics.paralysis.on("overcharged", 1.1, 0.727)
@@ -40,7 +40,7 @@ class Humanoid_Jupiter(Adv):
         self.heal_make("overcharged", 80)
 
     def s1_hit7(self, *args):
-        self.overcharged_expire(args)
+        self.overcharged_EXPLODE(args)
 
     def s2_proc(self, e):
         if e.group == "counter":
