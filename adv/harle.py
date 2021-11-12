@@ -5,7 +5,8 @@ class Harle(Adv):
     comment = "no counter on s1"
 
     def prerun(self):
-        self.s2_debuff = Selfbuff("crit_vuln", 0.5, 60, "crit").no_bufftime()
+        self.s2_debuff = Debuff("crit_vuln", 0.5, 60, mtype="dummy").no_bufftime()
+        Modifier("ravens_vengeance", "crit", "chance", 0.5, get=self.s2_debuff.get).on()
         self.team_evasion = 0
 
     def s2_proc(self, e):

@@ -1,0 +1,91 @@
+{
+    "c": {
+        "name": "Humanoid Jupiter",
+        "icon": "110398_01_r05",
+        "att": 517,
+        "hp": 745,
+        "ele": "light",
+        "wt": "blade",
+        "spiral": false,
+        "a": [["affres_paralysis", 100.0], ["affres_poison", 100.0]]
+    },
+    "dragonform": {
+        "dx1": {
+            "startup": 0.3,
+            "recovery": 1.2,
+            "attr": [
+                {"dmg": 4.4, "sp": 5}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.9, "dodge": 0.0, "dx2": 0.23333, "s": 0.0},
+            "attr_HAS": [
+                {"dmg": 4.84, "sp": 5}
+            ]
+        },
+        "dx2": {
+            "startup": 0.3,
+            "recovery": 1.56667,
+            "attr": [
+                {"dmg": 4.84, "sp": 5}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.26667, "dodge": 0.0, "dx3": 0.23333, "s": 0.0},
+            "attr_HAS": [
+                {"dmg": 5.32, "sp": 5}
+            ]
+        },
+        "dx3": {
+            "startup": 0.13333,
+            "recovery": 1.63334,
+            "attr": [
+                {"dmg": 7.48, "sp": 5}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.33334, "dodge": 0.0, "s": 0.0},
+            "attr_HAS": [
+                {"dmg": 8.23, "sp": 5}
+            ]
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 4.6,
+            "cancel": {"any": 3.33333, "dodge": 2.66667},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 17.0, "iv": 1.9}
+            ],
+            "attr_HAS": [
+                {"dmg": 18.7, "afflic": ["paralysis", 110, 0.883], "iv": 1.9}
+            ]
+        }
+    },
+    "s1": {
+        "sp": 2640,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "attr": [
+            {"amp": ["10000", 1, 0], "iv": 0.5},
+            {"dmg": 12.0, "iv": 1.43333},
+            {"afflic": ["flashburn", 120, 0.416], "iv": 1.43333},
+            {"cond": ["var>=", ["overcharged", 1]], "dmg": 3.0, "iv": 2.13333},
+            {"cond": ["var>=", ["overcharged", 2]], "dmg": 3.0, "iv": 2.13333},
+            {"cond": ["var>=", ["overcharged", 3]], "dmg": 3.0, "iv": 2.13333},
+            {"cond": ["var>=", ["overcharged", 4]], "dmg": 3.0, "iv": 2.3}
+        ],
+        "cancel": {"any": 2.33333}
+    },
+    "s2": {
+        "sp": 10560,
+        "startup": 1.16667,
+        "recovery": 0.46666,
+        "cancel": {"any": 0.16666}
+    },
+    "s2_counter": {
+        "sp": 10560,
+        "startup": 0.93333,
+        "recovery": 1.03333,
+        "cancel": {"any": 0.73333}
+    }
+}
