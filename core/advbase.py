@@ -396,8 +396,11 @@ class Action(object):
         timing = conf[name]
         if timing is None:
             timing = conf[atype]
-        if timing is None and name != self.name:
-            timing = conf["any"]
+        if timing is None:
+            if atype == "fs" and self.atype == "x":
+                timing = 0.66666 - self._startup
+            elif name != self.name:
+                timing = conf["any"]
         if timing is None:
             return None
         timing -= 0.0001
