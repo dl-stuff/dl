@@ -27,7 +27,7 @@ class Dot(object):
     Damage over time; e.g. poison
     """
 
-    def __init__(self, name, coef, duration, iv, dtype=None, dmg_override=None):
+    def __init__(self, name, coef, duration, iv, dtype=None):
         self.name = name
         self.dtype = dtype
         self.active = 0
@@ -37,7 +37,6 @@ class Dot(object):
         self.true_dmg_event = Event("true_dmg")
         self.true_dmg_event.dname = name
         self.true_dmg_event.dtype = dtype if dtype else name
-        self.dmg_override = dmg_override
         self.true_dmg_event.comment = ""
         self.tick_dmg = 0
         self.quickshot_event = Event("dmg_formula")
@@ -78,7 +77,7 @@ class Dot(object):
         self.quickshot_event.dtype = self.dtype if self.dtype else self.name
         self.quickshot_event.dot = True
         self.quickshot_event()
-        self.tick_dmg = self.dmg_override or self.quickshot_event.dmg
+        self.tick_dmg = self.quickshot_event.dmg
         log("dot", self.name, "start", "%f/%d" % (self.iv, self.duration))
         return 1
 
@@ -283,17 +282,17 @@ class Afflic_dot(AfflicUncapped):
         self.iv = iv
         self.dot = None
 
-    def on(self, name, rate, coef, duration=None, iv=None, dtype=None, dmg_override=None, time_override=None, edge=None, speshul_sandy_sum=1.0):
-        self.rate = rate + (edge or self.edge)
+    def on(self, name, rate, coef, duration=None, iv=None, dtype=None, speshul_sandy_sum=1.0):
+        self.rate = rate + self.edge
         self.coef = coef
         self.event.source = name
         if dtype is None and name[0] == "s":
             self.dtype = "s"
         else:
             self.dtype = dtype
-        self.duration = (duration or self.default_duration) * (time_override or self.time)
+        self.duration = (duration or self.default_duration) * self.time
         self.iv = iv or self.default_iv
-        self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype, dmg_override)
+        self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype)
         self.dot.on()
         r = super().on(speshul_sandy_sum=speshul_sandy_sum)
         self.dot.tick_dmg *= r
