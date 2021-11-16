@@ -2,12 +2,12 @@
     "c": {
         "name": "Gala Leif",
         "icon": "100018_02_r05",
-        "att": 546,
-        "hp": 1002,
+        "att": 456,
+        "hp": 835,
         "ele": "wind",
         "wt": "sword",
-        "spiral": true,
-        "a": [["prep", 100.0], ["dbt", 0.25], ["resself_freeze_att", 0.15, 10.0, 15.0], ["resself_bog_att", 0.15, 10.0, 15.0], ["affres_freeze", 100.0], ["affres_bog", 100.0], ["a", 0.25, "hit10"], ["edge_poison", 70.0, "hit10"], ["afftime_poison", 0.3, "hit10"]]
+        "spiral": false,
+        "a": [["dbt", 0.2], ["affres_freeze", 100.0], ["affres_bog", 100.0], ["a", 0.2, "hit15"]]
     },
     "fs": {
         "charge": 0.05,
@@ -24,8 +24,7 @@
         "startup": 0.0,
         "recovery": 1.3,
         "attr": [
-            {"buff": ["self", 0.6, 15.0, "defense", "buff"], "iv": 0.16667},
-            {"buff": ["team", 0.1, -1, "maxhp", "buff"], "coei": 1, "iv": 0.16667}
+            {"buff": ["self", 0.6, 15.0, "defense", "buff"], "iv": 0.16667}
         ]
     },
     "s1_striking": {
@@ -33,10 +32,8 @@
         "startup": 0.0,
         "recovery": 1.36667,
         "attr": [
-            {"dmg": 4.9, "buff": ["debuff", -0.05, 20.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 0.33333},
-            {"dispel": 100, "iv": 0.33333},
-            {"afflic": ["poison", 120, 0.582], "iv": 0.33333},
-            {"dmg": 5.1, "iv": 0.53333}
+            {"dmg": 4.804, "buff": ["debuff", -0.05, 20.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 0.33333},
+            {"dmg": 5.04, "iv": 0.53333}
         ],
         "cancel": {"any": 1.16667}
     },
@@ -45,9 +42,9 @@
         "startup": 0.0,
         "recovery": 3.3,
         "attr": [
-            {"dmg": 7.1, "killer": [0.2, ["debuff_def"]], "afflic": ["poison", 120, 0.582], "iv": 0.43333},
-            {"dmg": 7.8, "killer": [0.2, ["debuff_def"]], "iv": 1.66667},
-            {"dmg": 8.5, "killer": [0.2, ["debuff_def"]], "iv": 2.46667}
+            {"dmg": 7.02, "killer": [0.2, ["debuff_def"]], "afflic": ["poison", 120, 0.582], "iv": 0.43333},
+            {"dmg": 7.72, "killer": [0.2, ["debuff_def"]], "iv": 1.66667},
+            {"dmg": 8.42, "killer": [0.2, ["debuff_def"]], "iv": 2.46667}
         ],
         "cancel": {"any": 3.0}
     },
@@ -56,9 +53,9 @@
         "startup": 0.0,
         "recovery": 1.83333,
         "attr": [
-            {"dmg": 5.1, "killer": [0.2, ["poison"]], "buff": ["debuff", -0.05, 20.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.23333},
-            {"dmg": 5.1, "killer": [0.2, ["poison"]], "iv": 0.46667},
-            {"dmg": 5.5, "killer": [0.2, ["poison"]], "iv": 0.63333}
+            {"dmg": 4.91, "killer": [0.2, ["poison"]], "buff": ["debuff", -0.05, 20.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.23333},
+            {"dmg": 4.91, "killer": [0.2, ["poison"]], "iv": 0.46667},
+            {"dmg": 5.4, "killer": [0.2, ["poison"]], "iv": 0.63333}
         ],
         "cancel": {"any": 1.33333}
     },
@@ -66,7 +63,7 @@
         "startup": 0.26667,
         "recovery": 0.86666,
         "attr": [
-            {"dmg": 2.29, "sp": 400}
+            {"dmg": 2.18, "sp": 400}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.56666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_shielding": 0.36666}
@@ -75,7 +72,7 @@
         "startup": 0.56667,
         "recovery": 0.76666,
         "attr": [
-            {"dmg": 4.62, "sp": 600}
+            {"dmg": 4.4, "sp": 600}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.5, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_shielding": 0.26666}
@@ -84,7 +81,7 @@
         "startup": 1.0,
         "recovery": 0.83333,
         "attr": [
-            {"dmg": 6.91, "sp": 800}
+            {"dmg": 6.58, "sp": 800}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.66667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_shielding": 0.5}
@@ -93,8 +90,8 @@
         "startup": 0.0,
         "recovery": 0.63333,
         "attr": [
-            {"dmg": 0.7, "sp": 152},
-            {"dmg": 0.7, "iv": 0.16667}
+            {"dmg": 0.67, "sp": 152},
+            {"dmg": 0.67, "iv": 0.16667}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"any": 0.6, "dodge": 0.0, "fs": 0.16667, "s": 0.0, "x2_striking": 0.23333}
@@ -103,9 +100,9 @@
         "startup": 0.2,
         "recovery": 0.93333,
         "attr": [
-            {"dmg": 0.735, "sp": 345},
-            {"dmg": 0.735, "iv": 0.2},
-            {"dmg": 0.735, "iv": 0.46667}
+            {"dmg": 0.7, "sp": 345},
+            {"dmg": 0.7, "iv": 0.2},
+            {"dmg": 0.7, "iv": 0.46667}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.86667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_striking": 0.53333}
@@ -114,11 +111,11 @@
         "startup": 0.4,
         "recovery": 0.86667,
         "attr": [
-            {"dmg": 0.82, "sp": 655},
-            {"dmg": 0.82, "iv": 0.03333},
-            {"dmg": 0.82, "iv": 0.06667},
-            {"dmg": 0.82, "iv": 0.13333},
-            {"dmg": 0.84, "iv": 0.2}
+            {"dmg": 0.78, "sp": 655},
+            {"dmg": 0.78, "iv": 0.03333},
+            {"dmg": 0.78, "iv": 0.06667},
+            {"dmg": 0.78, "iv": 0.13333},
+            {"dmg": 0.8, "iv": 0.2}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_striking": 0.86667}

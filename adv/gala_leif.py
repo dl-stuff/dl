@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.template import StanceAdv
+from module.template import StanceAdv, LowerMCAdv
 
 
 class Gala_Leif(StanceAdv):
@@ -11,6 +11,16 @@ class Gala_Leif(StanceAdv):
             },
             hit_threshold=5,
         )
+        if self.MC is None:
+            Event("s").listener(self.a1_amp)
+
+    def a1_amp(self, e):
+        if not self.is_set_cd("a1_amp", 30):
+            self.add_amp(max_level=3)
 
 
-variants = {None: Gala_Leif}
+class Gala_Leif_50MC(Gala_Leif, LowerMCAdv):
+    pass
+
+
+variants = {None: Gala_Leif, "50MC": Gala_Leif_50MC}
