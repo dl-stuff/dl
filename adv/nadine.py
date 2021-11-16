@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Nadine(Adv):
@@ -21,8 +22,8 @@ class Nadine(Adv):
         # todo: check if overdamage applies to hit counting?
         for _ in range(self.team_s1_hits):
             self.add_combo(e.name)
-        aseq = 1 if e.group == "default" else 3 + 1
-        s1_hits = 1 if e.group == "default" else 3
+        aseq = 1 if e.group == DEFAULT else 3 + 1
+        s1_hits = 1 if e.group == DEFAULT else 3
         s1_hits += self.team_s1_hits
         log("debug", "s1_hits", s1_hits, self.team_s1_hits)
         if s1_hits == 3:

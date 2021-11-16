@@ -1,5 +1,5 @@
 from core.advbase import *
-from core.acl import CONTINUE
+from conf import DEFAULT
 
 a3_stack_cap = 10
 
@@ -72,7 +72,7 @@ class Gala_Mascula(Adv):
         pass
 
     def masterctrl_off(self):
-        self.current_s["s2"] = "default"
+        self.current_s["s2"] = DEFAULT
         self.charge_p("masterctrl", 0.5, target="s2")
 
     def s2_proc(self, e):

@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Farren(Adv):
@@ -6,7 +7,7 @@ class Farren(Adv):
         self.a3_regen = Timer(self.a3_regen, 1.0, True).on()
 
     def s2_proc(self, e):
-        if e.group == "default":
+        if e.group == DEFAULT:
             self.add_hp(140 * self.dragonform.utp_gauge / self.dragonform.max_utp_gauge)
             self.dragonform.charge_utprep(e.name, -100)
 

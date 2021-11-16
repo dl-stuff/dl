@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Faeblessed_TobiasXAlt(XAltBuff):
@@ -21,7 +22,7 @@ class Faeblessed_Tobias(Adv):
         if e.name != "s1" and self.s2_x_alt.get():
             log("debug", "interrupt_fae", f"by {e.name}")
             self.s2_x_alt.off()
-            self.current_s["s2"] = "default"
+            self.current_s["s2"] = DEFAULT
 
 
 variants = {None: Faeblessed_Tobias}

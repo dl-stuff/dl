@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 from collections import deque
 
 
@@ -68,8 +69,8 @@ class Meene(Adv):
             for t in chasers:
                 t.off()
         self.butterfly_timers = defaultdict(lambda: set())
-        self.current_s["s1"] = "default"
-        self.current_s["s2"] = "default"
+        self.current_s["s1"] = DEFAULT
+        self.current_s["s2"] = DEFAULT
         self.act_history.clear()
         log("butterflies", "remove all", self.butterflies)
 
@@ -88,8 +89,8 @@ class Meene(Adv):
                 mt.off()
             del self.butterfly_timers[m]
         if self.butterflies < 6:
-            self.current_s["s1"] = "default"
-            self.current_s["s2"] = "default"
+            self.current_s["s1"] = DEFAULT
+            self.current_s["s2"] = DEFAULT
         log("butterflies", f"remove {name}", self.butterflies)
 
     def a1_clear_butterflies(self, name, chaser, start, reason="timeout"):
@@ -99,8 +100,8 @@ class Meene(Adv):
                 mt.off()
             del self.butterfly_timers[key]
             if self.butterflies < 6:
-                self.current_s["s1"] = "default"
-                self.current_s["s2"] = "default"
+                self.current_s["s1"] = DEFAULT
+                self.current_s["s2"] = DEFAULT
             log("butterflies", f"{reason} {name}-{chaser}", self.butterflies)
         except KeyError:
             pass

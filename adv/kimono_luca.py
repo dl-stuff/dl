@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Kimono_Luca(Adv):
@@ -13,7 +14,7 @@ class Kimono_Luca(Adv):
         if n == 1 and s1_kind == "all":
             self.current_s["s1"] = "all"
         else:
-            self.current_s["s1"] = "default"
+            self.current_s["s1"] = DEFAULT
         if n == 2 and not self.mochi_master:
             return False
         return super().s(n)

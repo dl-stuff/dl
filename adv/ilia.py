@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Ilia(Adv):
@@ -45,8 +46,8 @@ class Ilia(Adv):
                 self.cartridge_fs[self.cartridge].off()
                 self.cartridge_fs[self.cartridge - 1].on()
             else:
-                self.current_s["s1"] = "default"
-                self.current_s["s2"] = "default"
+                self.current_s["s1"] = DEFAULT
+                self.current_s["s2"] = DEFAULT
                 for buff in self.cartridge_fs:
                     buff.off()
                 self.cartridge_t.off()
@@ -54,8 +55,8 @@ class Ilia(Adv):
 
     def l_cartridge_timeout(self, t):
         self.cartridge = 0
-        self.current_s["s1"] = "default"
-        self.current_s["s2"] = "default"
+        self.current_s["s1"] = DEFAULT
+        self.current_s["s2"] = DEFAULT
         for buff in self.cartridge_fs:
             buff.off()
 

@@ -1,12 +1,8 @@
 from core.advbase import *
 
 
-class Taro(Adv):
-    conf = {"mbleed": True}
-
-
-class Taro_RNG(Taro):
+class Taro_RNG(Adv):
     conf = {"mbleed": False}
 
 
-variants = {None: Taro, "RNG": Taro_RNG}
+variants = {None: Adv, "RNG": Taro_RNG}

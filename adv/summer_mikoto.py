@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Summer_Mikoto(Adv):
@@ -24,8 +25,8 @@ class Summer_Mikoto(Adv):
         return self.illuminating_sun.get() and self.celestial_wave.get()
 
     def a1_reset_sun_and_wave(self):
-        self.current_s["s1"] = "default"
-        self.current_s["s2"] = "default"
+        self.current_s["s1"] = DEFAULT
+        self.current_s["s2"] = DEFAULT
         self.illuminating_sun.off()
         self.celestial_wave.off()
 

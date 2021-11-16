@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Summer_Mitsuhide(Adv):
@@ -14,7 +15,7 @@ class Summer_Mitsuhide(Adv):
         if e.group == "sunflower":
             self.sunflowers -= 1
             if self.sunflowers == 0:
-                self.current_s["s1"] = "default"
+                self.current_s["s1"] = DEFAULT
 
     def s2_proc(self, e):
         if self.sunflowers < 3:

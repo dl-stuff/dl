@@ -1,5 +1,4 @@
 from core.advbase import *
-from core.acl import CONTINUE
 from module.template import SigilAdv
 import random
 

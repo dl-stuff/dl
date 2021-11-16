@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Humanoid_Jupiter(Adv):
@@ -44,12 +45,12 @@ class Humanoid_Jupiter(Adv):
         if self.in_dform():
             return False
         if n == 2:
-            if s2_kind in ("default", "counter"):
+            if s2_kind in (DEFAULT, "counter"):
                 self.current_s["s2"] = s2_kind
             elif self.condition("s2 always counter"):
                 self.current_s["s2"] = "counter"
             else:
-                self.current_s["s2"] = "default"
+                self.current_s["s2"] = DEFAULT
         return super().s(n)
 
     def s1_hit7(self, *args):

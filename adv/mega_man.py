@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Skill_Ammo(Skill):
@@ -56,7 +57,7 @@ class Mega_Man(Adv):
             s = self.s1 if group == "metalblade" else self.s2
             s.charge_ammo(ammo)
             if s.c_ammo <= 0:
-                self.current_x = "default"
+                self.current_x = DEFAULT
         if ammo != 0:
             log(
                 "ammo",
@@ -70,13 +71,13 @@ class Mega_Man(Adv):
         if self.current_x != "metalblade":
             self.current_x = "metalblade"
         else:
-            self.current_x = "default"
+            self.current_x = DEFAULT
 
     def s2_proc(self, e):
         if self.current_x != "leafshield":
             self.current_x = "leafshield"
         else:
-            self.current_x = "default"
+            self.current_x = DEFAULT
 
 
 variants = {None: Mega_Man, "mass": Mega_Man}

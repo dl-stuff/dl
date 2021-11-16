@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Formal_Joachim(Adv):
@@ -10,7 +11,7 @@ class Formal_Joachim(Adv):
             if self.action.getdoing() is self.a_s_dict["s2"].ac:
                 self.current_s["s1"] = "from2"
             else:
-                self.current_s["s1"] = "default"
+                self.current_s["s1"] = DEFAULT
         return super().s(n)
 
 

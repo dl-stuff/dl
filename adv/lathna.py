@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Lathna(Adv):
@@ -20,7 +21,7 @@ class Lathna(Adv):
         if n == 1 and s1_kind == "all":
             self.current_s["s1"] = "all"
         else:
-            self.current_s["s1"] = "default"
+            self.current_s["s1"] = DEFAULT
         return super().s(n)
 
 

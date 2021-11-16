@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import DEFAULT
 
 
 class Radiant_Xuan_Zang(Adv):
@@ -9,11 +10,11 @@ class Radiant_Xuan_Zang(Adv):
 
     def s1_proc(self, e):
         if e.group == "xihe":
-            self.current_s["s1"] = "default"
+            self.current_s["s1"] = DEFAULT
 
     def s2_proc(self, e):
         if e.group == "xihe":
-            self.current_s["s2"] = "default"
+            self.current_s["s2"] = DEFAULT
         else:
             self.xihe_gauge += self.xihe_gauge_gain
             log("debug", "xihe", self.xihe_gauge)
