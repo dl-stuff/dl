@@ -2,8 +2,6 @@ from core.advbase import *
 
 
 class Lapis(Adv):
-    comment = "Gun FS bugs not implemented"
-
     def prerun(self):
         self.bullets = []
         self.bullet_c = 0

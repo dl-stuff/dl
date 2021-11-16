@@ -41,7 +41,7 @@ class Gala_Ranzal(Adv):
         if boost == 0:
             return
         if boost == 1:
-            self.s1_boosted_mod = Modifier(e.name, "att", "granzal", 0.15).off()
+            self.s1_boosted_mod = Modifier(e.name, "att", "granzal", 0.4).off()
         elif boost == 2:
             self.s1_boosted_mod = Modifier(e.name, "att", "granzal", 1.0).off()
         if self.s1_boosted_mod:
