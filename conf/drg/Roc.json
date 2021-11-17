@@ -1,0 +1,58 @@
+{
+    "actconds": {
+        "65": {"aff": "stun", "duration": 5.5, "rate": 140}
+    },
+    "d": {
+        "name": "Roc",
+        "icon": "210050_01",
+        "att": 101,
+        "hp": 296,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.45, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 4.6,
+        "cancel": {"any": 3.63333, "dodge": 3.63333, "dx1": 3.63333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 11.004, "actcond": 65, "target": "HOSTILE", "iv": 1.83333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.2,
+        "attr": [
+            {"dmg": 3.52, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.3,
+        "recovery": 1.56667,
+        "attr": [
+            {"dmg": 3.88, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 4.92, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.26667, "dodge": 0.0, "dx1": 1.26667, "s": 0.0}
+    }
+}

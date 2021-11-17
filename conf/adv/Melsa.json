@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "102040501": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.66, "iv": 3.9}},
+        "102040601": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.883, "iv": 3.9}, "rate": 110}
+    },
     "c": {
         "name": "Melsa",
         "icon": "110270_01_r04",
@@ -7,19 +11,23 @@
         "ele": "flame",
         "wt": "dagger",
         "spiral": false,
-        "a": [["k_physian", 0.25], ["affres_sleep", 50.0], ["cc", 0.08, "hit15"]]
+        "abilities": [
+            {"ab": [["mod", 0.25, "killer_physian"]]},
+            {"ab": [["mod", 0.5, "affres_sleep"]]},
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.08, "crit"]]}
+        ]
     },
     "s1": {
         "sp": 2311,
         "startup": 0.0,
         "recovery": 2.53333,
         "attr": [
-            {"dmg": 1.9, "killer": [0.6, ["burn"]], "afflic": ["burn", 110, 0.883], "iv": 0.26667},
-            {"dmg": 1.9, "killer": [0.6, ["burn"]], "iv": 0.43333},
-            {"dmg": 1.9, "killer": [0.6, ["burn"]], "iv": 0.56667},
-            {"dmg": 1.9, "killer": [0.6, ["burn"]], "iv": 0.76667},
-            {"dmg": 1.9, "killer": [0.6, ["burn"]], "iv": 1.1},
-            {"dmg": 1.9, "killer": [0.6, ["burn"]], "iv": 1.6}
+            {"dmg": 1.9, "killer": [0.6, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 1.9, "killer": [0.6, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 0.43333},
+            {"dmg": 1.9, "killer": [0.6, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 1.9, "killer": [0.6, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 0.76667},
+            {"dmg": 1.9, "killer": [0.6, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 1.1},
+            {"dmg": 1.9, "killer": [0.6, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 1.6}
         ],
         "cancel": {"any": 2.3}
     },
@@ -28,10 +36,10 @@
         "startup": 0.0,
         "recovery": 2.4,
         "attr": [
-            {"dmg": 2.51, "killer": [0.5, ["burn"]], "afflic": ["burn", 100, 0.66], "iv": 0.3},
-            {"dmg": 2.51, "killer": [0.5, ["burn"]], "iv": 0.73333},
-            {"dmg": 2.51, "killer": [0.5, ["burn"]], "iv": 0.9},
-            {"dmg": 2.51, "killer": [0.5, ["burn"]], "iv": 1.46667}
+            {"dmg": 2.51, "killer": [0.5, ["burn"]], "actcond": 102040501, "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 2.51, "killer": [0.5, ["burn"]], "actcond": 102040501, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 2.51, "killer": [0.5, ["burn"]], "actcond": 102040501, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 2.51, "killer": [0.5, ["burn"]], "actcond": 102040501, "target": "HOSTILE", "iv": 1.46667}
         ],
         "cancel": {"any": 2.3}
     }

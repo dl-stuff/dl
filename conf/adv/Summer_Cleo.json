@@ -1,4 +1,15 @@
 {
+    "actconds": {
+        "38": {"duration": 10.0, "icon": "crit-buff", "mods": [[0.03, "crit", "buff"]], "text": "Critical Rate +3%"},
+        "76": {"duration": 10.0, "icon": "att-buff", "mods": [[0.05, "att", "buff"]], "text": "Strength +5%"},
+        "194": {"duration": 10.0, "icon": "sph", "mods": [[0.1, "sph"]], "text": "Skill Haste +10%"},
+        "197": {"duration": 10.0, "icon": "s-buff", "mods": [[0.1, "s", "buff"]], "text": "Skill Damage +10%"},
+        "1139": {"duration": 20.0, "icon": "sph", "mods": [[0.12, "sph"]], "text": "Skill Haste +12%"},
+        "1176": {"duration": 10.0, "icon": "critdmg-buff", "mods": [[0.1, "critdmg", "buff"]], "text": "Critical Damage +10%"},
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303020101": {"duration": 10.0, "icon": "def-buff", "mods": [[0.1, "def", "buff"]], "text": "Defense +10%"}
+    },
     "c": {
         "name": "Summer Cleo",
         "icon": "100004_04_r05",
@@ -7,16 +18,24 @@
         "ele": "light",
         "wt": "bow",
         "spiral": true,
-        "a": [["affself_paralysis_sp_passive", 0.12, 20, 5, true], ["affres_curse", 100.0], ["resself_curse_att", 0.15, 10.0, 15.0], ["k_paralysis", 0.35]]
+        "abilities": [
+            {"cond": ["aff", "paralysis"], "cd": 5.0, "ab": [["hitattr", {"actcond": 1139, "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.35, "killer_paralysis"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 5, "sp": 14147}
     },
     "s1": {
         "sp": 2841,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "iv": 0.83333}, 3,
-            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "extra": 5, "iv": 0.83333},
-            {"dmg": 5.4, "killer": [0.1, ["paralysis"]], "iv": 0.83333, "afflic": ["paralysis", 120, 0.97]}
+            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "actcond": 104031201, "target": "HOSTILE", "iv": 0.83333, "blt": [4, 0.0]},
+            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "actcond": 104031201, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 5.4, "killer": [0.1, ["paralysis"]], "actcond": 104031201, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "actcond": 104031201, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "actcond": 104031201, "target": "HOSTILE", "iv": 0.83333}
         ]
     },
     "s2": {
@@ -24,14 +43,13 @@
         "startup": 0.0,
         "recovery": 2.2,
         "attr": [
-            {"buff": ["nearby", 0.05, 10.0, "att", "buff"], "iv": 0.23333},
-            {"buff": ["nearby", 0.03, 10.0, "crit", "chance"], "iv": 0.23333},
-            {"buff": ["nearby", 0.1, 10.0, "sp", "passive"], "iv": 0.23333},
-            {"buff": ["nearby", 0.1, 10.0, "s", "buff"], "iv": 0.23333},
-            {"buff": ["self", 0.1, 10.0, "defense", "buff"], "iv": 0.5, "msl": 0.06667},
-            {"buff": ["self", 0.1, 10.0, "crit", "damage"], "iv": 0.5, "msl": 0.06667},
-            {"sp": [1.0, "%", "s1"], "iv": 0.5, "msl": 0.06667},
-            {"dmg": 0.0, "iv": 2.0, "msl": 1.0}, 3
+            {"actcond": 76, "target": "ALLY", "iv": 0.23333},
+            {"actcond": 38, "target": "ALLY", "iv": 0.23333},
+            {"actcond": 194, "target": "ALLY", "iv": 0.23333},
+            {"actcond": 197, "target": "ALLY", "iv": 0.23333},
+            {"actcond": 303020101, "target": "HIT_OR_GUARDED_RECORD_MYSELF", "iv": 0.5, "msl": 0.06667},
+            {"actcond": 1176, "target": "HIT_OR_GUARDED_RECORD_MYSELF", "iv": 0.5, "msl": 0.06667},
+            {"sp": [1.0, "%", "s1"], "target": "HIT_OR_GUARDED_RECORD_MYSELF", "iv": 0.5, "msl": 0.06667}
         ]
     }
 }

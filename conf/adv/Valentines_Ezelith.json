@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1": {"count": 1, "energy": 1, "text": "Energy Level +1"},
+        "1267": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "overwrite": 6},
+        "102040601": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.883, "iv": 3.9}, "rate": 110}
+    },
     "c": {
         "name": "Valentine's Ezelith",
         "icon": "110011_02_r04",
@@ -7,25 +12,29 @@
         "ele": "flame",
         "wt": "bow",
         "spiral": false,
-        "a": [["ecombo", 35], ["affres_stun", 100.0], ["bk", 0.2]]
+        "abilities": [
+            {"cond": ["hits", ">=", 35, 1], "ab": [["actcond", "MYSELF", 1]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["break"], "ab": [["actdmg", 0.2]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 8394}
     },
     "s1": {
         "sp": 2708,
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
-            {"dmg": 1.17, "killer": [0.5, ["burn"]], "afflic": ["burn", 110, 0.883], "iv": 0.9},
-            {"dmg": 1.17, "killer": [0.5, ["burn"]], "iv": 0.9, "msl": 0.5},
-            {"dmg": 1.17, "killer": [0.5, ["burn"]], "iv": 0.9, "msl": 1.26667}, 6
-        ],
-        "cancel": {"any": 2.13333}
+            {"dmg": 1.17, "killer": [0.5, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 1.17, "killer": [0.5, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 1.17, "killer": [0.5, ["burn"]], "actcond": 102040601, "target": "HOSTILE", "iv": 0.9, "msl": 1.26667, "blt": [6, 0.0]}
+        ]
     },
     "s2": {
         "sp": 5115,
         "startup": 0.0,
         "recovery": 2.26667,
         "attr": [
-            {"dmg": 14.32, "buff": ["debuff", -0.1, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 1.33333, "coei": 1}
+            {"dmg": 14.32, "actcond": 1267, "target": "HOSTILE", "iv": 1.33333}
         ],
         "cancel": {"any": 1.66667}
     }

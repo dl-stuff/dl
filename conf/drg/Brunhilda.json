@@ -1,0 +1,59 @@
+{
+    "d": {
+        "name": "Brunhilda",
+        "icon": "210002_01",
+        "att": 70,
+        "hp": 203,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.2, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "cancel": {"any": 2.63333, "dodge": 2.63333, "dx1": 2.63333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 2.59, "target": "HOSTILE", "iv": 0.86667},
+            {"dmg": 2.59, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 2.59, "target": "HOSTILE", "iv": 1.26667},
+            {"dmg": 2.59, "target": "HOSTILE", "iv": 1.46667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.2,
+        "attr": [
+            {"dmg": 2.96, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.46667,
+        "recovery": 1.66666,
+        "attr": [
+            {"dmg": 3.26, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.56666, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.33333,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 4.14, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 4.14, "sp": 5, "target": "HOSTILE", "iv": 0.33334}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.4, "dodge": 0.0, "dx1": 1.4, "s": 0.0}
+    }
+}

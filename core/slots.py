@@ -2,16 +2,13 @@ from enum import unique
 from itertools import chain
 from collections import defaultdict, namedtuple
 import html
+from typing import Counter, OrderedDict
 
 from conf import (
+    load_drg_json,
     load_json,
     wyrmprints,
     weapons,
-    dragons,
-    elecoabs,
-    alias,
-    ELEMENTS,
-    WEAPON_TYPES,
     subclass_dict,
     get_icon,
 )
@@ -59,10 +56,16 @@ class SlotBase:
         return self.conf.hp + self.hp_augment
 
     @property
-    def ab(self):
-        if self.conf["a"]:
-            return self.conf.a
+    def abilities(self):
+        if self.conf["abilities"]:
+            return self.conf.abilities
         return []
+
+    @property
+    def actconds(self):
+        if self.conf["actconds"]:
+            return self.conf.actconds
+        return {}
 
     def oninit(self, adv):
         pass
@@ -78,31 +81,31 @@ class CharaBase(SlotBase):
 
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
-        self.coabs = {}
-        self.coab_list = []
-        self.coab_qual = None
-        self.valid_coabs = elecoabs[self.ele]
-        try:
-            self.coabs[self.qual] = self.valid_coabs[self.qual]
-            self.coab_qual = self.qual
-        except KeyError:
-            try:
-                self.coab_qual = self.wt.capitalize()
-                self.coabs[self.coab_qual] = self.valid_coabs[self.coab_qual]
-            except KeyError:
-                pass
-        self._chain_ctime = 0
-        self._ctime_coabs = []
-        self._need_ctime = 0
+        # self.coabs = {}
+        # self.coab_list = []
+        # self.coab_qual = None
+        # self.valid_coabs = elecoabs[self.ele]
+        # try:
+        #     self.coabs[self.qual] = self.valid_coabs[self.qual]
+        #     self.coab_qual = self.qual
+        # except KeyError:
+        #     try:
+        #         self.coab_qual = self.wt.capitalize()
+        #         self.coabs[self.coab_qual] = self.valid_coabs[self.coab_qual]
+        #     except KeyError:
+        #         pass
+        # self._chain_ctime = 0
+        # self._ctime_coabs = []
+        # self._need_ctime = 0
 
-        self._healing_coabs = []
-        self._need_healing = False
+        # self._healing_coabs = []
+        # self._need_healing = False
 
-        self._regen_coabs = []
-        self._need_regen = False
+        # self._regen_coabs = []
+        # self._need_regen = False
 
-        self._bufftime_coabs = []
-        self._need_bufftime = False
+        # self._bufftime_coabs = []
+        # self._need_bufftime = False
 
     def set_coab_list(self, coab_list):
         for name in coab_list:
@@ -151,8 +154,8 @@ class CharaBase(SlotBase):
         self.coab_list = sorted(self.coab_list)
 
     @property
-    def ab(self):
-        full_ab = list(super().ab)
+    def abilities(self):
+        full_ab = list(super().abilities)
         ex_ab = {}
         max_coabs = CharaBase.MAX_COAB
         coabs = list(self.coabs.items())
@@ -304,8 +307,8 @@ class DragonBase(EquipBase):
         return self.conf.ele
 
     @property
-    def ab(self):
-        return super().ab if self.on_ele else []
+    def abilities(self):
+        return super().abilities if self.on_ele else []
 
 
 from core.modifier import EffectBuff, SelfAffliction, Selfbuff, SingleActionBuff
@@ -601,8 +604,8 @@ class Fatalis(DragonBase):
             adv.dragonform.set_disabled("Fatalis")
 
     @property
-    def ab(self):
-        return super().ab if self.on_ele else [["a", 0.5]]
+    def abilities(self):
+        return super().abilities if self.on_ele else [["a", 0.5]]
 
 
 class Ramiel(DragonBase):
@@ -625,8 +628,8 @@ class Gold_Fafnir(DragonBase):
 
 class Arsene(DragonBase):
     @property
-    def ab(self):
-        return super().ab if self.on_ele else [["s", 0.9]]
+    def abilities(self):
+        return super().abilities if self.on_ele else [["s", 0.9]]
 
 
 class Gala_Reborn_Nidhogg(Gala_Reborn):
@@ -666,158 +669,11 @@ class WeaponBase(EquipBase):
         return self.conf.ele
 
 
-APGroup = namedtuple("APGroup", ["value", "att", "restrict", "condition", "union", "qual"])
-
-
-class AmuletPicker:
-    UNION_THRESHOLD = {1: 4, 2: 4, 3: 4, 4: 3, 5: 2, 6: 2, 11: 2}
-
-    def __init__(self):
-        self._grouped = {1: {}, 2: {}, 3: {}}
-        self._grouped_lookup = {}
-        special_counter = 0
-        for qual, wp in wyrmprints.items():
-            ab_length = len(wp["a"])
-            if ab_length == 1:
-                wpa_lst = wp["a"][0]
-                wpa = wpa_lst[0]
-                wpv = wpa_lst[1]
-                try:
-                    parts = wpa_lst[2].split("_")
-                    wpc = tuple(c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES)
-                    wpr = tuple(c for c in parts if c in ELEMENTS or c in WEAPON_TYPES)
-                except (AttributeError, IndexError):
-                    wpc = tuple()
-                    wpr = tuple()
-            else:
-                wpv = 0
-                if ab_length > 1:
-                    wpa = ("special", special_counter)
-                    special_counter += 1
-                else:
-                    wpa = (None,)
-                wpc = None
-                wpr = None
-
-            grouped_value = APGroup(
-                value=wpv,
-                att=wp["att"],
-                restrict=wpr,
-                condition=wpc,
-                union=wp["union"],
-                qual=qual,
-            )
-            group_key = wp["rarity"]
-            self._grouped_lookup[qual] = (group_key, wpa, grouped_value)
-            try:
-                from bisect import bisect
-
-                idx = bisect(self._grouped[group_key][wpa], grouped_value)
-                self._grouped[group_key][wpa].insert(idx, grouped_value)
-            except KeyError:
-                self._grouped[group_key][wpa] = [grouped_value]
-
-    def get_group(self, qual):
-        rare, gkey, gval = self._grouped_lookup[qual]
-        return self._grouped[rare][gkey], gval
-
-    @staticmethod
-    def find_next_matching(bis_i, group, gval, c, retain_union):
-        # for reasons unbeknown to me this comment has to exist in order for Liber Grimoris to sort over Mana Fount
-        # perhaps it is some kind of seriously cursed interpreter level short circuiting
-        # bool(group[bis_i].restrict) and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict
-        while bis_i > 0 and (
-            (bool(group[bis_i].restrict) and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict))
-            or (group[bis_i].condition and group[bis_i].condition and gval.condition != group[bis_i].condition)
-            or (gval.union in retain_union and gval.union != group[bis_i].union)
-        ):
-            bis_i -= 1
-        return bis_i
-
-    def pick(self, amulets, c):
-        union_threshold = AmuletPicker.UNION_THRESHOLD.copy()
-        for a in amulets:
-            for ab in a.ab:
-                if ab[0] == "psalm":
-                    _, union, min_count, extra_level = ab
-                    union_threshold[union] = max(min_count, union_threshold[union] - extra_level)
-
-        retain_union = {}
-        for u, thresh in union_threshold.items():
-            u_sum = sum(a.union == u for a in amulets)
-            if u_sum >= thresh:
-                retain_union[u] = u_sum
-
-        new_amulet_quals = set()
-        for a_i, a in enumerate(amulets):
-            # always keep psalm print
-            if any((ab[0] == "psalm" for ab in a.ab)):
-                new_amulet_quals.add(a.qual)
-                continue
-            group, gval = self.get_group(a.qual)
-            if len(group) == 1:
-                new_amulet_quals.add(a.qual)
-                continue
-            bis_i = len(group) - 1
-            bis_i = self.find_next_matching(bis_i, group, gval, c, retain_union)
-            while group[bis_i].qual in new_amulet_quals:
-                bis_i -= 1
-                bis_i = self.find_next_matching(bis_i, group, gval, c, retain_union)
-            bis_qual = group[bis_i].qual
-            amulets[a_i] = AmuletBase(Conf(wyrmprints[bis_qual]), c, bis_qual)
-            new_amulet_quals.add(bis_qual)
-
-        return amulets
-
-
 class AmuletStack:
-    AB_LIMITS = {
-        "a": 0.20,
-        "s": 0.40,
-        "cc": 0.15,
-        "cd": 0.25,
-        "fs": 0.50,
-        "bt": 0.30,
-        "dbt": 0.20,
-        "sp": 0.15,
-        "spf": 0.15,
-        "bk": 0.30,
-        "od": 0.15,
-        "lo_att": 0.60,
-        "lo_defense": 1.0,
-        "ro_att": 0.10,
-        "bc_att": 0.15,
-        "bc_cd": 0.15,
-        "bc_energy": 1,
-        "bc_regen": 3,
-        "prep": 100,
-        "eprep": 5,
-        "dc": 3,
-        "dcs": 3,
-        "dcd": 3,
-        "da": 0.18,
-        "dh": 0.15,
-        "dt": 0.20,
-        "spu": 0.08,
-        "au": 0.08,
-        "affself_poison_crit_damage": 0.3,
-        "k_burn": 0.30,
-        "k_poison": 0.30,
-        "k_paralysis": 0.25,
-        "k_frostbite": 0.25,
-        "k_stun": 0.25,
-        "k_sleep": 0.25,
-        "k_shadowblight": 0.25,
-        "k_stormlash": 0.25,
-        "k_flashburn": 0.25,
-        "k_scorchrend": 0.25,
-        "bleed": 0.15,
-        "rcv": 0.20,
-        "hp": 0.15,
-    }
-    # actually depends on weapons kms
+    # actually depends on weapon but i choose to not care
+    META = load_json("wyrmprints_meta.json")
+    META["actconds"] = {int(k): v for k, v in META["actconds"].items()}
     RARITY_LIMITS = {1: 3, 2: 2, 3: 2}
-    PICKER = AmuletPicker()
 
     def __init__(self, confs, c, quals):
         limits = AmuletStack.RARITY_LIMITS.copy()
@@ -833,9 +689,10 @@ class AmuletStack:
                 icon_ids.add(amulet.icon)
         # if any(limits.values()):
         #     raise ValueError("Unfilled wyrmprint slot")
-        self.an = AmuletStack.PICKER.pick(self.an, c)
+        # self.an = AmuletStack.PICKER.pick(self.an, c)
         self.an.sort(key=lambda a: (a.rarity, a.name))
         self.c = c
+        self.actconds = {}
 
     def __str__(self):
         return "+".join(map(str, self.an))
@@ -859,56 +716,85 @@ class AmuletStack:
     def name_icons(self):
         return [a.name_icon() for a in self.an]
 
-    @staticmethod
-    def sort_ab(a):
-        if a[1] < 0:
-            return -10000
-        try:
-            if "hp" not in a[2]:
-                return -1 * a[1]
-        except (TypeError, IndexError):
-            return -100 * a[1]
-        return a[1]
-
     @property
-    def ab(self):
-        merged_ab = []
+    def abilities(self):
+        self.actconds = {}
+        merged_abilities = []
 
-        limits = AmuletStack.AB_LIMITS.copy()
-        sorted_ab = defaultdict(list)
-        psalm_ab = []
-        for a in chain(*(a.ab for a in self.an)):
-            if a[0] in limits:
-                sorted_ab[a[0]].append(a)
-            elif a[0] == "psalm":
-                psalm_ab.append(a)
-            else:
-                merged_ab.append(a)
+        lim_groups = AmuletStack.META["lim_groups"]
+        shift_groups = AmuletStack.META["shift_groups"]
+        actconds = AmuletStack.META["actconds"]
 
-        base_union_level = defaultdict(lambda: defaultdict(lambda: 0))
-        limit_union_level = defaultdict(lambda: 3)
-        for _, union, min_count, extra_level in psalm_ab:
-            if limit_union_level[union] > 0:
-                base_union_level[union][min_count] += extra_level
-            limit_union_level[union] -= 1
+        shift_abilities = defaultdict(list)
+        mix_abilities = defaultdict(list)
+        psalm_abilities = []
 
-        for cat, lst in sorted_ab.items():
-            for a in sorted(lst, key=AmuletStack.sort_ab):
-                delta = min(limits[cat], a[1])
-                limits[cat] -= delta
-                merged_ab.append((cat, delta, *a[2:]))
-                if limits[cat] == 0:
-                    break
+        for ability in chain(*(a.abilities for a in self.an)):
+            merged = True
+            if shiftgroup := ability.get("shiftgroup"):
+                shift_abilities[shiftgroup].append(ability["id"])
+                merged = False
+            elif (lg := ability["lg"]) and lg in lim_groups:
+                mix_abilities[lg].append(ability)
+                merged = False
+            elif ablst := ability["ab"]:
+                for ab in ablst:
+                    if ab[0] == "psalm":
+                        psalm_abilities.append(ab)
+                        if len(ablst) == 1:
+                            merged = False
+                    elif ab[0] == "actcond":
+                        for actcond_id in ab[2:]:
+                            self.actconds[actcond_id] = actconds[actcond_id]
+                    elif ab[0] == "hitattr":
+                        actcond_id = ab[1]["actcond"]
+                        self.actconds[actcond_id] = actconds[actcond_id]
+            if merged:
+                merged_abilities.append(ability)
 
-        union_level = defaultdict(lambda: 0)
-        for a in self.an:
-            if a.union:
-                union_level[a.union] += 1
-                union_level[a.union] += base_union_level[a.union][union_level[a.union]]
+        for shift, abilities in shift_abilities.items():
+            to_level, to_ability = shift_groups[shift]
+            sum_level = min(max(to_level.values()), sum((to_level[abid] for abid in abilities)))
+            merged_abilities.append(to_ability[str(sum_level)])
 
-        merged_ab.extend((("union", u, l) for u, l in union_level.items()))
+        for lg, abilities in mix_abilities.items():
+            if len(abilities) == 1:
+                merged_abilities.append(abilities[0])
+                continue
+            actcond_duration = 0
+            actcond_target = None
+            actcond_mods_to_mix = defaultdict(float)
+            for ability in abilities:
+                actcond_target = ability["ab"][0][1]
+                actcond = actconds[ability["ab"][0][2]]
+                actcond_duration = max(actcond_duration, actcond["duration"])
+                for mod in actcond["mods"]:
+                    actcond_mods_to_mix[tuple(mod[1:])] += mod[0]
+            actcond_mods = []
+            for modto, value in actcond_mods_to_mix.items():
+                actcond_mods.append([min(value, lim_groups[lg]["max"]), *modto])
+            mix_ability = dict(abilities[0])
+            mix_ability["ab"] = [["actcond", actcond_target, {"duration": actcond_duration, "mods": actcond_mods}]]
+            merged_abilities.append(mix_ability)
 
-        return merged_ab
+        unions = AmuletStack.META["unions"]
+        union_counter = defaultdict(int)
+        for amulet in self.an:
+            if amulet.union:
+                union_counter[amulet.union] += 1
+        for _, union, min_count, add_count in psalm_abilities:
+            if union_counter.get(union, 0) >= min_count:
+                union_counter[union] += add_count
+        for union, count in union_counter.items():
+            union_data = unions[str(union)]
+            try:
+                merged_abilities.extend(union_data[str(count)])
+            except KeyError:
+                max_count, max_ab = max(union_data.items())
+                if count > int(max_count):
+                    merged_abilities.extend(max_ab)
+
+        return merged_abilities
 
 
 class AmuletBase(EquipBase):
@@ -943,11 +829,13 @@ class Slots:
     }
 
     DEFAULT_WYRMPRINT = [
-        "Valiant_Crown",
-        "Gentle_Winds",
-        "The_Chocolatiers",
-        "Beautiful_Nothingness",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
         "Dueling_Dancers",
+        "Mask_of_Determination_Bow",
+        "Applelicious_Dreams",
     ]
 
     DEFAULT_WEAPON = "agito"
@@ -974,28 +862,10 @@ class Slots:
             ]
         )
 
-    @staticmethod
-    def get_with_alias(source, k):
-        try:
-            return Conf(source[k]), k
-        except KeyError:
-            k = alias[k.lower()]
-            return Conf(source[k]), k
-
     def set_d(self, key=None):
         if not key:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
-        try:
-            conf, key = Slots.get_with_alias(dragons[self.c.ele], key)
-        except KeyError:
-            for ele in ELEMENTS:
-                if ele == self.c.ele:
-                    continue
-                try:
-                    conf, key = Slots.get_with_alias(dragons[ele], key)
-                    break
-                except KeyError:
-                    pass
+        conf = Conf(load_drg_json(key))
         try:
             self.d = Slots.DRAGON_DICTS[key](conf, self.c, key)
         except KeyError:
@@ -1013,13 +883,11 @@ class Slots:
         self.w = WeaponBase(conf, self.c, key)
 
     def set_a(self, keys=None):
-        if keys is None or len(keys) < 5:
+        if keys is None or len(keys) < 7:
             keys = list(set(Slots.DEFAULT_WYRMPRINT))
         else:
             keys = list(set(keys))
-        # if len(keys) < 5:
-        #     raise ValueError('Less than 5 wyrmprints equipped')
-        confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
+        confs = [Conf(wyrmprints[k]) for k in keys]
         self.a = AmuletStack(confs, self.c, keys)
 
     def set_slots(self, confslots):
@@ -1036,7 +904,7 @@ class Slots:
 
     def oninit(self, adv=None):
         for kind, slot in (("c", self.c), ("d", self.d), ("a", self.a), ("w", self.w)):
-            for aidx, ab in enumerate(slot.ab):
+            for aidx, ab in enumerate(slot.abilities):
                 name = ab[0]
                 if "_" in name:
                     acat = name.split("_")[0]
@@ -1046,6 +914,7 @@ class Slots:
                     self.abilities[f"ab_{kind}{aidx}"] = ability_dict[acat](*ab)
                 except:
                     pass
+            adv.update(slot.actconds)
 
         for key, ab in self.abilities.items():
             ab.oninit(adv, key)

@@ -1,4 +1,19 @@
 {
+    "actconds": {
+        "857": {"duration": 20.0, "icon": "resist_paralysis-passive", "mods": [[-0.2, "resist_paralysis", "passive"]], "debuff": 1, "text": "Paralysis Res -20%", "overwrite": -1},
+        "893": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Xihe's Radiance", "overwrite": -1},
+        "894": {"coei": 1, "alt": {"s1": "enhanced"}, "icon": 142, "hide": 1, "overwrite": -1},
+        "895": {"coei": 1, "alt": {"s2": "enhanced"}, "icon": 142, "hide": 1, "overwrite": -1},
+        "931": {"remove": 894, "coei": 1},
+        "932": {"remove": 895, "coei": 1},
+        "941": {"duration": 10.0, "icon": "resist_shadow-buff", "mods": [[0.2, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +20%", "overwrite": 19},
+        "942": {"duration": 15.0, "icon": "resist_shadow-buff", "mods": [[0.4, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +40%", "overwrite": 19},
+        "943": {"count": 1, "inspiration": 5},
+        "944": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.1, "att", "buff"]], "debuff": 1, "text": "Strength -10%", "rate": 70},
+        "945": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.25, "att", "buff"]], "debuff": 1, "text": "Strength -25%"},
+        "1040": {"duration": 30.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120}
+    },
     "c": {
         "name": "Radiant Xuan Zang",
         "icon": "110299_02_r05",
@@ -7,63 +22,81 @@
         "ele": "light",
         "wt": "wand",
         "spiral": false,
-        "a": [["prep", 100.0], ["affres_poison", 100.0], ["dbt", 0.2]]
+        "cp": 100,
+        "abilities": [
+            {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", 893], ["actcond", "MYSELF", 894], ["actcond", "MYSELF", 895]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["mod", 1.0, "affres_poison"]]},
+            {"ab": [["mod", 0.2, "debufftime", "-t:s"]]}
+        ]
     },
     "fs": {
         "charge": 0.4,
         "startup": 0.7,
         "recovery": 1.76667,
         "attr": [
-            {"dmg": 0.61, "sp": 580, "odmg": 4.2},
-            {"dmg": 0.61, "odmg": 4.2, "iv": 0.36667},
-            {"dmg": 0.61, "odmg": 4.2, "iv": 0.73333},
-            {"dmg": 0.61, "odmg": 4.2, "iv": 0.96667}
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "target": "HOSTILE"},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "target": "HOSTILE", "iv": 0.96667}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"any": 1.46667, "dodge": 0.0, "s": 0.0}
     },
-    "fs_xihe": {
+    "fs_enhanced": {
         "charge": 0.4,
         "startup": 0.7,
-        "recovery": 1.46667,
+        "recovery": 1.76667,
         "attr": [
-            {"dmg": 2.22, "sp": 580, "odmg": 4.2, "buff": ["affres", -0.2, 20, "paralysis", "-refresh"], "coei": 1},
-            {"dmg": 2.22, "odmg": 4.2, "iv": 0.36667},
-            {"dmg": 2.22, "odmg": 4.2, "iv": 0.73333},
-            {"dmg": 2.22, "odmg": 4.2, "iv": 0.96667}
-        ]
+            {"dmg": 2.22, "odmg": 4.2, "sp": 580, "actcond": 857, "target": "HOSTILE"},
+            {"dmg": 2.22, "odmg": 4.2, "sp": 580, "actcond": 857, "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 2.22, "odmg": 4.2, "sp": 580, "actcond": 857, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 2.22, "odmg": 4.2, "sp": 580, "actcond": 857, "target": "HOSTILE", "iv": 0.96667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.46667, "dodge": 0.0, "s": 0.0}
     },
     "s1": {
         "sp": 3000,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 16.1, "buff": ["debuff", -0.1, 10.0, 0.7, "attack"], "coei": 1, "iv": 0.63333},
-            {"afflic": ["paralysis", 120, 0.97], "iv": 0.63333}
+            {"dmg": 16.1, "actcond": 944, "target": "HOSTILE", "iv": 0.63333},
+            {"actcond": 104031201, "target": "HOSTILE", "iv": 0.63333}
         ],
         "cancel": {"any": 1.66667}
     },
-    "s1_xihe": {
+    "s1_enhanced": {
         "sp": 3000,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.8,
         "attr": [
-            {"dmg": 18.8, "killer": [0.5, ["paralysis"]], "buff": ["debuff", -0.25, 10.0, 1.0, "attack"], "coei": 1, "iv": 0.63333}
-        ]
+            {"actcond": 931, "target": "MYSELF"},
+            {"dmg": 18.8, "killer": [0.5, ["paralysis"]], "actcond": 945, "target": "HOSTILE", "iv": 0.63333}
+        ],
+        "cancel": {"any": 1.66667}
     },
     "s2": {
         "sp": 4500,
         "startup": 0.0,
         "recovery": 1.8,
+        "attr": [
+            {"cp": 20, "target": "MYSELF", "iv": 0.83333},
+            {"actcond": 941, "target": "MYPARTY", "iv": 0.83333},
+            {"cp": 10, "target": "MYPARTY_EXCEPT_MYSELF", "iv": 0.83333}
+        ],
         "cancel": {"any": 1.33333}
     },
-    "s2_xihe": {
+    "s2_enhanced": {
         "sp": 4500,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 1.8,
         "attr": [
-            {"buff": ["team", 0.2, 30.0, "att", "buff"], "iv": 0.83333},
-            {"buff": ["inspiration", 5, "team"], "iv": 0.83333}
-        ]
+            {"actcond": 932, "target": "MYSELF"},
+            {"actcond": 1040, "target": "MYPARTY", "iv": 0.83333},
+            {"actcond": 942, "target": "MYPARTY", "iv": 0.83333},
+            {"actcond": 943, "target": "MYPARTY", "iv": 0.83333}
+        ],
+        "cancel": {"any": 1.33333}
     }
 }

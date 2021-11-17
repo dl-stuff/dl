@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "1718": {"duration": 30.0, "coei": 1, "echo": 0.5, "icon": 161, "text": "Fluorescent Fish", "overwrite": -1},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010402": {"duration": 20.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "316010401": {"count": 1, "shield": {"1": 0.2}, "coei": 1, "text": "Shield"}
+    },
     "c": {
         "name": "Yukata Cassandra",
         "icon": "110337_03_r05",
@@ -7,15 +13,21 @@
         "ele": "flame",
         "wt": "staff",
         "spiral": true,
-        "a": [["prep", 100.0], ["a", 0.2, "hp100"], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0]]
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.2, "att"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 17014}
     },
     "s1": {
         "sp": 7734,
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
-            {"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 1.0},
-            {"heal": [100, "team"], "iv": 1.0}
+            {"actcond": 1718, "target": "MYPARTY", "iv": 1.0},
+            {"heal": 100, "actcond": 316010401, "target": "MYPARTY", "iv": 1.0}
         ],
         "energizable": true,
         "cancel": {"any": 1.66667}
@@ -25,9 +37,11 @@
         "startup": 0.0,
         "recovery": 1.93333,
         "attr": [
-            {"amp": ["10000", 2, 0], "cd": 30.0},
-            {"buff": ["team", 35.0, [20.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.0}
+            {"actcond": 308010402, "target": "MYPARTY", "iv": 1.0}
         ],
-        "energizable": true
+        "energizable": true,
+        "abilities": [
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]}
+        ]
     }
 }

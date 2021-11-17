@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "1308": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.1, "att", "buff"]], "debuff": 1, "text": "Strength -10%", "overwrite": 1},
+        "316010401": {"count": 1, "shield": {"1": 0.2}, "coei": 1, "text": "Shield"}
+    },
     "c": {
         "name": "Mordecai",
         "icon": "110369_01_r05",
@@ -7,14 +11,22 @@
         "ele": "light",
         "wt": "blade",
         "spiral": false,
-        "a": [["affres_curse", 100.0]]
+        "abilities": [
+            {"ab": [["mod", 0.15, "eleres", "flame"]]},
+            {"ab": [["mod", 0.15, "eleres", "water"]]},
+            {"ab": [["mod", 0.15, "eleres", "wind"]]},
+            {"ab": [["mod", 0.15, "eleres", "light"]]},
+            {"ab": [["mod", 0.15, "eleres", "shadow"]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"ab": [["actcond", "MYSELF", 316010401]]}
+        ]
     },
     "s1": {
         "sp": 2392,
         "startup": 0.0,
         "recovery": 2.96667,
         "attr": [
-            {"dmg": 17.1, "buff": ["debuff", -0.1, 10.0, 1.0, "attack", "-overwrite_HOSTILE1"], "iv": 1.66667, "coei": 1}
+            {"dmg": 17.1, "actcond": 1308, "target": "HOSTILE", "iv": 1.66667}
         ],
         "cancel": {"any": 2.16667}
     },
@@ -23,9 +35,9 @@
         "startup": 0.0,
         "recovery": 2.86667,
         "attr": [
-            {"dmg": 7.81, "killer": [0.5, ["debuff"]], "iv": 0.3},
-            {"dmg": 7.81, "killer": [0.5, ["debuff"]], "iv": 0.63333},
-            {"dmg": 7.81, "killer": [0.5, ["debuff"]], "iv": 1.1}
+            {"dmg": 7.81, "killer": [0.5, ["debuff"]], "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 7.81, "killer": [0.5, ["debuff"]], "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 7.81, "killer": [0.5, ["debuff"]], "target": "HOSTILE", "iv": 1.1}
         ],
         "cancel": {"any": 2.56667}
     }

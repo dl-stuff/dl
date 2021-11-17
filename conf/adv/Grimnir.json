@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1665": {"duration": 60.0, "coei": 1, "-lv": 1666, "icon": 246, "text": "Brewing Storm Lv. {0}", "overwrite": 44}
+    },
     "c": {
         "name": "Grimnir",
         "icon": "110285_01_r05",
@@ -7,51 +11,59 @@
         "ele": "wind",
         "wt": "lance",
         "spiral": false,
-        "a": [["affres_freeze", 100.0], ["ctime", 2.0]]
+        "abilities": [
+            {"cond": ["hits", ">=", 100, 1], "ab": [["actcond", "MYSELF", 1665]]},
+            {"cond": ["slayer", 5], "ab": [["actcond", "MYSELF", 1665]]},
+            {"cond": ["actcond", 1665], "ab": [["mod", -0.15, "actdmgdown"]]},
+            {"cond": ["actcond", 1666], "ab": [["mod", -0.2, "actdmgdown"]]},
+            {"cond": ["actcond", 1667], "ab": [["mod", -0.25, "actdmgdown"]]},
+            {"cond": ["actcond", 1668], "ab": [["mod", -0.3, "actdmgdown"]]},
+            {"cond": ["actcond", 1669], "ab": [["mod", -0.5, "actdmgdown"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"ab": [["ctime", 2.0]]},
+            {"cond": ["actcond", 1669, ">=", 1], "ab": [["hitattr", {"dmg": 0.8, "target": "HOSTILE"}]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 4, "sp": 14688}
     },
     "s1": {
         "sp": 2940,
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"dmg": 9.35, "afflic": ["stormlash", 120, 0.41], "iv": 0.63333},
-            {"dmg": 3.12, "iv": 1.83333},
-            {"dmg": 3.12, "iv": 1.9},
-            {"dmg": 3.12, "iv": 1.96667}
+            {"dmg": 9.35, "actcond": 1361, "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 3.12, "actcond": 1361, "target": "HIT_OR_GUARDED_RECORD", "iv": 1.83333},
+            {"dmg": 3.12, "actcond": 1361, "target": "HIT_OR_GUARDED_RECORD", "iv": 1.9},
+            {"dmg": 3.12, "actcond": 1361, "target": "HIT_OR_GUARDED_RECORD", "iv": 1.96667}
         ],
-        "cancel": {"any": 2.16667}
+        "cancel": {"any": 2.16667},
+        "abilities": [
+            {"cond": ["actcond", 1669], "ab": [["altskill", "enhanced", "-t:s1"]]}
+        ]
     },
-    "s1_storm5": {
+    "s1_enhanced": {
         "sp": 2940,
         "startup": 0.0,
-        "recovery": 2.66667,
+        "recovery": 2.96667,
         "attr": [
-            {"dmg": 1.25, "afflic": ["stormlash", 120, 0.41], "iv": 0.66667},
-            {"dmg": 1.25, "iv": 0.76667},
-            {"dmg": 1.25, "iv": 0.86667},
-            {"dmg": 1.25, "iv": 0.96667},
-            {"dmg": 1.25, "iv": 1.06667},
-            {"dmg": 1.25, "iv": 1.33333},
-            {"dmg": 1.25, "iv": 1.5},
-            {"dmg": 1.25, "iv": 1.66667},
-            {"dmg": 5.0, "iv": 2.0},
-            {"dmg": 5.0, "iv": 2.5}
-        ]
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 0.76667},
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 0.86667},
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 1.5},
+            {"dmg": 1.25, "actcond": 1361, "target": "HOSTILE", "iv": 1.66667},
+            {"dmg": 5.0, "actcond": 1361, "target": "HOSTILE", "iv": 2.0},
+            {"dmg": 5.0, "actcond": 1361, "target": "HIT_OR_GUARDED_RECORD", "iv": 2.5}
+        ],
+        "cancel": {"any": 2.66667}
     },
     "s2": {
         "sp": 8640,
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
-            {"dmg": 3.0},
-            {"dmg": 3.0, "msl": 0.2},
-            {"dmg": 3.0, "msl": 0.4},
-            {"dmg": 3.0, "msl": 0.4},
-            {"dmg": 3.0, "msl": 0.6},
-            {"dmg": 3.0, "msl": 0.8},
-            {"dmg": 3.0, "msl": 0.8},
-            {"dmg": 3.0, "msl": 1.0},
-            {"dmg": 3.0, "msl": 1.2}
+            {"dmg": 3.0, "target": "HOSTILE", "blt": [7, 0.4], "msl": 0.65}
         ],
         "cancel": {"any": 1.4}
     },
@@ -59,7 +71,7 @@
         "startup": 0.33333,
         "recovery": 0.8,
         "attr": [
-            {"dmg": 1.85, "sp": 180}
+            {"dmg": 1.85, "sp": 180, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.26667, "s": 0.0},
         "cancel": {"any": 0.66667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.2}
@@ -68,8 +80,8 @@
         "startup": 0.36667,
         "recovery": 1.3,
         "attr": [
-            {"dmg": 1.1, "sp": 300},
-            {"dmg": 1.1, "iv": 0.33333}
+            {"dmg": 1.1, "sp": 300, "target": "HOSTILE"},
+            {"dmg": 1.1, "sp": 300, "target": "HOSTILE", "iv": 0.33333}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 1.13333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.6}
@@ -78,13 +90,8 @@
         "startup": 0.43333,
         "recovery": 1.46667,
         "attr": [
-            {"dmg": 0.34, "sp": 300},
-            {"dmg": 0.34, "msl": 0.2},
-            {"dmg": 0.34, "msl": 0.4},
-            {"dmg": 0.34, "msl": 0.6},
-            {"dmg": 0.34},
-            {"dmg": 0.34, "msl": 0.26},
-            {"dmg": 0.34, "msl": 0.52}
+            {"dmg": 0.34, "sp": 300, "target": "HOSTILE", "blt": [4, 0.2]},
+            {"dmg": 0.34, "sp": 300, "target": "HOSTILE", "blt": [3, 0.26]}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.96667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.66667}
@@ -93,11 +100,11 @@
         "startup": 0.6,
         "recovery": 0.96667,
         "attr": [
-            {"dmg": 0.5, "sp": 480},
-            {"dmg": 0.5, "iv": 0.06667},
-            {"dmg": 0.5, "iv": 0.13333},
-            {"dmg": 0.5, "iv": 0.2},
-            {"dmg": 0.5, "iv": 0.26667}
+            {"dmg": 0.5, "sp": 480, "target": "HOSTILE"},
+            {"dmg": 0.5, "sp": 480, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 0.5, "sp": 480, "target": "HOSTILE", "iv": 0.13333},
+            {"dmg": 0.5, "sp": 480, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 0.5, "sp": 480, "target": "HOSTILE", "iv": 0.26667}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.73333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.5}
@@ -106,9 +113,9 @@
         "startup": 0.86667,
         "recovery": 1.1,
         "attr": [
-            {"dmg": 1.76, "sp": 900},
-            {"dmg": 1.76, "iv": 0.16666},
-            {"dmg": 1.76, "iv": 0.33333}
+            {"dmg": 1.76, "sp": 900, "target": "HOSTILE"},
+            {"dmg": 1.76, "sp": 900, "target": "HOSTILE", "iv": 0.16666},
+            {"dmg": 1.76, "sp": 900, "target": "HOSTILE", "iv": 0.33333}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.96666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.8}

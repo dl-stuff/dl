@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "21": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding"},
+        "433": {"duration": 5.0, "icon": "crit-buff", "mods": [[0.1, "crit", "buff"]], "text": "Critical Rate +10%", "overwrite": -1},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"}
+    },
     "c": {
         "name": "Patia",
         "icon": "110335_01_r04",
@@ -7,15 +14,21 @@
         "ele": "shadow",
         "wt": "lance",
         "spiral": true,
-        "a": [["bt", 0.35], ["affres_paralysis", 100.0], ["resself_paralysis_att", 0.15, 10.0, 15.0], ["primed_crit_chance", 0.1, 5.0]]
+        "abilities": [
+            {"ab": [["mod", 0.35, "bufftime", "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", 433]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 13232}
     },
     "s1": {
         "sp": 4367,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667},
-            {"buff": ["team", 0.15, 15.0, "att", "buff"], "iv": 0.16667}
+            {"actcond": 303030401, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 302030301, "target": "MYPARTY", "iv": 0.16667}
         ]
     },
     "s2": {
@@ -23,7 +36,7 @@
         "startup": 0.0,
         "recovery": 2.06667,
         "attr": [
-            {"dmg": 7.49, "bleed": [100, 1.46], "iv": 0.96667}
+            {"dmg": 7.49, "actcond": 21, "target": "HOSTILE", "iv": 0.96667}
         ],
         "cancel": {"any": 1.8}
     }

@@ -1,4 +1,13 @@
 {
+    "actconds": {
+        "1": {"count": 1, "energy": 1, "text": "Energy Level +1"},
+        "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
+        "62": {"aff": "stun", "duration": 5.5},
+        "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "313010401": {"duration": 15.0, "icon": 90, "mods": [[0.5, "att", "buff"]], "actgrant": [62, "-t:x"], "text": "Stunning Beauty", "overwrite": -1},
+        "402010201": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%", "rate": 30}
+    },
     "c": {
         "name": "Beautician Zardin",
         "icon": "110015_02_r05",
@@ -7,17 +16,22 @@
         "ele": "light",
         "wt": "blade",
         "spiral": false,
-        "a": [["sts_energy", 3], ["affres_poison", 100.0], ["s", 0.35, "hp70"]]
+        "abilities": [
+            {"cond": ["slayer", 3, "fs"], "ab": [["actcond", "MYSELF", 102]]},
+            {"ab": [["mod", 1.0, "affres_poison"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["actdmg", 0.35, "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 8932}
     },
     "s1": {
         "sp": 3080,
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 4.424, "buff": ["debuff", -0.05, 10.0, 0.3, "attack"], "iv": 0.2, "coei": 1},
-            {"dmg": 4.424, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.66667, "coei": 1},
-            {"dmg": 4.424, "iv": 1.1},
-            {"buff": ["energy", 1], "iv": 1.13333}
+            {"dmg": 4.424, "actcond": 402010201, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 4.424, "actcond": 1246, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.424, "target": "HOSTILE", "iv": 1.1},
+            {"actcond": 1, "target": "MYSELF", "iv": 1.13333}
         ]
     },
     "s2": {
@@ -25,8 +39,8 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"buff": ["self", 0.5, 15.0, "att", "buff", "-refresh"], "iv": 1.33333},
-            {"buff": ["energy", 2], "iv": 1.5}
+            {"actcond": 313010401, "target": "MYSELF", "iv": 1.33333},
+            {"actcond": 2, "target": "MYSELF", "iv": 1.5}
         ]
     }
 }

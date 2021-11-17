@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "199": {"aff": "burn", "duration": 30.0, "slip": {"dmg": 0.415, "iv": 3.9}, "text": "New Dish", "rate": 120},
+        "403040106": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%"}
+    },
+    "d": {
+        "name": "Apollo",
+        "icon": "210103_01",
+        "att": 127,
+        "hp": 369,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.5, "att"]]},
+            {"ab": [["mod", 0.2, "killer_burn"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.6, "actcond": 199, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 8.4, "actcond": 199, "target": "HOSTILE", "iv": 0.73333},
+            {"actcond": 403040106, "target": "HOSTILE", "iv": 0.73333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.33333,
+        "recovery": 0.8,
+        "attr": [
+            {"dmg": 3.8, "sp": 5, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "dx2": 0.2, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.375,
+        "recovery": 0.875,
+        "attr": [
+            {"dmg": 4.18, "sp": 5, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "dx3": 0.20833, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.4,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 5.14, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "s": 0.0}
+    }
+}

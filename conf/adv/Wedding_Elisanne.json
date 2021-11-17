@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "112": {"slip": {"heal": 20.0, "iv": 3.0, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "114": {"icon": "defb-buff", "mods": [[-0.15, "defb", "buff"]], "debuff": 1, "text": "Defense -15%"},
+        "302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}
+    },
     "c": {
         "name": "Wedding Elisanne",
         "icon": "100002_06_r05",
@@ -7,15 +12,20 @@
         "ele": "wind",
         "wt": "sword",
         "spiral": false,
-        "a": [["sp", 0.08], ["affres_bog", 100.0], ["bc_att", 0.13]]
+        "abilities": [
+            {"ab": [["mod", 0.08, "sph"]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", 302031201]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 7255}
     },
     "s1": {
         "sp": 2902,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 14.85, "iv": 0.26667},
-            {"buff": ["zone", 20.0, [10.0, 3.0], "heal", "hp"], "coei": 1, "iv": 0.66667}
+            {"dmg": 14.85, "target": "HOSTILE", "iv": 0.26667},
+            {"actcond": 112, "target": "ALLY", "iv": 0.66667, "zone": 10.0}
         ]
     },
     "s2": {
@@ -23,8 +33,8 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"dmg": 10.515, "iv": 0.4},
-            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 0.4, "coei": 1}
+            {"dmg": 10.515, "target": "HOSTILE", "iv": 0.4},
+            {"actcond": 114, "target": "HOSTILE", "iv": 0.4, "zone": 10.0}
         ]
     }
 }

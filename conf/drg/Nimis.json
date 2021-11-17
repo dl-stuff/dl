@@ -1,0 +1,59 @@
+{
+    "d": {
+        "name": "Nimis",
+        "icon": "210053_01",
+        "att": 125,
+        "hp": 370,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 0.45, "att"], ["mod", 0.55, "critdmg"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "energizable": true,
+        "cancel": {"any": 2.66667},
+        "sp_db": 90,
+        "uses": 1,
+        "attr": [
+            {"heal": 45, "target": "MYSELF", "iv": 1.0}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.08333,
+        "recovery": 1.38334,
+        "attr": [
+            {"dmg": 5.4, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.75, "dodge": 0.0, "dx2": 0.58334, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.13333,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 1.98, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 1.98, "sp": 5, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 1.98, "sp": 5, "target": "HOSTILE", "iv": 0.36667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "dx3": 0.43334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.73333,
+        "recovery": 0.66667,
+        "attr": [
+            {"dmg": 6.12, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 6.12, "sp": 5, "target": "HOSTILE", "iv": 0.13334}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.6, "dodge": 0.0, "dx1": 0.43334, "s": 0.0}
+    }
+}

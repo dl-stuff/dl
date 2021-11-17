@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "260": {"duration": 15.0, "ele": "water", "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "206010101": {"relief": "stun", "count": 1, "text": "Stun Relief"}
+    },
     "c": {
         "name": "Summer Estelle",
         "icon": "110063_02_r04",
@@ -7,15 +12,19 @@
         "ele": "water",
         "wt": "wand",
         "spiral": false,
-        "a": [["k_demihuman", 0.25], ["affres_stun", 50.0], ["bt", 0.2]]
+        "abilities": [
+            {"ab": [["mod", 0.25, "killer_demihuman"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"ab": [["mod", 0.2, "bufftime", "-t:s"]]}
+        ]
     },
     "s1": {
         "sp": 2711,
         "startup": 0.0,
         "recovery": 2.33333,
         "attr": [
-            {"dmg": 6.6, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 0.96667},
-            {"dmg": 6.6, "iv": 1.16667}
+            {"dmg": 6.6, "actcond": 1246, "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 6.6, "actcond": 1246, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.66667}
     },
@@ -24,8 +33,8 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"buffele": "water", "buff": ["team", 0.2, 15.0, "att", "buff"], "iv": 0.63333},
-            {"relief": [["stun"], 100], "iv": 0.66667}
+            {"actcond": 260, "target": "MYPARTY", "iv": 0.63333},
+            {"actcond": 206010101, "target": "MYPARTY", "iv": 0.66667}
         ]
     }
 }

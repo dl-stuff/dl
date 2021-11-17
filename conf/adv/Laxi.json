@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "283": {"slip": {"percent": 0.035, "iv": 2.9, "kind": "hp"}, "icon": 103, "mods": [[0.5, "att", "buff"]], "alt": {"s1": "enhanced", "s2": "enhanced"}, "text": "Limiters Released", "overwrite": -1},
+        "285": {"remove": 283, "coei": 1},
+        "286": {"duration": 5.0, "icon": 104, "text": "Shut Down"},
+        "287": {"remove": "actcond"},
+        "289": {"duration": 5.0, "slip": {"percent": -0.25, "iv": 1.5, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Laxi",
         "icon": "100032_01_r04",
@@ -7,17 +14,22 @@
         "ele": "flame",
         "wt": "blade",
         "spiral": false,
-        "a": [["affres_sleep", 100.0], ["a", 0.2, "hp\u226430"]]
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", 287], ["actcond", "MYSELF", 286], ["actcond", "MYSELF", 289]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"cond": ["hp", "<=", 30], "ab": [["mod", 0.2, "att"], ["mod", -0.5, "def"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 5835}
     },
     "s1": {
         "sp": 2537,
         "startup": 0.0,
         "recovery": 2.23333,
         "attr": [
-            {"dmg": 3.05, "iv": 0.46667},
-            {"dmg": 3.05, "iv": 0.73333},
-            {"dmg": 3.05, "iv": 1.06667},
-            {"dmg": 3.05, "iv": 1.23333}
+            {"dmg": 3.05, "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 3.05, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 3.05, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.05, "target": "HOSTILE", "iv": 1.23333}
         ]
     },
     "s1_enhanced": {
@@ -25,14 +37,14 @@
         "startup": 0.0,
         "recovery": 2.23333,
         "attr": [
-            {"dmg": 3.12, "iv": 0.46667},
-            {"dmg": 3.12, "iv": 0.53333},
-            {"dmg": 3.12, "iv": 0.73333},
-            {"dmg": 3.12, "iv": 0.8},
-            {"dmg": 3.12, "iv": 1.06667},
-            {"dmg": 3.12, "iv": 1.13333},
-            {"dmg": 3.12, "iv": 1.23333},
-            {"dmg": 3.12, "iv": 1.3}
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 1.23333},
+            {"dmg": 3.12, "target": "HOSTILE", "iv": 1.3}
         ]
     },
     "s2": {
@@ -40,15 +52,15 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": [["sAlt", "enhanced", "s1"], ["sAlt", "enhanced2", "s2"], ["self", 0.5, -1, "att", "buff"], ["self", -3.5, [-1, 2.9], "regen", "hp"], "-refresh"], "iv": 0.13333}
+            {"actcond": 283, "target": "MYSELF", "iv": 0.13333}
         ]
     },
     "s2_enhanced": {
         "sp": 4877,
         "startup": 0.0,
-        "recovery": 1.0,
+        "recovery": 0.96667,
         "attr": [
-            {"buff": ["s2", "-off"]}
+            {"actcond": 285, "target": "MYSELF", "iv": 0.13333}
         ]
     }
 }

@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "89": {"duration": 10.0, "icon": "aspd-buff", "mods": [[0.3, "aspd", "buff"]], "text": "Attack Rate +30%"},
+        "851": {"duration": 15.0, "slip": {"heal": 7.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "302020101": {"duration": 10.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Marth",
         "icon": "110291_01_r05",
@@ -7,30 +14,36 @@
         "ele": "flame",
         "wt": "sword",
         "spiral": true,
-        "a": [["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["cc", 0.13, "hit10"]]
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "cd": 15.0, "ab": [["hitattr", {"sp": [1.0, "%"], "target": "MYPARTY"}]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["hits", ">=", 10], "ab": [["mod", 0.13, "crit"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 7187}
     },
     "s1": {
         "sp": 2875,
         "startup": 0.0,
         "recovery": 2.36667,
         "attr": [
-            {"dmg": 1.38, "afflic": ["burn", 120, 0.97], "iv": 0.33333},
-            {"dmg": 1.38, "iv": 0.53333},
-            {"dmg": 1.38, "iv": 0.6},
-            {"dmg": 1.38, "iv": 0.83333},
-            {"dmg": 1.38, "iv": 1.13333},
-            {"dmg": 1.38, "iv": 1.26667},
-            {"dmg": 2.67, "iv": 1.56667},
-            {"buff": ["self", 7.0, 15.0, "heal", "buff"], "iv": 1.6, "coei": 1}
+            {"dmg": 1.38, "actcond": 102040901, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 1.38, "actcond": 102040901, "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 1.38, "actcond": 102040901, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 1.38, "actcond": 102040901, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 1.38, "actcond": 102040901, "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 1.38, "actcond": 102040901, "target": "HOSTILE", "iv": 1.26667},
+            {"dmg": 2.67, "actcond": 102040901, "target": "HOSTILE", "iv": 1.56667},
+            {"actcond": 851, "target": "MYSELF", "iv": 1.6}
         ]
     },
-    "s2_phase1": {
+    "s2": {
         "sp": 5700,
         "startup": 0.0,
         "recovery": 2.16667,
         "attr": [
-            {"buff": ["self", 0.1, 10.0, "att", "buff"], "iv": 0.16667},
-            {"dmg": 8.99, "killer": [1.0, ["burn"]], "iv": 1.0}
+            {"actcond": 302020101, "target": "MYSELF", "iv": 0.16667},
+            {"dmg": 8.99, "killer": [1.0, ["burn"]], "target": "HOSTILE", "iv": 1.0}
         ],
         "cancel": {"any": 1.76667}
     },
@@ -39,10 +52,9 @@
         "startup": 0.0,
         "recovery": 2.16667,
         "attr": [
-            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.16667},
-            {"dmg": 8.99, "killer": [1.0, ["burn"]], "iv": 1.0}
+            {"actcond": 302020101, "target": "MYPARTY", "iv": 0.16667},
+            {"dmg": 8.99, "killer": [1.0, ["burn"]], "target": "HOSTILE", "iv": 1.0}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.76667}
     },
     "s2_phase3": {
@@ -50,11 +62,10 @@
         "startup": 0.0,
         "recovery": 2.16667,
         "attr": [
-            {"buff": ["team", 0.3, 10.0, "spd", "buff"], "iv": 0.16667},
-            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.2},
-            {"dmg": 8.99, "killer": [1.0, ["burn"]], "iv": 1.0}
+            {"actcond": 89, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 302020101, "target": "MYPARTY", "iv": 0.2},
+            {"dmg": 8.99, "killer": [1.0, ["burn"]], "target": "HOSTILE", "iv": 1.0}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.76667}
     }
 }

@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "1839": {"duration": 180.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
+        "105020114": {"aff": "blind", "duration": 8.0, "blind": 50, "text": "Blind", "rate": 180}
+    },
+    "d": {
+        "name": "Nidhogg",
+        "icon": "210019_01",
+        "att": 141,
+        "hp": 394,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.4, "hp"], ["mod", 0.4, "att"]]},
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", 1839]]}
+        ]
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 3.46667,
+        "cancel": {"any": 2.73333, "dodge": 2.73333, "dx1": 2.73333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 15.498, "actcond": 105020114, "target": "HOSTILE", "iv": 1.56667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.46667,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 4.96, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.43333,
+        "recovery": 1.53334,
+        "attr": [
+            {"dmg": 5.46, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx3": 0.23334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.7,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 2.08, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 4.86, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.03333, "dodge": 0.0, "dx1": 1.03333, "s": 0.0}
+    }
+}

@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "291": {"dispel": 1},
+        "314": {"duration": 30.0, "icon": 108, "text": "Burning Ambition", "overwrite": -1, "triggerbomb": 1}
+    },
     "c": {
         "name": "Nobunaga",
         "icon": "110346_01_r05",
@@ -7,25 +11,20 @@
         "ele": "flame",
         "wt": "blade",
         "spiral": false,
-        "a": [["a", 0.2, "hit15"], ["affres_sleep", 100.0]]
-    },
-    "fs": {
-        "charge": 0.16667,
-        "startup": 0.13333,
-        "recovery": 0.7,
-        "attr": [
-            {"dmg": 0.92, "odmg": 6.0, "sp": 200},
-            {"cond": ["var>=", ["hits", 15]], "dispel": 100}
+        "abilities": [
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.2, "att"]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"cond": ["hits", ">=", 15], "ab": [["actgrant", 291, "-t:fs"]]}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0, "x1": 0.7}
+        "skillshare": {"src": "s1", "cost": 6, "sp": 8910}
     },
     "s1": {
         "sp": 3300,
         "startup": 0.0,
         "recovery": 1.3,
         "attr": [
-            {"dmg": 7.13, "iv": 0.4}
+            {"dmg": 15.65, "target": "HOSTILE", "triggerbomb": 314},
+            {"dmg": 7.13, "actcond": 314, "target": "HOSTILE", "iv": 0.4}
         ],
         "cancel": {"any": 1.3}
     },
@@ -34,8 +33,8 @@
         "startup": 0.0,
         "recovery": 1.76667,
         "attr": [
-            {"dmg": 13.56, "killer": [0.5, ["buffed"]], "iv": 0.4},
-            {"dispel": 100, "iv": 0.63333}
+            {"dmg": 13.56, "killer": [0.5, ["buffed"]], "target": "HOSTILE", "iv": 0.4},
+            {"actcond": 291, "target": "HIT_OR_GUARDED_RECORD", "iv": 0.63333}
         ],
         "cancel": {"any": 1.5}
     }

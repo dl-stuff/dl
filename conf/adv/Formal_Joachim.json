@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1052": {"aff": "poison", "duration": 30.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+    },
     "c": {
         "name": "Formal Joachim",
         "icon": "110350_02_r05",
@@ -7,32 +12,30 @@
         "ele": "wind",
         "wt": "gun",
         "spiral": false,
-        "a": [["k_stormlash", 0.3], ["affres_freeze", 100.0], ["k_poison", 0.3]],
-        "gun": [1]
+        "gun": [1],
+        "abilities": [
+            {"ab": [["mod", 0.3, "killer_stormlash"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"ab": [["mod", 0.3, "killer_poison"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 6, "sp": 9298}
     },
     "s1": {
         "sp": 3060,
         "startup": 0.0,
         "recovery": 2.03333,
         "attr": [
-            {"dmg": 10.12, "afflic": ["stormlash", 120, 0.41], "iv": 1.1}
+            {"dmg": 10.12, "actcond": 1361, "target": "HOSTILE", "iv": 1.1}
         ],
+        "DEBUG_attr_N1": [{"dmg": 20.64, "actcond": 1361, "target": "HOSTILE", "iv": 0.1}, {"actcond": 1052, "target": "HOSTILE", "iv": 0.1}],
         "cancel": {"any": 1.3}
-    },
-    "s1_from2": {
-        "startup": 0.0,
-        "recovery": 0.9,
-        "attr": [
-            {"dmg": 20.64, "afflic": ["stormlash", 120, 0.41], "iv": 0.1},
-            {"afflic": ["poison", 120, 0.582, 30.0], "iv": 0.1}
-        ]
     },
     "s2": {
         "sp": 6120,
         "startup": 0.0,
         "recovery": 2.8,
         "attr": [
-            {"afflic": ["poison", 120, 0.582], "iv": 2.16668}
+            {"actcond": 101021001, "target": "HOSTILE", "iv": 1.5}
         ],
         "cancel": {"any": 2.16667, "s1": 1.53333}
     },
@@ -41,8 +44,8 @@
         "startup": 0.0,
         "recovery": 1.36667,
         "attr": [
-            {"dmg": 20.64, "afflic": ["stormlash", 120, 0.41], "iv": 0.1},
-            {"afflic": ["poison", 120, 0.582, 30.0], "iv": 0.1}
+            {"dmg": 20.64, "actcond": 1361, "target": "HOSTILE", "iv": 0.1},
+            {"actcond": 1052, "target": "HOSTILE", "iv": 0.1}
         ],
         "cancel": {"any": 0.9}
     }

@@ -1,4 +1,18 @@
 {
+    "actconds": {
+        "291": {"dispel": 1},
+        "1465": {"coei": 1, "icon": 211, "text": "Mochi Master", "maxstack": 3},
+        "1466": {"remove": 1465, "coei": 1},
+        "1478": {"icon": "fspd-buff", "mods": [[0.2, "fspd", "buff"]], "text": "Force Strike Attack Rate +20%", "maxstack": 1},
+        "1480": {"remove": 1478, "coei": 1},
+        "1484": {"duration": 20.0, "slip": {"heal": 3.0, "iv": 2.9, "kind": "hp"}, "ele": "wind", "icon": 212, "mods": [[0.03, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
+        "1485": {"duration": 30.0, "slip": {"heal": 15.0, "iv": 2.9, "kind": "hp"}, "ele": "wind", "icon": 212, "mods": [[0.05, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
+        "1486": {"duration": 60.0, "slip": {"heal": 21.0, "iv": 2.9, "kind": "hp"}, "ele": "wind", "icon": 212, "mods": [[0.15, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
+        "1503": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.02, "att", "buff"]], "debuff": 1, "text": "Strength -2%", "maxstack": 4},
+        "1514": {"remove": 1484, "coei": 1},
+        "1515": {"remove": 1485, "coei": 1},
+        "1516": {"remove": 1486, "coei": 1}
+    },
     "c": {
         "name": "Kimono Luca",
         "icon": "100006_11_r05",
@@ -7,23 +21,20 @@
         "ele": "wind",
         "wt": "axe",
         "spiral": false,
-        "a": [["affres_freeze", 100.0], ["fspd", 0.2]]
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", 1480]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 19406}
     },
     "fs": {
         "charge": 0.45,
         "startup": 0.26667,
         "recovery": 0.93333,
         "attr": [
-            {"dmg": 3.66, "sp": 480, "odmg": 1.61, "buff": ["debuff", -0.02, 10.0, 1.0, "attack"], "coei": 1}
+            {"dmg": 3.66, "odmg": 1.61, "sp": 480, "actcond": 1503, "target": "HOSTILE", "ifhc": 1},
+            {"dmg": 3.66, "odmg": 1.61, "sp": 480, "actcond": 1503, "target": "HOSTILE", "iv": 1.2, "loop": [3001, 1.2], "ifhc": 1}
         ],
-        "repeat": {
-            "startup": 0.0,
-            "recovery": 1.46667,
-            "attr": [
-                {"dmg": 3.66, "odmg": 1.61, "sp": 480},
-                {"dmg": 3.66, "odmg": 1.61, "sp": 480, "msl": 0.26667}
-            ]
-        },
         "interrupt": {"s": 0.0},
         "cancel": {"s": 0.0}
     },
@@ -32,35 +43,33 @@
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"dmg": 5.22, "dispel": 100, "iv": 0.88889},
-            {"dmg": 5.22, "iv": 1.47222},
-            {"dmg": 5.22, "iv": 1.94444}
-        ]
-    },
-    "s1_all": {
-        "sp": 2380,
-        "startup": 0.0,
-        "recovery": 5.7,
-        "attr": [
-            {"dmg": 5.22, "dispel": 100, "iv": 0.88889},
-            {"dmg": 5.22, "iv": 1.47222},
-            {"dmg": 5.22, "iv": 1.94444},
-            {"dmg": 5.22, "iv": 2.54444},
-            {"dmg": 5.22, "iv": 3.14444},
-            {"dmg": 5.22, "iv": 3.74444},
-            {"dmg": 5.22, "iv": 4.34444},
-            {"dmg": 5.22, "iv": 4.94444},
-            {"dmg": 5.22, "iv": 5.54444}
-        ]
+            {"dmg": 5.22, "actcond": 291, "target": "HOSTILE", "iv": 0.88889},
+            {"dmg": 5.22, "actcond": 291, "target": "HOSTILE", "iv": 1.47222},
+            {"dmg": 5.22, "actcond": 291, "target": "HOSTILE", "iv": 1.94444}
+        ],
+        "DEBUG_attr_N1": [{"dmg": 5.22, "actcond": 291, "target": "HOSTILE", "iv": 0.15152}],
+        "DEBUG_attr_N2": [{"dmg": 5.22, "actcond": 291, "target": "HOSTILE"}]
     },
     "s2": {
         "sp": 4958,
         "startup": 0.0,
         "recovery": 3.63333,
         "attr": [
-            {"cond": ["var<=", ["mochi_master", 1]], "buff": ["ele", 3.0, 20.0, "heal", "buff", "wind", "-refresh"], "coei": 1, "iv": 0.93333},
-            {"cond": ["var=", ["mochi_master", 2]], "buff": ["ele", 15.0, 30.0, "heal", "buff", "wind", "-refresh"], "coei": 1, "iv": 0.93333},
-            {"cond": ["var=", ["mochi_master", 3]], "buff": ["ele", 21.0, 60.0, "heal", "buff", "wind", "-refresh"], "coei": 1, "iv": 0.93333}
+            {"cond": ["actcond", 1465, "<=", 1], "actcond": 1514, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "<=", 1], "actcond": 1515, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "<=", 1], "actcond": 1516, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "<=", 1], "actcond": 1484, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "<=", 1], "actcond": 1466, "target": "MYSELF", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 2], "actcond": 1514, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 2], "actcond": 1515, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 2], "actcond": 1516, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 2], "actcond": 1485, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 2], "actcond": 1466, "target": "MYSELF", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 3], "actcond": 1514, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 3], "actcond": 1515, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 3], "actcond": 1516, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 3], "actcond": 1486, "target": "MYPARTY", "iv": 0.93333},
+            {"cond": ["actcond", 1465, "=", 3], "actcond": 1466, "target": "MYSELF", "iv": 0.93333}
         ],
         "energizable": true,
         "cancel": {"any": 2.83333}

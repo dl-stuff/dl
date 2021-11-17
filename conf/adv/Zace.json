@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "105020110": {"aff": "blind", "duration": 8.0, "blind": 50, "text": "Blind"}
+    },
     "c": {
         "name": "Zace",
         "icon": "110254_01_r03",
@@ -7,15 +11,20 @@
         "ele": "shadow",
         "wt": "lance",
         "spiral": false,
-        "a": [["s", 0.2], ["affres_paralysis", 50.0], ["affres_paralysis", 25.0]]
+        "abilities": [
+            {"ab": [["actdmg", 0.2, "-t:s"]]},
+            {"ab": [["mod", 0.5, "affres_paralysis"]]},
+            {"ab": [["mod", 0.25, "affres_paralysis"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 7291}
     },
     "s1": {
         "sp": 2352,
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"dmg": 10.88, "afflic": ["blind", 100], "iv": 1.26667},
-            {"buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 1.26667, "coei": 1}
+            {"dmg": 10.88, "actcond": 105020110, "target": "HOSTILE", "iv": 1.26667},
+            {"actcond": 1246, "target": "HOSTILE", "iv": 1.26667}
         ],
         "cancel": {"any": 1.96667}
     },
@@ -24,9 +33,9 @@
         "startup": 0.0,
         "recovery": 1.7,
         "attr": [
-            {"dmg": 3.66, "iv": 0.23333},
-            {"dmg": 3.66, "iv": 0.56667},
-            {"dmg": 3.66, "iv": 1.13333}
+            {"dmg": 3.66, "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 3.66, "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 3.66, "target": "HOSTILE", "iv": 1.13333}
         ],
         "cancel": {"any": 1.6}
     }

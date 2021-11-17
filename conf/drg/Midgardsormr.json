@@ -1,0 +1,61 @@
+{
+    "d": {
+        "name": "Midgardsormr",
+        "icon": "210001_01",
+        "att": 66,
+        "hp": 206,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.15, "hp"], ["mod", 0.15, "att"]]}
+        ]
+    },
+    "dodge": {
+        "recovery": 0.55556,
+        "backdash": true
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 3.23333,
+        "cancel": {"any": 2.2, "dodge": 2.2, "dx1": 2.2},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.46, "target": "HOSTILE", "iv": 0.76667},
+            {"dmg": 3.46, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.46, "target": "HOSTILE", "iv": 1.26667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.2,
+        "attr": [
+            {"dmg": 2.96, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.23333, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.46667,
+        "recovery": 1.86666,
+        "attr": [
+            {"dmg": 3.26, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.56666, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.33333,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 4.14, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.4, "dodge": 0.0, "dx1": 1.4, "s": 0.0}
+    }
+}

@@ -1,6 +1,6 @@
 import io
 import json
-from conf import get_fullname
+from conf import ELEMENTS, get_fullname
 import traceback
 import subprocess
 
@@ -18,9 +18,9 @@ from conf import (
     skillshare,
     wyrmprints,
     weapons,
-    dragons,
     mono_elecoabs,
     list_advs,
+    load_drg_by_element,
 )
 from conf.equip import (
     AfflictionCondition,
@@ -51,6 +51,8 @@ RARITY_MAP = {1: "formA", 2: "formB", 3: "formC"}
 ADV_MODULES = {}
 for fn in list_advs():
     core.simulate.load_adv_module(fn, in_place=ADV_MODULES)
+
+DRAGONS_BY_ELEMENT = {ele: {drg: data["d"]["name"] for drg, data in load_drg_by_element(ele)} for ele in ELEMENTS}
 
 
 def set_teamdps_res(result, logs, real_d, suffix=""):
@@ -237,7 +239,7 @@ def get_adv_slotlist():
         result["weapons"] = {}
         for series, wpn in sorted(available_wpn.items(), key=lambda w: -w[1]["w"]["att"]):
             result["weapons"][series] = f'{wpn["w"]["series"]} | {wpn["w"]["name"]}'
-        result["dragons"] = {drg: data["d"]["name"] for drg, data in dragons[adv.slots.c.ele].items()}
+        result["dragons"] = DRAGONS_BY_ELEMENT[adv.slots.c.ele]
         # gold fafu lul
         result["dragons"]["Gold_Fafnir"] = "Gold Fafnir"
 

@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1287": {"duration": 5.0, "debuffrate": 0.5, "text": "Debuff Success Rate +{0:P0}"},
+        "1362": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.03, "def", "buff"]], "debuff": 1, "text": "Defense -3%"},
+        "1364": {"duration": 30.0, "slip": {"dmg": 1.1, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding", "rate": 50}
+    },
     "c": {
         "name": "Halloween Akasha",
         "icon": "110341_03_r05",
@@ -7,14 +12,19 @@
         "ele": "water",
         "wt": "blade",
         "spiral": false,
-        "a": [["affres_stun", 100.0]]
+        "abilities": [
+            {"cond": ["event", "debuff_def"], "cd": 5.0, "ab": [["actcond", "MYSELF", 1287]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["bleed", 1], "cd": 5.0, "ab": [["hitattr", {"heal": 45, "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 7656}
     },
     "s1": {
         "sp": 2640,
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"dmg": 20.0, "buff": ["debuff", -0.03, 10.0, 1.0, "def"], "iv": 0.5, "coei": 1}
+            {"dmg": 20.0, "actcond": 1362, "target": "HOSTILE", "iv": 0.5}
         ],
         "cancel": {"any": 2.0}
     },
@@ -23,11 +33,11 @@
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"dmg": 5.0, "bleed": [50, 1.1], "iv": 0.4, "msl": 0.6},
-            {"dmg": 5.0, "iv": 0.4, "msl": 1.5},
-            {"dmg": 5.0, "iv": 0.4, "msl": 1.93333},
-            {"dmg": 5.0, "iv": 0.4, "msl": 2.0},
-            {"dmg": 5.0, "iv": 0.4, "msl": 2.06667}
+            {"dmg": 5.0, "actcond": 1364, "target": "HOSTILE", "iv": 0.4, "msl": 0.6},
+            {"dmg": 5.0, "actcond": 1364, "target": "HOSTILE", "iv": 0.4, "msl": 1.5},
+            {"dmg": 5.0, "actcond": 1364, "target": "HOSTILE", "iv": 0.4, "msl": 1.93333},
+            {"dmg": 5.0, "actcond": 1364, "target": "HOSTILE", "iv": 0.4, "msl": 2.0},
+            {"dmg": 5.0, "actcond": 1364, "target": "HOSTILE", "iv": 0.4, "msl": 2.06667}
         ],
         "cancel": {"any": 1.66667}
     }

@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303030301": {"duration": 15.0, "icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"}
+    },
     "c": {
         "name": "Valentine's Orion",
         "icon": "110052_03_r03",
@@ -7,15 +13,21 @@
         "ele": "flame",
         "wt": "sword",
         "spiral": true,
-        "a": [["bc_att", 0.15], ["affres_sleep", 50.0], ["resself_sleep_att", 0.15, 10.0, 15.0], ["affres_sleep", 50.0]]
+        "abilities": [
+            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", 302030301]]},
+            {"ab": [["mod", 0.5, "affres_sleep"]]},
+            {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_sleep"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 3, "sp": 17174}
     },
     "s1": {
         "sp": 2409,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 6.08, "afflic": ["burn", 120, 0.97], "iv": 0.66667},
-            {"dmg": 6.08, "iv": 0.83333}
+            {"dmg": 6.08, "actcond": 102040901, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 6.08, "actcond": 102040901, "target": "HOSTILE", "iv": 0.83333}
         ],
         "cancel": {"any": 1.4}
     },
@@ -24,8 +36,8 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["team", 0.2, 15.0, "defense", "buff"], "iv": 0.16667},
-            {"buff": ["team", 0.15, 15.0, "att", "buff"], "iv": 0.16667}
+            {"actcond": 303030301, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 302030301, "target": "MYPARTY", "iv": 0.16667}
         ]
     }
 }

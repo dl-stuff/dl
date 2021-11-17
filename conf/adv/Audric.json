@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "101020601": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.396, "iv": 2.9}}
+    },
     "c": {
         "name": "Audric",
         "icon": "110334_01_r04",
@@ -7,15 +10,19 @@
         "ele": "shadow",
         "wt": "sword",
         "spiral": false,
-        "a": [["dp", 10.0], ["affres_paralysis", 50.0]]
+        "abilities": [
+            {"cond": ["start"], "ab": [["dprep", 0.1]]},
+            {"ab": [["mod", 0.5, "affres_paralysis"]]},
+            {"cond": ["shift", "dform"], "ab": [["mod", 0.3, "crit"], ["mod", -0.3, "def"]]}
+        ]
     },
     "s1": {
         "sp": 2503,
         "startup": 0.0,
         "recovery": 1.86667,
         "attr": [
-            {"dmg": 7.0, "killer": [0.2, ["poison"]], "dp": 30, "iv": 0.63333},
-            {"dmg": 7.0, "killer": [0.2, ["poison"]], "iv": 1.03333}
+            {"dmg": 7.0, "killer": [0.2, ["poison"]], "dp": 30, "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 7.0, "killer": [0.2, ["poison"]], "dp": 30, "target": "HOSTILE", "iv": 1.03333}
         ],
         "cancel": {"any": 1.5}
     },
@@ -24,10 +31,10 @@
         "startup": 0.0,
         "recovery": 2.63333,
         "attr": [
-            {"dmg": 3.38, "killer": [0.5, ["poison"]], "afflic": ["poison", 100, 0.396], "iv": 0.36667},
-            {"dmg": 3.38, "killer": [0.5, ["poison"]], "iv": 0.5},
-            {"dmg": 3.38, "killer": [0.5, ["poison"]], "iv": 0.8},
-            {"dmg": 3.38, "killer": [0.5, ["poison"]], "iv": 1.33333}
+            {"dmg": 3.38, "killer": [0.5, ["poison"]], "actcond": 101020601, "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 3.38, "killer": [0.5, ["poison"]], "actcond": 101020601, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 3.38, "killer": [0.5, ["poison"]], "actcond": 101020601, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.38, "killer": [0.5, ["poison"]], "actcond": 101020601, "target": "HOSTILE", "iv": 1.33333}
         ],
         "cancel": {"any": 2.2}
     }

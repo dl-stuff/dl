@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "105020116": {"aff": "blind", "duration": 8.0, "blind": 50, "rate": 110}
+    },
     "c": {
         "name": "Orion",
         "icon": "110052_01_r04",
@@ -7,17 +10,22 @@
         "ele": "shadow",
         "wt": "dagger",
         "spiral": false,
-        "a": [["cc", 0.1, "hit15"], ["affres_paralysis", 100.0], ["prep", 50.0]]
+        "abilities": [
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.1, "crit"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["start"], "ab": [["prep", 0.5]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 9958}
     },
     "s1": {
         "sp": 2213,
         "startup": 0.0,
         "recovery": 2.4,
         "attr": [
-            {"dmg": 4.15, "afflic": ["blind", 110], "iv": 0.3},
-            {"dmg": 4.15, "iv": 0.73333},
-            {"dmg": 4.15, "iv": 0.9},
-            {"dmg": 4.15, "iv": 1.46667}
+            {"dmg": 4.15, "actcond": 105020116, "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 4.15, "actcond": 105020116, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 4.15, "actcond": 105020116, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 4.15, "actcond": 105020116, "target": "HOSTILE", "iv": 1.46667}
         ],
         "cancel": {"any": 2.3}
     },
@@ -26,10 +34,10 @@
         "startup": 0.0,
         "recovery": 2.0,
         "attr": [
-            {"dmg": 4.34, "iv": 0.26667},
-            {"dmg": 4.34, "iv": 0.46667},
-            {"dmg": 4.34, "iv": 0.63333},
-            {"dmg": 4.34, "iv": 1.06667}
+            {"dmg": 4.34, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 4.34, "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 4.34, "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 4.34, "target": "HOSTILE", "iv": 1.06667}
         ],
         "cancel": {"any": 1.8}
     }

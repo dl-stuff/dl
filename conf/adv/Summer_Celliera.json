@@ -1,4 +1,12 @@
 {
+    "actconds": {
+        "1056": {"duration": 10.0, "icon": "aspd-buff", "mods": [[0.25, "aspd", "buff"]], "text": "Attack Rate +25%"},
+        "1113": {"duration": 10.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"},
+        "109030111": {"aff": "bog", "duration": 8.0, "bog": 1.5, "text": "Bog", "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303020201": {"duration": 10.0, "icon": "def-buff", "mods": [[0.15, "def", "buff"]], "text": "Defense +15%"}
+    },
     "c": {
         "name": "Summer Celliera",
         "icon": "110255_02_r05",
@@ -7,25 +15,31 @@
         "ele": "water",
         "wt": "sword",
         "spiral": true,
-        "a": [["bc_att", 0.15], ["affres_burn", 100.0], ["resself_burn_att", 0.15, 10.0, 15.0], ["bt", 0.35]]
+        "abilities": [
+            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", 302030301]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.35, "bufftime", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 7682}
     },
     "s1": {
         "sp": 2649,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 3.68, "afflic": ["bog", 120], "iv": 0.7},
-            {"dmg": 3.68, "iv": 0.8}, 5
+            {"dmg": 3.68, "actcond": 109030111, "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 3.68, "actcond": 109030111, "target": "HOSTILE", "iv": 0.8, "blt": [5, 0.0]}
         ],
         "cancel": {"any": 1.4}
     },
-    "s2_phase1": {
+    "s2": {
         "sp": 7641,
         "startup": 0.0,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 13.3, "iv": 0.36667},
-            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 0.9}
+            {"dmg": 13.3, "target": "HOSTILE", "iv": 0.36667},
+            {"actcond": 303020201, "target": "MYPARTY", "iv": 0.9}
         ],
         "cancel": {"any": 2.06667}
     },
@@ -34,11 +48,10 @@
         "startup": 0.0,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 13.3, "iv": 0.36667},
-            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 0.9},
-            {"buff": ["team", 0.13, 10.0, "att", "buff"], "iv": 0.9}
+            {"dmg": 13.3, "target": "HOSTILE", "iv": 0.36667},
+            {"actcond": 303020201, "target": "MYPARTY", "iv": 0.9},
+            {"actcond": 1113, "target": "MYPARTY", "iv": 0.9}
         ],
-        "phase_coei": true,
         "cancel": {"any": 2.06667}
     },
     "s2_phase3": {
@@ -46,12 +59,11 @@
         "startup": 0.0,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 13.3, "iv": 0.36667},
-            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 0.9},
-            {"buff": ["team", 0.13, 10.0, "att", "buff"], "iv": 0.9},
-            {"buff": ["team", 0.25, 10.0, "spd", "buff"], "iv": 0.9}
+            {"dmg": 13.3, "target": "HOSTILE", "iv": 0.36667},
+            {"actcond": 303020201, "target": "MYPARTY", "iv": 0.9},
+            {"actcond": 1113, "target": "MYPARTY", "iv": 0.9},
+            {"actcond": 1056, "target": "MYPARTY", "iv": 0.9}
         ],
-        "phase_coei": true,
         "cancel": {"any": 2.06667}
     }
 }

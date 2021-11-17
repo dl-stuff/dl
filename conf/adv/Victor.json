@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "19": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding", "rate": 80},
+        "186": {"duration": 20.0, "icon": "resist_water-buff", "mods": [[0.03, "resist_water", "buff"]], "coei": 1, "text": "Water Res +3%"},
+        "316010401": {"count": 1, "shield": {"1": 0.2}, "coei": 1, "text": "Shield"},
+        "326010301": {"duration": 15.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1}
+    },
     "c": {
         "name": "Victor",
         "icon": "110307_01_r05",
@@ -7,18 +13,23 @@
         "ele": "wind",
         "wt": "blade",
         "spiral": false,
-        "a": [["a", 0.13, "hp70"], ["affres_bog", 100.0], ["bt", 0.3]]
+        "abilities": [
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "att"]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"ab": [["mod", 0.3, "bufftime", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 9649}
     },
-    "s1_phase1": {
+    "s1": {
         "sp": 2838,
         "startup": 0.0,
         "recovery": 3.16667,
         "attr": [
-            {"dmg": 3.42, "bleed": [80, 1.46], "iv": 0.6},
-            {"dmg": 3.42, "iv": 0.8},
-            {"dmg": 3.42, "iv": 1.06667},
-            {"dmg": 3.42, "iv": 1.33333},
-            {"dmg": 3.42, "iv": 1.66667}
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.66667}
         ],
         "cancel": {"any": 2.26667}
     },
@@ -27,13 +38,13 @@
         "startup": 0.0,
         "recovery": 3.16667,
         "attr": [
-            {"dmg": 3.42, "bleed": [80, 1.46], "iv": 0.6},
-            {"dmg": 3.42, "iv": 0.8},
-            {"dmg": 3.42, "iv": 1.06667},
-            {"dmg": 3.42, "iv": 1.33333},
-            {"dmg": 3.42, "iv": 1.66667}
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.66667},
+            {"actcond": 186, "target": "MYPARTY", "iv": 1.73333}
         ],
-        "phase_coei": true,
         "cancel": {"any": 2.26667}
     },
     "s1_phase3": {
@@ -41,13 +52,14 @@
         "startup": 0.0,
         "recovery": 3.16667,
         "attr": [
-            {"dmg": 3.42, "bleed": [80, 1.46], "iv": 0.6},
-            {"dmg": 3.42, "iv": 0.8},
-            {"dmg": 3.42, "iv": 1.06667},
-            {"dmg": 3.42, "iv": 1.33333},
-            {"dmg": 3.42, "iv": 1.66667}
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.42, "actcond": 19, "target": "HOSTILE", "iv": 1.66667},
+            {"actcond": 186, "target": "MYPARTY", "iv": 1.73333},
+            {"actcond": 316010401, "target": "MYPARTY", "iv": 1.73333}
         ],
-        "phase_coei": true,
         "cancel": {"any": 2.26667}
     },
     "s2": {
@@ -55,7 +67,8 @@
         "startup": 0.0,
         "recovery": 2.56667,
         "attr": [
-            {"dmg": 19.14, "iv": 1.13333}
+            {"dmg": 19.14, "target": "HOSTILE", "iv": 1.13333},
+            {"actcond": 326010301, "target": "MYPARTY", "iv": 1.16667}
         ]
     }
 }

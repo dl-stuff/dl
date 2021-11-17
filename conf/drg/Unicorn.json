@@ -1,0 +1,55 @@
+{
+    "d": {
+        "name": "Unicorn",
+        "icon": "210012_01",
+        "att": 95,
+        "hp": 301,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 0.45, "hp"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 3.7,
+        "cancel": {"any": 3.26667, "dodge": 3.26667, "dx1": 3.26667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 12.6, "target": "HOSTILE", "iv": 2.13333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 3.6, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.26667,
+        "recovery": 1.53333,
+        "attr": [
+            {"dmg": 3.96, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.46667,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 5.04, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "dx1": 1.1, "s": 0.0}
+    }
+}

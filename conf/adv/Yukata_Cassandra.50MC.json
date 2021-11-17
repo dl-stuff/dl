@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "1118": {"duration": 30.0, "coei": 1, "echo": 0.4, "icon": 161, "text": "Fluorescent Fish", "overwrite": -1},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Yukata Cassandra",
         "icon": "110337_03_r05",
@@ -7,15 +11,19 @@
         "ele": "flame",
         "wt": "staff",
         "spiral": false,
-        "a": [["a", 0.2, "hp100"], ["affres_stun", 100.0]]
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.2, "att"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 15468}
     },
     "s1": {
         "sp": 7734,
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
-            {"buff": ["echo", 0.4, 30.0, "-refresh"], "coei": 1, "iv": 1.0},
-            {"heal": [87, "team"], "iv": 1.0}
+            {"actcond": 1118, "target": "MYPARTY", "iv": 1.0},
+            {"heal": 87, "target": "MYPARTY", "iv": 1.0}
         ],
         "energizable": true,
         "cancel": {"any": 1.66667}
@@ -25,7 +33,7 @@
         "startup": 0.0,
         "recovery": 1.93333,
         "attr": [
-            {"buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.0}
+            {"actcond": 308010401, "target": "MYPARTY", "iv": 1.0}
         ],
         "energizable": true
     }

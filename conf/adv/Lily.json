@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1083": {"duration": 30.0, "alt": {"s2": "enhanced"}, "icon": 103, "text": "Crystalian Princess", "overwrite": -1},
+        "103020115": {"aff": "freeze", "duration": 4.5, "text": "Freeze", "rate": 200},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Lily",
         "icon": "110252_01_r05",
@@ -7,15 +13,22 @@
         "ele": "water",
         "wt": "wand",
         "spiral": true,
-        "a": [["a", 0.2, "hp100"], ["affres_burn", 100.0], ["resself_burn_att", 0.15, 10.0, 15.0], ["prep", 100.0], ["scharge_all", 0.05]]
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.2, "att"]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 8341}
     },
     "s1": {
         "sp": 2490,
         "startup": 0.0,
         "recovery": 3.96667,
         "attr": [
-            {"dmg": 7.406, "killer": [0.3, ["frostbite"]], "afflic": ["freeze", 200], "iv": 1.93333},
-            {"dmg": 7.406, "killer": [0.3, ["frostbite"]], "afflic": ["frostbite", 120, 0.41], "iv": 2.93333}
+            {"dmg": 7.406, "killer": [0.3, ["frostbite"]], "actcond": 103020115, "target": "HOSTILE", "iv": 1.93333},
+            {"dmg": 7.406, "killer": [0.3, ["frostbite"]], "actcond": 411, "target": "HOSTILE", "iv": 2.93333}
         ],
         "cancel": {"any": 3.1}
     },
@@ -24,62 +37,72 @@
         "startup": 0.0,
         "recovery": 2.0,
         "attr": [
-            {"buff": ["xAlt", "cp", 30, "-refresh"], "iv": 0.03333},
-            {"dmg": 18.19, "killer": [0.3, ["frostbite"]], "iv": 0.96667}
+            {"actcond": 1083, "target": "MYSELF", "iv": 0.03333},
+            {"dmg": 18.19, "killer": [0.3, ["frostbite"]], "target": "HOSTILE", "iv": 0.96667}
         ],
         "cancel": {"any": 1.46667}
     },
-    "x1_cp": {
+    "s2_enhanced": {
+        "sp": 5909,
+        "startup": 0.0,
+        "recovery": 2.0,
+        "attr": [
+            {"actcond": 1083, "target": "MYSELF", "iv": 0.03333},
+            {"dmg": 18.19, "killer": [0.3, ["frostbite"]], "target": "HOSTILE", "iv": 0.96667}
+        ],
+        "cancel": {"any": 1.46667}
+    },
+    "x1": {
         "startup": 0.25,
         "recovery": 1.21667,
         "attr": [
-            {"dmg": 1.524, "killer": [0.3, ["frostbite"]], "sp": 130, "msl": 0.36667}
+            {"dmg": 1.524, "killer": [0.3, ["frostbite"]], "sp": 130, "target": "HOSTILE", "msl": 0.36667}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
-        "cancel": {"any": 0.72222, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_cp": 0.08333}
+        "cancel": {"any": 0.72222, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.08333}
     },
-    "x2_cp": {
+    "x2": {
         "startup": 0.46667,
         "recovery": 1.5,
         "attr": [
-            {"dmg": 0.821, "killer": [0.3, ["frostbite"]], "sp": 200, "msl": 0.66667},
-            {"dmg": 0.821, "killer": [0.3, ["frostbite"]], "msl": 0.66667}
+            {"dmg": 0.821, "killer": [0.3, ["frostbite"]], "sp": 200, "target": "HOSTILE", "msl": 0.66667},
+            {"dmg": 0.821, "killer": [0.3, ["frostbite"]], "sp": 200, "target": "HOSTILE", "msl": 0.66667}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"any": 0.64444, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_cp": 0.02222}
+        "cancel": {"any": 0.64444, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.02222}
     },
-    "x3_cp": {
+    "x3": {
         "startup": 0.46667,
         "recovery": 1.83333,
         "attr": [
-            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 240, "msl": 0.66667},
-            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.66667},
-            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.66667}
+            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 240, "target": "HOSTILE", "msl": 0.66667},
+            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 240, "target": "HOSTILE", "msl": 0.66667},
+            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 240, "target": "HOSTILE", "msl": 0.66667}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"any": 0.9619, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_cp": 0.34285}
+        "cancel": {"any": 0.9619, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.34285}
     },
-    "x4_cp": {
+    "x4": {
         "startup": 0.53333,
         "recovery": 1.1,
         "attr": [
-            {"dmg": 1.138, "killer": [0.3, ["frostbite"]], "sp": 430, "msl": 0.66667},
-            {"dmg": 1.138, "killer": [0.3, ["frostbite"]], "iv": 0.01429, "msl": 0.66667}
+            {"dmg": 1.138, "killer": [0.3, ["frostbite"]], "sp": 430, "target": "HOSTILE", "msl": 0.66667},
+            {"dmg": 1.138, "killer": [0.3, ["frostbite"]], "sp": 430, "target": "HOSTILE", "iv": 0.01429, "msl": 0.66667}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"any": 0.65715, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_cp": 0.41905}
+        "cancel": {"any": 0.65715, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.41905}
     },
-    "x5_cp": {
+    "x5": {
         "startup": 0.66667,
         "recovery": 0.96666,
         "attr": [
-            {"dmg": 0.91, "killer": [0.3, ["frostbite"]], "sp": 600, "msl": 0.66667},
-            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.75},
-            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.75},
-            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.83333},
-            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.83333}
+            {"dmg": 0.91, "killer": [0.3, ["frostbite"]], "sp": 600, "target": "HOSTILE", "msl": 0.66667},
+            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 600, "target": "HOSTILE", "msl": 0.75},
+            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 600, "target": "HOSTILE", "msl": 0.75},
+            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 600, "target": "HOSTILE", "msl": 0.83333},
+            {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 600, "target": "HOSTILE", "msl": 0.83333}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_cp": 1.16666}
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.16666}
     }
 }

@@ -1,0 +1,56 @@
+{
+    "d": {
+        "name": "Mini Hildy",
+        "icon": "210133_01",
+        "att": 76,
+        "hp": 221,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.3, "hp"], ["mod", 0.3, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "cancel": {"any": 2.0},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 10.08, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 10.08, "target": "HOSTILE", "iv": 0.9}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.5,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 3.0, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.33333, "dodge": 0.0, "dx2": 0.2, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.36667,
+        "recovery": 2.23333,
+        "attr": [
+            {"dmg": 3.8, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.96666, "dodge": 0.0, "dx3": 0.86666, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.66667,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 5.2, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dodge": 0.0, "s": 0.0}
+    }
+}

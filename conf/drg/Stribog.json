@@ -1,0 +1,61 @@
+{
+    "d": {
+        "name": "Stribog",
+        "icon": "210011_01",
+        "att": 91,
+        "hp": 306,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.45, "hp"]]}
+        ]
+    },
+    "dodge": {
+        "recovery": 0.55556,
+        "backdash": true
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 4.96667,
+        "cancel": {"any": 4.43333, "dodge": 4.43333, "dx1": 4.43333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 5.04, "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 5.04, "target": "HOSTILE", "iv": 2.9},
+            {"dmg": 5.04, "target": "HOSTILE", "iv": 3.13333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.4,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 4.32, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.3,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 4.76, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.56667,
+        "recovery": 1.53333,
+        "attr": [
+            {"dmg": 6.04, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.13333, "dodge": 0.0, "dx1": 1.13333, "s": 0.0}
+    }
+}

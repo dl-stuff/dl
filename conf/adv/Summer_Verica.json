@@ -1,4 +1,14 @@
 {
+    "actconds": {
+        "190": {"slip": {"percent": -0.025, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1},
+        "1259": {"duration": 60.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%", "overwrite": 8},
+        "1753": {"duration": 30.0, "coei": 1, "echo": 0.5, "icon": 252, "text": "Overdamage", "overwrite": -1},
+        "205010101": {"relief": "blind", "count": 1, "text": "Blindness Relief"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"},
+        "319010202": {"duration": 30.0, "coei": 1, "drain": 0.05, "icon": 66, "text": "HP Drain"}
+    },
     "c": {
         "name": "Summer Verica",
         "icon": "110269_02_r05",
@@ -7,17 +17,26 @@
         "ele": "shadow",
         "wt": "staff",
         "spiral": true,
-        "a": [["rcv", 0.25, "hp100"], ["prep", 100.0], ["a", 0.15, "hp100"], ["affres_blind", 100.0], ["resself_blind_att", 0.15, 10.0, 15.0], ["rcv", 0.15]]
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.25, "rcv", "-t:s"]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.15, "att"]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"cond": ["selfaff", "blind"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.15, "rcv", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 18753}
     },
     "s1": {
         "sp": 5916,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [44, "team"], "buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.93333},
-            {"relief": [["blind"], 100], "iv": 0.93333},
-            {"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 0.93333},
-            {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667}
+            {"heal": 44, "actcond": 308010401, "target": "ALLY", "iv": 0.93333},
+            {"actcond": 205010101, "target": "ALLY", "iv": 0.93333},
+            {"actcond": 1753, "target": "MYPARTY", "iv": 0.93333},
+            {"actcond": 316010501, "target": "MYPARTY", "iv": 0.93333},
+            {"actcond": 1259, "target": "MYPARTY", "iv": 0.96667}
         ],
         "energizable": true
     },
@@ -26,8 +45,11 @@
         "startup": 0.0,
         "recovery": 1.93333,
         "attr": [
-            {"amp": ["10000", 2, 0], "cd": 30.0},
-            {"buff": ["drain", 0.05, 30.0], "coei": 1, "iv": 0.96667}
+            {"actcond": 319010202, "target": "MYPARTY", "iv": 0.96667}
+        ],
+        "abilities": [
+            {"cond": ["sp", "s1", "<", 100], "ab": [["actcond", "MYSELF", 190]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]}
         ]
     }
 }

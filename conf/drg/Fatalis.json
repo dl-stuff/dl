@@ -1,0 +1,62 @@
+{
+    "actconds": {
+        "368": {"aff": "curse", "rate": 200}
+    },
+    "d": {
+        "name": "Fatalis",
+        "icon": "210123_01",
+        "att": 128,
+        "hp": 368,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.5, "att"]]},
+            {"cond": ["event", "dragon_end"], "ab": [["hitattr", {"actcond": 368, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.3, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 3.96667,
+        "cancel": {"any": 3.0},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.34, "target": "HOSTILE", "iv": 1.66667}
+        ]
+    },
+    "dshift": {
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.4,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 4.3, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.46667, "dodge": 0.0, "dx2": 0.26667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.26667,
+        "recovery": 1.03333,
+        "attr": [
+            {"dmg": 4.3, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56666, "dodge": 0.0, "dx3": 0.26666, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.5,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 2.2, "sp": 5, "target": "HOSTILE", "msl": 0.06667},
+            {"dmg": 5.86, "sp": 5, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "s": 0.0}
+    }
+}

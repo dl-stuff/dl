@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "1259": {"duration": 60.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%", "overwrite": 8},
+        "206010101": {"relief": "stun", "count": 1, "text": "Stun Relief"},
+        "303010101": {"duration": 5.0, "icon": "def-buff", "mods": [[0.15, "def", "buff"]], "text": "Defense +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Nurse Aeleen",
         "icon": "110029_02_r04",
@@ -7,16 +13,20 @@
         "ele": "water",
         "wt": "staff",
         "spiral": false,
-        "a": [["prep", 75.0], ["affres_stun", 100.0], ["sp", 0.02], ["sp", 0.04], ["sp", 0.02]]
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 0.75]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 5, "sp": 9465}
     },
     "s1": {
         "sp": 7888,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [44, "team"], "buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.93333},
-            {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667},
-            {"buff": ["team", 0.15, 5.0, "defense", "buff"], "iv": 1.0}
+            {"heal": 44, "actcond": 308010401, "target": "ALLY", "iv": 0.93333},
+            {"actcond": 1259, "target": "MYPARTY", "iv": 0.96667},
+            {"actcond": 303010101, "target": "MYPARTY", "iv": 1.0}
         ],
         "energizable": true
     },
@@ -25,7 +35,7 @@
         "startup": 0.0,
         "recovery": 1.93333,
         "attr": [
-            {"heal": [90, "team"], "relief": [["stun"], 100], "iv": 0.96667}
+            {"heal": 90, "actcond": 206010101, "target": "ALLY", "iv": 0.96667}
         ],
         "energizable": true
     }

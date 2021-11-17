@@ -1,0 +1,60 @@
+{
+    "actconds": {
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1598": {"count": 1, "icon": 244, "mods": [[0.1, "att", "buff"], [0.5, "def", "buff"]], "shield": {"3": 0.1}, "coei": 1, "text": "Gabriel's Love", "overwrite": -1}
+    },
+    "d": {
+        "name": "Gabriel",
+        "icon": "210145_01",
+        "att": 125,
+        "hp": 370,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 0.6, "att"]]},
+            {"cond": ["event", "heal"], "cd": 10.0, "ele": "water", "ab": [["actcond", "MYSELF", 1598]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "cancel": {"any": 2.16667, "dx1": 2.0},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 17.22, "actcond": 411, "target": "HOSTILE", "iv": 1.36667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.53333,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 6.74, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.63334, "dodge": 0.0, "dx2": 0.23334, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.43333,
+        "recovery": 1.73334,
+        "attr": [
+            {"dmg": 8.78, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.0, "dx3": 0.6, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 1.0,
+        "recovery": 1.66667,
+        "attr": [
+            {"heal": 25, "target": "MYPARTY"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dodge": 0.0, "dx1": 0.33333, "s": 0.0}
+    }
+}

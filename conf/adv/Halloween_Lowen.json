@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "118": {"duration": 5.0, "icon": "def-buff", "mods": [[0.1, "def", "buff"]], "text": "Defense +10%"},
+        "1259": {"duration": 60.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%", "overwrite": 8},
+        "301040201": {"icon": "hp-buff", "mods": [[0.1, "hp", "buff"]], "coei": 1, "text": "HP +10%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Halloween Lowen",
         "icon": "110257_02_r04",
@@ -7,16 +13,21 @@
         "ele": "flame",
         "wt": "staff",
         "spiral": false,
-        "a": [["prep", 75.0], ["affres_sleep", 100.0], ["fsprep", 3, 0.25]]
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 0.75]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"cond": ["hits", ">=", 1, 1, "fs"], "ab": [["hitattr", {"sp": [0.25, "%"], "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 16269}
     },
     "s1": {
         "sp": 5916,
         "startup": 0.0,
         "recovery": 1.5,
         "attr": [
-            {"buff": ["team", 0.1, 5.0, "defense", "buff"], "iv": 0.4},
-            {"heal": [44, "team"], "buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.43333},
-            {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.46667}
+            {"actcond": 118, "target": "MYPARTY", "iv": 0.4},
+            {"heal": 44, "actcond": 308010401, "target": "MYPARTY", "iv": 0.43333},
+            {"actcond": 1259, "target": "MYPARTY", "iv": 0.46667}
         ],
         "energizable": true
     },
@@ -25,8 +36,8 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [90, "team"], "iv": 0.86667},
-            {"buff": ["team", 0.1, -1, "maxhp", "buff"], "coei": 1, "iv": 1.33333}
+            {"heal": 90, "target": "ALLY", "iv": 0.86667},
+            {"actcond": 301040201, "target": "ALLY", "iv": 1.33333}
         ],
         "energizable": true
     }

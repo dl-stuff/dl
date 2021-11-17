@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "434": {"count": 1, "inspiration": 1, "text": "Inspiration Level +1"},
+        "435": {"count": 1, "inspiration": 2, "text": "Inspiration Level +2"},
+        "935": {"aff": "frostbite", "duration": 30.0, "slip": {"dmg": 0.287, "iv": 2.9}, "rate": 120}
+    },
     "c": {
         "name": "Yurius",
         "icon": "110362_01_r05",
@@ -7,19 +12,24 @@
         "ele": "water",
         "wt": "wand",
         "spiral": false,
-        "a": [["s", 0.35, "ddrive"], ["sp", 0.3, "ddrive"], ["affres_burn", 100.0], ["prep", 100.0]],
-        "utp": [0, 3000, 1200, 75]
+        "utp": [0, 3000, 1200, 75],
+        "abilities": [
+            {"cond": ["shift", "ddrive"], "ab": [["actdmg", 0.35, "-t:s"]]},
+            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.3, "sph"]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]}
+        ]
     },
     "s1": {
         "sp": 2711,
         "startup": 0.0,
         "recovery": 2.1,
         "attr": [
-            {"dmg": 3.21, "iv": 0.96667},
-            {"dmg": 3.21, "iv": 1.16667},
-            {"dmg": 3.21, "iv": 1.33333},
-            {"dmg": 3.21, "iv": 1.5},
-            {"utp": 530, "buff": ["inspiration", 1], "iv": 1.66667}
+            {"dmg": 3.21, "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 3.21, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 3.21, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.21, "target": "HOSTILE", "iv": 1.5},
+            {"utp": 530, "actcond": 434, "target": "MYSELF", "iv": 1.66667}
         ],
         "cancel": {"any": 1.76667}
     },
@@ -28,10 +38,10 @@
         "startup": 0.0,
         "recovery": 2.1,
         "attr": [
-            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "iv": 0.96667},
-            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "iv": 1.16667},
-            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "iv": 1.33333},
-            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "iv": 1.5}
+            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.37, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 1.5}
         ],
         "cancel": {"any": 1.76667}
     },
@@ -40,11 +50,11 @@
         "startup": 0.0,
         "recovery": 2.1,
         "attr": [
-            {"dmg": 3.54, "afflic": ["frostbite", 120, 0.287, 30.0], "iv": 0.83333},
-            {"dmg": 3.54, "iv": 1.0},
-            {"dmg": 3.54, "iv": 1.1},
-            {"dmg": 3.54, "iv": 1.23333},
-            {"utp": 530, "buff": ["inspiration", 2], "iv": 1.5}
+            {"dmg": 3.54, "actcond": 935, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 3.54, "actcond": 935, "target": "HOSTILE", "iv": 1.0},
+            {"dmg": 3.54, "actcond": 935, "target": "HOSTILE", "iv": 1.1},
+            {"dmg": 3.54, "actcond": 935, "target": "HOSTILE", "iv": 1.23333},
+            {"utp": 530, "actcond": 435, "target": "MYSELF", "iv": 1.5}
         ],
         "cancel": {"any": 1.76667}
     },
@@ -53,10 +63,10 @@
         "startup": 0.0,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "iv": 0.83333},
-            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "iv": 1.0},
-            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "iv": 1.16667},
-            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "iv": 1.33333}
+            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 1.0},
+            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 4.47, "killer": [0.6, ["frostbite"]], "target": "HOSTILE", "iv": 1.33333}
         ],
         "cancel": {"any": 1.76667}
     }

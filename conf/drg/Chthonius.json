@@ -1,0 +1,63 @@
+{
+    "actconds": {
+        "510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+    },
+    "d": {
+        "name": "Chthonius",
+        "icon": "200010_01",
+        "att": 148,
+        "hp": 388,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.6, "att"]]},
+            {"cond": ["event", "dragon"], "count": 2, "ele": "shadow", "ab": [["actcond", "MYSELF", 510, 510]]},
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", 1838]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "cancel": {"any": 2.0, "dodge": 1.83333, "dx1": 1.83333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 9.8, "actcond": 101021001, "target": "HOSTILE", "iv": 1.56667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.36667,
+        "recovery": 1.1,
+        "attr": [
+            {"dmg": 4.2, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "dx2": 0.16666, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.4,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 5.04, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.6, "dodge": 0.0, "dx3": 0.3, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.6,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 3.58, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 3.58, "sp": 5, "target": "HOSTILE", "iv": 0.3}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.06667, "dodge": 0.0, "dx1": 0.9, "s": 0.0}
+    }
+}

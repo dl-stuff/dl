@@ -1,0 +1,64 @@
+{
+    "actconds": {
+        "308010801": {"duration": 15.0, "slip": {"heal": 41.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "d": {
+        "name": "Phoenix",
+        "icon": "210006_01",
+        "att": 97,
+        "hp": 299,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.45, "hp"]]}
+        ]
+    },
+    "dodge": {
+        "recovery": 0.55556,
+        "backdash": true
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "energizable": true,
+        "cancel": {"any": 2.03333, "dodge": 2.03333, "dx1": 2.03333},
+        "sp_db": 90,
+        "uses": 1,
+        "attr": [
+            {"heal": 51, "actcond": 308010801, "target": "ALLY", "iv": 0.86667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 4.08, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.5,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 1.34, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 3.16, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.33333, "dodge": 0.0, "dx3": 0.33333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.76667,
+        "recovery": 1.26666,
+        "attr": [
+            {"dmg": 5.72, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86666, "dodge": 0.0, "dx1": 0.86666, "s": 0.0}
+    }
+}

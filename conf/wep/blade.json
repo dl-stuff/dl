@@ -10,18 +10,18 @@
                 "wt": "blade",
                 "series": "Core",
                 "tier": 1,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 7695,
                 "startup": 0.0,
                 "recovery": 3.4,
                 "attr": [
-                    {"dmg": 1.92, "iv": 0.23333},
-                    {"dmg": 1.92, "iv": 0.43333},
-                    {"dmg": 1.92, "iv": 0.7},
-                    {"dmg": 1.92, "iv": 0.83333},
-                    {"dmg": 1.92, "iv": 1.06667}
+                    {"dmg": 1.92, "target": "HOSTILE", "iv": 0.23333},
+                    {"dmg": 1.92, "target": "HOSTILE", "iv": 0.43333},
+                    {"dmg": 1.92, "target": "HOSTILE", "iv": 0.7},
+                    {"dmg": 1.92, "target": "HOSTILE", "iv": 0.83333},
+                    {"dmg": 1.92, "target": "HOSTILE", "iv": 1.06667}
                 ],
                 "cancel": {"any": 2.6}
             }
@@ -36,16 +36,15 @@
                 "wt": "blade",
                 "series": "Other",
                 "tier": 1,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 6443,
                 "startup": 0.0,
                 "recovery": 1.5,
                 "attr": [
-                    {"dmg": 10.0, "iv": 0.56667, "msl": 0.06667}
-                ],
-                "cancel": {"any": 1.5}
+                    {"dmg": 10.0, "target": "HOSTILE", "iv": 0.56667, "msl": 0.06667}
+                ]
             }
         }
     },
@@ -60,16 +59,16 @@
                 "wt": "blade",
                 "series": "Core",
                 "tier": 1,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 8030,
                 "startup": 0.0,
                 "recovery": 2.86667,
                 "attr": [
-                    {"dmg": 3.54, "iv": 0.3},
-                    {"dmg": 3.54, "iv": 0.63333},
-                    {"dmg": 3.54, "iv": 1.1}
+                    {"dmg": 3.54, "target": "HOSTILE", "iv": 0.3},
+                    {"dmg": 3.54, "target": "HOSTILE", "iv": 0.63333},
+                    {"dmg": 3.54, "target": "HOSTILE", "iv": 1.1}
                 ],
                 "cancel": {"any": 2.56667}
             }
@@ -84,7 +83,9 @@
                 "wt": "blade",
                 "series": "Void",
                 "tier": 2,
-                "a": [["prep", 50.0, "flame"]]
+                "abilities": [
+                    {"cond": ["start"], "ele": "flame", "ab": [["prep", 0.5]]}
+                ]
             }
         },
         "high_dragon": {
@@ -97,16 +98,16 @@
                 "wt": "blade",
                 "series": "High Dragon",
                 "tier": 2,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 7227,
                 "startup": 0.0,
                 "recovery": 2.86667,
                 "attr": [
-                    {"dmg": 3.89, "iv": 0.3},
-                    {"dmg": 3.89, "iv": 0.63333},
-                    {"dmg": 3.89, "iv": 1.1}
+                    {"dmg": 3.89, "target": "HOSTILE", "iv": 0.3},
+                    {"dmg": 3.89, "target": "HOSTILE", "iv": 0.63333},
+                    {"dmg": 3.89, "target": "HOSTILE", "iv": 1.1}
                 ],
                 "cancel": {"any": 2.56667}
             }
@@ -121,7 +122,12 @@
                 "wt": "blade",
                 "series": "Chimeratech",
                 "tier": 2,
-                "a": [["uo_att", 0.04]]
+                "abilities": [
+                    {"cond": ["hp", "<", 70, 1], "count": 5, "ele": "flame", "ab": [["actcond", "MYSELF", 505]]}
+                ]
+            },
+            "actconds": {
+                "505": {"icon": "att-buff", "mods": [[0.04, "att", "buff"]], "text": "Strength +4%"}
             }
         },
         "agito": {
@@ -134,25 +140,41 @@
                 "wt": "blade",
                 "series": "Agito",
                 "tier": 3,
-                "a": []
-            },
-            "s3_phase1": {
-                "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
-                "attr": [
-                    {"buff": [["self", 0.4, -1, "att", "buff"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
+                "abilities": [
+                    {"cond": ["actcond", 343], "ele": "flame", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 344], "ele": "flame", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 345], "ele": "flame", "ab": [["mod", 0.2, "def"]]},
+                    {"cond": ["actcond", 346], "ele": "flame", "ab": [["mod", 0.2, "def"]]}
                 ]
             },
-            "s3_phase2": {
+            "s3": {
                 "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
-                "energizable": true,
+                "startup": 0.0,
+                "recovery": 0.96667,
                 "attr": [
-                    {"buff": ["self", 5.0, [-1, 2.9], "heal", "hp", "-replace"]}
+                    {"actcond": 344, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 353, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 352, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "s3_enhanced": {
+                "sp": 3000,
+                "startup": 0.0,
+                "recovery": 0.96667,
+                "attr": [
+                    {"actcond": 346, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 354, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 350, "target": "MYSELF", "iv": 0.16667}
                 ],
-                "phase_coei": true
+                "energizable": true
+            },
+            "actconds": {
+                "344": {"icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"},
+                "346": {"slip": {"heal": 5.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+                "350": {"remove": 344, "coei": 1},
+                "352": {"remove": 346, "coei": 1},
+                "353": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
+                "354": {"count": 1, "coei": 1, "alt": {"s3": "default"}}
             }
         }
     },
@@ -167,16 +189,16 @@
                 "wt": "blade",
                 "series": "Core",
                 "tier": 1,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 12841,
                 "startup": 0.0,
                 "recovery": 0.96667,
-                "energizable": true,
                 "attr": [
-                    {"heal": 90, "iv": 0.46667}
-                ]
+                    {"heal": 90, "target": "MYSELF", "iv": 0.46667}
+                ],
+                "energizable": true
             }
         },
         "high_dragon": {
@@ -189,18 +211,18 @@
                 "wt": "blade",
                 "series": "High Dragon",
                 "tier": 2,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 6925,
                 "startup": 0.0,
                 "recovery": 3.4,
                 "attr": [
-                    {"dmg": 2.24, "iv": 0.23333},
-                    {"dmg": 2.24, "iv": 0.43333},
-                    {"dmg": 2.24, "iv": 0.7},
-                    {"dmg": 2.24, "iv": 0.83333},
-                    {"dmg": 2.24, "iv": 1.06667}
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.23333},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.43333},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.7},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.83333},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 1.06667}
                 ],
                 "cancel": {"any": 2.6}
             }
@@ -215,7 +237,9 @@
                 "wt": "blade",
                 "series": "Void",
                 "tier": 2,
-                "a": []
+                "abilities": [
+                    {"cond": ["hp", ">=", 70], "ele": "light", "ab": [["mod", 0.08, "def"]]}
+                ]
             }
         },
         "chimeratech": {
@@ -228,7 +252,12 @@
                 "wt": "blade",
                 "series": "Chimeratech",
                 "tier": 2,
-                "a": [["uo_att", 0.04]]
+                "abilities": [
+                    {"cond": ["hp", "<", 70, 1], "count": 5, "ele": "light", "ab": [["actcond", "MYSELF", 505]]}
+                ]
+            },
+            "actconds": {
+                "505": {"icon": "att-buff", "mods": [[0.04, "att", "buff"]], "text": "Strength +4%"}
             }
         },
         "agito": {
@@ -241,29 +270,47 @@
                 "wt": "blade",
                 "series": "Agito",
                 "tier": 3,
-                "a": []
-            },
-            "s3_phase1": {
-                "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
-                "attr": [
-                    {"buff": [["self", 0.4, -1, "att", "buff"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
+                "abilities": [
+                    {"cond": ["actcond", 1180], "ele": "light", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 1181], "ele": "light", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 1182], "ele": "light", "ab": [["actcond", "MYSELF", 1399]]},
+                    {"cond": ["actcond", 1183], "ele": "light", "ab": [["actcond", "MYSELF", 1399]]}
                 ]
             },
-            "s3_phase2": {
+            "s3": {
                 "sp": 3000,
                 "startup": 0.0,
-                "recovery": 2.2,
+                "recovery": 0.96667,
                 "attr": [
-                    {"buff": ["self", 0.1, -1, "sp", "passive", "-replace"], "iv": 1.43333},
-                    {"dmg": 1.704, "dp": 100, "iv": 0.33333},
-                    {"dmg": 1.704, "iv": 0.63333},
-                    {"dmg": 1.704, "iv": 0.8},
-                    {"dmg": 1.704, "iv": 0.93333},
-                    {"dmg": 1.704, "iv": 1.06667}
+                    {"actcond": 1181, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1190, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1187, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "s3_enhanced": {
+                "sp": 3000,
+                "startup": 0.0,
+                "recovery": 2.5,
+                "attr": [
+                    {"dmg": 1.704, "dp": 100, "target": "HOSTILE", "iv": 0.33333},
+                    {"dmg": 1.704, "dp": 100, "target": "HOSTILE", "iv": 0.63333},
+                    {"dmg": 1.704, "dp": 100, "target": "HOSTILE", "iv": 0.8},
+                    {"dmg": 1.704, "dp": 100, "target": "HOSTILE", "iv": 0.93333},
+                    {"dmg": 1.704, "dp": 100, "target": "HOSTILE", "iv": 1.06667},
+                    {"actcond": 1183, "target": "MYSELF", "iv": 1.43333},
+                    {"actcond": 1191, "target": "MYSELF", "iv": 1.43333},
+                    {"actcond": 1185, "target": "MYSELF", "iv": 1.43333}
                 ],
-                "phase_coei": true
+                "cancel": {"any": 2.2}
+            },
+            "actconds": {
+                "1181": {"icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"},
+                "1183": {"icon": "sph", "mods": [[0.1, "sph"]], "text": "Skill Haste +10%"},
+                "1185": {"remove": 1181, "coei": 1},
+                "1187": {"remove": 1183, "coei": 1},
+                "1190": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
+                "1191": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
+                "1399": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
             }
         }
     },
@@ -278,18 +325,18 @@
                 "wt": "blade",
                 "series": "Core",
                 "tier": 1,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 7695,
                 "startup": 0.0,
                 "recovery": 3.4,
                 "attr": [
-                    {"dmg": 2.13, "iv": 0.23333},
-                    {"dmg": 2.13, "iv": 0.43333},
-                    {"dmg": 2.13, "iv": 0.7},
-                    {"dmg": 2.13, "iv": 0.83333},
-                    {"dmg": 2.13, "iv": 1.06667}
+                    {"dmg": 2.13, "target": "HOSTILE", "iv": 0.23333},
+                    {"dmg": 2.13, "target": "HOSTILE", "iv": 0.43333},
+                    {"dmg": 2.13, "target": "HOSTILE", "iv": 0.7},
+                    {"dmg": 2.13, "target": "HOSTILE", "iv": 0.83333},
+                    {"dmg": 2.13, "target": "HOSTILE", "iv": 1.06667}
                 ],
                 "cancel": {"any": 2.6}
             }
@@ -304,7 +351,9 @@
                 "wt": "blade",
                 "series": "Void",
                 "tier": 2,
-                "a": []
+                "abilities": [
+                    {"cond": ["hp", ">=", 50], "ele": "shadow", "ab": [["mod", 0.07, "def"]]}
+                ]
             }
         },
         "high_dragon": {
@@ -317,18 +366,18 @@
                 "wt": "blade",
                 "series": "High Dragon",
                 "tier": 2,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 6925,
                 "startup": 0.0,
                 "recovery": 3.4,
                 "attr": [
-                    {"dmg": 2.24, "iv": 0.23333},
-                    {"dmg": 2.24, "iv": 0.43333},
-                    {"dmg": 2.24, "iv": 0.7},
-                    {"dmg": 2.24, "iv": 0.83333},
-                    {"dmg": 2.24, "iv": 1.06667}
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.23333},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.43333},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.7},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 0.83333},
+                    {"dmg": 2.24, "target": "HOSTILE", "iv": 1.06667}
                 ],
                 "cancel": {"any": 2.6}
             }
@@ -343,7 +392,12 @@
                 "wt": "blade",
                 "series": "Chimeratech",
                 "tier": 2,
-                "a": [["uo_att", 0.04]]
+                "abilities": [
+                    {"cond": ["hp", "<", 70, 1], "count": 5, "ele": "shadow", "ab": [["actcond", "MYSELF", 505]]}
+                ]
+            },
+            "actconds": {
+                "505": {"icon": "att-buff", "mods": [[0.04, "att", "buff"]], "text": "Strength +4%"}
             }
         },
         "agito": {
@@ -356,24 +410,42 @@
                 "wt": "blade",
                 "series": "Agito",
                 "tier": 3,
-                "a": []
-            },
-            "s3_phase1": {
-                "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
-                "attr": [
-                    {"buff": [["self", 0.3, -1, "spd", "buff"], ["ability", 0.05, -1, "crit", "chance"], "-replace"]}
+                "abilities": [
+                    {"cond": ["actcond", 462], "ele": "shadow", "ab": [["actcond", "MYSELF", 1098]]},
+                    {"cond": ["actcond", 463], "ele": "shadow", "ab": [["actcond", "MYSELF", 1098]]},
+                    {"cond": ["actcond", 464], "ele": "shadow", "ab": [["actcond", "MYSELF", 1097]]},
+                    {"cond": ["actcond", 465], "ele": "shadow", "ab": [["actcond", "MYSELF", 1097]]}
                 ]
             },
-            "s3_phase2": {
+            "s3": {
                 "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
+                "startup": 0.0,
+                "recovery": 0.96667,
                 "attr": [
-                    {"buff": ["self", 0.4, -1, "defense", "buff", "-replace"]}
-                ],
-                "phase_coei": true
+                    {"actcond": 463, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 472, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 469, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "s3_enhanced": {
+                "sp": 3000,
+                "startup": 0.0,
+                "recovery": 0.96667,
+                "attr": [
+                    {"actcond": 465, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 473, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 467, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "actconds": {
+                "463": {"icon": "aspd-buff", "mods": [[0.3, "aspd", "buff"]], "text": "Attack Rate +30%"},
+                "465": {"icon": "def-buff", "mods": [[0.4, "def", "buff"]], "text": "Defense +40%"},
+                "467": {"remove": 463, "coei": 1},
+                "469": {"remove": 465, "coei": 1},
+                "472": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
+                "473": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
+                "1097": {"slip": {"heal": 2.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+                "1098": {"icon": "crit-buff", "mods": [[0.05, "crit", "buff"]], "text": "Critical Rate +5%"}
             }
         }
     },
@@ -388,16 +460,16 @@
                 "wt": "blade",
                 "series": "Core",
                 "tier": 1,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 12841,
                 "startup": 0.0,
                 "recovery": 0.96667,
-                "energizable": true,
                 "attr": [
-                    {"heal": 90, "iv": 0.46667}
-                ]
+                    {"heal": 90, "target": "MYSELF", "iv": 0.46667}
+                ],
+                "energizable": true
             }
         },
         "void": {
@@ -410,7 +482,9 @@
                 "wt": "blade",
                 "series": "Void",
                 "tier": 2,
-                "a": []
+                "abilities": [
+                    {"cond": ["hp", ">=", 100], "ele": "water", "ab": [["mod", 0.2, "def"]]}
+                ]
             }
         },
         "high_dragon": {
@@ -423,16 +497,16 @@
                 "wt": "blade",
                 "series": "High Dragon",
                 "tier": 2,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 7227,
                 "startup": 0.0,
                 "recovery": 2.86667,
                 "attr": [
-                    {"dmg": 3.89, "iv": 0.3},
-                    {"dmg": 3.89, "iv": 0.63333},
-                    {"dmg": 3.89, "iv": 1.1}
+                    {"dmg": 3.89, "target": "HOSTILE", "iv": 0.3},
+                    {"dmg": 3.89, "target": "HOSTILE", "iv": 0.63333},
+                    {"dmg": 3.89, "target": "HOSTILE", "iv": 1.1}
                 ],
                 "cancel": {"any": 2.56667}
             }
@@ -447,7 +521,12 @@
                 "wt": "blade",
                 "series": "Chimeratech",
                 "tier": 2,
-                "a": [["uo_att", 0.04]]
+                "abilities": [
+                    {"cond": ["hp", "<", 70, 1], "count": 5, "ele": "water", "ab": [["actcond", "MYSELF", 505]]}
+                ]
+            },
+            "actconds": {
+                "505": {"icon": "att-buff", "mods": [[0.04, "att", "buff"]], "text": "Strength +4%"}
             }
         },
         "agito": {
@@ -460,24 +539,45 @@
                 "wt": "blade",
                 "series": "Agito",
                 "tier": 3,
-                "a": []
-            },
-            "s3_phase1": {
-                "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
-                "attr": [
-                    {"buff": [["self", 0.2, -1, "att", "buff"], ["self", 0.12, -1, "crit", "chance"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
+                "abilities": [
+                    {"cond": ["actcond", 996], "ele": "water", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 997], "ele": "water", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 998], "ele": "water", "ab": [["actcond", "MYSELF", 1388]]},
+                    {"cond": ["actcond", 999], "ele": "water", "ab": [["actcond", "MYSELF", 1388]]}
                 ]
             },
-            "s3_phase2": {
+            "s3": {
                 "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
+                "startup": 0.0,
+                "recovery": 0.96667,
                 "attr": [
-                    {"buff": ["self", 0.35, -1, "defense", "buff", "-replace"]}
-                ],
-                "phase_coei": true
+                    {"actcond": 997, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1006, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1003, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1343, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "s3_enhanced": {
+                "sp": 3000,
+                "startup": 0.0,
+                "recovery": 0.96667,
+                "attr": [
+                    {"actcond": 999, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1007, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1001, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 1344, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "actconds": {
+                "997": {"icon": "crit-buff", "mods": [[0.12, "crit", "buff"]], "text": "Critical Rate +12%"},
+                "999": {"icon": "def-buff", "mods": [[0.35, "def", "buff"]], "text": "Defense +35%"},
+                "1001": {"remove": 997, "coei": 1},
+                "1003": {"remove": 999, "coei": 1},
+                "1006": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
+                "1007": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
+                "1343": {"icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+                "1344": {"remove": 1343},
+                "1388": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp"}, "text": "HP Regen"}
             }
         }
     },
@@ -492,16 +592,16 @@
                 "wt": "blade",
                 "series": "Core",
                 "tier": 1,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 8030,
                 "startup": 0.0,
                 "recovery": 2.86667,
                 "attr": [
-                    {"dmg": 3.54, "iv": 0.3},
-                    {"dmg": 3.54, "iv": 0.63333},
-                    {"dmg": 3.54, "iv": 1.1}
+                    {"dmg": 3.54, "target": "HOSTILE", "iv": 0.3},
+                    {"dmg": 3.54, "target": "HOSTILE", "iv": 0.63333},
+                    {"dmg": 3.54, "target": "HOSTILE", "iv": 1.1}
                 ],
                 "cancel": {"any": 2.56667}
             }
@@ -516,7 +616,9 @@
                 "wt": "blade",
                 "series": "Void",
                 "tier": 2,
-                "a": [["prep", 50.0, "wind"]]
+                "abilities": [
+                    {"cond": ["start"], "ele": "wind", "ab": [["prep", 0.5]]}
+                ]
             }
         },
         "high_dragon": {
@@ -529,14 +631,14 @@
                 "wt": "blade",
                 "series": "High Dragon",
                 "tier": 2,
-                "a": []
+                "abilities": []
             },
             "s3": {
                 "sp": 7582,
                 "startup": 0.0,
                 "recovery": 2.5,
                 "attr": [
-                    {"dmg": 10.53, "iv": 0.4}
+                    {"dmg": 10.53, "target": "HOSTILE", "iv": 0.4}
                 ],
                 "cancel": {"any": 2.2}
             }
@@ -551,7 +653,12 @@
                 "wt": "blade",
                 "series": "Chimeratech",
                 "tier": 2,
-                "a": [["uo_att", 0.04]]
+                "abilities": [
+                    {"cond": ["hp", "<", 70, 1], "count": 5, "ele": "wind", "ab": [["actcond", "MYSELF", 505]]}
+                ]
+            },
+            "actconds": {
+                "505": {"icon": "att-buff", "mods": [[0.04, "att", "buff"]], "text": "Strength +4%"}
             }
         },
         "agito": {
@@ -564,24 +671,41 @@
                 "wt": "blade",
                 "series": "Agito",
                 "tier": 3,
-                "a": []
-            },
-            "s3_phase1": {
-                "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
-                "attr": [
-                    {"buff": [["self", 0.4, -1, "att", "buff"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
+                "abilities": [
+                    {"cond": ["actcond", 760], "ele": "wind", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 761], "ele": "wind", "ab": [["ctime", 1.0]]},
+                    {"cond": ["actcond", 762], "ele": "wind", "ab": [["actcond", "MYSELF", 1322]]},
+                    {"cond": ["actcond", 763], "ele": "wind", "ab": [["actcond", "MYSELF", 1322]]}
                 ]
             },
-            "s3_phase2": {
+            "s3": {
                 "sp": 3000,
-                "startup": 0.26667,
-                "recovery": 0.83333,
+                "startup": 0.0,
+                "recovery": 0.96667,
                 "attr": [
-                    {"buff": ["self", 0.5, -1, "defense", "buff", "-replace"]}
-                ],
-                "phase_coei": true
+                    {"actcond": 761, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 770, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 767, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "s3_enhanced": {
+                "sp": 3000,
+                "startup": 0.0,
+                "recovery": 0.96667,
+                "attr": [
+                    {"actcond": 763, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 771, "target": "MYSELF", "iv": 0.16667},
+                    {"actcond": 765, "target": "MYSELF", "iv": 0.16667}
+                ]
+            },
+            "actconds": {
+                "761": {"icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"},
+                "763": {"icon": "def-buff", "mods": [[0.5, "def", "buff"]], "text": "Defense +50%"},
+                "765": {"remove": 761, "coei": 1},
+                "767": {"remove": 763, "coei": 1},
+                "770": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
+                "771": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
+                "1322": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp"}, "text": "HP Regen"}
             }
         }
     }

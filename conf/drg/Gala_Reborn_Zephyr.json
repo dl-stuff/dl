@@ -1,0 +1,62 @@
+{
+    "actconds": {
+        "1458": {"duration": 45.0, "icon": 264, "mods": [[0.3, "dmg_wind", "buff"], [0.3, "dmg_nullele", "buff"]], "coei": 1, "text": "Wind-Attuned Damage +30%", "overwrite": -1}
+    },
+    "d": {
+        "name": "Gala Reborn Zephyr",
+        "icon": "210143_01",
+        "att": 126,
+        "hp": 369,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.7, "att"]]},
+            {"cond": ["get_dp", 100], "cd": 5.0, "ele": "wind", "ab": [["actcond", "MYSELF", 1458]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "cancel": {"any": 1.66667, "dx1": 1.5},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 19.23, "target": "HOSTILE", "iv": 0.83333}
+        ],
+        "final": true
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.36667,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 4.16, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "dx2": 0.53333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.16667,
+        "recovery": 1.93333,
+        "attr": [
+            {"dmg": 4.24, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "dx3": 0.33333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.4,
+        "recovery": 2.03333,
+        "attr": [
+            {"dmg": 4.05, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 4.05, "sp": 5, "target": "HOSTILE", "iv": 0.1},
+            {"dmg": 4.05, "sp": 5, "target": "HOSTILE", "iv": 0.2}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.0, "s": 0.0}
+    }
+}

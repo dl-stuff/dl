@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "376": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.53, "iv": 2.9}, "rate": 160},
+        "101020701": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.53, "iv": 2.9}, "rate": 110},
+        "302010201": {"duration": 5.0, "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Joachim",
         "icon": "110350_01_r04",
@@ -7,15 +13,20 @@
         "ele": "wind",
         "wt": "bow",
         "spiral": false,
-        "a": [["a", 0.1, "hp70"], ["affres_bog", 100.0], ["k_poison", 0.2]]
+        "abilities": [
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.1, "att"]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"ab": [["mod", 0.2, "killer_poison"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 10651}
     },
-    "s1_phase1": {
+    "s1": {
         "sp": 2803,
         "startup": 0.0,
         "recovery": 1.36667,
         "attr": [
-            {"dmg": 2.21, "killer": [1.25, ["poison"]], "afflic": ["poison", 110, 0.53], "iv": 0.43333},
-            {"dmg": 2.21, "killer": [1.25, ["poison"]], "iv": 0.43333, "msl": 0.5}
+            {"dmg": 2.21, "killer": [1.25, ["poison"]], "actcond": 101020701, "target": "HOSTILE", "iv": 0.43333},
+            {"dmg": 2.21, "killer": [1.25, ["poison"]], "actcond": 101020701, "target": "HOSTILE", "iv": 0.43333}
         ],
         "cancel": {"any": 1.16667}
     },
@@ -24,10 +35,9 @@
         "startup": 0.0,
         "recovery": 1.36667,
         "attr": [
-            {"dmg": 2.21, "killer": [1.25, ["poison"]], "afflic": ["poison", 160, 0.53], "iv": 0.43333},
-            {"dmg": 2.21, "killer": [1.25, ["poison"]], "iv": 0.43333, "msl": 0.5}
+            {"dmg": 2.21, "killer": [1.25, ["poison"]], "actcond": 376, "target": "HOSTILE", "iv": 0.43333},
+            {"dmg": 2.21, "killer": [1.25, ["poison"]], "actcond": 376, "target": "HOSTILE", "iv": 0.43333}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.16667}
     },
     "s1_phase3": {
@@ -35,11 +45,10 @@
         "startup": 0.0,
         "recovery": 1.36667,
         "attr": [
-            {"dmg": 2.21, "killer": [1.25, ["poison"]], "afflic": ["poison", 160, 0.53], "iv": 0.43333},
-            {"dmg": 2.21, "killer": [1.25, ["poison"]], "iv": 0.43333, "msl": 0.5},
-            {"buff": ["team", 0.15, 10.0, "att", "buff"], "iv": 1.06667}
+            {"dmg": 2.21, "killer": [1.25, ["poison"]], "actcond": 376, "target": "HOSTILE", "iv": 0.43333},
+            {"dmg": 2.21, "killer": [1.25, ["poison"]], "actcond": 376, "target": "HOSTILE", "iv": 0.43333},
+            {"actcond": 302020201, "target": "MYPARTY", "iv": 1.06667}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.16667}
     },
     "s2": {
@@ -47,7 +56,7 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"sp": [1.0, "%", "s1"], "buff": ["self", 0.25, 5.0, "att", "buff"], "iv": 0.13333}
+            {"sp": [1.0, "%", "s1"], "actcond": 302010201, "target": "MYSELF", "iv": 0.13333}
         ]
     }
 }

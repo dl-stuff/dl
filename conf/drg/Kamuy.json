@@ -1,0 +1,63 @@
+{
+    "actconds": {
+        "269": {"duration": 10.0, "ele": "water", "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "103020114": {"aff": "freeze", "duration": 4.5, "text": "Freeze", "rate": 180}
+    },
+    "d": {
+        "name": "Kamuy",
+        "icon": "210109_01",
+        "att": 125,
+        "hp": 370,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 0.45, "att"]]},
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", 269]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "cancel": {"any": 2.13333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.0, "actcond": 103020114, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 3.0, "actcond": 103020114, "target": "HOSTILE", "iv": 1.5},
+            {"dmg": 3.0, "actcond": 103020114, "target": "HOSTILE", "iv": 1.66667},
+            {"dmg": 3.0, "actcond": 103020114, "target": "HOSTILE", "iv": 1.93333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.46667,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 3.8, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.2, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.46667,
+        "recovery": 1.1,
+        "attr": [
+            {"dmg": 4.18, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.2, "dodge": 0.0, "dx3": 0.16666, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.26667,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 8.36, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.0, "s": 0.0}
+    }
+}

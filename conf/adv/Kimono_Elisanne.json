@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "1442": {"duration": 15.0, "ele": "flame", "icon": 210, "mods": [[0.15, "att", "buff"]], "coei": 1, "-lv": 1443, "text": "New Year's Prayer Lv. 1"},
+        "1468": {"slip": {"percent": -0.03, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1, "overwrite": -1},
+        "1470": {"remove": 1468, "coei": 1},
+        "1476": {"duration": 30.0, "icon": "resist_scorchrend-passive", "mods": [[-0.2, "resist_scorchrend", "passive"]], "debuff": 1, "text": "Scorchrend Res -20%", "overwrite": 27},
+        "1535": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9}, "rate": 40}
+    },
     "c": {
         "name": "Kimono Elisanne",
         "icon": "100002_15_r05",
@@ -7,29 +14,35 @@
         "ele": "flame",
         "wt": "lance",
         "spiral": false,
-        "a": [["affres_sleep", 100.0], ["prep", 100.0]]
+        "abilities": [
+            {"cond": ["actcond", 1442, "=", 1], "ab": [["mod", 0.07, "sph"], ["actcond", "MYSELF", 1470]]},
+            {"cond": ["actcond", 1443, "=", 1], "ab": [["mod", 0.08, "sph"], ["actcond", "MYSELF", 1470]]},
+            {"cond": ["actcond", 1444, "=", 1], "ab": [["mod", 0.1, "sph"]]},
+            {"cond": ["actcond", 1444, "=", 1], "ab": [["actcond", "MYSELF", 1468]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 6, "sp": 13791}
     },
     "s1": {
         "sp": 8714,
         "startup": 0.0,
-        "recovery": 2.3
-    },
-    "s1_lv1": {
-        "recovery": 2.4
-    },
-    "s1_lv2": {
-        "recovery": 4.06667
-    },
-    "s1_lv3": {
-        "recovery": 6.0
+        "recovery": 2.3,
+        "attr": [
+            {"actcond": 1442, "target": "MYPARTY", "iv": 2.16667}
+        ],
+        "DEBUG_attr_N2": [{"actcond": 1442, "target": "MYPARTY", "iv": 1.33333}],
+        "DEBUG_attr_N3": [{"actcond": 1442, "target": "MYPARTY", "iv": 1.33333}, {"actcond": 1442, "target": "MYPARTY", "iv": 2.5}]
     },
     "s2": {
         "sp": 9194,
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"afflic": ["scorchrend", 40, 0.311], "iv": 0.9},
-            {"dmg": 6.09, "buff": ["affres", -0.2, 30.0, "scorchrend", "-overwrite_HOSTILE27"], "coei": 1, "iv": 0.9}
+            {"actcond": 1535, "target": "HOSTILE", "iv": 0.9},
+            {"actcond": 1535, "target": "HOSTILE", "iv": 0.9},
+            {"actcond": 1535, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 6.09, "actcond": 1476, "target": "HOSTILE", "iv": 0.9}
         ],
         "cancel": {"any": 1.66667}
     }

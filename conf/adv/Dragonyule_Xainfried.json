@@ -1,4 +1,13 @@
 {
+    "actconds": {
+        "510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"},
+        "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "1049": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "1488": {"duration": 15.0, "ele": "wind", "icon": "crit-buff", "mods": [[0.22, "crit", "buff"]], "text": "Critical Rate +22%"},
+        "1501": {"alt": {"s2": "enhanced"}, "overwrite": -1},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302031101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.05, "att", "buff"]], "text": "Strength +5%"}
+    },
     "c": {
         "name": "Dragonyule Xainfried",
         "icon": "110021_03_r04",
@@ -7,15 +16,21 @@
         "ele": "wind",
         "wt": "wand",
         "spiral": true,
-        "a": [["primed_att", 0.15], ["affres_bog", 100.0], ["resself_bog_att", 0.15, 10.0, 15.0], ["dshift_att", 0.1, 0.15, 0.15], ["dsalt", 1, "enhanced", "s2"]]
+        "abilities": [
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", 1049]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["event", "dragon"], "count": 3, "ab": [["actcond", "MYSELF", 510, 512, 512]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 11832}
     },
     "s1": {
         "sp": 3817,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buffele": "wind", "buff": ["team", 0.22, 15.0, "crit", "chance"], "iv": 0.16667},
-            {"buff": ["team", 0.05, 15.0, "att", "buff"], "iv": 0.16667}
+            {"actcond": 1488, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 302031101, "target": "MYPARTY", "iv": 0.16667}
         ]
     },
     "s2": {
@@ -23,16 +38,19 @@
         "startup": 0.0,
         "recovery": 1.9,
         "attr": [
-            {"dmg": 8.89, "dp": 90, "iv": 0.96667}
+            {"dmg": 8.89, "dp": 90, "target": "HOSTILE", "iv": 0.96667}
         ],
-        "cancel": {"any": 1.56667}
+        "cancel": {"any": 1.56667},
+        "abilities": [
+            {"cond": ["event", "dragon"], "ab": [["actcond", "MYSELF", 1501]]}
+        ]
     },
     "s2_enhanced": {
         "sp": 7634,
         "startup": 0.0,
         "recovery": 1.9,
         "attr": [
-            {"dmg": 8.89, "dp": 130, "iv": 0.96667}
+            {"dmg": 8.89, "dp": 130, "target": "HOSTILE", "iv": 0.96667}
         ],
         "cancel": {"any": 1.56667}
     }

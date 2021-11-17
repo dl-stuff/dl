@@ -1,0 +1,62 @@
+{
+    "d": {
+        "name": "Parallel Zodiark",
+        "icon": "210095_01",
+        "att": 77,
+        "hp": 221,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.4, "critdmg"]]},
+            {"ab": [["mod", 0.25, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.53333,
+        "cancel": {"any": 2.23333, "dodge": 2.23333, "dx1": 2.23333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 2.0, "target": "HOSTILE", "iv": 1.5},
+            {"dmg": 2.0, "target": "HOSTILE", "iv": 1.5, "msl": 0.33333},
+            {"dmg": 2.0, "target": "HOSTILE", "iv": 1.5, "msl": 0.66667},
+            {"dmg": 2.0, "target": "HOSTILE", "iv": 1.5, "msl": 1.0},
+            {"dmg": 2.0, "target": "HOSTILE", "iv": 1.5, "msl": 1.33333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.33333,
+        "recovery": 1.9,
+        "attr": [
+            {"dmg": 3.26, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx2": 0.23334, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.5,
+        "recovery": 2.0,
+        "attr": [
+            {"dmg": 3.92, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.66667,
+        "recovery": 2.0,
+        "attr": [
+            {"dmg": 1.74, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 4.1, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.06666, "dodge": 0.0, "dx1": 1.06666, "s": 0.0}
+    }
+}

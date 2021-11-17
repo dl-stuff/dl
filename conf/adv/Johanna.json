@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "505": {"icon": "att-buff", "mods": [[0.04, "att", "buff"]], "text": "Strength +4%"},
+        "101020601": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.396, "iv": 2.9}},
+        "101020701": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.53, "iv": 2.9}, "rate": 110}
+    },
     "c": {
         "name": "Johanna",
         "icon": "110023_01_r03",
@@ -7,14 +12,19 @@
         "ele": "wind",
         "wt": "axe",
         "spiral": false,
-        "a": [["sls_att", 0.04], ["affres_freeze", 50.0], ["affres_poison", 25.0]]
+        "abilities": [
+            {"cond": ["slayer", 5], "count": 5, "ab": [["actcond", "MYSELF", 505]]},
+            {"ab": [["mod", 0.5, "affres_freeze"]]},
+            {"ab": [["mod", 0.25, "affres_poison"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 12777}
     },
     "s1": {
         "sp": 2904,
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"dmg": 13.47, "killer": [0.3, ["poison"]], "afflic": ["poison", 110, 0.53], "iv": 0.7}
+            {"dmg": 13.47, "killer": [0.3, ["poison"]], "actcond": 101020701, "target": "HOSTILE", "iv": 0.7}
         ],
         "cancel": {"any": 1.23333}
     },
@@ -23,8 +33,8 @@
         "startup": 0.0,
         "recovery": 2.06667,
         "attr": [
-            {"dmg": 6.06, "killer": [0.5, ["poison"]], "afflic": ["poison", 100, 0.396], "iv": 0.66667},
-            {"dmg": 6.06, "killer": [0.5, ["poison"]], "iv": 0.83333}
+            {"dmg": 6.06, "killer": [0.5, ["poison"]], "actcond": 101020601, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 6.06, "killer": [0.5, ["poison"]], "actcond": 101020601, "target": "HOSTILE", "iv": 0.83333}
         ],
         "cancel": {"any": 1.5}
     }

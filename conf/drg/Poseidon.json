@@ -1,0 +1,60 @@
+{
+    "actconds": {
+        "1839": {"duration": 180.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
+    },
+    "d": {
+        "name": "Poseidon",
+        "icon": "210025_01",
+        "att": 139,
+        "hp": 396,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 0.4, "hp"], ["mod", 0.4, "att"]]},
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", 1839]]}
+        ]
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 2.13333,
+        "cancel": {"any": 1.0, "dodge": 1.0, "dx1": 1.0},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.696, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 8.624, "target": "HOSTILE", "iv": 0.26667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 3.52, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.23333,
+        "recovery": 1.23334,
+        "attr": [
+            {"dmg": 3.88, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx3": 0.23334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.46667,
+        "recovery": 1.26666,
+        "attr": [
+            {"dmg": 4.92, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86666, "dodge": 0.0, "dx1": 0.86666, "s": 0.0}
+    }
+}

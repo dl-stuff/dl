@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "104030601": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.803, "iv": 3.9}}
+    },
     "c": {
         "name": "Malora",
         "icon": "110036_01_r03",
@@ -7,16 +11,21 @@
         "ele": "light",
         "wt": "bow",
         "spiral": false,
-        "a": [["bk", 0.2], ["affres_curse", 50.0], ["affres_curse", 25.0]]
+        "abilities": [
+            {"cond": ["break"], "ab": [["actdmg", 0.2]]},
+            {"ab": [["mod", 0.5, "affres_curse"]]},
+            {"ab": [["mod", 0.25, "affres_curse"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 10298}
     },
     "s1": {
         "sp": 2395,
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"dmg": 3.77, "killer": [0.2, ["paralysis"]], "afflic": ["paralysis", 100, 0.803], "iv": 0.66667},
-            {"dmg": 3.77, "killer": [0.2, ["paralysis"]], "iv": 0.8},
-            {"dmg": 3.77, "killer": [0.2, ["paralysis"]], "iv": 1.53333}
+            {"dmg": 3.77, "killer": [0.2, ["paralysis"]], "actcond": 104030601, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 3.77, "killer": [0.2, ["paralysis"]], "actcond": 104030601, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.77, "killer": [0.2, ["paralysis"]], "actcond": 104030601, "target": "HOSTILE", "iv": 1.53333}
         ],
         "cancel": {"any": 2.0}
     },
@@ -25,7 +34,7 @@
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"dmg": 10.67, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.83333, "coei": 1}
+            {"dmg": 10.67, "actcond": 1246, "target": "HOSTILE", "iv": 0.83333}
         ],
         "cancel": {"any": 1.3}
     }

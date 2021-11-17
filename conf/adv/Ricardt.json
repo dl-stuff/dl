@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "202010101": {"relief": "burn", "count": 1, "text": "Burn Relief"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Ricardt",
         "icon": "110017_01_r03",
@@ -7,15 +13,21 @@
         "ele": "water",
         "wt": "staff",
         "spiral": true,
-        "a": [["rcv", 0.1, "hp100"], ["affres_stun", 50.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["affres_stun", 50.0]]
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.2, "def"], ["mod", 0.1, "rcv", "-t:s"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 16564}
     },
     "s1": {
         "sp": 7888,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [130, "team"], "relief": [["burn"], 100], "iv": 0.93333},
-            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667}
+            {"heal": 130, "actcond": 202010101, "target": "ALLY", "iv": 0.93333},
+            {"actcond": 1261, "target": "MYPARTY", "iv": 0.96667}
         ],
         "energizable": true
     },
@@ -24,7 +36,7 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [44, "team"], "buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.93333}
+            {"heal": 44, "actcond": 308010401, "target": "ALLY", "iv": 0.93333}
         ],
         "energizable": true
     }

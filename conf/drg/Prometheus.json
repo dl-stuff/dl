@@ -1,0 +1,55 @@
+{
+    "d": {
+        "name": "Prometheus",
+        "icon": "210052_01",
+        "att": 121,
+        "hp": 374,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.5, "att"], ["mod", 0.15, "eleres", "wind"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "cancel": {"any": 1.86667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 11.2, "target": "HOSTILE", "iv": 0.8}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.22222,
+        "recovery": 1.47778,
+        "attr": [
+            {"dmg": 3.2, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.77778, "dodge": 0.0, "dx2": 0.08334, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.4,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 3.52, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.6, "dodge": 0.0, "dx3": 0.13333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.36667,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 4.48, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.73333, "dodge": 0.0, "dx1": 0.63333, "s": 0.0}
+    }
+}

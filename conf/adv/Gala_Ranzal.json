@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "303030301": {"duration": 15.0, "icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"},
+        "310011801": {"count": 3, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Gale-Clad Sword", "overwrite": -1}
+    },
     "c": {
         "name": "Gala Ranzal",
         "icon": "100003_07_r05",
@@ -7,30 +12,25 @@
         "ele": "wind",
         "wt": "sword",
         "spiral": true,
-        "a": [["resself_freeze_att", 0.15, 10.0, 15.0], ["resself_bog_att", 0.15, 10.0, 15.0], ["affres_freeze", 100.0], ["affres_bog", 100.0], ["s", 0.35]]
-    },
-    "fs_enhanced": {
-        "startup": 0.25,
-        "recovery": 0.78333,
-        "attr": [
-            {"dmg": 2.075, "odmg": 3.3, "sp": 330},
-            {"dmg": 2.075, "odmg": 3.3, "iv": 0.20833},
-            {"dmg": 2.3, "odmg": 3.3, "iv": 0.5}
+        "abilities": [
+            {"cond": ["selfaff", "freeze"], "cd": 15.0, "ab": [["hitattr", {"actcond": 1707, "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": 1707, "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_freeze"], ["mod", 1.0, "affres_bog"]]},
+            {"ab": [["actdmg", 0.35, "-t:s"]]}
         ],
-        "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.66667}
+        "skillshare": {"src": "s1", "cost": 4, "sp": 8914}
     },
     "s1": {
         "sp": 2661,
         "startup": 0.0,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 3.09, "iv": 0.61538},
-            {"dmg": 3.09, "iv": 0.61538, "msl": 0.33333},
-            {"dmg": 3.09, "iv": 0.61538, "msl": 0.6},
-            {"dmg": 3.09, "iv": 0.61538, "msl": 0.86667},
-            {"dmg": 3.09, "iv": 0.61538, "msl": 1.0},
-            {"dmg": 3.09, "iv": 0.61538, "msl": 1.2}
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 0.33333},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 0.6},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 0.86667},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 1.0},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 1.2}
         ],
         "cancel": {"any": 1.53846}
     },
@@ -39,9 +39,11 @@
         "startup": 0.0,
         "recovery": 1.0,
         "attr": [
-            {"amp": ["10000", 3, 0], "cd": 30.0},
-            {"buff": ["fsAlt", "enhanced", -1, 3, "-refresh"], "coei": 1},
-            {"buff": ["team", 0.2, 15.0, "defense", "buff"], "iv": 0.16667}
+            {"actcond": 310011801, "target": "MYSELF"},
+            {"actcond": 303030301, "target": "MYPARTY", "iv": 0.16667}
+        ],
+        "abilities": [
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 3, 0], "target": "MYSELF"}]]}
         ]
     }
 }

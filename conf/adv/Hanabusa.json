@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+    },
     "c": {
         "name": "Hanabusa",
         "icon": "110348_01_r04",
@@ -7,14 +10,19 @@
         "ele": "light",
         "wt": "blade",
         "spiral": false,
-        "a": [["k_therion", 0.25], ["affres_curse", 50.0], ["bt", 0.2], ["bt", 0.4]]
+        "abilities": [
+            {"ab": [["mod", 0.25, "killer_therion"]]},
+            {"ab": [["mod", 0.5, "affres_curse"]]},
+            {"cond": ["actcond", 339], "ab": [["mod", 0.2, "bufftime", "-t:s2"]]},
+            {"cond": ["actcond", 340], "ab": [["mod", 0.4, "bufftime", "-t:s2"]]}
+        ]
     },
-    "s1_phase1": {
+    "s1": {
         "sp": 2840,
         "startup": 0.0,
         "recovery": 2.2,
         "attr": [
-            {"dmg": 11.3, "iv": 0.33333}
+            {"dmg": 11.3, "target": "HOSTILE", "iv": 0.33333}
         ],
         "cancel": {"any": 1.86667}
     },
@@ -23,7 +31,7 @@
         "startup": 0.0,
         "recovery": 2.2,
         "attr": [
-            {"dmg": 13.82, "iv": 0.33333}
+            {"dmg": 13.82, "target": "HOSTILE", "iv": 0.33333}
         ],
         "cancel": {"any": 1.86667}
     },
@@ -32,7 +40,7 @@
         "startup": 0.0,
         "recovery": 2.2,
         "attr": [
-            {"dmg": 16.33, "iv": 0.33333}
+            {"dmg": 16.33, "target": "HOSTILE", "iv": 0.33333}
         ],
         "cancel": {"any": 1.86667}
     },
@@ -41,7 +49,7 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["team", 0.2, 15.0, "att", "buff"], "iv": 0.16667}
+            {"actcond": 302030401, "target": "MYPARTY", "iv": 0.16667}
         ]
     }
 }

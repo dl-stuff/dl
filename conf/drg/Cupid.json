@@ -1,0 +1,75 @@
+{
+    "actconds": {
+        "11": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.25, "crit", "buff"]], "text": "Critical Rate +25%"},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
+    },
+    "d": {
+        "name": "Cupid",
+        "icon": "210049_01",
+        "att": 139,
+        "hp": 397,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 0.65, "att"]]},
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", 1838]]}
+        ]
+    },
+    "dodge": {
+        "recovery": 0.55556,
+        "backdash": true
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.4,
+        "energizable": true,
+        "cancel": {"any": 2.33333},
+        "sp_db": 90,
+        "uses": 1,
+        "attr": [
+            {"heal": 30, "target": "ALLY", "iv": 1.43333},
+            {"actcond": 11, "target": "MYPARTY", "iv": 1.46667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.16667,
+        "recovery": 1.06666,
+        "attr": [
+            {"dmg": 1.34, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.34, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.34, "sp": 5, "target": "HOSTILE", "msl": 0.13333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "dx2": 0.36666, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.2,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 1.1, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.1, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.1, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.1, "sp": 5, "target": "HOSTILE", "msl": 0.13333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "dx3": 0.36667, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.53333,
+        "recovery": 1.03334,
+        "attr": [
+            {"dmg": 1.12, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.12, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.12, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.12, "sp": 5, "target": "HOSTILE", "msl": 0.13333},
+            {"dmg": 1.12, "sp": 5, "target": "HOSTILE", "msl": 0.13333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.96667, "dodge": 0.0, "dx1": 0.86667, "s": 0.0}
+    }
+}

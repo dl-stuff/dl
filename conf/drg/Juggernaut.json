@@ -1,0 +1,56 @@
+{
+    "d": {
+        "name": "Juggernaut",
+        "icon": "210014_01",
+        "att": 102,
+        "hp": 294,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.45, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "cancel": {"any": 1.93333, "dodge": 1.93333, "dx1": 1.93333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 5.74, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 5.74, "target": "HOSTILE", "iv": 0.8}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.33333,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 3.28, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx2": 0.23334, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.4,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 3.62, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.13333, "dodge": 0.0, "dx3": 0.13333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.3,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 4.6, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.6, "dodge": 0.0, "dx1": 0.6, "s": 0.0}
+    }
+}

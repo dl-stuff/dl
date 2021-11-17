@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "1836": {"duration": 0.8, "coei": 1}
+    },
     "c": {
         "name": "Farren",
         "icon": "110393_01_r05",
@@ -7,17 +10,21 @@
         "ele": "light",
         "wt": "dagger",
         "spiral": false,
-        "a": [["affres_curse", 100.0]],
-        "utp": [0, 3000, 1200, 50]
+        "utp": [0, 3000, 1200, 50],
+        "abilities": [
+            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.2, "def"]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["auratype", 3, 1], "cd": 1.0, "ab": [["utprep", 0.015]]}
+        ]
     },
     "fs_ddrive": {
         "charge": 0.15,
         "startup": 0.15152,
         "recovery": 0.94848,
         "attr": [
-            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "sp": 288, "utp": 40},
-            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "iv": 0.12121},
-            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "iv": 0.36363}
+            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "sp": 288, "utp": 40, "target": "HOSTILE"},
+            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "sp": 288, "utp": 40, "target": "HOSTILE", "iv": 0.12121},
+            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "sp": 288, "utp": 40, "target": "HOSTILE", "iv": 0.36363}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1_ddrive": 0.60606}
@@ -27,13 +34,13 @@
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"utp": 300},
-            {"dmg": 4.0, "iv": 0.26667},
-            {"dmg": 4.0, "iv": 0.7},
-            {"dmg": 4.0, "iv": 1.1},
-            {"dmg": 4.0, "iv": 1.3},
-            {"dmg": 4.0, "iv": 1.6},
-            {"amp": ["20000", 2, 0], "iv": 1.6}
+            {"utp": 300, "target": "MYSELF"},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.1},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.3},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.6},
+            {"amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.6}
         ],
         "cancel": {"any": 2.43333}
     },
@@ -42,13 +49,13 @@
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"utp": 300},
-            {"dmg": 5.2, "crisis": -0.9, "iv": 0.26667},
-            {"dmg": 5.2, "crisis": -0.9, "iv": 0.7},
-            {"dmg": 5.2, "crisis": -0.9, "iv": 1.1},
-            {"dmg": 5.2, "crisis": -0.9, "iv": 1.3},
-            {"dmg": 5.2, "crisis": -0.9, "iv": 1.6},
-            {"amp": ["20000", 2, 0], "iv": 1.6}
+            {"utp": 300, "target": "MYSELF"},
+            {"dmg": 5.2, "crisis": -0.9, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 5.2, "crisis": -0.9, "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 5.2, "crisis": -0.9, "target": "HOSTILE", "iv": 1.1},
+            {"dmg": 5.2, "crisis": -0.9, "target": "HOSTILE", "iv": 1.3},
+            {"dmg": 5.2, "crisis": -0.9, "target": "HOSTILE", "iv": 1.6},
+            {"amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.6}
         ],
         "cancel": {"any": 2.43333}
     },
@@ -57,28 +64,31 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"heal": 30, "iv": 0.16667}
+            {"heal": 30, "actcond": 1836, "target": "MYSELF", "iv": 0.16667}
         ],
         "energizable": true,
-        "cancel": {"any": 0.83333}
+        "cancel": {"any": 0.83333},
+        "abilities": [
+            {"cond": ["actcondend", 1836], "ab": [["tohp", "utp", 1.4]]}
+        ]
     },
     "s2_ddrive": {
         "sp": 10725,
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"utp": -1500},
-            {"sp": [0.5, "%", "s2"]},
-            {"dmg": 32.5, "crisis": -0.9, "iv": 1.33333}
+            {"utp": -1500, "target": "MYSELF"},
+            {"sp": [0.5, "%", "s2"], "target": "MYSELF"},
+            {"dmg": 32.5, "crisis": -0.9, "target": "HOSTILE", "iv": 1.33333}
         ]
     },
     "x1_ddrive": {
         "startup": 0.2,
         "recovery": 0.76667,
         "attr": [
-            {"dmg": 0.66, "crisis": -0.9, "sp": 205, "utp": 40},
-            {"dmg": 0.66, "crisis": -0.9, "iv": 0.03333},
-            {"dmg": 0.66, "crisis": -0.9, "iv": 0.06667}
+            {"dmg": 0.66, "crisis": -0.9, "sp": 205, "utp": 40, "target": "HOSTILE"},
+            {"dmg": 0.66, "crisis": -0.9, "sp": 205, "utp": 40, "target": "HOSTILE", "iv": 0.03333},
+            {"dmg": 0.66, "crisis": -0.9, "sp": 205, "utp": 40, "target": "HOSTILE", "iv": 0.06667}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"any": 0.46667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_ddrive": 0.2}
@@ -87,12 +97,12 @@
         "startup": 0.26667,
         "recovery": 0.96666,
         "attr": [
-            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50},
-            {"dmg": 0.66, "crisis": -0.9},
-            {"dmg": 0.66, "crisis": -0.9},
-            {"dmg": 0.66, "crisis": -0.9, "iv": 0.13333},
-            {"dmg": 0.66, "crisis": -0.9, "iv": 0.13333},
-            {"dmg": 0.66, "crisis": -0.9, "iv": 0.13333}
+            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE"},
+            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE"},
+            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE"},
+            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE", "iv": 0.13333},
+            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE", "iv": 0.13333},
+            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE", "iv": 0.13333}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.73333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_ddrive": 0.43333}
@@ -101,9 +111,9 @@
         "startup": 0.43333,
         "recovery": 1.2,
         "attr": [
-            {"dmg": 1.39, "crisis": -0.9, "sp": 340, "utp": 50},
-            {"dmg": 1.39, "crisis": -0.9},
-            {"dmg": 1.39, "crisis": -0.9}
+            {"dmg": 1.39, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE"},
+            {"dmg": 1.39, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE"},
+            {"dmg": 1.39, "crisis": -0.9, "sp": 340, "utp": 50, "target": "HOSTILE"}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"any": 0.9, "dodge": 0.56667, "fs": 0.56667, "s": 0.0, "x4_ddrive": 0.43334}
@@ -112,11 +122,11 @@
         "startup": 0.26667,
         "recovery": 0.96666,
         "attr": [
-            {"dmg": 1.02, "crisis": -0.9, "sp": 545, "utp": 60},
-            {"dmg": 1.02, "crisis": -0.9, "iv": 0.03333},
-            {"dmg": 1.02, "crisis": -0.9, "iv": 0.06666},
-            {"dmg": 1.02, "crisis": -0.9, "iv": 0.13333},
-            {"dmg": 1.9, "crisis": -0.9, "iv": 0.23333}
+            {"dmg": 1.02, "crisis": -0.9, "sp": 545, "utp": 60, "target": "HOSTILE"},
+            {"dmg": 1.02, "crisis": -0.9, "sp": 545, "utp": 60, "target": "HOSTILE", "iv": 0.03333},
+            {"dmg": 1.02, "crisis": -0.9, "sp": 545, "utp": 60, "target": "HOSTILE", "iv": 0.06666},
+            {"dmg": 1.02, "crisis": -0.9, "sp": 545, "utp": 60, "target": "HOSTILE", "iv": 0.13333},
+            {"dmg": 1.9, "crisis": -0.9, "sp": 545, "utp": 60, "target": "HOSTILE", "iv": 0.23333}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"any": 0.9, "dodge": 0.23333, "fs": 0.23333, "s": 0.0, "x1_ddrive": 0.73333}

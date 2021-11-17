@@ -1,4 +1,13 @@
 {
+    "actconds": {
+        "138": {"icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "213": {"slip": {"percent": -0.032, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1},
+        "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "104030601": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303030301": {"duration": 15.0, "icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"},
+        "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"}
+    },
     "c": {
         "name": "Gala Prince",
         "icon": "100001_08_r05",
@@ -7,15 +16,22 @@
         "ele": "light",
         "wt": "sword",
         "spiral": true,
-        "a": [["spd", 0.1], ["resself_poison_att", 0.15, 10.0, 15.0], ["resself_curse_att", 0.15, 10.0, 15.0], ["affres_poison", 100.0], ["affres_curse", 100.0]]
+        "abilities": [
+            {"cond": ["shift", "dform"], "ab": [["mod", 1.0040160642570282, "dt"], ["mod", 0.1, "spd"]]},
+            {"cond": ["selfaff", "poison"], "cd": 15.0, "ab": [["hitattr", {"actcond": 1707, "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": 1707, "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_poison"], ["mod", 1.0, "affres_curse"]]},
+            {"cond": ["hp", "<", 40, 1], "ab": [["dprep", 0.5]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 16794}
     },
     "s1": {
         "sp": 3817,
         "startup": 0.0,
         "recovery": 2.4,
         "attr": [
-            {"dmg": 17.0, "iv": 0.8},
-            {"buff": ["zone", 0.2, 10.0, "att", "buff"], "iv": 0.8}
+            {"dmg": 17.0, "target": "HOSTILE", "iv": 0.8},
+            {"actcond": 138, "target": "ALLY", "iv": 0.8, "zone": 10.0}
         ]
     },
     "s2": {
@@ -23,24 +39,25 @@
         "startup": 0.0,
         "recovery": 2.96667,
         "attr": [
-            {"dmg": 1.34, "iv": 0.43333},
-            {"dmg": 4.0, "iv": 0.5},
-            {"dmg": 1.34, "iv": 0.63333},
-            {"dmg": 1.34, "iv": 0.8},
-            {"dmg": 4.0, "iv": 1.16667},
-            {"dmg": 4.0, "iv": 1.43333},
-            {"dmg": 4.0, "iv": 1.53333},
-            {"dmg": 4.0, "afflic": ["paralysis", 100, 0.803], "iv": 1.66667},
-            {"dmg": 4.0, "iv": 1.86667},
-            {"dmg": 4.0, "iv": 2.06667},
-            {"dmg": 4.0, "iv": 2.2},
-            {"dmg": 4.0, "iv": 2.46667},
-            {"dmg": 4.0, "iv": 2.46667},
-            {"buff": ["team", 0.15, 15.0, "att", "buff"], "iv": 2.6},
-            {"buff": ["team", 0.2, 15.0, "defense", "buff"], "iv": 2.6},
-            {"amp": ["10000", 3, 0], "iv": 2.6}
+            {"dmg": 1.34, "target": "HOSTILE", "iv": 0.43333},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 1.34, "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 1.34, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.43333},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.53333},
+            {"dmg": 4.0, "actcond": 104030601, "target": "HOSTILE", "iv": 1.66667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.86667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 2.06667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 2.2},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 2.46667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 2.46667},
+            {"actcond": 302030301, "target": "MYPARTY", "iv": 2.6},
+            {"actcond": 316010501, "target": "MYPARTY", "iv": 2.6},
+            {"actcond": 303030301, "target": "MYPARTY", "iv": 2.6},
+            {"amp": ["10000", 3, 0], "target": "MYSELF", "iv": 2.6}
         ],
-        "sp_regen": 32000,
-        "cancel": {"any": 2.66667}
+        "cancel": {"any": 2.66667},
+        "abilities": []
     }
 }

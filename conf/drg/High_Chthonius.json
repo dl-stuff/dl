@@ -1,0 +1,65 @@
+{
+    "actconds": {
+        "1353": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120}
+    },
+    "d": {
+        "name": "High Chthonius",
+        "icon": "210148_01",
+        "att": 128,
+        "hp": 368,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.65, "att"]]},
+            {"cond": ["event", "dragon"], "ele": "shadow", "ab": [["mod", 0.2, "att"]]},
+            {"cond": ["event", "dragon"], "ele": "shadow", "ab": [["mod", 0.2, "att"]]},
+            {"cond": ["event", "dragon"], "count": 1, "ele": "shadow", "ab": [["mod", 0.3, "hp"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 4.46667,
+        "cancel": {"any": 2.66667, "dx1": 2.5},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.97, "actcond": 1353, "target": "HOSTILE", "iv": 0.83333, "msl": 0.16667, "msl_spd": 1, "blt": [5, 0.2]},
+            {"dmg": 4.77, "actcond": 1353, "target": "HOSTILE", "iv": 0.83333, "msl": 1.33333, "msl_spd": 1}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.33333,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 2.69, "sp": 5, "target": "HOSTILE", "msl": 0.06667, "msl_spd": 1}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.46667, "dodge": 0.0, "dx2": 0.26667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.66667,
+        "recovery": 2.36666,
+        "attr": [
+            {"dmg": 2.69, "sp": 5, "target": "HOSTILE", "msl": 0.06667, "msl_spd": 1},
+            {"dmg": 2.69, "sp": 5, "target": "HOSTILE", "iv": 0.33333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.72222, "dodge": 0.0, "dx3": 0.52777, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.36667,
+        "recovery": 2.9,
+        "attr": [
+            {"dmg": 2.69, "sp": 5, "target": "HOSTILE", "msl": 0.1, "msl_spd": 1},
+            {"dmg": 2.89, "sp": 5, "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 2.89, "sp": 5, "target": "HOSTILE", "iv": 0.46666}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.02222, "dodge": 0.0, "dx1": 0.88333, "s": 0.0}
+    }
+}

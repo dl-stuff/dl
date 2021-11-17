@@ -1,10 +1,10 @@
 {
     "fs": {
-        "charge": 0.16667,
+        "charge": 0.15,
         "startup": 0.13333,
         "recovery": 0.7,
         "attr": [
-            {"dmg": 0.92, "odmg": 6.0, "sp": 200}
+            {"dmg": 0.92, "odmg": 6.0, "sp": 200, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.7}
@@ -13,21 +13,20 @@
         "charge": 0.43333,
         "startup": 0.0,
         "recovery": 0.0,
-        "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0}
+        "interrupt": {"s": 0.0}
     },
     "lv2": {
-        "x1": {"attr": [{"dmg": 1.28, "sp": 130}]},
-        "x2": {"attr": [{"dmg": 1.28, "sp": 130}]},
-        "x3": {"attr": [{"dmg": 0.84, "sp": 220}, {"dmg": 0.84, "iv": 0.07576}]},
-        "x4": {"attr": [{"dmg": 1.71, "sp": 360}]},
-        "x5": {"attr": [{"dmg": 1.89, "sp": 900}, {"dmg": 1.89, "iv": 0.31746}]}
+        "x1": {"attr": [{"dmg": 1.28, "sp": 130, "target": "HOSTILE"}]},
+        "x2": {"attr": [{"dmg": 1.28, "sp": 130, "target": "HOSTILE"}]},
+        "x3": {"attr": [{"dmg": 0.84, "sp": 220, "target": "HOSTILE"}, {"dmg": 0.84, "sp": 220, "target": "HOSTILE", "iv": 0.07576}]},
+        "x4": {"attr": [{"dmg": 1.71, "sp": 360, "target": "HOSTILE"}]},
+        "x5": {"attr": [{"dmg": 1.89, "sp": 900, "target": "HOSTILE"}, {"dmg": 1.89, "sp": 900, "target": "HOSTILE", "iv": 0.31746}]}
     },
     "x1": {
         "startup": 0.18333,
         "recovery": 1.02879,
         "attr": [
-            {"dmg": 1.16, "sp": 130}
+            {"dmg": 1.28, "sp": 130, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.18031}
@@ -36,7 +35,7 @@
         "startup": 0.2,
         "recovery": 1.01212,
         "attr": [
-            {"dmg": 1.164, "sp": 130}
+            {"dmg": 1.28, "sp": 130, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.16364}
@@ -45,8 +44,8 @@
         "startup": 0.5303,
         "recovery": 0.98485,
         "attr": [
-            {"dmg": 0.76, "sp": 220},
-            {"dmg": 0.76, "iv": 0.07576}
+            {"dmg": 0.84, "sp": 220, "target": "HOSTILE"},
+            {"dmg": 0.84, "sp": 220, "target": "HOSTILE", "iv": 0.07576}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.25758}
@@ -55,7 +54,7 @@
         "startup": 0.43333,
         "recovery": 1.70953,
         "attr": [
-            {"dmg": 1.55, "sp": 360}
+            {"dmg": 1.71, "sp": 360, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.56667}
@@ -64,11 +63,10 @@
         "startup": 0.34921,
         "recovery": 1.42857,
         "attr": [
-            {"dmg": 1.72, "sp": 900},
-            {"dmg": 1.72, "iv": 0.31746}
+            {"dmg": 1.89, "sp": 900, "target": "HOSTILE"},
+            {"dmg": 1.89, "sp": 900, "target": "HOSTILE", "iv": 0.31746}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.23809},
-        "auto_fsf": true
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.23809}
     }
 }

@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "101020401": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.482, "iv": 2.9}}
+    },
     "c": {
         "name": "Francesca",
         "icon": "110026_01_r03",
@@ -7,17 +11,22 @@
         "ele": "wind",
         "wt": "dagger",
         "spiral": false,
-        "a": [["fs", 0.3], ["affres_bog", 50.0], ["affres_bog", 25.0]]
+        "abilities": [
+            {"ab": [["actdmg", 0.3, "-t:fs"]]},
+            {"ab": [["mod", 0.5, "affres_bog"]]},
+            {"ab": [["mod", 0.25, "affres_bog"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 6319}
     },
     "s1": {
         "sp": 2257,
         "startup": 0.0,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 2.67, "killer": [0.2, ["poison"]], "afflic": ["poison", 100, 0.482], "iv": 0.26667},
-            {"dmg": 2.67, "killer": [0.2, ["poison"]], "iv": 0.43333},
-            {"dmg": 2.67, "killer": [0.2, ["poison"]], "iv": 0.86667},
-            {"dmg": 2.67, "killer": [0.2, ["poison"]], "iv": 1.4}
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "actcond": 101020401, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "actcond": 101020401, "target": "HOSTILE", "iv": 0.43333},
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "actcond": 101020401, "target": "HOSTILE", "iv": 0.86667},
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "actcond": 101020401, "target": "HOSTILE", "iv": 1.4}
         ],
         "cancel": {"any": 2.1}
     },
@@ -26,9 +35,10 @@
         "startup": 0.0,
         "recovery": 1.66667,
         "attr": [
-            {"dmg": 2.88, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.26667, "coei": 1},
-            {"afflic": ["poison", 100, 0.482], "iv": 0.26667},
-            {"dmg": 2.88, "iv": 0.8}
+            {"dmg": 2.88, "actcond": 1246, "target": "HOSTILE", "iv": 0.26667},
+            {"actcond": 101020401, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 2.88, "actcond": 1246, "target": "HOSTILE", "iv": 0.8},
+            {"actcond": 101020401, "target": "HOSTILE", "iv": 0.8}
         ],
         "cancel": {"any": 1.5}
     }

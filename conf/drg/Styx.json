@@ -1,0 +1,69 @@
+{
+    "actconds": {
+        "946": {"coei": 1, "icon": 148, "text": "Ice Spirits", "maxstack": 3},
+        "948": {"count": 1, "icon": "s-buff", "mods": [[0.5, "s", "buff"]], "text": "Skill Damage +50%", "maxstack": 4},
+        "955": {"remove": 946, "coei": 1}
+    },
+    "d": {
+        "name": "Styx",
+        "icon": "210130_01",
+        "att": 125,
+        "hp": 370,
+        "ele": "water",
+        "abilities": [
+            {"cond": ["repeating"], "cd": 15.0, "ab": [["actcond", "MYSELF", 948]]},
+            {"cond": ["event", "dragon_end"], "ab": [["hitattr", {"actcond": 955, "target": "MYSELF"}]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.83333,
+        "cancel": {"any": 2.5},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [7, 0.18], "msl": 0.73333},
+            {"cond": ["actcond", 946, "=", 1], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"cond": ["actcond", 946, "=", 2], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"cond": ["actcond", 946, "=", 2], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"cond": ["actcond", 946, "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"cond": ["actcond", 946, "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"cond": ["actcond", 946, "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"actcond": 955, "target": "MYSELF", "iv": 0.43333, "mslc": 1}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.25641,
+        "recovery": 1.21026,
+        "attr": [
+            {"dmg": 3.6, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.64103, "dodge": 0.0, "dx2": 0.35897, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.30952,
+        "recovery": 1.35715,
+        "attr": [
+            {"dmg": 3.9, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.64286, "dodge": 0.0, "dx3": 0.30953, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.34667,
+        "recovery": 1.65333,
+        "attr": [
+            {"sp": 5, "actcond": 946, "target": "MYSELF"},
+            {"dmg": 1.68, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.72, "dodge": 0.0, "s": 0.0}
+    }
+}

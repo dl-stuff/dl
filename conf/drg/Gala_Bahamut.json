@@ -1,0 +1,124 @@
+{
+    "d": {
+        "name": "Gala Bahamut",
+        "icon": "210162_01",
+        "att": 128,
+        "hp": 368,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 1.2, "att"]]},
+            {"cond": ["start"], "ab": [["dprep", 0.5], ["dprepmax", 0.5]]},
+            {"ab": [["mod", 1.0, "dt"]]}
+        ]
+    },
+    "dfs": {
+        "charge": 0.4,
+        "startup": 0.5,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 2.72, "sp": 10, "target": "HOSTILE", "msl": 0.3},
+            {"dmg": 2.72, "sp": 10, "target": "HOSTILE", "msl": 0.55},
+            {"dmg": 2.72, "sp": 10, "target": "HOSTILE", "msl": 0.8},
+            {"dmg": 2.72, "sp": 10, "target": "HOSTILE", "msl": 1.05}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 4.3,
+        "cancel": {"any": 4.0, "dx1": 3.83333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 4.1, "target": "HOSTILE", "iv": 2.66667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 4.1, "target": "HOSTILE", "iv": 2.8},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 4.1, "target": "HOSTILE", "iv": 2.93333},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 4.1, "target": "HOSTILE", "iv": 3.06667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 4.1, "target": "HOSTILE", "iv": 3.2}
+        ]
+    },
+    "ds1_overcharge1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 4.3,
+        "cancel": {"any": 4.0, "dx1": 3.83333},
+        "sp_db": 30,
+        "uses": 1,
+        "attr": [
+            {"amp": ["20000", 1, 2], "target": "MYSELF"},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.16, "target": "HOSTILE", "iv": 2.66667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.16, "target": "HOSTILE", "iv": 2.8},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.16, "target": "HOSTILE", "iv": 2.93333},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.16, "target": "HOSTILE", "iv": 3.06667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.16, "target": "HOSTILE", "iv": 3.2},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.16, "target": "HOSTILE", "iv": 3.33333}
+        ]
+    },
+    "ds1_overcharge2": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 4.3,
+        "cancel": {"any": 4.0, "dx1": 3.83333},
+        "sp_db": 30,
+        "uses": 1,
+        "attr": [
+            {"amp": ["10000", 1, 2], "target": "MYSELF"},
+            {"amp": ["20000", 1, 2], "target": "MYSELF"},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 2.66667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.06667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.13333},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.2},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.26667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.33333},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.4},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.46667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.53333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.06667,
+        "recovery": 2.16666,
+        "attr": [
+            {"dmg": 1.8, "sp": 5, "target": "HOSTILE", "msl": 0.5},
+            {"dmg": 1.8, "sp": 5, "target": "HOSTILE", "iv": 0.03333, "msl": 0.5},
+            {"dmg": 1.8, "sp": 5, "target": "HOSTILE", "iv": 0.06666, "msl": 0.5},
+            {"dmg": 1.8, "sp": 5, "target": "HOSTILE", "iv": 0.1, "msl": 0.5}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.6, "dfs": 0.0, "dodge": 0.0, "dx2": 1.16666, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 1.06667,
+        "recovery": 1.86666,
+        "attr": [
+            {"dmg": 9.64, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.6, "dfs": 0.0, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.76923,
+        "recovery": 3.43077,
+        "attr": [
+            {"dmg": 6.76, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.79487, "dfs": 0.0, "dodge": 0.0, "dx4": 1.64103, "s": 0.0}
+    },
+    "dx4": {
+        "startup": 0.51282,
+        "recovery": 2.22051,
+        "attr": [
+            {"dmg": 18.26, "sp": 15, "target": "HOSTILE", "msl": 0.4, "msl_spd": 1}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.02564, "dfs": 0.0, "dodge": 0.0, "dx1": 0.89744, "s": 0.0}
+    }
+}

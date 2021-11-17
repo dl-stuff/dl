@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "507": {"icon": "att-buff", "mods": [[0.06, "att", "buff"]], "text": "Strength +6%"},
+        "509": {"icon": "att-buff", "mods": [[0.09, "att", "buff"]], "text": "Strength +9%"},
+        "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "1267": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "overwrite": 6},
+        "1353": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120}
+    },
     "c": {
         "name": "Summer Prince",
         "icon": "100001_12_r05",
@@ -7,21 +14,24 @@
         "ele": "shadow",
         "wt": "dagger",
         "spiral": false,
-        "a": [["dshift_att", 0.06, 0.09, 0.15], ["affres_paralysis", 100.0]]
+        "abilities": [
+            {"cond": ["event", "dragon"], "count": 3, "ab": [["actcond", "MYSELF", 507, 509, 512]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]}
+        ]
     },
     "s1": {
         "sp": 2640,
         "startup": 0.0,
         "recovery": 3.46667,
         "attr": [
-            {"dmg": 2.48, "afflic": ["shadowblight", 120, 0.41], "iv": 0.26667},
-            {"dmg": 2.48, "iv": 0.66667},
-            {"dmg": 2.48, "iv": 1.06667},
-            {"dmg": 2.48, "iv": 1.3},
-            {"dmg": 2.48, "iv": 1.7},
-            {"dmg": 2.48, "iv": 2.06667},
-            {"dmg": 2.48, "iv": 2.23333},
-            {"dmg": 4.28, "iv": 2.56667}
+            {"dmg": 2.48, "actcond": 1353, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 2.48, "actcond": 1353, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 2.48, "actcond": 1353, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 2.48, "actcond": 1353, "target": "HOSTILE", "iv": 1.3},
+            {"dmg": 2.48, "actcond": 1353, "target": "HOSTILE", "iv": 1.7},
+            {"dmg": 2.48, "actcond": 1353, "target": "HOSTILE", "iv": 2.06667},
+            {"dmg": 2.48, "actcond": 1353, "target": "HOSTILE", "iv": 2.23333},
+            {"dmg": 4.28, "actcond": 1353, "target": "HOSTILE", "iv": 2.56667}
         ],
         "cancel": {"any": 3.26667}
     },
@@ -30,11 +40,11 @@
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"dmg": 3.6, "buff": ["debuff", -0.1, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 0.23333},
-            {"dmg": 3.6, "iv": 0.4},
-            {"dmg": 3.6, "iv": 0.66667},
-            {"dmg": 3.6, "iv": 0.83333},
-            {"dmg": 3.6, "iv": 1.53333}
+            {"dmg": 3.6, "actcond": 1267, "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 3.6, "actcond": 1267, "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 3.6, "actcond": 1267, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 3.6, "actcond": 1267, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 3.6, "actcond": 1267, "target": "HOSTILE", "iv": 1.53333}
         ],
         "cancel": {"any": 2.26667}
     }

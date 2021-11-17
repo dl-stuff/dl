@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "291": {"dispel": 1},
+        "898": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Cluster Amaryllis"},
+        "903": {"duration": 15.0, "icon": "cspd-buff", "mods": [[0.3, "cspd", "buff"]], "text": "Force Strike Rate +30%", "overwrite": -1},
+        "904": {"coei": 1, "alt": {"s2": "enhanced"}, "icon": 0, "hide": 1, "overwrite": -1},
+        "905": {"coei": 1, "alt": {"s2": "default"}, "icon": 0, "hide": 1, "overwrite": -1}
+    },
     "c": {
         "name": "Linnea",
         "icon": "110271_01_r05",
@@ -7,37 +14,44 @@
         "ele": "shadow",
         "wt": "blade",
         "spiral": false,
-        "a": [["affres_blind", 100.0], ["fs", 0.5]]
+        "abilities": [
+            {"cond": ["hits", ">=", 3, 1, "fs"], "ab": [["hitattr", {"sp": [0.3, "%", "s1"], "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"ab": [["actdmg", 0.5, "-t:fs"]]}
+        ]
     },
     "fs1_enhanced": {
         "charge": 0.5,
         "startup": 0.26667,
         "recovery": 1.73333,
         "attr": [
-            {"dmg": 5.17, "sp": 600},
-            {"dmg": 5.17}, 2
+            {"dmg": 5.17, "sp": 600, "target": "HOSTILE"},
+            {"dmg": 5.17, "sp": 600, "target": "HOSTILE"},
+            {"dmg": 5.17, "sp": 600, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.56666}
     },
     "fs2_enhanced": {
-        "charge": 1.8,
+        "charge": 1.0,
         "startup": 0.26667,
         "recovery": 1.73333,
         "attr": [
-            {"dmg": 2.87, "sp": 925},
-            {"dmg": 2.87}, 5
+            {"dmg": 2.87, "sp": 925, "target": "HOSTILE"},
+            {"dmg": 2.87, "sp": 925, "target": "HOSTILE"},
+            {"dmg": 2.87, "sp": 925, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.56666}
     },
     "fs3_enhanced": {
-        "charge": 3.5,
+        "charge": 1.5,
         "startup": 0.26667,
         "recovery": 1.73333,
         "attr": [
-            {"dmg": 2.36, "killer": [0.2, ["poison"]], "sp": 1500},
-            {"dmg": 2.36, "killer": [0.2, ["poison"]]}, 8
+            {"dmg": 2.36, "killer": [0.2, ["poison"]], "sp": 1500, "target": "HOSTILE"},
+            {"dmg": 2.36, "killer": [0.2, ["poison"]], "sp": 1500, "target": "HOSTILE"},
+            {"dmg": 2.36, "killer": [0.2, ["poison"]], "sp": 1500, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.56666}
@@ -47,7 +61,7 @@
         "startup": 0.0,
         "recovery": 1.13333,
         "attr": [
-            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.16667, "coei": 1}
+            {"actcond": 898, "target": "MYSELF", "iv": 0.16667}
         ]
     },
     "s2": {
@@ -55,8 +69,8 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["sAlt", "enhanced", "s2", -1, 1, "-refresh"], "coei": 1},
-            {"buff": ["self", 0.3, 15.0, "cspd", "buff", "-refresh"], "iv": 0.16667}
+            {"actcond": 904, "target": "MYSELF"},
+            {"actcond": 903, "target": "MYSELF", "iv": 0.16667}
         ]
     },
     "s2_enhanced": {
@@ -64,10 +78,11 @@
         "startup": 0.0,
         "recovery": 2.5,
         "attr": [
-            {"dmg": 3.55, "dispel": 100, "iv": 0.4},
-            {"dmg": 3.55, "iv": 0.56667},
-            {"dmg": 3.55, "iv": 0.73333},
-            {"dmg": 3.55, "iv": 0.9}
+            {"actcond": 905, "target": "MYSELF"},
+            {"dmg": 3.55, "actcond": 291, "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 3.55, "actcond": 291, "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 3.55, "actcond": 291, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 3.55, "actcond": 291, "target": "HOSTILE", "iv": 0.9}
         ],
         "cancel": {"any": 1.33333}
     }

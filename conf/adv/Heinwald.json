@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "311050702": {"duration": 10.0, "icon": 46, "mods": [[0.1, "att", "buff"]], "alt": {"s1": "enhanced"}, "text": "Abyssal Connection", "overwrite": -1}
+    },
     "c": {
         "name": "Heinwald",
         "icon": "110280_01_r05",
@@ -7,16 +11,23 @@
         "ele": "shadow",
         "wt": "staff",
         "spiral": true,
-        "a": [["s", 0.4, "hp70"], ["affres_paralysis", 100.0], ["resself_paralysis_att", 0.15, 10.0, 15.0], ["prep", 100.0], ["scharge_all", 0.05]]
+        "abilities": [
+            {"cond": ["hp", ">=", 70], "ab": [["actdmg", 0.4, "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 9385}
     },
     "s1": {
         "sp": 3352,
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 5.41, "hp": 4.0, "iv": 0.6},
-            {"dmg": 5.41, "hp": 4.0, "iv": 1.06667},
-            {"heal": [36, "team"], "iv": 1.13333}
+            {"dmg": 5.41, "hp": 4.0, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 5.41, "hp": 4.0, "target": "HOSTILE", "iv": 1.06667},
+            {"heal": 36, "target": "ALLY", "iv": 1.13333}
         ]
     },
     "s1_enhanced": {
@@ -24,9 +35,9 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 5.41, "hp": 8.0, "iv": 0.6},
-            {"heal": [36, "team"], "iv": 1.13333},
-            {"dmg": 5.41, "hp": 8.0, "iv": 1.2}
+            {"dmg": 5.41, "hp": 8.0, "target": "HOSTILE", "iv": 0.6},
+            {"heal": 36, "target": "ALLY", "iv": 1.13333},
+            {"dmg": 5.41, "hp": 8.0, "target": "HOSTILE", "iv": 1.2}
         ]
     },
     "s2": {
@@ -34,8 +45,8 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": [["sAlt", "enhanced", "s1", 10.0], ["self", 0.1, 10.0, "att", "buff"], "-refresh"], "iv": 0.1},
-            {"buff": ["nearby", 0.15, 10.0, "att", "buff"], "iv": 0.13333}
+            {"actcond": 311050702, "target": "MYSELF", "iv": 0.1},
+            {"actcond": 302020201, "target": "ALLY", "iv": 0.13333}
         ]
     }
 }

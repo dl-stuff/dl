@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "1": {"count": 1, "energy": 1, "text": "Energy Level +1"},
+        "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
+        "63": {"aff": "stun", "duration": 6.5, "rate": 110},
+        "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+    },
     "c": {
         "name": "Annelie",
         "icon": "110275_01_r05",
@@ -7,16 +14,21 @@
         "ele": "light",
         "wt": "lance",
         "spiral": false,
-        "a": [["s", 0.35, "hp70"], ["affres_poison", 100.0], ["energized_att", 0.2]]
+        "abilities": [
+            {"cond": ["hp", ">=", 70], "ab": [["actdmg", 0.35, "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_poison"]]},
+            {"cond": ["event", "energized"], "ab": [["hitattr", {"actcond": 302030401, "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 11288}
     },
-    "s1_phase1": {
+    "s1": {
         "sp": 3051,
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
-            {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 17.908, "afflic": ["stun", 110], "iv": 0.33333},
-            {"buff": ["energy", 1, "team"], "iv": 1.6}
+            {"dmg": 0.22, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 17.908, "actcond": 63, "target": "HOSTILE", "iv": 0.33333},
+            {"actcond": 1, "target": "MYPARTY", "iv": 1.6}
         ],
         "cancel": {"any": 1.66667}
     },
@@ -25,13 +37,12 @@
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
-            {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 8.954, "afflic": ["stun", 110], "iv": 0.33333},
-            {"dmg": 0.22, "iv": 0.5},
-            {"dmg": 8.954, "iv": 0.5},
-            {"buff": ["energy", 2, "team"], "iv": 1.73333}
+            {"dmg": 0.22, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 8.954, "actcond": 63, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 0.22, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 8.954, "actcond": 63, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 2, "target": "MYPARTY", "iv": 1.73333}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.76667}
     },
     "s1_phase3": {
@@ -39,14 +50,13 @@
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
-            {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 7.788, "afflic": ["stun", 110], "iv": 0.33333},
-            {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 7.788, "iv": 0.33333},
-            {"dmg": 0.22, "iv": 0.66667},
-            {"dmg": 7.788, "iv": 0.66667}
+            {"dmg": 0.22, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 7.788, "actcond": 63, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 0.22, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 7.788, "actcond": 63, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 0.22, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 7.788, "actcond": 63, "target": "HOSTILE", "iv": 0.66667}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.7}
     },
     "s2": {
@@ -54,17 +64,17 @@
         "startup": 0.0,
         "recovery": 3.46667,
         "attr": [
-            {"dmg": 1.825, "iv": 0.26667},
-            {"dmg": 1.825, "iv": 0.56667},
-            {"dmg": 1.825, "iv": 0.86667},
-            {"dmg": 1.825, "iv": 1.16667},
-            {"dmg": 1.825, "iv": 1.46667},
-            {"dmg": 1.825, "iv": 1.76667},
-            {"dmg": 1.825, "iv": 2.06667},
-            {"dmg": 1.825, "iv": 2.36667},
-            {"dmg": 1.825, "iv": 2.66667},
-            {"dmg": 1.825, "iv": 3.0},
-            {"buff": ["energy", 3, "team"], "iv": 3.0}
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 0.86667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 1.46667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 1.76667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 2.06667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 2.36667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 2.66667},
+            {"dmg": 1.825, "target": "HOSTILE", "iv": 3.0},
+            {"actcond": 102, "target": "MYPARTY", "iv": 3.0}
         ]
     }
 }

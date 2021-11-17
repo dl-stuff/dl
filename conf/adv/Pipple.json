@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "1": {"count": 1, "energy": 1, "text": "Energy Level +1"},
+        "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
+        "498": {"duration": 10.0, "icon": "resist_flame-buff", "mods": [[0.03, "resist_flame", "buff"]], "coei": 1, "text": "Flame Res +3%"},
+        "302030601": {"duration": 15.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"},
+        "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"}
+    },
     "c": {
         "name": "Pipple",
         "icon": "110300_01_r04",
@@ -7,14 +14,22 @@
         "ele": "water",
         "wt": "wand",
         "spiral": false,
-        "a": [["affres_burn", 100.0], ["estat_att", 7], ["estat_crit", 7]]
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"cond": ["energy", "=", 1], "ab": [["mod", 0.05, "att"], ["mod", 0.01, "crit"]]},
+            {"cond": ["energy", "=", 2], "ab": [["mod", 0.1, "att"], ["mod", 0.04, "crit"]]},
+            {"cond": ["energy", "=", 3], "ab": [["mod", 0.2, "att"], ["mod", 0.07, "crit"]]},
+            {"cond": ["energy", "=", 4], "ab": [["mod", 0.3, "att"], ["mod", 0.1, "crit"]]},
+            {"cond": ["energy", "=", 5], "ab": [["mod", 0.4, "att"], ["mod", 0.15, "crit"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 15840}
     },
-    "s1_phase1": {
+    "s1": {
         "sp": 4800,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667}
+            {"actcond": 303030401, "target": "MYPARTY", "iv": 0.16667}
         ]
     },
     "s1_phase2": {
@@ -22,34 +37,34 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667}
-        ],
-        "phase_coei": true
+            {"actcond": 303030401, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 498, "target": "MYPARTY", "iv": 0.16667}
+        ]
     },
     "s1_phase3": {
         "sp": 4800,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667},
-            {"buff": ["energy", 1, "team"], "iv": 0.16667}
-        ],
-        "phase_coei": true
+            {"actcond": 303030401, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 498, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 1, "target": "MYPARTY", "iv": 0.16667}
+        ]
     },
     "s2": {
         "sp": 4900,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["energy", 2, "team"], "iv": 0.16667},
-            {"buff": ["self", 0.3, 15.0, "att", "buff"], "iv": 0.2}
+            {"actcond": 2, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 302030601, "target": "MYSELF", "iv": 0.2}
         ]
     },
     "x1": {
         "startup": 0.25,
         "recovery": 1.21667,
         "attr": [
-            {"dmg": 2.79, "sp": 130}
+            {"dmg": 2.79, "sp": 130, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.72222, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.08333}
@@ -58,8 +73,8 @@
         "startup": 0.46667,
         "recovery": 1.5,
         "attr": [
-            {"dmg": 1.51, "sp": 200},
-            {"dmg": 1.51}
+            {"dmg": 1.51, "sp": 200, "target": "HOSTILE"},
+            {"dmg": 1.51, "sp": 200, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.64444, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.02222}
@@ -68,9 +83,9 @@
         "startup": 0.47619,
         "recovery": 1.82381,
         "attr": [
-            {"dmg": 1.01, "sp": 240},
-            {"dmg": 1.01},
-            {"dmg": 1.01}
+            {"dmg": 1.01, "sp": 240, "target": "HOSTILE"},
+            {"dmg": 1.01, "sp": 240, "target": "HOSTILE"},
+            {"dmg": 1.01, "sp": 240, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.95238, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.33333}
@@ -79,8 +94,8 @@
         "startup": 0.54762,
         "recovery": 1.08571,
         "attr": [
-            {"dmg": 2.08, "sp": 430},
-            {"dmg": 2.08}
+            {"dmg": 2.08, "sp": 430, "target": "HOSTILE"},
+            {"dmg": 2.08, "sp": 430, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.64286, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.40476}
@@ -89,11 +104,11 @@
         "startup": 0.66667,
         "recovery": 0.96666,
         "attr": [
-            {"dmg": 1.66, "sp": 600},
-            {"dmg": 1.01, "msl": 0.08333},
-            {"dmg": 1.01, "msl": 0.08333},
-            {"dmg": 1.01, "msl": 0.16667},
-            {"dmg": 1.01, "msl": 0.16667}
+            {"dmg": 1.66, "sp": 600, "target": "HOSTILE"},
+            {"dmg": 1.01, "sp": 600, "target": "HOSTILE", "msl": 0.08333},
+            {"dmg": 1.01, "sp": 600, "target": "HOSTILE", "msl": 0.08333},
+            {"dmg": 1.01, "sp": 600, "target": "HOSTILE", "msl": 0.16667},
+            {"dmg": 1.01, "sp": 600, "target": "HOSTILE", "msl": 0.16667}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.16666}

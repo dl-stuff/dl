@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "57": {"aff": "stun", "duration": 4.5},
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "303030901": {"duration": 15.0, "icon": "def-buff", "mods": [[0.5, "def", "buff"]], "text": "Defense +50%"}
+    },
     "c": {
         "name": "Raemond",
         "icon": "110035_01_r03",
@@ -7,15 +12,20 @@
         "ele": "light",
         "wt": "sword",
         "spiral": false,
-        "a": [["lo_defense", 0.5], ["affres_poison", 50.0], ["affres_poison", 25.0]]
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", 303030901]]},
+            {"ab": [["mod", 0.5, "affres_poison"]]},
+            {"ab": [["mod", 0.25, "affres_poison"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 6840}
     },
     "s1": {
         "sp": 2443,
         "startup": 0.0,
         "recovery": 1.7,
         "attr": [
-            {"buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.76667, "coei": 1},
-            {"dmg": 9.74, "afflic": ["stun", 100, 5.0, 4.0], "iv": 0.76667}
+            {"actcond": 1246, "target": "HOSTILE", "iv": 0.76667},
+            {"dmg": 9.74, "actcond": 57, "target": "HOSTILE", "iv": 0.76667}
         ],
         "cancel": {"any": 1.3}
     },
@@ -24,8 +34,8 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 4.91, "iv": 0.66667},
-            {"dmg": 4.91, "iv": 0.83333}
+            {"dmg": 4.91, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.91, "target": "HOSTILE", "iv": 0.83333}
         ],
         "cancel": {"any": 1.4}
     }

@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120}
+    },
+    "d": {
+        "name": "Summer Cat S\u00ecth",
+        "icon": "210158_01",
+        "att": 124,
+        "hp": 371,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 0.5, "att"]]},
+            {"cond": ["start"], "ele": "light", "ab": [["prep", 1.0]]},
+            {"cond": ["aura", 3, 1], "ele": "light", "ab": [["mod", 0.25, "killer_flashburn"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 3.16667,
+        "cancel": {"any": 1.5},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 17.5, "actcond": 1258, "target": "HOSTILE", "iv": 1.06667},
+            {"amp": ["20000", 2, 2], "target": "MYSELF", "iv": 1.06667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 6.5, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "dx2": 0.7, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.3,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 7.7, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.03333, "dodge": 0.0, "dx3": 0.86667, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.5,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 9.5, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "dx1": 0.66667, "s": 0.0}
+    }
+}

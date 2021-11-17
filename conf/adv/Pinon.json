@@ -1,4 +1,12 @@
 {
+    "actconds": {
+        "310": {"icon": "aspd-buff", "mods": [[0.2, "aspd", "buff"]], "text": "Attack Rate +20%"},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "maxstack": 1, "unremovable": 1},
+        "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1218": {"duration": 40.0, "icon": 165, "mods": [[0.5, "att", "buff"], [0.2, "def", "buff"]], "shield": {"2": 0.15}, "coei": 1, "text": "Gabriel's Blessing", "overwrite": -1},
+        "1276": {"count": 1, "energy": 1, "text": "Energy Level +1", "rate": 40}
+    },
     "c": {
         "name": "Pinon",
         "icon": "110366_01_r05",
@@ -7,18 +15,21 @@
         "ele": "water",
         "wt": "bow",
         "spiral": false,
-        "a": [["affres_burn", 100.0], ["hpmore_70_spd_buff", 0.2]]
-    },
-    "fs": {
-        "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.03333}
+        "abilities": [
+            {"cond": ["start"], "cd": 5.0, "ab": [["actcond", "MYSELF", 1152]]},
+            {"cond": ["sp", "s1", ">", -1], "actcond": 1172, "ab": [["acduration", 1152, -0.23]]},
+            {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", 1171]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["actcond", "MYSELF", 310]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 7035}
     },
     "fs1": {
         "charge": 0.5,
         "startup": 0.06667,
         "recovery": 1.06666,
         "attr": [
-            {"dmg": 1.1, "sp": 500}
+            {"dmg": 1.1, "sp": 500, "target": "HOSTILE"}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"any": 0.93333, "dodge": 0.03333, "s": 0.0}
@@ -28,7 +39,7 @@
         "startup": 0.06667,
         "recovery": 1.06666,
         "attr": [
-            {"dmg": 6.0, "killer": [2.0, ["frostbite"]], "sp": 710}
+            {"dmg": 6.0, "killer": [2.0, ["frostbite"]], "sp": 710, "target": "HOSTILE"}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"any": 0.93333, "dodge": 0.03333, "s": 0.0}
@@ -38,7 +49,7 @@
         "startup": 0.0,
         "recovery": 2.06667,
         "attr": [
-            {"dmg": 18.15, "afflic": ["frostbite", 120, 0.41], "iv": 1.36667}
+            {"dmg": 18.15, "actcond": 411, "target": "HOSTILE", "iv": 1.36667}
         ],
         "cancel": {"any": 1.66667}
     },
@@ -47,16 +58,16 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": [["self", 0.5, 40.0, "att", "buff"], ["self", 0.2, 40.0, "defense", "buff"], "-refresh"], "coei": 1, "iv": 0.16667}
+            {"actcond": 1218, "target": "MYSELF", "iv": 0.16667}
         ]
     },
     "x1_sigil": {
         "startup": 0.36667,
         "recovery": 1.13333,
         "attr": [
-            {"dmg": 0.35, "sp": 184},
-            {"dmg": 0.35},
-            {"dmg": 0.35}
+            {"dmg": 0.44, "sp": 184, "target": "HOSTILE"},
+            {"dmg": 0.44, "sp": 184, "target": "HOSTILE"},
+            {"dmg": 0.44, "sp": 184, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.63333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_sigil": 0.06666}
@@ -65,8 +76,8 @@
         "startup": 0.27273,
         "recovery": 1.39394,
         "attr": [
-            {"dmg": 0.44, "sp": 92},
-            {"dmg": 0.44, "iv": 0.21212}
+            {"dmg": 0.55, "sp": 92, "target": "HOSTILE"},
+            {"dmg": 0.55, "sp": 92, "target": "HOSTILE", "iv": 0.21212}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.57575, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_sigil": 0.27272}
@@ -75,9 +86,9 @@
         "startup": 0.48485,
         "recovery": 1.31515,
         "attr": [
-            {"dmg": 0.5, "sp": 276},
-            {"dmg": 0.5},
-            {"dmg": 0.5}
+            {"dmg": 0.63, "sp": 276, "target": "HOSTILE"},
+            {"dmg": 0.63, "sp": 276, "target": "HOSTILE"},
+            {"dmg": 0.63, "sp": 276, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.57576, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_sigil": 0.42424}
@@ -86,8 +97,8 @@
         "startup": 0.27778,
         "recovery": 1.38889,
         "attr": [
-            {"dmg": 0.76, "sp": 414},
-            {"dmg": 0.76, "iv": 0.16666}
+            {"dmg": 0.95, "sp": 414, "target": "HOSTILE"},
+            {"dmg": 0.95, "sp": 414, "target": "HOSTILE", "iv": 0.16666}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.83333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_sigil": 0.27778}
@@ -96,11 +107,11 @@
         "startup": 0.97222,
         "recovery": 1.26111,
         "attr": [
-            {"dmg": 0.42, "sp": 529},
-            {"dmg": 0.42},
-            {"dmg": 0.42},
-            {"dmg": 0.42},
-            {"dmg": 0.42}
+            {"dmg": 0.53, "sp": 529, "target": "HOSTILE"},
+            {"dmg": 0.53, "sp": 529, "target": "HOSTILE"},
+            {"dmg": 0.53, "sp": 529, "target": "HOSTILE"},
+            {"dmg": 0.53, "sp": 529, "target": "HOSTILE"},
+            {"dmg": 0.53, "sp": 529, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.69445, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x6_sigil": 0.16667}
@@ -109,8 +120,8 @@
         "startup": 1.33333,
         "recovery": 1.3,
         "attr": [
-            {"dmg": 12.72, "sp": 325, "hp": 7.0},
-            {"buff": ["energy", 0.4]}
+            {"actcond": 1276, "target": "MYSELF"},
+            {"actcond": 1276, "target": "MYSELF"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.5, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x7_sigil": 0.43334}
@@ -119,8 +130,8 @@
         "startup": 1.33333,
         "recovery": 1.3,
         "attr": [
-            {"dmg": 12.72, "sp": 325, "hp": 7.0},
-            {"buff": ["energy", 0.4]}
+            {"actcond": 1276, "target": "MYSELF"},
+            {"actcond": 1276, "target": "MYSELF"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.5, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x8_sigil": 0.43334}
@@ -129,8 +140,8 @@
         "startup": 1.33333,
         "recovery": 1.3,
         "attr": [
-            {"dmg": 12.72, "sp": 325, "hp": 7.0},
-            {"buff": ["energy", 0.4]}
+            {"actcond": 1276, "target": "MYSELF"},
+            {"actcond": 1276, "target": "MYSELF"}
         ],
         "loop": 1,
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},

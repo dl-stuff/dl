@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "291": {"dispel": 1},
+        "504": {"lifeshield": 0.3, "text": "Life Shield"},
+        "303010801": {"duration": 5.0, "icon": "def-buff", "mods": [[1.0, "def", "buff"]], "text": "Defense +100%"},
+        "303030501": {"duration": 15.0, "icon": "def-buff", "mods": [[0.3, "def", "buff"]], "text": "Defense +30%"},
+        "308020401": {"duration": 20.0, "slip": {"percent": -0.04, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Grace",
         "icon": "110059_01_r05",
@@ -7,14 +14,18 @@
         "ele": "shadow",
         "wt": "staff",
         "spiral": false,
-        "a": [["fs", 0.3], ["affres_blind", 100.0], ["bc_regen", 4.0]]
+        "abilities": [
+            {"ab": [["actdmg", 0.3, "-t:fs"]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", 308020401]]}
+        ]
     },
     "fs": {
         "charge": 1.8,
         "startup": 0.73333,
         "recovery": 0.83334,
         "attr": [
-            {"dmg": 4.584, "sp": 800, "hp": 5.0, "dispel": 100}
+            {"dmg": 4.584, "sp": 800, "hp": 5.0, "actcond": 291, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"any": 0.6, "dodge": 0.0, "s": 0.0}
@@ -23,9 +34,9 @@
         "sp": 5916,
         "startup": 0.0,
         "recovery": 2.3,
-        "attr": [
-            {"cond": ["hp>=", 40], "hp": [30, "="], "iv": 1.0},
-            {"cond": ["hp<=", 40], "buff": ["team", 0.3, 15.0, "defense", "buff"], "iv": 1.0}
+        "abilities": [
+            {"cond": ["hp", ">=", 40], "ab": [["hitattr", {"hp": [30.0, "="], "target": "MYSELF"}], ["hitattr", {"actcond": 504, "target": "MYPARTY"}]]},
+            {"cond": ["hp", "<", 40], "ab": [["hitattr", {"actcond": 303030501, "target": "MYPARTY"}]]}
         ]
     },
     "s2": {
@@ -33,7 +44,7 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"buff": ["team", 1.0, 5.0, "defense", "buff"], "iv": 1.0}
+            {"actcond": 303010801, "target": "MYPARTY", "iv": 1.0}
         ]
     }
 }

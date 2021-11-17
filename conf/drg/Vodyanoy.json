@@ -1,0 +1,62 @@
+{
+    "d": {
+        "name": "Vodyanoy",
+        "icon": "210058_01",
+        "att": 100,
+        "hp": 296,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 0.45, "att"]]}
+        ]
+    },
+    "dodge": {
+        "recovery": 0.55556,
+        "backdash": true
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "cancel": {"any": 1.73333, "dodge": 1.73333, "dx1": 1.73333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.08, "target": "HOSTILE", "iv": 0.76667},
+            {"dmg": 3.08, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 3.08, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 3.08, "target": "HOSTILE", "iv": 1.0}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.4,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 3.52, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.3,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 3.88, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.56667,
+        "recovery": 1.53333,
+        "attr": [
+            {"dmg": 4.92, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.13333, "dodge": 0.0, "dx1": 1.13333, "s": 0.0}
+    }
+}

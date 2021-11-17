@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"},
+        "316020801": {"count": 1, "shield": {"2": 0.8}, "coei": 1, "text": "Divergent Shield"}
+    },
     "c": {
         "name": "Valentine's Addis",
         "icon": "110310_02_r05",
@@ -7,15 +12,20 @@
         "ele": "shadow",
         "wt": "bow",
         "spiral": false,
-        "a": [["k_poison", 0.3], ["affres_paralysis", 100.0], ["a", 0.2, "hp\u226430"], ["spd", 0.1, "hp\u226430"]]
+        "abilities": [
+            {"ab": [["mod", 0.3, "killer_poison"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["hp", "<=", 30], "ab": [["mod", 0.2, "att"], ["mod", 0.1, "spd"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 9631}
     },
     "s1": {
         "sp": 2603,
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"dmg": 3.87, "crisis": 0.7, "afflic": ["poison", 120, 0.582], "iv": 0.8},
-            {"dmg": 9.03, "crisis": 0.7, "iv": 0.8, "msl": 0.5}
+            {"dmg": 3.87, "crisis": 0.7, "actcond": 101021001, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 9.03, "crisis": 0.7, "actcond": 101021001, "target": "HOSTILE", "iv": 0.8}
         ],
         "cancel": {"any": 1.66667}
     },
@@ -23,8 +33,9 @@
         "sp": 6200,
         "startup": 0.0,
         "recovery": 0.96667,
-        "attr": [
-            {"cond": ["hp>=", 30], "hp": [20, "="], "iv": 1.0}
+        "abilities": [
+            {"cond": ["hp", ">=", 30], "ab": [["hitattr", {"hp": [20.0, "="], "actcond": 316020801, "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30], "ab": [["hitattr", {"actcond": 316010501, "target": "MYPARTY"}]]}
         ]
     }
 }

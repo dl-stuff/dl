@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "87": {"aff": "poison", "duration": 30.0, "slip": {"dmg": 0.291, "iv": 2.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308020801": {"duration": 20.0, "slip": {"percent": -0.14, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Lathna",
         "icon": "110349_01_r05",
@@ -7,45 +12,59 @@
         "ele": "shadow",
         "wt": "lance",
         "spiral": true,
-        "a": [["k_poison", 0.15], ["affres_paralysis", 100.0], ["resself_paralysis_att", 0.15, 10.0, 15.0], ["dt", 0.25]]
+        "abilities": [
+            {"cond": ["event", "dragon"], "ab": [["actcond", "MYSELF", 308020801]]},
+            {"cond": ["event", "dragon"], "ab": [["hitattrshift"]]},
+            {"cond": ["shift", "dform"], "ab": [["mod", 2.0, "killer_poison"]]},
+            {"ab": [["mod", 0.15, "killer_poison"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.25, "dt"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 9989}
     },
     "dragonform": {
+        "dshift": {
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ]
+        },
         "dx1": {
             "startup": 0.33333,
             "recovery": 0.96667,
             "attr": [
-                {"dmg": 2.31, "sp": 5}
+                {"dmg": 2.31, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"s": 0.0},
             "cancel": {"any": 0.66667, "dx2": 0.2, "s": 0.0},
             "attr_HAS": [
-                {"dmg": 2.31, "sp": 5}
+                {"dmg": 2.31, "sp": 5, "target": "HOSTILE"}
             ]
         },
         "dx2": {
             "startup": 0.36667,
             "recovery": 1.06666,
             "attr": [
-                {"dmg": 2.54, "sp": 5}
+                {"dmg": 2.54, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 0.63333, "dodge": 0.0, "dx3": 0.2, "s": 0.0},
             "attr_HAS": [
-                {"dmg": 2.54, "sp": 5}
+                {"dmg": 2.54, "sp": 5, "target": "HOSTILE"}
             ]
         },
         "dx3": {
             "startup": 0.36667,
             "recovery": 1.66666,
             "attr": [
-                {"dmg": 1.67, "sp": 5},
-                {"dmg": 1.67, "iv": 0.33333}
+                {"dmg": 1.67, "sp": 5, "target": "HOSTILE"},
+                {"dmg": 1.67, "sp": 5, "target": "HOSTILE", "iv": 0.33333}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 1.46666, "dodge": 0.0, "dx1": 1.3, "s": 0.0},
             "attr_HAS": [
-                {"dmg": 1.67, "sp": 5},
-                {"dmg": 1.67, "iv": 0.33333}
+                {"dmg": 1.67, "sp": 5, "target": "HOSTILE"},
+                {"dmg": 1.67, "sp": 5, "target": "HOSTILE", "iv": 0.33333}
             ]
         },
         "ds1": {
@@ -56,46 +75,33 @@
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 3.64, "afflic": ["poison", 120, 0.291, 30.0], "iv": 0.33333},
-                {"dmg": 3.64, "iv": 0.76667}
+                {"dmg": 3.31, "actcond": 87, "target": "HOSTILE", "iv": 0.33333},
+                {"dmg": 3.31, "actcond": 87, "target": "HOSTILE", "iv": 0.76667}
             ],
             "attr_HAS": [
-                {"dmg": 3.64, "afflic": ["poison", 120, 0.291, 30.0], "iv": 0.33333},
-                {"dmg": 3.64, "iv": 0.76667}
+                {"dmg": 3.64, "actcond": 87, "target": "HOSTILE", "iv": 0.33333},
+                {"dmg": 3.64, "actcond": 87, "target": "HOSTILE", "iv": 0.76667}
             ]
         }
     },
     "s1": {
         "sp": 2854,
         "startup": 0.0,
-        "recovery": 2.05,
+        "recovery": 1.06667,
         "attr": [
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 0.66667},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 1.0},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 1.33333}
-        ]
-    },
-    "s1_all": {
-        "sp": 2854,
-        "startup": 0.0,
-        "recovery": 3.9,
-        "recovery_nospd": 0.15,
-        "attr": [
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 0.66667},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 1.0},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 1.33333},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 1.83333},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 2.33333},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 2.83333},
-            {"dmg": 2.61, "killer": [1.0, ["poison"]], "iv": 3.33333}
-        ]
+            {"dmg": 2.61, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 2.61, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 1.0},
+            {"dmg": 2.61, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 1.33333}
+        ],
+        "DEBUG_attr_N1": [{"dmg": 2.61, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 0.4}],
+        "DEBUG_attr_N2": [{"dmg": 2.61, "killer": [1.0, ["poison"]], "target": "HOSTILE"}]
     },
     "s2": {
         "sp": 5499,
         "startup": 0.0,
         "recovery": 1.7,
         "attr": [
-            {"dmg": 17.26, "killer": [1.0, ["poison"]], "iv": 0.56667}
+            {"dmg": 17.26, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 0.56667}
         ]
     }
 }

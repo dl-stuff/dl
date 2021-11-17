@@ -1,0 +1,63 @@
+{
+    "actconds": {
+        "257": {"duration": 10.0, "ele": "flame", "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120}
+    },
+    "d": {
+        "name": "Kagutsuchi",
+        "icon": "210107_01",
+        "att": 127,
+        "hp": 369,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.45, "att"]]},
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", 257]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.73333,
+        "cancel": {"any": 2.33333, "dodge": 2.16667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 4.4, "actcond": 102040901, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 4.4, "actcond": 102040901, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 4.4, "actcond": 102040901, "target": "HOSTILE", "iv": 1.33333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.46667,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 4.0, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.43333,
+        "recovery": 1.53334,
+        "attr": [
+            {"dmg": 4.8, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx3": 0.23334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.7,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 3.48, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 8.12, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.03333, "dodge": 0.0, "dx1": 1.03333, "s": 0.0}
+    }
+}

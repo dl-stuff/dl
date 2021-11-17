@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"},
+        "308020101": {"duration": 20.0, "slip": {"percent": -0.01, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Templar Hope",
         "icon": "110038_02_r04",
@@ -7,15 +12,20 @@
         "ele": "wind",
         "wt": "sword",
         "spiral": false,
-        "a": [["affres_freeze", 100.0], ["affres_bog", 100.0], ["bc_regen", 1.0, 20]]
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["event", "doublebuff"], "ab": [["hitattr", {"actcond": 308020101, "target": "MYPARTY"}]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 18028}
     },
     "s1": {
         "sp": 3756,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667},
-            {"buff": ["team", 0.15, 15.0, "att", "buff"], "iv": 0.16667}
+            {"actcond": 303030401, "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": 302030301, "target": "MYPARTY", "iv": 0.16667}
         ]
     },
     "s2": {
@@ -23,8 +33,8 @@
         "startup": 0.0,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 13.24, "iv": 0.8},
-            {"dmg": 13.24, "iv": 0.96667}
+            {"dmg": 13.24, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 13.24, "target": "HOSTILE", "iv": 0.96667}
         ],
         "cancel": {"any": 1.53333}
     }

@@ -1,0 +1,59 @@
+{
+    "actconds": {
+        "102040601": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.883, "iv": 3.9}, "rate": 110}
+    },
+    "d": {
+        "name": "Ifrit",
+        "icon": "210007_01",
+        "att": 101,
+        "hp": 295,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.45, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 4.13333,
+        "cancel": {"any": 3.26667, "dodge": 3.26667, "dx1": 3.26667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 5.04, "target": "HOSTILE", "iv": 1.46667},
+            {"dmg": 7.56, "actcond": 102040601, "target": "HOSTILE", "iv": 1.66667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.25, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.33333,
+        "recovery": 1.13334,
+        "attr": [
+            {"dmg": 3.6, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx2": 0.23334, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.2,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 3.96, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.4,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 5.04, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.06667, "dodge": 0.0, "dx1": 1.06667, "s": 0.0}
+    }
+}

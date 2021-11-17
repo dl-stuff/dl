@@ -1,4 +1,18 @@
 {
+    "actconds": {
+        "47": {"count": 1, "energy": 5},
+        "1020": {"count": 1, "no_energy": 1, "coei": 1, "debuff": 1, "icon": 158, "text": "Doleful Spirit", "maxstack": 4, "unremovable": 1},
+        "1021": {"remove": 1020, "coei": 1},
+        "1022": {"coei": 1, "alt": {"s1": "enhanced", "s2": "enhanced"}, "icon": 81, "text": "Love's Beginning", "maxstack": 1},
+        "1023": {"coei": 1, "alt": {"s1": "enhanced1", "s2": "enhanced1"}, "icon": 81, "text": "Joyous Reunion", "maxstack": 1},
+        "1024": {"coei": 1, "alt": {"s1": "enhanced2", "s2": "enhanced2"}, "icon": 81, "text": "Branching Paths", "maxstack": 1},
+        "1025": {"coei": 1, "alt": {"s1": "default", "s2": "default"}, "icon": 81, "text": "Love's Conclusion", "maxstack": 1},
+        "1030": {"remove": 1022, "coei": 1},
+        "1031": {"remove": 1023, "coei": 1},
+        "1032": {"remove": 1024, "coei": 1},
+        "1033": {"remove": 1025, "coei": 1},
+        "1052": {"aff": "poison", "duration": 30.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+    },
     "c": {
         "name": "Summer Norwin",
         "icon": "110066_02_r05",
@@ -7,92 +21,112 @@
         "ele": "wind",
         "wt": "dagger",
         "spiral": false,
-        "a": [["estat_sp", 3], ["affres_freeze", 100.0], ["k_poison", 0.3]]
+        "abilities": [
+            {"cond": ["energy", "=", 1], "ab": [["mod", 0.05, "sph"]]},
+            {"cond": ["energy", "=", 2], "ab": [["mod", 0.1, "sph"]]},
+            {"cond": ["energy", "=", 3], "ab": [["mod", 0.15, "sph"]]},
+            {"cond": ["energy", "=", 4], "ab": [["mod", 0.2, "sph"]]},
+            {"cond": ["energy", "=", 5], "ab": [["mod", 0.25, "sph"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"ab": [["mod", 0.3, "killer_poison"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 7, "sp": 17145}
     },
-    "s1_a": {
+    "s1": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 1.8,
         "attr": [
-            {"dmg": 5.6, "iv": 0.5},
-            {"buff": [["sAlt", "b", "s1"], ["sAlt", "b", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"dmg": 7.0, "iv": 1.16667}
+            {"dmg": 5.6, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 1033, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1022, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 7.0, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.33333}
     },
-    "s1_b": {
+    "s1_enhanced": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 1.8,
         "attr": [
-            {"dmg": 6.16, "iv": 0.5},
-            {"buff": [["sAlt", "c", "s1"], ["sAlt", "c", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"dmg": 7.7, "iv": 1.16667}
+            {"dmg": 6.16, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 1030, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1023, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 7.7, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.33333}
     },
-    "s1_c": {
+    "s1_enhanced1": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 1.8,
         "attr": [
-            {"dmg": 7.28, "iv": 0.5},
-            {"buff": [["sAlt", "d", "s1"], ["sAlt", "d", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"dmg": 9.1, "iv": 1.16667}
+            {"dmg": 7.28, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 1031, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1024, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 9.1, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.33333}
     },
-    "s1_d": {
+    "s1_enhanced2": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 1.8,
         "attr": [
-            {"buff": [["sAlt", "a", "s1"], ["sAlt", "a", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"buff": ["energy", 5, "team"], "iv": 0.5}
+            {"actcond": 1021, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 47, "target": "MYPARTY", "iv": 0.5},
+            {"actcond": 1032, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1025, "target": "MYSELF", "iv": 0.5}
         ],
         "cancel": {"any": 1.33333}
     },
-    "s2_a": {
+    "s2": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 1.8,
         "attr": [
-            {"dmg": 8.4, "iv": 0.5},
-            {"buff": [["sAlt", "b", "s1"], ["sAlt", "b", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"dmg": 10.5, "iv": 1.16667}
+            {"dmg": 8.4, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 1033, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1022, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 10.5, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.33333}
     },
-    "s2_b": {
+    "s2_enhanced": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 1.8,
         "attr": [
-            {"dmg": 9.24, "iv": 0.5},
-            {"buff": [["sAlt", "c", "s1"], ["sAlt", "c", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"dmg": 11.55, "iv": 1.16667}
+            {"dmg": 9.24, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 1030, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1023, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 11.55, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.33333}
     },
-    "s2_c": {
+    "s2_enhanced1": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 1.8,
         "attr": [
-            {"dmg": 10.92, "iv": 0.5},
-            {"buff": [["sAlt", "d", "s1"], ["sAlt", "d", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"dmg": 13.65, "iv": 1.16667}
+            {"dmg": 10.92, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 1031, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1024, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 13.65, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.33333}
     },
-    "s2_d": {
+    "s2_enhanced2": {
         "sp": 4512,
         "startup": 0.0,
-         "recovery": 1.8,
+        "recovery": 2.13333,
         "attr": [
-            {"buff": [["sAlt", "a", "s1"], ["sAlt", "a", "s2"], "-replace"], "coei": 1, "iv": 0.5},
-            {"dmg": 13.44, "afflic": ["poison", 120, 0.582, 30], "iv": 0.5},
-            {"dmg": 16.8, "iv": 1.16667}
+            {"hp": -20.0, "target": "MYSELF"},
+            {"actcond": 1020, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 13.44, "actcond": 1052, "target": "HOSTILE", "iv": 0.5},
+            {"actcond": 1032, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1025, "target": "MYSELF", "iv": 0.5},
+            {"dmg": 16.8, "actcond": 1052, "target": "HOSTILE", "iv": 1.16667}
         ],
         "cancel": {"any": 1.33333}
     },
@@ -101,7 +135,7 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"buff": ["energy", 5, "team"], "iv": 0.5}
+            {"actcond": 47, "target": "MYPARTY", "iv": 0.5}
         ],
         "cancel": {"any": 1.33333}
     }

@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "1": {"count": 1, "energy": 1, "text": "Energy Level +1"},
+        "133": {"remove": "debuff", "count": 1, "text": "Recovered from Debuffs"},
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "316020801": {"count": 1, "shield": {"2": 0.8}, "coei": 1, "text": "Divergent Shield"}
+    },
     "c": {
         "name": "Natalie",
         "icon": "110326_01_r05",
@@ -7,18 +13,22 @@
         "ele": "shadow",
         "wt": "blade",
         "spiral": false,
-        "a": [["eextra", 0.8], ["affres_paralysis", 100.0], ["a", 0.2, "hp\u226430"], ["spd", 0.1, "hp\u226430"]],
-        "comment": "s2 cleanse nihil not implemented"
+        "abilities": [
+            {"cond": ["event", "energy"], "ab": [["actcond", "MYSELF", 1]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["hp", "<=", 30], "ab": [["mod", 0.2, "att"], ["mod", 0.1, "spd"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 11364}
     },
     "s1": {
         "sp": 3247,
         "startup": 0.0,
         "recovery": 1.6,
         "attr": [
-            {"dmg": 5.31, "crisis": 1.0, "iv": 0.07407},
-            {"dmg": 5.31, "crisis": 1.0, "iv": 0.73333, "msl": 0.06667},
-            {"dmg": 5.31, "crisis": 1.0, "iv": 0.73333, "msl": 0.06667},
-            {"buff": ["energy", 1], "iv": 1.66667}
+            {"dmg": 5.31, "crisis": 1.0, "target": "HOSTILE", "iv": 0.07407},
+            {"dmg": 5.31, "crisis": 1.0, "target": "HOSTILE", "iv": 0.73333, "msl": 0.06667},
+            {"dmg": 5.31, "crisis": 1.0, "target": "HOSTILE", "iv": 0.73333, "msl": 0.06667},
+            {"actcond": 1, "target": "MYSELF", "iv": 1.66667}
         ]
     },
     "s2": {
@@ -26,8 +36,11 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"cond": ["hp>=", 30], "hp": [20, "="], "iv": 1.0},
-            {"cond": ["hp<=", 30], "buff": ["self", 0.2, 10.0, "att", "buff"], "iv": 1.0}
+            {"actcond": 133, "target": "MYSELF"}
+        ],
+        "abilities": [
+            {"cond": ["hp", ">=", 30], "ab": [["hitattr", {"hp": [20.0, "="], "actcond": 316020801, "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30], "ab": [["hitattr", {"actcond": 302030401, "target": "MYSELF"}]]}
         ]
     }
 }

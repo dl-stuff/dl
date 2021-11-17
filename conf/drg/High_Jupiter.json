@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "1839": {"duration": 180.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
+        "104030901": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.883, "iv": 3.9}, "rate": 110}
+    },
+    "d": {
+        "name": "High Jupiter",
+        "icon": "210041_01",
+        "att": 138,
+        "hp": 372,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 0.4, "hp"], ["mod", 0.4, "att"]]},
+            {"ab": [["mod", 0.2, "dt"]]},
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", 1839]]}
+        ]
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 4.6,
+        "cancel": {"any": 3.33333, "dodge": 2.66667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 17.0, "actcond": 104030901, "target": "HOSTILE", "iv": 1.9}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.3,
+        "recovery": 1.2,
+        "attr": [
+            {"dmg": 4.4, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.23333, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.3,
+        "recovery": 1.56667,
+        "attr": [
+            {"dmg": 4.84, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.26667, "dodge": 0.23333, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.13333,
+        "recovery": 1.63334,
+        "attr": [
+            {"dmg": 7.48, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.33334, "dodge": 0.2, "s": 0.0}
+    }
+}

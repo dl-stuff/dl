@@ -1,0 +1,62 @@
+{
+    "actconds": {
+        "125": {"count": 1, "icon": "s-buff", "mods": [[0.4, "s", "buff"]], "text": "Skill Damage +40%"}
+    },
+    "d": {
+        "name": "Konohana Sakuya",
+        "icon": "210082_01",
+        "att": 121,
+        "hp": 374,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.2, "att"]]},
+            {"ab": [["actdmg", 0.9, "-t:s"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "cancel": {"any": 2.66667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 13.2, "target": "HOSTILE", "iv": 0.4},
+            {"actcond": 125, "target": "MYSELF", "iv": 1.76667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.4,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 4.16, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "dx2": 0.26667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.26667,
+        "recovery": 0.76666,
+        "attr": [
+            {"dmg": 4.58, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.73333, "dodge": 0.0, "dx3": 0.26666, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.33333,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 2.66, "sp": 5, "target": "HOSTILE", "msl": 0.06667},
+            {"dmg": 2.66, "sp": 5, "target": "HOSTILE", "msl": 0.16667},
+            {"dmg": 2.66, "sp": 5, "target": "HOSTILE", "msl": 0.3}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.16667, "dodge": 0.0, "dx1": 1.0, "s": 0.0}
+    }
+}

@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "56": {"aff": "stun", "duration": 3.5, "rate": 90},
+        "303030101": {"duration": 15.0, "icon": "def-buff", "mods": [[0.1, "def", "buff"]], "text": "Defense +10%"},
+        "308020201": {"duration": 20.0, "slip": {"percent": -0.02, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Nicolas",
         "icon": "110025_01_r03",
@@ -7,14 +12,19 @@
         "ele": "wind",
         "wt": "wand",
         "spiral": false,
-        "a": [["bc_regen", 2.0, 20], ["affres_freeze", 50.0], ["affres_freeze", 25.0]]
+        "abilities": [
+            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", 308020201]]},
+            {"ab": [["mod", 0.5, "affres_freeze"]]},
+            {"ab": [["mod", 0.25, "affres_freeze"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 8633}
     },
     "s1": {
         "sp": 2785,
         "startup": 0.0,
         "recovery": 1.73333,
         "attr": [
-            {"dmg": 16.11, "iv": 0.96667}
+            {"dmg": 16.11, "target": "HOSTILE", "iv": 0.96667}
         ],
         "cancel": {"any": 1.33333}
     },
@@ -23,8 +33,8 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 15.22, "afflic": ["stun", 90, 4.0, 3.0], "iv": 1.06667},
-            {"buff": ["team", 0.1, 15.0, "defense", "buff"], "iv": 1.06667}
+            {"dmg": 15.22, "actcond": 56, "target": "HOSTILE", "iv": 1.06667},
+            {"actcond": 303030101, "target": "MYPARTY", "iv": 1.06667}
         ],
         "cancel": {"any": 1.36667}
     }

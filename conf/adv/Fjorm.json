@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "94": {"duration": 15.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"},
+        "101": {"duration": 15.0, "icon": "def-buff", "mods": [[0.4, "def", "buff"]], "text": "Defense +40%"},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "103020111": {"aff": "freeze", "duration": 4.5, "text": "Freeze", "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Fjorm",
         "icon": "110328_01_r05",
@@ -7,15 +14,22 @@
         "ele": "water",
         "wt": "lance",
         "spiral": true,
-        "a": [["affres_burn", 100.0], ["resself_burn_att", 0.15, 10.0, 15.0], ["prep", 100.0], ["scharge_all", 0.05]]
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "cd": 15.0, "ab": [["hitattr", {"actcond": 101, "target": "MYPARTY"}], ["hitattr", {"actcond": 94, "target": "MYPARTY"}]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 8761}
     },
     "s1": {
         "sp": 2738,
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"dmg": 9.86, "killer": [0.5, ["frostbite"]], "afflic": ["freeze", 120], "iv": 0.23333},
-            {"dmg": 9.86, "killer": [0.5, ["frostbite"]], "afflic": ["frostbite", 120, 0.41], "iv": 1.26667}
+            {"dmg": 9.86, "killer": [0.5, ["frostbite"]], "actcond": 103020111, "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 9.86, "killer": [0.5, ["frostbite"]], "actcond": 411, "target": "HOSTILE", "iv": 1.26667}
         ]
     },
     "s2": {
@@ -23,7 +37,7 @@
         "startup": 0.0,
         "recovery": 4.13333,
         "attr": [
-            {"dmg": 23.115, "hp": 30.0, "iv": 3.03333}
+            {"dmg": 23.115, "hp": 30.0, "target": "HOSTILE", "iv": 3.03333}
         ],
         "cancel": {"any": 3.76667}
     }

@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "132": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Altered Strike"},
+        "139": {"icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
+        "152": {"duration": 20.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%"},
+        "154": {"duration": 20.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%"},
+        "179": {"duration": 15.0, "slip": {"heal": 17.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Gala Cleo",
         "icon": "100004_10_r05",
@@ -7,30 +14,30 @@
         "ele": "shadow",
         "wt": "wand",
         "spiral": false,
-        "a": [["affres_paralysis", 100.0], ["affres_blind", 100.0], ["prep", 100.0]]
+        "abilities": [
+            {"ab": [["actcond", "MYSELF", 132]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"], ["mod", 1.0, "affres_blind"]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 7316}
     },
-    "fs_galacleo": {
+    "fs_enhanced": {
         "charge": 0.5,
         "startup": 0.0,
         "recovery": 1.46667,
         "attr": [
-            {"buff": ["zone", 0.25, 10.0, "att", "buff"], "msl": 0.23333}
+            {"actcond": 139, "target": "ALLY", "msl": 0.23333, "zone": 10.0}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"any": 1.0, "dodge": 0.03333, "s": 0.0}
     },
-    "s1_phase1": {
+    "s1": {
         "sp": 2814,
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1, "ab": 1},
-            {"dmg": 0.88},
-            {"dmg": 2.65},
-            {"dmg": 0.88, "msl": 0.2},
-            {"dmg": 2.65, "msl": 0.2},
-            {"dmg": 0.88, "msl": 0.4},
-            {"dmg": 2.65, "msl": 0.4}
+            {"dmg": 0.88, "target": "HOSTILE", "blt": [3, 0.0], "msl": 0.65},
+            {"dmg": 2.65, "target": "HOSTILE", "blt": [3, 0.0], "msl": 0.65}
         ],
         "cancel": {"any": 1.4}
     },
@@ -39,17 +46,9 @@
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1, "ab": 1},
-            {"dmg": 0.88},
-            {"dmg": 2.65},
-            {"dmg": 0.88, "msl": 0.15},
-            {"dmg": 2.65, "msl": 0.15},
-            {"dmg": 0.88, "msl": 0.3},
-            {"dmg": 2.65, "msl": 0.3},
-            {"dmg": 0.88, "msl": 0.45},
-            {"dmg": 2.65, "msl": 0.45}
+            {"dmg": 0.88, "target": "HOSTILE", "blt": [4, 0.0], "msl": 0.65},
+            {"dmg": 2.65, "target": "HOSTILE", "blt": [4, 0.0], "msl": 0.65}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.4}
     },
     "s1_phase3": {
@@ -57,28 +56,18 @@
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1, "ab": 1},
-            {"dmg": 0.88},
-            {"dmg": 2.65},
-            {"dmg": 0.88, "msl": 0.1},
-            {"dmg": 2.65, "msl": 0.1},
-            {"dmg": 0.88, "msl": 0.2},
-            {"dmg": 2.65, "msl": 0.2},
-            {"dmg": 0.88, "msl": 0.3},
-            {"dmg": 2.65, "msl": 0.3},
-            {"dmg": 0.88, "msl": 0.4},
-            {"dmg": 2.65, "msl": 0.4}
+            {"dmg": 0.88, "target": "HOSTILE", "blt": [5, 0.0], "msl": 0.65},
+            {"dmg": 2.65, "target": "HOSTILE", "blt": [5, 0.0], "msl": 0.65}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.4}
     },
-    "s2_phase1": {
+    "s2": {
         "sp": 6000,
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"dmg": 4.6, "iv": 1.0},
-            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}
+            {"dmg": 4.6, "target": "HOSTILE", "iv": 1.0},
+            {"actcond": 154, "target": "HOSTILE", "iv": 1.0}
         ],
         "cancel": {"any": 1.4}
     },
@@ -87,11 +76,10 @@
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"dmg": 4.6, "iv": 1.0},
-            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0},
-            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "coei": 1, "iv": 1.0}
+            {"dmg": 4.6, "target": "HOSTILE", "iv": 1.0},
+            {"actcond": 154, "target": "HOSTILE", "iv": 1.0},
+            {"actcond": 152, "target": "HOSTILE", "iv": 1.0}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.4}
     },
     "s2_phase3": {
@@ -99,12 +87,11 @@
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"dmg": 4.6, "iv": 1.0},
-            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0},
-            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "coei": 1, "iv": 1.0},
-            {"heal": [22, "team"], "buff": ["team", 17.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.0}
+            {"dmg": 4.6, "target": "HOSTILE", "iv": 1.0},
+            {"actcond": 154, "target": "HOSTILE", "iv": 1.0},
+            {"actcond": 152, "target": "HOSTILE", "iv": 1.0},
+            {"heal": 22, "actcond": 179, "target": "ALLY", "iv": 1.0}
         ],
-        "phase_coei": true,
         "cancel": {"any": 1.4}
     }
 }

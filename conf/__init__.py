@@ -59,7 +59,6 @@ def load_json(fn):
 
 
 exability = load_json("exability.json")
-skillshare = load_json("skillshare.json")
 wyrmprints = load_json("wyrmprints.json")
 # weapons = load_json('weapons.json')
 
@@ -69,22 +68,6 @@ for wep in WEAPON_TYPES:
     baseconfs[wep] = load_json(f"base/{wep}.json")
     weapons[wep] = load_json(f"wep/{wep}.json")
 
-dragons = {}
-for ele in ELEMENTS:
-    dragons[ele] = load_json(f"drg/{ele}.json")
-
-alias = {}
-for target, alst in load_json("alias.json").items():
-    for a in alst:
-        alias[a] = target
-
-elecoabs = {}
-for ele in ELEMENTS:
-    elecoabs[ele] = {**exability["any"], **exability["generic"], **exability[ele]}
-
-mono_elecoabs = {}
-for ele in ELEMENTS:
-    mono_elecoabs[ele] = {**exability["generic"], **exability[ele]}
 
 advconfs = {}
 
@@ -96,6 +79,28 @@ def load_adv_json(adv):
         aconf = load_json(f"adv/{adv}.json")
         advconfs[adv] = aconf
         return aconf
+
+
+dragons = {}
+
+
+def load_drg_json(drg):
+    try:
+        return dragons[drg]
+    except KeyError:
+        aconf = load_json(f"drg/{drg}.json")
+        dragons[drg] = aconf
+        return aconf
+
+
+def load_drg_by_element(ele):
+    for fn in sorted(os.listdir(os.path.join(ROOT_DIR, "conf", "drg"))):
+        fn, ext = os.path.splitext(fn)
+        if ext != ".json":
+            continue
+        conf = load_drg_json(fn)
+        if conf["d"]["ele"] == ele:
+            yield fn, conf
 
 
 def get_icon(adv):

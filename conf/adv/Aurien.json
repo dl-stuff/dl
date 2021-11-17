@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "102040301": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Aurien",
         "icon": "110006_01_r03",
@@ -7,15 +12,21 @@
         "ele": "flame",
         "wt": "staff",
         "spiral": true,
-        "a": [["s", 0.4, "hp70"], ["affres_sleep", 50.0], ["resself_sleep_att", 0.15, 10.0, 15.0], ["affres_sleep", 50.0]]
+        "abilities": [
+            {"cond": ["hp", ">=", 70], "ab": [["actdmg", 0.4, "-t:s"]]},
+            {"ab": [["mod", 0.5, "affres_sleep"]]},
+            {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_sleep"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 13606}
     },
     "s1": {
         "sp": 5916,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [130, "team"], "iv": 0.93333},
-            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.93333}
+            {"heal": 130, "target": "ALLY", "iv": 0.93333},
+            {"actcond": 1261, "target": "MYPARTY", "iv": 0.93333}
         ],
         "energizable": true
     },
@@ -24,7 +35,7 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 12.48, "afflic": ["burn", 100, 0.803], "iv": 1.0}
+            {"dmg": 12.48, "actcond": 102040301, "target": "HOSTILE", "iv": 1.0}
         ],
         "cancel": {"any": 1.4}
     }

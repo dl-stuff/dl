@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120}
+    },
     "c": {
         "name": "Lea",
         "icon": "110259_01_r05",
@@ -7,18 +10,23 @@
         "ele": "flame",
         "wt": "sword",
         "spiral": false,
-        "a": [["fs", 0.5], ["affres_stun", 100.0], ["spf", 0.12]]
+        "abilities": [
+            {"ab": [["actdmg", 0.5, "-t:fs"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"ab": [["mod", 0.12, "sph", "-t:fs"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 11392}
     },
     "s1": {
         "sp": 2325,
         "startup": 0.0,
         "recovery": 3.26667,
         "attr": [
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "afflic": ["burn", 120, 0.97], "iv": 0.33333},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 0.46667},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 0.9},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 1.16667},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 1.96667}
+            {"dmg": 3.256, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 3.256, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 3.256, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 3.256, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 3.256, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 1.96667}
         ],
         "cancel": {"any": 2.7}
     },
@@ -27,10 +35,12 @@
         "startup": 0.0,
         "recovery": 3.13333,
         "attr": [
-            {"hp": -20.0, "cond": ["hp>", 60.0]},
-            {"dmg": 8.162, "iv": 2.1},
-            {"dmg": 8.162, "iv": 2.1}
+            {"dmg": 8.162, "target": "HOSTILE", "iv": 2.1},
+            {"dmg": 8.162, "target": "HOSTILE", "iv": 2.1}
         ],
-        "cancel": {"any": 2.13333}
+        "cancel": {"any": 2.13333},
+        "abilities": [
+            {"cond": ["hp", ">=", 60], "ab": [["hitattr", {"hp": -20.0, "target": "MYSELF"}]]}
+        ]
     }
 }

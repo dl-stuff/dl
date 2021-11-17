@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "291": {"dispel": 1},
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Luca",
         "icon": "100006_01_r04",
@@ -7,14 +12,20 @@
         "ele": "light",
         "wt": "bow",
         "spiral": true,
-        "a": [["a", 0.15, "hp100"], ["edge_paralysis", 60.0, "hp100"], ["affres_curse", 100.0], ["resself_curse_att", 0.15, 10.0, 15.0], ["affres_poison", 100.0]]
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.15, "att"], ["mod", 0.6, "edge_paralysis"]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_poison"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 9515}
     },
     "s1": {
         "sp": 2504,
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"dmg": 11.21, "killer": [0.6, ["paralysis"]], "afflic": ["paralysis", 120, 0.97], "iv": 1.46667}
+            {"dmg": 11.21, "killer": [0.6, ["paralysis"]], "actcond": 104031201, "target": "HOSTILE", "iv": 1.46667}
         ],
         "cancel": {"any": 2.06667}
     },
@@ -23,7 +34,7 @@
         "startup": 0.0,
         "recovery": 2.26667,
         "attr": [
-            {"dmg": 11.73, "killer": [0.6, ["paralysis"]], "dispel": 100, "iv": 1.33333}
+            {"dmg": 11.73, "killer": [0.6, ["paralysis"]], "actcond": 291, "target": "HOSTILE", "iv": 1.33333}
         ],
         "cancel": {"any": 1.66667}
     }

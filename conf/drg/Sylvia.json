@@ -1,0 +1,57 @@
+{
+    "d": {
+        "name": "Sylvia",
+        "icon": "210010_01",
+        "att": 72,
+        "hp": 225,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.4, "hp"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 1.66667,
+        "cancel": {"dx1": 1.5},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 2.92, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 2.92, "target": "HOSTILE", "iv": 0.93333},
+            {"dmg": 2.92, "target": "HOSTILE", "iv": 1.13333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.17778,
+        "recovery": 1.38889,
+        "attr": [
+            {"dmg": 2.5, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66666, "dodge": 0.0, "dx2": 0.06666, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.53846,
+        "recovery": 1.26154,
+        "attr": [
+            {"dmg": 2.76, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.69231, "dodge": 0.0, "dx3": 0.23077, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.63889,
+        "recovery": 1.76111,
+        "attr": [
+            {"dmg": 3.5, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.11111, "dodge": 0.0, "dx1": 1.02778, "s": 0.0}
+    }
+}

@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "302030101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"},
+        "402010204": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%", "rate": 80}
+    },
     "c": {
         "name": "Irfan",
         "icon": "110037_01_r03",
@@ -7,16 +12,21 @@
         "ele": "light",
         "wt": "dagger",
         "spiral": false,
-        "a": [["bc_att", 0.08], ["affres_curse", 50.0], ["affres_curse", 25.0]]
+        "abilities": [
+            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", 302030101]]},
+            {"ab": [["mod", 0.5, "affres_curse"]]},
+            {"ab": [["mod", 0.25, "affres_curse"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 9040}
     },
     "s1": {
         "sp": 2318,
         "startup": 0.0,
         "recovery": 2.06667,
         "attr": [
-            {"dmg": 3.33, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.4, "coei": 1},
-            {"dmg": 3.33, "iv": 0.56667},
-            {"dmg": 3.33, "iv": 1.13333}
+            {"dmg": 3.33, "actcond": 1246, "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 3.33, "actcond": 1246, "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 3.33, "actcond": 1246, "target": "HOSTILE", "iv": 1.13333}
         ],
         "cancel": {"any": 1.86667}
     },
@@ -25,8 +35,8 @@
         "startup": 0.0,
         "recovery": 1.66667,
         "attr": [
-            {"dmg": 5.76, "buff": ["debuff", -0.05, 10.0, 0.8, "attack"], "iv": 0.26667, "coei": 1},
-            {"dmg": 5.76, "iv": 0.8}
+            {"dmg": 5.76, "actcond": 402010204, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 5.76, "actcond": 402010204, "target": "HOSTILE", "iv": 0.8}
         ],
         "cancel": {"any": 1.5}
     }

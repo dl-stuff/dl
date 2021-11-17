@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "1459": {"duration": 30.0, "icon": 232, "mods": [[0.2, "att", "buff"]], "text": "Upgrade", "overwrite": -1}
+    },
     "c": {
         "name": "Sophie (Persona)",
         "icon": "110380_01_r05",
@@ -7,71 +10,22 @@
         "ele": "light",
         "wt": "axe",
         "spiral": false,
-        "a": [["a", 0.05], ["affres_curse", 100.0], ["cc", 0.1, "hp70"]],
-        "utp": [2, 3000, 1200, 75]
-    },
-    "dragonform": {
-        "dodge": {
-            "recovery": 1.2
-        },
-        "dx1": {
-            "startup": 0.6,
-            "recovery": 2.6,
-            "attr": [
-                {"dmg": 6.23}
-            ],
-            "interrupt": {"s": 0.0},
-            "cancel": {"s": 0.0}
-        },
-        "dx2": {
-            "startup": 0.0,
-            "recovery": 0.03333,
-            "interrupt": {"s": 0.0},
-            "cancel": {"s": 0.0}
-        },
-        "dx3": {
-            "startup": 0.0,
-            "recovery": 0.03333,
-            "interrupt": {"s": 0.0},
-            "cancel": {"s": 0.0}
-        },
-        "ds1": {
-            "sp": 30,
-            "startup": 0.0,
-            "recovery": 2.23333,
-            "sp_db": 45,
-            "uses": 1,
-            "attr": [
-                {"dmg": 20.7, "iv": 1.06667}
-            ]
-        },
-        "ds2": {
-            "sp": 30,
-            "startup": 0.0,
-            "recovery": 2.23333,
-            "energizable": true,
-            "sp_db": 45,
-            "uses": 1,
-            "attr": [
-                {"heal": [40, "team"], "iv": 1.06667}
-            ]
-        }
+        "utp": [2, 3000, 1200, 75],
+        "abilities": [
+            {"ab": [["mod", 0.05, "att"]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.1, "crit"]]}
+        ]
     },
     "fs": {
         "charge": 0.4,
         "startup": 0.06667,
         "recovery": 1.26666,
         "attr": [
-            {"dmg": 0.19, "odmg": 3.08, "sp": 300},
-            {"dmg": 0.19, "odmg": 3.08},
-            {"dmg": 0.22, "odmg": 3.08, "msl": 0.25},
-            {"dmg": 0.22, "odmg": 3.08, "msl": 0.5},
-            {"dmg": 0.22, "odmg": 3.08, "msl": 0.75},
-            {"dmg": 0.22, "odmg": 3.08, "msl": 1.0},
-            {"dmg": 0.22, "odmg": 3.08, "msl": 1.25},
-            {"dmg": 0.22, "odmg": 3.08, "msl": 1.5},
-            {"dmg": 0.22, "odmg": 3.08, "msl": 1.75},
-            {"dmg": 0.37, "odmg": 3.08}
+            {"dmg": 0.19, "odmg": 3.08, "sp": 300, "target": "HOSTILE"},
+            {"dmg": 0.19, "odmg": 3.08, "sp": 300, "target": "HOSTILE"},
+            {"dmg": 0.22, "odmg": 3.08, "sp": 300, "target": "HOSTILE", "blt": [7, 0.25]},
+            {"dmg": 0.37, "odmg": 3.08, "sp": 300, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.4}
@@ -81,16 +35,10 @@
         "startup": 0.06667,
         "recovery": 1.26666,
         "attr": [
-            {"dmg": 0.19, "odmg": 3.08, "sp": 300},
-            {"dmg": 0.19, "odmg": 3.08},
-            {"dmg": 0.13, "odmg": 3.08, "msl": 0.25},
-            {"dmg": 0.13, "odmg": 3.08, "msl": 0.5},
-            {"dmg": 0.13, "odmg": 3.08, "msl": 0.75},
-            {"dmg": 0.13, "odmg": 3.08, "msl": 1.0},
-            {"dmg": 0.13, "odmg": 3.08, "msl": 1.25},
-            {"dmg": 0.13, "odmg": 3.08, "msl": 1.5},
-            {"dmg": 0.13, "odmg": 3.08, "msl": 1.75},
-            {"dmg": 0.71, "odmg": 3.08}
+            {"dmg": 0.19, "odmg": 3.08, "sp": 300, "target": "HOSTILE"},
+            {"dmg": 0.19, "odmg": 3.08, "sp": 300, "target": "HOSTILE"},
+            {"dmg": 0.13, "odmg": 3.08, "sp": 300, "target": "HOSTILE", "blt": [7, 0.25]},
+            {"dmg": 0.71, "odmg": 3.08, "sp": 300, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1_ddrive": 0.4}
@@ -100,7 +48,7 @@
         "startup": 0.0,
         "recovery": 2.03333,
         "attr": [
-            {"dmg": 12.94, "utp": 180, "iv": 0.4}
+            {"dmg": 12.94, "utp": 180, "target": "HOSTILE", "iv": 0.4}
         ]
     },
     "s1_ddrive": {
@@ -108,7 +56,7 @@
         "startup": 0.0,
         "recovery": 2.23333,
         "attr": [
-            {"dmg": 20.7, "msl": 1.06667}
+            {"dmg": 20.7, "target": "HOSTILE", "gluca": 1, "msl": 1.06667}
         ],
         "energizable": true
     },
@@ -117,8 +65,8 @@
         "startup": 0.0,
         "recovery": 1.3,
         "attr": [
-            {"utp": 420, "iv": 0.5},
-            {"buff": ["self", 0.2, 30.0, "att", "buff", "-refresh"], "iv": 0.5}
+            {"utp": 420, "target": "MYSELF", "iv": 0.5},
+            {"actcond": 1459, "target": "MYSELF", "iv": 0.5}
         ]
     },
     "s2_ddrive": {
@@ -126,7 +74,7 @@
         "startup": 0.0,
         "recovery": 2.23333,
         "attr": [
-            {"heal": [40, "team"], "msl": 1.06667}
+            {"heal": 40, "target": "MYPARTY", "msl": 1.06667}
         ],
         "energizable": true
     },
@@ -134,8 +82,8 @@
         "startup": 0.16667,
         "recovery": 0.93333,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.35, "sp": 150},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.35, "sp": 150}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.2, "x2_ex": 0.2}
@@ -144,10 +92,10 @@
         "startup": 0.36667,
         "recovery": 1.13333,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 0.8, "sp": 180},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 0.8, "sp": 180},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 0.8, "iv": 0.23333},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 0.8, "iv": 0.23333}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE", "iv": 0.23333},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE", "iv": 0.23333}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 1.13333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.33333, "x3_ex": 0.33333}
@@ -156,10 +104,10 @@
         "startup": 0.23333,
         "recovery": 1.1,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 0.95, "sp": 270},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 0.95, "sp": 270},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 0.95, "iv": 0.1},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 0.95, "iv": 0.1}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE", "iv": 0.1}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.43334, "x4_ex": 0.43334}
@@ -168,10 +116,10 @@
         "startup": 0.16667,
         "recovery": 0.8,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 0.99, "sp": 285},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 0.99, "sp": 285},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 0.99, "iv": 0.1},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 0.99, "iv": 0.1}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE", "iv": 0.1}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.13333, "x5_ex": 0.13333}
@@ -180,10 +128,10 @@
         "startup": 0.23333,
         "recovery": 1.13334,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.12, "sp": 315},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.12, "sp": 315},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.12, "iv": 0.2},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.12, "iv": 0.2}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE", "iv": 0.2},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE", "iv": 0.2}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 1.13334, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x6": 0.56667, "x6_ex": 0.56667}
@@ -192,8 +140,144 @@
         "startup": 0.66667,
         "recovery": 0.8,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 2.23, "sp": 400},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 2.23, "sp": 400}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 2.23, "sp": 400, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 2.23, "sp": 400, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0}
+    },
+    "x1_ddrive": {
+        "startup": 0.16667,
+        "recovery": 0.93333,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_ddrive": 0.2, "x2_ddriveex": 0.2}
+    },
+    "x2_ddrive": {
+        "startup": 0.36667,
+        "recovery": 1.13333,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE", "iv": 0.23333},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.8, "sp": 180, "target": "HOSTILE", "iv": 0.23333}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.13333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_ddrive": 0.33333, "x3_ddriveex": 0.33333}
+    },
+    "x3_ddrive": {
+        "startup": 0.23333,
+        "recovery": 1.1,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.95, "sp": 270, "target": "HOSTILE", "iv": 0.1}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_ddrive": 0.43334, "x4_ddriveex": 0.43334}
+    },
+    "x4_ddrive": {
+        "startup": 0.16667,
+        "recovery": 0.8,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 0.99, "sp": 285, "target": "HOSTILE", "iv": 0.1}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_ddrive": 0.13333, "x5_ddriveex": 0.13333}
+    },
+    "x5_ddrive": {
+        "startup": 0.23333,
+        "recovery": 1.13334,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE", "iv": 0.2},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.12, "sp": 315, "target": "HOSTILE", "iv": 0.2}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.13334, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x6_ddrive": 0.56667, "x6_ddriveex": 0.56667}
+    },
+    "x6_ddrive": {
+        "startup": 0.66667,
+        "recovery": 0.8,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 2.23, "sp": 400, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 2.23, "sp": 400, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0}
+    },
+    "x1_ddriveex": {
+        "startup": 0.16667,
+        "recovery": 0.93333,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_ddrive": 0.2, "x2_ddriveex": 0.2}
+    },
+    "x2_ddriveex": {
+        "startup": 0.36667,
+        "recovery": 1.13333,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE", "iv": 0.23333},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE", "iv": 0.23333}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.13333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_ddrive": 0.33333, "x3_ddriveex": 0.33333}
+    },
+    "x3_ddriveex": {
+        "startup": 0.23333,
+        "recovery": 1.1,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE", "iv": 0.1}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_ddrive": 0.43334, "x4_ddriveex": 0.43334}
+    },
+    "x4_ddriveex": {
+        "startup": 0.16667,
+        "recovery": 0.8,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE", "iv": 0.1}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_ddrive": 0.13333, "x5_ddriveex": 0.13333}
+    },
+    "x5_ddriveex": {
+        "startup": 0.23333,
+        "recovery": 1.13334,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE", "iv": 0.2},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE", "iv": 0.2}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.13334, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x6_ddrive": 0.56667, "x6_ddriveex": 0.56667}
+    },
+    "x6_ddriveex": {
+        "startup": 0.66667,
+        "recovery": 0.8,
+        "attr": [
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 4.05, "sp": 400, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 4.05, "sp": 400, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0}
@@ -202,8 +286,8 @@
         "startup": 0.16667,
         "recovery": 0.93333,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.35, "sp": 150},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.35, "sp": 150}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.35, "sp": 150, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.2, "x2_ex": 0.2}
@@ -212,10 +296,10 @@
         "startup": 0.36667,
         "recovery": 1.13333,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.44, "sp": 180},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.44, "sp": 180},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.44, "iv": 0.23333},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.44, "iv": 0.23333}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE", "iv": 0.23333},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.44, "sp": 180, "target": "HOSTILE", "iv": 0.23333}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 1.13333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.33333, "x3_ex": 0.33333}
@@ -224,10 +308,10 @@
         "startup": 0.23333,
         "recovery": 1.1,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.71, "sp": 270},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.71, "sp": 270},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.71, "iv": 0.1},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.71, "iv": 0.1}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.71, "sp": 270, "target": "HOSTILE", "iv": 0.1}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.43334, "x4_ex": 0.43334}
@@ -236,10 +320,10 @@
         "startup": 0.16667,
         "recovery": 0.8,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.8, "sp": 285},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.8, "sp": 285},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 1.8, "iv": 0.1},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 1.8, "iv": 0.1}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE", "iv": 0.1},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 1.8, "sp": 285, "target": "HOSTILE", "iv": 0.1}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.13333, "x5_ex": 0.13333}
@@ -248,10 +332,10 @@
         "startup": 0.23333,
         "recovery": 1.13334,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 2.02, "sp": 315},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 2.02, "sp": 315},
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 2.02, "iv": 0.2},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 2.02, "iv": 0.2}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE", "iv": 0.2},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 2.02, "sp": 315, "target": "HOSTILE", "iv": 0.2}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 1.13334, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x6": 0.56667, "x6_ex": 0.56667}
@@ -260,8 +344,8 @@
         "startup": 0.66667,
         "recovery": 0.8,
         "attr": [
-            {"cond": ["var=", ["upgrade", 0]], "dmg": 4.05, "sp": 400},
-            {"cond": ["var>", ["upgrade", 0]], "dmg": 4.05, "sp": 400}
+            {"cond": ["actcond", 1459, "=", 0], "dmg": 4.05, "sp": 400, "target": "HOSTILE"},
+            {"cond": ["actcond", 1459, ">", 0], "dmg": 4.05, "sp": 400, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0}

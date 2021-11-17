@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "393": {"duration": 3.0, "icon": "resist-buff", "mods": [[0.7, "resist", "buff"]], "coei": 1, "text": "70% Damage Reduction"},
+        "427": {"duration": 3.0, "damagelink": {"actcond": 446, "target": "MYSELF"}, "icon": 103, "text": "Enraged Guard", "overwrite": -1},
+        "446": {"duration": 90.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%", "overwrite": 8},
+        "451": {"duration": 3.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity"},
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120}
+    },
     "c": {
         "name": "Hunter Vanessa",
         "icon": "110007_02_r05",
@@ -7,40 +14,25 @@
         "ele": "light",
         "wt": "lance",
         "spiral": false,
-        "a": [["fs", 0.3], ["affres_curse", 100.0], ["cc_debuff_def", 0.2]]
-    },
-    "fs1": {
-        "charge": 0.43333,
-        "startup": 0.3,
-        "recovery": 0.7,
-        "attr": [
-            {"dmg": 1.43, "sp": 100, "odmg": 6.2}
+        "abilities": [
+            {"ab": [["actdmg", 0.3, "-t:fs"]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["debuff", 3], "ab": [["mod", 0.2, "crit"]]}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
-    },
-    "fs2": {
-        "charge": 1.35,
-        "startup": 0.3,
-        "recovery": 0.7,
-        "attr": [
-            {"dmg": 3.7, "sp": 300, "odmg": 6.2, "buff": ["debuff", -0.08, 15.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1}
-        ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "skillshare": {"src": "s1", "cost": 5, "sp": 6965}
     },
     "s1": {
         "sp": 2786,
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
-            {"dmg": 1.94, "afflic": ["paralysis", 120, 0.97], "iv": 1.13333},
-            {"dmg": 1.94, "iv": 1.2},
-            {"dmg": 1.94, "iv": 1.26667},
-            {"dmg": 1.94, "iv": 1.33333},
-            {"dmg": 1.94, "iv": 1.4},
-            {"dmg": 1.94, "iv": 1.46667},
-            {"dmg": 1.94, "iv": 1.53333}
+            {"dmg": 1.94, "actcond": 104031201, "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 1.94, "actcond": 104031201, "target": "HOSTILE", "iv": 1.2},
+            {"dmg": 1.94, "actcond": 104031201, "target": "HOSTILE", "iv": 1.26667},
+            {"dmg": 1.94, "actcond": 104031201, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 1.94, "actcond": 104031201, "target": "HOSTILE", "iv": 1.4},
+            {"dmg": 1.94, "actcond": 104031201, "target": "HOSTILE", "iv": 1.46667},
+            {"dmg": 1.94, "actcond": 104031201, "target": "HOSTILE", "iv": 1.53333}
         ],
         "cancel": {"any": 1.83333}
     },
@@ -49,7 +41,9 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["self", 0.3, 90.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.13333}
+            {"actcond": 427, "target": "MYSELF", "iv": 0.13333},
+            {"actcond": 393, "target": "MYSELF", "iv": 0.16667},
+            {"actcond": 451, "target": "MYSELF", "iv": 0.16667}
         ]
     }
 }

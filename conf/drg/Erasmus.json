@@ -1,0 +1,60 @@
+{
+    "d": {
+        "name": "Erasmus",
+        "icon": "210055_01",
+        "att": 76,
+        "hp": 221,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.4, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "cancel": {"any": 2.0},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 5.0, "target": "HOSTILE", "iv": 1.1},
+            {"dmg": 5.0, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 5.0, "target": "HOSTILE", "iv": 1.36667},
+            {"dmg": 5.0, "target": "HOSTILE", "iv": 1.53333}
+        ]
+    },
+    "dshift": {
+        "recovery": 0.63333,
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.36667,
+        "recovery": 0.76666,
+        "attr": [
+            {"dmg": 2.8, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.03333, "dodge": 0.0, "dx2": 0.03333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.46667,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 1.44, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 1.44, "sp": 5, "target": "HOSTILE", "iv": 0.23333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.53333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.43333,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 5.04, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "dx2": 0.5, "s": 0.0}
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "125": {"count": 1, "icon": "s-buff", "mods": [[0.4, "s", "buff"]], "text": "Skill Damage +40%"}
+    },
+    "d": {
+        "name": "Vayu",
+        "icon": "210098_01",
+        "att": 126,
+        "hp": 369,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.2, "att"]]},
+            {"ab": [["actdmg", 0.9, "-t:s"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "cancel": {"any": 1.66667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 17.92, "target": "HOSTILE", "iv": 0.93333},
+            {"actcond": 125, "target": "MYSELF", "iv": 1.5}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.26667,
+        "recovery": 1.56666,
+        "attr": [
+            {"dmg": 2.08, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 2.08, "sp": 5, "target": "HOSTILE", "iv": 0.2}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.43333, "dodge": 0.0, "dx2": 0.43333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.23333,
+        "recovery": 1.13334,
+        "attr": [
+            {"dmg": 4.52, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx3": 0.23334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.96667,
+        "recovery": 1.46666,
+        "attr": [
+            {"dmg": 7.38, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.06666, "dodge": 0.0, "dx1": 1.06666, "s": 0.0}
+    }
+}

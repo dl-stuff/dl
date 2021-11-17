@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1142": {"duration": 15.0, "slip": {"heal": 12.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "302020101": {"duration": 10.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"},
+        "304020301": {"duration": 10.0, "icon": "crit-buff", "mods": [[0.2, "crit", "buff"]], "text": "Critical Rate +20%"}
+    },
     "c": {
         "name": "Summer Amane",
         "icon": "110041_02_r05",
@@ -7,14 +12,18 @@
         "ele": "wind",
         "wt": "axe",
         "spiral": false,
-        "a": [["k_demihuman", 0.25], ["affres_freeze", 100.0], ["rcv", 0.15]]
+        "abilities": [
+            {"ab": [["mod", 0.25, "killer_demihuman"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"ab": [["mod", 0.15, "rcv", "-t:s"]]}
+        ]
     },
     "s1": {
         "sp": 3849,
         "startup": 0.0,
         "recovery": 1.73333,
         "attr": [
-            {"heal": [14, "team"], "buff": ["team", 12.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.83333}
+            {"heal": 14, "actcond": 1142, "target": "MYPARTY", "iv": 0.83333}
         ],
         "energizable": true,
         "cancel": {"any": 1.33333}
@@ -24,8 +33,8 @@
         "startup": 0.0,
         "recovery": 1.46667,
         "attr": [
-            {"buff": ["team", 0.2, 10.0, "crit", "chance"], "iv": 0.66667},
-            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.7}
+            {"actcond": 304020301, "target": "MYPARTY", "iv": 0.66667},
+            {"actcond": 302020101, "target": "MYPARTY", "iv": 0.7}
         ],
         "cancel": {"any": 1.0}
     }

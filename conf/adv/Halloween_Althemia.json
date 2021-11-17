@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "207010101": {"relief": "curse", "count": 1, "text": "Curse Relief"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Halloween Althemia",
         "icon": "110047_02_r04",
@@ -7,15 +12,22 @@
         "ele": "light",
         "wt": "staff",
         "spiral": true,
-        "a": [["prep", 100.0], ["scharge_all", 0.05], ["affres_curse", 100.0], ["resself_curse_att", 0.15, 10.0, 15.0], ["a", 0.2, "hp100"]]
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.2, "att"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 14198}
     },
     "s1": {
         "sp": 5916,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [130, "team"], "relief": [["curse"], 100], "iv": 0.93333},
-            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667}
+            {"heal": 130, "actcond": 207010101, "target": "ALLY", "iv": 0.93333},
+            {"actcond": 1261, "target": "MYPARTY", "iv": 0.96667}
         ],
         "energizable": true
     },
@@ -24,7 +36,7 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 12.34, "hp": 30.0, "iv": 0.96667}
+            {"dmg": 12.34, "hp": 30.0, "target": "HOSTILE", "iv": 0.96667}
         ],
         "cancel": {"any": 1.4}
     }

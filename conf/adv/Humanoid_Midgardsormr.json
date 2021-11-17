@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9}, "rate": 110}
+    },
     "c": {
         "name": "Humanoid Midgardsormr",
         "icon": "110387_01_r05",
@@ -7,12 +10,16 @@
         "ele": "wind",
         "wt": "bow",
         "spiral": false,
-        "a": [["da", 0.18], ["affres_bog", 100.0], ["dp", 10.0]]
+        "abilities": [
+            {"ab": [["mod", 0.18, "da"]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["start"], "ab": [["dprep", 0.1]]}
+        ]
     },
     "dragonform": {
         "dshift": {
             "attr": [
-                {"dmg": 1.5}
+                {"dmg": 2.25, "target": "HOSTILE"}
             ]
         },
         "dodge": {
@@ -23,7 +30,7 @@
             "startup": 0.3,
             "recovery": 1.2,
             "attr": [
-                {"dmg": 5.2, "sp": 5}
+                {"dmg": 5.2, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"dodge": 0.0, "dx2": 0.23333, "s": 0.0}
@@ -32,7 +39,7 @@
             "startup": 0.46667,
             "recovery": 1.86666,
             "attr": [
-                {"dmg": 5.73, "sp": 5}
+                {"dmg": 5.73, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"dodge": 0.0, "dx3": 0.23333, "s": 0.0}
@@ -41,7 +48,7 @@
             "startup": 0.33333,
             "recovery": 1.8,
             "attr": [
-                {"dmg": 7.28, "sp": 5}
+                {"dmg": 7.28, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"dodge": 0.0, "s": 0.0}
@@ -50,13 +57,13 @@
             "sp": 30,
             "startup": 0.0,
             "recovery": 2.23333,
+            "cancel": {"any": 2.0},
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 3.46, "iv": 1.16667},
-                {"dmg": 25.0, "iv": 1.16667}
-            ],
-            "cancel": {"any": 2.0}
+                {"dmg": 3.46, "target": "HOSTILE", "iv": 1.16667},
+                {"dmg": 25.0, "target": "HOSTILE", "iv": 1.16667}
+            ]
         }
     },
     "s1": {
@@ -64,7 +71,7 @@
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
-            {"dmg": 23.0, "dp": 35, "iv": 1.06667}
+            {"dmg": 23.0, "dp": 35, "target": "HOSTILE", "iv": 1.06667}
         ],
         "cancel": {"any": 1.5}
     },
@@ -73,10 +80,10 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 7.0, "afflic": ["stormlash", 110, 0.31]},
-            {"dmg": 7.0},
-            {"dmg": 7.0},
-            {"dmg": 7.0}
+            {"dmg": 7.0, "actcond": 1360, "target": "HOSTILE"},
+            {"dmg": 7.0, "actcond": 1360, "target": "HOSTILE"},
+            {"dmg": 7.0, "actcond": 1360, "target": "HOSTILE"},
+            {"dmg": 7.0, "actcond": 1360, "target": "HOSTILE"}
         ],
         "cancel": {"any": 1.5}
     }

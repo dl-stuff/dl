@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "155": {"duration": 10.0, "icon": "def-buff", "mods": [[0.08, "def", "buff"]], "text": "Defense +8%", "overwrite": -1},
+        "109030110": {"aff": "bog", "duration": 8.0, "bog": 1.5, "text": "Bog"},
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "302030801": {"duration": 15.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"},
+        "308011001": {"duration": 15.0, "slip": {"heal": 15.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Summer Ranzal",
         "icon": "100003_02_r04",
@@ -7,17 +14,22 @@
         "ele": "water",
         "wt": "blade",
         "spiral": false,
-        "a": [["lo_att", 0.4], ["affres_stun", 100.0], ["primed_defense", 0.08]]
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", 302030801]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", 155]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 6, "sp": 16611}
     },
     "s1": {
         "sp": 2489,
         "startup": 0.0,
         "recovery": 3.16667,
         "attr": [
-            {"dmg": 6.74, "afflic": ["bog", 100], "iv": 0.66667},
-            {"dmg": 6.74, "iv": 1.0},
-            {"dmg": 6.74, "iv": 1.33333},
-            {"dmg": 6.74, "iv": 1.66667}
+            {"dmg": 6.74, "actcond": 109030110, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 6.74, "actcond": 109030110, "target": "HOSTILE", "iv": 1.0},
+            {"dmg": 6.74, "actcond": 109030110, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 6.74, "actcond": 109030110, "target": "HOSTILE", "iv": 1.66667}
         ],
         "cancel": {"any": 3.1}
     },
@@ -26,8 +38,8 @@
         "startup": 0.0,
         "recovery": 2.53333,
         "attr": [
-            {"buff": ["nearby", 15.0, 15.0, "heal", "buff"], "iv": 1.16667, "coei": 1},
-            {"buff": ["nearby", 0.2, 15.0, "att", "buff"], "iv": 1.16667}
+            {"actcond": 308011001, "target": "ALLY", "iv": 1.16667},
+            {"actcond": 302030401, "target": "ALLY", "iv": 1.16667}
         ],
         "energizable": true,
         "cancel": {"any": 2.4}

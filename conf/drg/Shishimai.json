@@ -1,0 +1,62 @@
+{
+    "actconds": {
+        "302020301": {"duration": 10.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "303020301": {"duration": 10.0, "icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"},
+        "304020301": {"duration": 10.0, "icon": "crit-buff", "mods": [[0.2, "crit", "buff"]], "text": "Critical Rate +20%"}
+    },
+    "d": {
+        "name": "Shishimai",
+        "icon": "210078_01",
+        "att": 75,
+        "hp": 223,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 0.7, "critdmg"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "cancel": {"any": 2.16667, "dodge": 2.16667},
+        "DEBUG_attr_R2": [{"actcond": 303020301, "target": "ALLY", "iv": 2.1}],
+        "DEBUG_attr_R3": [{"actcond": 304020301, "target": "ALLY", "iv": 2.1}],
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"actcond": 302020301, "target": "ALLY", "iv": 2.1}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.53333,
+        "recovery": 0.86667,
+        "attr": [
+            {"dmg": 3.3, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.46667, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.33333,
+        "recovery": 0.8,
+        "attr": [
+            {"dmg": 3.64, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.76667, "dodge": 0.0, "dx3": 0.33334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.26667,
+        "recovery": 1.03333,
+        "attr": [
+            {"dmg": 4.62, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.0, "dx1": 0.73333, "s": 0.0}
+    }
+}

@@ -7,14 +7,18 @@
         "ele": "wind",
         "wt": "wand",
         "spiral": false,
-        "a": [["affres_freeze", 100.0], ["sp", 0.1, "amp_2_team"]]
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"cond": ["auratype", 2, 2], "ab": [["mod", 0.1, "sph"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 6, "sp": 14100}
     },
     "s1": {
         "sp": 3392,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"amp": ["10000", 2, 0], "iv": 0.16667}
+            {"amp": ["10000", 2, 0], "target": "MYSELF", "iv": 0.16667}
         ]
     },
     "s2": {
@@ -22,18 +26,22 @@
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
-            {"dmg": 3.45, "iv": 0.33333},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 0.2},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 0.4},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 0.6},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 0.8},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 1.0},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 1.2},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 1.4},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 1.6},
-            {"dmg": 3.45, "iv": 0.33333, "msl": 1.8},
-            {"dmg": 3.45, "iv": 2.33333},
-            {"cond": ["amp", [2, 2, ">", 0]], "heal": [60, "team"], "iv": 2.33333}
+            {"dmg": 3.45, "target": "HOSTILE", "iv": 0.33333, "blt": [10, 0.2]},
+            {"dmg": 3.45, "target": "HOSTILE", "iv": 2.33333}
+        ],
+        "cancel": {"any": 2.83333},
+        "abilities": [
+            {"cond": ["auratype", 2, 2], "ab": [["altskill", "enhanced", "-t:s2"]]}
+        ]
+    },
+    "s2_enhanced": {
+        "sp": 7500,
+        "startup": 0.0,
+        "recovery": 3.43333,
+        "attr": [
+            {"dmg": 3.45, "target": "HOSTILE", "iv": 0.33333, "blt": [10, 0.2]},
+            {"dmg": 3.45, "target": "HOSTILE", "iv": 2.33333},
+            {"heal": 60, "target": "ALLY", "iv": 2.33333}
         ],
         "cancel": {"any": 2.83333}
     }

@@ -1,4 +1,12 @@
 {
+    "actconds": {
+        "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
+        "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030501": {"duration": 15.0, "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
+        "304030201": {"duration": 30.0, "icon": "crit-buff", "mods": [[0.1, "crit", "buff"]], "text": "Critical Rate +10%"}
+    },
     "c": {
         "name": "Lucretia",
         "icon": "110305_01_r05",
@@ -7,17 +15,39 @@
         "ele": "light",
         "wt": "wand",
         "spiral": true,
-        "a": [["energized_att", 0.25], ["affres_curse", 100.0], ["resself_curse_att", 0.15, 10.0, 15.0], ["bk", 0.35]]
+        "abilities": [
+            {"cond": ["event", "energized"], "ab": [["hitattr", {"actcond": 302030501, "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["break"], "ab": [["actdmg", 0.35]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 12355}
     },
     "s1": {
         "sp": 3530,
         "startup": 0.0,
         "recovery": 3.9,
         "attr": [
-            {"dmg": 6.22, "iv": 0.33333},
-            {"dmg": 6.22, "iv": 1.16667},
-            {"dmg": 6.22, "iv": 2.22222},
-            {"buff": ["energy", 2, "team"], "iv": 2.36111}
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 2.22222},
+            {"actcond": 2, "target": "MYPARTY", "iv": 2.36111}
+        ],
+        "cancel": {"any": 3.05556},
+        "abilities": [
+            {"cond": ["energy", "=", 5], "ab": [["altskill", "enhanced", "-t:s1"]]}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 3530,
+        "startup": 0.0,
+        "recovery": 3.9,
+        "attr": [
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 2.22222},
+            {"actcond": 2, "target": "MYPARTY", "iv": 2.26667},
+            {"actcond": 304030201, "target": "MYPARTY", "iv": 2.3}
         ],
         "cancel": {"any": 3.05556}
     },
@@ -26,8 +56,8 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["self", 0.15, 15.0, "att", "buff"], "iv": 0.16667},
-            {"buff": ["energy", 3], "iv": 0.2}
+            {"actcond": 302030301, "target": "MYSELF", "iv": 0.16667},
+            {"actcond": 102, "target": "MYSELF", "iv": 0.2}
         ]
     }
 }

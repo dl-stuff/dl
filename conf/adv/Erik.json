@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "291": {"dispel": 1},
+        "647": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dispel Strike"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Erik",
         "icon": "110045_01_r03",
@@ -7,14 +12,21 @@
         "ele": "shadow",
         "wt": "axe",
         "spiral": true,
-        "a": [["fs", 0.3], ["affres_blind", 50.0], ["resself_blind_att", 0.15, 10.0, 15.0], ["affres_blind", 50.0]]
+        "abilities": [
+            {"ab": [["actdmg", 0.3, "-t:fs"]]},
+            {"ab": [["actcond", "MYSELF", 647]]},
+            {"ab": [["mod", 0.5, "affres_blind"]]},
+            {"cond": ["selfaff", "blind"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_blind"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 6883}
     },
-    "fs_erik": {
+    "fs_enhanced": {
         "charge": 0.5,
         "startup": 0.46667,
         "recovery": 1.1,
         "attr": [
-            {"dmg": 1.92, "odmg": 3.08, "sp": 300, "dispel": 100}
+            {"dmg": 1.92, "odmg": 3.08, "sp": 300, "actcond": 291, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"any": 0.55897, "dodge": 0.0, "s": 0.0, "x1": 0.55897}
@@ -24,8 +36,8 @@
         "startup": 0.0,
         "recovery": 2.06667,
         "attr": [
-            {"dmg": 7.72, "killer": [0.5, ["poison"]], "iv": 0.66667},
-            {"dmg": 8.12, "killer": [0.5, ["poison"]], "iv": 0.83333}
+            {"dmg": 7.72, "killer": [0.5, ["poison"]], "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 8.12, "killer": [0.5, ["poison"]], "target": "HOSTILE", "iv": 0.83333}
         ],
         "cancel": {"any": 1.5}
     },
@@ -34,8 +46,7 @@
         "startup": 0.0,
         "recovery": 1.86667,
         "attr": [
-            {"buff": ["fsAlt", "erik", -1, 1, "-refresh"], "coei": 1, "ab": 1},
-            {"dmg": 17.16, "killer": [0.5, ["poison"]], "iv": 0.66667}
+            {"dmg": 17.16, "killer": [0.5, ["poison"]], "target": "HOSTILE", "iv": 0.66667}
         ],
         "cancel": {"any": 1.5}
     }

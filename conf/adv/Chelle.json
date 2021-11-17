@@ -1,4 +1,12 @@
 {
+    "actconds": {
+        "73": {"aff": "sleep", "duration": 4.5},
+        "74": {"aff": "sleep", "duration": 5.5},
+        "75": {"aff": "sleep", "duration": 6.5, "rate": 110},
+        "943": {"count": 1, "inspiration": 5},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303020401": {"duration": 10.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"}
+    },
     "c": {
         "name": "Chelle",
         "icon": "100015_04_r05",
@@ -7,14 +15,24 @@
         "ele": "shadow",
         "wt": "bow",
         "spiral": false,
-        "a": [["affres_blind", 100.0], ["cc", 0.13, "hp100"]]
+        "abilities": [
+            {"cond": ["event", "dragon_end"], "ab": [["actcond", "MYSELF", 943]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.13, "crit"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 15441}
     },
     "dragonform": {
+        "dshift": {
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ]
+        },
         "dx1": {
             "startup": 0.33333,
             "recovery": 1.13334,
             "attr": [
-                {"dmg": 6.0, "sp": 5, "afflic": ["sleep", 100, 5.0, 4.0]}
+                {"dmg": 6.0, "sp": 5, "actcond": 73, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 0.83334, "dodge": 0.0, "dx2": 0.66667, "s": 0.0}
@@ -23,7 +41,7 @@
             "startup": 0.33333,
             "recovery": 1.13334,
             "attr": [
-                {"dmg": 7.2, "sp": 5, "afflic": ["sleep", 100, 6.0, 5.0]}
+                {"dmg": 7.2, "sp": 5, "actcond": 74, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 1.0, "dodge": 0.0, "dx3": 0.83334, "s": 0.0}
@@ -32,7 +50,7 @@
             "startup": 0.33333,
             "recovery": 1.13334,
             "attr": [
-                {"dmg": 9.0, "sp": 5, "afflic": ["sleep", 110]}
+                {"dmg": 9.0, "sp": 5, "actcond": 75, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 1.0, "dodge": 0.0, "dx1": 0.83334, "s": 0.0}
@@ -41,46 +59,12 @@
             "sp": 30,
             "startup": 0.0,
             "recovery": 2.13333,
+            "cancel": {"any": 1.5},
+            "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 0.484, "iv": 0.33333},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 0.3},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 0.6},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 0.9},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 1.2},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 1.5},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 1.8},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 2.1},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 2.4},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 2.7},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 3.0},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 3.3},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 3.6},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 3.9},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 4.2},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 4.5},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 4.8},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 5.1},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 5.4},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 5.7},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 6.0},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 6.3},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 6.6},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 6.9},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 7.2},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 7.5},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 7.8},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 8.1},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 8.4},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 8.7},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 9.0},
-                {"dmg": 0.484, "iv": 0.33333, "msl": 9.3}
-            ],
-            "sp_db": 45,
-            "cancel": {"any": 1.5}
-        },
-        "dodge": {
-            "recovery": 0.5
+                {"dmg": 0.484, "target": "HOSTILE", "iv": 0.33333, "blt": [33, 0.3]}
+            ]
         }
     },
     "s1": {
@@ -88,8 +72,8 @@
         "startup": 0.0,
         "recovery": 3.13333,
         "attr": [
-            {"buff": ["team", 0.15, 10.0, "att", "buff"], "iv": 0.5},
-            {"buff": ["nearby", 0.25, 10.0, "defense", "buff"], "iv": 0.5}
+            {"actcond": 302020201, "target": "MYPARTY", "iv": 0.5},
+            {"actcond": 303020401, "target": "MYPARTY", "iv": 0.5}
         ],
         "cancel": {"any": 1.66667}
     },
@@ -98,8 +82,15 @@
         "startup": 0.0,
         "recovery": 2.63333,
         "attr": [
-            {"dmg": 0.95, "extra": 8, "iv": 0.25006},
-            {"dmg": 11.388, "iv": 0.92523}
+            {"cond": ["var", "buffcount", ">=", 1], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.68333},
+            {"cond": ["var", "buffcount", ">=", 2], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.75},
+            {"cond": ["var", "buffcount", ">=", 3], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.76667},
+            {"cond": ["var", "buffcount", ">=", 4], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.73333},
+            {"cond": ["var", "buffcount", ">=", 5], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.68333},
+            {"cond": ["var", "buffcount", ">=", 6], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.71667},
+            {"cond": ["var", "buffcount", ">=", 7], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.7},
+            {"cond": ["var", "buffcount", ">=", 8], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.7},
+            {"dmg": 11.388, "target": "HOSTILE", "iv": 0.92523}
         ],
         "cancel": {"any": 1.66667}
     }

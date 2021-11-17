@@ -1,4 +1,8 @@
 {
+    "actconds": {
+        "790": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.37, "iv": 2.9}, "rate": 120},
+        "109030108": {"aff": "bog", "duration": 8.0, "bog": 1.5, "text": "Bog", "rate": 80}
+    },
     "c": {
         "name": "Waike",
         "icon": "110013_01_r03",
@@ -7,16 +11,21 @@
         "ele": "water",
         "wt": "bow",
         "spiral": false,
-        "a": [["edge_bog", 40.0, "hp100"], ["affres_burn", 50.0], ["affres_burn", 25.0]]
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.4, "edge_bog"]]},
+            {"ab": [["mod", 0.5, "affres_burn"]]},
+            {"ab": [["mod", 0.25, "affres_burn"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 8861}
     },
     "s1": {
         "sp": 2395,
         "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
-            {"dmg": 5.24, "killer": [0.2, ["frostbite"]], "afflic": ["frostbite", 120, 0.37], "iv": 0.66667},
-            {"dmg": 5.24, "killer": [0.2, ["frostbite"]], "iv": 0.8},
-            {"dmg": 5.24, "killer": [0.2, ["frostbite"]], "iv": 1.53333}
+            {"dmg": 5.24, "killer": [0.2, ["frostbite"]], "actcond": 790, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 5.24, "killer": [0.2, ["frostbite"]], "actcond": 790, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 5.24, "killer": [0.2, ["frostbite"]], "actcond": 790, "target": "HOSTILE", "iv": 1.53333}
         ],
         "cancel": {"any": 2.0}
     },
@@ -25,7 +34,7 @@
         "startup": 0.0,
         "recovery": 2.06667,
         "attr": [
-            {"dmg": 13.34, "killer": [0.5, ["frostbite"]], "afflic": ["bog", 80], "iv": 0.73333}
+            {"dmg": 13.34, "killer": [0.5, ["frostbite"]], "actcond": 109030108, "target": "HOSTILE", "iv": 0.73333}
         ],
         "cancel": {"any": 1.53333}
     }

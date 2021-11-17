@@ -1,0 +1,70 @@
+{
+    "d": {
+        "name": "Gala Chronos Nyx",
+        "icon": "210164_01",
+        "att": 124,
+        "hp": 371,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 1.0, "att"]]}
+        ]
+    },
+    "dfs": {
+        "charge": 0.4,
+        "startup": 0.0,
+        "recovery": 2.5,
+        "attr": [
+            {"dmg": 3.3, "sp": 10, "target": "HOSTILE", "msl": 0.03333, "mslc": 1},
+            {"dmg": 3.3, "sp": 10, "target": "HOSTILE", "msl": 0.13333, "mslc": 1},
+            {"dmg": 3.3, "sp": 10, "target": "HOSTILE", "msl": 0.16667, "mslc": 1},
+            {"hp": -5.0, "target": "MYSELF"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
+    },
+    "dodge": {
+        "recovery": 0.55556
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 4.63333,
+        "cancel": {"any": 4.33333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 5.0, "target": "HOSTILE", "iv": 2.33333},
+            {"dmg": 5.0, "target": "HOSTILE", "iv": 2.33333, "blt": [6, 0.2]},
+            {"hp": -50.0, "target": "MYSELF", "iv": 2.33333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.46667,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 3.3, "sp": 15, "target": "HOSTILE", "msl": 0.03333, "mslc": 1},
+            {"dmg": 3.3, "sp": 15, "target": "HOSTILE", "msl": 0.13333, "mslc": 1},
+            {"dmg": 3.3, "sp": 15, "target": "HOSTILE", "msl": 0.16667, "mslc": 1},
+            {"hp": -5.0, "target": "MYSELF"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.7, "dodge": 0.0, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.46667,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 3.3, "sp": 15, "target": "HOSTILE", "msl": 0.03333, "mslc": 1},
+            {"dmg": 3.3, "sp": 15, "target": "HOSTILE", "msl": 0.13333, "mslc": 1},
+            {"dmg": 3.3, "sp": 15, "target": "HOSTILE", "msl": 0.16667, "mslc": 1},
+            {"hp": -5.0, "target": "MYSELF"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.7, "dodge": 0.0, "s": 0.0}
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "actconds": {
+        "21": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding"}
+    },
+    "d": {
+        "name": "Marishiten",
+        "icon": "210077_01",
+        "att": 121,
+        "hp": 374,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.6, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 3.9,
+        "cancel": {"any": 3.83333, "dodge": 3.66667, "dx1": 3.66667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 2.08, "actcond": 21, "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 2.08, "actcond": 21, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 2.08, "actcond": 21, "target": "HOSTILE", "iv": 1.73333},
+            {"dmg": 2.08, "actcond": 21, "target": "HOSTILE", "iv": 2.0},
+            {"dmg": 2.08, "actcond": 21, "target": "HOSTILE", "iv": 2.16667},
+            {"dmg": 2.08, "actcond": 21, "target": "HOSTILE", "iv": 2.33333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.43333,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 4.4, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.03334, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.3,
+        "recovery": 1.73333,
+        "attr": [
+            {"dmg": 4.62, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "dx3": 0.2, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.26667,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 2.44, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 2.44, "sp": 5, "target": "HOSTILE", "iv": 0.2}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.4, "dodge": 0.0, "dx4": 0.33333, "s": 0.0}
+    },
+    "dx4": {
+        "startup": 0.3,
+        "recovery": 1.93333,
+        "attr": [
+            {"dmg": 5.1, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.36667, "dodge": 0.0, "dx5": 0.3, "s": 0.0}
+    },
+    "dx5": {
+        "startup": 0.4,
+        "recovery": 1.2,
+        "attr": [
+            {"dmg": 3.32, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 3.32, "sp": 5, "target": "HOSTILE", "iv": 0.2}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.0, "dodge": 0.0, "dx1": 0.86667, "s": 0.0}
+    }
+}

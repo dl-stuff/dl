@@ -1,4 +1,10 @@
 {
+    "actconds": {
+        "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "301040101": {"icon": "hp-buff", "mods": [[0.05, "hp", "buff"]], "coei": 1, "text": "HP +5%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Cassandra",
         "icon": "110337_01_r05",
@@ -7,16 +13,23 @@
         "ele": "shadow",
         "wt": "wand",
         "spiral": true,
-        "a": [["prep", 100.0], ["scharge_all", 0.05], ["affres_paralysis", 100.0], ["resself_paralysis_att", 0.15, 10.0, 15.0], ["ro_att", 0.15]]
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30, 1], "count": 3, "ab": [["actcond", "MYSELF", 512]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 7881}
     },
     "s1": {
         "sp": 2919,
         "startup": 0.0,
         "recovery": 2.1,
         "attr": [
-            {"dmg": 8.66, "afflic": ["poison", 120, 0.582], "iv": 0.83333},
-            {"dmg": 8.66, "iv": 0.83333},
-            {"buff": ["self", 0.05, -1, "maxhp", "buff"], "iv": 1.73333, "coei": 1}
+            {"dmg": 8.66, "actcond": 101021001, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 8.66, "actcond": 101021001, "target": "HOSTILE", "iv": 0.83333},
+            {"actcond": 301040101, "target": "MYSELF", "iv": 1.73333}
         ],
         "cancel": {"any": 1.76667}
     },
@@ -25,11 +38,11 @@
         "startup": 0.0,
         "recovery": 3.5,
         "attr": [
-            {"dmg": 9.34, "crisis": 1.0, "iv": 2.5},
-            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5},
-            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5},
-            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5},
-            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5}
+            {"dmg": 9.34, "crisis": 1.0, "target": "HOSTILE", "iv": 2.5},
+            {"dmg": 1.55, "crisis": 1.0, "target": "HOSTILE", "iv": 2.5},
+            {"dmg": 1.55, "crisis": 1.0, "target": "HOSTILE", "iv": 2.5},
+            {"dmg": 1.55, "crisis": 1.0, "target": "HOSTILE", "iv": 2.5},
+            {"dmg": 1.55, "crisis": 1.0, "target": "HOSTILE", "iv": 2.5}
         ],
         "cancel": {"any": 2.7}
     }

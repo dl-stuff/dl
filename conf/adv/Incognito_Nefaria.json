@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "315010211": {"duration": 20.0, "icon": "critdmg-buff", "mods": [[0.25, "critdmg", "buff"]], "text": "Critical Damage +25%"}
+    },
     "c": {
         "name": "Incognito Nefaria",
         "icon": "110053_03_r05",
@@ -7,31 +12,21 @@
         "ele": "flame",
         "wt": "wand",
         "spiral": false,
-        "a": [["affres_sleep", 100.0], ["s", 0.3]]
+        "abilities": [
+            {"cond": ["event", "crit"], "cd": 7.0, "ab": [["actcond", "MYSELF", 315010211]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"ab": [["actdmg", 0.3, "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 9135}
     },
     "s1": {
         "sp": 2648,
         "startup": 0.0,
         "recovery": 3.36667,
         "attr": [
-            {"dmg": 1.32, "iv": 0.6},
-            {"dmg": 1.32, "iv": 0.6, "msl": 0.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 1.0},
-            {"dmg": 1.32, "iv": 0.6, "msl": 1.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 2.0},
-            {"dmg": 1.32, "iv": 0.6, "msl": 2.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 3.0},
-            {"dmg": 1.32, "iv": 0.6, "msl": 3.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 4.0},
-            {"dmg": 1.32, "iv": 0.6, "msl": 4.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 5.0},
-            {"dmg": 1.32, "iv": 0.6, "msl": 5.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 6.0},
-            {"dmg": 1.32, "iv": 0.6, "msl": 6.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 7.0},
-            {"dmg": 1.32, "iv": 0.6, "msl": 7.5},
-            {"dmg": 1.32, "iv": 0.6, "msl": 8.0},
-            {"buff": ["energy", 3], "iv": 2.66667}
+            {"dmg": 1.32, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 1.32, "target": "HOSTILE", "iv": 0.6, "blt": [16, 0.5]},
+            {"actcond": 102, "target": "MYSELF", "iv": 2.66667}
         ]
     },
     "s2": {
@@ -39,8 +34,8 @@
         "startup": 6.26667,
         "recovery": 1.16667,
         "attr": [
-            {"buff": ["self", 0.15, 15.0, "att", "buff"], "iv": 0.26667},
-            {"dmg": 30.78, "iv": 0.3}
+            {"actcond": 302030301, "target": "MYSELF", "iv": 0.26667},
+            {"dmg": 30.78, "target": "HOSTILE", "iv": 0.3}
         ],
         "cancel": {"any": 1.06667}
     }

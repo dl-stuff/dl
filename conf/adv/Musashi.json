@@ -1,4 +1,9 @@
 {
+    "actconds": {
+        "101020701": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.53, "iv": 2.9}, "rate": 110},
+        "302030601": {"duration": 15.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"},
+        "302030801": {"duration": 15.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"}
+    },
     "c": {
         "name": "Musashi",
         "icon": "110030_01_r04",
@@ -7,15 +12,20 @@
         "ele": "wind",
         "wt": "blade",
         "spiral": false,
-        "a": [["lo_att", 0.4], ["affres_bog", 100.0], ["od", 0.08]]
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", 302030801]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["overdrive"], "ab": [["actdmg", 0.08]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 5904}
     },
     "s1": {
         "sp": 2567,
         "startup": 0.0,
         "recovery": 2.23333,
         "attr": [
-            {"dmg": 4.84, "killer": [0.5, ["poison"]], "afflic": ["poison", 110, 0.53], "iv": 0.26667},
-            {"dmg": 4.84, "killer": [0.5, ["poison"]], "iv": 0.56667}
+            {"dmg": 4.84, "killer": [0.5, ["poison"]], "actcond": 101020701, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 4.84, "killer": [0.5, ["poison"]], "actcond": 101020701, "target": "HOSTILE", "iv": 0.56667}
         ],
         "cancel": {"any": 1.9}
     },
@@ -24,7 +34,7 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": ["self", 0.3, 15.0, "att", "buff"], "iv": 0.16667}
+            {"actcond": 302030601, "target": "MYSELF", "iv": 0.16667}
         ]
     }
 }

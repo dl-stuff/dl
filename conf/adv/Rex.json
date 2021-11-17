@@ -1,4 +1,7 @@
 {
+    "actconds": {
+        "790": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.37, "iv": 2.9}, "rate": 120}
+    },
     "c": {
         "name": "Rex",
         "icon": "110012_01_r03",
@@ -7,14 +10,18 @@
         "ele": "water",
         "wt": "axe",
         "spiral": false,
-        "a": [["affres_burn", 50.0], ["affres_burn", 25.0]]
+        "abilities": [
+            {"ab": [["mod", 0.5, "affres_burn"]]},
+            {"ab": [["mod", 0.25, "affres_burn"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 9708}
     },
     "s1": {
         "sp": 2942,
         "startup": 0.0,
         "recovery": 1.86667,
         "attr": [
-            {"dmg": 13.47, "killer": [0.5, ["frostbite"]], "afflic": ["frostbite", 120, 0.37], "iv": 0.66667}
+            {"dmg": 13.47, "killer": [0.5, ["frostbite"]], "actcond": 790, "target": "HOSTILE", "iv": 0.66667}
         ],
         "cancel": {"any": 1.5}
     },
@@ -23,7 +30,7 @@
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"dmg": 12.13, "killer": [0.5, ["frostbite"]], "afflic": ["frostbite", 120, 0.37], "iv": 0.7}
+            {"dmg": 12.13, "killer": [0.5, ["frostbite"]], "actcond": 790, "target": "HOSTILE", "iv": 0.7}
         ],
         "cancel": {"any": 1.23333}
     }

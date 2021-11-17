@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "308010801": {"duration": 15.0, "slip": {"heal": 41.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "d": {
+        "name": "Ebisu",
+        "icon": "210114_01",
+        "att": 77,
+        "hp": 221,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.4, "hp"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 3.46667,
+        "energizable": true,
+        "cancel": {"any": 2.66667},
+        "sp_db": 90,
+        "uses": 1,
+        "attr": [
+            {"heal": 30, "target": "MYSELF", "iv": 1.0},
+            {"actcond": 308010801, "target": "MYSELF", "iv": 1.16667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.30303,
+        "recovery": 0.99697,
+        "attr": [
+            {"dmg": 3.6, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.60606, "dodge": 0.0, "dx2": 0.18182, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.36667,
+        "recovery": 0.96666,
+        "attr": [
+            {"dmg": 4.14, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.63333, "dodge": 0.0, "dx3": 0.2, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.33333,
+        "recovery": 1.23334,
+        "attr": [
+            {"dmg": 6.12, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 6.12, "sp": 5, "target": "HOSTILE", "iv": 0.33334}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.16667, "dodge": 0.0, "dx1": 1.06667, "s": 0.0}
+    }
+}

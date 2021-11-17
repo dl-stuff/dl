@@ -1,4 +1,12 @@
 {
+    "actconds": {
+        "1259": {"duration": 60.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%", "overwrite": 8},
+        "206010101": {"relief": "stun", "count": 1, "text": "Stun Relief"},
+        "301040101": {"icon": "hp-buff", "mods": [[0.05, "hp", "buff"]], "coei": 1, "text": "HP +5%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303020201": {"duration": 10.0, "icon": "def-buff", "mods": [[0.15, "def", "buff"]], "text": "Defense +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
     "c": {
         "name": "Nurse Aeleen",
         "icon": "110029_02_r04",
@@ -7,17 +15,23 @@
         "ele": "water",
         "wt": "staff",
         "spiral": true,
-        "a": [["prep", 100.0], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["sp", 0.04], ["sp", 0.04], ["sp", 0.02]]
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["hp", "<", 30, 1], "ab": [["hitattr", {"sp": [0.25, "%"], "target": "MYPARTY"}]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 5, "sp": 10293}
     },
     "s1": {
         "sp": 7888,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
-            {"heal": [44, "team"], "buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.93333},
-            {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667},
-            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 1.0}
+            {"heal": 44, "actcond": 308010401, "target": "ALLY", "iv": 0.93333},
+            {"actcond": 1259, "target": "MYPARTY", "iv": 0.96667},
+            {"actcond": 303020201, "target": "MYPARTY", "iv": 1.0}
         ],
         "energizable": true
     },
@@ -26,8 +40,8 @@
         "startup": 0.0,
         "recovery": 1.93333,
         "attr": [
-            {"heal": [108, "team"], "relief": [["stun"], 100], "iv": 0.96667},
-            {"buff": ["nearby", 0.05, -1, "maxhp", "buff"], "coei": 1, "iv": 1.0}
+            {"heal": 108, "actcond": 206010101, "target": "ALLY", "iv": 0.96667},
+            {"actcond": 301040101, "target": "ALLY", "iv": 1.0}
         ],
         "energizable": true
     }

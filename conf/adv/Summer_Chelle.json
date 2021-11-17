@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120},
+        "1797": {"icon": 0, "mods": [[-0.5, "mspdb", "buff"]], "debuff": 1, "hide": 1},
+        "1798": {"remove": 1797, "icon": 0, "hide": 1},
+        "1811": {"icon": "edge_flashburn-passive", "mods": [[0.5, "edge_flashburn", "passive"]], "coei": 1, "text": "Flashburn Infliction Rate +50%", "overwrite": 49},
+        "1819": {"duration": 30.0, "icon": "resist_flashburn-passive", "mods": [[-0.2, "resist_flashburn", "passive"]], "debuff": 1, "text": "Flashburn Res -20%", "overwrite": 49}
+    },
     "c": {
         "name": "Summer Chelle",
         "icon": "100015_08_r05",
@@ -7,14 +14,33 @@
         "ele": "light",
         "wt": "wand",
         "spiral": false,
-        "a": [["affres_curse", 100.0], ["afftime_flashburn", 0.3, "hp70"]]
+        "cp": 100,
+        "abilities": [
+            {"cond": ["cp", ">=", 34], "ab": [["mod", 0.3, "edge_flashburn"]]},
+            {"cond": ["cp", ">=", 68], "ab": [["mod", 0.2, "edge_flashburn"], ["actdmg", 1.0, "-t:s1"]]},
+            {"cond": ["cp", ">=", 100], "ab": [["mod", -0.5, "edge_flashburn"], ["actdmg", -1.0, "-t:s1"]]},
+            {"ab": [["mode", ""]]},
+            {"cond": ["cp", ">=", 34], "ab": [["mode", "modecp"]]},
+            {"cond": ["cp", ">=", 68], "ab": [["mode", "modecp"]]},
+            {"cond": ["cp", ">=", 100], "ab": [["mode", "modecp"], ["actcond", "MYSELF", 1797]]},
+            {"ab": [["hitattr", {"amp": ["20000", 2, 0], "target": "MYSELF"}]]},
+            {"cond": ["event", "dragon"], "ab": [["cprep", -1.0], ["actcond", "MYSELF", 1798], ["mode", ""]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.3, "afftime_flashburn"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 7, "sp": 19175}
     },
     "dragonform": {
+        "dshift": {
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ]
+        },
         "dx1": {
             "startup": 0.3,
             "recovery": 1.16667,
             "attr": [
-                {"dmg": 6.5, "sp": 5}
+                {"dmg": 6.5, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 0.86667, "dodge": 0.0, "dx2": 0.7, "s": 0.0}
@@ -23,7 +49,7 @@
             "startup": 0.3,
             "recovery": 1.16667,
             "attr": [
-                {"dmg": 7.7, "sp": 5}
+                {"dmg": 7.7, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 1.03333, "dodge": 0.0, "dx3": 0.86667, "s": 0.0}
@@ -32,7 +58,7 @@
             "startup": 0.5,
             "recovery": 0.96667,
             "attr": [
-                {"dmg": 9.5, "sp": 5}
+                {"dmg": 9.5, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
             "cancel": {"any": 0.83333, "dodge": 0.0, "dx1": 0.66667, "s": 0.0}
@@ -41,13 +67,13 @@
             "sp": 30,
             "startup": 0.0,
             "recovery": 3.16667,
+            "cancel": {"any": 1.5},
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 17.5, "iv": 1.06667},
-                {"buff": ["affup", 0.5, -1, "flashburn", "-overwrite_MYSELF49"], "coei": 1, "iv": 1.06667}
-            ],
-            "cancel": {"any": 1.5}
+                {"dmg": 17.5, "target": "HOSTILE", "iv": 1.06667},
+                {"actcond": 1811, "target": "MYSELF", "iv": 1.06667}
+            ]
         }
     },
     "s1": {
@@ -55,10 +81,20 @@
         "startup": 0.0,
         "recovery": 2.2,
         "attr": [
-            {"amp": ["20000", 2, 0], "ab": 1},
-            {"dmg": 27.51, "afflic": ["flashburn", 120, 0.416], "iv": 1.03333},
-            {"buff": ["affres", -0.2, 30.0, "flashburn", "-overwrite_HOSTILE49"], "coei": 1, "iv": 1.03333},
-            {"cp": 34, "iv": 1.03333, "msl": 0.3}
+            {"dmg": 27.51, "actcond": 1258, "target": "HOSTILE", "iv": 1.03333},
+            {"actcond": 1819, "target": "HOSTILE", "iv": 1.03333},
+            {"cp": 34, "target": "MYSELF", "iv": 1.03333, "msl": 0.3}
+        ],
+        "cancel": {"any": 2.2}
+    },
+    "s1_modecp": {
+        "sp": 2950,
+        "startup": 0.0,
+        "recovery": 2.2,
+        "attr": [
+            {"dmg": 27.51, "actcond": 1258, "target": "HOSTILE", "iv": 1.03333},
+            {"actcond": 1819, "target": "HOSTILE", "iv": 1.03333},
+            {"cp": 34, "target": "MYSELF", "iv": 1.03333, "msl": 0.3}
         ],
         "cancel": {"any": 2.2}
     },
@@ -67,18 +103,21 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"cp": -100, "heal": 40}
+            {"cp": -100, "heal": 40, "actcond": 1798, "target": "MYSELF"}
         ],
         "energizable": true,
-        "cancel": {"any": 1.8}
+        "cancel": {"any": 1.8},
+        "abilities": [
+            {"ab": [["dprep", 0.1]]}
+        ]
     },
     "s99": {
         "sp": 2950,
         "startup": 0.0,
         "recovery": 2.2,
         "attr": [
-            {"dmg": 27.51, "afflic": ["flashburn", 120, 0.416], "iv": 1.03333},
-            {"buff": ["affres", -0.2, 30.0, "flashburn", "-overwrite_HOSTILE49"], "coei": 1, "iv": 1.03333}
+            {"dmg": 27.51, "actcond": 1258, "target": "HOSTILE", "iv": 1.03333},
+            {"actcond": 1819, "target": "HOSTILE", "iv": 1.03333}
         ],
         "cancel": {"any": 2.2}
     }

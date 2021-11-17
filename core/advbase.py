@@ -1093,6 +1093,8 @@ class Adv(object):
         if self.conf["dash"]:
             self.a_dash = DashX("dash", self.conf.dash)
 
+        self.actconds = {}
+
     @property
     def ctime(self):
         # base ctime is 2

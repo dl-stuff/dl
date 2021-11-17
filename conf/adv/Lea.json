@@ -1,4 +1,11 @@
 {
+    "actconds": {
+        "291": {"dispel": 1},
+        "1382": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.22, "iv": 2.9}},
+        "1816": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Crimson Glory", "overwrite": -1},
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
     "c": {
         "name": "Lea",
         "icon": "110259_01_r05",
@@ -7,13 +14,22 @@
         "ele": "flame",
         "wt": "sword",
         "spiral": true,
-        "a": [["fs", 0.5], ["k_scorchrend", 0.15], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["spf", 0.15]]
+        "abilities": [
+            {"ab": [["actdmg", 0.5, "-t:fs"]]},
+            {"ab": [["actcond", "MYSELF", 1816]]},
+            {"ab": [["mod", 0.15, "killer_scorchrend"]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": 302020201, "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.15, "sph", "-t:fs"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 13601}
     },
-    "fs_lea": {
+    "fs_enhanced": {
         "startup": 0.14957,
         "recovery": 1.08376,
         "attr": [
-            {"dmg": 1.65, "odmg": 8.0, "sp": 345, "afflic": ["scorchrend", 100, 0.22]}
+            {"dmg": 1.65, "odmg": 8.0, "sp": 345, "actcond": 1382, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.32052}
@@ -23,14 +39,16 @@
         "startup": 0.0,
         "recovery": 3.26667,
         "attr": [
-            {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
-            {"buff": ["fsAlt", "lea", -1, 1, "-refresh"], "coei": 1, "ab": 1},
-            {"dmg": 3.3, "killer": [0.5, ["burn"]], "afflic": ["burn", 120, 0.97], "iv": 0.33333},
-            {"dispel": 100, "iv": 0.33333},
-            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 0.46667},
-            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 0.9},
-            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.16667},
-            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.96667}
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 0.33333},
+            {"actcond": 291, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 0.46667},
+            {"actcond": 291, "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 0.9},
+            {"actcond": 291, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 1.16667},
+            {"actcond": 291, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "actcond": 102040901, "target": "HOSTILE", "iv": 1.96667},
+            {"actcond": 291, "target": "HOSTILE", "iv": 1.96667}
         ],
         "cancel": {"any": 2.7}
     },
@@ -39,10 +57,12 @@
         "startup": 0.0,
         "recovery": 3.13333,
         "attr": [
-            {"hp": -20.0, "cond": ["hp>", 60.0]},
-            {"dmg": 8.2, "iv": 2.1},
-            {"dmg": 8.2, "iv": 2.1}
+            {"dmg": 8.2, "target": "HOSTILE", "iv": 2.1},
+            {"dmg": 8.2, "target": "HOSTILE", "iv": 2.1}
         ],
-        "cancel": {"any": 2.13333}
+        "cancel": {"any": 2.13333},
+        "abilities": [
+            {"cond": ["hp", ">=", 60], "ab": [["hitattr", {"hp": -20.0, "target": "MYSELF"}]]}
+        ]
     }
 }
