@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "1146": {"count": 2, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Devout Oracle", "overwrite": -1},
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "207010101": {"relief": "curse", "count": 1, "text": "Curse Relief"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010602": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "308010603": {"duration": 15.0, "slip": {"heal": 10.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"}
+    },
+    "c": {
+        "name": "Hildegarde",
+        "icon": "110043_01_r05",
+        "att": 558,
+        "hp": 972,
+        "ele": "light",
+        "wt": "staff",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.15, "rcv", "-t:s"]]},
+            {"ab": [["actcond", "MYSELF", "1146"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 14494}
+    },
+    "fs_enhanced": {
+        "charge": 0.5,
+        "startup": 0.46667,
+        "recovery": 0.53333,
+        "attr": [
+            {"heal": 82, "target": "ALLY_HP_LOWEST"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.03333, "s": 0.0}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 3.1,
+        "attr": [
+            {"heal": 130, "actcond": "207010101", "target": "ALLY", "iv": 0.96667},
+            {"actcond": "308010603", "target": "ALLY", "iv": 0.96667},
+            {"actcond": "1261", "target": "MYPARTY", "iv": 1.0}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.7}
+    },
+    "s2": {
+        "sp": 11832,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "316010501", "target": "MYPARTY", "iv": 0.16667},
+            {"heal": 36, "actcond": "308010602", "target": "MYPARTY", "iv": 0.16667}
+        ],
+        "energizable": true
+    }
+}

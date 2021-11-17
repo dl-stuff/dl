@@ -1,0 +1,41 @@
+{
+    "actconds": {
+        "19": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding", "rate": 80},
+        "303030901": {"duration": 15.0, "icon": "def-buff", "mods": [[0.5, "def", "buff"]], "text": "Defense +50%"}
+    },
+    "c": {
+        "name": "Taro",
+        "icon": "110044_01_r03",
+        "att": 495,
+        "hp": 701,
+        "ele": "shadow",
+        "wt": "blade",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "303030901"]]},
+            {"ab": [["mod", 0.5, "affres_paralysis"]]},
+            {"ab": [["mod", 0.25, "affres_paralysis"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 4784}
+    },
+    "s1": {
+        "sp": 2392,
+        "startup": 0.0,
+        "recovery": 3.06667,
+        "attr": [
+            {"dmg": 3.84, "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 3.84, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 3.84, "target": "HOSTILE", "iv": 1.03333}
+        ],
+        "cancel": {"any": 2.73333}
+    },
+    "s2": {
+        "sp": 5259,
+        "startup": 0.0,
+        "recovery": 2.1,
+        "attr": [
+            {"dmg": 11.85, "actcond": "19", "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "cancel": {"any": 1.83333}
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "actconds": {
+        "181": {"duration": 20.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"},
+        "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Xainfried",
+        "icon": "110021_01_r05",
+        "att": 580,
+        "hp": 949,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["event", "dragon"], "count": 3, "ab": [["actcond", "MYSELF", "510", "512", "512"]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.25, "dt"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 8085}
+    },
+    "s1": {
+        "sp": 2450,
+        "startup": 0.0,
+        "recovery": 3.33333,
+        "attr": [
+            {"dmg": 5.29, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 5.29, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 5.29, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 2.23333},
+            {"dmg": 5.29, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 2.5}
+        ],
+        "cancel": {"any": 3.0}
+    },
+    "s2": {
+        "sp": 8534,
+        "startup": 0.0,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 7.112, "dp": 100, "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 7.112, "dp": 100, "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 7.112, "dp": 100, "target": "HOSTILE", "iv": 1.13333},
+            {"actcond": "181", "target": "MYPARTY", "iv": 1.36667}
+        ],
+        "cancel": {"any": 1.6}
+    }
+}

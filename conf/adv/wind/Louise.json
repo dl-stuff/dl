@@ -1,0 +1,45 @@
+{
+    "actconds": {
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Louise",
+        "icon": "110256_01_r05",
+        "att": 563,
+        "hp": 965,
+        "ele": "wind",
+        "wt": "bow",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["overdrive"], "ab": [["actdmg", 0.15]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", "302030301"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 15638}
+    },
+    "s1": {
+        "sp": 2896,
+        "startup": 0.0,
+        "recovery": 2.56667,
+        "attr": [
+            {"dmg": 5.42, "hp": 1.25, "actcond": "101021001", "target": "HOSTILE", "iv": 0.92523},
+            {"dmg": 5.42, "hp": 1.25, "actcond": "101021001", "target": "HOSTILE", "iv": 1.40035},
+            {"dmg": 5.42, "hp": 1.25, "actcond": "101021001", "target": "HOSTILE", "iv": 1.50038},
+            {"dmg": 5.42, "hp": 1.25, "actcond": "101021001", "target": "HOSTILE", "iv": 1.6004}
+        ]
+    },
+    "s2": {
+        "sp": 5001,
+        "startup": 0.0,
+        "recovery": 3.0,
+        "attr": [
+            {"dmg": 6.98, "killer": [0.5, ["poison"]], "crisis": -0.5, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 6.98, "killer": [0.5, ["poison"]], "crisis": -0.5, "target": "HOSTILE", "iv": 1.36667},
+            {"dmg": 6.98, "killer": [0.5, ["poison"]], "crisis": -0.5, "target": "HOSTILE", "iv": 2.13333}
+        ],
+        "cancel": {"any": 2.16667}
+    }
+}

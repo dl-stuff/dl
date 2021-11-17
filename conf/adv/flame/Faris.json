@@ -1,0 +1,111 @@
+{
+    "actconds": {
+        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "maxstack": 1, "unremovable": 1},
+        "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120},
+        "1538": {"count": 3, "coei": 1, "avoid": 0.3, "icon": 240, "text": "Uriel's Blessing", "overwrite": 31},
+        "1541": {"duration": 15.0, "icon": 239, "mods": [[-0.15, "att", "buff"]], "-lv": 1542, "debuff": 1, "text": "Uriel's Wrath Lv. 1"}
+    },
+    "c": {
+        "name": "Faris",
+        "icon": "110382_01_r05",
+        "att": 505,
+        "hp": 754,
+        "ele": "flame",
+        "wt": "gun",
+        "spiral": false,
+        "gun": [1],
+        "abilities": [
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1152"]]},
+            {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
+            {"cond": ["actcond", 1171], "ab": [["mod", 0.12, "sph"]]},
+            {"cond": ["actcond", 1171], "ab": [["mod", 0.12, "sph"]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 13144}
+    },
+    "default": {
+        "x_max": 2
+    },
+    "fs": {
+        "charge": 0.08,
+        "startup": 0.2,
+        "recovery": 0.46667,
+        "attr": [
+            {"dmg": 6.58, "odmg": 0.91, "sp": 600, "actcond": "1541", "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.13333, "dodge": 0.0, "s": 0.0}
+    },
+    "fs_sigil": {
+        "charge": 0.08,
+        "startup": 0.2,
+        "recovery": 0.46667,
+        "attr": [
+            {"dmg": 11.34, "killer": [0.35, ["scorchrend"]], "odmg": 0.53, "sp": 1740, "actcond": "1541", "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.13333, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 3810,
+        "startup": 0.0,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 27.09, "actcond": "1384", "target": "HOSTILE", "iv": 0.66667}
+        ]
+    },
+    "s1_sigil": {
+        "sp": 3810,
+        "startup": 0.0,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 15.07, "actcond": "1384", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 15.07, "actcond": "1541", "target": "HOSTILE", "iv": 0.66667}
+        ]
+    },
+    "s2": {
+        "sp": 7560,
+        "startup": 0.0,
+        "recovery": 1.46667,
+        "attr": [
+            {"actcond": "1538", "target": "MYSELF", "iv": 0.16667}
+        ]
+    },
+    "x1": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.67, "sp": 545, "target": "HOSTILE", "loop": [5, 0.13333]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 1.26667}
+    },
+    "x2": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.67, "sp": 545, "target": "HOSTILE", "loop": [5, 0.13333]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.26667}
+    },
+    "x1_sigil": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.97, "killer": [0.35, ["scorchrend"]], "sp": 600, "target": "HOSTILE", "loop": [5, 0.13333]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0}
+    },
+    "x2_sigil": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.97, "killer": [0.35, ["scorchrend"]], "sp": 600, "target": "HOSTILE", "loop": [5, 0.13333]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.26667}
+    }
+}

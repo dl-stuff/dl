@@ -1,0 +1,204 @@
+{
+    "actconds": {
+        "1237": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Twilight Moon", "overwrite": -1},
+        "1249": {"duration": 15.0, "icon": "cspd-buff", "mods": [[0.3, "cspd", "buff"]], "text": "Force Strike Rate +30%", "overwrite": -1},
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8}
+    },
+    "c": {
+        "name": "Gala Zena",
+        "icon": "100009_08_r05",
+        "att": 489,
+        "hp": 770,
+        "ele": "light",
+        "wt": "staff",
+        "spiral": false,
+        "cp": 100,
+        "abilities": [
+            {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", "1237"]]},
+            {"cond": ["actcondend", 1237], "ab": [["cprep", -1.0]]},
+            {"ab": [["mod", 1.0, "affres_poison"], ["mod", 1.0, "affres_curse"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 17550}
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.63333,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.26667},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.3},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.36667},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.33334},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.3},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.26667},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.3},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.36667},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.33334},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "target": "HOSTILE", "msl": 1.3}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.7, "dodge": 0.0, "s": 0.0}
+    },
+    "fs1_enhanced": {
+        "charge": 0.8,
+        "startup": 0.0,
+        "recovery": 1.16667,
+        "attr": [
+            {"cp": -100, "target": "MYSELF"},
+            {"dmg": 4.0, "sp": 690, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 4.0, "sp": 690, "target": "HOSTILE", "iv": 0.5, "msl": 0.2},
+            {"dmg": 4.0, "sp": 690, "target": "HOSTILE", "iv": 0.5, "msl": 0.33333},
+            {"dmg": 4.0, "sp": 690, "target": "HOSTILE", "iv": 0.5, "msl": 0.46667},
+            {"dmg": 4.0, "sp": 690, "target": "HOSTILE", "iv": 0.5, "msl": 0.6}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.03333, "s": 0.0}
+    },
+    "fs2_enhanced": {
+        "charge": 1.6,
+        "startup": 0.0,
+        "recovery": 1.16667,
+        "attr": [
+            {"cp": -100, "target": "MYSELF"},
+            {"dmg": 5.0, "sp": 1035, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 5.0, "sp": 1035, "target": "HOSTILE", "iv": 0.5, "msl": 0.2},
+            {"dmg": 5.0, "sp": 1035, "target": "HOSTILE", "iv": 0.5, "msl": 0.33333},
+            {"dmg": 5.0, "sp": 1035, "target": "HOSTILE", "iv": 0.5, "msl": 0.46667},
+            {"dmg": 5.0, "sp": 1035, "target": "HOSTILE", "iv": 0.5, "msl": 0.6}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.03333, "s": 0.0}
+    },
+    "fs3_enhanced": {
+        "charge": 2.4,
+        "startup": 0.0,
+        "recovery": 1.16667,
+        "attr": [
+            {"cp": -100, "target": "MYSELF"},
+            {"dmg": 6.0, "sp": 1380, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 6.0, "sp": 1380, "target": "HOSTILE", "iv": 0.5, "msl": 0.2},
+            {"dmg": 6.0, "sp": 1380, "target": "HOSTILE", "iv": 0.5, "msl": 0.33333},
+            {"dmg": 6.0, "sp": 1380, "target": "HOSTILE", "iv": 0.5, "msl": 0.46667},
+            {"dmg": 6.0, "sp": 1380, "target": "HOSTILE", "iv": 0.5, "msl": 0.6}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.03333, "s": 0.0}
+    },
+    "fs4_enhanced": {
+        "charge": 3.2,
+        "startup": 0.0,
+        "recovery": 1.16667,
+        "attr": [
+            {"cp": -100, "target": "MYSELF"},
+            {"dmg": 7.0, "sp": 1725, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 7.0, "sp": 1725, "target": "HOSTILE", "iv": 0.5, "msl": 0.2},
+            {"dmg": 7.0, "sp": 1725, "target": "HOSTILE", "iv": 0.5, "msl": 0.33333},
+            {"dmg": 7.0, "sp": 1725, "target": "HOSTILE", "iv": 0.5, "msl": 0.46667},
+            {"dmg": 7.0, "sp": 1725, "target": "HOSTILE", "iv": 0.5, "msl": 0.6}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.03333, "s": 0.0}
+    },
+    "fs5_enhanced": {
+        "charge": 4.0,
+        "startup": 0.0,
+        "recovery": 1.16667,
+        "attr": [
+            {"cp": -100, "target": "MYSELF"},
+            {"dmg": 10.0, "sp": 2070, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 10.0, "sp": 2070, "target": "HOSTILE", "iv": 0.5, "msl": 0.2},
+            {"dmg": 10.0, "sp": 2070, "target": "HOSTILE", "iv": 0.5, "msl": 0.33333},
+            {"dmg": 10.0, "sp": 2070, "target": "HOSTILE", "iv": 0.5, "msl": 0.46667},
+            {"dmg": 10.0, "sp": 2070, "target": "HOSTILE", "iv": 0.5, "msl": 0.6}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.03333, "s": 0.0}
+    },
+    "s1": {
+        "sp": 5850,
+        "startup": 0.0,
+        "recovery": 1.93333,
+        "attr": [
+            {"cp": 50, "target": "MYSELF"},
+            {"heal": 108, "target": "MYPARTY", "iv": 1.0},
+            {"DEBUG_PARTCOND": "SingleOrMultiPlay[0, 0, 0, 0]", "heal": 54, "target": "ALLY", "iv": 1.0, "zone": 3000.0},
+            {"DEBUG_PARTCOND": "SingleOrMultiPlay[1, 0, 0, 0]", "heal": 27, "target": "ALLY", "iv": 1.0, "zone": 3000.0},
+            {"actcond": "1261", "target": "MYPARTY", "iv": 1.0}
+        ],
+        "energizable": true,
+        "cancel": {"any": 1.66667}
+    },
+    "s2": {
+        "sp": 8775,
+        "startup": 0.0,
+        "recovery": 3.46667,
+        "attr": [
+            {"cp": 50, "target": "MYSELF"},
+            {"dmg": 0.5, "target": "HOSTILE", "iv": 0.66667, "blt": [5, 0.0], "msl": 1.8},
+            {"dmg": 3.5, "target": "HOSTILE", "iv": 0.66667, "blt": [5, 0.0], "msl": 1.8},
+            {"actcond": "1249", "target": "MYSELF", "iv": 2.5}
+        ],
+        "cancel": {"any": 3.0}
+    },
+    "x1": {
+        "startup": 0.26667,
+        "recovery": 1.03333,
+        "attr": [
+            {"dmg": 0.4, "sp": 200, "target": "HOSTILE", "msl": 1.26667},
+            {"dmg": 0.4, "sp": 200, "target": "HOSTILE", "msl": 1.27334},
+            {"dmg": 0.4, "sp": 200, "target": "HOSTILE", "msl": 1.27}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.70555, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.09444}
+    },
+    "x2": {
+        "startup": 0.36667,
+        "recovery": 1.2,
+        "attr": [
+            {"dmg": 0.47, "sp": 240, "target": "HOSTILE", "msl": 1.27},
+            {"dmg": 0.47, "sp": 240, "target": "HOSTILE", "msl": 1.26667},
+            {"dmg": 0.47, "sp": 240, "target": "HOSTILE", "msl": 1.27334}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.71666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.13333}
+    },
+    "x3": {
+        "startup": 0.63333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 0.53, "sp": 370, "target": "HOSTILE", "msl": 1.27334},
+            {"dmg": 0.53, "sp": 370, "target": "HOSTILE", "msl": 1.26667},
+            {"dmg": 0.53, "sp": 370, "target": "HOSTILE", "msl": 1.27},
+            {"dmg": 0.53, "sp": 370, "target": "HOSTILE", "msl": 1.27}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.2}
+    },
+    "x4": {
+        "startup": 0.36667,
+        "recovery": 1.13333,
+        "attr": [
+            {"dmg": 0.58, "sp": 490, "target": "HOSTILE", "msl": 1.27334},
+            {"dmg": 0.58, "sp": 490, "target": "HOSTILE", "msl": 1.27},
+            {"dmg": 0.58, "sp": 490, "target": "HOSTILE", "msl": 1.26667},
+            {"dmg": 0.58, "sp": 490, "target": "HOSTILE", "msl": 1.27334},
+            {"dmg": 0.58, "sp": 490, "target": "HOSTILE", "msl": 1.27}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.16666}
+    },
+    "x5": {
+        "startup": 0.96667,
+        "recovery": 1.36666,
+        "attr": [
+            {"dmg": 0.62, "sp": 650, "target": "HOSTILE", "msl": 1.26667},
+            {"dmg": 0.62, "sp": 650, "target": "HOSTILE", "msl": 1.27},
+            {"dmg": 0.62, "sp": 650, "target": "HOSTILE", "msl": 1.27334},
+            {"dmg": 0.62, "sp": 650, "target": "HOSTILE", "msl": 1.27667},
+            {"dmg": 0.62, "sp": 650, "target": "HOSTILE", "msl": 1.27},
+            {"dmg": 0.62, "sp": 650, "target": "HOSTILE", "msl": 1.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8282, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.7}
+    }
+}

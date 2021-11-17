@@ -1,0 +1,67 @@
+{
+    "actconds": {
+        "67": {"aff": "stun", "duration": 6.5, "rate": 180},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
+    },
+    "d": {
+        "name": "Zephyr",
+        "icon": "210018_01",
+        "att": 146,
+        "hp": 389,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.65, "att"]]},
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1838"]]}
+        ]
+    },
+    "dodge": {
+        "recovery": 0.55556,
+        "backdash": true
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 4.96667,
+        "cancel": {"any": 2.93333, "dodge": 2.93333, "dx1": 2.93333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 5.348, "actcond": "67", "target": "HOSTILE", "iv": 1.83333},
+            {"dmg": 5.348, "actcond": "67", "target": "HOSTILE", "iv": 2.16667},
+            {"dmg": 5.348, "actcond": "67", "target": "HOSTILE", "iv": 2.33333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.36667,
+        "recovery": 1.1,
+        "attr": [
+            {"dmg": 5.12, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.46667,
+        "recovery": 0.96666,
+        "attr": [
+            {"dmg": 2.82, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 2.82, "sp": 5, "target": "HOSTILE", "iv": 0.23333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.46666, "dodge": 0.0, "dx3": 0.46666, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.6,
+        "recovery": 1.1,
+        "attr": [
+            {"dmg": 7.16, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.7, "dodge": 0.0, "dx1": 0.7, "s": 0.0}
+    }
+}

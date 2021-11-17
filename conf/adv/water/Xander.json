@@ -1,0 +1,106 @@
+{
+    "actconds": {
+        "254": {"icon": "att-buff", "mods": [[0.05, "att", "buff"]], "text": "Strength +5%"},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "507": {"icon": "att-buff", "mods": [[0.06, "att", "buff"]], "text": "Strength +6%"},
+        "1082": {"coei": 1, "alt": {"fs": "enhanced", "s1": "enhanced"}, "icon": 142, "text": "Born Ruler"},
+        "1091": {"coei": 1, "alt": {"fs": "enhanced1", "s1": "enhanced1"}, "icon": 142, "text": "Born Ruler"},
+        "1111": {"remove": 1082, "coei": 1, "icon": 0, "hide": 1},
+        "1112": {"remove": 1091, "coei": 1, "icon": 0, "hide": 1},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Xander",
+        "icon": "110022_01_r05",
+        "att": 603,
+        "hp": 907,
+        "ele": "water",
+        "wt": "sword",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["slayer", 3, "fs"], "count": 5, "ab": [["actcond", "MYSELF", "507"]]},
+            {"cond": ["actcond", 1082], "ab": [["actcond", "MYSELF", "254"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["actdmg", 0.55, "-t:fs"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 4, "sp": 8549}
+    },
+    "fs_enhanced": {
+        "startup": 0.03333,
+        "recovery": 1.0,
+        "attr": [
+            {"actcond": "1111", "target": "MYSELF"},
+            {"actcond": "1112", "target": "MYSELF"},
+            {"dmg": 2.18, "odmg": 3.3, "sp": 330, "target": "HOSTILE", "iv": 0.21667},
+            {"dmg": 2.18, "odmg": 3.3, "sp": 330, "target": "HOSTILE", "iv": 0.425},
+            {"dmg": 2.18, "odmg": 3.3, "sp": 330, "target": "HOSTILE", "iv": 0.71667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.88334}
+    },
+    "fs_enhanced1": {
+        "startup": 0.03333,
+        "recovery": 1.0,
+        "attr": [
+            {"actcond": "1111", "target": "MYSELF"},
+            {"actcond": "1112", "target": "MYSELF"},
+            {"dmg": 4.44, "killer": [0.3, ["frostbite"]], "odmg": 3.3, "sp": 330, "target": "HOSTILE", "iv": 0.21667},
+            {"dmg": 4.44, "killer": [0.3, ["frostbite"]], "odmg": 3.3, "sp": 330, "target": "HOSTILE", "iv": 0.425},
+            {"dmg": 4.44, "killer": [0.3, ["frostbite"]], "odmg": 3.3, "sp": 330, "target": "HOSTILE", "iv": 0.71667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.88334}
+    },
+    "s1": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 16.64, "bufc": 0.05, "actcond": "411", "target": "HOSTILE", "iv": 0.8},
+            {"actcond": "1082", "target": "MYSELF", "iv": 1.63333}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s1_enhanced": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 16.74, "bufc": 0.05, "actcond": "411", "target": "HOSTILE", "iv": 0.8},
+            {"actcond": "1091", "target": "MYSELF", "iv": 1.63333}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s1_enhanced1": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 16.8, "bufc": 0.05, "actcond": "411", "target": "HOSTILE", "iv": 0.8},
+            {"actcond": "1111", "target": "MYSELF", "iv": 1.63333},
+            {"actcond": "1112", "target": "MYSELF", "iv": 1.63333}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s2": {
+        "sp": 4817,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "attr": [
+            {"dmg": 5.566, "bufc": 0.05, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 5.566, "bufc": 0.05, "target": "HOSTILE", "iv": 0.93333},
+            {"dmg": 5.566, "bufc": 0.05, "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "s99": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 16.64, "bufc": 0.05, "actcond": "411", "target": "HOSTILE", "iv": 0.8}
+        ],
+        "cancel": {"any": 1.66667}
+    }
+}

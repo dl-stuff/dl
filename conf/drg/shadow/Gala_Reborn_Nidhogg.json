@@ -1,0 +1,68 @@
+{
+    "actconds": {
+        "1763": {"duration": 45.0, "icon": 266, "mods": [[0.3, "dmg_shadow", "buff"], [0.3, "dmg_nullele", "buff"]], "coei": 1, "text": "Shadow-Attuned Damage +30%", "overwrite": -1}
+    },
+    "d": {
+        "name": "Gala Reborn Nidhogg",
+        "icon": "210155_01",
+        "att": 128,
+        "hp": 368,
+        "ele": "shadow",
+        "abilities": [
+            {"ab": [["mod", 0.7, "att"]]},
+            {"cond": ["get_dp", 100], "cd": 5.0, "ab": [["actcond", "MYSELF", "1763"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 4.63333,
+        "cancel": {"any": 4.0, "dx1": 3.73333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 1.63333},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 1.7},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 1.8},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 1.9},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 2.0},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 2.16667},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 2.33333},
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 3.0, "killer": [-0.25, ["break"]], "target": "HOSTILE", "iv": 2.53333}
+        ],
+        "final": true
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.4,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 4.96, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.43333, "dodge": 0.0, "dx2": 0.06667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.43333,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 5.46, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.4, "dodge": 0.0, "dx3": 0.1, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.7,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 2.08, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 4.86, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.03333, "dodge": 0.0, "dx1": 0.63333, "s": 0.0}
+    }
+}

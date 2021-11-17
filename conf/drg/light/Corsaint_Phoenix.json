@@ -1,0 +1,70 @@
+{
+    "actconds": {
+        "104030901": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.883, "iv": 3.9}, "rate": 110},
+        "201010101": {"relief": "poison", "count": 1, "text": "Poison Relief"},
+        "207010101": {"relief": "curse", "count": 1, "text": "Curse Relief"}
+    },
+    "d": {
+        "name": "Corsaint Phoenix",
+        "icon": "210056_01",
+        "att": 124,
+        "hp": 371,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 0.5, "att"]]},
+            {"ab": [["mod", 0.2, "killer_paralysis"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 50,
+        "startup": 0.0,
+        "recovery": 4.13333,
+        "cancel": {"any": 2.5},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 2.6, "actcond": "104030901", "target": "HOSTILE", "iv": 0.72222},
+            {"dmg": 2.6, "actcond": "104030901", "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 2.6, "actcond": "104030901", "target": "HOSTILE", "iv": 0.88889},
+            {"dmg": 2.6, "actcond": "104030901", "target": "HOSTILE", "iv": 1.0},
+            {"dmg": 2.6, "actcond": "104030901", "target": "HOSTILE", "iv": 1.08333},
+            {"dmg": 2.6, "actcond": "104030901", "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 2.6, "actcond": "104030901", "target": "HOSTILE", "iv": 1.44444},
+            {"actcond": "201010101", "target": "ALLY", "iv": 1.44444},
+            {"actcond": "207010101", "target": "ALLY", "iv": 1.44444}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.30303,
+        "recovery": 1.16364,
+        "attr": [
+            {"dmg": 4.4, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.30303, "dodge": 0.0, "dx2": 0.18182, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.5,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 1.52, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 3.54, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.16667, "dodge": 0.0, "dx3": 0.0, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.63889,
+        "recovery": 1.39444,
+        "attr": [
+            {"dmg": 7.48, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.19444, "dodge": 0.0, "s": 0.0}
+    }
+}

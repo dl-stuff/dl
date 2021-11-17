@@ -1,0 +1,40 @@
+{
+    "actconds": {
+        "60": {"aff": "stun", "duration": 5.5, "rate": 110},
+        "303031101": {"duration": 15.0, "icon": "def-buff", "mods": [[0.6, "def", "buff"]], "text": "Defense +60%"},
+        "319010102": {"duration": 20.0, "icon": 84, "mods": [[-0.4, "def", "buff"], [0.3, "crit", "buff"]], "coei": 1, "drain": 0.03, "text": "Wild Child", "overwrite": -1}
+    },
+    "c": {
+        "name": "Yue",
+        "icon": "110056_01_r04",
+        "att": 454,
+        "hp": 796,
+        "ele": "flame",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "303031101"]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"ab": [["mod", 0.08, "rcv", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 5, "sp": 11200}
+    },
+    "s1": {
+        "sp": 3033,
+        "startup": 0.0,
+        "recovery": 2.0,
+        "attr": [
+            {"dmg": 10.78, "actcond": "60", "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 10.78, "actcond": "60", "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2": {
+        "sp": 8000,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "319010102", "target": "MYSELF", "iv": 0.16667}
+        ]
+    }
+}

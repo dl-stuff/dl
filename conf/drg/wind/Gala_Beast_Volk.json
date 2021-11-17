@@ -1,0 +1,108 @@
+{
+    "actconds": {
+        "67": {"aff": "stun", "duration": 6.5, "rate": 180},
+        "1359": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.22, "iv": 2.9}},
+        "1820": {"coei": 1, "icon": 267, "text": "Moonlit Rage", "maxstack": 10},
+        "1821": {"aff": "poison", "duration": 12.0, "slip": {"percent": 0.1, "iv": 2.9}},
+        "1822": {"coei": 1, "icon": 268, "text": "Blood Moon", "overwrite": -1},
+        "1844": {"remove": 1822, "count": 1, "coei": 1},
+        "1845": {"remove": 1820, "coei": 1},
+        "1846": {"remove": 311065001, "coei": 1},
+        "1847": {"duration": 5.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "overwrite": 6}
+    },
+    "d": {
+        "name": "Gala Beast Volk",
+        "icon": "210161_01",
+        "att": 126,
+        "hp": 369,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 1.0, "att"]]},
+            {"ele": "wind", "ab": [["mod", 1.0, "edge_all"]]},
+            {"ab": [["mod", -1.5, "affres_all"]]},
+            {"cond": ["event", "divineshift_end"], "ab": [["hitattr", {"actcond": "1821", "target": "MYSELF"}], ["actcond", "MYSELF", "1844"]]},
+            {"cond": ["event", "divineshift_end"], "ab": [["actcond", "MYSELF", "1845"], ["actcond", "MYSELF", "1846"]]},
+            {"cond": ["event", "dragon_end"], "ab": [["hitattr", {"actcond": "1821", "target": "MYSELF"}], ["actcond", "MYSELF", "1844"]]},
+            {"cond": ["repeating"], "actcond": "1822", "cd": 3.5, "ab": [["hitattr", {"dmg": 2.58, "hp": 10.0, "target": "HOSTILE"}]]},
+            {"cond": ["event", "dragon_end"], "ab": [["actcond", "MYSELF", "1845"], ["actcond", "MYSELF", "1846"]]},
+            {"ele": "wind", "ab": [["mod", 0.15, "killer_stormlash"], ["mod", 0.15, "killer_poison"]]},
+            {"ele": "wind", "ab": [["mod", 0.3, "afftime_stormlash"], ["mod", 0.3, "afftime_poison"]]}
+        ]
+    },
+    "dfs": {
+        "charge": 0.4,
+        "startup": 0.26667,
+        "recovery": 1.86666,
+        "attr": [
+            {"dmg": 3.14, "sp": 5, "actcond": "1847", "target": "HOSTILE"},
+            {"dmg": 3.14, "sp": 5, "actcond": "1847", "target": "HOSTILE"},
+            {"dmg": 3.14, "sp": 5, "actcond": "1847", "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.73333, "dodge": 0.0, "s": 0.0}
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.36667,
+        "sp_db": 120,
+        "uses": 2,
+        "attr": [
+            {"amp": ["10000", 3, 2], "actcond": "1822", "target": "MYSELF"},
+            {"actcond": "1822", "target": "MYSELF", "iv": 2.0}
+        ]
+    },
+    "ds1_phase2": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "cancel": {"any": 2.16667, "ds1": 2.0},
+        "sp_db": 120,
+        "uses": 2,
+        "attr": [
+            {"cond": ["actcond", 1820, "<=", 1], "dmg": 10.98, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 2], "dmg": 10.98, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 3], "dmg": 10.98, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 4], "dmg": 16.18, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 5], "dmg": 16.18, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 6], "dmg": 16.18, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 7], "dmg": 22.44, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 8], "dmg": 22.44, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 9], "dmg": 22.44, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"cond": ["actcond", 1820, "=", 10], "dmg": 36.0, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1}
+        ],
+        "final": true
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.76667,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 4.6, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.4, "dfs": 0.0, "dodge": 0.0, "dx2": 0.16666, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.33333,
+        "recovery": 1.03334,
+        "attr": [
+            {"dmg": 4.9, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dfs": 0.0, "dodge": 0.0, "dx3": 0.2, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.83333,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 7.68, "sp": 5, "actcond": "1359", "target": "HOSTILE"}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.0, "dfs": 0.0, "dodge": 0.0, "dx1": 0.83334, "s": 0.0}
+    }
+}

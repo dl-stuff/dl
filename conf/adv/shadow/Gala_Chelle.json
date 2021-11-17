@@ -1,0 +1,148 @@
+{
+    "actconds": {
+        "73": {"aff": "sleep", "duration": 4.5},
+        "74": {"aff": "sleep", "duration": 5.5},
+        "75": {"aff": "sleep", "duration": 6.5, "rate": 110},
+        "1353": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1471": {"icon": 236, "mods": [[0.01, "resist", "buff"]], "coei": 1, "text": "Royal Pride", "maxstack": 10},
+        "1499": {"icon": "resist-buffB", "mods": [[0.1, "resist", "buffB"]], "text": "10% Damage Reduction"},
+        "1526": {"duration": 5.0, "icon": "att-buff", "mods": [[-0.3, "att", "buff"]], "debuff": 1, "text": "Strength -30%"},
+        "1527": {"duration": 5.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%"}
+    },
+    "c": {
+        "name": "Gala Chelle",
+        "icon": "100015_05_r05",
+        "att": 506,
+        "hp": 752,
+        "ele": "shadow",
+        "wt": "gun",
+        "spiral": false,
+        "gun": [3],
+        "abilities": [
+            {"count": 10, "ab": [["actcond", "MYSELF", "1471"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"], ["mod", 1.0, "affres_blind"]]},
+            {"cond": ["mult", "actcond", 1, 15], "ab": [["actdmg", 0.02, "-t:fs"]]},
+            {"cond": ["actcond", 1471, ">=", 5], "ab": [["hitattr", {"actcond": "1499", "target": "ALLY", "zone": 3000.0}]]},
+            {"ab": [["actdmg", 0.45, "-t:fs"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 9072}
+    },
+    "default": {
+        "x_max": 3
+    },
+    "dragonform": {
+        "dshift": {
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ]
+        },
+        "dx1": {
+            "startup": 0.33333,
+            "recovery": 1.13334,
+            "attr": [
+                {"dmg": 6.0, "sp": 5, "actcond": "73", "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.83334, "dodge": 0.0, "dx2": 0.66667, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.33333,
+            "recovery": 1.13334,
+            "attr": [
+                {"dmg": 7.2, "sp": 5, "actcond": "74", "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.0, "dodge": 0.0, "dx3": 0.83334, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.33333,
+            "recovery": 1.13334,
+            "attr": [
+                {"dmg": 9.0, "sp": 5, "actcond": "75", "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.0, "dodge": 0.0, "dx1": 0.83334, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 2.13333,
+            "cancel": {"any": 1.5},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 0.484, "target": "HOSTILE", "iv": 0.33333, "blt": [33, 0.3]}
+            ]
+        }
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.16667,
+        "recovery": 0.13333,
+        "attr": [
+            {"dmg": 0.5, "odmg": 0.65, "sp": 90, "target": "HOSTILE", "loop": [6, 0.16667], "ifhc": 1},
+            {"dmg": 0.5, "odmg": 0.65, "sp": 90, "target": "HOSTILE", "iv": 0.96666, "loop": [3, 0.13333], "ifhc": 1},
+            {"dmg": 0.5, "odmg": 0.65, "sp": 90, "target": "HOSTILE", "iv": 1.33333, "loop": [-1, 0.1], "ifhc": 1}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 5670,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.2, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.26667, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.33333, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.4, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.46667, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.53333, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.6, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.66667, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.73333, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.8, "msl_spd": 1},
+            {"dmg": 0.25, "actcond": "1353", "target": "HOSTILE", "msl": 1.2, "msl_spd": 1},
+            {"dmg": 0.8, "actcond": "1353", "target": "HOSTILE", "msl": 1.5, "msl_spd": 1},
+            {"dmg": 11.75, "actcond": "1353", "target": "HOSTILE", "msl": 1.5, "msl_spd": 1}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "s2": {
+        "sp": 15120,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "attr": [
+            {"actcond": "1526", "target": "HOSTILE", "iv": 0.83333, "msl": 0.16667},
+            {"actcond": "1527", "target": "HOSTILE", "iv": 1.1, "msl": null, "blt": ["zonecount", 0.0]}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "x1": {
+        "startup": 0.3,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 0.45, "sp": 200, "target": "HOSTILE", "loop": [3, 0.1]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.4}
+    },
+    "x2": {
+        "startup": 0.1,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 0.6, "sp": 200, "target": "HOSTILE", "loop": [3, 0.1]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.5}
+    },
+    "x3": {
+        "startup": 0.1,
+        "recovery": 1.13333,
+        "attr": [
+            {"dmg": 0.6, "sp": 200, "target": "HOSTILE", "loop": [5, 0.1]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.0, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.5}
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "actconds": {
+        "231": {"slip": {"percent": -0.08, "iv": 1.0, "kind": "sp", "target": "s1"}, "coei": 1},
+        "291": {"dispel": 1},
+        "1555": {"coei": 1, "alt": {"s2": "chain98"}, "icon": 0, "hide": 1, "maxstack": 1},
+        "1556": {"remove": 1555, "coei": 1},
+        "1566": {"duration": 30.0, "slip": {"percent": -0.08, "iv": 1.0, "kind": "sp", "target": "s1"}, "coei": 1, "icon": 100, "text": "Armament Charger", "overwrite": 42}
+    },
+    "c": {
+        "name": "Finni",
+        "icon": "110383_01_r05",
+        "att": 516,
+        "hp": 745,
+        "ele": "water",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["sp", "s1", "<", 200], "ab": [["actcond", "MYSELF", "231"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["sp", "s2", "<", 100], "ab": [["mod", 0.2, "att"], ["mod", 0.15, "spd"]]},
+            {"cond": ["sp", "s2", "<", 100], "ab": [["mod", 0.2, "def"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 11600}
+    },
+    "s1": {
+        "sp": 999999,
+        "startup": 0.0,
+        "recovery": 1.56667,
+        "attr": [
+            {"dmg": 26.0, "actcond": "291", "target": "HOSTILE", "iv": 0.8}
+        ],
+        "cancel": {"any": 1.16667}
+    },
+    "s1_chain98": {
+        "sp": 999999,
+        "startup": 0.0,
+        "recovery": 1.56667,
+        "attr": [
+            {"dmg": 26.0, "actcond": "291", "target": "HOSTILE", "iv": 0.8}
+        ],
+        "cancel": {"any": 1.16667}
+    },
+    "s2": {
+        "sp": 999999,
+        "startup": 0.0,
+        "recovery": 2.56667,
+        "attr": [
+            {"sp": [-1.0, "%", "s1"], "target": "MYSELF"},
+            {"DEBUG_PARTCOND": "ActionContainerHitCount{'_compare': <PartConditionComparisonType.GreaterThanOrEqual: 3>, '_count': 6, '_padding3': 0, '_padding4': 0}", "actcond": "1566", "target": "MYSELF_CHECK_COLLISION"},
+            {"dmg": 6.0, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 6.0, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 6.0, "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 6.0, "target": "HOSTILE", "iv": 1.36667}
+        ],
+        "cancel": {"any": 2.5},
+        "abilities": [
+            {"cond": ["sp", "s1", ">=", 200, 1], "ab": [["actcond", "MYSELF", "1555"]]},
+            {"cond": ["sp", "s1", "<", 200, 1], "actcond": "1555", "ab": [["actcond", "MYSELF", "1556"]]}
+        ]
+    },
+    "s2_chain98": {
+        "sp": 999999,
+        "startup": 0.0,
+        "recovery": 2.56667,
+        "attr": [
+            {"sp": [-1.0, "%", "s1"], "target": "MYSELF"},
+            {"DEBUG_PARTCOND": "ActionContainerHitCount{'_compare': <PartConditionComparisonType.GreaterThanOrEqual: 3>, '_count': 6, '_padding3': 0, '_padding4': 0}", "actcond": "1566", "target": "MYSELF_CHECK_COLLISION"},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 1.36667},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 1.36667}
+        ],
+        "cancel": {"any": 2.5},
+        "abilities": [
+            {"cond": ["sp", "s1", ">=", 200, 1], "ab": [["actcond", "MYSELF", "1555"]]},
+            {"cond": ["sp", "s1", "<", 200, 1], "actcond": "1555", "ab": [["actcond", "MYSELF", "1556"]]}
+        ]
+    }
+}

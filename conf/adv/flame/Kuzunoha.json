@@ -1,0 +1,40 @@
+{
+    "actconds": {
+        "1464": {"duration": 30.0, "coei": 1, "echo": 0.3, "icon": 197, "text": "Shikigami Enchantment", "overwrite": -1}
+    },
+    "c": {
+        "name": "Kuzunoha",
+        "icon": "110374_01_r05",
+        "att": 469,
+        "hp": 805,
+        "ele": "flame",
+        "wt": "staff",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.2, "eleres", "wind"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.2, "att"]]}
+        ]
+    },
+    "s1": {
+        "sp": 7734,
+        "startup": 0.0,
+        "recovery": 3.13333,
+        "attr": [
+            {"actcond": "1464", "target": "MYPARTY", "iv": 2.26667},
+            {"heal": 87, "target": "MYPARTY", "iv": 2.26667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    },
+    "s2": {
+        "sp": 11832,
+        "startup": 0.0,
+        "recovery": 3.13333,
+        "attr": [
+            {"heal": 252, "target": "ALLY_HP_LOWEST", "iv": 2.26667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    }
+}

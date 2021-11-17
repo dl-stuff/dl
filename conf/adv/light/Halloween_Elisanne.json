@@ -1,0 +1,127 @@
+{
+    "actconds": {
+        "1147": {"duration": 15.0, "icon": 103, "text": "Vampire Maiden", "overwrite": -1},
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}
+    },
+    "c": {
+        "name": "Halloween Elisanne",
+        "icon": "100002_02_r05",
+        "att": 578,
+        "hp": 951,
+        "ele": "light",
+        "wt": "lance",
+        "spiral": true,
+        "abilities": [
+            {"ab": [["actdmg", 0.35, "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.4, "odaccel"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 15055}
+    },
+    "s1": {
+        "sp": 4548,
+        "startup": 0.0,
+        "recovery": 3.96667,
+        "attr": [
+            {"dmg": 1.872, "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 1.872, "target": "HOSTILE", "iv": 1.73333, "msl": 0.2},
+            {"dmg": 1.872, "target": "HOSTILE", "iv": 1.73333, "msl": 0.26667},
+            {"dmg": 1.872, "target": "HOSTILE", "iv": 1.73333, "msl": 0.53333},
+            {"dmg": 1.872, "target": "HOSTILE", "iv": 1.73333, "msl": 0.8},
+            {"dmg": 1.872, "target": "HOSTILE", "iv": 1.73333, "msl": 1.06667},
+            {"dmg": 1.872, "target": "HOSTILE", "iv": 1.73333, "msl": 1.26667}
+        ],
+        "cancel": {"any": 2.73333}
+    },
+    "s1_phase2": {
+        "sp": 4548,
+        "startup": 0.0,
+        "recovery": 3.96667,
+        "attr": [
+            {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.2},
+            {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.26667},
+            {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.53333},
+            {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.8},
+            {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 1.06667},
+            {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 1.26667},
+            {"actcond": "302031201", "target": "MYPARTY", "iv": 1.73333, "msl": 0.96667}
+        ],
+        "cancel": {"any": 2.73333}
+    },
+    "s1_phase3": {
+        "sp": 4548,
+        "startup": 0.0,
+        "recovery": 3.96667,
+        "attr": [
+            {"dmg": 1.872, "killer": [0.2, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 1.872, "killer": [0.2, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.2},
+            {"dmg": 1.872, "killer": [0.2, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.26667},
+            {"dmg": 1.872, "killer": [0.2, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.53333},
+            {"dmg": 1.872, "killer": [0.2, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 0.8},
+            {"dmg": 1.872, "killer": [0.2, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 1.06667},
+            {"dmg": 1.872, "killer": [0.2, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 1.26667},
+            {"actcond": "302031201", "target": "MYPARTY", "iv": 1.73333, "msl": 0.96667},
+            {"heal": 108, "target": "ALLY", "iv": 1.73333, "msl": 0.96667}
+        ],
+        "cancel": {"any": 2.73333}
+    },
+    "s2": {
+        "sp": 5252,
+        "startup": 0.0,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 13.6, "sp": 700, "target": "HOSTILE", "iv": 0.83333},
+            {"actcond": "1147", "target": "MYSELF", "iv": 1.13333}
+        ]
+    },
+    "x1": {
+        "startup": 0.15,
+        "recovery": 1.78333,
+        "attr": [
+            {"dmg": 0.73, "sp": 180, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.475, "dodge": 0.0, "fs": 0.01667, "s": 0.0, "x2": 0.07917}
+    },
+    "x2": {
+        "startup": 0.43333,
+        "recovery": 1.63334,
+        "attr": [
+            {"dmg": 0.39, "sp": 360, "target": "HOSTILE"},
+            {"dmg": 0.39, "sp": 360, "target": "HOSTILE", "iv": 0.16667}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.60115, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.25633}
+    },
+    "x3": {
+        "startup": 0.46667,
+        "recovery": 1.9,
+        "attr": [
+            {"dmg": 0.92, "sp": 180, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.42222, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.06666}
+    },
+    "x4": {
+        "startup": 0.55,
+        "recovery": 1.41667,
+        "attr": [
+            {"dmg": 1.29, "sp": 720, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56111, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.11667}
+    },
+    "x5": {
+        "startup": 0.55,
+        "recovery": 1.51667,
+        "attr": [
+            {"dmg": 0.96, "sp": 900, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.39444, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.11667}
+    }
+}

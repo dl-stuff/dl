@@ -1,0 +1,86 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "1308": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.1, "att", "buff"]], "debuff": 1, "text": "Strength -10%", "overwrite": 1},
+        "1826": {"duration": 20.0, "icon": "resist_wind-buff", "mods": [[-0.03, "resist_wind", "buff"]], "debuff": 1, "text": "Wind Res -3%", "overwrite": 22}
+    },
+    "c": {
+        "name": "Yukata Lathna",
+        "icon": "110349_04_r05",
+        "att": 519,
+        "hp": 742,
+        "ele": "wind",
+        "wt": "blade",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["debuff", 2], "ab": [["actdmg", 0.2]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"ab": [["actdmg", 0.3, "-t:s"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 7, "sp": 15180}
+    },
+    "s1": {
+        "sp": 2640,
+        "startup": 0.0,
+        "recovery": 2.86667,
+        "attr": [
+            {"dmg": 5.5, "target": "HOSTILE", "iv": 0.3},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 5.5, "target": "HOSTILE", "iv": 0.63333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 5.5, "target": "HOSTILE", "iv": 1.1},
+            {"actcond": "291", "target": "HOSTILE", "iv": 1.1},
+            {"amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.56667}
+        ],
+        "cancel": {"any": 2.56667}
+    },
+    "s1_phase2": {
+        "sp": 2640,
+        "startup": 0.0,
+        "recovery": 2.86667,
+        "attr": [
+            {"dmg": 5.75, "actcond": "1308", "target": "HOSTILE", "iv": 0.3},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 5.75, "actcond": "1308", "target": "HOSTILE", "iv": 0.63333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 5.75, "actcond": "1308", "target": "HOSTILE", "iv": 1.1},
+            {"actcond": "291", "target": "HOSTILE", "iv": 1.1},
+            {"amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.56667}
+        ],
+        "cancel": {"any": 2.56667}
+    },
+    "s1_phase3": {
+        "sp": 2640,
+        "startup": 0.0,
+        "recovery": 2.86667,
+        "attr": [
+            {"dmg": 6.0, "actcond": "1308", "target": "HOSTILE", "iv": 0.3},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.3},
+            {"actcond": "1246", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 6.0, "actcond": "1308", "target": "HOSTILE", "iv": 0.63333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.63333},
+            {"actcond": "1246", "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 6.0, "actcond": "1308", "target": "HOSTILE", "iv": 1.1},
+            {"actcond": "291", "target": "HOSTILE", "iv": 1.1},
+            {"actcond": "1246", "target": "HOSTILE", "iv": 1.1},
+            {"amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.56667}
+        ],
+        "cancel": {"any": 2.56667}
+    },
+    "s2": {
+        "sp": 6000,
+        "startup": 0.0,
+        "recovery": 2.1,
+        "attr": [
+            {"dmg": 17.53, "actcond": "1826", "target": "HOSTILE", "iv": 0.93333, "msl": 0.06667, "msl_spd": 1},
+            {"cond": ["amp", [0, 2], ">=", 1], "dmg": 3.16, "actcond": "1826", "target": "HOSTILE", "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["amp", [0, 2], ">=", 1], "dmg": 3.16, "actcond": "1826", "target": "HOSTILE", "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["amp", [0, 2], ">=", 1], "dmg": 3.16, "actcond": "1826", "target": "HOSTILE", "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["amp", [0, 2], ">=", 2], "dmg": 3.16, "actcond": "1826", "target": "HOSTILE", "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["amp", [0, 2], ">=", 2], "dmg": 3.16, "actcond": "1826", "target": "HOSTILE", "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["amp", [0, 2], ">=", 2], "dmg": 3.16, "actcond": "1826", "target": "HOSTILE", "iv": 0.93333, "msl": 1.06667, "msl_spd": 1}
+        ],
+        "cancel": {"any": 1.86667}
+    }
+}

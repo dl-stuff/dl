@@ -1,0 +1,43 @@
+{
+    "actconds": {
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "206010101": {"relief": "stun", "count": 1, "text": "Stun Relief"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "c": {
+        "name": "Verica",
+        "icon": "110269_01_r04",
+        "att": 454,
+        "hp": 781,
+        "ele": "flame",
+        "wt": "staff",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.15, "rcv", "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"ab": [["mod", 0.08, "rcv", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 15381}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "attr": [
+            {"heal": 44, "actcond": "308010401", "target": "ALLY", "iv": 0.93333},
+            {"actcond": "206010101", "target": "ALLY", "iv": 0.93333},
+            {"actcond": "206010101", "target": "ALLY", "iv": 0.93333},
+            {"actcond": "1261", "target": "MYPARTY", "iv": 0.93333}
+        ],
+        "energizable": true
+    },
+    "s2": {
+        "sp": 11832,
+        "startup": 0.0,
+        "recovery": 1.93333,
+        "attr": [
+            {"heal": 252, "target": "ALLY_HP_LOWEST", "iv": 1.0}
+        ],
+        "energizable": true
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "actconds": {
+        "101020401": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.482, "iv": 2.9}},
+        "104030501": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.6, "iv": 3.9}, "rate": 90}
+    },
+    "c": {
+        "name": "Philia",
+        "icon": "110028_01_r03",
+        "att": 469,
+        "hp": 726,
+        "ele": "wind",
+        "wt": "bow",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.1, "att"]]},
+            {"ab": [["mod", 0.5, "affres_paralysis"]]},
+            {"ab": [["mod", 0.25, "affres_paralysis"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 11496}
+    },
+    "s1": {
+        "sp": 2395,
+        "startup": 0.0,
+        "recovery": 2.43333,
+        "attr": [
+            {"dmg": 3.69, "killer": [0.2, ["poison"]], "actcond": "101020401", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 3.69, "killer": [0.2, ["poison"]], "actcond": "101020401", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.69, "killer": [0.2, ["poison"]], "actcond": "101020401", "target": "HOSTILE", "iv": 1.53333}
+        ],
+        "cancel": {"any": 2.0}
+    },
+    "s2": {
+        "sp": 5051,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 13.21, "killer": [0.2, ["poison"]], "actcond": "104030501", "target": "HOSTILE", "iv": 0.83333}
+        ],
+        "cancel": {"any": 1.3}
+    }
+}

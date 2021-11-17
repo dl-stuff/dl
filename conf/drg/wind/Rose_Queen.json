@@ -1,0 +1,67 @@
+{
+    "actconds": {
+        "550": {"icon": "att-buff", "mods": [[0.02, "att", "buff"]], "text": "Strength +2%"}
+    },
+    "d": {
+        "name": "Rose Queen",
+        "icon": "210152_01",
+        "att": 126,
+        "hp": 369,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.7, "att"]]},
+            {"cond": ["slayer", 5], "count": 5, "ele": "wind", "ab": [["actcond", "MYSELF", "550"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.83333,
+        "cancel": {"any": 2.66667},
+        "sp_db": 65,
+        "uses": 1,
+        "attr": [
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 0.33333, "msl_spd": 1},
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 0.8, "msl_spd": 1},
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 1.0, "msl_spd": 1},
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 1.46667, "msl_spd": 1},
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 1.8, "msl_spd": 1},
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 2.13333, "msl_spd": 1},
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 2.46667, "msl_spd": 1},
+            {"dmg": 2.88, "target": "HOSTILE", "iv": 0.33333, "msl": 2.8, "msl_spd": 1}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.4,
+        "recovery": 0.8,
+        "attr": [
+            {"dmg": 4.85, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.16667,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 2.68, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 2.68, "sp": 5, "target": "HOSTILE", "iv": 0.1}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.53333,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 6.8, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.96667, "dodge": 0.0, "dx1": 0.8, "s": 0.0}
+    }
+}

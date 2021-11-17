@@ -1,0 +1,49 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "1886": {"remove": 1887, "coei": 1},
+        "1887": {"icon": 277, "mods": [[0.25, "att", "buff"], [0.2, "edge_poison", "passive"]], "coei": 1, "text": "Grand Strategist"},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "312015101": {"duration": 15.0, "icon": "aspd-buff", "mods": [[0.1, "aspd", "buff"]], "text": "Attack Rate +10%"},
+        "326010301": {"duration": 15.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1}
+    },
+    "c": {
+        "name": "Kirsty",
+        "icon": "110353_01_r05",
+        "att": 610,
+        "hp": 900,
+        "ele": "wind",
+        "wt": "lance",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["dauntless"], "cd": 10.0, "count": 3, "ab": [["actcond", "MYSELF", "1887"]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["aff", "poison"], "cd": 15.0, "ab": [["hitattr", {"actcond": "312015101", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.3, "killer_poison"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 6, "sp": 13654}
+    },
+    "s1": {
+        "sp": 2930,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 9.5, "actcond": "101021001", "target": "HOSTILE", "iv": 0.4},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.4}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2": {
+        "sp": 8534,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "302030401", "target": "MYPARTY", "iv": 0.13333},
+            {"actcond": "326010301", "target": "MYSELF", "iv": 0.13333}
+        ]
+    }
+}

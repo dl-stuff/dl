@@ -1,0 +1,40 @@
+{
+    "actconds": {
+        "167": {"duration": 15.0, "ele": "flame", "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
+        "169": {"duration": 15.0, "ele": "flame", "icon": "def-buff", "mods": [[0.15, "def", "buff"]], "text": "Defense +15%"},
+        "171": {"count": 1, "ele": "flame", "shield": {"1": 0.25}, "coei": 1, "text": "Shield"},
+        "189": {"duration": 10.0, "icon": "att-buff", "mods": [[0.05, "att", "buff"]], "text": "Strength +5%", "overwrite": -1}
+    },
+    "c": {
+        "name": "Emma",
+        "icon": "110260_01_r04",
+        "att": 471,
+        "hp": 765,
+        "ele": "flame",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.25, "bufftime", "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", "189"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 14122}
+    },
+    "s1": {
+        "sp": 3817,
+        "startup": 0.0,
+        "recovery": 2.1,
+        "attr": [
+            {"actcond": "167", "target": "MYPARTY", "iv": 0.9}
+        ]
+    },
+    "s2": {
+        "sp": 9154,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"actcond": "169", "target": "MYPARTY", "iv": 1.5},
+            {"actcond": "171", "target": "MYPARTY", "iv": 1.5}
+        ]
+    }
+}

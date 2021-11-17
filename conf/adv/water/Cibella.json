@@ -1,0 +1,41 @@
+{
+    "actconds": {
+        "1323": {"duration": 10.0, "icon": "att-buff", "mods": [[0.05, "att", "buff"]], "text": "Strength +5%", "overwrite": 8},
+        "308020601": {"duration": 20.0, "slip": {"percent": -0.1, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"}
+    },
+    "c": {
+        "name": "Cibella",
+        "icon": "110014_01_r03",
+        "att": 437,
+        "hp": 790,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "308020601"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"ab": [["mod", 0.25, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 13724}
+    },
+    "s1": {
+        "sp": 2920,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "316010501", "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": "1323", "target": "MYPARTY", "iv": 0.16667}
+        ]
+    },
+    "s2": {
+        "sp": 5000,
+        "startup": 0.0,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 14.45, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 14.45, "target": "HOSTILE", "iv": 0.66667}
+        ],
+        "cancel": {"any": 1.33333}
+    }
+}

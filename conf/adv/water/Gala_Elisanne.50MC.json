@@ -1,0 +1,54 @@
+{
+    "actconds": {
+        "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
+        "146": {"duration": 10.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%", "overwrite": -1},
+        "235": {"slip": {"percent": 0.04, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1},
+        "251": {"duration": 13.0, "slip": {"percent": -0.065, "iv": 1.0, "kind": "sp", "target": "s2"}, "icon": 102, "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Divine Revelation", "overwrite": -1},
+        "262": {"duration": 15.0, "ele": "water", "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"},
+        "263": {"duration": 2.0, "slip": {"percent": 2.0, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1, "text": "Divine Revelation"},
+        "293": {"duration": 30.0, "icon": "resist_flame-buff", "mods": [[0.25, "resist_flame", "buff"]], "coei": 1, "text": "Flame Res +25%", "overwrite": 2},
+        "316010401": {"count": 1, "shield": {"1": 0.2}, "coei": 1, "text": "Shield"}
+    },
+    "c": {
+        "name": "Gala Elisanne",
+        "icon": "100002_13_r05",
+        "att": 516,
+        "hp": 745,
+        "ele": "water",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["actcond", "MYSELF", "251"]]},
+            {"cond": ["hits", ">=", 1, 1, "fs"], "cd": 1.0, "ab": [["actcond", "MYSELF", "251"]]},
+            {"cond": ["hits", ">=", 10, 1], "ab": [["actcond", "MYSELF", "251"]]},
+            {"ab": [["mod", 1.0, "affres_burn"], ["mod", 1.0, "affres_stun"]]},
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", "146"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 15360}
+    },
+    "s1": {
+        "sp": 4377,
+        "startup": 0.0,
+        "recovery": 1.23333,
+        "attr": [
+            {"actcond": "262", "target": "MYPARTY", "iv": 0.5}
+        ]
+    },
+    "s2": {
+        "sp": 38400,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 13.431, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 13.431, "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 13.431, "target": "HOSTILE", "iv": 1.43333},
+            {"actcond": "293", "target": "MYPARTY", "iv": 1.43333},
+            {"actcond": "102", "target": "MYSELF", "iv": 1.43333},
+            {"actcond": "316010401", "target": "MYPARTY", "iv": 1.43333}
+        ],
+        "cancel": {"any": 2.06667},
+        "abilities": [
+            {"ab": [["actcond", "MYSELF", "263"]]}
+        ]
+    }
+}

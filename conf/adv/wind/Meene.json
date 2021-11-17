@@ -1,0 +1,106 @@
+{
+    "actconds": {
+        "649": {"lifeshield": 0.8, "text": "Life Shield"},
+        "1029": {"duration": 15.0, "icon": "att-buff", "mods": [[-0.2, "att", "buff"]], "debuff": 1, "text": "Strength -20%", "overwrite": 1},
+        "1279": {"duration": 15.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "overwrite": 6},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+    },
+    "c": {
+        "name": "Meene",
+        "icon": "110368_01_r05",
+        "att": 470,
+        "hp": 805,
+        "ele": "wind",
+        "wt": "bow",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["start"], "ab": [["hitattr", {"actcond": "649", "target": "MYPARTY"}]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.13, "crit"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 3, "sp": 7917}
+    },
+    "default": {
+        "x_max": 3
+    },
+    "fs": {
+        "charge": 0.35,
+        "startup": 0.6,
+        "recovery": 0.86667,
+        "attr": [
+            {"dmg": 0.43, "odmg": 2.5, "sp": 500, "target": "HOSTILE", "blt": [7, 1.5]},
+            {"dmg": 0.43, "odmg": 2.5, "sp": 500, "target": "HOSTILE", "blt": [7, 1.5]},
+            {"dmg": 0.43, "odmg": 2.5, "sp": 500, "target": "HOSTILE", "blt": [7, 1.5]}
+        ],
+        "interrupt": {"dodge": 0.1, "s": 0.0},
+        "cancel": {"any": 0.4, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 4140,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"dmg": 5.0, "actcond": "1029", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333},
+            {"dmg": 1.67, "actcond": "1279", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "s2": {
+        "sp": 6900,
+        "startup": 0.0,
+        "recovery": 3.13333,
+        "attr": [
+            {"dmg": 10.0, "actcond": "101021001", "target": "HOSTILE", "iv": 1.5},
+            {"dmg": 1.67, "actcond": "101021001", "target": "HOSTILE", "iv": 1.66667}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "s99": {
+        "sp": 2896,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"dmg": 13.35, "actcond": "1029", "target": "HOSTILE", "iv": 1.1, "msl": 0.43333}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "x1": {
+        "startup": 0.36667,
+        "recovery": 1.1,
+        "attr": [
+            {"dmg": 0.43, "sp": 350, "target": "HOSTILE", "blt": [7, 1.5]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.56666}
+    },
+    "x2": {
+        "startup": 0.23333,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 0.43, "sp": 400, "target": "HOSTILE", "blt": [7, 1.5]},
+            {"dmg": 0.43, "sp": 400, "target": "HOSTILE", "iv": 0.43334, "blt": [7, 1.5]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.93334}
+    },
+    "x3": {
+        "startup": 0.5,
+        "recovery": 0.7,
+        "attr": [
+            {"dmg": 0.43, "sp": 450, "target": "HOSTILE", "blt": [7, 1.5]},
+            {"dmg": 0.43, "sp": 450, "target": "HOSTILE", "blt": [7, 1.5]},
+            {"dmg": 0.43, "sp": 450, "target": "HOSTILE", "blt": [7, 1.5]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.5}
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "actconds": {
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "507": {"icon": "att-buff", "mods": [[0.06, "att", "buff"]], "text": "Strength +6%"},
+        "1081": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Passionate Dancer", "overwrite": -1},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "402010206": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%"},
+        "403040103": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "rate": 50}
+    },
+    "c": {
+        "name": "Luther",
+        "icon": "110020_01_r04",
+        "att": 550,
+        "hp": 932,
+        "ele": "water",
+        "wt": "dagger",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.15, "crit"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["slayer", 3, "fs"], "count": 5, "ab": [["actcond", "MYSELF", "507"]]},
+            {"cond": ["event", "crit"], "cd": 10.0, "ab": [["actcond", "MYSELF", "1081"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 12652}
+    },
+    "fs_enhanced": {
+        "charge": 0.5,
+        "startup": 0.15152,
+        "recovery": 0.94848,
+        "attr": [
+            {"dmg": 0.47, "odmg": 8.4, "sp": 288, "actcond": "411", "target": "HOSTILE"},
+            {"dmg": 0.47, "odmg": 8.4, "sp": 288, "actcond": "411", "target": "HOSTILE", "iv": 0.12121},
+            {"dmg": 0.47, "odmg": 4.2, "sp": 288, "actcond": "411", "target": "HOSTILE", "iv": 0.36363}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.60606}
+    },
+    "s1": {
+        "sp": 2343,
+        "startup": 0.0,
+        "recovery": 2.4,
+        "attr": [
+            {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 1.46667}
+        ],
+        "cancel": {"any": 2.3}
+    },
+    "s2": {
+        "sp": 4904,
+        "startup": 0.0,
+        "recovery": 2.0,
+        "attr": [
+            {"dmg": 3.296, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 3.296, "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 3.296, "target": "HOSTILE", "iv": 0.63333},
+            {"actcond": "403040103", "target": "HOSTILE", "iv": 1.06667},
+            {"actcond": "403040103", "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.296, "actcond": "402010206", "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.296, "actcond": "402010206", "target": "HOSTILE", "iv": 1.06667},
+            {"actcond": "403040103", "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.8}
+    }
+}

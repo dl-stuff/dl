@@ -1,0 +1,125 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120}
+    },
+    "c": {
+        "name": "Gala Audric",
+        "icon": "110334_02_r05",
+        "att": 515,
+        "hp": 747,
+        "ele": "light",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"count": 5, "ab": [["mod", 0.02, "spd"]]},
+            {"cond": ["event", "s"], "cd": 30.0, "ab": [["hitattr", {"amp": ["20000", 3, 0], "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_poison"], ["mod", 1.0, "affres_curse"]]},
+            {"ab": [["mod", 0.35, "odaccel"]]}
+        ]
+    },
+    "fs": {
+        "charge": 0.33,
+        "startup": 0.2,
+        "recovery": 0.86667,
+        "attr": [
+            {"dmg": 1.92, "odmg": 4.62, "sp": 300, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "s": 0.0, "x1": 0.63333}
+    },
+    "s1": {
+        "sp": 1129,
+        "startup": 0.0,
+        "recovery": 2.4,
+        "attr": [
+            {"dmg": 3.9, "actcond": "1258", "target": "HOSTILE", "iv": 0.33333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 3.9, "actcond": "1258", "target": "HOSTILE", "iv": 1.33333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.9, "actcond": "1258", "target": "HOSTILE", "iv": 1.66667},
+            {"actcond": "291", "target": "HOSTILE", "iv": 1.66667}
+        ],
+        "cancel": {"any": 1.83333}
+    },
+    "s1_chain0": {
+        "sp": 1129,
+        "startup": 0.0,
+        "recovery": 2.4,
+        "attr": [
+            {"dmg": 3.9, "killer": [0.2, ["flashburn"]], "target": "HOSTILE", "iv": 0.33333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 3.9, "killer": [0.2, ["flashburn"]], "target": "HOSTILE", "iv": 1.33333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.9, "killer": [0.2, ["flashburn"]], "target": "HOSTILE", "iv": 1.66667},
+            {"actcond": "291", "target": "HOSTILE", "iv": 1.66667}
+        ],
+        "cancel": {"any": 1.83333}
+    },
+    "s2": {
+        "sp": 1129,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 7.93, "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 7.93, "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s2_chain0": {
+        "sp": 1129,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 7.93, "killer": [0.2, ["flashburn"]], "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 7.93, "killer": [0.2, ["flashburn"]], "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "x1": {
+        "startup": 0.4,
+        "recovery": 0.7,
+        "attr": [
+            {"dmg": 1.37, "sp": 150, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.2, "s": 0.0},
+        "cancel": {"any": 0.43333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.1}
+    },
+    "x2": {
+        "startup": 0.4,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 1.46, "sp": 180, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.6, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.13333}
+    },
+    "x3": {
+        "startup": 0.56667,
+        "recovery": 0.76666,
+        "attr": [
+            {"dmg": 2.45, "sp": 270, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.43333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.1}
+    },
+    "x4": {
+        "startup": 0.43333,
+        "recovery": 0.83334,
+        "attr": [
+            {"dmg": 2.59, "sp": 285, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.26667}
+    },
+    "x5": {
+        "startup": 0.4,
+        "recovery": 1.23333,
+        "attr": [
+            {"dmg": 2.74, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 2.74, "sp": 400, "target": "HOSTILE", "iv": 0.43333}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.93333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.6}
+    }
+}

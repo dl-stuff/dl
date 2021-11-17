@@ -1,0 +1,58 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "1348": {"icon": "crit-buff", "mods": [[0.15, "crit", "buff"]], "text": "Critical Rate +15%"},
+        "1419": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Merry Mobilizer", "overwrite": -1},
+        "1431": {"count": 1, "coei": 1, "icon": 0, "hide": 1}
+    },
+    "c": {
+        "name": "Dragonyule Victor",
+        "icon": "110307_02_r05",
+        "att": 519,
+        "hp": 741,
+        "ele": "shadow",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["actcond", "MYSELF", "1419"]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"cond": ["zone"], "ab": [["actcond", "MYSELF", "1431"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 8673}
+    },
+    "fs_enhanced": {
+        "charge": 0.45,
+        "startup": 0.5,
+        "recovery": 0.63333,
+        "attr": [
+            {"actcond": "1348", "target": "ALLY", "zone": 10.0}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dodge": 0.0, "s": 0.0, "x1": 0.36667}
+    },
+    "s1": {
+        "sp": 3540,
+        "startup": 0.0,
+        "recovery": 3.16667,
+        "attr": [
+            {"dmg": 4.0, "actcond": "291", "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 4.0, "actcond": "291", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 4.0, "actcond": "291", "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 4.0, "actcond": "291", "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 4.0, "actcond": "291", "target": "HOSTILE", "iv": 1.66667}
+        ],
+        "cancel": {"any": 2.26667}
+    },
+    "s2": {
+        "sp": 6017,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 25.0, "target": "HOSTILE", "iv": 0.93333, "msl": 0.5},
+            {"dmg": 5.0, "target": "HOSTILE", "iv": 1.0, "msl": 0.5, "blt": ["zonecount", 0.0]},
+            {"cond": ["actcond", 1430, "=", 1], "heal": 40, "target": "MYSELF", "iv": 1.4},
+            {"cond": ["actcond", 1431, "=", 1], "heal": 50, "target": "MYSELF", "iv": 1.4}
+        ],
+        "cancel": {"any": 1.63333}
+    }
+}

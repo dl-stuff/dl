@@ -1,0 +1,58 @@
+{
+    "actconds": {
+        "435": {"count": 1, "inspiration": 2, "text": "Inspiration Level +2"},
+        "1085": {"duration": 30.0, "icon": "critdmg-buff", "mods": [[0.15, "critdmg", "buff"]], "text": "Critical Damage +15%"},
+        "1096": {"debuff": 1, "icon": 159, "text": "Overload", "maxstack": 3, "unremovable": 1},
+        "1119": {"remove": 1096, "coei": 1, "icon": 0, "hide": 1},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "304030401": {"duration": 30.0, "icon": "crit-buff", "mods": [[0.2, "crit", "buff"]], "text": "Critical Rate +20%"}
+    },
+    "c": {
+        "name": "Summer Sinoa",
+        "icon": "110009_02_r05",
+        "att": 487,
+        "hp": 788,
+        "ele": "wind",
+        "wt": "wand",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["actcond", 1096, "=", 1], "ab": [["actdmg", 0.2, "-t:s1"]]},
+            {"cond": ["actcond", 1096, "=", 2], "ab": [["actdmg", 0.25, "-t:s1"]]},
+            {"cond": ["actcond", 1096, "=", 3], "ab": [["actdmg", 0.3, "-t:s1"]]},
+            {"cond": ["actcond", 1096, "=", 3], "ab": [["hitattr", {"actcond": "435", "target": "MYPARTY"}]]},
+            {"cond": ["actcond", 1096, "=", 3], "ab": [["hitattr", {"actcond": "304030401", "target": "MYPARTY"}]]},
+            {"cond": ["actcond", 1096, "=", 3], "ab": [["hitattr", {"actcond": "1085", "target": "MYPARTY"}]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"ab": [["actdmg", 0.3, "-t:s"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 6, "sp": 14614}
+    },
+    "s1": {
+        "sp": 1986,
+        "startup": 0.0,
+        "recovery": 2.76667,
+        "attr": [
+            {"actcond": "1096", "target": "MYSELF"},
+            {"dmg": 19.2, "actcond": "101021001", "target": "HOSTILE", "iv": 0.83333, "msl": 1.66667}
+        ],
+        "cancel": {"any": 1.33333}
+    },
+    "s2": {
+        "sp": 3812,
+        "startup": 0.0,
+        "recovery": 2.5,
+        "attr": [
+            {"actcond": "1119", "target": "MYSELF"}
+        ],
+        "cancel": {"any": 2.23333}
+    },
+    "s99": {
+        "sp": 1986,
+        "startup": 0.0,
+        "recovery": 2.76667,
+        "attr": [
+            {"dmg": 19.2, "actcond": "101021001", "target": "HOSTILE", "iv": 0.83333, "msl": 1.66667}
+        ],
+        "cancel": {"any": 1.33333}
+    }
+}

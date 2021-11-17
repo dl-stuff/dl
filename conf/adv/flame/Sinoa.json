@@ -1,0 +1,44 @@
+{
+    "actconds": {
+        "301040301": {"icon": "hp-buff", "mods": [[0.15, "hp", "buff"]], "coei": 1, "text": "HP +15%"},
+        "302030501": {"duration": 15.0, "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
+        "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"},
+        "304020401": {"duration": 10.0, "icon": "crit-buff", "mods": [[0.25, "crit", "buff"]], "text": "Critical Rate +25%"}
+    },
+    "c": {
+        "name": "Sinoa",
+        "icon": "110009_01_r04",
+        "att": 473,
+        "hp": 762,
+        "ele": "flame",
+        "wt": "wand",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.13, "att"]]},
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"ab": [["mod", 0.2, "bufftime", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 15268}
+    },
+    "s1": {
+        "sp": 3817,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "302030501", "target": "MYPARTY", "iv": 0.16667}
+        ],
+        "DEBUG_attr_R2": [{"actcond": "303030401", "target": "MYPARTY", "iv": 0.16667}],
+        "DEBUG_attr_R3": [{"actcond": "304020401", "target": "MYPARTY", "iv": 0.16667}],
+        "DEBUG_attr_R4": [{"actcond": "301040301", "target": "MYPARTY", "iv": 0.16667}]
+    },
+    "s2": {
+        "sp": 5422,
+        "startup": 0.0,
+        "recovery": 2.33333,
+        "attr": [
+            {"dmg": 11.52, "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 11.52, "target": "HOSTILE", "iv": 1.16667}
+        ],
+        "cancel": {"any": 1.66667}
+    }
+}

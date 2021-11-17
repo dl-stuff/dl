@@ -1,0 +1,45 @@
+{
+    "actconds": {
+        "1919": {"count": 1, "coei": 1, "icon": 284, "text": "Corvid Connivery", "overwrite": -1},
+        "1920": {"duration": 60.0, "icon": 285, "text": "Critical Vulnerability", "overwrite": -1},
+        "1924": {"count": 2, "coei": 1, "avoid": 0.3, "icon": 283, "overwrite": 31}
+    },
+    "c": {
+        "name": "Harle",
+        "icon": "100019_02_r05",
+        "att": 470,
+        "hp": 741,
+        "ele": "wind",
+        "wt": "blade",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.3, "killer_demon"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"cond": ["debuff", 22], "ab": [["mod", 0.5, "crit"]]}
+        ]
+    },
+    "s1": {
+        "sp": 2640,
+        "startup": 0.0,
+        "recovery": 3.4,
+        "attr": [
+            {"dmg": 3.0, "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 3.0, "target": "HOSTILE", "iv": 0.43333},
+            {"dmg": 3.0, "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 3.0, "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 3.0, "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "DEBUG_attr_N1": [{"dmg": 3.5, "crit": 1.0, "target": "HOSTILE"}, {"dmg": 3.5, "crit": 1.0, "target": "HIT_OR_GUARDED_RECORD", "iv": 1.33333}, {"dmg": 3.5, "crit": 1.0, "target": "HIT_OR_GUARDED_RECORD", "iv": 1.4}, {"dmg": 3.5, "crit": 1.0, "target": "HIT_OR_GUARDED_RECORD", "iv": 1.46667}],
+        "cancel": {"any": 2.6}
+    },
+    "s2": {
+        "sp": 5000,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"actcond": "1919", "target": "MYSELF", "iv": 1.0},
+            {"actcond": "1924", "target": "MYPARTY_EXCEPT_MYSELF", "iv": 1.0}
+        ],
+        "cancel": {"any": 1.66667}
+    }
+}

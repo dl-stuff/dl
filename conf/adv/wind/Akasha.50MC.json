@@ -1,0 +1,41 @@
+{
+    "actconds": {
+        "243": {"slip": {"fixed": -420, "iv": 1.5, "kind": "sp"}, "text": "Skill Charger"},
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "c": {
+        "name": "Akasha",
+        "icon": "110341_01_r05",
+        "att": 468,
+        "hp": 807,
+        "ele": "wind",
+        "wt": "staff",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.15, "rcv", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 14494}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "attr": [
+            {"heal": 44, "actcond": "308010401", "target": "ALLY", "iv": 0.93333},
+            {"actcond": "1261", "target": "MYPARTY", "iv": 0.93333}
+        ],
+        "energizable": true
+    },
+    "s2": {
+        "sp": 20000,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 8.0, "hp": 100.0, "target": "HOSTILE"},
+            {"actcond": "243", "target": "ALLY", "iv": 0.4, "zone": 10.0}
+        ]
+    }
+}

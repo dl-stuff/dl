@@ -1,0 +1,55 @@
+{
+    "actconds": {
+        "105020109": {"aff": "blind", "duration": 8.0, "blind": 50, "text": "Blind", "rate": 90},
+        "306010201": {"duration": 5.0, "icon": "fs-buff", "mods": [[0.3, "fs", "buff"]], "text": "Force Strike Damage +30%"},
+        "310010401": {"count": 3, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Blinding Knives"}
+    },
+    "c": {
+        "name": "Vida",
+        "icon": "110067_01_r03",
+        "att": 453,
+        "hp": 757,
+        "ele": "shadow",
+        "wt": "dagger",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["actdmg", 0.3, "-t:fs"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"ab": [["mod", 0.25, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 10640}
+    },
+    "fs_enhanced": {
+        "startup": 0.13333,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "306010201", "target": "MYSELF"},
+            {"dmg": 0.57, "odmg": 4.2, "sp": 288, "target": "HOSTILE", "iv": 0.01819},
+            {"dmg": 0.57, "odmg": 4.2, "sp": 288, "target": "HOSTILE", "iv": 0.1394},
+            {"dmg": 2.0, "odmg": 4.2, "actcond": "105020109", "target": "HOSTILE", "iv": 0.29091},
+            {"dmg": 2.0, "odmg": 4.2, "actcond": "105020109", "target": "HOSTILE", "iv": 0.29091},
+            {"dmg": 2.0, "odmg": 4.2, "actcond": "105020109", "target": "HOSTILE", "iv": 0.29091},
+            {"dmg": 0.57, "odmg": 4.2, "sp": 288, "target": "HOSTILE", "iv": 0.38182}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.62425}
+    },
+    "s1": {
+        "sp": 2446,
+        "startup": 0.0,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 8.48, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 8.48, "target": "HOSTILE", "iv": 0.8}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2": {
+        "sp": 5315,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "310010401", "target": "MYSELF", "iv": 0.16667}
+        ]
+    }
+}

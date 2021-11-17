@@ -1,0 +1,56 @@
+{
+    "actconds": {
+        "245": {"duration": 60.0, "icon": 46, "mods": [[0.3, "att", "buff"]], "alt": {"s1": "enhanced"}, "selfdamage": 0.03, "text": "Obsession", "lost_on_drg": 1}
+    },
+    "c": {
+        "name": "Chelsea",
+        "icon": "110342_01_r05",
+        "att": 495,
+        "hp": 763,
+        "ele": "flame",
+        "wt": "bow",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", "<=", 30], "ab": [["mod", 0.2, "att"], ["mod", 0.1, "spd"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["buffedby", "s2"], "ab": [["mod", 0.3, "att"], ["mod", -0.2, "def"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 5820}
+    },
+    "s1": {
+        "sp": 2910,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 1.5, "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 1.5, "target": "HOSTILE", "iv": 0.93333, "msl": 0.13333},
+            {"dmg": 1.5, "target": "HOSTILE", "iv": 1.03333, "msl": 0.13333},
+            {"dmg": 1.5, "target": "HOSTILE", "iv": 1.13333, "msl": 0.13333},
+            {"dmg": 1.5, "target": "HOSTILE", "iv": 1.23333, "msl": 0.13333},
+            {"dmg": 1.5, "target": "HOSTILE", "iv": 1.33333, "msl": 0.13333},
+            {"dmg": 1.5, "target": "HOSTILE", "iv": 1.43333, "msl": 0.13333}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 2910,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 2.176, "hp": 7.0, "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 2.176, "hp": 7.0, "target": "HOSTILE", "iv": 0.93333, "msl": 0.13333},
+            {"dmg": 2.176, "hp": 7.0, "target": "HOSTILE", "iv": 1.03333, "msl": 0.13333},
+            {"dmg": 2.176, "hp": 7.0, "target": "HOSTILE", "iv": 1.13333, "msl": 0.13333},
+            {"dmg": 2.176, "hp": 7.0, "target": "HOSTILE", "iv": 1.23333, "msl": 0.13333},
+            {"dmg": 2.176, "hp": 7.0, "target": "HOSTILE", "iv": 1.33333, "msl": 0.13333},
+            {"dmg": 2.176, "hp": 7.0, "target": "HOSTILE", "iv": 1.43333, "msl": 0.13333}
+        ]
+    },
+    "s2": {
+        "sp": 7000,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "245", "target": "MYSELF", "iv": 0.13333}
+        ]
+    }
+}

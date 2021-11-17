@@ -1,7 +1,9 @@
 import json
 import os
+import glob
 
 from core import Conf
+import functools
 
 ELEMENTS = ("flame", "water", "wind", "light", "shadow")
 WEAPON_TYPES = (
@@ -52,13 +54,14 @@ def save_json(fn, data, indent=None):
         return json.dump(data, f, ensure_ascii=False, default=str, indent=indent)
 
 
-def load_json(fn):
+def load_json(fn, fuzzy=False):
     fpath = get_conf_json_path(fn)
+    if fuzzy:
+        fpath = glob.glob(fpath)[0]
     with open(fpath, "r", encoding="utf8") as f:
         return json.load(f, parse_float=float, parse_int=int)
 
 
-exability = load_json("exability.json")
 wyrmprints = load_json("wyrmprints.json")
 # weapons = load_json('weapons.json')
 
@@ -69,28 +72,14 @@ for wep in WEAPON_TYPES:
     weapons[wep] = load_json(f"wep/{wep}.json")
 
 
-advconfs = {}
-
-
+@functools.cache
 def load_adv_json(adv):
-    try:
-        return advconfs[adv]
-    except KeyError:
-        aconf = load_json(f"adv/{adv}.json")
-        advconfs[adv] = aconf
-        return aconf
+    return load_json(f"adv/*/{adv}.json", fuzzy=True)
 
 
-dragons = {}
-
-
+@functools.cache
 def load_drg_json(drg):
-    try:
-        return dragons[drg]
-    except KeyError:
-        aconf = load_json(f"drg/{drg}.json")
-        dragons[drg] = aconf
-        return aconf
+    return load_json(f"drg/*/{drg}.json", fuzzy=True)
 
 
 def load_drg_by_element(ele):
@@ -115,21 +104,6 @@ def get_fullname(adv):
         return load_adv_json(adv)["c"]["name"]
     except (FileNotFoundError, KeyError):
         return adv
-
-
-def get_adv_coability(adv):
-    try:
-        advcoabs = set()
-        advconf = load_adv_json(adv)
-        try:
-            uniquecoab = elecoabs[advconf["c"]["ele"]][adv]
-            advcoabs.add(adv)
-            advcoabs.add(uniquecoab["category"])
-        except KeyError:
-            advcoabs.add(advconf["c"]["wt"].upper())
-        return advcoabs
-    except (FileNotFoundError, KeyError) as e:
-        return None
 
 
 def get_adv(name):

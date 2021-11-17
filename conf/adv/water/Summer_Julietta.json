@@ -1,0 +1,64 @@
+{
+    "actconds": {
+        "572": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.13, "crit", "buff"]], "text": "Critical Rate +13%"},
+        "1049": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "109030111": {"aff": "bog", "duration": 8.0, "bog": 1.5, "text": "Bog", "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "316010601": {"count": 1, "shield": {"1": 0.4}, "coei": 1, "text": "Shield"}
+    },
+    "c": {
+        "name": "Summer Julietta",
+        "icon": "110042_02_r05",
+        "att": 618,
+        "hp": 893,
+        "ele": "water",
+        "wt": "axe",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["aff", "bog"], "cd": 5.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYPARTY"}]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", "1049"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 7346}
+    },
+    "s1": {
+        "sp": 3194,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 13.552, "actcond": "109030111", "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 4.048, "actcond": "109030111", "target": "HOSTILE", "iv": 0.76667},
+            {"dmg": 9.482, "actcond": "109030111", "target": "HOSTILE", "iv": 0.76667}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s2": {
+        "sp": 7475,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "302030301", "target": "ALLY", "iv": 0.13333}
+        ]
+    },
+    "s2_phase2": {
+        "sp": 7475,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "302030301", "target": "ALLY", "iv": 0.13333},
+            {"actcond": "572", "target": "ALLY", "iv": 0.13333}
+        ]
+    },
+    "s2_phase3": {
+        "sp": 7475,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "302030301", "target": "ALLY", "iv": 0.13333},
+            {"actcond": "572", "target": "ALLY", "iv": 0.13333},
+            {"actcond": "316010601", "target": "ALLY", "iv": 0.13333}
+        ]
+    }
+}

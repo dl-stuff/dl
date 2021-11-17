@@ -1,0 +1,73 @@
+{
+    "actconds": {
+        "434": {"count": 1, "inspiration": 1, "text": "Inspiration Level +1"},
+        "953": {"icon": 152, "text": "Check", "maxstack": 2},
+        "954": {"remove": 953, "count": 1, "coei": 1},
+        "987": {"icon": 149, "mods": [[0.25, "att", "buff"]], "text": "Grassland Warrior's Advance"},
+        "990": {"icon": 150, "mods": [[0.25, "att", "buff"], [0.08, "resist_flame", "buff"]], "text": "Sellsword's Assault"},
+        "993": {"icon": 151, "mods": [[0.25, "att", "buff"], [0.08, "resist_flame", "buff"], [0.2, "critdmg", "buff"]], "text": "Sacred Dragonlord's Encouragement"}
+    },
+    "c": {
+        "name": "Eugene",
+        "icon": "110363_01_r05",
+        "att": 479,
+        "hp": 797,
+        "ele": "water",
+        "wt": "sword",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["event", "crit"], "cd": 10.0, "ab": [["actcond", "MYSELF", "434"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "def"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 4, "sp": 15759}
+    },
+    "s1": {
+        "sp": 3456,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"actcond": "987", "target": "ALLY", "iv": 0.8, "zone": 10.0}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s1_phase2": {
+        "sp": 3456,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"actcond": "990", "target": "ALLY", "iv": 0.8, "zone": 10.0}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s1_phase3": {
+        "sp": 3456,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"actcond": "953", "target": "MYSELF"},
+            {"actcond": "993", "target": "ALLY", "iv": 0.8, "zone": 10.0}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s2": {
+        "sp": 0,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"actcond": "954", "target": "MYSELF"},
+            {"dmg": 25.0, "target": "HOSTILE", "iv": 1.0}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s99": {
+        "sp": 0,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"actcond": "954", "target": "MYSELF"},
+            {"dmg": 25.0, "target": "HOSTILE", "iv": 1.0}
+        ],
+        "cancel": {"any": 1.66667}
+    }
+}

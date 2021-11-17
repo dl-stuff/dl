@@ -1,0 +1,39 @@
+{
+    "actconds": {
+        "120": {"duration": 20.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%", "rate": 70},
+        "122": {"duration": 20.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "rate": 70}
+    },
+    "c": {
+        "name": "Xuan Zang",
+        "icon": "110299_01_r04",
+        "att": 461,
+        "hp": 749,
+        "ele": "flame",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.25, "killer_demihuman"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.06, "crit"]]}
+        ]
+    },
+    "s1": {
+        "sp": 2707,
+        "startup": 0.0,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 3.65, "killer": [0.2, ["debuff"]], "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 3.65, "killer": [0.2, ["debuff"]], "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 3.65, "killer": [0.2, ["debuff"]], "target": "HOSTILE", "iv": 1.06667}
+        ]
+    },
+    "s2": {
+        "sp": 6000,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "120", "target": "HOSTILE", "iv": 0.4},
+            {"actcond": "122", "target": "HOSTILE", "iv": 0.4}
+        ]
+    }
+}

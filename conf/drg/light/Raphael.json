@@ -1,0 +1,63 @@
+{
+    "actconds": {
+        "1749": {"duration": 30.0, "coei": 1, "icon": 102, "text": "Raphael's Aid"}
+    },
+    "d": {
+        "name": "Raphael",
+        "icon": "210154_01",
+        "att": 124,
+        "hp": 371,
+        "ele": "light",
+        "abilities": [
+            {"ab": [["mod", 0.6, "att"]]},
+            {"cond": ["actcond", 1749], "ele": "light", "ab": [["mod", 0.5, "def"]]},
+            {"cond": ["damaged", -1], "cd": 60.0, "ele": "light", "ab": [["hitattr", {"heal": 132, "target": "MYSELF"}], ["actcond", "MYSELF", "1749"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "cancel": {"any": 2.16667, "dx1": 2.0},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 6.5, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 8.0, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 9.5, "target": "HOSTILE", "iv": 1.2},
+            {"sp": [1.0, "%", "s2"], "target": "MYSELF", "iv": 1.33333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.46667,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 6.0, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.73333, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.33333,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 6.9, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "dx3": 0.13334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.8,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 9.0, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.7, "dodge": 0.0, "dx1": 0.2, "s": 0.0}
+    }
+}

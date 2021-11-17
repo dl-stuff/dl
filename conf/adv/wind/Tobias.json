@@ -1,0 +1,103 @@
+{
+    "actconds": {
+        "452": {"duration": 10.0, "alt": {"s2": "enhanced"}, "icon": 103, "text": "Sacred Blade", "overwrite": -1, "lost_on_drg": 1},
+        "458": {"remove": 452, "coei": 1},
+        "500": {"duration": 15.0, "ele": "wind", "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"},
+        "555": {"duration": 7.0, "slip": {"percent": -0.022, "iv": 1.0, "kind": "sp", "target": "s1"}, "coei": 1, "text": "Skill Charger", "overwrite": -1},
+        "557": {"slip": {"percent": -1.0, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+    },
+    "c": {
+        "name": "Tobias",
+        "icon": "110352_01_r05",
+        "att": 494,
+        "hp": 781,
+        "ele": "wind",
+        "wt": "blade",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.25, "bufftime", "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"ab": [["mod", 0.3, "killer_poison"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 15360}
+    },
+    "s1": {
+        "sp": 3840,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "500", "target": "MYPARTY", "iv": 0.16667}
+        ]
+    },
+    "s2": {
+        "sp": 1,
+        "startup": 0.0,
+        "recovery": 1.66667,
+        "attr": [
+            {"actcond": "452", "target": "MYSELF", "iv": 0.66667},
+            {"sp": [1.0, "%", "s2"], "actcond": "555", "target": "MYSELF", "iv": 0.7}
+        ],
+        "abilities": []
+    },
+    "s2_enhanced": {
+        "sp": 1,
+        "startup": 0.0,
+        "recovery": 2.0,
+        "attr": [
+            {"actcond": "458", "target": "MYSELF"},
+            {"dmg": 0.13, "actcond": "101021001", "target": "HOSTILE", "blt": [4, 0.0], "msl": 0.65},
+            {"dmg": 0.13, "actcond": "101021001", "target": "HOSTILE", "blt": [4, 0.0], "msl": 0.65}
+        ],
+        "cancel": {"any": 1.53333}
+    },
+    "x1": {
+        "startup": 0.3125,
+        "recovery": 0.67917,
+        "attr": [
+            {"dmg": 0.88, "sp": 80, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.52083, "dodge": 0.0, "s": 0.0, "x2": 0.14583}
+    },
+    "x2": {
+        "startup": 0.07407,
+        "recovery": 0.95926,
+        "attr": [
+            {"dmg": 0.98, "sp": 80, "target": "HOSTILE"},
+            {"dmg": 0.98, "sp": 80, "target": "HOSTILE", "iv": 0.24074}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x3": 0.42593}
+    },
+    "x3": {
+        "startup": 0.07407,
+        "recovery": 0.9926,
+        "attr": [
+            {"dmg": 1.06, "sp": 138, "target": "HOSTILE"},
+            {"dmg": 1.06, "sp": 138, "target": "HOSTILE", "iv": 0.24074}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x4": 0.42593}
+    },
+    "x4": {
+        "startup": 0.07407,
+        "recovery": 0.9926,
+        "attr": [
+            {"dmg": 1.08, "sp": 226, "target": "HOSTILE"},
+            {"dmg": 1.08, "sp": 226, "target": "HOSTILE", "iv": 0.24074}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x5": 0.42593}
+    },
+    "x5": {
+        "startup": 0.07407,
+        "recovery": 0.9926,
+        "attr": [
+            {"dmg": 1.16, "sp": 415, "target": "HOSTILE"},
+            {"dmg": 1.16, "sp": 415, "target": "HOSTILE", "iv": 0.24074}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x1": 0.42593}
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "actconds": {
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6}
+    },
+    "c": {
+        "name": "Student Maribelle",
+        "icon": "110032_02_r05",
+        "att": 513,
+        "hp": 747,
+        "ele": "flame",
+        "wt": "wand",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["actdmg", 0.4, "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["break"], "ab": [["actdmg", 0.3]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 9006}
+    },
+    "s1": {
+        "sp": 2649,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "attr": [
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.63333},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.86667},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 1.03333},
+            {"dmg": 1.28, "actcond": "1246", "target": "HOSTILE", "iv": 1.13333}
+        ],
+        "cancel": {"any": 1.16667}
+    },
+    "s2": {
+        "sp": 8300,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 10.304, "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 10.304, "target": "HOSTILE", "iv": 0.66667}
+        ]
+    }
+}

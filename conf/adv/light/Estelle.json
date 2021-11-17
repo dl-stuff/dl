@@ -1,0 +1,44 @@
+{
+    "actconds": {
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "301040301": {"icon": "hp-buff", "mods": [[0.15, "hp", "buff"]], "coei": 1, "text": "HP +15%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "c": {
+        "name": "Estelle",
+        "icon": "110063_01_r03",
+        "att": 531,
+        "hp": 922,
+        "ele": "light",
+        "wt": "staff",
+        "spiral": true,
+        "abilities": [
+            {"ab": [["actdmg", 0.4, "-t:fs"], ["mod", 0.08, "sph"]]},
+            {"cond": ["hp", "<", 30, 1], "cd": 60.0, "ab": [["hitattr", {"sp": [1.0, "%", "s2"], "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_curse"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 5, "sp": 9465}
+    },
+    "s1": {
+        "sp": 4930,
+        "startup": 0.0,
+        "recovery": 1.93333,
+        "attr": [
+            {"heal": 279, "actcond": "301040301", "target": "ALLY_HP_LOWEST", "iv": 1.0},
+            {"actcond": "1261", "target": "MYPARTY", "iv": 1.0}
+        ],
+        "energizable": true
+    },
+    "s2": {
+        "sp": 11832,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "attr": [
+            {"heal": 44, "actcond": "308010401", "target": "ALLY", "iv": 0.93333}
+        ],
+        "energizable": true
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "actconds": {
+        "1795": {"icon": 275, "mods": [[-0.05, "dmg_weakele", "buff"]], "debuff": 1, "text": "Adaptive Suppression (Modifier -5%)"},
+        "1796": {"icon": 276, "mods": [[-0.1, "att", "buff"], [-0.1, "defb", "buff"]], "debuff": 1, "text": "Captive Catch"}
+    },
+    "c": {
+        "name": "Yukata Cleo",
+        "icon": "100004_19_r05",
+        "att": 488,
+        "hp": 786,
+        "ele": "flame",
+        "wt": "wand",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_sleep"]]},
+            {"cond": ["auratype", 3, 1, 1], "ab": [["prep", 0.1]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 7414}
+    },
+    "s1": {
+        "sp": 2648,
+        "startup": 0.0,
+        "recovery": 2.1,
+        "attr": [
+            {"dmg": 16.0, "target": "HOSTILE", "iv": 1.0},
+            {"actcond": "1795", "target": "HOSTILE", "iv": 1.0, "zone": 10.0}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2": {
+        "sp": 4400,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "attr": [
+            {"amp": ["20000", 2, 0], "target": "MYSELF", "iv": 0.96667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 4.0, "target": "HOSTILE", "iv": 1.5},
+            {"actcond": "1796", "target": "HOSTILE", "iv": 1.7, "zone": 10.0}
+        ],
+        "cancel": {"any": 1.76667}
+    }
+}

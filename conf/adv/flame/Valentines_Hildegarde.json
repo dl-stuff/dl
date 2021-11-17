@@ -1,0 +1,50 @@
+{
+    "actconds": {
+        "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
+        "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
+        "291": {"dispel": 1},
+        "1259": {"duration": 60.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%", "overwrite": 8},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "316010601": {"count": 1, "shield": {"1": 0.4}, "coei": 1, "text": "Shield"},
+        "402010207": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%", "overwrite": 1}
+    },
+    "c": {
+        "name": "Valentine's Hildegarde",
+        "icon": "110043_02_r05",
+        "att": 562,
+        "hp": 965,
+        "ele": "flame",
+        "wt": "staff",
+        "spiral": true,
+        "abilities": [
+            {"ab": [["actgrant", 402010207, "-t:fs"], ["actgrant", 291, "-t:fs"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 18561}
+    },
+    "s1": {
+        "sp": 7734,
+        "startup": 0.0,
+        "recovery": 1.36667,
+        "attr": [
+            {"heal": 52, "target": "ALLY", "iv": 0.66667},
+            {"actcond": "308010401", "target": "MYPARTY", "iv": 0.66667},
+            {"actcond": "2", "target": "MYPARTY", "iv": 0.7},
+            {"actcond": "1259", "target": "MYPARTY", "iv": 0.7}
+        ],
+        "energizable": true
+    },
+    "s2": {
+        "sp": 13188,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "316010601", "target": "MYPARTY", "iv": 0.13333},
+            {"actcond": "102", "target": "MYPARTY", "iv": 0.16667}
+        ]
+    }
+}

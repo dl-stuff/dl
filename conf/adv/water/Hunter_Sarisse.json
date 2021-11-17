@@ -1,0 +1,89 @@
+{
+    "actconds": {
+        "370": {"duration": 30.0, "icon": "cspd-buff", "mods": [[0.3, "cspd", "buff"]], "text": "Force Strike Rate +30%", "overwrite": -1},
+        "453": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.15, "att", "buff"]], "debuff": 1, "text": "Strength -15%", "overwrite": 1},
+        "457": {"count": 1, "icon": "fs-buff", "mods": [[1.0, "fs", "buff"]], "text": "Force Strike Damage +100%", "overwrite": 7}
+    },
+    "c": {
+        "name": "Hunter Sarisse",
+        "icon": "100029_03_r05",
+        "att": 493,
+        "hp": 766,
+        "ele": "water",
+        "wt": "bow",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["actdmg", 0.3, "-t:fs"]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"ab": [["actdmg", 0.25, "-t:fs"], ["mod", 0.2, "cspd"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 11405}
+    },
+    "fs1": {
+        "charge": 0.5,
+        "startup": 0.06667,
+        "recovery": 1.06666,
+        "attr": [
+            {"dmg": 1.628, "odmg": 1.25, "sp": 500, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "blt": [5, 0.1]},
+            {"dmg": 1.628, "odmg": 1.25, "sp": 500, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.06666, "blt": [5, 0.1]},
+            {"dmg": 1.628, "odmg": 1.25, "sp": 500, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.13333, "blt": [5, 0.1]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.93333, "dodge": 0.03333, "s": 0.0}
+    },
+    "fs2": {
+        "charge": 1.2,
+        "startup": 0.06667,
+        "recovery": 1.06666,
+        "attr": [
+            {"dmg": 1.848, "odmg": 1.25, "sp": 710, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "blt": [5, 0.1]},
+            {"dmg": 1.848, "odmg": 1.25, "sp": 710, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.06666, "blt": [5, 0.1]},
+            {"dmg": 1.848, "odmg": 1.25, "sp": 710, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.13333, "blt": [5, 0.1]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.93333, "dodge": 0.03333, "s": 0.0}
+    },
+    "fs3": {
+        "charge": 1.9,
+        "startup": 0.06667,
+        "recovery": 1.06666,
+        "attr": [
+            {"dmg": 2.068, "odmg": 1.25, "sp": 920, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "blt": [5, 0.1]},
+            {"dmg": 2.068, "odmg": 1.25, "sp": 920, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.06666, "blt": [5, 0.1]},
+            {"dmg": 2.068, "odmg": 1.25, "sp": 920, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.13333, "blt": [5, 0.1]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.93333, "dodge": 0.03333, "s": 0.0}
+    },
+    "fs4": {
+        "charge": 2.6,
+        "startup": 0.06667,
+        "recovery": 1.06666,
+        "attr": [
+            {"dmg": 2.838, "odmg": 1.25, "sp": 1140, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "blt": [5, 0.1]},
+            {"dmg": 2.838, "odmg": 1.25, "sp": 1140, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.06666, "blt": [5, 0.1]},
+            {"dmg": 2.838, "odmg": 1.25, "sp": 1140, "fade": 0.3, "actcond": "453", "target": "HOSTILE", "iv": 0.13333, "blt": [5, 0.1]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.93333, "dodge": 0.03333, "s": 0.0}
+    },
+    "s1": {
+        "sp": 3933,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 2.185, "target": "HOSTILE", "iv": 0.13333},
+            {"dmg": 21.827, "target": "HOSTILE", "iv": 1.03333},
+            {"actcond": "457", "target": "MYSELF", "iv": 1.33333}
+        ],
+        "cancel": {"any": 1.36667}
+    },
+    "s2": {
+        "sp": 10000,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "370", "target": "MYSELF", "iv": 0.13333}
+        ]
+    }
+}

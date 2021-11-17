@@ -1,0 +1,40 @@
+{
+    "actconds": {
+        "102040301": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Aoi",
+        "icon": "110002_01_r03",
+        "att": 592,
+        "hp": 843,
+        "ele": "flame",
+        "wt": "blade",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["overdrive"], "ab": [["actdmg", 0.15]]},
+            {"ab": [["mod", 0.5, "affres_sleep"]]},
+            {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_sleep"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 6838}
+    },
+    "s1": {
+        "sp": 2630,
+        "startup": 0.0,
+        "recovery": 2.1,
+        "attr": [
+            {"dmg": 12.29, "killer": [0.5, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "cancel": {"any": 1.83333}
+    },
+    "s2": {
+        "sp": 5280,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 11.06, "killer": [0.5, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "cancel": {"any": 1.73333}
+    }
+}

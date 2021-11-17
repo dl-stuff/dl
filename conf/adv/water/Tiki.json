@@ -1,0 +1,137 @@
+{
+    "actconds": {
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120}
+    },
+    "c": {
+        "name": "Tiki",
+        "icon": "110360_01_r05",
+        "att": 498,
+        "hp": 761,
+        "ele": "water",
+        "wt": "dagger",
+        "spiral": false,
+        "utp": [1, 1800, 560, 40],
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"ab": [["mod", 0.3, "killer_frostbite"]]}
+        ]
+    },
+    "dragonform": {
+        "dshift": {
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ]
+        },
+        "dx1": {
+            "startup": 0.33333,
+            "recovery": 0.8,
+            "attr": [
+                {"dmg": 3.17, "sp": 290, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.66667, "dodge": 0.0, "dx2": 0.16667, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.23333,
+            "recovery": 0.8,
+            "attr": [
+                {"dmg": 3.78, "sp": 350, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.6, "dodge": 0.0, "dx3": 0.16667, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.53333,
+            "recovery": 1.16667,
+            "attr": [
+                {"dmg": 5.37, "sp": 520, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.96667, "dodge": 0.0, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 3480,
+            "startup": 0.0,
+            "recovery": 2.46667,
+            "cancel": {"any": 1.83333},
+            "sp_db": 3480,
+            "uses": 1,
+            "attr": [
+                {"dmg": 17.38, "killer": [0.3, ["frostbite"]], "actcond": "411", "target": "HOSTILE", "iv": 0.66667}
+            ]
+        },
+        "ds2": {
+            "sp": 5800,
+            "startup": 0.0,
+            "recovery": 2.46667,
+            "cancel": {"any": 2.0},
+            "sp_db": 3480,
+            "uses": 1,
+            "attr": [
+                {"dmg": 18.08, "killer": [0.5, ["frostbite"]], "target": "HOSTILE", "iv": 1.06667}
+            ]
+        }
+    },
+    "s1": {
+        "sp": 2248,
+        "startup": 0.0,
+        "recovery": 1.53333,
+        "attr": [
+            {"dmg": 3.76, "utp": 260, "target": "HOSTILE", "iv": 0.56667}
+        ],
+        "cancel": {"any": 1.33333}
+    },
+    "s2": {
+        "sp": 7868,
+        "startup": 0.0,
+        "recovery": 1.33333,
+        "attr": [
+            {"utp": 1000, "target": "MYSELF", "iv": 0.4}
+        ]
+    },
+    "x1": {
+        "startup": 0.2,
+        "recovery": 0.6,
+        "attr": [
+            {"dmg": 0.08, "sp": 88, "utp": 2, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.46667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.16667}
+    },
+    "x2": {
+        "startup": 0.2,
+        "recovery": 0.7,
+        "attr": [
+            {"dmg": 0.18, "sp": 141, "utp": 3, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.53333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.2}
+    },
+    "x3": {
+        "startup": 0.4,
+        "recovery": 0.73333,
+        "attr": [
+            {"dmg": 0.13, "sp": 178, "utp": 4, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.16667}
+    },
+    "x4": {
+        "startup": 0.26667,
+        "recovery": 0.76666,
+        "attr": [
+            {"dmg": 0.37, "sp": 350, "utp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.73333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.2}
+    },
+    "x5": {
+        "startup": 0.13333,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 0.4, "sp": 367, "utp": 6, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.53334}
+    }
+}

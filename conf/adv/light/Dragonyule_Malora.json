@@ -1,0 +1,41 @@
+{
+    "actconds": {
+        "311": {"duration": 15.0, "ele": "shadow", "icon": "def-buff", "mods": [[-0.15, "def", "buff"]], "debuff": 1, "text": "Defense -15%", "overwrite": -1},
+        "316010401": {"count": 1, "shield": {"1": 0.2}, "coei": 1, "text": "Shield"}
+    },
+    "c": {
+        "name": "Dragonyule Malora",
+        "icon": "110036_03_r05",
+        "att": 515,
+        "hp": 747,
+        "ele": "light",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["overdrive"], "ab": [["actdmg", 0.13]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["event", "debuff_def"], "cd": 5.0, "ab": [["actcond", "MYSELF", "316010401"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 6, "sp": 10703}
+    },
+    "s1": {
+        "sp": 3849,
+        "startup": 0.0,
+        "recovery": 2.26667,
+        "attr": [
+            {"dmg": 4.67, "actcond": "311", "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 4.67, "actcond": "311", "target": "HOSTILE", "iv": 1.5}
+        ]
+    },
+    "s2": {
+        "sp": 6296,
+        "startup": 0.0,
+        "recovery": 2.5,
+        "attr": [
+            {"dmg": 4.32, "killer": [0.8, ["debuff_def"]], "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 4.32, "killer": [0.8, ["debuff_def"]], "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 4.32, "killer": [0.8, ["debuff_def"]], "target": "HOSTILE", "iv": 1.83333}
+        ],
+        "cancel": {"any": 2.16667}
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "actconds": {
+        "102040301": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Joe",
+        "icon": "110003_01_r03",
+        "att": 563,
+        "hp": 868,
+        "ele": "flame",
+        "wt": "bow",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.7, "edge_burn"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 5987}
+    },
+    "s1": {
+        "sp": 2395,
+        "startup": 0.0,
+        "recovery": 2.43333,
+        "attr": [
+            {"dmg": 4.32, "killer": [0.6, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.32, "killer": [0.6, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 4.32, "killer": [0.6, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 1.53333}
+        ],
+        "cancel": {"any": 2.0}
+    },
+    "s2": {
+        "sp": 5051,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 10.515, "killer": [0.6, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.83333}
+        ],
+        "cancel": {"any": 1.3}
+    }
+}

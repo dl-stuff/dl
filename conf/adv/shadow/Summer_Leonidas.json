@@ -1,0 +1,150 @@
+{
+    "actconds": {
+        "1352": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9}, "rate": 110},
+        "1802": {"duration": 30.0, "icon": "resist_shadowblight-passive", "mods": [[-0.2, "resist_shadowblight", "passive"]], "debuff": 1, "text": "Shadowblight Res -20%", "overwrite": 48},
+        "1804": {"duration": 30.0, "icon": "edge_shadowblight-passive", "mods": [[0.5, "edge_shadowblight", "passive"]], "coei": 1, "text": "Shadowblight Infliction Rate +50%", "overwrite": 48},
+        "1843": {"coei": 1, "alt": {"fs": "enhanced"}, "icon": 0, "hide": 1}
+    },
+    "c": {
+        "name": "Summer Leonidas",
+        "icon": "100013_06_r05",
+        "att": 511,
+        "hp": 748,
+        "ele": "shadow",
+        "wt": "lance",
+        "spiral": false,
+        "utp": [0, 3000, 1200, 150],
+        "abilities": [
+            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.5, "att"], ["actcond", "MYSELF", "1843"]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"ab": [["mod", 0.5, "edge_shadowblight"]]}
+        ]
+    },
+    "fs": {
+        "startup": 0.13333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 0.3, "odmg": 6.2, "sp": 400, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "fs1_ddrive": {
+        "charge": 0.3,
+        "startup": 0.13333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 0.42, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "fs1_enhanced": {
+        "charge": 0.3,
+        "startup": 0.13333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 0.4, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 0.42, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "fs2_ddrive": {
+        "charge": 0.9,
+        "startup": 0.13333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE"},
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 1.98, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "fs2_enhanced": {
+        "charge": 0.9,
+        "startup": 0.13333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE"},
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 1.82, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 1.98, "odmg": 1.7, "sp": 700, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "fs3_ddrive": {
+        "charge": 2.1,
+        "startup": 0.13333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE"},
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 7.64, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "fs3_enhanced": {
+        "charge": 2.1,
+        "startup": 0.13333,
+        "recovery": 1.33334,
+        "attr": [
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE"},
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 6.92, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 7.64, "odmg": 0.65, "sp": 1750, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 2285,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 15.48, "utp": 800, "target": "HOSTILE", "iv": 0.83333}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s1_ddrive": {
+        "sp": 2285,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 20.22, "actcond": "1802", "target": "HOSTILE", "iv": 0.83333}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2": {
+        "sp": 4960,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 8.54, "actcond": "1352", "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 8.54, "actcond": "1352", "target": "HOSTILE", "iv": 1.06667},
+            {"amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.73333},
+            {"actcond": "1804", "target": "MYPARTY", "iv": 1.73333}
+        ],
+        "cancel": {"any": 1.76667}
+    }
+}

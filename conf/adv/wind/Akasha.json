@@ -1,0 +1,47 @@
+{
+    "actconds": {
+        "243": {"slip": {"fixed": -420, "iv": 1.5, "kind": "sp"}, "text": "Skill Charger"},
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1753": {"duration": 30.0, "coei": 1, "echo": 0.5, "icon": 252, "text": "Overdamage", "overwrite": -1},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "c": {
+        "name": "Akasha",
+        "icon": "110341_01_r05",
+        "att": 561,
+        "hp": 967,
+        "ele": "wind",
+        "wt": "staff",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.17, "rcv", "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 6, "sp": 17748}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "attr": [
+            {"heal": 44, "actcond": "308010401", "target": "ALLY", "iv": 0.93333},
+            {"actcond": "1261", "target": "MYPARTY", "iv": 0.93333},
+            {"actcond": "1753", "target": "MYPARTY", "iv": 0.93333}
+        ],
+        "energizable": true
+    },
+    "s2": {
+        "sp": 15000,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 9.0, "hp": 100.0, "actcond": "1361", "target": "HOSTILE"},
+            {"actcond": "243", "target": "ALLY", "iv": 0.4, "zone": 15.0}
+        ]
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "actconds": {
+        "21": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding"},
+        "384": {"duration": 15.0, "ifbleed": 1, "icon": 60, "mods": [[0.2, "crit", "buff"]], "text": "Blade Formation"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "c": {
+        "name": "Ieyasu",
+        "icon": "110313_01_r05",
+        "att": 624,
+        "hp": 886,
+        "ele": "shadow",
+        "wt": "blade",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "crit"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.3, "critdmg"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 8141}
+    },
+    "s1": {
+        "sp": 2467,
+        "startup": 0.0,
+        "recovery": 3.96667,
+        "attr": [
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 1.03333},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 1.2},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 1.36667},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 1.56667},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 1.8},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 2.0},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "actcond": "21", "target": "HOSTILE", "iv": 2.93333}
+        ]
+    },
+    "s2": {
+        "sp": 7913,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "308010401", "target": "MYSELF", "iv": 0.13333},
+            {"actcond": "384", "target": "MYSELF", "iv": 0.16667}
+        ],
+        "energizable": true
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "actconds": {
+        "102040301": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Xania",
+        "icon": "110004_01_r03",
+        "att": 584,
+        "hp": 850,
+        "ele": "flame",
+        "wt": "wand",
+        "spiral": true,
+        "abilities": [
+            {"ab": [["actdmg", 0.35, "-t:s"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 6621}
+    },
+    "s1": {
+        "sp": 2759,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 11.64, "killer": [0.3, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.36667}
+    },
+    "s2": {
+        "sp": 5570,
+        "startup": 0.0,
+        "recovery": 1.73333,
+        "attr": [
+            {"dmg": 11.64, "killer": [0.3, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.96667}
+        ],
+        "cancel": {"any": 1.33333}
+    }
+}

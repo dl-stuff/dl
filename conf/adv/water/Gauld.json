@@ -1,0 +1,62 @@
+{
+    "actconds": {
+        "790": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.37, "iv": 2.9}, "rate": 120},
+        "793": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.74, "iv": 2.9}, "rate": 160},
+        "302010201": {"duration": 5.0, "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Gauld",
+        "icon": "110356_01_r04",
+        "att": 492,
+        "hp": 729,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.1, "att"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"ab": [["mod", 0.2, "killer_frostbite"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 8237}
+    },
+    "s1": {
+        "sp": 3051,
+        "startup": 0.0,
+        "recovery": 3.16667,
+        "attr": [
+            {"dmg": 3.04, "killer": [1.0, ["frostbite"]], "actcond": "790", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 3.04, "killer": [1.0, ["frostbite"]], "target": "HOSTILE", "iv": 2.23333}
+        ],
+        "cancel": {"any": 2.66667}
+    },
+    "s1_phase2": {
+        "sp": 3051,
+        "startup": 0.0,
+        "recovery": 3.16667,
+        "attr": [
+            {"dmg": 3.04, "killer": [1.0, ["frostbite"]], "actcond": "793", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 3.04, "killer": [1.0, ["frostbite"]], "target": "HOSTILE", "iv": 2.23333}
+        ],
+        "cancel": {"any": 2.66667}
+    },
+    "s1_phase3": {
+        "sp": 3051,
+        "startup": 0.0,
+        "recovery": 3.16667,
+        "attr": [
+            {"dmg": 3.04, "killer": [1.0, ["frostbite"]], "actcond": "793", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 3.04, "killer": [1.0, ["frostbite"]], "actcond": "793", "target": "HOSTILE", "iv": 2.23333},
+            {"actcond": "302020201", "target": "MYSELF", "iv": 2.43333}
+        ],
+        "cancel": {"any": 2.66667}
+    },
+    "s2": {
+        "sp": 5158,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"sp": [1.0, "%", "s1"], "actcond": "302010201", "target": "MYSELF", "iv": 0.16667}
+        ]
+    }
+}

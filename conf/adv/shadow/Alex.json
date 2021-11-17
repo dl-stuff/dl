@@ -1,0 +1,48 @@
+{
+    "actconds": {
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "101020601": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.396, "iv": 2.9}}
+    },
+    "c": {
+        "name": "Alex",
+        "icon": "100005_01_r04",
+        "att": 476,
+        "hp": 719,
+        "ele": "shadow",
+        "wt": "dagger",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["actdmg", 0.35, "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"ab": [["mod", 0.05, "sph"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 10093}
+    },
+    "s1": {
+        "sp": 2243,
+        "startup": 0.0,
+        "recovery": 2.4,
+        "attr": [
+            {"dmg": 1.79, "actcond": "1246", "target": "HOSTILE", "iv": 0.3},
+            {"actcond": "101020601", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 1.79, "actcond": "1246", "target": "HOSTILE", "iv": 0.73333},
+            {"actcond": "101020601", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 1.79, "actcond": "1246", "target": "HOSTILE", "iv": 0.9},
+            {"actcond": "101020601", "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 1.79, "actcond": "1246", "target": "HOSTILE", "iv": 1.46667},
+            {"actcond": "101020601", "target": "HOSTILE", "iv": 1.46667}
+        ],
+        "cancel": {"any": 2.3}
+    },
+    "s2": {
+        "sp": 4925,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 1.82, "killer": [1.0, ["break"]], "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 1.82, "killer": [1.0, ["break"]], "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 3.62, "killer": [1.0, ["break"]], "target": "HOSTILE", "iv": 1.2},
+            {"dmg": 1.82, "killer": [1.0, ["break"]], "target": "HOSTILE", "iv": 1.2}
+        ]
+    }
+}

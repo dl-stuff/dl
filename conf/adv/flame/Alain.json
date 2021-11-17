@@ -1,0 +1,44 @@
+{
+    "actconds": {
+        "371": {"duration": 15.0, "icon": "def-buff", "mods": [[1.0, "def", "buff"]], "text": "Defense +100%"},
+        "102040301": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Alain",
+        "icon": "110001_01_r03",
+        "att": 525,
+        "hp": 943,
+        "ele": "flame",
+        "wt": "lance",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "371"]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.5, "affres_stun"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 6323}
+    },
+    "s1": {
+        "sp": 2581,
+        "startup": 0.0,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 4.11, "killer": [0.5, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 4.11, "killer": [0.5, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 4.11, "killer": [0.5, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 1.13333}
+        ],
+        "cancel": {"any": 1.6}
+    },
+    "s2": {
+        "sp": 5112,
+        "startup": 0.0,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 6.165, "killer": [0.5, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 6.165, "killer": [0.5, ["burn"]], "actcond": "102040301", "target": "HOSTILE", "iv": 0.66667}
+        ],
+        "cancel": {"any": 1.33333}
+    }
+}

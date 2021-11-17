@@ -1,0 +1,39 @@
+{
+    "actconds": {
+        "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
+        "302020101": {"duration": 10.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"},
+        "302030601": {"duration": 15.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"}
+    },
+    "c": {
+        "name": "Elias",
+        "icon": "110303_01_r04",
+        "att": 423,
+        "hp": 806,
+        "ele": "light",
+        "wt": "bow",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.25, "killer_demon"]]},
+            {"ab": [["mod", 0.5, "affres_curse"]]},
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "302030601"]]}
+        ]
+    },
+    "s1": {
+        "sp": 2558,
+        "startup": 0.0,
+        "recovery": 2.26667,
+        "attr": [
+            {"dmg": 17.26, "target": "HOSTILE", "iv": 1.33333}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s2": {
+        "sp": 3636,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "2", "target": "MYPARTY", "iv": 0.16667},
+            {"actcond": "302020101", "target": "MYPARTY", "iv": 0.2}
+        ]
+    }
+}

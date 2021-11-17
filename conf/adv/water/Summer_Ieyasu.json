@@ -1,0 +1,93 @@
+{
+    "actconds": {
+        "19": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding", "rate": 80},
+        "291": {"dispel": 1},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "311064001": {"count": 1, "coei": 1, "alt": {"s2": "enhanced"}},
+        "311064002": {"count": 1, "coei": 1, "alt": {"s2": "default"}}
+    },
+    "c": {
+        "name": "Summer Ieyasu",
+        "icon": "110313_03_r05",
+        "att": 503,
+        "hp": 757,
+        "ele": "water",
+        "wt": "sword",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["debuff", 16], "ab": [["mod", 0.15, "crit"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"ab": [["mod", 0.2, "critdmg"]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 7, "sp": 8494}
+    },
+    "s1": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"sp": [1.0, "%", "s1"], "target": "MYSELF"},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 4.5, "target": "HOSTILE", "iv": 0.86667}
+        ],
+        "cancel": {"any": 1.83333}
+    },
+    "s1_phase2": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"sp": [1.0, "%", "s1"], "target": "MYSELF"},
+            {"dmg": 4.5, "actcond": "19", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.5, "actcond": "19", "target": "HOSTILE", "iv": 0.93333}
+        ],
+        "cancel": {"any": 1.83333}
+    },
+    "s1_phase3": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 1.83333,
+        "attr": [
+            {"actcond": "19", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.5, "actcond": "411", "target": "HOSTILE", "iv": 0.66667},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 4.5, "actcond": "411", "target": "HOSTILE", "iv": 0.86667},
+            {"actcond": "19", "target": "HOSTILE", "iv": 0.86667},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.9}
+        ]
+    },
+    "s2": {
+        "sp": 3372,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"actcond": "311064001", "target": "MYSELF", "iv": 0.16667},
+            {"dmg": 21.0, "killer": [0.2, ["bleed"]], "target": "HOSTILE", "iv": 1.0}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "s2_enhanced": {
+        "sp": 3372,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"actcond": "311064002", "target": "MYSELF", "iv": 0.16667},
+            {"dmg": 21.0, "killer": [0.2, ["bleed"]], "target": "HOSTILE", "iv": 1.0},
+            {"amp": ["10000", 3, 0], "target": "MYSELF", "iv": 1.66667}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "s99": {
+        "sp": 2714,
+        "startup": 0.0,
+        "recovery": 1.83333,
+        "attr": [
+            {"actcond": "19", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.5, "actcond": "411", "target": "HOSTILE", "iv": 0.66667},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 4.5, "actcond": "411", "target": "HOSTILE", "iv": 0.86667},
+            {"actcond": "19", "target": "HOSTILE", "iv": 0.86667},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.9}
+        ]
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "21": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding"}
+    },
+    "d": {
+        "name": "Summer Marishiten",
+        "icon": "210156_01",
+        "att": 125,
+        "hp": 370,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 0.7, "att"]]},
+            {"cond": ["start"], "ele": "water", "ab": [["prep", 1.0]]},
+            {"cond": ["aura", 2, 1], "ele": "water", "ab": [["actdmg", 0.4, "-t:s"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "cancel": {"any": 2.46667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"amp": ["10000", 2, 2], "target": "MYSELF"},
+            {"dmg": 18.0, "actcond": "21", "target": "HOSTILE", "iv": 1.33333}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.0,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 3.02, "sp": 5, "target": "HOSTILE", "msl": 0.33333, "msl_spd": 1}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.2, "dodge": 0.0, "dx2": 0.56667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.0,
+        "recovery": 1.6,
+        "attr": [
+            {"dmg": 3.8, "sp": 5, "target": "HOSTILE", "msl": 0.6, "msl_spd": 1}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.33333, "dodge": 0.0, "dx3": 0.63333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.03333,
+        "recovery": 2.26667,
+        "attr": [
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.5, "sp": 5, "target": "HOSTILE", "msl": 1.33333, "msl_spd": 1}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.46667, "dodge": 0.0, "dx1": 1.36667, "s": 0.0}
+    }
+}

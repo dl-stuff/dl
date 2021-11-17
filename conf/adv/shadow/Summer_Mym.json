@@ -1,0 +1,111 @@
+{
+    "actconds": {
+        "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "1353": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1768": {"duration": 10.0, "coei": 1, "icon": 44, "text": "Enhanced Standard Attacks", "overwrite": -1}
+    },
+    "c": {
+        "name": "Summer Mym",
+        "icon": "100010_10_r05",
+        "att": 506,
+        "hp": 752,
+        "ele": "shadow",
+        "wt": "gun",
+        "spiral": false,
+        "gun": [1],
+        "utp": [0, 3000, 1200, 150],
+        "abilities": [
+            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.25, "att"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]}
+        ]
+    },
+    "default": {
+        "x_max": 2
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.06667,
+        "recovery": 0.96666,
+        "attr": [
+            {"dmg": 1.8, "odmg": 4.0, "sp": 400, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 3950,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"dmg": 5.13, "utp": 300, "actcond": "1353", "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 5.13, "utp": 300, "actcond": "1246", "target": "HOSTILE", "iv": 1.66667}
+        ],
+        "cancel": {"dodge": 2.7}
+    },
+    "s1_ddrive": {
+        "sp": 3950,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"actcond": "1768", "target": "MYSELF"},
+            {"sp": [1.0, "%", "s1"], "target": "MYSELF"},
+            {"utp": -850, "target": "MYSELF"},
+            {"dmg": 6.24, "actcond": "1353", "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 6.24, "actcond": "1246", "target": "HOSTILE", "iv": 1.66667}
+        ],
+        "cancel": {"dodge": 2.7}
+    },
+    "s2": {
+        "sp": 9855,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"amp": ["10000", 3, 0], "target": "MYSELF", "iv": 1.0},
+            {"dmg": 17.67, "target": "HOSTILE", "iv": 1.0}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "x1": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.67, "sp": 545, "target": "HOSTILE", "loop": [5, 0.13333]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 1.26667}
+    },
+    "x2": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.67, "sp": 545, "target": "HOSTILE", "loop": [5, 0.13333]}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.26667}
+    },
+    "x1_ddrive": {
+        "startup": 0.33333,
+        "recovery": 0.96667,
+        "attr": [
+            {"cond": ["actcond", 1768, "=", 0], "dmg": 0.66, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1768, "=", 0], "dmg": 1.49, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1768, "=", 1], "dmg": 0.99, "sp": 480, "utp": 200, "target": "HOSTILE"},
+            {"cond": ["actcond", 1768, "=", 1], "dmg": 2.45, "sp": 480, "utp": 200, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.4, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_ddrive": 0.4}
+    },
+    "x2_ddrive": {
+        "startup": 0.33333,
+        "recovery": 0.96667,
+        "attr": [
+            {"cond": ["actcond", 1768, "=", 0], "dmg": 0.66, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1768, "=", 0], "dmg": 1.49, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"cond": ["actcond", 1768, "=", 1], "dmg": 0.99, "sp": 480, "utp": 200, "target": "HOSTILE"},
+            {"cond": ["actcond", 1768, "=", 1], "dmg": 2.45, "sp": 480, "utp": 200, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.4, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_ddrive": 0.4}
+    }
+}

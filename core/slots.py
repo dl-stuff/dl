@@ -71,6 +71,42 @@ class SlotBase:
         pass
 
 
+class ExBase:
+    DATA = load_json("exability.json")
+    GENERICS = {
+        "Lance": ["101010010", None],
+        "Blade": ["101020010", None],
+        "Axe": ["101030010", None],
+        "Bow": ["101040010", None],
+        "Sword": ["101050010", None],
+        "Wand": ["102000010", None],
+        "Dagger": ["103000010", None],
+        "Staff": ["104000010", None],
+        "Gun": ["109000009", None],
+    }
+    UNIQUE = {
+        "Chrom": ["101060010", None],
+        "Joker": ["101100007", None],
+        "Panther": ["103150005", None],
+        "Wand2": ["106000008", None],
+        "Grace": ["106000016", None],
+        "Dagger2": ["106070008", None],
+        "Gala_Leif": ["106080008", None],
+        "Tobias": ["118000008", None],
+        "Sharena": ["120040008", None],
+        "Axe2": ["126000008", None],
+        "Gala_Prince": ["136000008", None],
+    }
+    LOOKUP = DATA["lookup"]
+    LOOKUP.update(GENERICS)
+    LOOKUP.update(UNIQUE)
+
+    def __init__(self, qual) -> None:
+        self.coab_id, self.chain_id = self.LOOKUP[qual]
+        self.coab = self.DATA["coab"][self.coab_id]
+        self.chain = self.DATA["chain"][self.chain_id]
+
+
 class CharaBase(SlotBase):
     AUGMENTS = 100
     FORT = load_json("fort.json")
@@ -81,124 +117,32 @@ class CharaBase(SlotBase):
 
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
-        # self.coabs = {}
-        # self.coab_list = []
-        # self.coab_qual = None
-        # self.valid_coabs = elecoabs[self.ele]
-        # try:
-        #     self.coabs[self.qual] = self.valid_coabs[self.qual]
-        #     self.coab_qual = self.qual
-        # except KeyError:
-        #     try:
-        #         self.coab_qual = self.wt.capitalize()
-        #         self.coabs[self.coab_qual] = self.valid_coabs[self.coab_qual]
-        #     except KeyError:
-        #         pass
-        # self._chain_ctime = 0
-        # self._ctime_coabs = []
-        # self._need_ctime = 0
+        self.coabs = {self.qual: ExBase(self.qual)}
+        self.base_id = self.icon[0:6]
 
-        # self._healing_coabs = []
-        # self._need_healing = False
-
-        # self._regen_coabs = []
-        # self._need_regen = False
-
-        # self._bufftime_coabs = []
-        # self._need_bufftime = False
-
-    def set_coab_list(self, coab_list):
-        for name in coab_list:
-            try:
-                self.coabs[name] = self.valid_coabs[name]
-            except KeyError:
-                raise ValueError(f"No such coability: {name}")
-
-    def update_req_ctime(self, delta, ctime):
-        self._need_ctime = max(self._need_ctime, delta - (ctime - self._chain_ctime))
-
-    def set_need_healing(self):
-        self._need_healing = True
-
-    def set_need_regen(self):
-        self._need_regen = True
-
-    def set_need_bufftime(self):
-        self._need_bufftime = True
-
-    def downgrade_one_coab(self, key, coab):
-        try:
-            self.coab_list.remove(key)
-            del self.coabs[key]
-            category = coab["category"]
-            self.coabs[category] = self.valid_coabs[category]
-            self.coab_list.append(category)
-        except (ValueError, KeyError):
-            pass
-
-    def downgrade_coabs(self):
-        for ctime_value, key, coab in sorted(self._ctime_coabs, reverse=True):
-            if self._chain_ctime - ctime_value < self._need_ctime:
+    def set_coabs(self, coab_list):
+        self.coabs = {self.qual: ExBase(self.qual)}
+        seen_base_id = {self.base_id}
+        for coab in coab_list:
+            base_id = get_icon(coab)[0:6]
+            if base_id in seen_base_id:
                 continue
-            self.downgrade_one_coab(key, coab)
-            self._chain_ctime -= ctime_value
-
-        for flag, coab_list in (
-            (self._need_healing, self._healing_coabs),
-            (self._need_regen, self._regen_coabs),
-            (self._need_bufftime, self._bufftime_coabs),
-        ):
-            if not flag:
-                for key, coab in coab_list:
-                    self.downgrade_one_coab(key, coab)
-        self.coab_list = sorted(self.coab_list)
+            seen_base_id.add(base_id)
+            try:
+                self.coabs[coab] = ExBase(coab)
+            except KeyError:
+                pass
 
     @property
     def abilities(self):
-        full_ab = list(super().abilities)
-        ex_ab = {}
-        max_coabs = CharaBase.MAX_COAB
-        coabs = list(self.coabs.items())
-        self.coabs = {}
-        self.coab_list = []
-        seen_base_id = {self.icon.split("_")[0]}
-        for key, coab in coabs:
-            # alt check
-            if key != self.coab_qual:
-                icon = get_icon(key)
-                if icon:
-                    key_base_id = icon.split("_")[0]
-                    if key_base_id in seen_base_id:
-                        continue
-                    seen_base_id.add(key_base_id)
-            self.coabs[key] = coab
-            if key != self.coab_qual:
-                self.coab_list.append(key)
-                max_coabs -= 1
-            if coab["ex"] and (coab["category"] not in ex_ab or coab["ex"][0][1] > ex_ab[coab["category"]][0][1]):
-                ex_ab[coab["category"]] = coab["ex"]
-            for chain in coab["chain"]:
-                full_ab.append(tuple(chain))
-                if key != self.coab_qual:
-                    if chain[0] == "ctime":
-                        self._chain_ctime += chain[1]
-                        self._ctime_coabs.append((chain[1], key, coab))
-                    if chain[0] in ("hp", "rcv"):
-                        self._healing_coabs.append((key, coab))
-                    if chain[0].endswith("regen") or chain[0].endswith("heal"):
-                        self._regen_coabs.append((key, coab))
-                    if chain[0] == "bt":
-                        self._bufftime_coabs.append((key, coab))
-            if max_coabs == 0:
-                break
-        for ex_list in ex_ab.values():
-            full_ab.extend(map(tuple, ex_list))
-        if self.wt == "axe":
-            full_ab.append(("cc", 0.04))
-        else:
-            full_ab.append(("cc", 0.02))
-        self.coab_list = sorted(self.coab_list)
-        return full_ab
+        chara_ab = list(super().abilities)
+        coab_abs = {}
+        for ex in self.coabs.values():
+            if "ab" in ex.coab:
+                coab_abs[ex.coab["category"]] = ex.coab
+            chara_ab.extend(ex.chain)
+        chara_ab.extend(coab_abs.values())
+        return chara_ab
 
     def fort_mod(self, key):
         if CharaBase.FORT_KEY == None:
@@ -672,7 +616,6 @@ class WeaponBase(EquipBase):
 class AmuletStack:
     # actually depends on weapon but i choose to not care
     META = load_json("wyrmprints_meta.json")
-    META["actconds"] = {int(k): v for k, v in META["actconds"].items()}
     RARITY_LIMITS = {1: 3, 2: 2, 3: 2}
 
     def __init__(self, confs, c, quals):

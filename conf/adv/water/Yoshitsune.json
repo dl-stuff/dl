@@ -1,0 +1,71 @@
+{
+    "actconds": {
+        "1439": {"duration": 30.0, "icon": "aspd-buff", "mods": [[0.1, "aspd", "buff"]], "text": "Attack Rate +10%", "overwrite": 16},
+        "312020151": {"duration": 30.0, "icon": "aspd-buff", "mods": [[0.15, "aspd", "buff"]], "text": "Attack Rate +15%", "overwrite": 16}
+    },
+    "c": {
+        "name": "Yoshitsune",
+        "icon": "110376_01_r05",
+        "att": 503,
+        "hp": 757,
+        "ele": "water",
+        "wt": "gun",
+        "spiral": false,
+        "gun": [2],
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.2, "att"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 4, "sp": 9166}
+    },
+    "dodge": {
+        "startup": 0.16667,
+        "recovery": 0.46666,
+        "attr": [
+            {"dmg": 0.1, "target": "HOSTILE"},
+            {"dmg": 0.1, "target": "HOSTILE"},
+            {"dmg": 0.1, "target": "HOSTILE"},
+            {"dmg": 0.1, "target": "HOSTILE"},
+            {"dmg": 0.1, "target": "HOSTILE"},
+            {"dmg": 0.1, "target": "HOSTILE"},
+            {"dmg": 0.1, "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.43333, "s": 0.0, "x1": 0.43333}
+    },
+    "s1": {
+        "sp": 3819,
+        "startup": 0.0,
+        "recovery": 3.36667,
+        "attr": [
+            {"dmg": 2.13, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 2.13, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 2.13, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 2.13, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 2.13, "target": "HOSTILE", "iv": 2.4}
+        ],
+        "DEBUG_attr_N1": [{"dmg": 0.1, "target": "HOSTILE", "iv": 0.13333}, {"dmg": 15.72, "target": "HOSTILE", "iv": 0.76667}, {"dmg": 2.13, "target": "HOSTILE", "iv": 2.0}, {"dmg": 2.13, "target": "HOSTILE", "iv": 2.0}, {"dmg": 2.13, "target": "HOSTILE", "iv": 2.0}, {"dmg": 2.13, "target": "HOSTILE", "iv": 2.0}, {"dmg": 2.13, "target": "HOSTILE", "iv": 2.0}, {"actcond": "312020151", "target": "MYSELF", "iv": 2.03333}],
+        "cancel": {"any": 3.0}
+    },
+    "s2": {
+        "sp": 7051,
+        "startup": 0.0,
+        "recovery": 3.16667,
+        "attr": [
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 0.93333},
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 1.2},
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 1.5},
+            {"dmg": 1.67, "target": "HOSTILE", "iv": 1.63333},
+            {"dmg": 0.88, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 0.88, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 0.88, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 0.88, "target": "HOSTILE", "iv": 2.4},
+            {"dmg": 0.88, "target": "HOSTILE", "iv": 2.4}
+        ],
+        "cancel": {"any": 2.66667}
+    }
+}

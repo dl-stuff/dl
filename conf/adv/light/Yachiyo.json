@@ -1,0 +1,49 @@
+{
+    "actconds": {
+        "104030801": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.66, "iv": 3.9}},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "310012001": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dauntless Spirit", "overwrite": -1}
+    },
+    "c": {
+        "name": "Yachiyo",
+        "icon": "110064_01_r04",
+        "att": 501,
+        "hp": 722,
+        "ele": "light",
+        "wt": "blade",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["aff", "paralysis"], "cd": 5.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"ab": [["mod", 0.2, "killer_paralysis"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 6417}
+    },
+    "fs_enhanced": {
+        "startup": 0.13333,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 10.17, "odmg": 1.5, "sp": 200, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.7}
+    },
+    "s1": {
+        "sp": 2567,
+        "startup": 0.0,
+        "recovery": 2.23333,
+        "attr": [
+            {"dmg": 6.48, "actcond": "104030801", "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 6.48, "actcond": "104030801", "target": "HOSTILE", "iv": 0.56667}
+        ],
+        "cancel": {"any": 1.9}
+    },
+    "s2": {
+        "sp": 4139,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "310012001", "target": "MYSELF", "iv": 0.16667}
+        ]
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "507": {"icon": "att-buff", "mods": [[0.06, "att", "buff"]], "text": "Strength +6%"},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"},
+        "303031301": {"duration": 15.0, "icon": "def-buff", "mods": [[0.7, "def", "buff"]], "text": "Defense +70%"},
+        "303040501": {"icon": "def-buff", "mods": [[0.1, "def", "buff"]], "text": "Defense +10%"},
+        "323010101": {"lifeshield": 0.8, "text": "Life Shield"}
+    },
+    "c": {
+        "name": "Ranzal",
+        "icon": "100003_01_r04",
+        "att": 532,
+        "hp": 936,
+        "ele": "wind",
+        "wt": "axe",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["slayer", 5], "count": 5, "ab": [["actcond", "MYSELF", "507"]]},
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.08, "att"]]},
+            {"ab": [["mod", 1.0, "affres_bog"]]},
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "303031301"], ["actcond", "MYSELF", "303040501"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 13464}
+    },
+    "s1": {
+        "sp": 2805,
+        "startup": 0.0,
+        "recovery": 2.73333,
+        "attr": [
+            {"actcond": "291", "target": "HOSTILE"},
+            {"dmg": 7.228, "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 7.228, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 7.228, "target": "HOSTILE", "iv": 1.2},
+            {"dmg": 7.228, "actcond": "101021001", "target": "HOSTILE", "iv": 1.5}
+        ],
+        "cancel": {"any": 2.1}
+    },
+    "s2": {
+        "sp": 7288,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "303030401", "target": "MYPARTY", "iv": 0.16667}
+        ],
+        "abilities": [
+            {"cond": ["hp", ">=", 85], "ab": [["hitattr", {"actcond": "323010101", "target": "MYPARTY"}]]}
+        ]
+    }
+}

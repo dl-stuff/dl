@@ -1,0 +1,71 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "1684": {"coei": 1, "-lv": 1685, "icon": 247, "text": "Enemy Insight Lv. 1", "overwrite": 45},
+        "1687": {"duration": 30.0, "coei": 1, "icon": 248, "text": "Calculated Shots", "overwrite": 46},
+        "1688": {"remove": 1686, "coei": 1}
+    },
+    "c": {
+        "name": "Saiga",
+        "icon": "110389_01_r05",
+        "att": 504,
+        "hp": 755,
+        "ele": "wind",
+        "wt": "gun",
+        "spiral": false,
+        "gun": [2],
+        "abilities": [
+            {"cond": ["actcond", 1686, ">=", 1], "ab": [["mod", 3.0, "odaccel", "-t:fs"]]},
+            {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", "1688"]]},
+            {"cond": ["actcond", 1687, ">=", 1], "ab": [["actdmg", 0.1, "-t:x"], ["mod", 0.1, "crit", "-t:x"], ["mod", 0.1, "sph", "-t:x"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "att"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 5100}
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.06667,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.76666, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 4080,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "attr": [
+            {"DEBUG_PARTCOND": "NearestEnemyDistance[0, 2, 3, 0]", "actcond": "1684", "target": "MYSELF"},
+            {"cond": ["actcond", 1686, ">=", 1], "actcond": "1688", "target": "MYSELF", "iv": 0.03333},
+            {"cond": ["actcond", 1686, "<=", 0], "dmg": 2.25, "actcond": "1361", "target": "HOSTILE", "iv": 0.96667, "blt": [5, 0.0]},
+            {"cond": ["actcond", 1686, ">=", 1], "dmg": 4.0, "killer": [0.2, ["stormlash"]], "actcond": "1361", "target": "HOSTILE", "iv": 0.96667, "blt": [5, 0.0]}
+        ],
+        "cancel": {"any": 1.93333}
+    },
+    "s2": {
+        "sp": 4080,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"cond": ["actcond", 1686, "<=", 0], "actcond": "291", "target": "HOSTILE", "iv": 0.6, "blt": [3, 0.0], "msl": 0.7},
+            {"cond": ["actcond", 1686, ">=", 1], "actcond": "291", "target": "HOSTILE", "iv": 0.6, "blt": [3, 0.0], "msl": 0.7},
+            {"cond": ["actcond", 1686, "<=", 0], "actcond": "1684", "target": "MYSELF", "iv": 1.3},
+            {"cond": ["actcond", 1686, ">=", 1], "actcond": "1688", "target": "MYSELF", "iv": 1.3},
+            {"cond": ["actcond", 1686, ">=", 1], "actcond": "1687", "target": "MYSELF", "iv": 1.3}
+        ],
+        "cancel": {"any": 2.0}
+    }
+}

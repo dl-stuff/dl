@@ -1,0 +1,47 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "1319": {"icon": 177, "mods": [[0.04, "crit", "buff"]], "text": "Stronger Bullets", "maxstack": 3},
+        "1321": {"duration": 30.0, "icon": "resist_water-buff", "mods": [[-0.05, "resist_water", "buff"]], "debuff": 1, "text": "Water Res -5%", "overwrite": 24},
+        "1355": {"remove": 1319, "coei": 1}
+    },
+    "c": {
+        "name": "Lapis",
+        "icon": "110370_01_r05",
+        "att": 503,
+        "hp": 757,
+        "ele": "water",
+        "wt": "gun",
+        "spiral": false,
+        "gun": [3],
+        "abilities": [
+            {"cond": ["event", "dispel"], "ab": [["actcond", "MYSELF", "1319"]]},
+            {"cond": ["event", "dispel"], "ab": [["actcond", "HOSTILE", "1321"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["hits", ">=", 30, 1], "ab": [["actcond", "MYSELF", "1319"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 5750}
+    },
+    "s1": {
+        "sp": 2500,
+        "startup": 0.0,
+        "recovery": 2.53333,
+        "attr": [
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.46667},
+            {"dmg": 2.46, "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 10.33, "target": "HOSTILE", "iv": 1.16667}
+        ],
+        "cancel": {"any": 1.83333}
+    },
+    "s2": {
+        "sp": 7185,
+        "startup": 0.0,
+        "recovery": 2.83333,
+        "attr": [
+            {"actcond": "1355", "target": "MYSELF", "iv": 0.53333},
+            {"dmg": 15.05, "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 15.05, "target": "HOSTILE", "iv": 0.53333}
+        ],
+        "cancel": {"any": 1.3}
+    }
+}

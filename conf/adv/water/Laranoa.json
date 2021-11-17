@@ -1,0 +1,61 @@
+{
+    "actconds": {
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "303020101": {"duration": 10.0, "icon": "def-buff", "mods": [[0.1, "def", "buff"]], "text": "Defense +10%"},
+        "304020101": {"duration": 10.0, "icon": "crit-buff", "mods": [[0.1, "crit", "buff"]], "text": "Critical Rate +10%"},
+        "315010101": {"duration": 20.0, "icon": "critdmg-buff", "mods": [[0.1, "critdmg", "buff"]], "text": "Critical Damage +10%"},
+        "320010103": {"duration": 15.0, "icon": "sph", "mods": [[0.25, "sph"]], "text": "Skill Haste +25%"}
+    },
+    "c": {
+        "name": "Laranoa",
+        "icon": "110317_01_r05",
+        "att": 562,
+        "hp": 966,
+        "ele": "water",
+        "wt": "bow",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["hits", ">=", 15, 1], "ab": [["actcond", "MYSELF", "315010101"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["actdmg", 0.35, "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 9754}
+    },
+    "s1": {
+        "sp": 2567,
+        "startup": 0.0,
+        "recovery": 2.7,
+        "attr": [
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.2},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.26667},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.4},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.46667},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.53333},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.6},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.66667},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.73333},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.8},
+            {"dmg": 1.41, "actcond": "411", "target": "HOSTILE", "iv": 1.86667}
+        ],
+        "cancel": {"any": 2.5}
+    },
+    "s2": {
+        "sp": 8534,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "320010103", "target": "ALLY", "iv": 0.13333},
+            {"actcond": "302030401", "target": "ALLY", "iv": 0.13333},
+            {"actcond": "303020101", "target": "HIT_OR_GUARDED_RECORD_MYSELF", "iv": 0.83333, "msl": 0.06667},
+            {"actcond": "304020101", "target": "HIT_OR_GUARDED_RECORD_MYSELF", "iv": 0.83333, "msl": 0.06667},
+            {"sp": [1.0, "%", "s1"], "target": "HIT_OR_GUARDED_RECORD_MYSELF", "iv": 0.83333, "msl": 0.06667}
+        ]
+    }
+}

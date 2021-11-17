@@ -1,0 +1,74 @@
+{
+    "actconds": {
+        "1115": {"ele": "wind", "coei": 1, "icon": 162, "text": "Smiling Flower", "maxstack": 6},
+        "1122": {"icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"},
+        "1127": {"icon": "resist_water-buff", "mods": [[0.05, "resist_water", "buff"]], "coei": 1, "text": "Water Res +5%"},
+        "1129": {"slip": {"percent": -0.2, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "1149": {"icon": "s-buff", "mods": [[0.5, "s", "buff"]], "text": "Skill Damage +50%"},
+        "1160": {"icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"}
+    },
+    "d": {
+        "name": "Summer Konohana Sakuya",
+        "icon": "210125_01",
+        "att": 126,
+        "hp": 369,
+        "ele": "wind",
+        "abilities": [
+            {"cond": ["start"], "ele": "wind", "ab": [["actcond", "MYSELF", "1115"]]},
+            {"cond": ["repeating"], "cd": 60.0, "ele": "wind", "ab": [["actcond", "MYSELF", "1115"]]},
+            {"cond": ["repeating"], "cd": 120.0, "ele": "wind", "ab": [["actcond", "MYSELF", "1115"]]},
+            {"cond": ["repeating"], "cd": 180.0, "ele": "wind", "ab": [["actcond", "MYSELF", "1115"]]},
+            {"cond": ["repeating"], "cd": 240.0, "ele": "wind", "ab": [["actcond", "MYSELF", "1115"]]},
+            {"cond": ["repeating"], "cd": 300.0, "ele": "wind", "ab": [["actcond", "MYSELF", "1115"]]},
+            {"cond": ["actcond", 1115, ">=", 1], "ele": "wind", "ab": [["actcond", "MYSELF", "1122"]]},
+            {"cond": ["actcond", 1115, ">=", 2], "ele": "wind", "ab": [["actcond", "MYSELF", "1160"]]},
+            {"cond": ["actcond", 1115, ">=", 3], "ele": "wind", "ab": [["actcond", "MYSELF", "1149"]]},
+            {"cond": ["actcond", 1115, ">=", 4], "ele": "wind", "ab": [["actcond", "MYSELF", "1127"]]},
+            {"cond": ["actcond", 1115, ">=", 6], "ele": "wind", "ab": [["actcond", "MYSELF", "1129"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.13333,
+        "energizable": true,
+        "cancel": {"any": 1.83333},
+        "sp_db": 90,
+        "uses": 1,
+        "attr": [
+            {"heal": 84, "actcond": "1115", "target": "MYSELF", "iv": 1.0}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.4,
+        "recovery": 1.23333,
+        "attr": [
+            {"dmg": 5.8, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "dx2": 0.2, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.26667,
+        "recovery": 1.76666,
+        "attr": [
+            {"dmg": 6.96, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.06666, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.5,
+        "recovery": 1.23333,
+        "attr": [
+            {"dmg": 8.12, "sp": 5, "target": "HOSTILE", "blt": [2, 0.5]}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.0, "dodge": 0.0, "dx1": 0.83333, "s": 0.0}
+    }
+}

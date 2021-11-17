@@ -1,0 +1,42 @@
+{
+    "actconds": {
+        "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
+        "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
+        "103020110": {"aff": "freeze", "duration": 4.5, "text": "Freeze"},
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+    },
+    "c": {
+        "name": "Dragonyule Xander",
+        "icon": "110022_02_r04",
+        "att": 505,
+        "hp": 742,
+        "ele": "water",
+        "wt": "wand",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["slayer", 3, "fs"], "ab": [["actcond", "MYSELF", "2"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"ab": [["mod", 0.05, "sph"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 8970}
+    },
+    "s1": {
+        "sp": 2563,
+        "startup": 0.0,
+        "recovery": 2.33333,
+        "attr": [
+            {"dmg": 8.78, "actcond": "103020110", "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 8.78, "actcond": "103020110", "target": "HOSTILE", "iv": 1.16667}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s2": {
+        "sp": 9609,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "302030401", "target": "ALLY", "iv": 0.13333},
+            {"actcond": "102", "target": "ALLY", "iv": 0.13333}
+        ]
+    }
+}

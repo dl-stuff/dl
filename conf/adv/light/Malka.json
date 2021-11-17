@@ -1,0 +1,39 @@
+{
+    "actconds": {
+        "104030601": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
+    },
+    "c": {
+        "name": "Malka",
+        "icon": "110034_01_r03",
+        "att": 459,
+        "hp": 753,
+        "ele": "light",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", ">=", 100], "ab": [["mod", 0.2, "def"]]},
+            {"ab": [["mod", 0.5, "affres_poison"]]},
+            {"ab": [["mod", 0.25, "affres_poison"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 5, "sp": 13881}
+    },
+    "s1": {
+        "sp": 2556,
+        "startup": 0.0,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 5.22, "killer": [0.1, ["paralysis"]], "actcond": "104030601", "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 5.22, "killer": [0.1, ["paralysis"]], "actcond": "104030601", "target": "HOSTILE", "iv": 0.66667}
+        ],
+        "cancel": {"any": 1.33333}
+    },
+    "s2": {
+        "sp": 6610,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "302030301", "target": "MYPARTY", "iv": 0.16667}
+        ]
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "actconds": {
+        "438": {"duration": 15.0, "icon": "att-buff", "mods": [[0.6, "att", "buff"]], "text": "Strength +60%"},
+        "1245": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Scarlet Warrior", "overwrite": -1},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "326010301": {"duration": 15.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1},
+        "403040106": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%"}
+    },
+    "c": {
+        "name": "Vanessa",
+        "icon": "110007_01_r04",
+        "att": 601,
+        "hp": 863,
+        "ele": "flame",
+        "wt": "axe",
+        "spiral": true,
+        "abilities": [
+            {"ab": [["actdmg", 0.4, "-t:fs"]]},
+            {"ab": [["actcond", "MYSELF", "1245"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "438"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 8492}
+    },
+    "fs_enhanced": {
+        "charge": 0.675,
+        "startup": 0.46667,
+        "recovery": 1.1,
+        "attr": [
+            {"dmg": 8.448, "killer": [0.3, ["debuff_def"]], "odmg": 3.08, "sp": 300, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.55897, "dodge": 0.0, "s": 0.0, "x1": 0.55897}
+    },
+    "s1": {
+        "sp": 3033,
+        "startup": 0.0,
+        "recovery": 2.0,
+        "attr": [
+            {"dmg": 8.42, "target": "HOSTILE", "iv": 0.4},
+            {"actcond": "326010301", "target": "MYSELF", "iv": 0.4},
+            {"dmg": 8.42, "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2": {
+        "sp": 6016,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 5.47, "actcond": "403040106", "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 5.47, "actcond": "403040106", "target": "HOSTILE", "iv": 1.2}
+        ],
+        "cancel": {"any": 1.73333}
+    }
+}

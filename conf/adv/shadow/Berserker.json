@@ -1,0 +1,42 @@
+{
+    "actconds": {
+        "553": {"icon": "s-buff", "mods": [[0.08, "s", "buff"]], "text": "Skill Damage +8%"},
+        "301040201": {"icon": "hp-buff", "mods": [[0.1, "hp", "buff"]], "coei": 1, "text": "HP +10%"},
+        "302030601": {"duration": 15.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"},
+        "402010202": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%", "rate": 40}
+    },
+    "c": {
+        "name": "Berserker",
+        "icon": "110050_01_r04",
+        "att": 444,
+        "hp": 806,
+        "ele": "shadow",
+        "wt": "sword",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["slayer", 3, "fs"], "count": 5, "ab": [["actcond", "MYSELF", "553"]]},
+            {"ab": [["mod", 1.0, "affres_blind"]]},
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "302030601"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 3, "sp": 8078}
+    },
+    "s1": {
+        "sp": 2376,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 7.37, "actcond": "402010202", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 7.37, "actcond": "402010202", "target": "HOSTILE", "iv": 0.96667}
+        ],
+        "cancel": {"any": 1.53333}
+    },
+    "s2": {
+        "sp": 5750,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "301040201", "target": "MYSELF", "iv": 0.16667},
+            {"actcond": "302030601", "target": "MYSELF", "iv": 0.16667}
+        ]
+    }
+}

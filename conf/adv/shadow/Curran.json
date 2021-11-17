@@ -1,0 +1,46 @@
+{
+    "actconds": {
+        "438": {"duration": 15.0, "icon": "att-buff", "mods": [[0.6, "att", "buff"]], "text": "Strength +60%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "403040106": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%"}
+    },
+    "c": {
+        "name": "Curran",
+        "icon": "110281_01_r05",
+        "att": 622,
+        "hp": 888,
+        "ele": "shadow",
+        "wt": "axe",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["overdrive"], "ab": [["actdmg", 0.15]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "438"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 8015}
+    },
+    "s1": {
+        "sp": 3083,
+        "startup": 0.0,
+        "recovery": 2.26667,
+        "attr": [
+            {"dmg": 2.45, "killer": [0.6, ["poison"]], "actcond": "403040106", "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 2.45, "killer": [0.6, ["poison"]], "actcond": "403040106", "target": "HOSTILE", "iv": 0.53333},
+            {"dmg": 2.45, "killer": [0.6, ["poison"]], "actcond": "403040106", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 7.35, "killer": [0.6, ["poison"]], "actcond": "403040106", "target": "HOSTILE", "iv": 1.46667}
+        ],
+        "cancel": {"any": 1.63333}
+    },
+    "s2": {
+        "sp": 6017,
+        "startup": 0.0,
+        "recovery": 2.5,
+        "attr": [
+            {"dmg": 4.18, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 4.18, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 0.83333},
+            {"dmg": 4.18, "killer": [1.0, ["poison"]], "target": "HOSTILE", "iv": 1.83333}
+        ],
+        "cancel": {"any": 2.16667}
+    }
+}

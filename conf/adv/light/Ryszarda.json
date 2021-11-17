@@ -1,0 +1,105 @@
+{
+    "actconds": {
+        "291": {"dispel": 1},
+        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "maxstack": 1, "unremovable": 1},
+        "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120},
+        "1540": {"duration": 20.0, "icon": 103, "mods": [[0.15, "att", "buff"], [0.1, "aspd", "buff"]], "coei": 1, "text": "Raphael's Steel", "overwrite": 34},
+        "1563": {"lifeshield": 0.3},
+        "1582": {"duration": 30.0, "icon": 165, "mods": [[0.15, "crit", "buff"], [1.0, "kbres", "buff"]], "coei": 1, "text": "Raphael's Embrace", "overwrite": 41}
+    },
+    "c": {
+        "name": "Ryszarda",
+        "icon": "110381_01_r05",
+        "att": 459,
+        "hp": 833,
+        "ele": "light",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1152"]]},
+            {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
+            {"cond": ["event", "heal"], "cd": 20.0, "ab": [["acduration_healed", 1152, -0.5, 1, 999], ["acduration_healed", 1152, -0.75, 1000, 99999]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["damaged", -1], "cd": 60.0, "ab": [["hitattr", {"actcond": "1563", "target": "MYPARTY_EXCEPT_MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 9678}
+    },
+    "fs": {
+        "charge": 0.5,
+        "startup": 0.33333,
+        "recovery": 1.0,
+        "attr": [
+            {"actcond": "1540", "target": "MYSELF"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.66667, "s": 0.0}
+    },
+    "s1": {
+        "sp": 2412,
+        "startup": 0.0,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 7.2, "actcond": "1258", "target": "HOSTILE", "iv": 0.7},
+            {"dmg": 7.2, "actcond": "1258", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 7.2, "actcond": "1258", "target": "HOSTILE", "iv": 0.76667}
+        ],
+        "cancel": {"any": 1.16667}
+    },
+    "s2": {
+        "sp": 9360,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"heal": 90, "actcond": "1582", "target": "MYSELF", "iv": 0.13333}
+        ],
+        "energizable": true
+    },
+    "x1_sigil": {
+        "startup": 0.15,
+        "recovery": 1.78333,
+        "attr": [
+            {"dmg": 1.11, "sp": 120, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.475, "dodge": 0.0, "fs": 0.01667, "s": 0.0, "x2_sigil": 0.07917}
+    },
+    "x2_sigil": {
+        "startup": 0.43333,
+        "recovery": 1.63334,
+        "attr": [
+            {"dmg": 0.59, "sp": 240, "target": "HOSTILE"},
+            {"dmg": 0.59, "sp": 240, "target": "HOSTILE", "iv": 0.16667}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.60115, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_sigil": 0.25633}
+    },
+    "x3_sigil": {
+        "startup": 0.46667,
+        "recovery": 1.9,
+        "attr": [
+            {"dmg": 1.43, "sp": 120, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.42222, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_sigil": 0.06666}
+    },
+    "x4_sigil": {
+        "startup": 0.55,
+        "recovery": 1.41667,
+        "attr": [
+            {"dmg": 1.98, "sp": 480, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56111, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_sigil": 0.11667}
+    },
+    "x5_sigil": {
+        "startup": 0.0,
+        "recovery": 0.7,
+        "DEBUG_attr_N1": [{"dmg": 2.0, "sp": 1000, "target": "HOSTILE", "iv": 0.13333}, {"dmg": 2.0, "sp": 1000, "target": "HOSTILE", "iv": 0.16667}, {"dmg": 2.0, "sp": 1000, "target": "HOSTILE", "iv": 0.23333}],
+        "DEBUG_attr_N2": [{"dmg": 2.1, "sp": 1000, "target": "HOSTILE", "iv": 0.13333}, {"dmg": 2.1, "sp": 1000, "target": "HOSTILE", "iv": 0.16667}, {"dmg": 2.1, "sp": 1000, "target": "HOSTILE", "iv": 0.23333}],
+        "DEBUG_attr_N3": [{"dmg": 2.3, "sp": 1000, "target": "HOSTILE", "iv": 0.13333}, {"dmg": 2.3, "sp": 1000, "target": "HOSTILE", "iv": 0.16667}, {"dmg": 2.3, "sp": 1000, "target": "HOSTILE", "iv": 0.23333}],
+        "DEBUG_attr_N4": [{"dmg": 2.67, "sp": 1000, "actcond": "291", "target": "HOSTILE", "iv": 0.23333}, {"dmg": 2.67, "sp": 1000, "actcond": "291", "target": "HOSTILE", "iv": 0.26667}, {"dmg": 2.67, "sp": 1000, "actcond": "291", "target": "HOSTILE", "iv": 0.33333}],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
+    }
+}

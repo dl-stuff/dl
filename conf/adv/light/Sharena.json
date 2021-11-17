@@ -1,0 +1,55 @@
+{
+    "actconds": {
+        "561": {"duration": 10.0, "icon": "crit-buff", "mods": [[1.0, "crit", "buff"]], "text": "Critical Rate +100%"},
+        "891": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120}
+    },
+    "c": {
+        "name": "Sharena",
+        "icon": "110358_01_r05",
+        "att": 459,
+        "hp": 833,
+        "ele": "light",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hp", "<", 30, 1], "ab": [["hitattr", {"actcond": "561", "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"ab": [["mod", 0.3, "killer_paralysis"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 4824}
+    },
+    "fs": {
+        "charge": 0.15,
+        "startup": 0.13333,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE"},
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.06667},
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.13334},
+            {"dmg": 0.3, "odmg": 5.2, "sp": 400, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 0.3, "odmg": 6.2, "sp": 400, "target": "HOSTILE", "iv": 0.26667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 2412,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 7.463, "actcond": "104031201", "target": "HOSTILE", "iv": 0.73333}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2": {
+        "sp": 4850,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"dmg": 8.568, "actcond": "891", "target": "HOSTILE", "iv": 0.4},
+            {"dmg": 10.217, "actcond": "891", "target": "HOSTILE", "iv": 0.7}
+        ],
+        "cancel": {"any": 1.66667}
+    }
+}

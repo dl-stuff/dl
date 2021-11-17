@@ -1,0 +1,64 @@
+{
+    "actconds": {
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120}
+    },
+    "d": {
+        "name": "Rathalos",
+        "icon": "210121_01",
+        "att": 76,
+        "hp": 221,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.35, "hp"], ["mod", 0.35, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 4.43333,
+        "cancel": {"any": 4.0},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 0.66, "actcond": "102040901", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 2.66, "actcond": "102040901", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 0.66, "actcond": "102040901", "target": "HOSTILE", "iv": 1.66667},
+            {"dmg": 2.66, "actcond": "102040901", "target": "HOSTILE", "iv": 1.66667},
+            {"dmg": 0.66, "actcond": "102040901", "target": "HOSTILE", "iv": 2.66667},
+            {"dmg": 2.66, "actcond": "102040901", "target": "HOSTILE", "iv": 2.66667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.08889,
+        "recovery": 0.87778,
+        "attr": [
+            {"dmg": 3.04, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.64444, "dodge": 0.0, "dx2": 0.22222, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.33333,
+        "recovery": 2.2,
+        "attr": [
+            {"dmg": 3.34, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "dx3": 0.23334, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.5,
+        "recovery": 2.73333,
+        "attr": [
+            {"dmg": 1.46, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 5.84, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.5, "dodge": 0.0, "s": 0.0}
+    }
+}

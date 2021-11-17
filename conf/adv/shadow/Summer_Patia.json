@@ -1,0 +1,105 @@
+{
+    "actconds": {
+        "981": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Seaside Spirit", "overwrite": -1},
+        "101020901": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.436, "iv": 2.9}, "rate": 110},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "403040106": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%"}
+    },
+    "c": {
+        "name": "Summer Patia",
+        "icon": "110335_02_r05",
+        "att": 519,
+        "hp": 741,
+        "ele": "shadow",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.05, "def"]]},
+            {"ab": [["mod", 1.0, "affres_paralysis"]]},
+            {"cond": ["hp", ">=", 50], "ele": "shadow", "ab": [["mod", 0.6, "edge_poison"]]},
+            {"cond": ["antiaff", "poison"], "cd": 5.0, "ele": "shadow", "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 7, "sp": 10080}
+    },
+    "fs1": {
+        "charge": 0.4,
+        "startup": 0.4,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 2.07, "odmg": 1.95, "sp": 600, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
+    },
+    "fs1_enhanced": {
+        "charge": 0.4,
+        "startup": 0.4,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 2.17, "odmg": 1.95, "sp": 600, "actcond": "101020901", "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
+    },
+    "fs2": {
+        "charge": 0.8,
+        "startup": 0.4,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 2.97, "odmg": 1.95, "sp": 900, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
+    },
+    "fs2_enhanced": {
+        "charge": 0.8,
+        "startup": 0.4,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 3.12, "odmg": 1.95, "sp": 900, "actcond": "101020901", "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
+    },
+    "fs3": {
+        "charge": 1.2,
+        "startup": 0.4,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 3.84, "odmg": 1.95, "sp": 1400, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
+    },
+    "fs3_enhanced": {
+        "charge": 1.2,
+        "startup": 0.4,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 4.03, "odmg": 1.95, "sp": 1400, "actcond": "101020901", "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
+    },
+    "s1": {
+        "sp": 2800,
+        "startup": 0.0,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 7.47, "actcond": "403040106", "target": "HOSTILE", "iv": 0.33333},
+            {"dmg": 7.47, "actcond": "403040106", "target": "HOSTILE", "iv": 0.33333},
+            {"actcond": "981", "target": "MYSELF", "iv": 1.16667}
+        ],
+        "cancel": {"any": 1.33333}
+    },
+    "s2": {
+        "sp": 5600,
+        "startup": 0.0,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 23.1, "actcond": "101021001", "target": "HOSTILE", "iv": 0.83333}
+        ],
+        "cancel": {"any": 1.5}
+    }
+}

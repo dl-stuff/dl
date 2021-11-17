@@ -1,0 +1,49 @@
+{
+    "actconds": {
+        "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "303030301": {"duration": 15.0, "icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"},
+        "310011801": {"count": 3, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Gale-Clad Sword", "overwrite": -1}
+    },
+    "c": {
+        "name": "Gala Ranzal",
+        "icon": "100003_07_r05",
+        "att": 604,
+        "hp": 905,
+        "ele": "wind",
+        "wt": "sword",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["selfaff", "freeze"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_freeze"], ["mod", 1.0, "affres_bog"]]},
+            {"ab": [["actdmg", 0.35, "-t:s"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 8914}
+    },
+    "s1": {
+        "sp": 2661,
+        "startup": 0.0,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 0.33333},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 0.6},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 0.86667},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 1.0},
+            {"dmg": 3.09, "target": "HOSTILE", "iv": 0.61538, "msl": 1.2}
+        ],
+        "cancel": {"any": 1.53846}
+    },
+    "s2": {
+        "sp": 5800,
+        "startup": 0.0,
+        "recovery": 1.0,
+        "attr": [
+            {"actcond": "310011801", "target": "MYSELF"},
+            {"actcond": "303030301", "target": "MYPARTY", "iv": 0.16667}
+        ],
+        "abilities": [
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 3, 0], "target": "MYSELF"}]]}
+        ]
+    }
+}

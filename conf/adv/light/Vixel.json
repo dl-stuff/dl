@@ -1,0 +1,53 @@
+{
+    "actconds": {
+        "1": {"count": 1, "energy": 1, "text": "Energy Level +1"},
+        "9": {"duration": 10.0, "icon": "rcv-buff", "mods": [[0.1, "rcv", "buff"]], "coei": 1, "text": "Recovery Potency +10%"},
+        "461": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dispel Strike"},
+        "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
+        "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "201010101": {"relief": "poison", "count": 1, "text": "Poison Relief"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "c": {
+        "name": "Vixel",
+        "icon": "110304_01_r04",
+        "att": 542,
+        "hp": 943,
+        "ele": "light",
+        "wt": "staff",
+        "spiral": true,
+        "abilities": [
+            {"ab": [["mod", 0.15, "rcv", "-t:s"]]},
+            {"ab": [["actcond", "MYSELF", "461"]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "poison"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_poison"], ["mod", 1.0, "affres_sleep"]]},
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 14790}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "attr": [
+            {"heal": 44, "actcond": "308010401", "target": "ALLY", "iv": 0.93333},
+            {"actcond": "201010101", "target": "ALLY", "iv": 0.93333},
+            {"actcond": "1261", "target": "MYPARTY", "iv": 0.96667}
+        ],
+        "energizable": true
+    },
+    "s2": {
+        "sp": 4819,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"heal": 72, "target": "ALLY", "iv": 1.26667},
+            {"actcond": "9", "target": "MYPARTY", "iv": 1.33333},
+            {"actcond": "1", "target": "MYPARTY", "iv": 1.33333}
+        ],
+        "energizable": true
+    }
+}

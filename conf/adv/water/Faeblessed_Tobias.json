@@ -1,0 +1,88 @@
+{
+    "actconds": {
+        "410": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9}, "rate": 110},
+        "1723": {"duration": 10.0, "coei": 1, "alt": {"s2": "enhanced"}, "icon": 260, "text": "Fae Lance", "overwrite": -1, "lost_on_drg": 1},
+        "1724": {"remove": 1723, "coei": 1},
+        "103020113": {"aff": "freeze", "duration": 4.5, "text": "Freeze", "rate": 160}
+    },
+    "c": {
+        "name": "Faeblessed Tobias",
+        "icon": "110352_03_r05",
+        "att": 508,
+        "hp": 752,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.13, "crit"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["overdrive"], "ab": [["actdmg", 0.13]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 5, "sp": 11321}
+    },
+    "s1": {
+        "sp": 2738,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"sp": [0.2, "%", "s2"], "target": "MYSELF"},
+            {"dmg": 10.0, "actcond": "103020113", "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 10.0, "actcond": "103020113", "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "s2": {
+        "sp": 20000,
+        "startup": 0.0,
+        "recovery": 1.13333,
+        "attr": [
+            {"sp": [1.0, "%", "s2"], "target": "MYSELF"},
+            {"actcond": "1723", "target": "MYSELF", "iv": 0.66667}
+        ],
+        "cancel": {"any": 1.0}
+    },
+    "s2_enhanced": {
+        "sp": 20000,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"actcond": "1724", "target": "MYSELF"},
+            {"dmg": 17.5, "actcond": "410", "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 17.5, "actcond": "410", "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s99": {
+        "sp": 2738,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 10.0, "actcond": "103020113", "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 10.0, "actcond": "103020113", "target": "HOSTILE", "iv": 1.06667}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "x1_mode2": {
+        "startup": 0.43333,
+        "recovery": 0.86667,
+        "attr": [
+            {"dmg": 1.25, "sp": 260, "target": "HOSTILE"},
+            {"dmg": 1.25, "sp": 260, "target": "HOSTILE", "iv": 0.2},
+            {"dmg": 1.25, "sp": 260, "target": "HOSTILE", "iv": 0.33334}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.26667, "s": 0.0},
+        "cancel": {"any": 0.56667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_mode2": 0.33334}
+    },
+    "x2_mode2": {
+        "startup": 0.03333,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 3.0, "sp": 260, "target": "HOSTILE", "msl": 0.93333, "msl_spd": 1},
+            {"dmg": 1.25, "sp": 260, "target": "HOSTILE", "iv": 0.1},
+            {"dmg": 1.25, "sp": 260, "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 1.25, "sp": 260, "target": "HOSTILE", "iv": 0.46667}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_mode2": 0.46667}
+    }
+}

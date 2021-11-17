@@ -1,0 +1,67 @@
+{
+    "actconds": {
+        "1839": {"duration": 180.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
+        "109030114": {"aff": "bog", "duration": 8.0, "bog": 1.5, "text": "Bog", "rate": 180}
+    },
+    "d": {
+        "name": "High Mercury",
+        "icon": "210040_01",
+        "att": 133,
+        "hp": 377,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 0.4, "hp"], ["mod", 0.4, "att"]]},
+            {"ab": [["mod", 0.2, "dt"]]},
+            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1839"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 7.3,
+        "cancel": {"any": 3.33333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 3.0, "actcond": "109030114", "target": "HOSTILE", "iv": 2.0},
+            {"dmg": 3.0, "actcond": "109030114", "target": "HOSTILE", "iv": 2.0, "msl": 0.33333},
+            {"dmg": 3.0, "actcond": "109030114", "target": "HOSTILE", "iv": 2.0, "msl": 0.66667},
+            {"dmg": 3.0, "actcond": "109030114", "target": "HOSTILE", "iv": 2.0, "msl": 1.0},
+            {"dmg": 3.0, "actcond": "109030114", "target": "HOSTILE", "iv": 2.0, "msl": 1.33333},
+            {"dmg": 3.0, "actcond": "109030114", "target": "HOSTILE", "iv": 2.0, "msl": 1.66667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.33333,
+        "recovery": 1.9,
+        "attr": [
+            {"dmg": 4.0, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "dx2": 0.23334, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.5,
+        "recovery": 2.0,
+        "attr": [
+            {"dmg": 5.2, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.66667,
+        "recovery": 1.96666,
+        "attr": [
+            {"dmg": 4.0, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 5.6, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.06666, "dodge": 0.0, "dx1": 1.06666, "s": 0.0}
+    }
+}

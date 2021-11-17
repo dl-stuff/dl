@@ -1,0 +1,45 @@
+{
+    "actconds": {
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "301040301": {"icon": "hp-buff", "mods": [[0.15, "hp", "buff"]], "coei": 1, "text": "HP +15%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "302020301": {"duration": 10.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+    },
+    "c": {
+        "name": "Amane",
+        "icon": "110041_01_r04",
+        "att": 592,
+        "hp": 874,
+        "ele": "light",
+        "wt": "wand",
+        "spiral": true,
+        "abilities": [
+            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"ab": [["prep", 0.05]]},
+            {"ab": [["mod", 1.0, "affres_curse"]]},
+            {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["break"], "ab": [["actdmg", 0.35]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 5, "sp": 9488}
+    },
+    "s1": {
+        "sp": 2711,
+        "startup": 0.0,
+        "recovery": 2.33333,
+        "attr": [
+            {"dmg": 8.856, "killer": [0.1, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 0.96667},
+            {"dmg": 8.856, "killer": [0.1, ["paralysis"]], "actcond": "104031201", "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 1.05, "killer": [0.1, ["paralysis"]], "target": "HOSTILE", "iv": 1.33333}
+        ],
+        "cancel": {"any": 1.66667}
+    },
+    "s2": {
+        "sp": 11449,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "301040301", "target": "MYSELF", "iv": 0.16667},
+            {"actcond": "302020301", "target": "MYSELF", "iv": 0.16667}
+        ]
+    }
+}

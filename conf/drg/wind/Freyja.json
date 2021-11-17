@@ -1,0 +1,63 @@
+{
+    "actconds": {
+        "47": {"count": 1, "energy": 5},
+        "127": {"duration": 20.0, "slip": {"heal": 30.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+    },
+    "d": {
+        "name": "Freyja",
+        "icon": "210084_01",
+        "att": 120,
+        "hp": 375,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.3, "hp"]]},
+            {"ab": [["mod", 0.35, "sph"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "energizable": true,
+        "cancel": {"any": 1.66667},
+        "sp_db": 90,
+        "uses": 1,
+        "attr": [
+            {"heal": 42, "actcond": "127", "target": "ALLY", "iv": 0.96667},
+            {"actcond": "47", "target": "MYPARTY", "iv": 1.0}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.23333,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 3.2, "sp": 5, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.76667, "dodge": 0.0, "dx2": 0.26667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.125,
+        "recovery": 1.34167,
+        "attr": [
+            {"dmg": 1.76, "sp": 5, "target": "HOSTILE", "msl": 0.06667},
+            {"dmg": 1.76, "sp": 5, "target": "HOSTILE", "iv": 0.125, "msl": 0.06667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.125, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.5,
+        "recovery": 0.8,
+        "attr": [
+            {"dmg": 2.66, "sp": 5, "target": "HOSTILE", "blt": [2, 0.2]}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56667, "dodge": 0.0, "s": 0.0}
+    }
+}

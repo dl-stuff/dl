@@ -1,0 +1,67 @@
+{
+    "actconds": {
+        "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120},
+        "1973": {"duration": 60.0, "icon": 294, "mods": [[0.1, "att", "buff"], [0.2, "edge_scorchrend", "passive"]], "coei": 1, "-lv": 1974, "text": "Uriel's Zeal Lv. {0}", "overwrite": 55}
+    },
+    "d": {
+        "name": "Uriel",
+        "icon": "210163_01",
+        "att": 127,
+        "hp": 369,
+        "ele": "flame",
+        "abilities": [
+            {"ab": [["mod", 0.6, "att"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "cancel": {"any": 1.83333, "dx1": 1.66667},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.46667, "msl_spd": 1},
+            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.8, "msl_spd": 1},
+            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 2.0, "msl_spd": 1},
+            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.93333, "msl_spd": 1},
+            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 2.53333, "msl_spd": 1}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.33333,
+        "recovery": 2.16667,
+        "attr": [
+            {"dmg": 2.0, "sp": 5, "target": "HOSTILE"},
+            {"dmg": 2.0, "sp": 5, "target": "HOSTILE", "iv": 0.33334},
+            {"dmg": 2.0, "sp": 5, "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 2.0, "sp": 5, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 2.0, "sp": 5, "target": "HOSTILE", "iv": 1.03334}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.5, "dodge": 0.0, "dx2": 1.1, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.4,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 8.0, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.6, "dodge": 0.0, "dx3": 0.26667, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.4,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 10.0, "sp": 5, "target": "HOSTILE", "msl": 0.53333, "msl_spd": 1}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "dx1": 0.93333, "s": 0.0}
+    }
+}

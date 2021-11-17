@@ -1,0 +1,203 @@
+{
+    "actconds": {
+        "264": {"duration": 30.0, "slip": {"dmg": 1.32, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding", "rate": 50}
+    },
+    "c": {
+        "name": "Mega Man",
+        "icon": "110354_01_r05",
+        "att": 472,
+        "hp": 688,
+        "ele": "flame",
+        "wt": "wand",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"ab": [["mod", 0.35, "odaccel"]]}
+        ]
+    },
+    "dragonform": {
+        "dshift": {
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ]
+        },
+        "dx1": {
+            "startup": 0.16667,
+            "recovery": 0.33333,
+            "attr": [
+                {"dmg": 0.8, "sp": 5, "target": "HOSTILE", "blt": [3, 0.0]}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "dx2": 0.16666, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.03333,
+            "recovery": 0.36667,
+            "attr": [
+                {"dmg": 0.8, "sp": 5, "target": "HOSTILE", "blt": [3, 0.0]}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "dx3": 0.2, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.03333,
+            "recovery": 0.36667,
+            "attr": [
+                {"dmg": 0.8, "sp": 5, "target": "HOSTILE", "blt": [3, 0.0]}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "dx4": 0.2, "s": 0.0}
+        },
+        "dx4": {
+            "startup": 0.03333,
+            "recovery": 0.36667,
+            "attr": [
+                {"dmg": 0.8, "sp": 5, "target": "HOSTILE", "blt": [3, 0.0]}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "dx5": 0.2, "s": 0.0}
+        },
+        "dx5": {
+            "startup": 0.03333,
+            "recovery": 0.36667,
+            "attr": [
+                {"dmg": 0.8, "sp": 5, "target": "HOSTILE", "blt": [3, 0.0]}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "dx1": 0.2, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 1.83333,
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 2.16, "target": "HOSTILE", "iv": 0.2},
+                {"dmg": 2.16, "target": "HOSTILE", "iv": 0.33333},
+                {"dmg": 2.16, "target": "HOSTILE", "iv": 0.53333},
+                {"dmg": 2.16, "target": "HOSTILE", "iv": 0.73333},
+                {"dmg": 2.16, "target": "HOSTILE", "iv": 0.93333}
+            ]
+        }
+    },
+    "fs": {
+        "charge": 0.475,
+        "startup": 0.0,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.9, "odmg": 4.0, "sp": 400, "target": "HOSTILE", "msl": 0.1}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.0, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 2000,
+        "startup": 0.0,
+        "recovery": null
+    },
+    "s2": {
+        "sp": 4000,
+        "startup": 0.0,
+        "recovery": null
+    },
+    "x1": {
+        "startup": 0.16667,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 0.6, "sp": 80, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.03333, "s": 0.0, "x2": 0.16666}
+    },
+    "x2": {
+        "startup": 0.0,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 0.6, "sp": 80, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.16667}
+    },
+    "x3": {
+        "startup": 0.0,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 0.6, "sp": 80, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.16667}
+    },
+    "x4": {
+        "startup": 0.0,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 0.6, "sp": 80, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.16667}
+    },
+    "x5": {
+        "startup": 0.0,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 0.6, "sp": 80, "target": "HOSTILE", "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0}
+    },
+    "x1_mode2": {
+        "startup": 0.26667,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 1.0, "actcond": "264", "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.03333, "fs": 0.03333, "s": 0.0, "x2_mode2": 0.06666}
+    },
+    "x2_mode2": {
+        "startup": 0.13333,
+        "recovery": 0.34167,
+        "attr": [
+            {"dmg": 1.0, "actcond": "264", "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.1, "fs": 0.1, "s": 0.0, "x3_mode2": 0.06667}
+    },
+    "x3_mode2": {
+        "startup": 0.13333,
+        "recovery": 0.34167,
+        "attr": [
+            {"dmg": 1.0, "actcond": "264", "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.1, "fs": 0.1, "s": 0.0, "x4_mode2": 0.06667}
+    },
+    "x4_mode2": {
+        "startup": 0.13333,
+        "recovery": 0.34167,
+        "attr": [
+            {"dmg": 1.0, "actcond": "264", "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.1, "fs": 0.1, "s": 0.0, "x5_mode2": 0.06667}
+    },
+    "x5_mode2": {
+        "startup": 0.13333,
+        "recovery": 0.34167,
+        "attr": [
+            {"dmg": 1.0, "actcond": "264", "target": "HOSTILE"}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.1, "fs": 0.1, "s": 0.0}
+    },
+    "x1_mode3": {
+        "startup": 0.43333,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE", "msl": 3.0, "blt": [2.0, 0.0]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.43334, "s": 0.0}
+    }
+}

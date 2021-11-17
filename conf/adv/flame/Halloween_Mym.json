@@ -1,0 +1,93 @@
+{
+    "actconds": {
+        "114": {"icon": "defb-buff", "mods": [[-0.15, "defb", "buff"]], "debuff": 1, "text": "Defense -15%"},
+        "166": {"duration": 15.0, "ele": "flame", "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "241": {"duration": 15.0, "icon": 65, "mods": [[0.05, "crit", "buff"]], "text": "Dream Boost", "overwrite": -1}
+    },
+    "c": {
+        "name": "Halloween Mym",
+        "icon": "100010_07_r05",
+        "att": 493,
+        "hp": 781,
+        "ele": "flame",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["shift", "dform"], "ab": [["mod", 0.15, "spd"]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["buffedby", "s2"], "ab": [["mod", 0.2, "da"]]},
+            {"cond": ["shift", "dform"], "ab": [["mod", 1.0, "def"]]}
+        ],
+        "skillshare": {"src": "s2", "cost": 6, "sp": 14934}
+    },
+    "dragonform": {
+        "dshift": {
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ]
+        },
+        "dx1": {
+            "startup": 0.3,
+            "recovery": 1.2,
+            "attr": [
+                {"dmg": 4.4, "sp": 5, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.9, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.46667,
+            "recovery": 1.66666,
+            "attr": [
+                {"dmg": 6.6, "sp": 5, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.56666, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.33333,
+            "recovery": 1.8,
+            "attr": [
+                {"dmg": 7.48, "sp": 5, "target": "HOSTILE"},
+                {"dmg": 7.48, "sp": 5, "target": "HOSTILE", "iv": 0.33334}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.4, "dodge": 0.0, "dx1": 1.4, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 2.96667,
+            "cancel": {"any": 2.63333, "dodge": 2.63333, "dx1": 2.63333},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 3.08, "target": "HOSTILE", "iv": 0.86667},
+                {"dmg": 3.08, "target": "HOSTILE", "iv": 1.06667},
+                {"dmg": 3.08, "target": "HOSTILE", "iv": 1.26667},
+                {"dmg": 3.08, "target": "HOSTILE", "iv": 1.46667}
+            ]
+        }
+    },
+    "s1": {
+        "sp": 3849,
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 2.8, "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 2.8, "target": "HOSTILE", "iv": 0.36667, "msl": 0.73333},
+            {"actcond": "114", "target": "HOSTILE", "iv": 0.4, "zone": 10.0}
+        ]
+    },
+    "s2": {
+        "sp": 8534,
+        "startup": 0.0,
+        "recovery": 2.76667,
+        "attr": [
+            {"actcond": "166", "target": "MYPARTY", "iv": 0.66667},
+            {"actcond": "241", "target": "MYSELF", "iv": 2.33333}
+        ],
+        "cancel": {"any": 2.66667}
+    }
+}
