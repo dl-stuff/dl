@@ -6,8 +6,8 @@ class Grimnir(Adv):
         self.brewing_storm = MultiLevelBuff(
             "brewing_storm",
             [
-                Selfbuff(f"brewing_storm_lv{lv+1}", buffvalue, 60, "ex", "actdown", source="a1")
-                for lv, buffvalue in enumerate((0.15, 0.20, 0.25, 0.30, 0.50))
+                Selfbuff(f"brewing_storm_lv{lv}", buffvalue, 60, "ex", "actdown", source="a1")
+                for lv, buffvalue in enumerate((0.15, 0.20, 0.25, 0.30, 0.50), start=1)
             ],
         )
         self.ahits = 0

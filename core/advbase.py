@@ -1174,7 +1174,7 @@ class Adv(object):
 
     def add_hp(self, delta, percent=True, can_die=False, ignore_dragon=False, source=None):
         if percent:
-            if self.in_dform() and delta < 0 and not ignore_dragon:
+            if self.in_dform() and delta < 0 and not ignore_dragon and not self.dragonform.is_dragonbattle:
                 self.dragonform.extend_shift_time(delta / 100, percent=True)
                 return delta
             delta = self.max_hp * delta / 100
@@ -1194,7 +1194,8 @@ class Adv(object):
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        elif self.in_dform() and not ignore_dragon:
+        elif self.in_dform() and not ignore_dragon and not self.dragonform.is_dragonbattle:
+            # does not really make sense but is unused anyways
             delta = (hp - old_hp) / 10000
             if delta < 0:
                 self.dragonform.extend_shift_time(delta, percent=True)
@@ -2645,7 +2646,10 @@ class Adv(object):
 
         if "hp" in attr:
             try:
-                self.add_hp(float(attr["hp"]))
+                if "can_die" in attr and attr["can_die"]:
+                    self.add_hp(float(attr["hp"]), can_die=True)
+                else:
+                    self.add_hp(float(attr["hp"]))
             except TypeError:
                 value = attr["hp"][0]
                 mode = None if len(attr["hp"]) == 1 else attr["hp"][1]
