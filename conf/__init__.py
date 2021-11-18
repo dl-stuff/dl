@@ -73,23 +73,38 @@ for wep in WEAPON_TYPES:
 
 
 @functools.cache
-def load_adv_json(adv):
+def load_adv_json(adv, ele=None):
+    if ele is not None:
+        return load_json(f"adv/{ele}/{adv}.json")
     return load_json(f"adv/*/{adv}.json", fuzzy=True)
 
 
+def list_adv_by_element(ele):
+    for fpath in glob.glob(get_conf_json_path(f"adv/{ele}/*.json")):
+        yield os.path.splitext(os.path.basename(fpath))[0]
+
+
+def load_adv_by_element(ele):
+    advs = {}
+    for fpath in glob.glob(get_conf_json_path(f"adv/{ele}/*.json")):
+        adv = os.path.splitext(os.path.basename(fpath))[0]
+        advs[adv] = load_adv_json(ele=ele)
+    return advs
+
+
 @functools.cache
-def load_drg_json(drg):
+def load_drg_json(drg, ele=None):
+    if ele is not None:
+        return load_json(f"drg/{ele}/{drg}.json")
     return load_json(f"drg/*/{drg}.json", fuzzy=True)
 
 
 def load_drg_by_element(ele):
-    for fn in sorted(os.listdir(os.path.join(ROOT_DIR, "conf", "drg"))):
-        fn, ext = os.path.splitext(fn)
-        if ext != ".json":
-            continue
-        conf = load_drg_json(fn)
-        if conf["d"]["ele"] == ele:
-            yield fn, conf
+    dragons = {}
+    for fpath in glob.glob(get_conf_json_path(f"drg/{ele}/*.json")):
+        drg = os.path.splitext(os.path.basename(fpath))[0]
+        dragons[drg] = load_drg_json(drg, ele=ele)
+    return dragons
 
 
 def get_icon(adv):
@@ -139,11 +154,3 @@ def all_subclasses(cl):
 
 def subclass_dict(cl):
     return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
-
-
-def list_advs():
-    for fn in sorted(os.listdir(os.path.join(ROOT_DIR, "conf", "adv"))):
-        fn, ext = os.path.splitext(fn)
-        if ext != ".json":
-            continue
-        yield fn

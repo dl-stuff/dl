@@ -1,8 +1,6 @@
-from enum import unique
 from itertools import chain
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 import html
-from typing import Counter, OrderedDict
 
 from conf import (
     load_drg_json,
@@ -123,7 +121,7 @@ class CharaBase(SlotBase):
     def set_coabs(self, coab_list):
         self.coabs = {self.qual: ExBase(self.qual)}
         seen_base_id = {self.base_id}
-        for coab in coab_list:
+        for coab in sorted(coab_list):
             base_id = get_icon(coab)[0:6]
             if base_id in seen_base_id:
                 continue

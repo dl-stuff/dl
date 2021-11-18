@@ -1,4 +1,5 @@
 import io
+import itertools
 import json
 from conf import ELEMENTS, get_fullname
 import traceback
@@ -19,7 +20,7 @@ from conf import (
     wyrmprints,
     weapons,
     mono_elecoabs,
-    list_advs,
+    load_adv_by_element,
     load_drg_by_element,
 )
 from conf.equip import (
@@ -48,11 +49,13 @@ SIMULATED_BUFFS = {
 RARITY_MAP = {1: "formA", 2: "formB", 3: "formC"}
 
 
-ADV_MODULES = {}
-for fn in list_advs():
-    core.simulate.load_adv_module(fn, in_place=ADV_MODULES)
+ADVS_BY_ELEMENT = {ele: load_adv_by_element(ele) for ele in ELEMENTS}
+DRAGONS_BY_ELEMENT = {ele: load_drg_by_element(ele) for ele in ELEMENTS}
 
-DRAGONS_BY_ELEMENT = {ele: {drg: data["d"]["name"] for drg, data in load_drg_by_element(ele)} for ele in ELEMENTS}
+
+ADV_MODULES = {}
+for fn in itertools.chain(ADVS_BY_ELEMENT.values()):
+    core.simulate.load_adv_module(fn, in_place=ADV_MODULES)
 
 
 def set_teamdps_res(result, logs, real_d, suffix=""):
