@@ -677,6 +677,7 @@ class Resilient_Offense(BuffingAbility):
     def __init__(self, name, value, interval=None):
         self.interval = interval
         duration = -1
+        self.non_stacking = False
         if name.startswith("ro"):
             self.proc_chances = 3
             self.hp_threshold = 30
@@ -687,16 +688,22 @@ class Resilient_Offense(BuffingAbility):
             self.proc_chances = float("inf")
             self.hp_threshold = 30
             duration = 20
+            self.non_stacking = True
         super().__init__(name, value, duration)
+        if self.non_stacking:
+            self.non_stacking = adv.Buff(*self.buff_args)
 
     def oninit(self, adv, afrom=None):
         if adv.nihilism:
             return
 
         def l_ro_buff(e):
-            if self.proc_chances is self.proc_chances > 0 and e.hp <= 30 and (e.hp - e.delta) > 30:
+            if self.proc_chances > 0 and e.hp <= self.hp_threshold and (e.hp - e.delta) > self.hp_threshold:
                 self.proc_chances -= 1
-                adv.Buff(*self.buff_args).on()
+                if non_stacking:
+                    self.non_stacking.on()
+                else:
+                    adv.Buff(*self.buff_args).on()
 
         adv.Event("hp").listener(l_ro_buff)
         if self.interval and "hp" not in adv.conf:
