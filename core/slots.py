@@ -11,7 +11,7 @@ from conf import (
     get_icon,
 )
 from core.config import Conf
-from core.ability import ability_dict
+from core.ability import Ability
 
 
 class SlotBase:
@@ -844,18 +844,11 @@ class Slots:
         return self.c.hp + self.d.hp + self.w.hp + self.a.hp
 
     def oninit(self, adv=None):
+        self.abilities = []
         for kind, slot in (("c", self.c), ("d", self.d), ("a", self.a), ("w", self.w)):
-            for aidx, ab in enumerate(slot.abilities):
-                name = ab[0]
-                if "_" in name:
-                    acat = name.split("_")[0]
-                else:
-                    acat = name
+            for ab in slot.abilities:
                 try:
-                    self.abilities[f"ab_{kind}{aidx}"] = ability_dict[acat](*ab)
+                    self.abilities.append(Ability(adv, ab))
                 except:
                     pass
             adv.update(slot.actconds)
-
-        for key, ab in self.abilities.items():
-            ab.oninit(adv, key)
