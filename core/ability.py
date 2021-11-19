@@ -1286,7 +1286,7 @@ class Corrosion(Ability):
         self.getrecovery_mod = adv.Modifier("corrosion", "getrecovery", "buff", -0.5)
         self.set_hp_event = adv.Event("set_hp")
         self.set_hp_event.delta = -1
-        self.set_hp_event.ignore_dragon = True
+        self.set_hp_event.ignore_dragon = False
         self.set_hp_event.can_die = True
         self.set_hp_event.source = "dot"
         self.heal_to_reset = 3000
