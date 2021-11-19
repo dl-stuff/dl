@@ -1,8 +1,8 @@
 {
     "actconds": {
-        "87": {"aff": "poison", "duration": 30.0, "slip": {"dmg": 0.291, "iv": 2.9}, "rate": 120},
+        "87": {"aff": "poison", "duration": 30.0, "slip": {"dmg": 0.291, "iv": 2.9, "value": ["mod", 0.291]}, "rate": 1.2, "debuff": 1},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "308020801": {"duration": 20.0, "slip": {"percent": -0.14, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "308020801": {"duration": 20.0, "slip": {"percent": -0.14, "iv": 3.9, "kind": "hp", "value": ["percent", -0.14]}, "coei": 1, "text": "HP Regen"}
     },
     "c": {
         "name": "Lathna",
@@ -105,3 +105,4 @@
         ]
     }
 }
+

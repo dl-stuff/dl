@@ -1,9 +1,9 @@
 {
     "actconds": {
         "1239": {"duration": 15.0, "icon": "def-buff", "mods": [[-0.2, "def", "buff"]], "debuff": 1, "text": "Defense -20%", "overwrite": 6},
-        "1250": {"duration": 90.0, "slip": {"percent": -0.0075, "iv": 0.99, "kind": "sp", "target": "s1"}, "coei": 1, "text": "Skill Charger"},
-        "1251": {"duration": 90.0, "slip": {"percent": -0.0075, "iv": 0.99, "kind": "sp", "target": "s2"}, "coei": 1, "text": "Skill Charger"},
-        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+        "1250": {"duration": 90.0, "slip": {"percent": -0.0075, "iv": 0.99, "kind": "sp", "target": "s1", "value": ["percent", -0.0075]}, "coei": 1, "text": "Skill Charger"},
+        "1251": {"duration": 90.0, "slip": {"percent": -0.0075, "iv": 0.99, "kind": "sp", "target": "s2", "value": ["percent", -0.0075]}, "coei": 1, "text": "Skill Charger"},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9, "value": ["mod", 0.582]}, "rate": 1.2, "debuff": 1}
     },
     "d": {
         "name": "Ramiel",
@@ -65,3 +65,4 @@
         "cancel": {"any": 0.63333, "dodge": 0.0, "dx1": 0.3, "s": 0.0}
     }
 }
+

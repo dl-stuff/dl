@@ -1,9 +1,9 @@
 {
     "actconds": {
-        "21": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed"}, "debuff": 1, "text": "Bleeding"},
+        "21": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed", "value": ["mod", 1.46]}, "debuff": 1, "text": "Bleeding"},
         "384": {"duration": 15.0, "ifbleed": 1, "icon": 60, "mods": [[0.2, "crit", "buff"]], "text": "Blade Formation"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp", "value": ["heal", 35.0]}, "coei": 1, "text": "HP Regen", "debuff": 1}
     },
     "c": {
         "name": "Ieyasu",
@@ -47,3 +47,4 @@
         "energizable": true
     }
 }
+

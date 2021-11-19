@@ -1,7 +1,7 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
-        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "291": {"dispel": "buff"},
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9, "value": ["mod", 0.41]}, "rate": 1.2, "debuff": 1},
         "1684": {"coei": 1, "-lv": 1685, "icon": 247, "text": "Enemy Insight Lv. 1", "overwrite": 45},
         "1687": {"duration": 30.0, "coei": 1, "icon": 248, "text": "Calculated Shots", "overwrite": 46},
         "1688": {"remove": 1686, "coei": 1}
@@ -48,7 +48,7 @@
         "startup": 0.0,
         "recovery": 2.63333,
         "attr": [
-            {"DEBUG_PARTCOND": "NearestEnemyDistance[0, 2, 3, 0]", "actcond": "1684", "target": "MYSELF"},
+            {"actcond": "1684", "target": "MYSELF"},
             {"cond": ["actcond", 1686, ">=", 1], "actcond": "1688", "target": "MYSELF", "iv": 0.03333},
             {"cond": ["actcond", 1686, "<=", 0], "dmg": 2.25, "actcond": "1361", "target": "HOSTILE", "iv": 0.96667, "blt": [5, 0.0]},
             {"cond": ["actcond", 1686, ">=", 1], "dmg": 4.0, "killer": [0.2, ["stormlash"]], "actcond": "1361", "target": "HOSTILE", "iv": 0.96667, "blt": [5, 0.0]}
@@ -69,3 +69,4 @@
         "cancel": {"any": 2.0}
     }
 }
+

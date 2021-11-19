@@ -2,10 +2,10 @@
     "actconds": {
         "461": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dispel Strike"},
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
-        "204010101": {"relief": "paralysis", "count": 1, "text": "Paralysis Relief"},
+        "204010101": {"aff": "paralysis", "relief": 1, "count": 1, "text": "Paralysis Relief"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"},
-        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp", "value": ["heal", 35.0]}, "coei": 1, "text": "HP Regen", "debuff": 1}
     },
     "c": {
         "name": "Cleo",
@@ -45,3 +45,4 @@
         "energizable": true
     }
 }
+

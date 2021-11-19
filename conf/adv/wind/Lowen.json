@@ -1,10 +1,10 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
+        "291": {"dispel": "buff"},
         "461": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dispel Strike"},
-        "1048": {"duration": 15.0, "slip": {"heal": 17.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "1048": {"duration": 15.0, "slip": {"heal": 17.0, "iv": 2.9, "kind": "hp", "value": ["heal", 17.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
-        "209010101": {"relief": "bog", "count": 1, "text": "Bog Relief"},
+        "209010101": {"aff": "bog", "relief": 1, "count": 1, "text": "Bog Relief"},
         "301040301": {"icon": "hp-buff", "mods": [[0.15, "hp", "buff"]], "coei": 1, "text": "HP +15%"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"}
@@ -61,3 +61,4 @@
         "energizable": true
     }
 }
+

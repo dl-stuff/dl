@@ -43,6 +43,11 @@ DDRIVE = "ddrive"
 ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 
 
+SELF_TARGETS = ("MYSELF", "ALLY", "MYPARTY", "ALLY_HP_LOWEST", "HIT_OR_GUARDED_RECORD_MYSELF")
+TEAM_TARGETS = ("ALLY", "MYPARTY", "MYPARTY_EXCEPT_MYSELF", "MYPARTY_EXCEPT_SAME_CHARID")
+ENEMY_TARGETS = ("HOSTILE", "HOSTILE_AND_DUNOBJ")
+
+
 def get_conf_json_path(fn):
     froot = os.path.join(ROOT_DIR, "conf")
     return os.path.join(froot, fn)

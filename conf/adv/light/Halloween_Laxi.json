@@ -1,13 +1,13 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
-        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120},
+        "291": {"dispel": "buff"},
+        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9, "value": ["mod", 0.416]}, "rate": 1.2, "debuff": 1},
         "1951": {"icon": "edge_flashburn-passive", "mods": [[0.25, "edge_flashburn", "passive"]], "coei": 1, "text": "Flashburn Infliction Rate +25%", "maxstack": 3},
         "1953": {"icon": "killer_flashburn-passive", "mods": [[0.07, "killer_flashburn", "passive"]], "coei": 1, "text": "Flashburn Trickster", "maxstack": 3},
         "1955": {"remove": 1951, "coei": 1},
         "1957": {"remove": 1953, "coei": 1},
-        "1965": {"duration": 0.7, "coei": 1, "icon": 0, "hide": 1, "maxstack": 1, "lost_on_drg": 1},
-        "1983": {"icon": 0, "mods": [[0.12, "fspd", "buff"]], "coei": 1, "hide": 1, "maxstack": 1},
+        "1965": {"duration": 0.7, "coei": 1, "icon": 0, "hide": 1, "overwrite": -1, "lost_on_drg": 1},
+        "1983": {"icon": 0, "mods": [[0.12, "fspd", "buff"]], "coei": 1, "hide": 1, "overwrite": -1},
         "1985": {"remove": 1983, "coei": 1},
         "1990": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 4},
         "1991": {"remove": 1990, "coei": 1}
@@ -123,3 +123,4 @@
         "cancel": {"any": 1.0, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.5}
     }
 }
+

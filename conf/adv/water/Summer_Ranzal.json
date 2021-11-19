@@ -1,10 +1,10 @@
 {
     "actconds": {
         "155": {"duration": 10.0, "icon": "def-buff", "mods": [[0.08, "def", "buff"]], "text": "Defense +8%", "overwrite": -1},
-        "109030110": {"aff": "bog", "duration": 8.0, "bog": 1.5, "text": "Bog"},
+        "109030110": {"aff": "bog", "duration": 8.0, "text": "Bog"},
         "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
         "302030801": {"duration": 15.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"},
-        "308011001": {"duration": 15.0, "slip": {"heal": 15.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "308011001": {"duration": 15.0, "slip": {"heal": 15.0, "iv": 2.9, "kind": "hp", "value": ["heal", 15.0]}, "coei": 1, "text": "HP Regen", "debuff": 1}
     },
     "c": {
         "name": "Summer Ranzal",
@@ -45,3 +45,4 @@
         "cancel": {"any": 2.4}
     }
 }
+

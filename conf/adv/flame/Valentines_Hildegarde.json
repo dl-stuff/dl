@@ -2,10 +2,10 @@
     "actconds": {
         "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
         "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
-        "291": {"dispel": 1},
+        "291": {"dispel": "buff"},
         "1259": {"duration": 60.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%", "overwrite": 8},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp", "value": ["heal", 35.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
         "316010601": {"count": 1, "shield": {"1": 0.4}, "coei": 1, "text": "Shield"},
         "402010207": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%", "overwrite": 1}
     },
@@ -48,3 +48,4 @@
         ]
     }
 }
+

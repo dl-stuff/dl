@@ -165,7 +165,7 @@
             },
             "actconds": {
                 "344": {"icon": "att-buff", "mods": [[0.4, "att", "buff"]], "text": "Strength +40%"},
-                "346": {"slip": {"heal": 5.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+                "346": {"slip": {"heal": 5.0, "iv": 2.9, "kind": "hp", "value": ["heal", 5.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
                 "350": {"remove": 344, "coei": 1},
                 "352": {"remove": 346, "coei": 1},
                 "359": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
@@ -301,7 +301,7 @@
                 "1187": {"remove": 1183, "coei": 1},
                 "1196": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
                 "1197": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
-                "1399": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+                "1399": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp", "value": ["heal", 1.9]}, "coei": 1, "text": "HP Regen", "debuff": 1}
             }
         }
     },
@@ -429,7 +429,7 @@
                 "469": {"remove": 465, "coei": 1},
                 "478": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
                 "479": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
-                "1097": {"slip": {"heal": 2.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+                "1097": {"slip": {"heal": 2.0, "iv": 2.9, "kind": "hp", "value": ["heal", 2.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
                 "1098": {"icon": "crit-buff", "mods": [[0.05, "crit", "buff"]], "text": "Critical Rate +5%"}
             }
         }
@@ -560,7 +560,7 @@
                 "1013": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
                 "1343": {"icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
                 "1344": {"remove": 1343},
-                "1388": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp"}, "text": "HP Regen"}
+                "1388": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp", "value": ["heal", 1.9]}, "text": "HP Regen", "debuff": 1}
             }
         }
     },
@@ -694,8 +694,9 @@
                 "767": {"remove": 763, "coei": 1},
                 "776": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
                 "777": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
-                "1322": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp"}, "text": "HP Regen"}
+                "1322": {"slip": {"heal": 1.9, "iv": 2.9, "kind": "hp", "value": ["heal", 1.9]}, "text": "HP Regen", "debuff": 1}
             }
         }
     }
 }
+

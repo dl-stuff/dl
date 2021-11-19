@@ -1,8 +1,8 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
-        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
-        "1570": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 1},
+        "291": {"dispel": "buff"},
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9, "value": ["mod", 0.41]}, "rate": 1.2, "debuff": 1},
+        "1570": {"coei": 1, "icon": 0, "hide": 1, "overwrite": -1},
         "1596": {"remove": 1570, "icon": 0, "hide": 1}
     },
     "c": {
@@ -159,3 +159,4 @@
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.3}
     }
 }
+

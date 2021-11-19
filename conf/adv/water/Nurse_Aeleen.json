@@ -1,11 +1,11 @@
 {
     "actconds": {
         "1259": {"duration": 60.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%", "overwrite": 8},
-        "206010101": {"relief": "stun", "count": 1, "text": "Stun Relief"},
+        "206010101": {"aff": "stun", "relief": 1, "count": 1, "text": "Stun Relief"},
         "301040101": {"icon": "hp-buff", "mods": [[0.05, "hp", "buff"]], "coei": 1, "text": "HP +5%"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "303020201": {"duration": 10.0, "icon": "def-buff", "mods": [[0.15, "def", "buff"]], "text": "Defense +15%"},
-        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp", "value": ["heal", 35.0]}, "coei": 1, "text": "HP Regen", "debuff": 1}
     },
     "c": {
         "name": "Nurse Aeleen",
@@ -46,3 +46,4 @@
         "energizable": true
     }
 }
+

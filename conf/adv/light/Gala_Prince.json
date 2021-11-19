@@ -1,9 +1,9 @@
 {
     "actconds": {
         "138": {"icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
-        "213": {"slip": {"percent": -0.032, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1},
+        "213": {"slip": {"percent": -0.032, "iv": 1.0, "kind": "sp", "target": "s2", "value": ["percent", -0.032]}, "coei": 1},
         "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
-        "104030601": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.803, "iv": 3.9}},
+        "104030601": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.803, "iv": 3.9, "value": ["mod", 0.803]}, "debuff": 1},
         "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "303030301": {"duration": 15.0, "icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"},
         "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"}
@@ -61,3 +61,4 @@
         "abilities": []
     }
 }
+

@@ -1,7 +1,7 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
-        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120},
+        "291": {"dispel": "buff"},
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9, "value": ["mod", 0.97]}, "rate": 1.2, "debuff": 1},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
     },
     "c": {
@@ -39,3 +39,4 @@
         "cancel": {"any": 1.66667}
     }
 }
+

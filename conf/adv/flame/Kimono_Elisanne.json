@@ -1,10 +1,10 @@
 {
     "actconds": {
         "1442": {"duration": 15.0, "ele": "flame", "icon": 210, "mods": [[0.15, "att", "buff"]], "coei": 1, "-lv": 1443, "text": "New Year's Prayer Lv. 1"},
-        "1468": {"slip": {"percent": -0.03, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1, "overwrite": -1},
+        "1468": {"slip": {"percent": -0.03, "iv": 1.0, "kind": "sp", "target": "s2", "value": ["percent", -0.03]}, "coei": 1, "overwrite": -1},
         "1470": {"remove": 1468, "coei": 1},
         "1476": {"duration": 30.0, "icon": "resist_scorchrend-passive", "mods": [[-0.2, "resist_scorchrend", "passive"]], "debuff": 1, "text": "Scorchrend Res -20%", "overwrite": 27},
-        "1535": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9}, "rate": 40}
+        "1535": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9, "value": ["mod", 0.311]}, "rate": 0.4, "debuff": 1}
     },
     "c": {
         "name": "Kimono Elisanne",
@@ -47,3 +47,4 @@
         "cancel": {"any": 1.66667}
     }
 }
+

@@ -1,11 +1,11 @@
 {
     "actconds": {
         "47": {"count": 1, "energy": 5},
-        "1092": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 1},
+        "1092": {"coei": 1, "icon": 0, "hide": 1, "overwrite": -1},
         "1093": {"remove": 1092, "count": 1, "coei": 1},
-        "1094": {"coei": 1, "icon": 160, "text": "Maskable Faith", "maxstack": 1},
+        "1094": {"coei": 1, "icon": 160, "text": "Maskable Faith", "overwrite": -1},
         "1095": {"remove": 1094, "count": 1, "coei": 1},
-        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9}, "rate": 120}
+        "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.97, "iv": 3.9, "value": ["mod", 0.97]}, "rate": 1.2, "debuff": 1}
     },
     "c": {
         "name": "Yukata Curran",
@@ -71,3 +71,4 @@
         "cancel": {"any": 1.33333}
     }
 }
+

@@ -1,9 +1,9 @@
 {
     "actconds": {
-        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9, "value": ["mod", 0.41]}, "rate": 1.2, "debuff": 1},
         "1759": {"duration": 15.0, "icon": "att-buff", "mods": [[-0.2, "att", "buff"]], "debuff": 1, "text": "Strength -20%"},
         "1761": {"duration": 12.0, "icon": "def-buff", "mods": [[-0.07, "def", "buff"]], "debuff": 1, "text": "Defense -7%", "overwrite": 6},
-        "308020801": {"duration": 20.0, "slip": {"percent": -0.14, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "308020801": {"duration": 20.0, "slip": {"percent": -0.14, "iv": 3.9, "kind": "hp", "value": ["percent", -0.14]}, "coei": 1, "text": "HP Regen"}
     },
     "c": {
         "name": "Sharpshooter Sarisse",
@@ -50,3 +50,4 @@
         "DEBUG_attr_R3": [{"dmg": 1.49, "actcond": "1761", "target": "HOSTILE", "iv": 0.33333, "msl": 0.68333}, {"dmg": 1.49, "actcond": "1761", "target": "HOSTILE", "iv": 0.33333, "msl": 0.75}, {"dmg": 1.49, "actcond": "1761", "target": "HOSTILE", "iv": 0.33333, "msl": 0.76667}, {"dmg": 1.49, "actcond": "1761", "target": "HOSTILE", "iv": 0.33333, "msl": 0.73333}, {"dmg": 3.3, "target": "HOSTILE", "iv": 0.83333}]
     }
 }
+

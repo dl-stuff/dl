@@ -1,7 +1,7 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
-        "646": {"duration": 40.0, "slip": {"heal": 25.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "291": {"dispel": "buff"},
+        "646": {"duration": 40.0, "slip": {"heal": 25.0, "iv": 2.9, "kind": "hp", "value": ["heal", 25.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
         "1316": {"duration": 30.0, "icon": "resist_poison-passive", "mods": [[-0.2, "resist_poison", "passive"]], "debuff": 1, "text": "Poison Res -20%", "overwrite": 25},
         "1346": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Friendly Ties", "overwrite": -1},
@@ -54,3 +54,4 @@
         "cancel": {"any": 1.5}
     }
 }
+

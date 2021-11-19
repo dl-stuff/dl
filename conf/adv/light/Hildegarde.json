@@ -2,10 +2,10 @@
     "actconds": {
         "1146": {"count": 2, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Devout Oracle", "overwrite": -1},
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
-        "207010101": {"relief": "curse", "count": 1, "text": "Curse Relief"},
+        "207010101": {"aff": "curse", "relief": 1, "count": 1, "text": "Curse Relief"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "308010602": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
-        "308010603": {"duration": 15.0, "slip": {"heal": 10.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "308010602": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp", "value": ["heal", 35.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
+        "308010603": {"duration": 15.0, "slip": {"heal": 10.0, "iv": 2.9, "kind": "hp", "value": ["heal", 10.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
         "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"}
     },
     "c": {
@@ -59,3 +59,4 @@
         "energizable": true
     }
 }
+

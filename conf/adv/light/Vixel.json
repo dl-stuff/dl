@@ -5,8 +5,8 @@
         "461": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dispel Strike"},
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
         "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
-        "201010101": {"relief": "poison", "count": 1, "text": "Poison Relief"},
-        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "201010101": {"aff": "poison", "relief": 1, "count": 1, "text": "Poison Relief"},
+        "308010401": {"duration": 15.0, "slip": {"heal": 35.0, "iv": 2.9, "kind": "hp", "value": ["heal", 35.0]}, "coei": 1, "text": "HP Regen", "debuff": 1}
     },
     "c": {
         "name": "Vixel",
@@ -51,3 +51,4 @@
         "energizable": true
     }
 }
+

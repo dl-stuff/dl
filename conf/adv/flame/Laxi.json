@@ -1,10 +1,10 @@
 {
     "actconds": {
-        "283": {"slip": {"percent": 0.035, "iv": 2.9, "kind": "hp"}, "icon": 103, "mods": [[0.5, "att", "buff"]], "alt": {"s1": "enhanced", "s2": "enhanced"}, "text": "Limiters Released", "overwrite": -1},
+        "283": {"slip": {"percent": 0.035, "iv": 2.9, "kind": "hp", "value": ["percent", 0.035]}, "icon": 103, "mods": [[0.5, "att", "buff"]], "alt": {"s1": "enhanced", "s2": "enhanced"}, "text": "Limiters Released", "overwrite": -1},
         "285": {"remove": 283, "coei": 1},
         "286": {"duration": 5.0, "icon": 104, "text": "Shut Down"},
-        "287": {"remove": "actcond"},
-        "289": {"duration": 5.0, "slip": {"percent": -0.25, "iv": 1.5, "kind": "hp"}, "coei": 1, "text": "HP Regen"}
+        "287": {"dispel": "actcond"},
+        "289": {"duration": 5.0, "slip": {"percent": -0.25, "iv": 1.5, "kind": "hp", "value": ["percent", -0.25]}, "coei": 1, "text": "HP Regen"}
     },
     "c": {
         "name": "Laxi",
@@ -64,3 +64,4 @@
         ]
     }
 }
+

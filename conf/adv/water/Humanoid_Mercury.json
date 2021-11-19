@@ -1,9 +1,9 @@
 {
     "actconds": {
-        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9}, "rate": 120},
-        "1592": {"count": 1, "slip": {"percent": -0.05, "iv": 2.9, "kind": "hp"}, "shield": {"2": 0.3}, "coei": 1, "icon": 241, "text": "Sphere of Protection", "overwrite": 43},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.41, "iv": 2.9, "value": ["mod", 0.41]}, "rate": 1.2, "debuff": 1},
+        "1592": {"count": 1, "slip": {"percent": -0.05, "iv": 2.9, "kind": "hp", "value": ["percent", -0.05]}, "shield": {"2": 0.3}, "coei": 1, "icon": 241, "text": "Sphere of Protection", "overwrite": 43},
         "1663": {"alt": {"s2": "enhanced"}, "icon": 0, "hide": 1, "overwrite": -1},
-        "109030114": {"aff": "bog", "duration": 8.0, "bog": 1.5, "text": "Bog", "rate": 180}
+        "109030114": {"aff": "bog", "duration": 8.0, "text": "Bog", "rate": 1.8}
     },
     "c": {
         "name": "Humanoid Mercury",
@@ -157,3 +157,4 @@
         "cancel": {"any": 2.66667}
     }
 }
+

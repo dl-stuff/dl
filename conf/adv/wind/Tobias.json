@@ -3,9 +3,9 @@
         "452": {"duration": 10.0, "alt": {"s2": "enhanced"}, "icon": 103, "text": "Sacred Blade", "overwrite": -1, "lost_on_drg": 1},
         "458": {"remove": 452, "coei": 1},
         "500": {"duration": 15.0, "ele": "wind", "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "text": "Strength +30%"},
-        "555": {"duration": 7.0, "slip": {"percent": -0.022, "iv": 1.0, "kind": "sp", "target": "s1"}, "coei": 1, "text": "Skill Charger", "overwrite": -1},
-        "557": {"slip": {"percent": -1.0, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1},
-        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+        "555": {"duration": 7.0, "slip": {"percent": -0.022, "iv": 1.0, "kind": "sp", "target": "s1", "value": ["percent", -0.022]}, "coei": 1, "text": "Skill Charger", "overwrite": -1},
+        "557": {"slip": {"percent": -1.0, "iv": 1.0, "kind": "sp", "target": "s2", "value": ["percent", -1.0]}, "coei": 1},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9, "value": ["mod", 0.582]}, "rate": 1.2, "debuff": 1}
     },
     "c": {
         "name": "Tobias",
@@ -101,3 +101,4 @@
         "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x1": 0.42593}
     }
 }
+

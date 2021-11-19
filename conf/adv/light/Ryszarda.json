@@ -1,9 +1,9 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
-        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "maxstack": 1, "unremovable": 1},
+        "291": {"dispel": "buff"},
+        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
         "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
-        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120},
+        "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9, "value": ["mod", 0.416]}, "rate": 1.2, "debuff": 1},
         "1540": {"duration": 20.0, "icon": 103, "mods": [[0.15, "att", "buff"], [0.1, "aspd", "buff"]], "coei": 1, "text": "Raphael's Steel", "overwrite": 34},
         "1563": {"lifeshield": 0.3},
         "1582": {"duration": 30.0, "icon": 165, "mods": [[0.15, "crit", "buff"], [1.0, "kbres", "buff"]], "coei": 1, "text": "Raphael's Embrace", "overwrite": 41}
@@ -103,3 +103,4 @@
         "cancel": {"dodge": 0.0, "s": 0.0}
     }
 }
+

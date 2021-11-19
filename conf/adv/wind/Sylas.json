@@ -1,14 +1,14 @@
 {
     "actconds": {
-        "36": {"relief": "all", "count": 1, "text": "Recovered from Afflictions"},
-        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120},
+        "36": {"aff": "all", "relief": 1, "count": 1, "text": "Recovered from Afflictions"},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9, "value": ["mod", 0.582]}, "rate": 1.2, "debuff": 1},
         "301040401": {"icon": "hp-buff", "mods": [[0.2, "hp", "buff"]], "coei": 1, "text": "HP +20%"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "302030501": {"duration": 15.0, "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
         "303030401": {"duration": 15.0, "icon": "def-buff", "mods": [[0.25, "def", "buff"]], "text": "Defense +25%"},
-        "308020801": {"duration": 20.0, "slip": {"percent": -0.14, "iv": 3.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
+        "308020801": {"duration": 20.0, "slip": {"percent": -0.14, "iv": 3.9, "kind": "hp", "value": ["percent", -0.14]}, "coei": 1, "text": "HP Regen"},
         "320010203": {"duration": 15.0, "icon": "sph", "mods": [[0.3, "sph"]], "text": "Skill Haste +30%"},
-        "402010401": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.3, "att", "buff"]], "debuff": 1, "text": "Strength -30%", "overwrite": 1, "rate": 50}
+        "402010401": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.3, "att", "buff"]], "debuff": 1, "text": "Strength -30%", "overwrite": 1, "rate": 0.5}
     },
     "c": {
         "name": "Sylas",
@@ -50,3 +50,4 @@
         "DEBUG_attr_R4": [{"actcond": "320010203", "target": "MYPARTY", "iv": 0.13333}, {"actcond": "302030501", "target": "MYPARTY", "iv": 0.16667}, {"actcond": "303030401", "target": "MYPARTY", "iv": 0.16667}, {"actcond": "301040401", "target": "MYPARTY", "iv": 0.16667}, {"actcond": "36", "target": "MYPARTY", "iv": 0.16667}]
     }
 }
+

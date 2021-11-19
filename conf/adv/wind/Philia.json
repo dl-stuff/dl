@@ -1,7 +1,7 @@
 {
     "actconds": {
-        "101020401": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.482, "iv": 2.9}},
-        "104030501": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.6, "iv": 3.9}, "rate": 90}
+        "101020401": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.482, "iv": 2.9, "value": ["mod", 0.482]}, "debuff": 1},
+        "104030501": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.6, "iv": 3.9, "value": ["mod", 0.6]}, "rate": 0.9, "debuff": 1}
     },
     "c": {
         "name": "Philia",
@@ -39,3 +39,4 @@
         "cancel": {"any": 1.3}
     }
 }
+

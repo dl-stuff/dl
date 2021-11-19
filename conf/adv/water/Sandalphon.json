@@ -1,11 +1,11 @@
 {
     "actconds": {
-        "36": {"relief": "all", "count": 1, "text": "Recovered from Afflictions"},
-        "410": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9}, "rate": 110},
-        "1257": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9}, "rate": 110},
-        "1352": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9}, "rate": 110},
-        "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9}, "rate": 110},
-        "1383": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9}, "rate": 110},
+        "36": {"aff": "all", "relief": 1, "count": 1, "text": "Recovered from Afflictions"},
+        "410": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9, "value": ["mod", 0.31]}, "rate": 1.1, "debuff": 1},
+        "1257": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9, "value": ["mod", 0.311]}, "rate": 1.1, "debuff": 1},
+        "1352": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9, "value": ["mod", 0.31]}, "rate": 1.1, "debuff": 1},
+        "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9, "value": ["mod", 0.31]}, "rate": 1.1, "debuff": 1},
+        "1383": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9, "value": ["mod", 0.311]}, "rate": 1.1, "debuff": 1},
         "1889": {"coei": 1, "icon": 286, "text": "Coordination Protocol", "overwrite": -1},
         "1890": {"coei": 1, "icon": 287, "text": "Concentration Protocol", "overwrite": -1},
         "1891": {"remove": 1889, "coei": 1},
@@ -13,10 +13,10 @@
         "1901": {"duration": 30.0, "coei": 1, "echo": 0.4, "icon": 252, "text": "Overdamage", "overwrite": -1},
         "1902": {"coei": 1, "icon": 288, "text": "Rapid Analysis", "maxstack": 3},
         "1903": {"remove": 1902, "count": 1, "coei": 1},
-        "1994": {"duration": 15.0, "slip": {"heal": 20.0, "iv": 2.9, "kind": "hp"}, "coei": 1, "text": "HP Regen"},
-        "101020901": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.436, "iv": 2.9}, "rate": 110},
-        "102040801": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.727, "iv": 3.9}, "rate": 110},
-        "104031101": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.727, "iv": 3.9}, "rate": 110},
+        "1994": {"duration": 15.0, "slip": {"heal": 20.0, "iv": 2.9, "kind": "hp", "value": ["heal", 20.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
+        "101020901": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.436, "iv": 2.9, "value": ["mod", 0.436]}, "rate": 1.1, "debuff": 1},
+        "102040801": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.727, "iv": 3.9, "value": ["mod", 0.727]}, "rate": 1.1, "debuff": 1},
+        "104031101": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.727, "iv": 3.9, "value": ["mod", 0.727]}, "rate": 1.1, "debuff": 1},
         "301040701": {"icon": "hp-buff", "mods": [[0.3, "hp", "buff"]], "coei": 1, "text": "HP +30%"}
     },
     "c": {
@@ -101,7 +101,7 @@
                 {"cond": ["actcond", 1902, ">", 0], "actcond": "1903", "target": "MYSELF"},
                 {"cond": ["actcond", 1902, ">", 0], "heal": 50, "target": "MYPARTY"},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 2.53333},
-                {"actcond": "410", "DEBUG_ADD_RNG_HITS": [1, [{"actcond": "101020901", "target": "FIXED_OBJECT"}, {"actcond": "102040801", "target": "FIXED_OBJECT"}, {"actcond": "1257", "target": "FIXED_OBJECT"}, {"actcond": "1360", "target": "FIXED_OBJECT"}, {"actcond": "1352", "target": "FIXED_OBJECT"}, {"actcond": "1383", "target": "FIXED_OBJECT"}, {"actcond": "104031101", "target": "FIXED_OBJECT"}]], "target": "HOSTILE", "iv": 2.53333},
+                {"actcond": "410", "target": "HOSTILE", "iv": 2.53333},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 2.63333},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 2.73333},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 2.83333},
@@ -271,3 +271,4 @@
         "cancel": {"any": 0.5, "dodge": 0.0, "fs": 0.0, "s": 0.0}
     }
 }
+

@@ -2,13 +2,13 @@
     "actconds": {
         "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
         "176": {"duration": 15.0, "ele": "water", "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "235": {"slip": {"percent": 0.04, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1},
-        "263": {"duration": 2.0, "slip": {"percent": 2.0, "iv": 1.0, "kind": "sp", "target": "s2"}, "coei": 1, "text": "Divine Revelation"},
+        "235": {"slip": {"percent": 0.04, "iv": 1.0, "kind": "sp", "target": "s2", "value": ["percent", 0.04]}, "coei": 1, "debuff": 1},
+        "263": {"duration": 2.0, "slip": {"percent": 2.0, "iv": 1.0, "kind": "sp", "target": "s2", "value": ["percent", 2.0]}, "coei": 1, "text": "Divine Revelation", "debuff": 1},
         "1049": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
-        "1703": {"duration": 13.0, "slip": {"percent": -0.065, "iv": 1.0, "kind": "sp", "target": "s2"}, "icon": 102, "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Divine Revelation", "overwrite": -1},
+        "1703": {"duration": 13.0, "slip": {"percent": -0.065, "iv": 1.0, "kind": "sp", "target": "s2", "value": ["percent", -0.065]}, "icon": 102, "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Divine Revelation", "overwrite": -1},
         "1706": {"duration": 30.0, "icon": "resist_flame-buff", "mods": [[0.3, "resist_flame", "buff"]], "coei": 1, "text": "Flame Res +30%", "overwrite": 2},
         "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
-        "1708": {"duration": 15.0, "slip": {"heal": 1.2, "iv": 2.9, "kind": "hp"}, "ele": "water", "coei": 1, "icon": 253, "text": "Holy Accord"},
+        "1708": {"duration": 15.0, "slip": {"heal": 1.2, "iv": 2.9, "kind": "hp", "value": ["heal", 1.2]}, "ele": "water", "coei": 1, "icon": 253, "text": "Holy Accord", "debuff": 1},
         "1709": {"duration": 15.0, "ele": "water", "icon": 0, "mods": [[0.15, "att", "buff"]], "coei": 1, "hide": 1},
         "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"}
     },
@@ -62,3 +62,4 @@
         ]
     }
 }
+

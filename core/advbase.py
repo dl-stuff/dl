@@ -1146,9 +1146,9 @@ class Adv(object):
         ignore_dragon = getattr(e, "ignore_dragon", False)
         source = getattr(e, "source", None)
         try:
-            self.add_hp(e.delta, can_die=can_die, ignore_dragon=ignore_dragon, source=getattr(e, "source"))
+            self.add_hp(e.delta, can_die=can_die, ignore_dragon=ignore_dragon, source=source)
         except AttributeError:
-            self.set_hp(e.hp, can_die=can_die, ignore_dragon=ignore_dragon, source=getattr(e, "source"))
+            self.set_hp(e.hp, can_die=can_die, ignore_dragon=ignore_dragon, source=source)
 
     def l_heal_make(self, e):
         self.heal_make(e.name, e.delta, target=e.target, fixed=True)

@@ -1,8 +1,8 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
+        "291": {"dispel": "buff"},
         "604": {"duration": 15.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 12},
-        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9}, "rate": 120}
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9, "value": ["mod", 0.582]}, "rate": 1.2, "debuff": 1}
     },
     "c": {
         "name": "Gala Alex",
@@ -164,3 +164,4 @@
         "cancel": {"dodge": 0.0, "s": 0.0}
     }
 }
+

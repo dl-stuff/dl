@@ -1,13 +1,13 @@
 {
     "actconds": {
-        "291": {"dispel": 1},
+        "291": {"dispel": "buff"},
         "1465": {"coei": 1, "icon": 211, "text": "Mochi Master", "maxstack": 3},
         "1466": {"remove": 1465, "coei": 1},
-        "1478": {"icon": "fspd-buff", "mods": [[0.2, "fspd", "buff"]], "text": "Force Strike Attack Rate +20%", "maxstack": 1},
+        "1478": {"icon": "fspd-buff", "mods": [[0.2, "fspd", "buff"]], "text": "Force Strike Attack Rate +20%", "overwrite": -1},
         "1480": {"remove": 1478, "coei": 1},
-        "1484": {"duration": 20.0, "slip": {"heal": 3.0, "iv": 2.9, "kind": "hp"}, "ele": "wind", "icon": 212, "mods": [[0.03, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
-        "1485": {"duration": 30.0, "slip": {"heal": 15.0, "iv": 2.9, "kind": "hp"}, "ele": "wind", "icon": 212, "mods": [[0.05, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
-        "1486": {"duration": 60.0, "slip": {"heal": 21.0, "iv": 2.9, "kind": "hp"}, "ele": "wind", "icon": 212, "mods": [[0.15, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
+        "1484": {"duration": 20.0, "slip": {"heal": 3.0, "iv": 2.9, "kind": "hp", "value": ["heal", 3.0]}, "ele": "wind", "icon": 212, "mods": [[0.03, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
+        "1485": {"duration": 30.0, "slip": {"heal": 15.0, "iv": 2.9, "kind": "hp", "value": ["heal", 15.0]}, "ele": "wind", "icon": 212, "mods": [[0.05, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
+        "1486": {"duration": 60.0, "slip": {"heal": 21.0, "iv": 2.9, "kind": "hp", "value": ["heal", 21.0]}, "ele": "wind", "icon": 212, "mods": [[0.15, "resist_water", "buff"]], "coei": 1, "text": "New Year's Mochi", "overwrite": -1},
         "1503": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.02, "att", "buff"]], "debuff": 1, "text": "Strength -2%", "maxstack": 4},
         "1514": {"remove": 1484, "coei": 1},
         "1515": {"remove": 1485, "coei": 1},
@@ -75,3 +75,4 @@
         "cancel": {"any": 2.83333}
     }
 }
+

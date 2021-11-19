@@ -1,6 +1,6 @@
 {
     "actconds": {
-        "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9}, "rate": 120},
+        "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.416, "iv": 2.9, "value": ["mod", 0.416]}, "rate": 1.2, "debuff": 1},
         "1973": {"duration": 60.0, "icon": 294, "mods": [[0.1, "att", "buff"], [0.2, "edge_scorchrend", "passive"]], "coei": 1, "-lv": 1974, "text": "Uriel's Zeal Lv. {0}", "overwrite": 55}
     },
     "d": {
@@ -21,11 +21,11 @@
         "sp_db": 45,
         "uses": 1,
         "attr": [
-            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.46667, "msl_spd": 1},
-            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.8, "msl_spd": 1},
-            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 2.0, "msl_spd": 1},
-            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.93333, "msl_spd": 1},
-            {"DEBUG_PARTCOND": "TargetIdContains[2, 0, 0, 0]", "dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 2.53333, "msl_spd": 1}
+            {"dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.46667, "msl_spd": 1},
+            {"dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.8, "msl_spd": 1},
+            {"dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 2.0, "msl_spd": 1},
+            {"dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 1.93333, "msl_spd": 1},
+            {"dmg": 4.5, "actcond": "1384", "target": "HOSTILE", "iv": 0.13333, "msl": 2.53333, "msl_spd": 1}
         ]
     },
     "dshift": {
@@ -65,3 +65,4 @@
         "cancel": {"any": 1.1, "dodge": 0.0, "dx1": 0.93333, "s": 0.0}
     }
 }
+

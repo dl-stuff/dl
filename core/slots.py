@@ -83,17 +83,17 @@ class ExBase:
         "Gun": ["109000009", None],
     }
     UNIQUE = {
-        "Chrom": ["101060010", None],
-        "Joker": ["101100007", None],
-        "Panther": ["103150005", None],
+        "HpDef": ["101060010", None],
+        "AtkSpd": ["101100007", None],
+        "ScorchrendBoost": ["103150005", None],
         "Wand2": ["106000008", None],
-        "Grace": ["106000016", None],
+        "ForceStrike": ["106000016", None],
         "Dagger2": ["106070008", None],
-        "Gala_Leif": ["106080008", None],
-        "Tobias": ["118000008", None],
-        "Sharena": ["120040008", None],
+        "Debuff": ["106080008", None],
+        "Bufftime": ["118000008", None],
+        "ParalysisPunish": ["120040008", None],
         "Axe2": ["126000008", None],
-        "Gala_Prince": ["136000008", None],
+        "DragonBoost": ["136000008", None],
     }
     LOOKUP = DATA["lookup"]
     LOOKUP.update(GENERICS)
