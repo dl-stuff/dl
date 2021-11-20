@@ -270,8 +270,8 @@ class AfflicCapped(AfflicBase):
             timer.on()
             self.states = states
             self.update()
-            self.event.rate = total_p
-            self.event()
+        self.event.rate = total_p
+        self.event()
         log("affliction", self.name, self.get())
         self.start_rate = round(self.get(), 3)
         log("cc", self.name, self.start_rate or "fail")
@@ -288,19 +288,18 @@ class Afflic_dot(AfflicUncapped):
 
     def on(self, name, rate, coef, duration=None, iv=None, dtype=None, speshul_sandy_sum=1.0):
         self.event.source = name
+        self.rate = rate + self.edge
+        self.coef = coef
+        if dtype is None and name[0] == "s":
+            self.dtype = "s"
+        else:
+            self.dtype = dtype
+        self.duration = (duration or self.default_duration) * self.time
+        self.iv = iv or self.default_iv
+        self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype)
+        self.dot.on()
         r = super().on(speshul_sandy_sum=speshul_sandy_sum)
-        if r > 0:
-            self.rate = rate + self.edge
-            self.coef = coef
-            if dtype is None and name[0] == "s":
-                self.dtype = "s"
-            else:
-                self.dtype = dtype
-            self.duration = (duration or self.default_duration) * self.time
-            self.iv = iv or self.default_iv
-            self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype)
-            self.dot.on()
-            self.dot.tick_dmg *= r
+        self.dot.tick_dmg *= r
         return r
 
     def timeleft(self):
