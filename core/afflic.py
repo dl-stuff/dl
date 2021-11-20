@@ -169,19 +169,21 @@ class AfflicBase:
 class AfflicUncapped(AfflicBase):
     def __init__(self, name=None, duration=12, tolerance=0.05):
         super().__init__(name, duration, tolerance)
-        self.stacks = []
+        self.stacks = defaultdict(lambda: 0)
 
     def update(self):
         self.uptime()
         nostack_p = 1.0
-        for stack_p in self.stacks:
-            nostack_p *= 1.0 - stack_p
+        for stack_p, count in self.stacks.items():
+            nostack_p *= (1.0 - stack_p) ** count
         self._get = 1.0 - nostack_p
-        log("affliction", self.name, self._get)
 
     def stack_end(self, e):
-        self.stacks.remove(e.total_success_p)
+        self.stacks[e.total_success_p] -= 1
+        if self.stacks[e.total_success_p] == 0:
+            del self.stacks[e.total_success_p]
         self.update()
+        log("affliction", self.name, self._get)
 
     def on(self, speshul_sandy_sum=1.0):
         self.attempts += 1
@@ -200,14 +202,16 @@ class AfflicUncapped(AfflicBase):
                 fail_p = state_p * (1.0 - rate_after_res)
                 total_success_p += success_p
                 states[res + self.tolerance] += success_p
-                states[res] += fail_p
-        self.states = states
-        self.stacks.append(total_success_p)
-        t = Timer(self.stack_end, self.duration)
-        t.total_success_p = total_success_p
-        t.on()
-        self.update()
-
+                if fail_p > 0:
+                    states[res] += fail_p
+        if total_success_p > 0:
+            self.states = states
+            self.stacks[total_success_p] += 1
+            t = Timer(self.stack_end, self.duration)
+            t.total_success_p = total_success_p
+            t.on()
+            self.update()
+        log("affliction", self.name, self._get)
         self.event.rate = total_success_p
         self.event()
 
@@ -232,17 +236,17 @@ class AfflicCapped(AfflicBase):
                 total_p += state_p
         self.states = states
         self._get = total_p
-        log("affliction", self.name, self.get())
         return total_p
 
     def stack_end(self, t):
         self.update()
+        log("affliction", self.name, self.get())
         if self.get() != self.start_rate:
             log("cc", self.name, self.get() or "end")
 
     def on(self):
         self.attempts += 1
-        timer = Timer(self.stack_end, self.duration).on()
+        timer = Timer(self.stack_end, self.duration)
         if self.states is None:
             self.states = defaultdict(lambda: 0.0)
             self.states[self.State(frozenset(), self.resist)] = 1.0
@@ -262,15 +266,15 @@ class AfflicCapped(AfflicBase):
                 states[state_on_succeed] += overall_succeed_p
                 if overall_fail_p > 0:
                     states[start_state] += overall_fail_p
-        self.states = states
-        self.update()
-
-        self.event.rate = total_p
-        self.event()
-
+        if total_p > 0:
+            timer.on()
+            self.states = states
+            self.update()
+            self.event.rate = total_p
+            self.event()
+        log("affliction", self.name, self.get())
         self.start_rate = round(self.get(), 3)
         log("cc", self.name, self.start_rate or "fail")
-
         return total_p
 
 
@@ -283,19 +287,20 @@ class Afflic_dot(AfflicUncapped):
         self.dot = None
 
     def on(self, name, rate, coef, duration=None, iv=None, dtype=None, speshul_sandy_sum=1.0):
-        self.rate = rate + self.edge
-        self.coef = coef
         self.event.source = name
-        if dtype is None and name[0] == "s":
-            self.dtype = "s"
-        else:
-            self.dtype = dtype
-        self.duration = (duration or self.default_duration) * self.time
-        self.iv = iv or self.default_iv
-        self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype)
-        self.dot.on()
         r = super().on(speshul_sandy_sum=speshul_sandy_sum)
-        self.dot.tick_dmg *= r
+        if r > 0:
+            self.rate = rate + self.edge
+            self.coef = coef
+            if dtype is None and name[0] == "s":
+                self.dtype = "s"
+            else:
+                self.dtype = dtype
+            self.duration = (duration or self.default_duration) * self.time
+            self.iv = iv or self.default_iv
+            self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype)
+            self.dot.on()
+            self.dot.tick_dmg *= r
         return r
 
     def timeleft(self):
