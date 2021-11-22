@@ -368,6 +368,7 @@ class DragonFormUTP(DragonForm):
         super().__init__(name, conf, adv, dragon, dform_mode=utp_params[0], unique_dform=True)
         self.shift_mods = []
         self.shift_cost = 0
+        self.shift_req = 0
         self.utp_gauge = 0
         self.ds_final = None
 
