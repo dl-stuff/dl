@@ -700,7 +700,7 @@ class Resilient_Offense(BuffingAbility):
         def l_ro_buff(e):
             if self.proc_chances > 0 and e.hp <= self.hp_threshold and (e.hp - e.delta) > self.hp_threshold:
                 self.proc_chances -= 1
-                if non_stacking:
+                if self.non_stacking:
                     self.non_stacking.on()
                 else:
                     adv.Buff(*self.buff_args).on()
