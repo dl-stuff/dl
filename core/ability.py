@@ -690,12 +690,13 @@ class Resilient_Offense(BuffingAbility):
             duration = 20
             self.non_stacking = True
         super().__init__(name, value, duration)
-        if self.non_stacking:
-            self.non_stacking = adv.Buff(*self.buff_args)
 
     def oninit(self, adv, afrom=None):
         if adv.nihilism:
             return
+
+        if self.non_stacking:
+            self.non_stacking = adv.Buff(*self.buff_args)
 
         def l_ro_buff(e):
             if self.proc_chances > 0 and e.hp <= self.hp_threshold and (e.hp - e.delta) > self.hp_threshold:
