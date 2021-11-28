@@ -37,48 +37,52 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58623.41212621578,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 111591.99333750231,
+        "team": 0.06242767407138393,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Moonlight_Party",
-        "A_Game_of_Cat_and_Boar",
-        "Enter_the_Blue_Rose",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3, not buff(s3)",
-        "`s1, xf",
-        "`s2, xf",
-        "`s4, xf",
-        "`dodge, xf"
+        "`dragon, buff(s3, 1) and xf=1",
+        "`s2, xf=1",
+        "`s3, xf=1 or s",
+        "`s4, xf=1",
+        "`dodge, xf=1"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 180846.51391874114,
+      "tdps": 1150445.8421822554,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23834.418573040333,
+        "dps": 23863.99592804307,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -126,46 +130,28 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98122.15671776202,
-        "team": 0.07798367926136889,
+        "dps": 135298.0112368455,
+        "team": 0.06248160957958008,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3) and xf",
-        "`s1, xf",
-        "`s2, xf",
-        "`s4, xf",
-        "`dodge, xf"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
       ],
       "coabs": [
-        "Blade",
-        "Malora",
+        "Gala_Prince",
+        "Halloween_Laxi",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {
-      "tdps": 1007114.9076345946,
+      "tdps": 1332752.8203292561,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,7 +162,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50682.054899170886,
+        "dps": 50744.89687672722,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -224,34 +210,8 @@
         "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 42575.54350595675,
-        "team": 0.10656477704124129,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "META": {
-      "tdps": 395495.9280100805,
+      "tdps": 1173494.256789456,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -262,7 +222,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26148.17922472578,
+        "dps": 26180.601021656625,
         "team": 0.0,
         "noaff": false,
         "nihil": true

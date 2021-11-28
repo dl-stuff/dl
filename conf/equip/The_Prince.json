@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49777.63903079576,
-        "team": 0.02917065270265968,
+        "dps": 83166.60863967518,
+        "team": 0.029849978409359886,
         "noaff": false,
         "nihil": false
       },
@@ -13,23 +13,21 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Cerberus",
       "acl": [
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s1",
         "`s2, fsc",
         "`s4, cancel",
-        "`fs, x=3 or hits=0"
-      ],
-      "dacl": [
-        "ds1,x=3"
+        "`fs, x=4 or hits=0"
       ],
       "coabs": [
         "Halloween_Mym",
-        "Wand",
+        "Kimono_Elisanne",
         "Yuya"
       ],
       "share": [
@@ -39,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93097.29069183755,
-        "team": 0.020456214854359903,
+        "dps": 101389.61285168289,
+        "team": 0.02046736891905295,
         "noaff": false,
         "nihil": false
       },
@@ -60,11 +58,14 @@
         "`s1",
         "`s2, fsc",
         "`s4, cancel",
-        "`fs, x=3 or hits=0"
+        "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, x=1"
       ],
       "coabs": [
         "Halloween_Mym",
-        "Wand",
+        "Kimono_Elisanne",
         "Yuya"
       ],
       "share": [
@@ -73,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 4971020.783571672,
+      "tdps": 1942210.6644035103,
       "pref": "PERSONAL"
     }
   },
@@ -156,36 +157,32 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 102511.65880640037,
-        "team": 0.020458663956302855,
+        "dps": 115438.42347375015,
+        "team": 0.02045707356360733,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Me_and_My_Bestie",
         "The_Cutie_Competition",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "`s1",
+        "`s1, buff(s3)",
         "`s2, fsc",
         "`s4, cancel",
-        "`fs, x=4 or hits=1"
+        "`fs, x=4 or hits=2"
       ],
       "dacl": [
-        "ds1,x=2",
-        "dodge, x=2"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Yuya"
+        "`ds1, x=2",
+        "`dodge, x=2"
       ]
     },
     "META": {
@@ -263,8 +260,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75124.54390165616,
-        "team": 0.020467215418442146,
+        "dps": 79449.58841121041,
+        "team": 0.02044984607327815,
         "noaff": false,
         "nihil": false
       },
@@ -291,6 +288,7 @@
       ]
     },
     "META": {
+      "tdps": 249004465.55232412,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

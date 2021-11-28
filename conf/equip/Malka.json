@@ -2,85 +2,92 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45110.5903109944,
-        "team": 0.1110198527329689,
+        "dps": 92254.44671387509,
+        "team": 0.1271440205405558,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
-        "Such_High_Spirits",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon, buff(s3, 1) and cancel",
-        "`s2",
-        "`s4",
-        "`s1",
-        "`s3"
-      ],
-      "coabs": [
-        "Cleo",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 77246.81665952159,
-        "team": 0.04997895053200082,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, buff(s3, 1) and cancel",
-        "`s2",
+        "`dragon, (xf or fscf) and buff(s3, 1) and buff(s2)",
+        "`s2, (fscf and dgauge<400) or (dgauge>=500 and buff(s3, 1))",
+        "`s3, fscf or s",
+        "`s1, fscf",
         "`s4",
-        "`s1",
-        "`s3"
+        "`fs, x=5"
       ],
       "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
         "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
-        "Dagger",
+        "Halloween_Laxi",
+        "Mitsuhide",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 92254.44671387509,
+        "team": 0.1271440205405558,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, (xf or fscf) and buff(s3, 1) and buff(s2)",
+        "`s2, (fscf and dgauge<400) or (dgauge>=500 and buff(s3, 1))",
+        "`s3, fscf or s",
+        "`s1, fscf",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 526470.3696993772,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36662.92649885997,
+        "dps": 36662.95090315786,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -121,29 +128,55 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 91341.0185639166,
-        "team": 0.04972737793834918,
+        "dps": 93318.03514612908,
+        "team": 0.1424298968139279,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon, (xf or fscf) and buff(s3, 1) and buff(s2)",
+        "`s2, (fscf and dgauge<400) or (dgauge>=500 and buff(s3, 1))",
+        "`s3, fscf",
+        "`s1, fscf",
+        "`s4",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Blade",
-        "Dagger2",
+        "Dagger",
+        "Halloween_Laxi",
         "Peony"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 110339.3379601852,
+        "team": 0.1271440205405559,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ]
+    },
     "META": {
+      "tdps": 1113531.3742992438,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -151,32 +184,10 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 45935.50394283058,
-        "team": 0.11104063874091386,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Cleo",
-        "Dagger2",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47104.15044654602,
+        "dps": 47104.181800936654,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -191,29 +202,15 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42486.06934692056,
-        "team": 0.11104063874091386,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77074.97357593785,
-        "team": 0.0499789505320008,
+        "dps": 92199.4517504119,
+        "team": 0.1271440205405558,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 566458.3676539821,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -224,7 +221,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31166.50872611919,
+        "dps": 31166.529471783426,
         "team": 0.0,
         "noaff": false,
         "nihil": true

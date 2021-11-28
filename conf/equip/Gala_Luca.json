@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 87265.99586952323,
-        "team": 0.16349223135259763,
+        "dps": 87566.74363928473,
+        "team": 0.16361336524027395,
         "noaff": true,
         "nihil": false
       },
@@ -26,9 +26,6 @@
         "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Axe2",
         "Lucretia",
@@ -41,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 166255.80143591636,
-        "team": 0.095807598347888,
+        "dps": 166255.96764723782,
+        "team": 0.09580769412985406,
         "noaff": true,
         "nihil": false
       },
@@ -58,7 +55,7 @@
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1) and buff(s2) and xf",
-        "`s3, xf=5 or fsc",
+        "`s3, xf=5",
         "`s2, (xf=5 and dgauge<=400) or (dgauge>=500 and buff(s3,1))",
         "`s4, xf",
         "`fsf, xf=5"
@@ -79,16 +76,16 @@
       ]
     },
     "META": {
-      "tdps": 1167027.1679082143,
+      "tdps": 1160510.9531297109,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 67462.44943315994,
-        "team": 0.14076900555318225,
-        "noaff": true,
+        "dps": 56674.82345191732,
+        "team": 0.14185583801657559,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -100,10 +97,10 @@
         "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Thor",
       "acl": [
         "`dragon, buff(s3, 1) and buff(s2) and xf",
-        "`s3, xf=5 or fsc",
+        "`s3, xf=5",
         "`s2, (xf=5 and dgauge<=400) or (dgauge>=500 and buff(s3,1))",
         "`s4, xf",
         "`fsf, xf=5"
@@ -124,7 +121,7 @@
       ]
     },
     "META": {
-      "tdps": 2197292.258929196,
+      "tdps": 2379708.1694517415,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -135,46 +132,46 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14045.506246431141,
-        "team": 0.03330166529972582,
-        "noaff": true,
+        "dps": 35890.05631844696,
+        "team": 0.0333091786272987,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Moonlight_Party",
+        "Dragon_Brethren",
         "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Chariot_Drift",
         "Dueling_Dancers",
-        "Entwined_Flames",
         "A_Kings_Pride_Sword",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, buff(s3, 1) and buff(s2) and xf",
-        "`s3, xf=5 or s",
+        "`dragon, s3.phase=0 and s=2",
+        "`s3",
         "`s2, (xf=5 and dgauge<=400) or dgauge>=500",
-        "`s4, xf",
+        "`s4, xf=5",
         "`fsf, xf=5"
       ],
       "dacl": [
-        "`ds1, dshift_count=1 and dshift_timeleft<5",
+        "`ds1, duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Gala_Audric",
+        "Halloween_Laxi",
         "Mitsuhide",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 84052.2193502544,
+        "dps": 82133.96330122053,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -212,15 +209,15 @@
       ]
     },
     "META": {
-      "tdps": 2102198.5679616937,
+      "tdps": 1388323.2456796204,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 195848.4010209727,
-        "team": 0.0958075983478879,
+        "dps": 195856.72066403765,
+        "team": 0.09576289972058855,
         "noaff": false,
         "nihil": false
       },
@@ -232,10 +229,21 @@
         "Entwined_Flames",
         "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1) and buff(s2) and xf",
+        "`s3, xf=5",
+        "`s2, (xf=5 and dgauge<=400) or (dgauge>=500 and buff(s3,1))",
+        "`s4, xf"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ]
     },
     "META": {
-      "tdps": 1604240.140356437,
+      "tdps": 1596009.3448929223,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -270,7 +278,7 @@
       ]
     },
     "META": {
-      "tdps": 2538577.383323123,
+      "tdps": 2536464.2131278543,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -302,24 +310,15 @@
         "`s4, xf=5",
         "`fsf, xf=5"
       ],
-      "dacl": [
-        "`ds1, duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
       "coabs": [
         "Gala_Prince",
         "Mitsuhide",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102190.97772184665,
+        "dps": 101699.15180120134,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -333,14 +332,61 @@
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
-      "coabs": [
-        "Gala_Prince",
-        "Mitsuhide",
-        "Peony"
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1 or duration-now>95"
       ]
     },
     "META": {
-      "tdps": 385565.6832905151,
+      "tdps": 370807.6620792092,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 67462.44943315994,
+        "team": 0.14076900555318225,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.d": "Gala_Reborn_Jeanne"
+    },
+    "META": {
+      "tdps": 2197300.636627312,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73314.27912685,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, s3.phase=0 and s=2",
+        "`s3",
+        "`s4, dgauge>=500",
+        "`s2, (xf=5 and dgauge<=400) or dgauge>=500",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

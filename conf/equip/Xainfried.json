@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 120879.00715771972,
-        "team": 0.28359566789166674,
+        "dps": 121441.109884339,
+        "team": 0.2967519006756877,
         "noaff": false,
         "nihil": false
       },
@@ -57,30 +57,32 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count or dgauge=1000",
-        "queue now<1",
+        "`dragon, dshift_count=0 and dgauge>=1000",
+        "`dragon, dshift_count=1 and x=4",
+        "`dragon, dshift_count=2 and s=1",
+        "`dragon, dshift_count=3 and fscf",
+        "`dragon, dshift_count=4",
+        "queue not buff(s3)",
         "`s3",
         "`s2",
-        "`fs",
-        "`s4, fscf",
-        "`fs",
+        "`s4",
         "end",
         "`s2",
         "`s4",
-        "`s1, amp_lvl(team)>2 and (xf or fscf)",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4)",
+        "`s1, amp_lvl(team) and (xf or fscf)",
+        "`fs, charged_in(fs, s2) or charged_in(fs, s4)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
       "dacl": [
         "ds1,x=3",
-        "sack, x=3"
+        "sack, x=3 and dshift_count<5",
+        "sack, x=3 and duration-now<5"
       ],
       "coabs": [
         "Eugene",
-        "Pipple",
-        "Tiki"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Weapon",
@@ -88,7 +90,7 @@
       ]
     },
     "META": {
-      "tdps": 172367.40844559827,
+      "tdps": 177739.2095186324,
       "pref": "PERSONAL"
     }
   },
@@ -107,7 +109,7 @@
       ]
     },
     "META": {
-      "tdps": 197974.4586233604,
+      "tdps": 204928.85046114924,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -172,8 +174,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 124234.54839301485,
-        "team": 0.29672136118676967,
+        "dps": 125468.90496643708,
+        "team": 0.2962310205060207,
         "noaff": false,
         "nihil": false
       },
@@ -189,20 +191,20 @@
         "`s4",
         "end",
         "`s2",
-        "`s4, fscf",
-        "`s1, amp_lvl(team) and (xf or fscf)",
+        "`s4",
+        "`s1, amp_lvl(team) and (xf or fscf or duration-now<5)",
         "`fs, charged_in(fs, s2) or charged_in(fs, s4)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
-      "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3 and dshift_count<5",
+        "sack, x=1 and duration-now<3"
       ]
     },
     "META": {
-      "tdps": 183031.35894546614,
+      "tdps": 185202.01377222192,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -213,11 +215,20 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46019.490192027,
-        "team": 0.13197691284564275,
+        "dps": 51491.3099955108,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Blossoms_on_the_Waters_Edge",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`dragon, dshift_count=0 and s=4",
         "`dragon, dshift_count=1 and fscf",

@@ -40,46 +40,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 84558.11565985408,
-        "team": 0.06451504464960041,
+        "dps": 105200.28421354278,
+        "team": 0.11993117283247967,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_Brethren",
-        "Emissaries_of_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, cancel and (buff(s2) and (buff(s3, 1) and buff(s1)))",
-        "`s1, not buff(s1) and fsc",
-        "`s2, cancel",
-        "`s4, fsc",
+        "`s1, duration-now<3",
+        "`dragon, buff(s3, 1)",
         "`s3",
+        "`s2",
+        "`s4",
         "`fs, x=3"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Gala_Prince",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 110469.21886906053,
+      "tdps": 151308.77201163303,
       "pref": "PERSONAL"
     }
   },
@@ -117,7 +117,7 @@
       ]
     },
     "META": {
-      "tdps": 489073.26809789,
+      "tdps": 1684490.5762490202,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -205,23 +205,35 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98194.17010003157,
-        "team": 0.07414761742776557,
+        "dps": 128212.88494919686,
+        "team": 0.11987546936657262,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
-        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Gala_Prince",
+        "Halloween_Laxi",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 131435.6790385276,
+      "tdps": 186408.2415249385,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

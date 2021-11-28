@@ -2,63 +2,26 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 44361.50014979833,
-        "team": 0.07579857226787275,
+        "dps": 87700.40952230328,
+        "team": 0.08331532796523385,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
-        "Such_High_Spirits",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 79404.21562901842,
-        "team": 0.033322359169713364,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
         "`s3",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fsf, x=4"
+        "`s2, x=5",
+        "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
@@ -67,16 +30,53 @@
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Raemond"
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87700.40952230328,
+        "team": 0.08331532796523385,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s2, x=5",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 824996.2254930534,
       "pref": "PERSONAL"
     }
   },
@@ -118,6 +118,32 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 106824.0972621504,
+        "team": 0.08331532796523385,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {

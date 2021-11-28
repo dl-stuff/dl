@@ -37,46 +37,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54687.12194038867,
-        "team": 0.13282033428058357,
+        "dps": 66270.96514306488,
+        "team": 0.06854226817266888,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Candy_Couriers",
         "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon, (dgauge>=800 and s=2) or dshift_count",
         "`s3, not buff(s3)",
-        "queue s4.check() and s2.check() and dgauge>=500",
         "`s4",
         "`s2",
-        "`dragon",
-        "end",
-        "`s1, buff(s3)",
-        "`s2, dgauge<=500",
-        "`s4, dgauge<=450",
-        "`fs, x=5"
+        "`s1",
+        "`fs, starlit_dining and charged_in(fs, s1)"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
-        "Hunter_Sarisse",
+        "Eugene",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Seimei"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 76821.43667646381,
+      "tdps": 88000.85183491868,
       "pref": "PERSONAL"
     }
   },
@@ -95,7 +93,7 @@
       ]
     },
     "META": {
-      "tdps": 88342.55988805382,
+      "tdps": 99831.38543451848,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -231,21 +229,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61758.38461693347,
-        "team": 0.13282033428058357,
+        "dps": 72426.331053072,
+        "team": 0.06854226817266888,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ]
+      }
     },
     "META": {
-      "tdps": 90158.42530126203,
+      "tdps": 98355.09871006622,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -256,23 +247,32 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43943.7222161588,
-        "team": 0.07822225837828853,
+        "dps": 48030.30199132555,
+        "team": 0.06858468842715797,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`dragon, cancel",
         "`s3, cancel",
         "`s1",
         "`s2",
         "`s4",
-        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
+        "`fs, (starlit_dining>3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
       ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Dagger"
+        "Dagger",
+        "Tiki"
       ],
       "share": [
         "Summer_Celliera",
@@ -280,7 +280,7 @@
       ]
     },
     "META": {
-      "tdps": 125629.76794075467,
+      "tdps": 136014.61016905963,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -291,19 +291,28 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46913.8369131985,
-        "team": 0.12318257235916176,
+        "dps": 63688.15515504085,
+        "team": 0.06854226817266888,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "coabs": [
         "Blade",
-        "Hunter_Sarisse",
+        "Tiki",
         "Xander"
       ]
     },
     "META": {
-      "tdps": 61050.620658339125,
+      "tdps": 83656.17880676937,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

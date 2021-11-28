@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37216.124347983685,
-        "team": 0.33169463520656206,
+        "dps": 38518.99457281593,
+        "team": 0.33169463520656217,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Cupid",
       "acl": [
         "`dragon, buff(s3,1) and s=1 or s=2",
         "`s4",
@@ -41,19 +41,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 129986.53271059015,
+        "dps": 132180.14973623268,
         "team": 0.1097180246765808,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
-        "An_Unfreezing_Flower_Axe",
-        "Mask_of_Determination_Lance"
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
@@ -80,7 +80,7 @@
       ]
     },
     "META": {
-      "tdps": 417928.75448053767,
+      "tdps": 421941.5502371876,
       "pref": "PERSONAL"
     }
   },
@@ -257,7 +257,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 114617.51600447347,
+        "dps": 114647.7053241739,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -272,6 +272,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
+        "`s4, dgauge = 500",
         "`dragon",
         "`s3, cancel",
         "`s2, xf=5 or duration-now < 5",
@@ -281,6 +282,10 @@
         "`ds1, duration-now<10 and dshift_timeleft < 1",
         "`dodge, fsc",
         "`dfs3, x=1 or duration-now>100"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
@@ -294,20 +299,35 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37149.66371471377,
+        "dps": 38399.79133824495,
         "team": 0.33169463520656206,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
         "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 122508.73200228976,
+        "dps": 124355.67476115616,
         "team": 0.10971802467658079,
         "noaff": false,
         "nihil": false
@@ -319,7 +339,7 @@
       ]
     },
     "META": {
-      "tdps": 384540.82204326196,
+      "tdps": 387229.4617783687,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -330,7 +350,7 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33206.993263907454,
+        "dps": 38399.79133824495,
         "team": 0.33169463520656206,
         "noaff": false,
         "nihil": false

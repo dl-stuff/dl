@@ -2,48 +2,48 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 101407.32998239131,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 71998.90348326422,
+        "team": 0.09417454291286066,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Adventure_in_the_Past",
         "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "The_Plaguebringer",
+        "Moonlight_Party",
+        "Lord_of_the_Skies",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Zephyr",
       "acl": [
-        "`dragon, dgauge>=2700",
+        "`dragon, s2.check()",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
+        "`s1, x=4",
+        "`s2, x=4",
         "`s4",
-        "`fs, x=4"
+        "`fs, x=4 or hits=1"
       ],
       "dacl": [
-        "`s1",
-        "`s2",
-        "`s4, x=4",
+        "`s1, x=4",
+        "`s2, x=4",
+        "`s4",
         "`dodge, x=4"
       ],
       "coabs": [
-        "Humanoid_Midgardsormr",
         "Nino",
+        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101407.32998239131,
+        "dps": 99098.17391315343,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -59,22 +59,22 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, dgauge>=2700",
+        "`dragon, s2.check()",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
+        "`s1, x=4",
+        "`s2, x=4",
         "`s4",
-        "`fs, x=4"
+        "`fs, x=4 or hits=1"
       ],
       "dacl": [
-        "`s1",
-        "`s2",
-        "`s4, x=4",
+        "`s1, x=4",
+        "`s2, x=4",
+        "`s4",
         "`dodge, x=4"
       ],
       "coabs": [
-        "Humanoid_Midgardsormr",
         "Nino",
+        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
@@ -83,6 +83,7 @@
       ]
     },
     "META": {
+      "tdps": 287755.7946308702,
       "pref": "PERSONAL"
     }
   },
@@ -133,10 +134,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 119785.69104131374,
-        "team": 0.0975400900111966,
+        "dps": 110712.30399182791,
+        "team": 0.0942265172138821,
         "noaff": false,
         "nihil": false
       },
@@ -148,17 +149,32 @@
         "`s4",
         "`fs, x=4"
       ],
+      "dacl": [
+        "`s1, x=4",
+        "`s2, x=4",
+        "`s4, x=4",
+        "`dodge, x=4"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Nino",
         "Yukata_Lathna"
-      ],
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 119730.16767041796,
+        "team": 0.09266938266558437,
+        "noaff": false,
+        "nihil": false
+      },
       "share": [
         "Weapon",
         "Akasha"
       ]
     },
     "META": {
+      "tdps": 5791319.5031530475,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -215,35 +231,32 @@
         "`s2",
         "`s4",
         "`fs, x=4"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72909.09922293569,
-        "team": 0.09202373673757737,
-        "noaff": false,
+        "dps": 73863.65924821235,
+        "team": 0.08822876223201302,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Adventure_in_the_Past",
         "Emissaries_of_the_Heavens",
         "Moonlight_Party",
-        "Worthy_Rivals",
         "Lord_of_the_Skies",
-        "The_Queen_of_the_Knife",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Zephyr",
       "share": [
         "Weapon",
-        "Akasha"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 122229.24553725113,
+      "tdps": 164287.60419939077,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

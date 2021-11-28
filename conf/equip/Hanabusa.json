@@ -39,46 +39,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73951.70145941473,
-        "team": 0.1888736199023828,
+        "dps": 112063.64876688833,
+        "team": 0.20369939982129381,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Choice_Blend",
-        "A_Small_Courage",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf,xf=5"
+        "`dragon, buff(s3, 1) and buff(s2) and xf",
+        "`s3, xf=5",
+        "`s2, (xf=5 and dgauge<=400) or (dgauge>=500 and buff(s3,1))",
+        "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Gala_Zena",
-        "Peony",
-        "Wand"
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 72237.6891765629,
+      "tdps": 116651.69940482815,
       "pref": "PERSONAL"
     }
   },
@@ -119,7 +117,7 @@
       ]
     },
     "META": {
-      "tdps": 308671.4016972203,
+      "tdps": 948430.0011813765,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -171,35 +169,23 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91940.17830980818,
-        "team": 0.09625962215885427,
+        "dps": 133033.2192502964,
+        "team": 0.20369939982129392,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Applelicious_Dreams",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon, buff(s2)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, s1.phase>0",
-        "`s4, xf",
-        "`fsf,xf=5"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 83653.99213912962,
+      "tdps": 140420.79426302764,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

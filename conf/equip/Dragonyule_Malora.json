@@ -37,46 +37,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76745.59634904993,
-        "team": 0.08539146185109267,
-        "noaff": false,
+        "dps": 94989.69491251223,
+        "team": 0.0815310022509311,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s2, def_mod()!=1",
-        "`s4, cancel",
-        "`fsf, x=4"
+        "`s1, dgauge>=500 and buff(s3, 1)",
+        "`dragon, buff(s3, 1) and s=1",
+        "`s3",
+        "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Elisanne",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 440909.9453401853,
+      "tdps": 553917.655611828,
       "pref": "PERSONAL"
     }
   },
@@ -186,36 +184,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90731.99612937334,
-        "team": 0.10086787754713494,
+        "dps": 113602.01337388047,
+        "team": 0.08153100225093118,
         "noaff": false,
         "nihil": false
       },
-      "acl": [
-        "`dragon, s=1 and buff(s3,1)",
-        "`s3, x=4",
-        "`s1, cancel",
-        "`s2, def_mod()!=1",
-        "`s4, cancel",
-        "`fsf, x=4"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3,x=1"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Raemond"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ]
     },
     "META": {
-      "tdps": 315678.3424630613,
+      "tdps": 384202.17185991135,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -239,8 +224,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58061.82903265657,
-        "team": 0.07328646652546715,
+        "dps": 58066.248583513574,
+        "team": 0.07320199503394048,
         "noaff": false,
         "nihil": true
       },
@@ -258,54 +243,11 @@
       ]
     },
     "META": {
-      "tdps": 168495.73558161568,
+      "tdps": 168407.50075793118,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 55902.64571737729,
-        "team": 0.10882987509129856,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Kung_Fu_Masters",
-        "Spirit_of_the_Season",
-        "Blessed_Days",
-        "Chariot_Drift",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=4",
-        "`s2, def_mod()!=1",
-        "`s1",
-        "`s4, x>1",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

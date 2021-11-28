@@ -37,41 +37,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52974.689430934435,
-        "team": 0.15445202143833547,
+        "dps": 98722.4657236643,
+        "team": 0.1419782101526792,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Spirit_of_the_Season",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
-        "Sisters_of_the_Anvil",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
-        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
+        "`s1",
         "`s3",
         "`s2, not c_fs(peonydreams)",
-        "`s1",
-        "`s4, cancel"
+        "`fs, c_fs(peonydreams) and s2.check()",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
         "Gala_Audric",
-        "Gala_Zena"
+        "Gala_Zena",
+        "Halloween_Laxi"
       ],
       "share": [
         "Weapon",
-        "Gala_Luca"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 77734.07577027305,
+      "tdps": 155980.87851854647,
       "pref": "PERSONAL"
     }
   },
@@ -99,7 +104,7 @@
       ]
     },
     "META": {
-      "tdps": 100303.67787132609,
+      "tdps": 197409.36148163275,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -230,37 +235,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 123880.26031309192,
-        "team": 0.10235254412459975,
+        "dps": 140596.00320841512,
+        "team": 0.1419782101526792,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
-        "Sisters_of_the_Anvil",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
-        "`s3",
-        "`s2, not c_fs(peonydreams)",
-        "`s1",
-        "`s4, x>3"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
+        "Mask_of_Determination_Lance"
       ]
     },
     "META": {
-      "tdps": 183224.57823493014,
+      "tdps": 225121.27983700935,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -271,35 +262,34 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65994.69763492991,
+        "dps": 102912.72151753282,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
       ],
       "acl": [
-        "`dragon, aff(flashburn)",
-        "`s4, x>2 or s2.check() or dgauge>=500",
-        "`s2, aff(flashburn) or x=5",
-        "`s3",
-        "`s1"
+        "`dragon",
+        "`s4",
+        "`s3"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3,x=1"
       ],
       "coabs": [
-        "Blade",
-        "Dagger",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Ilia"
+        "Gala_Prince",
+        "Halloween_Laxi",
+        "Mitsuhide"
       ]
     },
     "META": {
@@ -331,14 +321,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48739.137413300115,
-        "team": 0.1544520214383355,
+        "dps": 96353.80675458953,
+        "team": 0.1419782101526792,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 1977701.9208355476,
+      "tdps": 3018647.296699975,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

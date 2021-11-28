@@ -79,59 +79,24 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 21341.977383673307,
-        "team": 0.0,
+        "dps": 51361.06489417663,
+        "team": 0.09990144915087538,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
         "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Entwined_Flames",
-        "His_Clever_Brother"
+        "From_Whence_He_Comes",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "#`dragon, self.sr.count=1",
-        "`s3",
-        "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
-        "else",
-        "`s2, self.sr.count=2",
-        "end"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Axe",
-        "Staff",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46908.44298775584,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Entwined_Flames",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, self.sr.count=1",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s4",
         "if s2_autocharge_buff.get()",
         "`s1, self.sr.count=2 and cancel",
@@ -139,12 +104,46 @@
         "`s2, self.sr.count=2",
         "end"
       ],
-      "dacl": [
-        "ds1,x=3"
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52628.19554555137,
+        "team": 0.09962024689694275,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Kung_Fu_Masters",
+        "Moonlight_Party",
+        "Entwined_Flames",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, self.sr.count=1",
+        "`s3",
+        "`s4",
+        "if s2_autocharge_buff.get()",
+        "`s1, self.sr.count=2 and cancel",
+        "else",
+        "`s2, self.sr.count=2",
+        "end"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Tiki",
         "Yurius"
       ],
       "share": [
@@ -153,6 +152,7 @@
       ]
     },
     "META": {
+      "tdps": 4506118.40287135,
       "pref": "PERSONAL"
     }
   },

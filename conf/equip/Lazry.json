@@ -72,21 +72,21 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 65071.55807474537,
-        "team": 0.14322058353788134,
+        "dps": 69373.97102970911,
+        "team": 0.15789815248489578,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
         "Kung_Fu_Masters",
-        "Summer_Paladyns",
         "A_Small_Courage",
         "His_Clever_Brother",
         "Applelicious_Dreams",
-        "Promised_Piety_Bow"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -94,8 +94,50 @@
         "`s1(low), aff_timeleft(frostbite)<5",
         "`s1(high)",
         "`s2(high)",
-        "`s3",
+        "`s3, x=4",
         "`s4"
+      ],
+      "dacl": [
+        "ds1, x=3",
+        "sack, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70938.931040163,
+        "team": 0.14498343232138652,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Kung_Fu_Masters",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, cancel",
+        "`s1(low), aff_timeleft(frostbite)<5",
+        "`s1(high)",
+        "`s2(high)",
+        "`s3, x=4",
+        "`s4"
+      ],
+      "dacl": [
+        "ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -108,6 +150,7 @@
       ]
     },
     "META": {
+      "tdps": 121176.45528826231,
       "pref": "PERSONAL"
     }
   },
@@ -165,17 +208,44 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 73462.11272804766,
-        "team": 0.1339965760739054,
+        "dps": 74163.36161341696,
+        "team": 0.17553043246062494,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
         "Kung_Fu_Masters",
-        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, cancel",
+        "`s1(high)",
+        "`s2(high)",
+        "`s4, x=4",
+        "`s3, x=4"
+      ],
+      "dacl": [
+        "ds1, x=3"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76271.71847682487,
+        "team": 0.16267965844170912,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Kung_Fu_Masters",
         "A_Small_Courage",
         "His_Clever_Brother",
         "Applelicious_Dreams",
@@ -191,10 +261,11 @@
       ]
     },
     "META": {
+      "tdps": 164064.58165901108,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -232,8 +303,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37747.044054207225,
-        "team": 0.1407654354476744,
+        "dps": 41567.081832005155,
+        "team": 0.11564338766197889,
         "noaff": false,
         "nihil": true
       },
@@ -247,7 +318,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

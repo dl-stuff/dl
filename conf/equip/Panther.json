@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 121257.71185517214,
-        "team": 0.024979251955778378,
+        "dps": 126713.44151145908,
+        "team": 0.021564642242441968,
         "noaff": false,
         "nihil": false
       },
@@ -57,9 +57,7 @@
       ],
       "slots.d": "Cerberus",
       "acl": [
-        "`dragon, a3_buffcount=1 and s=1",
-        "`dragon, a3_buffcount=2 and s=2",
-        "`dragon, a3_buffcount=3 and s=1",
+        "`dragon, a3_buffcount>=2",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
         "`s4, x=5",
@@ -67,10 +65,12 @@
         "`s2, x=5"
       ],
       "dacl": [
-        "`sack, not aff(scorchrend) and charged_in(5, s2)",
         "`s4, x=5",
         "`s1, x=5",
-        "`s2, x=5"
+        "`s2, x=5",
+        "if a3_buffcount<3 or dshift_timeleft<10",
+        "`sack, not have_buff(s1_10) and s1.check()",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 429021.87921134,
+      "tdps": 476256.64343439287,
       "pref": "PERSONAL"
     }
   },
@@ -125,8 +125,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46932.767164406396,
-        "team": 0.061631513746092444,
+        "dps": 51677.97577115312,
+        "team": 0.06169997194132063,
         "noaff": false,
         "nihil": true
       },
@@ -163,42 +163,26 @@
       ]
     },
     "META": {
-      "tdps": 76446255.4318454,
+      "tdps": 802095071.3952509,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 137869.26976510749,
-        "team": 0.023071169292949514,
+        "dps": 141607.25877642247,
+        "team": 0.021564642242441968,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Me_and_My_Bestie",
+        "Sweet_Surprise",
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, a3_buffcount>1",
-        "`fs, not buff(s3)",
-        "`s3, not buff(s3) and s1.check()",
-        "`s4, x=5",
-        "`s1, x=5 or s",
-        "`s2, x=5"
-      ],
-      "dacl": [
-        "`s4, x=5",
-        "`s1, x=5",
-        "`s2, x=5",
-        "if a3_buffcount<3",
-        "`sack, not have_buff(s1_10) and s1.check()",
-        "end"
       ]
     },
     "META": {
@@ -220,8 +204,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49226.421715439916,
-        "team": 0.061631513746092444,
+        "dps": 54180.758386117464,
+        "team": 0.06169997194132063,
         "noaff": false,
         "nihil": true
       },
@@ -231,7 +215,7 @@
       ]
     },
     "META": {
-      "tdps": 86509015.43843317,
+      "tdps": 877461435.2605281,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -242,8 +226,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61317.286654237454,
-        "team": 0.0,
+        "dps": 75266.70562119594,
+        "team": 0.03320307938072048,
         "noaff": false,
         "nihil": false
       },
@@ -265,6 +249,19 @@
         "`s1, x=5 or s",
         "`s2, x=5"
       ],
+      "dacl": [
+        "`s4, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "if dshift_timeleft<10 and duration-now>10",
+        "`sack, not have_buff(s1_10) and s1.check()",
+        "end"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
       "share": [
         "Weapon",
         "Mikoto"
@@ -281,8 +278,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34678.87104729613,
-        "team": 0.06172263428252864,
+        "dps": 35911.10602547539,
+        "team": 0.06164272537184488,
         "noaff": false,
         "nihil": true
       },

@@ -46,7 +46,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105801.48508335471,
+        "dps": 109704.81151777005,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -55,28 +55,23 @@
         "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
+        "A_Choice_Blend",
         "Chariot_Drift",
-        "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "`dragon, s=1",
-        "`s3, not buff(s3) and fsc",
-        "queue dshift_count=3 and prep",
-        "`s4",
+        "`s3, not buff(s3)",
+        "`s4, xf=5 or s",
+        "`s2, xf=5 or s",
         "`s1",
-        "end",
-        "`s1",
-        "`s4, xf>2",
-        "`s2, xf>3",
         "`fs, charged_in(fs, s1) and xf",
-        "`fs, xf=5 and (s3.check() and not buff(s3))",
         "`fsf, xf=5"
       ],
       "dacl": [
-        "ds1, x=1 or x=2"
+        "`ds1, x=1 or x=2"
       ],
       "coabs": [
         "Halloween_Mym",
@@ -89,7 +84,7 @@
       ]
     },
     "META": {
-      "tdps": 554728.9882606656,
+      "tdps": 597982.1073187898,
       "pref": "PERSONAL"
     }
   },
@@ -117,9 +112,6 @@
         "`s3",
         "`s1, xf",
         "`fsf, xf=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Halloween_Mym",
@@ -163,7 +155,7 @@
       ],
       "dacl": [
         "ds1, x=1",
-        "sack, timeleft(s1,ruin)<0.4"
+        "sack, timeleft(s1, ruin)<0.4"
       ],
       "coabs": [
         "Halloween_Mym",

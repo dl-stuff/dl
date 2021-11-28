@@ -35,46 +35,43 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69769.97149004131,
-        "team": 0.011946176863016949,
-        "noaff": false,
+        "dps": 97512.85297790397,
+        "team": 0.06249915626139025,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Having_a_Summer_Ball",
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, not buff(s2)",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not buff(s2)",
-        "`s1, x>3 or fsc",
-        "`s4, cancel",
-        "`fs, x=2 and buff(s2)"
+        "`dragon, buff(s3, 1) and xf",
+        "`s3, x=5",
+        "`s4, xf"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Elisanne",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 369028.8112633064,
+      "tdps": 1148304.8080296821,
       "pref": "PERSONAL"
     }
   },
@@ -156,14 +153,23 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 94459.45786097574,
-        "team": 0.011946176863016949,
+        "dps": 114944.5452201689,
+        "team": 0.06249915626139025,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
+      ]
     },
     "META": {
-      "tdps": 593288.3575592341,
+      "tdps": 1441075.744998926,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -188,33 +194,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 75444.98669910742,
-        "team": 0.011946176863016949,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Snipers_Allure",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ]
-    },
-    "META": {
-      "tdps": 420576.11025879736,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

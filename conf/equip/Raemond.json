@@ -36,85 +36,90 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92113.73215712383,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 100223.44707696167,
+        "team": 0.049937849571882534,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Moonlight_Party",
-        "Pecorines_Grand_Adventure",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
-        "`s4",
         "`s3",
-        "`fs, x=4 or hits=3"
+        "`s4",
+        "`s1, duration-now<2.5",
+        "`fs, x=3"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3 or (dshift_count=1 and dshift_timeleft<5)",
+        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
+        "Blade",
         "Halloween_Laxi",
-        "Mitsuhide",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 492818.8312438989,
+      "tdps": 1638895.2708937633,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 72172.27765195284,
-        "team": 0.023588501465171566,
-        "noaff": false,
+        "dps": 99946.07875672664,
+        "team": 0.04997482101934281,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Adventure_in_the_Past",
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buff(s3, 1)",
-        "`s4",
         "`s3",
-        "`s1, fsc",
-        "`fs, x=4 or hits=0"
+        "`s4",
+        "`s1, duration-now<1",
+        "`fs, x=3"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
+        "Blade",
         "Halloween_Laxi",
-        "Mitsuhide",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 845388.781250668,
+      "tdps": 7502230.485648982,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -220,8 +225,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 111640.87085952157,
-        "team": 0.0,
+        "dps": 121340.87109592477,
+        "team": 0.04999021580387322,
         "noaff": false,
         "nihil": false
       },
@@ -233,6 +238,17 @@
         "Entwined_Flames",
         "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s4",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Gala_Prince",
+        "Halloween_Laxi",
+        "Peony"
       ]
     },
     "META": {
@@ -269,6 +285,70 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 99946.07875672664,
+        "team": 0.04997482101934281,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s4",
+        "`s1, duration-now<1",
+        "`fs, x=3"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 100223.44707696167,
+        "team": 0.049937849571882534,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`s1, duration-now<2",
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s4",
+        "`fs, x=3"
+      ]
+    },
+    "META": {
+      "tdps": 7502230.485648982,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
@@ -291,10 +371,10 @@
       ]
     },
     "META": {
-      "tdps": 492818.8312438989,
+      "tdps": 1638895.2708937633,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
