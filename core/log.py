@@ -60,16 +60,16 @@ class Log:
                 dict[name] = value
 
     @staticmethod
-    def fmt_hitattr_v(v):
+    def fmt_dict_v(v):
         if isinstance(v, list):
             return "[" + ",".join(map(str, v)) + "]"
         if isinstance(v, dict):
-            return Log.fmt_hitattr(v)
+            return Log.fmt_dict(v)
         return str(v)
 
     @staticmethod
-    def fmt_hitattr(attr):
-        return "{" + "/".join([f"{k}:{Log.fmt_hitattr_v(v)}" for k, v in attr.items()]) + "}"
+    def fmt_dict(attr):
+        return "{" + "/".join([f"{k}:{Log.fmt_dict_v(v)}" for k, v in attr.items()]) + "}"
 
     def set_log_shift(self, shift_name=None, end_reason=None):
         if shift_name and not self.shift_name:
@@ -125,7 +125,7 @@ class Log:
             self.shift_dmg += float(args[2])
 
     def log_hitattr(self, name, attr):
-        attr_str = Log.fmt_hitattr(attr)
+        attr_str = Log.fmt_dict(attr)
         if (name, attr_str) in self.hitattr_set:
             return
         self.hitattr_set.add((name, attr_str))

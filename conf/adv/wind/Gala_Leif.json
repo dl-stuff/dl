@@ -17,7 +17,7 @@
         "wt": "sword",
         "spiral": true,
         "abilities": [
-            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["prep", 1.0]]},
             {"ab": [["mod", 0.25, "debufftime", "-t:s"]]},
             {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 3, 0], "target": "MYSELF"}]]},
             {"cond": ["selfaff", "freeze"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},

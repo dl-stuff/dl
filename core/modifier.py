@@ -1,8 +1,9 @@
 from collections import defaultdict
 from functools import reduce
 import operator
+from os import kill
 
-from conf import ENEMY_TARGETS, SELF_TARGETS, TEAM_TARGETS
+from conf import GENERIC_TARGET, SELF, TEAM, ENEMY
 
 from core.timeline import Timer, Listener, now
 from core.log import log
@@ -27,7 +28,10 @@ class ModifierDict(defaultdict):
         self[modifier.mod_type][modifier.mod_order].append(modifier)
 
     def remove(self, modifier):
-        self[modifier.mod_type][modifier.mod_order].remove(modifier)
+        try:
+            self[modifier.mod_type][modifier.mod_order].remove(modifier)
+        except ValueError:
+            pass
 
     @staticmethod
     def mod_mult(a, b):
@@ -57,40 +61,49 @@ class ModifierDict(defaultdict):
 
 
 class Modifier(object):
-    _static = Static({"all_modifiers": ModifierDict(), "g_condition": None, "damage_sources": set()})
+    MODS = {
+        SELF: ModifierDict(),
+        TEAM: ModifierDict(),
+        ENEMY: ModifierDict(),
+    }
 
-    def __init__(self, name, mtype, order, value, get=None):
-        self.mod_name = name
+    def __init__(self, mtype, order, value, get=None, target="MYSELF"):
         self.mod_value = value
         self.mod_type = mtype
         self.mod_order = order
         self.mod_get = get
+        self.target = target
         self.buff_capped = order == "buff"
         self._mod_active = 0
         self.on()
+
+    def all_mod_dicts(self):
+        return (self._static.self_mods, self._static.team_mods, self._static.enemy_mods)
 
     def get(self):
         if self.mod_get is not None:
             return self.mod_value * self.mod_get()
         return self.mod_value
 
-    def on(self, modifier=None):
+    def on(self):
         if self._mod_active == 1:
             return self
-        if modifier == None:
-            modifier = self
 
-        self._static.all_modifiers.append(self)
+        for generic_target in GENERIC_TARGET[self.target]:
+            self.MODS[generic_target].append(self)
+
         self._mod_active = 1
         return self
 
-    def off(self, modifier=None):
+    def off(self):
         if self._mod_active == 0:
             return self
         self._mod_active = 0
-        if modifier == None:
-            modifier = self
-        self._static.all_modifiers.remove(self)
+        for mod_dict in self.MODS.values():
+            try:
+                mod_dict.remove(self)
+            except ValueError:
+                pass
         return self
 
     def __enter__(self):
@@ -100,8 +113,8 @@ class Modifier(object):
         self.off()
 
     def __repr__(self):
-        return "<%s %s %s %s>" % (
-            self.mod_name,
+        return "<{} {} {} {}>"(
+            self.target,
             self.mod_type,
             self.mod_order,
             self.get(),
@@ -109,45 +122,51 @@ class Modifier(object):
 
 
 class KillerModifier(Modifier):
-    def __init__(self, name, value, order, killer_condition):
-        if "afflicted" in killer_condition:
-            self.killer_condition = AFFLICT_LIST
+    def __init__(self, value, killer_states, order, get=None, target="MYSELF"):
+        if "afflicted" in killer_states:
+            self.killer_states = AFFLICT_LIST
         else:
-            self.killer_condition = killer_condition
-        super().__init__(f"{name}_killer", f"{killer_condition}_killer", order, value)
+            self.killer_states = killer_states
+        self._killer_mtypes = [f"killer_{kstate}" for kstate in killer_states]
+        super().__init__(f"combined_{killer_states}", order, value, get=get, target=target)
 
-    def on(self, modifier=None):
+    def on(self):
         if self._mod_active == 1:
             return self
-        if modifier == None:
-            modifier = self
-        if modifier.mod_condition is not None:
-            if not self._static.g_condition(modifier.mod_condition):
-                return self
 
-        for kcondition in self.killer_condition:
-            self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].append(modifier)
+        for kmtype in self._killer_mtypes:
+            for generic_target in GENERIC_TARGET[self.target]:
+                self.MODS[generic_target][kmtype][self.mod_order].append(self)
 
         self._mod_active = 1
         return self
 
-    def off(self, modifier=None):
+    def off(self):
         if self._mod_active == 0:
             return self
+
+        for kmtype in self._killer_mtypes:
+            for generic_target in GENERIC_TARGET[self.target]:
+                self.MODS[generic_target][kmtype][self.mod_order].append(self)
+
         self._mod_active = 0
-        if modifier == None:
-            modifier = self
-        for kcondition in self.killer_condition:
-            self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].remove(self)
         return self
+
+    def __repr__(self):
+        return "<{} {} {} {}>"(
+            self.target,
+            self.killer_states,
+            self.mod_order,
+            self.get(),
+        )
 
 
 class CrisisModifier(Modifier):
-    def __init__(self, name, modtype, adv):
-        self.adv = adv
+    def __init__(self, get_hp, mtype, order="crisis", target="MYSELF"):
+        self.get_hp = get_hp
         self.passive = None
         self.per_hit = None
-        super().__init__(name, modtype, "crisis", self.c_mod_value())
+        super().__init__(mtype, order, 1, get=self.c_mod_value, target=target)
 
     def set_passive(self, value):
         if self.passive is None:
@@ -159,27 +178,19 @@ class CrisisModifier(Modifier):
         self.per_hit = value
 
     def c_mod_value(self):
-        mods = []
+        max_mod = 0
         if self.passive is not None:
-            mods.append(self.passive)
+            max_mod = max(max_mod, self.passive)
         if self.per_hit is not None:
-            mods.append(self.per_hit)
-        if mods:
-            return (max(mods)) * ((100 - self.adv.hp) ** 2) / 10000
+            max_mod = max(max_mod, self.per_hit)
+        if max_mod > 0:
+            return max_mod * ((100 - self.get_hp()) ** 2) / 10000
         else:
             return 0
 
-    def get(self):
-        self.mod_value = self.c_mod_value()
-        return self.mod_value
-
-    def on(self):
-        self.mod_value = self.c_mod_value()
-        return super().on()
-
 
 class SlipDmg:
-    def __init__(self, actcond, data) -> None:
+    def __init__(self, actcond, data, source, target, ev=1) -> None:
         self._actcond = actcond
         self._adv = actcond._adv
         self._data = data
@@ -188,34 +199,10 @@ class SlipDmg:
         self.func, self.value = data.get("value")
         self.is_percent = self.func == "percent"
         self.slip_timer = Timer(self.tick, self.iv, 1)
-        self.slip_stack = {}
+        self.slip_value = None
+        self.on(source, target, ev=ev)
 
-    def tick(self, e):
-        if self.kind == "corrosion":  # TODO: corrosion maffs
-            self._adv.add_hp(sum(self.slip_stack), percent=self.is_percent, can_die=True)
-        elif self.kind == "hp":
-            self._adv.add_hp(sum(self.slip_stack), percent=self.is_percent)
-        elif self.kind == "sp":
-            target = self._data.get("target")
-            if self.is_percent:
-                self._adv.charge_p("sp_regen", sum(self.slip_stack), target=target)
-            else:
-                self._adv.charge("sp_regen", sum(self.slip_stack), target=target)
-        else:
-            combined = defaultdict(float)
-            for source, target, value in self.slip_stack.values():
-                combined[(source, target)] += value
-            for st, value in combined.items():
-                source, target = st
-                if target in ENEMY_TARGETS:
-                    if self.kind is None:
-                        log("dmg", f"{source}_{self._actcond.aff}", value, 0)
-                    elif self.kind == "bleed":  # TODO: handle mbleed
-                        log("dmg", f"{source}_bleed", value * (0.5 + 0.5 * len(self.slip_stack)), 0)
-                else:
-                    self._adv.add_hp(value, percent=self.is_percent)
-
-    def on(self, source, target, stack_key, ev=1):
+    def on(self, source, target, ev=1):
         if not self.slip_timer.online:
             self.slip_timer.on()
         if self.func == "mod":
@@ -224,23 +211,46 @@ class SlipDmg:
             value = self._adv.heal_formula(self, source, self.value)
         else:
             value = self.value
-        self.slip_stack[stack_key] = (source, target, value * ev)
+        self.slip_value = (source, target, value * ev)
 
-    def off(self, stack_key):
-        try:
-            del self.slip_stack[stack_key]
-        except KeyError:
-            pass
-        if not self.slip_stack:
-            self.slip_timer.off()
+    def off(self):
+        self.slip_value = None
+        self.slip_timer.off()
+
+    def tick(self, e):
+        source, target, value = self.slip_value
+        if ENEMY in GENERIC_TARGET[target]:
+            if self.kind is None:
+                log("dmg", f"{source}_{self._actcond.aff}", value, 0)
+            elif self.kind == "bleed":  # TODO: handle mbleed
+                log("dmg", f"{source}_bleed", value * (0.5 + 0.5 * self._adv.get_slipcount(self.kind)), 0)
+        else:
+            if self.kind == "corrosion":  # TODO: corrosion maffs
+                self._adv.add_hp(value, percent=self.is_percent, can_die=True)
+            elif self.kind == "hp":
+                self._adv.add_hp(value, percent=self.is_percent)
+            elif self.kind == "sp":
+                target = self._data.get("target")
+                if self.is_percent:
+                    self._adv.charge_p("sp_regen", value, target=target)
+                else:
+                    self._adv.charge("sp_regen", value, target=target)
+            else:  # self affliction
+                self._adv.add_hp(value, percent=self.is_percent)
+
+    def get(self):
+        return self.slip_value is not None
 
 
 class ActCond:
-    def __init__(self, adv, id, data):
+    def __init__(self, adv, id, data, target="MYSELF"):
         self._adv = adv
         self._id = id
+        self.target = target
+        self.generic_target = GENERIC_TARGET[self.target]
 
         self.hidden = bool(data.get("hide"))
+        self.text = data.get("text")
         self.icon = data.get("icon")
         self.overwrite = data.get("overwrite")
         self.maxstack = data.get("maxstack")
@@ -265,19 +275,23 @@ class ActCond:
         self.relief = data.get("relief")
 
         self.slip = data.get("slip")
-        if self.slip:
-            self.slip = SlipDmg(self, self.slip)
+        self.slip_stack = {}
 
-        self.modifiers = []
-        for mod in data.get("mods", tuple()):
-            value, mtype, morder = mod
-            mod_name = "_".join((self._id, mtype, morder))
-            self.modifiers.append(Modifier(mod_name, mtype, morder, value, self.get))
+        self.mod_list = []
+        if mod_args := data.get("mods"):
+            for mod in mod_args:
+                value, mtype, morder = mod
+                mod_name = "_".join((self._id, mtype, morder))
+                self.mod_list.append(Modifier(mod_name, mtype, morder, value, self.get))
 
         self.buff_stack = {}
 
     def get(self):
         return self.stack
+
+    def log(self, *args):
+        if not self.hidden:
+            log("actcond", *args)
 
     @property
     def stack(self):
@@ -306,12 +320,16 @@ class ActCond:
     def l_on(self, e):
         return self.on(e.source, e.target)
 
-    def on(self, source, target):
-        if self.adv.nihilism and not (self.coei or self.debuff) and (target in SELF_TARGETS or target in TEAM_TARGETS):
+    @allow_acl
+    def check(self, source):
+        if self.adv.nihilism and not (self.coei or self.debuff) and (SELF in self.generic_target or TEAM in self.generic_target):
             return False
-        if self.stack == self.maxstack:
+        return True
+
+    def on(self, source):
+        if not self.check(source):
             return False
-        if self.overwrite == -1:
+        if self.stack == self.maxstack or self.overwrite == -1:
             self.off()
         if self.cooldown:
             if self.cooldown_timer:
@@ -319,21 +337,25 @@ class ActCond:
                 self.cooldown_timer.off()
                 self.cooldown_timer = Timer(self.l_on, cd_timeleft)
                 self.cooldown_timer.source = source
-                self.cooldown_timer.target = target
+                self.cooldown_timer.target = self.target
                 self.cooldown_timer.on()
                 return True
             else:
                 self.cooldown_timer = Timer(timeout=self.cooldown)
                 self.cooldown_timer.on()
 
-        stack_key = (now(), self._id, target)
-        if not self.effect_on(source, target, stack_key):
+        stack_key = (now(), source)
+        if not self.effect_on(source, stack_key):
             return False
 
+        duration = -1
         if self.duration:
-            timer = Timer(self.l_off, self.duration * self.bufftime(source))
+            duration = self.duration * self.bufftime(source)
+            timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
         self.buff_stack[stack_key] = timer
+
+        self.log("start", self.text, duration)
 
     def _off(self, stack_key):
         timer = self.buff_stack.pop(stack_key)
@@ -346,6 +368,8 @@ class ActCond:
             stack_key = min(self.buff_stack.keys())
             self._off(stack_key)
 
+        self.log("end", self.text, f"from {stack_key[0]:<8.3f}, {stack_key[1]}")
+
     def l_off(self, e):
         self._off(e.stack_key)
 
@@ -356,10 +380,16 @@ class ActCond:
             self.effect_off(stack_key)
         self.buff_stack = {}
 
-    def effect_on(self, source, target, stack_key):
+    def effect_on(self, source, stack_key):
         if self.slip is not None:
-            self.slip.on(source, target, stack_key, ev=1)
+            # TODO: EV maffs
+            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source, self.target, ev=1)
 
     def effect_off(self, stack_key):
         if self.slip is not None:
-            self.slip.on(stack_key)
+            try:
+                self.slip_stack[stack_key].off()
+                del self.slip_stack[stack_key]
+            except KeyError:
+                pass
+        # no real need to turn off modifiers

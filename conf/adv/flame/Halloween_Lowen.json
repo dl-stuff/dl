@@ -14,7 +14,7 @@
         "wt": "staff",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "ab": [["prep", 0.75]]},
+            {"cond": ["event", "start"], "ab": [["prep", 0.75]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
             {"cond": ["hits", ">=", 1, 1, "fs"], "ab": [["hitattr", {"sp": [0.25, "%"], "target": "MYSELF"}]]}
         ],

@@ -18,7 +18,7 @@
             {"cond": ["hp", "<", 30, 1], "cd": 15.0, "ab": [["hitattr", {"actcond": "101", "target": "MYPARTY"}], ["hitattr", {"actcond": "94", "target": "MYPARTY"}]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
             {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["prep", 1.0]]},
             {"ab": [["prep", 0.05]]}
         ],
         "skillshare": {"src": "s1", "cost": 6, "sp": 8761}

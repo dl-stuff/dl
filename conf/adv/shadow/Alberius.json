@@ -14,11 +14,11 @@
         "wt": "sword",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "ab": [["dprep", 0.25]]},
+            {"cond": ["event", "start"], "ab": [["dprep", 0.25]]},
             {"cond": ["shift", "dform"], "ab": [["mod", 0.25, "def"]]},
             {"cond": ["actcond", 1645], "ab": [["mod", 0.25, "def"]]},
             {"ab": [["mod", 1.0, "affres_blind"]]},
-            {"cond": ["start"], "ab": [["actgrant", 291, "-t:x"], ["actgrant", 291, "-t:s1"], ["actgrant", 291, "-t:s2"]]}
+            {"cond": ["event", "start"], "ab": [["actgrant", 291, "-t:x"], ["actgrant", 291, "-t:s1"], ["actgrant", 291, "-t:s2"]]}
         ]
     },
     "s1": {

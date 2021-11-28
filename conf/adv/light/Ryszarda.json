@@ -17,7 +17,7 @@
         "wt": "lance",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1152"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
             {"cond": ["event", "heal"], "cd": 20.0, "ab": [["acduration_healed", 1152, -0.5, 1, 999], ["acduration_healed", 1152, -0.75, 1000, 99999]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},

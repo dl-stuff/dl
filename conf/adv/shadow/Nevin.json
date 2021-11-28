@@ -16,7 +16,7 @@
         "wt": "dagger",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "cd": 5.0, "ab": [["actcond", "MYSELF", "1152"]]},
+            {"cond": ["event", "start"], "cd": 5.0, "ab": [["actcond", "MYSELF", "1152"]]},
             {"cond": ["event", "dragon"], "ab": [["acduration", 1152, -4.0]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1205"]]},
             {"cond": ["fs_hold", "charge"], "cd": 0.5, "ab": [["hitattr", {"heal": 5, "target": "MYSELF"}]]},

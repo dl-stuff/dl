@@ -1,3 +1,4 @@
+from collections import defaultdict
 import json
 import os
 import glob
@@ -43,9 +44,43 @@ DDRIVE = "ddrive"
 ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 
 
-SELF_TARGETS = ("MYSELF", "ALLY", "MYPARTY", "ALLY_HP_LOWEST", "HIT_OR_GUARDED_RECORD_MYSELF")
-TEAM_TARGETS = ("ALLY", "MYPARTY", "MYPARTY_EXCEPT_MYSELF", "MYPARTY_EXCEPT_SAME_CHARID")
-ENEMY_TARGETS = ("HOSTILE", "HOSTILE_AND_DUNOBJ")
+# class ActionTargetGroup(ShortEnum):
+#     NONE = 0
+#     MYSELF = 1
+#     ALLY = 2
+#     HOSTILE = 3
+#     BOTH = 4
+#     DUNOBJ = 5
+#     MYPARTY = 6
+#     ALLY_HP_LOWEST = 7
+#     HIT_OR_GUARDED_RECORD = 8
+#     HIT_RECORD = 9
+#     HOSTILE_AND_DUNOBJ = 10
+#     BIND = 11
+#     MYPARTY_EXCEPT_MYSELF = 12
+#     MYPARTY_EXCEPT_SAME_CHARID = 13
+#     HIT_OR_GUARDED_RECORD_ALLY = 14
+#     HIT_OR_GUARDED_RECORD_MYSELF = 15
+#     FIXED_OBJECT = 16
+#     MYSELF_CHECK_COLLISION = 17
+#     RESERVE_11 = 18
+#     RESERVE_12 = 19
+#     RESERVE_13 = 20
+
+SELF_TARGETS = ("MYSELF", "ALLY", "MYPARTY", "ALLY_HP_LOWEST", "MYSELF_CHECK_COLLISION", "HIT_OR_GUARDED_RECORD_MYSELF")
+SELF = "self"
+TEAM_TARGETS = ("ALLY", "MYPARTY", "MYPARTY_EXCEPT_MYSELF", "MYPARTY_EXCEPT_SAME_CHARID", "HIT_OR_GUARDED_RECORD_ALLY")
+TEAM = "team"
+ENEMY_TARGETS = ("HOSTILE", "HOSTILE_AND_DUNOBJ", "HIT_OR_GUARDED_RECORD")
+ENEMY = "enemy"
+
+GENERIC_TARGET = defaultdict(set)
+for target in SELF_TARGETS:
+    GENERIC_TARGET[target].add(SELF)
+for target in TEAM_TARGETS:
+    GENERIC_TARGET[target].add(TEAM)
+for target in ENEMY_TARGETS:
+    GENERIC_TARGET[target].add(ENEMY)
 
 
 def get_conf_json_path(fn):

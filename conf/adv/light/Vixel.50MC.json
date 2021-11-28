@@ -16,7 +16,7 @@
         "abilities": [
             {"cond": ["hp", ">=", 100], "ab": [["mod", 0.15, "rcv", "-t:s"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
-            {"cond": ["start"], "ab": [["prep", 0.5]]}
+            {"cond": ["event", "start"], "ab": [["prep", 0.5]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 14790}
     },

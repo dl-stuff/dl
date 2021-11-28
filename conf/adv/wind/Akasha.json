@@ -16,7 +16,7 @@
         "wt": "staff",
         "spiral": true,
         "abilities": [
-            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["prep", 1.0]]},
             {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},

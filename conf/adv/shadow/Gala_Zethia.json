@@ -14,9 +14,9 @@
         "spiral": false,
         "utp": [2, 3000, 1200, 75],
         "abilities": [
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1865"], ["actcond", "MYSELF", "1865"], ["actcond", "MYSELF", "1865"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1865"], ["actcond", "MYSELF", "1865"], ["actcond", "MYSELF", "1865"]]},
             {"ab": [["mod", 1.0, "affres_paralysis"], ["mod", 1.0, "affres_blind"]]},
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1868"]]}
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1868"]]}
         ],
         "skillshare": {"src": "s99", "cost": 4, "sp": 6240}
     },

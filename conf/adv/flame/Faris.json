@@ -16,7 +16,7 @@
         "spiral": false,
         "gun": [1],
         "abilities": [
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1152"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
             {"cond": ["actcond", 1171], "ab": [["mod", 0.12, "sph"]]},
             {"cond": ["actcond", 1171], "ab": [["mod", 0.12, "sph"]]},

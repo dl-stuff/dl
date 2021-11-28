@@ -14,7 +14,7 @@
         "hp": 368,
         "ele": "shadow",
         "abilities": [
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "950"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "950"]]},
             {"cond": ["hits", ">=", 25, 1], "ab": [["actcond", "MYSELF", "952"]]},
             {"cond": ["event", "dragon_end"], "ab": [["actcond", "MYSELF", "1060"]]}
         ]

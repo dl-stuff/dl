@@ -13,7 +13,7 @@
         "abilities": [
             {"cond": ["hits", ">=", 15], "ab": [["mod", 0.1, "crit"]]},
             {"ab": [["mod", 1.0, "affres_paralysis"]]},
-            {"cond": ["start"], "ab": [["prep", 0.5]]}
+            {"cond": ["event", "start"], "ab": [["prep", 0.5]]}
         ],
         "skillshare": {"src": "s1", "cost": 4, "sp": 9958}
     },

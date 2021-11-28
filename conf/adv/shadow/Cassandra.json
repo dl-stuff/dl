@@ -14,7 +14,7 @@
         "wt": "wand",
         "spiral": true,
         "abilities": [
-            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["prep", 1.0]]},
             {"ab": [["prep", 0.05]]},
             {"ab": [["mod", 1.0, "affres_paralysis"]]},
             {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},

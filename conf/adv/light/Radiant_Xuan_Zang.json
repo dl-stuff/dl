@@ -25,7 +25,7 @@
         "cp": 100,
         "abilities": [
             {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", "893"], ["actcond", "MYSELF", "894"], ["actcond", "MYSELF", "895"]]},
-            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["prep", 1.0]]},
             {"ab": [["mod", 1.0, "affres_poison"]]},
             {"ab": [["mod", 0.2, "debufftime", "-t:s"]]}
         ]

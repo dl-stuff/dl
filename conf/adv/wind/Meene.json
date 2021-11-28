@@ -14,7 +14,7 @@
         "wt": "bow",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "ab": [["hitattr", {"actcond": "649", "target": "MYPARTY"}]]},
+            {"cond": ["event", "start"], "ab": [["hitattr", {"actcond": "649", "target": "MYPARTY"}]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"cond": ["hits", ">=", 15], "ab": [["mod", 0.13, "crit"]]}
         ],

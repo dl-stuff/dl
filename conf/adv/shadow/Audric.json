@@ -11,7 +11,7 @@
         "wt": "sword",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "ab": [["dprep", 0.1]]},
+            {"cond": ["event", "start"], "ab": [["dprep", 0.1]]},
             {"ab": [["mod", 0.5, "affres_paralysis"]]},
             {"cond": ["shift", "dform"], "ab": [["mod", 0.3, "crit"], ["mod", -0.3, "def"]]}
         ]

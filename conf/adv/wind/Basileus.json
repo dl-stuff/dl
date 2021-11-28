@@ -21,7 +21,7 @@
         "wt": "wand",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1152"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
             {"cond": ["hits", ">=", 25, 1], "cd": 8.0, "ab": [["acduration", 1152, -0.25]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1898"]]},

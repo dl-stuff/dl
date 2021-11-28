@@ -22,7 +22,7 @@
         "spiral": false,
         "gun": [3],
         "abilities": [
-            {"cond": ["start"], "ab": [["cprep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["cprep", 1.0]]},
             {"cond": ["event", "cp_full"], "ab": [["actcond", "MYSELF", "1965"]]},
             {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", "1985"]]},
             {"cond": ["hits", ">=", 25, 1], "ab": [["actcond", "MYSELF", "1990"]]},

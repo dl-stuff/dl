@@ -32,7 +32,7 @@
             {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"cond": ["actcond", 1889, "=", 1], "actcond": "1891", "target": "MYSELF"}]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1889", "ab": [["mode", ""]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1890", "ab": [["mode", "mode2"]]},
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1889"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1889"]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1980", "cd": 20.0, "ab": [["hitattr", {"amp": ["20000", 3, 1], "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"cond": ["event", "heal"], "cd": 10.0, "ab": [["hitattr", {"utp": 150, "target": "MYSELF"}]]}

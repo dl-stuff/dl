@@ -53,7 +53,7 @@
             {"cond": ["cp", ">=", 2000], "ab": [["mod", 0.2, "affres_all"]]},
             {"cond": ["event", "buffed"], "cd": 5.0, "ab": [["cprep", 0.025]]},
             {"cond": ["cp", ">=", 2000], "ab": [["altskill", "enhanced", "-t:s2"]]},
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1502"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1502"]]},
             {"cond": ["cp", ">=", 2000], "ab": [["mode", "modecp"]]},
             {"cond": ["selfaff", "burn"], "cd": 5.0, "ab": [["hitattr", {"sp": [0.25, "%", "s2"], "target": "MYSELF"}], ["actcond", "MYSELF", "1575"]]},
             {"cond": ["selfaff", "burn"], "cd": 5.0, "ab": [["actcond", "MYSELF", "1505"], ["actcond", "MYSELF", "1572"]]},

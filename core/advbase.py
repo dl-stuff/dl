@@ -1230,6 +1230,9 @@ class Adv(object):
             return 0
         return min(self._hp / self.max_hp * 100, 100)
 
+    def get_hp(self):
+        return self.hp
+
     def max_hp_mod(self):
         return 1 + min(0.3, self.sub_mod("maxhp", "buff")) + self.sub_mod("maxhp", "passive")
 

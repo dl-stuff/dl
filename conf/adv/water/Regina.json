@@ -27,7 +27,7 @@
         "wt": "blade",
         "spiral": false,
         "abilities": [
-            {"cond": ["start"], "ab": [["actcond", "MYSELF", "1152"], ["actcond", "MYSELF", "1871"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"], ["actcond", "MYSELF", "1871"]]},
             {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"cond": ["actcond", 1871, "=", 1], "actcond": "1874", "target": "MYSELF"}]]},
             {"ab": [["acduration", 1152, -0.15]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1171"], ["mode", "sigil"]]},

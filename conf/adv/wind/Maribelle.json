@@ -16,7 +16,7 @@
             {"cond": ["hp", ">=", 100], "ab": [["actdmg", 0.45, "-t:s"]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["prep", 1.0]]},
             {"ab": [["prep", 0.05]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 8208}

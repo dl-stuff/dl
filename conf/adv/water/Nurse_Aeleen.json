@@ -16,7 +16,7 @@
         "wt": "staff",
         "spiral": true,
         "abilities": [
-            {"cond": ["start"], "ab": [["prep", 1.0]]},
+            {"cond": ["event", "start"], "ab": [["prep", 1.0]]},
             {"cond": ["hp", "<", 30, 1], "ab": [["hitattr", {"sp": [0.25, "%"], "target": "MYPARTY"}]]},
             {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
