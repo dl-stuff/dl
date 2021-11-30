@@ -131,8 +131,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56644.63646335881,
-        "team": 0.04906680538819533,
+        "dps": 57091.55883798024,
+        "team": 0.14511587715073007,
         "noaff": false,
         "nihil": true
       },
@@ -147,17 +147,23 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
-        "`s4, fsc",
         "`s2, fsc",
-        "`s1, duration-now<1",
+        "`s4, fsc",
+        "`s1, duration-now<1 and fsc",
         "`fs, x=1 and buff(s2)",
         "`fs, x=3 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Grace",
         "Mona",
-        "Nino"
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",

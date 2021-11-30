@@ -37,36 +37,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86327.00166550443,
-        "team": 0.10618182252256321,
+        "dps": 106531.79483150323,
+        "team": 0.09537578308583594,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
-        "Such_High_Spirits",
+        "Entwined_Flames",
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`fs5, c_fs(auspex)",
+        "`dragon, buff(s3, 1)",
+        "`fs5, x=1",
         "`s3",
-        "`s4, x>2 and not buff(s4)",
-        "`dragon",
+        "`s2, cancel and buff(s3, 1)",
         "`s1, cancel",
-        "`s2, cancel"
+        "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
+        "Halloween_Laxi",
         "Mitsuhide",
         "Peony"
       ],
@@ -76,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 508011.11312688806,
+      "tdps": 608293.6288739749,
       "pref": "PERSONAL"
     }
   },
@@ -108,7 +108,7 @@
       ]
     },
     "META": {
-      "tdps": 884281.5705749658,
+      "tdps": 1003700.8567434129,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -200,8 +200,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 117059.862763741,
-        "team": 0.12827166511189592,
+        "dps": 127080.86146663493,
+        "team": 0.09537578308583594,
         "noaff": false,
         "nihil": false
       },
@@ -214,27 +214,14 @@
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
-      "acl": [
-        "`dragon, buff(s3,1)",
-        "`fs5, x=1",
-        "`s3",
-        "`s4, x>2 and not buff(s4)",
-        "`s1, cancel",
-        "`s2, cancel"
-      ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`ds1, dshift_timeleft<1 or duration-now<2",
         "`dodge, fsc",
-        "`dfs3,x=1"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Raemond"
+        "`dfs3, x=1"
       ]
     },
     "META": {
-      "tdps": 876547.2391378026,
+      "tdps": 748333.2744221183,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -327,7 +314,7 @@
       ]
     },
     "META": {
-      "tdps": 681945.7367805211,
+      "tdps": 853560.7106326473,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

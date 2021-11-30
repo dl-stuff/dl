@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 96239.96017032038,
-        "team": 0.07108705072514593,
+        "dps": 84779.9434605829,
+        "team": 0.14580999571713338,
         "noaff": false,
         "nihil": false
       },
@@ -16,15 +16,18 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`s3, not buff(s3)",
         "`dragon, fsc",
+        "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<4",
-        "`fs2, aff(frostbite)",
+        "`s1, fsc or aff_timeleft(frostbite)<1",
+        "`fs2, aff(frostbite) and buff(s3)",
         "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -38,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96239.96017032038,
-        "team": 0.07108705072514593,
+        "dps": 97644.01954097635,
+        "team": 0.07176175198184441,
         "noaff": false,
         "nihil": false
       },
@@ -54,13 +57,16 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
         "`dragon, fsc",
+        "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<4",
-        "`fs2, aff(frostbite)",
+        "`s1, fsc or aff_timeleft(frostbite)<1",
+        "`fs2, aff(frostbite) and buff(s3)",
         "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -73,21 +79,31 @@
       ]
     },
     "META": {
+      "tdps": 173725.60686760565,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64756.43204568729,
-        "team": 0.049974675795768864,
+        "dps": 93014.79917175803,
+        "team": 0.07176175198184441,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`dragon, fsc",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, buff(s2)",
+        "`s1, fsc or aff_timeleft(frostbite)<1",
+        "`fs2, aff(frostbite) and buff(s3)",
+        "`dodge, fsc"
+      ],
       "coabs": [
-        "Pipple",
-        "Staff",
-        "Tiki"
+        "Catherine",
+        "Dragonyule_Cleo",
+        "Gala_Mascula"
       ]
     },
     "META": {
@@ -101,8 +117,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40888.20895304245,
-        "team": 0.019567362612312823,
+        "dps": 48226.17461806424,
+        "team": 0.06650449914020753,
         "noaff": false,
         "nihil": true
       },
@@ -110,34 +126,37 @@
         "Initios_Sentinel",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
+        "Flower_in_the_Fray",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`s3, not buff(s3)",
+        "`dragon, fsc",
+        "`s3, fsc",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<5",
-        "`dodge, fsc",
-        "`fs2, aff(frostbite)"
+        "`s1, fsc or aff_timeleft(frostbite)<1",
+        "`fs2, aff(frostbite)",
+        "`dodge, fsc"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Grace"
+        "Blade",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Gala_Mym",
-        "Sha_Wujing"
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47828.99192640724,
+        "dps": 69382.35101247513,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -146,8 +165,10 @@
         "Initios_Sentinel",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
+        "Flower_in_the_Fray",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -157,9 +178,6 @@
         "`s1, fsc or aff_timeleft(frostbite)<5",
         "`dodge, fsc",
         "`fs2, aff(frostbite)"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -172,8 +190,82 @@
       ]
     },
     "META": {
-      "tdps": 354712.23745796375,
+      "tdps": 318116.46832808363,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60712.06089752751,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, fsc",
+        "`s3, fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<1",
+        "`fs2, aff(frostbite)",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Tiki"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 187744.9862924313,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 101627.48833045052,
+        "team": 0.07171307320871433,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, fsc",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, buff(s2)",
+        "`s1, buff(s2)",
+        "`fs2, buff(s3)",
+        "`dodge, fsc"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
@@ -220,20 +312,71 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57213.730287083796,
+        "team": 0.06901219963246952,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Fresh_Perspective",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s2, not buff(s2)",
+        "`s4",
+        "`s1, not unlocked or x>5",
+        "`fs2, not unlocked"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Gala_Mascula",
+        "Tiki"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 14828.215433067986,
+        "dps": 74574.95652071909,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, not buff(s2)",
+        "`s4",
+        "`s1"
+      ],
       "coabs": [
-        "Blade",
-        "Dagger",
-        "Lazry"
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 251567.49569053034,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -242,9 +385,35 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11561.24741843825,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Lazry"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 10601.328969719643,
+        "dps": 11561.24741843825,
         "team": 0.0,
         "noaff": false,
         "nihil": true

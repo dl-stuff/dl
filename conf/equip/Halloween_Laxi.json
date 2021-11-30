@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 70337.63855477993,
-        "team": 0.14932870107894444,
+        "dps": 47643.495374406884,
+        "team": 0.17601564401738756,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "PopStar_Siren",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -39,8 +39,53 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 109612.23309938557,
-        "team": 0.0622482504136213,
+        "dps": 123465.09701096125,
+        "team": 0.06217253663276416,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1) and s=1",
+        "`s3",
+        "`s2, cancel",
+        "`s1, dgauge>=500 and buff(s3, 1)",
+        "`s4, not buff(s4, 2)",
+        "`fs"
+      ],
+      "dacl": [
+        "`dodge, fsc",
+        "`dfs3, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Prince",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 666018.3772073976,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 72564.46885537963,
+        "team": 0.14214305809819797,
         "noaff": false,
         "nihil": false
       },
@@ -53,7 +98,6 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, s=1",
         "`s3",
@@ -61,6 +105,11 @@
         "`s1, aff_timeleft(flashburn)<1",
         "`s4, not buff(s4, 2)",
         "`fs"
+      ],
+      "dacl": [
+        "`ds1, cancel and dshift_timeleft<1",
+        "`dodge, fsc",
+        "`fs3"
       ],
       "coabs": [
         "Blade",
@@ -73,39 +122,7 @@
       ]
     },
     "META": {
-      "tdps": 451015.0584262586,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 85499.15982140458,
-        "team": 0.14120002885316202,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, aff_timeleft(flashburn)<1",
-        "`s4, not have_buff(s4_00)",
-        "`fs"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ],
-      "coabs": [
-        "Dagger",
-        "Gala_Audric",
-        "Peony"
-      ]
-    },
-    "META": {
-      "tdps": 305415.2009564443,
+      "tdps": 636492.3877304307,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -153,7 +170,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79499.90420372726,
+        "dps": 79597.82744868367,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -191,15 +208,15 @@
       ]
     },
     "META": {
-      "tdps": 1006978.8450227665,
+      "tdps": 1008984.2291527247,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 162716.64067153644,
-        "team": 0.09980133020480195,
+        "dps": 162917.18015816328,
+        "team": 0.09980139660688286,
         "noaff": false,
         "nihil": false
       },
@@ -218,15 +235,6 @@
         "`s2, cancel",
         "`s4, not buff(s4, 2)",
         "`fs"
-      ],
-      "dacl": [
-        "`dodge, fsc",
-        "`dfs3, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Prince",
-        "Peony"
       ]
     },
     "META": {
@@ -240,14 +248,14 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 102662.59880437008,
+        "dps": 111492.3831563556,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -265,6 +273,11 @@
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
         "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Prince",
+        "Peony"
       ]
     },
     "META": {
@@ -276,45 +289,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 101841.44259558174,
-        "team": 0.0622482504136213,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "Beautiful_Gunman",
-        "Dueling_Dancers",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`dragon, s=1",
-        "`s3",
-        "`s2",
-        "`s1, aff_timeleft(flashburn)<1",
-        "`s4, not buff(s4, 2)",
-        "`fs"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Audric",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101841.44259558174,
-        "team": 0.0622482504136213,
+        "dps": 116746.43371580614,
+        "team": 0.06217253663276416,
         "noaff": false,
         "nihil": false
       },
@@ -339,7 +317,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74489.1972421659,
+        "dps": 74580.94859685251,
         "team": 0.0,
         "noaff": false,
         "nihil": true

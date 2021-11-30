@@ -204,8 +204,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67188.13992489658,
-        "team": 0.0,
+        "dps": 70994.56812986538,
+        "team": 0.06893200906512754,
         "noaff": false,
         "nihil": true
       },
@@ -219,6 +219,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
+        "`dragon",
         "`s2",
         "`s1",
         "`s3, cancel",
@@ -265,37 +266,20 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 33803.845805831756,
-        "team": 0.0740720494380561,
+        "dps": 35071.96714408046,
+        "team": 0.08510871826389042,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`dragon, fscf",
-        "`s2, fscf",
-        "`s3, fscf",
-        "`s1, fscf",
-        "`s4, cancel",
-        "`fs, xf=3"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Gala_Mym"
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33801.442071663856,
-        "team": 0.07399361424010067,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "META": {
-      "tdps": -30646.11590915318,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

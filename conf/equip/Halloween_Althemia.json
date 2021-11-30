@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79622.66912998882,
-        "team": 0.09986886108884996,
+        "dps": 112273.23736269689,
+        "team": 0.1242566775337287,
         "noaff": true,
         "nihil": false
       },
@@ -47,32 +47,32 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, buff(s3, 1) and cancel",
+        "`dragon, buff(s3, 1)",
         "`s3",
-        "`s4",
-        "`s1, not buff(s1) and x=5",
-        "`s2, x=5"
+        "`s2, buff(s3, 1)",
+        "`s4"
       ],
       "dacl": [
-        "`ds1, cancel and dshift_timeleft<1"
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Dagger2",
-        "Peony",
-        "Raemond"
+        "Gala_Audric",
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 130757.68908450445,
+      "tdps": 198685.20557396108,
       "pref": "PERSONAL"
     }
   },
@@ -90,34 +90,8 @@
         "Hunter_Vanessa"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 76741.65636074706,
-        "team": 0.049951624626639206,
-        "noaff": true,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon, buff(s3,1) and s=1 or s=2",
-        "`s3, fsc",
-        "`s4",
-        "`s2, cancel",
-        "`s1, dgauge>=500",
-        "`fs, x=4 or hits=3"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
     "META": {
-      "tdps": 141406.63697211831,
+      "tdps": 250877.71071084053,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -128,9 +102,9 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52977.28848027604,
+        "dps": 66852.74689066895,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
@@ -147,21 +121,52 @@
         "`dragon",
         "`s3",
         "`s4",
-        "#`s1, not buff(s1) and x=5",
         "`s2, x=5"
       ],
       "coabs": [
-        "Dagger2",
-        "Peony",
-        "Raemond"
+        "Blade",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 135334.63639802637,
+        "team": 0.12425667753372889,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
+      ]
+    },
+    "META": {
+      "tdps": 242394.10751941192,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

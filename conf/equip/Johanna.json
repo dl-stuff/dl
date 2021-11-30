@@ -35,17 +35,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59819.12988763881,
-        "team": 0.05431087791575223,
+        "dps": 68535.89765730218,
+        "team": 0.06170432171845663,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
+        "Sweet_Surprise",
         "A_Small_Courage",
-        "Hastened_Squall",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
@@ -53,10 +53,14 @@
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, cancel",
         "`s1",
         "`s2, cancel",
         "`fsf, x=4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -69,42 +73,48 @@
       ]
     },
     "META": {
-      "tdps": 796799.0393786833,
+      "tdps": 1031009.2299536505,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 3776.7539588087275,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 55820.0429494931,
+        "team": 0.061708493354274634,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes",
-        "A_Kings_Pride_Staff",
-        "Promised_Piety_Staff"
+        "Emissaries_of_the_Heavens",
+        "Kung_Fu_Masters",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Freyja",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon",
         "`s3",
-        "`s4",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
         "`fsf, x=4"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
       "coabs": [
-        "Aeleen",
-        "Bow",
-        "Staff"
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
       ],
       "share": [
-        "Estelle",
-        "Verica"
+        "Formal_Joachim",
+        "Grimnir"
       ]
     },
     "META": {
@@ -114,8 +124,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74162.4290833576,
-        "team": 0.12894126312649276,
+        "dps": 81594.28205521738,
+        "team": 0.13842211176397698,
         "noaff": false,
         "nihil": false
       },
@@ -137,6 +147,54 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51894.0556357725,
+        "team": 0.06177983030400753,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Kung_Fu_Masters",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
+        "`fsf, x=4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Noelle"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

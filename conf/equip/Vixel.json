@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3071.7596138026474,
-        "team": 0.19659807701773738,
+        "dps": 3092.2893355323235,
+        "team": 0.19659807701773718,
         "noaff": true,
         "nihil": false
       },
@@ -22,9 +22,6 @@
         "`s2",
         "`s1"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Bow",
         "Sha_Wujing",
@@ -37,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77364.45706351665,
-        "team": 0.09101318589342794,
+        "dps": 76835.37246232938,
+        "team": 0.09922932442636186,
         "noaff": true,
         "nihil": false
       },
@@ -47,27 +44,26 @@
         "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Mana_Fount",
+        "Such_High_Spirits",
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`s1, dgauge>=500 and not buff(s1)",
-        "`s2, dgauge>=500 and not buff(s2)",
-        "`dragon, xf and buff(s3,1)",
-        "`s4, xf>2",
-        "`s3, xf>3"
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s2, not is_cd(s2, 0)",
+        "`s4"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1",
+        "`dfs3, duration-now<16"
       ],
       "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Raemond"
+        "Gala_Audric",
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -75,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 703630.0048105003,
+      "tdps": 757358.815474124,
       "pref": "PERSONAL"
     }
   },
@@ -156,47 +152,6 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 100942.65480060328,
-        "team": 0.09988417320292943,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "A_Kings_Pride_Sword",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3",
-        "`s4, cancel",
-        "`s1, not buff(s1)"
-      ],
-      "dacl": [
-        "`dodge, fsc",
-        "`dfs3"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "tdps": 1011963.0304057228,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "IMMUNE-NIHILISM-ANY": {

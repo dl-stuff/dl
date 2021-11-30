@@ -36,32 +36,37 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94147.45232105063,
-        "team": 0.049890685256248776,
-        "noaff": false,
+        "dps": 106335.26014609559,
+        "team": 0.049947018250472375,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, aff_timeleft(flashburn)<1.5 and sr.count>1",
-        "`s2, sr.count>1"
+        "`s2, duration-now<5",
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s2, (sr.count>1 and xf=5) and buff(s3, 1)",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
         "Gala_Zena",
-        "Mitsuhide"
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -69,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 381970.72869405523,
+      "tdps": 552446.0036022847,
       "pref": "PERSONAL"
     }
   },
@@ -163,8 +168,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117761.33714292524,
-        "team": 0.04997016289716014,
+        "dps": 129127.75169566364,
+        "team": 0.04994701825047246,
         "noaff": false,
         "nihil": false
       },
@@ -175,27 +180,18 @@
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
       "acl": [
-        "`dragon, buff(s3,1)",
+        "`s2, duration-now<3",
+        "`dragon, buff(s3, 1)",
         "`s3",
-        "`s4",
-        "`s2, sr.count>1 and xf=5"
-      ],
-      "dacl": [
-        "`ds1, cancel and dshift_timeleft<1",
-        "`dodge, fsc",
-        "`fs3,x=1"
-      ],
-      "coabs": [
-        "Dagger",
-        "Gala_Zena",
-        "Peony"
+        "`s2, (sr.count>1 and xf=5) and buff(s3, 1)",
+        "`s4"
       ]
     },
     "META": {
-      "tdps": 658809.6749540522,
+      "tdps": 817302.7278065182,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,22 +210,22 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81107.31689173818,
+        "dps": 95216.4744449888,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon",
+        "`dragon, sr.count!=1",
         "`s3, xf",
         "`s4",
         "`s2, sr.count>1",
@@ -238,11 +234,15 @@
       "dacl": [
         "`ds1, cancel and dshift_timeleft<1",
         "`dodge, fsc",
-        "`fs3, x=1"
+        "`fs3,x=1"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 1686239.0501700297,
+      "tdps": 2167159.6810027403,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -259,22 +259,8 @@
         "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 83831.90851003767,
-        "team": 0.04999530563319171,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=5",
-        "`s4, xf",
-        "`s2, sr.count>1 and buff(s3) and xf"
-      ]
-    },
     "META": {
-      "tdps": 488230.8604213441,
+      "tdps": 802109.4668234183,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89782.20224973992,
-        "team": 0.0,
+        "dps": 77603.26204453975,
+        "team": 0.08317973839170349,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Ramiel",
       "acl": [
         "`dragon, fsc",
         "`s3, not buff(s3) and fsc",
@@ -71,10 +71,44 @@
       ]
     },
     "META": {
+      "tdps": 146417.149665079,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26394.814769739118,
+        "team": 0.08327507316686739,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon, fsc",
+        "`s1",
+        "`s2",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35167.70795584485,
@@ -114,6 +148,7 @@
       ]
     },
     "META": {
+      "tdps": 105348.36959586368,
       "pref": "PERSONAL"
     }
   },
@@ -167,41 +202,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 69760.47430551633,
-        "team": 0.06658929699120882,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Pecorines_Grand_Adventure",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s1",
-        "`s4",
-        "`s2",
-        "#`fs, x=4"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Ieyasu",
-        "Joker"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 62897.10436649476,
@@ -238,11 +238,10 @@
       ]
     },
     "META": {
-      "tdps": -103070.16666548798,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -295,7 +294,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

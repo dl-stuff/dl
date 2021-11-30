@@ -36,40 +36,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78807.5041420757,
-        "team": 0.0,
+        "dps": 96082.12288839895,
+        "team": 0.062472484341340964,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
-        "Such_High_Spirits",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3",
-        "`s4, cancel",
-        "`s2, x=5",
-        "`fs, x=5"
+        "`dragon, (xf or fscf) and buff(s3, 1)",
+        "`s3, fscf or s",
+        "`s2, fscf",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 246584.666942427,
+      "tdps": 379886.59561910754,
       "pref": "PERSONAL"
     }
   },
@@ -88,7 +94,7 @@
       ]
     },
     "META": {
-      "tdps": 300966.2738342926,
+      "tdps": 492245.6231305204,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -167,6 +173,33 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 113797.94158532399,
+        "team": 0.062472484341340964,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ]
+    },
+    "META": {
+      "tdps": 452150.914166402,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {

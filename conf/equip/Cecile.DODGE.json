@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 103017.91561193774,
+        "dps": 103145.70297883301,
         "team": 0.46747036420443544,
         "noaff": false,
         "nihil": false
@@ -42,7 +42,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103017.91561193774,
+        "dps": 103145.70297883301,
         "team": 0.46747036420443544,
         "noaff": false,
         "nihil": false
@@ -85,10 +85,55 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 83651.05683210952,
+        "team": 0.32085340726882317,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "if amp_lvl(team,2)<5",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
+        "else",
+        "`dragon",
+        "`s2",
+        "`s3, s and manachew_mode.get()",
+        "end",
+        "`s1",
+        "`s4, s",
+        "`dodge, not is_cd(a1_a3) and s=4",
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Grimnir",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90796.34822274919,
-        "team": 0.31031278370892623,
+        "dps": 94709.06038954497,
+        "team": 0.2936318809864244,
         "noaff": false,
         "nihil": true
       },
@@ -117,7 +162,7 @@
         "`fs"
       ],
       "coabs": [
-        "Humanoid_Midgardsormr",
+        "Gala_Notte",
         "Mona",
         "Yukata_Lathna"
       ],
@@ -127,14 +172,15 @@
       ]
     },
     "META": {
+      "tdps": 406222.76071953675,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 106968.15822153566,
-        "team": 0.2892840118825637,
+        "dps": 107100.84562061114,
+        "team": 0.28928401188256386,
         "noaff": false,
         "nihil": false
       },
@@ -174,8 +220,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57616.144179279276,
-        "team": 0.2892840118825637,
+        "dps": 57687.61345053728,
+        "team": 0.28928401188256386,
         "noaff": false,
         "nihil": false
       },
@@ -220,43 +266,26 @@
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "if amp_lvl(team,2)<5",
-        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
-        "`s2, manachew_mode.get() or dgauge<500",
-        "else",
-        "`dragon",
-        "`s2",
-        "`s3, s and manachew_mode.get()",
-        "end",
-        "`s1",
-        "`s4, s",
-        "`dodge, not is_cd(a1_a3) and s=4",
-        "`fs"
-      ],
       "coabs": [
         "Humanoid_Midgardsormr",
         "Mona",
         "Yukata_Lathna"
-      ],
-      "share": [
-        "Grimnir",
-        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45139.79894652177,
-        "team": 0.31031278370892623,
+        "dps": 47763.14320219836,
+        "team": 0.2936318809864244,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
+      "tdps": 157266.32421024833,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

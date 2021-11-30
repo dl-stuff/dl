@@ -78,6 +78,42 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32034.727668768905,
+        "team": 0.0999958121172394,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dagger",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 39963.59423482899,
@@ -102,9 +138,6 @@
         "`s1",
         "`s4"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Delphi",
         "Ieyasu",
@@ -116,6 +149,7 @@
       ]
     },
     "META": {
+      "tdps": 115315836.14103422,
       "pref": "PERSONAL"
     }
   },
@@ -199,7 +233,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -241,37 +275,44 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28536.657420040778,
-        "team": 0.18596776661277328,
-        "noaff": false,
+        "dps": 32034.727668768905,
+        "team": 0.0999958121172394,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
         "Bloody_Little_Queen",
         "Emissaries_of_the_Heavens",
-        "Jewels_of_the_Sun",
+        "Moonlight_Party",
         "A_Small_Courage",
-        "Seaside_Memory",
+        "Lord_of_the_Skies",
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
       "acl": [
+        "`dragon, cancel",
         "`s3, not buff(s3)",
-        "`s2, cancel",
+        "`s4",
         "`s1",
-        "`s4"
+        "`s2, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Bow",
+        "Dagger",
         "Ieyasu",
         "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82596.22919114263,
+        "dps": 82596.2291911426,
         "team": 0.24251152552452448,
         "noaff": false,
         "nihil": false
@@ -72,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 222050.9398231402,
+      "tdps": 222050.93982314013,
       "pref": "PERSONAL"
     }
   },
@@ -91,7 +91,7 @@
       ]
     },
     "META": {
-      "tdps": 313465.2557862836,
+      "tdps": 313465.2557862835,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -102,8 +102,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47706.550475398995,
-        "team": 0.060093249075643625,
+        "dps": 48233.3798441994,
+        "team": 0.06323331672000346,
         "noaff": false,
         "nihil": true
       },
@@ -123,9 +123,6 @@
         "`s2",
         "`s4",
         "`s3, cancel"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -180,7 +177,7 @@
       ]
     },
     "META": {
-      "tdps": 946994.6758725848,
+      "tdps": 1970785.7820876539,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -381,6 +378,47 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 16108.085560680489,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Springtime_Breeze",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s1, x>=4",
+        "`s2",
+        "`s3, not buff(s3)",
+        "`s4"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

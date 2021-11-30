@@ -762,7 +762,7 @@ class Slots:
     DRAGON_DICTS = subclass_dict(DragonBase)
 
     DEFAULT_DRAGON = {
-        "flame": "Gala_Agni",
+        "flame": "Gala_Reborn_Agni",
         "water": "Gala_Reborn_Poseidon",
         "wind": "Gala_Beast_Volk",
         "light": "Gala_Reborn_Jeanne",

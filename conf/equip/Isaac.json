@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10160.41721795114,
-        "team": 0.7006618218712855,
+        "dps": 10329.827026824134,
+        "team": 0.7270100715535227,
         "noaff": true,
         "nihil": false
       },
@@ -35,44 +35,43 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45912.32807854456,
-        "team": 0.23100469862716064,
+        "dps": 88582.47401741245,
+        "team": 0.062493462489451715,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Dear_Diary",
+        "An_Ancient_Oath",
         "Initios_Sentinel",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "The_Bustling_Hut",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4, s=1"
+        "`dragon, buff(s3, 1)",
+        "`s3, xf=5",
+        "`s4"
       ],
       "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
         "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Gala_Prince",
-        "Hildegarde"
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 76123.42939385123,
+      "tdps": 117758.7526379546,
       "pref": "PERSONAL"
     }
   },
@@ -112,8 +111,8 @@
       ]
     },
     "META": {
-      "tdps": 25189.008536133148,
-      "pref": "TEAMBUFF",
+      "tdps": 122644.78547181276,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -123,8 +122,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9838.631781236443,
-        "team": 0.5014900714257131,
+        "dps": 9908.758378801105,
+        "team": 0.5174385002324917,
         "noaff": false,
         "nihil": true
       },
@@ -156,8 +155,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38624.85861642926,
-        "team": 0.28038659345025535,
+        "dps": 38864.04715889676,
+        "team": 0.21061420203959907,
         "noaff": false,
         "nihil": true
       },
@@ -167,8 +166,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Chariot_Drift",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "High_Jupiter",
       "acl": [
@@ -177,9 +176,6 @@
         "`s2",
         "`s3",
         "`s4"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Joker",
@@ -192,7 +188,7 @@
       ]
     },
     "META": {
-      "tdps": 130193.46008834855,
+      "tdps": 94370.91179099579,
       "pref": "PERSONAL"
     }
   },
@@ -236,7 +232,7 @@
       ]
     },
     "META": {
-      "tdps": 63934.38764329594,
+      "tdps": 61488.94444498468,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -247,44 +243,28 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 85539.850877511,
-        "team": 0.13440023449595198,
+        "dps": 106462.55468377381,
+        "team": 0.062493462489451715,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
-        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon, buff(s3, 1)",
-        "`s1",
-        "`s2",
-        "`s4, not buff(s4, 2)",
-        "`s3"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "`s3, x=5",
+        "`s4"
       ]
     },
     "META": {
-      "tdps": 133117.68860916275,
+      "tdps": 144665.65070863534,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -293,32 +273,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 15775.57833564875,
-        "team": 0.5035226363954297,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Forest_Bonds",
-        "Spirit_of_the_Season",
-        "Seaside_Memory",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Promised_Piety_Staff"
-      ],
-      "acl": [
-        "`s3",
-        "`s1",
-        "`s4, s=1"
-      ],
-      "share": [
-        "Hunter_Berserker",
-        "Sha_Wujing"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 46666.837924934145,
@@ -353,7 +307,6 @@
       ]
     },
     "META": {
-      "tdps": 121978.87166948107,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -430,6 +383,49 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30172.686254471242,
+        "team": 0.19197891983723356,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "The_Bustling_Hut",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, s=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }

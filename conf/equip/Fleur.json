@@ -2,85 +2,83 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65664.5894289945,
-        "team": 0.0,
+        "dps": 88149.7975066314,
+        "team": 0.04999222898573859,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, s=1",
-        "`s4, xf or fscf",
-        "`fs, x=5"
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s1, buff(s3, 1)",
+        "`s2, buff(s3, 1) and s=1",
+        "`s4"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Elisanne",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65664.5894289945,
-        "team": 0.0,
+        "dps": 93969.00948050208,
+        "team": 0.049970503522226296,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Having_a_Summer_Ball",
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, s=1",
-        "`s4, xf or fscf",
-        "`fs, x=5"
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s1, buff(s3, 1)",
+        "`s2, buff(s3, 1) and s=1",
+        "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Elisanne",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 267852143.6644351,
       "pref": "PERSONAL"
     }
   },
@@ -154,30 +152,75 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105338.02208083801,
-        "team": 0.0,
+        "dps": 128558.48676246393,
+        "team": 0.049970503522226296,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Mask_of_Determination_Lance"
       ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
+      "coabs": [
+        "Gala_Audric",
+        "Halloween_Laxi",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 314734.1925943232,
+      "tdps": 770984.4216389493,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 116631.56102750152,
+        "team": 0.06247912503011476,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1) and xf",
+        "`s3, x=5",
+        "`s1, buff(s3, 1) and x=5",
+        "`s2, buff(s3, 1) and s=1",
+        "`s4, xf"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Gala_Audric",
+        "Halloween_Laxi",
+        "Peony"
+      ]
+    },
+    "META": {
+      "tdps": 953496.4126495303,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -211,14 +254,19 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58428.86090535821,
-        "team": 0.0,
+        "dps": 90553.66625536667,
+        "team": 0.049970503522226296,
         "noaff": false,
         "nihil": false
       },
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Having_a_Summer_Ball",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ]
     },
     "META": {

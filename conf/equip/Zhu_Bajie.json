@@ -2,34 +2,39 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 69817.5449896339,
-        "team": 0.1087938025913056,
+        "dps": 47867.866939165084,
+        "team": 0.11601327958650016,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses",
-        "An_Unfreezing_Flower_Deer",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s=1",
-        "`s3, fsc and not buff(s3)",
-        "`s1, fsc and hp<100",
-        "`s4, fsc",
-        "`s2, fsc or s",
+        "`dragon, buffstack(ro_att)=6 and buff(s3, 1)",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, not buff(s4, 2)",
+        "`s3",
+        "`fs3, hits>1",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<3 or duration-now<4",
         "`dodge, fsc",
-        "`fs3"
+        "`dfs3"
       ],
       "coabs": [
-        "Halloween_Edward",
-        "Peony",
-        "Wand"
+        "Blade",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -78,21 +83,21 @@
       ]
     },
     "META": {
-      "tdps": 1378193.4485204692,
+      "tdps": 1602351.2728456617,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49791.97330063698,
+        "dps": 50073.84292664101,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
-        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Warrioresses",
@@ -108,11 +113,8 @@
         "`dodge, fsc",
         "`fs3"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
-        "Blade",
+        "Mitsuhide",
         "Peony",
         "Wand"
       ],
@@ -142,7 +144,6 @@
         "A_Kings_Pride_Sword",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buffstack(ro_att)=6 and buff(s3, 1)",
         "#`s2, fsc",
@@ -155,11 +156,6 @@
         "`ds1, dshift_timeleft<3",
         "`dodge, fsc",
         "`dfs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
       ]
     },
     "PERSONAL": {
@@ -212,11 +208,6 @@
         "`s4, fsc and hp<50",
         "`dodge, fsc",
         "`fs3"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -314,11 +305,6 @@
         "`s2, fsc and hp>50",
         "`dodge, fsc",
         "`fs3"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Wand"
       ],
       "share": [
         "Summer_Celliera",

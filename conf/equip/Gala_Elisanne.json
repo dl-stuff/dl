@@ -2,15 +2,15 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 16172.399125936981,
-        "team": 1.6887877742477349,
+        "dps": 14083.389756540699,
+        "team": 1.699530673851136,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Castle_Cheer_Corps",
         "Gentle_Winds",
-        "Proper_Maintenance",
+        "Once_in_a_Lifetime",
         "From_Whence_He_Comes",
         "Rogues_Banquet",
         "Promised_Piety_Staff",
@@ -31,8 +31,8 @@
         "sack"
       ],
       "coabs": [
+        "Bow",
         "Gala_Mascula",
-        "Renee",
         "Tobias"
       ],
       "share": [
@@ -76,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 36037.771266254575,
+      "tdps": 37198.34590474369,
       "pref": "TEAMBUFF"
     }
   },
@@ -115,37 +115,42 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11976.049023891108,
-        "team": 0.5079560416565886,
-        "noaff": false,
+        "dps": 8712.191087725809,
+        "team": 0.5688009005454153,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "Castle_Cheer_Corps",
+        "Gentle_Winds",
         "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
         "From_Whence_He_Comes",
-        "Beneath_the_Boughs",
-        "Promised_Piety_Staff"
+        "Rogues_Banquet",
+        "Promised_Piety_Staff",
+        "Ravenous_Fire_Crown"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
+        "`dragon, dshift_count=0 and s=4",
         "`s1",
         "`s4, cancel",
-        "`s3, cancel",
+        "`s3, s=1",
         "`fs, fs_prep_c=3 and x=5",
         "`fs, fs_prep_c=2 and x=5",
         "`fs, fs_prep_c=1 and x=4"
       ],
+      "dacl": [
+        "ds1",
+        "sack"
+      ],
       "coabs": [
+        "Bow",
         "Gala_Mascula",
-        "Renee",
-        "Tobias"
+        "Summer_Estelle"
       ],
       "share": [
-        "Summer_Celliera",
-        "Seimei"
+        "Rawn",
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
@@ -183,52 +188,8 @@
       ]
     },
     "META": {
-      "tdps": 105337.02211396597,
+      "tdps": 96041.1845948295,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39798.02196569682,
-        "team": 0.2304896348727987,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Chariot_Drift",
-        "From_Whence_He_Comes",
-        "Promised_Piety_Staff",
-        "Treasured_Memory_of_the_Sea"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon",
-        "`s2",
-        "`s3",
-        "`s4",
-        "`s1"
-      ],
-      "coabs": [
-        "Gala_Mascula",
-        "Renee",
-        "Summer_Estelle"
-      ],
-      "share": [
-        "Gala_Notte",
-        "Summer_Celliera"
-      ]
-    },
-    "META": {
-      "tdps": 27800755.94531111,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -261,7 +222,7 @@
       ]
     },
     "META": {
-      "tdps": 51001.682995260046,
+      "tdps": 52330.376127345226,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -270,41 +231,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29401.95603182785,
-        "team": 0.5106123695543965,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`s3",
-        "`fs, fs_prep_c=3 and x=5",
-        "`fs, fs_prep_c=2 and x=1",
-        "`fs, fs_prep_c=1 and x=4"
-      ],
-      "coabs": [
-        "Bow",
-        "Tiki",
-        "Tobias"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 48433.787585892875,
@@ -338,7 +264,7 @@
       ]
     },
     "META": {
-      "tdps": 47270.15606855332,
+      "tdps": 86200.09680544282,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -360,7 +286,7 @@
       ]
     },
     "META": {
-      "tdps": 29731.463815455994,
+      "tdps": 31028.487870981317,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -402,6 +328,56 @@
       "share": [
         "Gala_Mym",
         "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 350885.35436105804,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8712.191087725809,
+        "team": 0.5688009005454153,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Gentle_Winds",
+        "Once_in_a_Lifetime",
+        "From_Whence_He_Comes",
+        "Rogues_Banquet",
+        "Promised_Piety_Staff",
+        "Ravenous_Fire_Crown"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon, dshift_count=0 and s=4",
+        "`s1",
+        "`s4, cancel",
+        "`s3, s=1",
+        "`fs, fs_prep_c=3 and x=5",
+        "`fs, fs_prep_c=2 and x=5",
+        "`fs, fs_prep_c=1 and x=4"
+      ],
+      "dacl": [
+        "ds1",
+        "sack"
+      ],
+      "coabs": [
+        "Bow",
+        "Gala_Mascula",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Rawn",
+        "Sha_Wujing"
       ]
     },
     "META": {

@@ -2,38 +2,36 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55615.26262359763,
-        "team": 0.5292801166331549,
+        "dps": 30862.329479984182,
+        "team": 0.5928974537297312,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "An_Ancient_Oath",
         "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
+        "The_Red_Impulse",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s1(3), ny_buff.level=0",
-        "`s1(1), ny_buff.timeleft(3)<2",
+        "`dragon, s=4",
+        "`s3",
+        "`s1(3), not have_buff(ny_prayer_lv3)",
         "`s2",
         "`s4",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`fs, x=5"
       ],
       "coabs": [
-        "Dagger2",
-        "Nobunaga",
-        "Yuya"
+        "Gala_Laxi",
+        "Grace",
+        "Panther"
       ],
       "share": [
-        "Weapon",
+        "Templar_Hope",
         "Akasha"
       ]
     },
@@ -75,13 +73,51 @@
       ]
     },
     "META": {
+      "tdps": 389090.9974121748,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40169.8097826217,
+        "team": 0.46794957898988676,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s",
+        "`s3",
+        "`s1(3), ny_buff.level=0",
+        "`s1(1), ny_buff.timeleft(3)<2",
+        "`s2",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Nobunaga",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47381.46610338837,
+        "dps": 48049.478878200636,
         "team": 0.4629961027656204,
         "noaff": false,
         "nihil": true
@@ -107,9 +143,9 @@
         "`dodge, fsc"
       ],
       "coabs": [
+        "Halloween_Mym",
         "Nobunaga",
-        "Wand",
-        "Yuya"
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -117,18 +153,11 @@
       ]
     },
     "META": {
+      "tdps": 1590735.220849071,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 57881.8501913473,
-        "team": 0.5292801166331549,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 81352.69837369537,
@@ -169,7 +198,6 @@
       ]
     },
     "META": {
-      "tdps": 166348.08729731213,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -178,26 +206,65 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 48783.97585015133,
-        "team": 0.4629961027656204,
+        "dps": 50123.80431659025,
+        "team": 0.46794957898988676,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Bow"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57854.62347761263,
+        "team": 0.4629961027656206,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Bow"
+      ]
     },
     "META": {
+      "tdps": 1560685.6298513177,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26884.530485682135,
+        "team": 0.5321085626102205,
+        "noaff": false,
+        "nihil": false
+      },
+      "share": [
+        "Ranzal",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44287.57750360633,
+        "dps": 43766.81018576935,
         "team": 0.5033859460104314,
         "noaff": false,
         "nihil": false
@@ -226,6 +293,7 @@
       ]
     },
     "META": {
+      "tdps": 587769.5592751515,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -236,7 +304,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41793.63720484814,
+        "dps": 41166.0603315487,
         "team": 0.4472850123966373,
         "noaff": false,
         "nihil": true
@@ -260,7 +328,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

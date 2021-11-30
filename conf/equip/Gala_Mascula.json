@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 94951.01413951832,
-        "team": 0.2947258804201876,
+        "dps": 92090.7853501014,
+        "team": 0.31975097344833336,
         "noaff": false,
         "nihil": false
       },
@@ -18,12 +18,11 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
+        "`dragon, xf and dshift_count or (amp_lvl(self, att)=2 and s1.check())",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4",
-        "`fs, x=4"
+        "`s4, xf=4",
+        "`s2, xf",
+        "`s1, masterctrl_buff.get() and xf"
       ],
       "dacl": [
         "ds1,x=3",
@@ -41,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94951.01413951832,
-        "team": 0.2947258804201876,
+        "dps": 97107.18272181432,
+        "team": 0.2907235459054838,
         "noaff": false,
         "nihil": false
       },
@@ -57,12 +56,12 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
+        "`dragon, cancel and dshift_count or (amp_lvl(self, att)=2 and s1.check())",
         "`s3, not buff(s3)",
-        "`s4",
         "`s2",
-        "`s1, masterctrl_buff.get() and x=4",
-        "`fs, x=4"
+        "`s4, cancel",
+        "`fs, charged_in(fs,s2) and x=4",
+        "`s1, masterctrl_buff.get() and x=4"
       ],
       "dacl": [
         "ds1,x=3",
@@ -79,6 +78,7 @@
       ]
     },
     "META": {
+      "tdps": 172815.77447081165,
       "pref": "PERSONAL"
     }
   },
@@ -198,14 +198,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102038.62388409728,
-        "team": 0.2947258804201876,
+        "dps": 105091.36342964988,
+        "team": 0.2907235459054838,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 602918.7622142779,
+      "tdps": 621120.7516933691,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,35 +214,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 67037.20692709097,
-        "team": 0.3607899117587926,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s2.check())",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4",
-        "`s4, cancel",
-        "`s3, x>2"
-      ],
-      "coabs": [
-        "Dagger",
-        "Tiki",
-        "Yurius"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
         "dps": 66837.9366186992,
@@ -272,12 +243,49 @@
         "Yurius"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68174.97876114002,
+        "team": 0.3062216654677744,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s2.check())",
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4",
+        "`s4, cancel",
+        "`s3, x>2"
+      ],
+      "coabs": [
+        "Renee",
+        "Tiki",
+        "Yurius"
+      ]
+    },
     "META": {
-      "tdps": 72299.18300083432,
+      "tdps": 23324.121813770595,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86284.65513473975,
+        "team": 0.2907235459054838,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

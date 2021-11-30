@@ -199,44 +199,52 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 2189.8365364109945,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 56497.39041071227,
+        "team": 0.05252217810001386,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Dogs_Day",
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Dragonyule_Dreaming",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s2, new_dish=3",
-        "`s3",
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
         "`s4",
-        "`fs, x=5"
+        "`s2",
+        "`s1",
+        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba)",
+        "`fsf, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Mona"
       ],
       "share": [
-        "Templar_Hope",
-        "Tobias"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

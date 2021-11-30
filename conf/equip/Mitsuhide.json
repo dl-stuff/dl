@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35253.05513868839,
-        "team": 0.15697110313215287,
+        "dps": 35385.20961283004,
+        "team": 0.1565878685450037,
         "noaff": false,
         "nihil": false
       },
@@ -36,32 +36,30 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85144.45520475805,
-        "team": 0.0,
+        "dps": 108412.13729004312,
+        "team": 0.06249915626139025,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Worthy_Rivals",
-        "A_Passion_for_Produce",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
         "Having_a_Summer_Ball",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2"
+        "`dragon, buff(s3, 1) and xf",
+        "`s3, x=5",
+        "`s4, xf"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
@@ -70,11 +68,11 @@
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 317838.11842149345,
+      "tdps": 776149.7198206577,
       "pref": "PERSONAL"
     }
   },
@@ -160,8 +158,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 150538.65559525313,
-        "team": 0.04998410732587507,
+        "dps": 154095.4553862624,
+        "team": 0.06249915626139025,
         "noaff": false,
         "nihil": false
       },
@@ -172,24 +170,7 @@
         "Dueling_Dancers",
         "Entwined_Flames",
         "A_Kings_Pride_Sword",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s2, x=5",
-        "`s1",
-        "`s4, not buff(s4, 2)",
-        "`s3",
-        "`fs, hits=5"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "Mask_of_Determination_Bow"
       ]
     },
     "META": {
@@ -203,7 +184,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 100166.05077757398,
+        "dps": 111499.41799205416,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -212,22 +193,20 @@
         "Extreme_Teamwork",
         "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
-        "Dragons_Nest",
+        "Dueling_Dancers",
         "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon",
-        "`s1",
-        "`s2",
         "`s3",
         "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3,x=1"
+        "`dfs3, x=1 or duration-now > 100"
       ],
       "coabs": [
         "Blade",
@@ -250,22 +229,31 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31758.11413102251,
-        "team": 0.15697110313215282,
+        "dps": 31896.862132684095,
+        "team": 0.15658786854500364,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76218.54333399169,
-        "team": 0.0,
+        "dps": 101196.77761844247,
+        "team": 0.06249915626139025,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Having_a_Summer_Ball",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ]
     },
     "META": {
-      "tdps": 283239.5792334993,
+      "tdps": 736538.037388229,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,21 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 93159.14096596644,
-        "team": 0.0,
+        "dps": 39303.78592233623,
+        "team": 0.08361383461566456,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "To_the_Extreme",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "One_with_the_Shadows",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Horus",
       "acl": [
         "`dragon",
         "`s3, not buff(s3) and x=5",
@@ -30,18 +30,18 @@
         "end"
       ],
       "coabs": [
-        "Joe",
-        "Kimono_Elisanne",
-        "Marth"
+        "Gala_Leonidas",
+        "Grace",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93159.14096596644,
+        "dps": 93996.82013352153,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -61,12 +61,12 @@
         "`s3, not buff(s3) and x=5",
         "`s1, cancel",
         "`s4",
-        "`s2, x=5"
+        "`s2, not aff(burn) or x=5",
+        "`fs, charged_in(fs, s1) and x=4"
       ],
       "dacl": [
-        "queue",
-        "`ds1,x=2;dx2;dx2;dx2;sack",
-        "end"
+        "`ds1, x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Joe",
@@ -79,6 +79,7 @@
       ]
     },
     "META": {
+      "tdps": 654114.6505549558,
       "pref": "PERSONAL"
     }
   },
@@ -159,7 +160,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 106787.87978727109,
+        "dps": 113244.925840334,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -172,6 +173,14 @@
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=4",
+        "`s3, not buff(s3) and x=5",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4",
+        "`fs, charged_in(fs, s1) and x=4"
       ],
       "coabs": [
         "Blade",
@@ -214,6 +223,32 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34549.30896252986,
+        "team": 0.08361383461566456,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48589.92915586916,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 167922.2135652283,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

@@ -36,44 +36,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59030.5232877521,
-        "team": 0.14315794786901828,
+        "dps": 99776.23952362634,
+        "team": 0.07582038010421918,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Bloody_Little_Queen",
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
+        "Dueling_Dancers",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "if energy()>3 and not s2.check()",
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1 and cancel",
-        "end",
-        "`s3, not buff(s3, 1)",
-        "`s2, energy()<4",
-        "`s4, energy()<5",
-        "`s1, energy()=5 or energy()<2",
-        "`fs, x=5"
+        "`dragon, buff(s3, 1)",
+        "`s2",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`fs, x=5 or charged_in(fs, s1)"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<3 or duration-now<4",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
         "Gala_Audric",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 95700.52247755977,
+      "tdps": 216104.2847860109,
       "pref": "PERSONAL"
     }
   },
@@ -92,7 +94,7 @@
       ]
     },
     "META": {
-      "tdps": 232208.45901264797,
+      "tdps": 371679.7596652531,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -207,29 +209,23 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 101221.3553045676,
-        "team": 0.040320634355271896,
+        "dps": 122449.88819024812,
+        "team": 0.06065630408337535,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
       ]
     },
     "META": {
-      "tdps": 196669.86690144453,
+      "tdps": 280748.6852966899,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

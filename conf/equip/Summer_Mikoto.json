@@ -2,91 +2,87 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36639.70037922332,
-        "team": 0.024678089438603255,
-        "noaff": false,
+        "dps": 12332.731896312609,
+        "team": 0.08897045670823725,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Spirit_of_the_Season",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, light=sun and not illuminating_sun.get() and x>=4 or s",
-        "`fs, light=wave and not celestial_wave.get() and x>=4"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46658.30866369896,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
+        "An_Ancient_Oath",
+        "Initios_Sentinel",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, buff(s2) and aff_timeleft(flashburn)>10",
-        "`s2, illuminating_sun.get() and celestial_wave.get()",
-        "`s1, xf",
-        "`s4, xf",
-        "`fs, light=sun and not illuminating_sun.get() and xf",
-        "`fs, light=wave and not celestial_wave.get() and xf",
-        "`dodge, fsc"
+        "`dragon, buff(s3, 1) and s=2",
+        "`s3, x=5",
+        "`s4"
       ],
       "dacl": [
-        "queue",
-        "dx3;ds1;dx3;dx3;dx3;sack",
-        "end"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Lucretia",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Ryszarda"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 89642.43524497152,
+        "team": 0.06249346248945162,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Initios_Sentinel",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3, x=5",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 405971.7957259611,
+      "tdps": 2919882.170530033,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42015.45893853529,
+        "dps": 42068.37513367199,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -125,51 +121,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 70817.35242474166,
-        "team": 0.0780573286325936,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3) and fsc",
-        "`dragon, buff(s2)",
-        "`s2, illuminating_sun.get() and celestial_wave.get()",
-        "`s1, xf and buff(s3)",
-        "`s4",
-        "`fs, light=sun and not illuminating_sun.get() and xf",
-        "`fs, light=wave and not celestial_wave.get() and xf",
-        "`dodge, fsc"
-      ],
-      "dacl": [
-        "queue",
-        "dx3;ds1;dx3;dx3;dx3;sack",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 122239.95510044086,
-        "team": 0.0,
+        "dps": 126546.99611957003,
+        "team": 0.06249346248945162,
         "noaff": false,
         "nihil": false
       },
@@ -182,33 +137,14 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`s3, x=5",
-        "`dragon, buff(s2) and buff(s3,1)",
-        "`s2, illuminating_sun.get() and celestial_wave.get() and dgauge>=500",
-        "`s4, xf",
-        "`fs, light=sun and not illuminating_sun.get() and xf",
-        "`fs, light=wave and not celestial_wave.get() and xf",
-        "`dodge, fsc"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3,x=1"
-      ],
       "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+        "Gala_Audric",
+        "Halloween_Laxi",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 658779.945157221,
+      "tdps": 4313717.156844848,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -219,7 +155,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52179.43649578431,
+        "dps": 52245.153670212254,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -237,36 +173,10 @@
       }
     }
   },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32437.044701320665,
-        "team": 0.024678089438603255,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 37631.234814230396,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 210477.80565964733,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26592.37840810233,
+        "dps": 26625.870068565935,
         "team": 0.0,
         "noaff": false,
         "nihil": true

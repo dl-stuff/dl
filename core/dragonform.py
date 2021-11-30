@@ -58,6 +58,7 @@ class DragonForm:
         self.dragon_gauge = 0
         self.max_dragon_gauge = 1000
         self.shift_cost = 500
+        self.shift_req = 500
         self.log_utp = False
 
         # dragonbattle
@@ -73,7 +74,7 @@ class DragonForm:
             return
         for skey in self.shift_skills:
             self.adv.a_s_dict[skey].dragonbattle_skill = True
-        self.dragon_gauge += self.shift_cost
+        self.dragon_gauge += max(self.shift_cost, self.shift_req)
         g_logs.log_dact_as_act = True
 
     def config_actions(self):
@@ -334,7 +335,7 @@ class DragonForm:
     def check(self):
         if self.disabled_reasons or self.shift_silence:
             return False
-        if self.dragon_gauge < self.shift_cost:
+        if self.dragon_gauge < max(self.shift_cost, self.shift_req):
             return False
         if self.status:
             return False
@@ -367,6 +368,7 @@ class DragonFormUTP(DragonForm):
         super().__init__(name, conf, adv, dragon, dform_mode=utp_params[0], unique_dform=True)
         self.shift_mods = []
         self.shift_cost = 0
+        self.shift_req = 0
         self.utp_gauge = 0
         self.ds_final = None
 

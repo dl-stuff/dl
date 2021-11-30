@@ -46,46 +46,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78782.98546056463,
-        "team": 0.10081689696552279,
-        "noaff": false,
+        "dps": 102595.58951042246,
+        "team": 0.04999874068828354,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Proper_Maintenance",
-        "Spirit_of_the_Season",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon, cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s2, (x=5 or s)",
+        "`s1, buff(s2) and (x=5 or s)",
+        "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Bow",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
@@ -94,7 +84,7 @@
       ]
     },
     "META": {
-      "tdps": 336382.3381038051,
+      "tdps": 378046.8396873892,
       "pref": "PERSONAL"
     }
   },
@@ -157,50 +147,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110152.80912599366,
-        "team": 0.06233888640745137,
+        "dps": 128948.63065942255,
+        "team": 0.04999874068828362,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2 and not dgauge>=500",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon, buff(s3,1) and cancel",
-        "`s3, x=5",
-        "`s2, buff(s3,1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3,x=1"
-      ],
-      "coabs": [
-        "Malora",
-        "Mitsuhide",
-        "Peony"
       ]
     },
     "META": {
-      "tdps": 393342.1933162616,
+      "tdps": 479805.3574864489,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,7 +174,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 85916.58258313418,
+        "dps": 85916.66828252899,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -281,30 +244,8 @@
         "Testament_of_Eternity"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 78958.35314733112,
-        "team": 0.04996067338025065,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Peony"
-      ]
-    },
     "META": {
-      "tdps": 496502.5364405225,
+      "tdps": 734893.0841681594,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

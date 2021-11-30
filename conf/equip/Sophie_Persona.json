@@ -2,19 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63226.40143502962,
-        "team": 0.06243636000572091,
+        "dps": 60513.95094991917,
+        "team": 0.10663085291866115,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
-        "Moonlight_Party",
-        "A_Small_Courage",
+        "Summer_Paladyns",
+        "Chariot_Drift",
         "Lord_of_the_Skies",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Promised_Piety_Staff",
+        "Ravenous_Fire_Crown"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -22,21 +22,20 @@
         "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, x=6",
-        "`s4, fsc",
-        "`fs, x=6"
+        "`s2, x=6 or (not buff(s2) and cancel)",
+        "`s4, cancel",
+        "`fs, x=6 or hits=5"
       ],
       "dacl": [
         "`ex",
-        "`sack, not buff(s2) and x=6",
+        "`sack, not buff(s2)",
         "`s1",
-        "`s4, fsc",
-        "`fs, x=6"
+        "`s4"
       ],
       "coabs": [
         "Blade",
         "Dagger2",
-        "Gala_Zena"
+        "Halloween_Laxi"
       ],
       "share": [
         "Weapon",
@@ -45,17 +44,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63226.40143502962,
-        "team": 0.06243636000572091,
-        "noaff": true,
+        "dps": 66631.81588355945,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
         "Kung_Fu_Masters",
-        "Moonlight_Party",
         "A_Small_Courage",
-        "Lord_of_the_Skies",
+        "Chariot_Drift",
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
@@ -64,38 +63,38 @@
         "`ex",
         "`dragon, s=2",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x=6",
-        "`s4, fsc",
-        "`fs, x=6"
+        "`s1, x=6 or s",
+        "`s2, x=6 or (not buff(s2) and cancel)",
+        "`s4, cancel",
+        "`fs, x=6 or hits=5"
       ],
       "dacl": [
         "`ex",
         "`sack, not buff(s2) and x=6",
-        "`s1",
-        "`s4, fsc",
-        "`fs, x=6"
+        "`s1, x=6",
+        "`s4, x=6"
       ],
       "coabs": [
         "Blade",
         "Dagger2",
-        "Gala_Zena"
+        "Halloween_Laxi"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Ilia"
       ]
     },
     "META": {
+      "tdps": 57374.24737948066,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63010.359907020546,
-        "team": 0.06243636000572091,
-        "noaff": true,
+        "dps": 65544.3219247412,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "coabs": [
@@ -158,7 +157,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33575.46312182334,
+        "dps": 35774.510967415634,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -172,7 +171,7 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Cupid",
       "acl": [
         "`ex",
         "`dragon, not in_drg",
@@ -204,33 +203,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 78207.24466936126,
-        "team": 0.062436360005721,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Cupid",
-      "coabs": [
-        "Blade",
-        "Gala_Audric",
-        "Halloween_Laxi"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80872.27436723147,
-        "team": 0.062476810690432046,
+        "dps": 82071.81147115803,
+        "team": 0.0624134671951487,
         "noaff": false,
         "nihil": false
       },
@@ -243,22 +219,13 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "acl": [
-        "`ex",
-        "`dragon, s=2",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s2, x=6",
-        "`s4, fsc",
-        "`fs, x=6"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Halloween_Laxi"
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 487542.62986143795,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -269,8 +236,8 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78207.24466936126,
-        "team": 0.062436360005721,
+        "dps": 76500.32622932743,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -286,17 +253,18 @@
       "slots.d": "Cupid"
     },
     "META": {
+      "tdps": 149922.60534202793,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48745.43232911459,
+        "dps": 51880.34697096549,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -335,6 +303,37 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65481.63088999598,
+        "team": 0.06241346719514878,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 112346.75815389214,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

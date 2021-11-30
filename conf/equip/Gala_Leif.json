@@ -2,29 +2,43 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 71948.49337661196,
-        "team": 0.08251873724147374,
+        "dps": 103572.43407716062,
+        "team": 0.16645472899268118,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
         "Snipers_Allure",
-        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=4",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1(striking)",
-        "`s2(shielding)",
+        "`striking",
+        "`dragon, (dgauge>900 and s=1) or dshift_count",
+        "queue now=0",
+        "`s3",
         "`fs, x=2",
-        "`shielding"
+        "`s1(striking),fsc",
+        "`fs, x=2",
+        "`s2(shielding),fsc",
+        "end",
+        "`s4, s=2",
+        "`s1(striking)",
+        "queue s2.check() and cancel",
+        "`s2(shielding)",
+        "`striking",
+        "end",
+        "`fs, x=3",
+        "`fs, x=2 and charged_in(fs,s1)"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -33,34 +47,40 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Halloween_Melsa"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71948.49337661196,
-        "team": 0.08251873724147374,
+        "dps": 109788.91849883126,
+        "team": 0.15209394743089785,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
         "Snipers_Allure",
-        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=4",
+        "`striking",
+        "`dragon, (dgauge>=900 and s=1) or dshift_count",
         "`s3, not buff(s3)",
-        "`s4",
+        "if hits>9",
         "`s1(striking)",
         "`s2(shielding)",
-        "`fs, x=2",
-        "`shielding"
+        "`s4, fsc",
+        "end",
+        "`fs, xf=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -69,58 +89,19 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Formal_Noelle"
       ]
     },
     "META": {
+      "tdps": 432879.25485990563,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48571.023528933,
-        "team": 0.10852150174527896,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`shielding",
-        "`dragon, s",
-        "`s4",
-        "`s1(striking)",
-        "`s2(shielding)",
-        "`s3, cancel",
-        "`fs, x=3"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "coabs": [
-        "Meene",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 68051.49738459071,
-        "team": 0.07780050178344794,
+        "dps": 90541.47836154698,
+        "team": 0.1771775862887607,
         "noaff": false,
         "nihil": true
       },
@@ -135,46 +116,16 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`shielding",
-        "`dragon, s",
-        "`s4",
+        "`striking",
+        "`dragon, (dgauge>900 and s=1) or dshift_count",
+        "`s4, fsc",
         "`s1(striking)",
-        "`s2(shielding)",
         "`s3, cancel",
-        "`fs, x=3"
-      ],
-      "coabs": [
-        "Meene",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
-      ]
-    },
-    "META": {
-      "tdps": 634109.3675290849,
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 98940.5392741838,
-        "team": 0.26877450573207307,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`shielding",
-        "`dragon, dgauge>=1000",
-        "`dragon, dshift_count>0",
-        "`s3, not buff(s3) and x=3",
-        "`s4",
-        "`s1(striking)",
+        "queue s2.check() and cancel",
         "`s2(shielding)",
-        "`fs, x=4"
+        "`striking",
+        "end",
+        "`fs, x=3"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
@@ -186,29 +137,145 @@
         "Yukata_Lathna"
       ],
       "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 93969.43492594847,
+        "team": 0.1684150469446944,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`striking",
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s=1)",
+        "`s3, cancel",
+        "`s1(striking)",
+        "queue s2.check() and cancel",
+        "`s2(shielding)",
+        "`striking",
+        "end",
+        "`s4, fsc",
+        "`fs, x=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "tdps": 391205.83997409226,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 124219.04401810748,
+        "team": 0.4523342075325117,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`striking",
+        "`dragon, (dgauge>900 and s=1) or dshift_count",
+        "queue now=0",
+        "`s3",
+        "`s4",
+        "`fs, x=2",
+        "`s1(striking),fsc",
+        "`fs, x=2",
+        "`s2(shielding),fsc",
+        "end",
+        "`s4, not buff(s4)",
+        "`s1(striking)",
+        "queue s2.check() and cancel",
+        "`s2(shielding)",
+        "`striking",
+        "end",
+        "`fs, x=3",
+        "`fs, x=2 and charged_in(fs,s1)"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
         "Weapon",
         "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102290.65952212024,
-        "team": 0.22023006559573896,
+        "dps": 128381.78275698144,
+        "team": 0.4429424497081856,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Snipers_Allure",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
-        "`shielding",
-        "`dragon, dgauge>=900 or dshift_count>0",
-        "`s3, not buff(s3) and x=3",
+        "`striking",
+        "`dragon, (dgauge>900 and s=1) or dshift_count",
+        "queue now=0",
+        "`s3",
+        "`s4",
+        "`fs, x=2",
+        "`s1(striking),fsc",
+        "`fs, x=2",
+        "`s2(shielding),fsc",
+        "end",
         "`s4",
         "`s1(striking)",
+        "queue s2.check() and cancel",
         "`s2(shielding)",
-        "`fs, x=4"
+        "`striking",
+        "end",
+        "`fs, x=3",
+        "`fs, x=2 and charged_in(fs,s1)"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -216,7 +283,7 @@
       ]
     },
     "META": {
-      "tdps": 69011.40972123347,
+      "tdps": 443233.18560150906,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,8 +294,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70687.85138939013,
-        "team": 0.07780050178344794,
+        "dps": 102584.588256659,
+        "team": 0.1684150469446944,
         "noaff": false,
         "nihil": true
       }
@@ -241,11 +308,50 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 26416.222524941717,
-        "team": 0.0,
+        "dps": 70063.69567492086,
+        "team": 0.158836065642613,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`striking",
+        "`dragon, (dgauge>=900 and s=1) or dshift_count",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1(striking)",
+        "`s2(shielding)",
+        "`fs, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Basileus"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47366.44993680597,
+        "team": 0.13950780232409868,
         "noaff": false,
         "nihil": true
       },
@@ -258,32 +364,6 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
-      "acl": [
-        "`shielding",
-        "`dragon, fsc",
-        "`s3, fsc",
-        "`s4",
-        "`s1(striking), s1.check() and fsc",
-        "`s2(shielding), s2.check() and cancel",
-        "`fs, xf=2 or hits=0"
-      ],
-      "coabs": [
-        "Bow",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 26416.222524941717,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
       "acl": [
         "`shielding",
         "`dragon, fsc",

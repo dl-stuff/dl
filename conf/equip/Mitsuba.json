@@ -2,17 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8940.42112803102,
-        "team": 0.5537384879640648,
+        "dps": 5862.736323320123,
+        "team": 0.6367366804559028,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
+        "Castle_Cheer_Corps",
+        "Gentle_Winds",
+        "Jewels_of_the_Sun",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "A_Kings_Pride_Staff",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
@@ -26,6 +28,10 @@
         "`fsf",
         "end"
       ],
+      "dacl": [
+        "ds1",
+        "sack"
+      ],
       "coabs": [
         "Renee",
         "Summer_Estelle",
@@ -38,17 +44,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62889.42393794009,
-        "team": 0.10924804912764903,
+        "dps": 69843.12546276618,
+        "team": 0.16502422793180113,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
+        "Moonlight_Party",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -65,7 +73,8 @@
         "end"
       ],
       "dacl": [
-        "ds1,x=3"
+        "ds1",
+        "sack"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -78,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 121372.69577977071,
+      "tdps": 135634.3017808652,
       "pref": "PERSONAL"
     }
   },
@@ -97,7 +106,7 @@
       ]
     },
     "META": {
-      "tdps": 157657.64330739155,
+      "tdps": 213793.60946562327,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -108,7 +117,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46238.081003416526,
+        "dps": 52924.04357212756,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -116,9 +125,11 @@
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -148,11 +159,60 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52924.04357212756,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`tempura",
+        "if xf=2 and hits>19",
+        "`s4",
+        "`s3",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`dragon",
+        "`fsf",
+        "else",
+        "`fs, xf=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76070.75512446994,
-        "team": 0.1083334035794723,
+        "dps": 77928.46471762353,
+        "team": 0.16329267594211086,
         "noaff": false,
         "nihil": false
       },
@@ -179,7 +239,7 @@
       ]
     },
     "META": {
-      "tdps": 150717.48471212803,
+      "tdps": 152215.9488920174,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -190,7 +250,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49449.96081700607,
+        "dps": 53430.1585702142,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -220,6 +280,39 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53430.1585702142,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`tempura",
+        "if xf=2 and hits>19",
+        "`s4",
+        "`s3",
+        "`s1(tempura)",
+        "`dragon",
+        "`fsf",
+        "else",
+        "`fs, xf=2",
+        "end"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -237,7 +330,7 @@
       ]
     },
     "META": {
-      "tdps": 79075.46342736908,
+      "tdps": 72467.85992046769,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -248,7 +341,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36232.14189779445,
+        "dps": 39618.966999341035,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -259,6 +352,23 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39618.966999341035,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

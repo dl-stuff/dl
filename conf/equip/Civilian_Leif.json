@@ -38,15 +38,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87845.76913682473,
-        "team": 0.08330915053824631,
+        "dps": 107469.75621411114,
+        "team": 0.1090908735005139,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_Brethren",
-        "Emissaries_of_the_Heavens",
+        "Dragonyule_Dreaming",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
@@ -54,21 +54,21 @@
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and fsc",
-        "`s1, fsc or s",
-        "`s2, fsc",
-        "`s4, fsc",
+        "`dragon, buff(s3, 1) and fsc",
+        "`s3, fsc",
+        "`s4",
+        "`s2, buff(s3, 1)",
+        "`s1, buff(s3, 1) and fsc",
         "`fs, x=1"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Gala_Zena",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
@@ -77,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 284645.7871721262,
+      "tdps": 555883.348668657,
       "pref": "PERSONAL"
     }
   },
@@ -120,30 +120,31 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67491.18765679581,
+        "dps": 70749.44975216608,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Adventure_in_the_Past",
+        "Dragon_Brethren",
         "Dragonyule_Dreaming",
         "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
         "Entwined_Flames",
-        "Such_High_Spirits",
-        "Promised_Piety_Staff",
-        "Savage_Hawk_Lance"
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, fsc",
         "`s3, fsc",
-        "`s1, fsc or s",
-        "`s2, fsc",
         "`s4, fsc",
+        "`s2, fsc",
+        "`s1, fsc or s=2",
         "`fs, x=1"
       ],
       "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
         "`dfs3, x=1"
       ],
@@ -154,48 +155,30 @@
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 423475.17767873954,
+      "tdps": 458712.3729471934,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 112281.63615123146,
-        "team": 0.049987125538111264,
+        "dps": 129514.39545613082,
+        "team": 0.10909087350051402,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, buff(s3,1) and fsc",
-        "`s3",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`s2, fsc",
-        "`fs, x=1"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3,x=1"
-      ],
-      "coabs": [
-        "Dagger",
-        "Gala_Zena",
-        "Peony"
       ]
     },
     "META": {
@@ -209,7 +192,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79884.31297870891,
+        "dps": 84163.38194471695,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -229,7 +212,12 @@
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
-        "`fs, x=1"
+        "`fs",
+        "`dodge, fsc"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -251,8 +239,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77476.81724878958,
-        "team": 0.09580787505186794,
+        "dps": 74536.67113502813,
+        "team": 0.12686079994235447,
         "noaff": false,
         "nihil": false
       },
@@ -281,7 +269,7 @@
       ]
     },
     "META": {
-      "tdps": 252825.94250151076,
+      "tdps": 312981.1851018317,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -328,14 +316,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67099.82417836912,
+        "dps": 70294.77113947683,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 565795.402236538,
+      "tdps": 613776.721654995,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -161,7 +161,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 92012.83198229942,
+        "dps": 92071.53166036178,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -176,9 +176,8 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon, dshift_count=0 and energy()=5",
-        "`dragon, dshift_count=1 and s=2",
-        "`dragon, dshift_count>=2 and x=3",
+        "`dragon, not dshift_count and energy()=5",
+        "`dragon, dshift_count and s=2",
         "`s3, not buff(s3)",
         "`s2, x=5 or energy()<5",
         "`s4, not energy()=5 and x>3"
@@ -189,7 +188,7 @@
       ]
     },
     "META": {
-      "tdps": 178419.6284599495,
+      "tdps": 178558.51004323195,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,7 +213,7 @@
       ]
     },
     "META": {
-      "tdps": 177310.43026523627,
+      "tdps": 177897.70449967153,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",

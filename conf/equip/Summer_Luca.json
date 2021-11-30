@@ -37,42 +37,94 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83303.36075681972,
-        "team": 0.01457953983426538,
-        "noaff": false,
+        "dps": 98381.8514185862,
+        "team": 0.04988784150802725,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s2, cancel",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 3426465.228923362,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 92370.0860520256,
+        "team": 0.05334906343704525,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
-        "A_Small_Courage",
         "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, buff(s3, 1) and buff(s2)",
-        "`s3, cancel",
-        "`s4",
+        "`dragon, buff(s3, 1)",
+        "`s3",
         "`s2",
-        "`s1, x>1",
-        "`fsf, x=4"
+        "`s1, buff(s3, 1) and energy()=5",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Blade",
-        "Gala_Prince",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 584028.4788526758,
-      "pref": "PERSONAL"
+      "tdps": 1736891.043061844,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -118,30 +170,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60743.75216626707,
-        "team": 0.06263201712048684,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Peony",
-        "Raemond"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 92527.79826433754,
-        "team": 0.014551763809250592,
+        "dps": 21139.40402094036,
+        "team": 0.1047620096202695,
         "noaff": false,
         "nihil": false
       },
@@ -154,14 +184,46 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1) and s=1",
+        "`s3",
+        "`s4"
+      ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 120023.78302688267,
+        "team": 0.04988784150802718,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
       ]
     },
     "META": {
-      "tdps": 661062.367794194,
+      "tdps": 1802020.5573536772,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

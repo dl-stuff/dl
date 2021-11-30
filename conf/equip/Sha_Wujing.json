@@ -37,65 +37,47 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43989.195495076856,
-        "team": 0.13735892269380745,
-        "noaff": false,
+        "dps": 100501.37400552681,
+        "team": 0.0767393321538744,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s=1 or s=4",
-        "`s3, not buff(s3)",
-        "`s2, xf",
-        "`s1, x=5",
-        "`s4, x=5",
-        "`fs, x=5"
+        "`dragon, buff(s3, 1)",
+        "`s3, fscf or s",
+        "`s1, fscf",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
-        "Dagger2",
+        "Halloween_Laxi",
+        "Mitsuhide",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 160927.1977431556,
+      "tdps": 327128.7006012919,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 42733.63829385775,
-        "team": 0.13735892269380745,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Peony"
-      ]
-    },
-    "META": {
-      "tdps": 155238.39128139036,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -177,41 +159,32 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73834.10349772628,
-        "team": 0.19171689504112346,
+        "dps": 120833.65913117563,
+        "team": 0.11825711786095049,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s1, x=5",
-        "`s4, x=5",
-        "`fs, x=5"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "`dragon, buff(s3, 1)",
+        "`s2, buff(s3, 1)",
+        "`s3, fscf or s",
+        "`s1, fscf",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
       ]
     },
     "META": {
-      "tdps": 392925.39273140253,
+      "tdps": 468549.69343327486,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -260,42 +233,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 8471.498882186033,
-        "team": 0.3580655348202305,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Wily_Warriors_Flash_and_Heat",
-        "Blessed_Days",
-        "From_Whence_He_Comes",
-        "Beneath_the_Boughs",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ],
-      "share": [
-        "Patia",
-        "Templar_Hope"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
