@@ -1,12 +1,16 @@
 {
+    "actconds": {
+        "2052": {"duration": 180.0, "icon": "critdmg-buff", "mods": [[0.3, "critdmg", "buff"]], "coei": 1, "text": "Critical Damage Surge"}
+    },
     "d": {
         "name": "Long Long",
         "icon": "210080_01",
-        "att": 126,
-        "hp": 369,
+        "att": 146,
+        "hp": 389,
         "ele": "wind",
         "abilities": [
-            {"ab": [["mod", 0.45, "att"], ["mod", 0.55, "critdmg"]]}
+            {"ab": [["mod", 0.5, "att"], ["mod", 0.6, "critdmg"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "2052"]]}
         ]
     },
     "dodge": {
@@ -80,4 +84,3 @@
         "cancel": {"any": 1.13334, "dodge": 0.0, "dx1": 1.13334, "s": 0.0}
     }
 }
-

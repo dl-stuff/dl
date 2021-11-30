@@ -1,1001 +1,498 @@
 {
-    "any": {
-        "Axe2": {
-            "category": "Axe2",
-            "ex": [["cd", 0.3]],
-            "chain": []
-        },
-        "Cleo": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["dshift_att", 0.08, 0.09, 0.15]]
-        },
-        "Dagger2": {
-            "category": "Dagger2",
-            "ex": [["x", 0.2, "ex"]],
-            "chain": []
-        },
-        "Elisanne": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Fortress": {
-            "category": "Fortress",
-            "ex": [["hp", 0.1]],
-            "chain": []
-        },
-        "Gala_Leif": {
-            "category": "Gala_Leif",
-            "ex": [["k_debuff", 0.08]],
-            "chain": []
-        },
-        "Gala_Prince": {
-            "category": "Gala_Prince",
-            "ex": [["da", 0.1], ["dt", 0.2]],
-            "chain": []
-        },
-        "Grace": {
-            "category": "Grace",
-            "ex": [["fs", 0.2, "ex"]],
-            "chain": []
-        },
-        "Joker": {
-            "category": "Joker",
-            "ex": [["spd", 0.07]],
-            "chain": []
-        },
-        "Panther": {
-            "category": "Panther",
-            "ex": [["edge_scorchrend", 20.0], ["afftime_scorchrend", 0.2]],
-            "chain": []
-        },
-        "Ranzal": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Sharena": {
-            "category": "Sharena",
-            "ex": [["k_paralysis", 0.08]],
-            "chain": []
-        },
-        "The_Prince": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["dh", 0.14]]
-        },
-        "Tobias": {
-            "category": "Tobias",
-            "ex": [["bt", 0.2, "ex"]],
-            "chain": []
-        },
-        "Wand2": {
-            "category": "Wand2",
-            "ex": [["od", 0.15], ["odaccel", 0.1]],
-            "chain": []
-        }
+    "coab": {
+        "101010010": {"name": "HP +15%", "icon": "Icon_Ability_1020001", "ab": [["mod", 0.15, "hp"]], "category": 1},
+        "101020010": {"name": "Strength +10%", "icon": "Icon_Ability_1020002", "ab": [["mod", 0.1, "att"]], "category": 2},
+        "101030010": {"name": "Defense +15%", "icon": "Icon_Ability_1020003", "ab": [["mod", 0.15, "def"]], "category": 3},
+        "101040010": {"name": "Skill Haste +15%", "icon": "Icon_Ability_1020004", "ab": [["mod", 0.15, "sph"]], "category": 4},
+        "101050010": {"name": "Dragon Haste +15%", "icon": "Icon_Ability_1020005", "ab": [["mod", 0.15, "dph"]], "category": 5},
+        "101060010": {"name": "HP +10% & Defense +10%", "icon": "Icon_Ability_1010041", "ab": [["mod", 0.1, "hp"], ["mod", 0.1, "def"]], "category": 18},
+        "101100007": {"name": "Agility Boost +7%", "icon": "Icon_Ability_1020014", "ab": [["mod", 0.07, "spd"]], "category": 25},
+        "102000010": {"name": "Skill Damage +15%", "icon": "Icon_Ability_1010002", "ab": [["actdmg", 0.15, "-t:s"]], "category": 6},
+        "103000010": {"name": "Critical Rate +10%", "icon": "Icon_Ability_1020010", "ab": [["mod", 0.1, "crit"]], "category": 7},
+        "103150005": {"name": "Scorchrend Boost V", "icon": "Icon_Ability_1010094", "ab": [["mod", 0.2, "edge_scorchrend"], ["mod", 0.2, "afftime_scorchrend"]], "category": 24},
+        "104000010": {"name": "Recovery Potency +20%", "icon": "Icon_Ability_1020009", "ab": [["mod", 0.2, "rcv", "-t:s"]], "category": 8},
+        "106000008": {"name": "Overdrive Punisher & Gauge Accelerator VIII", "icon": "Icon_Ability_1010016", "cond": ["overdrive"], "ab": [["actdmg", 0.15], ["mod", 0.1, "odaccel"]], "category": 10},
+        "106000016": {"name": "Force Strike +20%", "icon": "Icon_Ability_1010001", "ab": [["actdmg", 0.2, "-t:fs"]], "category": 17},
+        "106070008": {"name": "Standard Attack Damage +20%", "icon": "Icon_Ability_1010045", "ab": [["actdmg", 0.2, "-t:x"]], "category": 20},
+        "106080008": {"name": "Reduced Strength & Defense Punisher +8%", "icon": "Icon_Ability_1070016", "cond": ["debuff", 21], "ab": [["actdmg", 0.08]], "category": 21},
+        "109000009": {"name": "Gauge Accelerator +20%", "icon": "Icon_Ability_1020013", "ab": [["mod", 0.2, "odaccel"]], "category": 22},
+        "118000008": {"name": "Buff Time +20%", "icon": "Icon_Ability_1010006", "ab": [["mod", 0.2, "bufftime"]], "category": 13},
+        "120040008": {"name": "Paralyzed Punisher +8%", "icon": "Icon_Ability_1070004", "ab": [["mod", 0.08, "killer_paralysis"]], "category": 19},
+        "126000008": {"name": "Critical Damage +30%", "icon": "Icon_Ability_1020011", "ab": [["mod", 0.3, "critdmg"]], "category": 12},
+        "136000008": {"name": "Shapeshifting Boost VIII", "icon": "Icon_Ability_1020032", "ab": [["mod", 0.1, "da"], ["mod", 0.2, "dt"]], "category": 9},
+        "157570005": {"name": "Wind Boost +20%", "icon": "Icon_Ability_1090003", "ab": [["mod", 0.2, "eledmg", "wind"]], "category": 26},
+        "157570408": {"name": "Light Damage +20%", "icon": "Icon_Ability_1090004", "ab": [["mod", 0.2, "eledmg", "light"]], "category": 16},
+        "157570413": {"name": "Light Boost +15%?", "icon": "Icon_Ability_1090004", "ab": [["mod", 0.15, "eledmg", "light"]], "category": 16},
+        "166000008": {"name": "HP on Revival +30%", "icon": "Icon_Ability_1010078", "ab": [["rebornhp", 0.3]], "category": 23}
     },
-    "flame": {
-        "Alain": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpless_40_att", 0.12]]
-        },
-        "Aurien": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["affself_burn_crit_chance", 0.09]]
-        },
-        "Child_Ranzal": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["a", 0.08, "amp_2_team"]]
-        },
-        "Chrom": {
-            "category": "Fortress",
-            "ex": [["hp", 0.1]],
-            "chain": []
-        },
-        "Emma": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpless_40_att", 0.14]]
-        },
-        "Ezelith": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["ctime", 2.5]]
-        },
-        "Gala_Gatov": {
-            "category": "Fortress",
-            "ex": [["hp", 0.1]],
-            "chain": [["dodge_att", 0.1, 15.0, 15.0, "iframe"]]
-        },
-        "Gala_Laxi": {
-            "category": "Dagger2",
-            "ex": [["x", 0.2, "ex"]],
-            "chain": []
-        },
-        "Gala_Leonidas": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": [["dpcombo", 50]]
-        },
-        "Gala_Mym": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["dshift_att", 0.1, 0.1, 0.15]]
-        },
-        "Gala_Sarisse": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["ecombo", 20]]
-        },
-        "Halloween_Lowen": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Halloween_Mym": {
-            "category": "Axe2",
-            "ex": [["cd", 0.3]],
-            "chain": [["dh", 0.2]]
-        },
-        "Hunter_Berserker": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["damaged_fs_buff", 0.2, 1]]
-        },
-        "Joe": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["edge_burn", 40.0]]
-        },
-        "Karl": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hitcount_10_att", 0.1]]
-        },
-        "Kimono_Elisanne": {
-            "category": "Kimono_Elisanne",
-            "ex": [],
-            "chain": [["critcombo", 0.01, 10.0, 20.0]]
-        },
-        "Kuzunoha": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["ctime", 1.5]]
-        },
-        "Lea": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpless_60_regen", 4.0, 20.0, 30.0]]
-        },
-        "Marth": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hitcount_10_att", 0.13]]
-        },
-        "Marty": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hp", 0.07]]
-        },
-        "Mega_Man": {
-            "category": "Wand2",
-            "ex": [["od", 0.15], ["odaccel", 0.1]],
-            "chain": []
-        },
-        "Nadine": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_burn_att", 0.13]]
-        },
-        "Naveed": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Nobunaga": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["ctime", 2.5]]
-        },
-        "Panther": {
-            "category": "Panther",
-            "ex": [["edge_scorchrend", 20.0], ["afftime_scorchrend", 0.2]],
-            "chain": [["dt", 0.2]]
-        },
-        "Ramona": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Seimei": {
-            "category": "Wand2",
-            "ex": [["od", 0.15], ["odaccel", 0.1]],
-            "chain": [["bt", 0.15, "hit10"]]
-        },
-        "Serena": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hitcount_10_crit_chance", 0.12]]
-        },
-        "Summer_Alex": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["ctime", 2.5]]
-        },
-        "The_Prince": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["dh", 0.14]]
-        },
-        "Undercover_Grace": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpless_40_att", 0.15]]
-        },
-        "Valentines_Hildegarde": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hpless_40_att", 0.15]]
-        },
-        "Valentines_Orion": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["affself_burn_att", 0.08]]
-        },
-        "Vanessa": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Verica": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["dshift_att", 0.09, 0.1, 0.15]]
-        },
-        "Xuan_Zang": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Yue": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpless_40_att", 0.14]]
-        },
-        "Yukata_Cassandra": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["damaged_att", 0.13]]
-        },
-        "Yuya": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["dh", 0.18]]
-        }
+    "chain": {
+        "400000012": [{"name": "(Flame) Dragon's Claws VI", "icon": "Icon_Ability_1020002", "cond": ["event", "dragon"], "count": 3, "ele": "flame", "ab": [["actcond", "MYSELF", "510", "510", "512"]], "actconds": {"510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}, "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}}}],
+        "400000015": [{"name": "(Flame) HP Below 40% = Strength +12%", "icon": "Icon_Ability_1020002", "cond": ["hp", "<=", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "607"]], "actconds": {"612": {"remove": 607}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "612"]], "actconds": {"612": {"remove": 607}}}],
+        "400000017": [{"name": "(Flame) HP Below 40% = Strength +14%", "icon": "Icon_Ability_1020002", "cond": ["hp", "<=", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "650"]], "actconds": {"651": {"remove": 650}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "651"]], "actconds": {"651": {"remove": 650}}}],
+        "400000040": [{"name": "(Flame) Burn = User Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["aff", "burn"], "cd": 10.0, "ele": "flame", "ab": [["hitattr", {"actcond": "302031201", "target": "MYSELF"}]], "actconds": {"302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000127": [{"name": "(Flame) HP 60% = Strength +5%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "flame", "ab": [["actcond", "MYSELF", "675"]], "actconds": {"676": {"remove": 675}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "flame", "ab": [["actcond", "MYSELF", "676"]], "actconds": {"676": {"remove": 675}}}],
+        "400000191": [{"name": "(Water) Frostbite = User Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["aff", "frostbite"], "cd": 10.0, "ele": "water", "ab": [["hitattr", {"actcond": "302030101", "target": "MYSELF"}]], "actconds": {"302030101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"}}}],
+        "400000193": [{"name": "(Water) Frostbite = User Strength +10%", "icon": "Icon_Ability_1020002", "cond": ["aff", "frostbite"], "cd": 10.0, "ele": "water", "ab": [["hitattr", {"actcond": "302030201", "target": "MYSELF"}]], "actconds": {"302030201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}}}],
+        "400000194": [{"name": "(Water) Frostbite = User Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["aff", "frostbite"], "cd": 10.0, "ele": "water", "ab": [["hitattr", {"actcond": "302031201", "target": "MYSELF"}]], "actconds": {"302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000217": [{"name": "(Water) Dragon's Claws VI", "icon": "Icon_Ability_1020002", "cond": ["event", "dragon"], "count": 3, "ele": "water", "ab": [["actcond", "MYSELF", "510", "510", "512"]], "actconds": {"510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}, "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}}}],
+        "400000222": [{"name": "(Water) Buff Skill Time +5%", "icon": "Icon_Ability_1010006", "ele": "water", "ab": [["mod", 0.05, "bufftime", "-t:s"]]}],
+        "400000232": [{"name": "(Water) Above 10 Hits = Critical Rate +13%", "icon": "Icon_Ability_1020010", "cond": ["hits", ">=", 10], "ele": "water", "ab": [["actcond", "MYSELF", "581"]], "actconds": {"586": {"remove": 581}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "water", "ab": [["actcond", "MYSELF", "586"]], "actconds": {"586": {"remove": 581}}}],
+        "400000244": [{"name": "(Water) Above 10 Hits = Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "water", "ab": [["actcond", "MYSELF", "591"]], "actconds": {"596": {"remove": 591}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "water", "ab": [["actcond", "MYSELF", "596"]], "actconds": {"596": {"remove": 591}}}],
+        "400000326": [{"name": "(Wind) Poison = User Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["aff", "poison"], "cd": 10.0, "ele": "wind", "ab": [["hitattr", {"actcond": "302031201", "target": "MYSELF"}]], "actconds": {"302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000348": [{"name": "(Wind) Strength Doublebuff +9%", "icon": "Icon_Ability_1020002", "cond": ["event", "doublebuff"], "cd": 15.0, "ele": "wind", "ab": [["actcond", "MYSELF", "652"]], "actconds": {"652": {"duration": 15.0, "icon": "att-buff", "mods": [[0.09, "att", "buff"]], "text": "Strength +9%"}}}],
+        "400000373": [{"name": "(Wind) HP 60% = Strength +6%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "wind", "ab": [["actcond", "MYSELF", "619"]], "actconds": {"624": {"remove": 619}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "wind", "ab": [["actcond", "MYSELF", "624"]], "actconds": {"624": {"remove": 619}}}],
+        "400000385": [{"name": "(Wind) HP 60% = Critical Rate +8%", "icon": "Icon_Ability_1020010", "cond": ["hp", ">=", 60, 1], "ele": "wind", "ab": [["actcond", "MYSELF", "713"]], "actconds": {"714": {"remove": 713}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "wind", "ab": [["actcond", "MYSELF", "714"]], "actconds": {"714": {"remove": 713}}}],
+        "400000452": [{"name": "(Light) HP 60% = Strength +5%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "light", "ab": [["actcond", "MYSELF", "675"]], "actconds": {"676": {"remove": 675}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "light", "ab": [["actcond", "MYSELF", "676"]], "actconds": {"676": {"remove": 675}}}],
+        "400000465": [{"name": "(Light) Above 10 Hits = Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "light", "ab": [["actcond", "MYSELF", "591"]], "actconds": {"596": {"remove": 591}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "light", "ab": [["actcond", "MYSELF", "596"]], "actconds": {"596": {"remove": 591}}}],
+        "400000503": [{"name": "(Light) Defense +3%", "icon": "Icon_Ability_1020003", "ele": "light", "ab": [["mod", 0.03, "def"]]}],
+        "400000529": [{"name": "(Light) Paralysis = User Critical Rate +13%", "icon": "Icon_Ability_1020010", "cond": ["aff", "paralysis"], "cd": 10.0, "ele": "light", "ab": [["hitattr", {"actcond": "572", "target": "MYSELF"}]], "actconds": {"572": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.13, "crit", "buff"]], "text": "Critical Rate +13%"}}}],
+        "400000535": [{"name": "(Light) Energy = Strength +10%", "icon": "Icon_Ability_1020002", "cond": ["event", "energy"], "cd": 15.0, "ele": "light", "ab": [["actcond", "MYSELF", "302030201"]], "actconds": {"302030201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}}}],
+        "400000552": [{"name": "(Light) HP +9%", "icon": "Icon_Ability_1020001", "ele": "light", "ab": [["mod", 0.09, "hp"]]}],
+        "400000585": [{"name": "(Shadow) HP 60% = Strength +5%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "shadow", "ab": [["actcond", "MYSELF", "675"]], "actconds": {"676": {"remove": 675}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "shadow", "ab": [["actcond", "MYSELF", "676"]], "actconds": {"676": {"remove": 675}}}],
+        "400000607": [{"name": "(Shadow) Poison = User Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["aff", "poison"], "cd": 10.0, "ele": "shadow", "ab": [["hitattr", {"actcond": "302030101", "target": "MYSELF"}]], "actconds": {"302030101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"}}}],
+        "400000663": [{"name": "(Shadow) Dragon Haste +20%", "icon": "Icon_Ability_1020005", "ele": "shadow", "ab": [["mod", 0.2, "dph"]]}],
+        "400000669": [{"name": "(Shadow) Dragon's Claws VI", "icon": "Icon_Ability_1020002", "cond": ["event", "dragon"], "count": 3, "ele": "shadow", "ab": [["actcond", "MYSELF", "510", "510", "512"]], "actconds": {"510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}, "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}}}],
+        "400000704": [{"name": "(Shadow) Defense +5%", "icon": "Icon_Ability_1020003", "ele": "shadow", "ab": [["mod", 0.05, "def"]]}],
+        "400000722": [{"name": "HP 60% = Strength +3%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ab": [["actcond", "MYSELF", "617"]], "actconds": {"622": {"remove": 617}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ab": [["actcond", "MYSELF", "622"]], "actconds": {"622": {"remove": 617}}}],
+        "400000794": [{"name": "(Wind) Combo Time VI", "icon": "Icon_Ability_1020036", "ele": "wind", "ab": [["ctime", 2.5]]}],
+        "400000884": [{"name": "(Light) HP Recovery = Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["event", "heal"], "cd": 10.0, "ele": "light", "ab": [["actcond", "MYSELF", "302030101"]], "actconds": {"302030101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"}}}],
+        "400000966": [{"name": "(Shadow) Shadowblight = Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["aff", "shadowblight"], "cd": 10.0, "ele": "shadow", "ab": [["hitattr", {"actcond": "302031201", "target": "MYSELF"}]], "actconds": {"302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000054": [{"name": "(Flame) Burn = User Wind Res +5%", "icon": "Icon_Ability_1080003", "cond": ["aff", "burn"], "cd": 10.0, "ele": "flame", "ab": [["hitattr", {"actcond": "659", "target": "MYSELF"}]], "actconds": {"659": {"duration": 15.0, "icon": "resist_wind-buff", "mods": [[0.05, "resist_wind", "buff"]], "coei": 1, "text": "Wind Res +5%"}}}],
+        "400000057": [{"name": "(Flame) Burn = User Wind Res +8%", "icon": "Icon_Ability_1080003", "cond": ["aff", "burn"], "cd": 10.0, "ele": "flame", "ab": [["hitattr", {"actcond": "662", "target": "MYSELF"}]], "actconds": {"662": {"duration": 15.0, "icon": "resist_wind-buff", "mods": [[0.08, "resist_wind", "buff"]], "coei": 1, "text": "Wind Res +8%"}}}],
+        "400000096": [{"name": "(Flame) HP Below 40% = Wind Res +9%", "icon": "Icon_Ability_1080003", "cond": ["hp", "<=", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "667"]], "actconds": {"673": {"remove": 667, "coei": 1}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "673"]], "actconds": {"673": {"remove": 667, "coei": 1}}}],
+        "400000146": [{"name": "(Flame) HP 80% = Wind Res +6%", "icon": "Icon_Ability_1080003", "cond": ["hp", ">=", 80], "ele": "flame", "ab": [["mod", 0.06, "eleres", "wind"]]}],
+        "400000168": [{"name": "(Water) HP 80% = Flame Res +6%", "icon": "Icon_Ability_1080001", "cond": ["hp", ">=", 80], "ele": "water", "ab": [["mod", 0.06, "eleres", "flame"]]}],
+        "400000182": [{"name": "(Water) HP +9%", "icon": "Icon_Ability_1020001", "ele": "water", "ab": [["mod", 0.09, "hp"]]}],
+        "400000197": [{"name": "(Water) Frostbite = User Flame Res +5%", "icon": "Icon_Ability_1080001", "cond": ["aff", "frostbite"], "cd": 10.0, "ele": "water", "ab": [["hitattr", {"actcond": "679", "target": "MYSELF"}]], "actconds": {"679": {"duration": 15.0, "icon": "resist_flame-buff", "mods": [[0.05, "resist_flame", "buff"]], "coei": 1, "text": "Flame Res +5%"}}}],
+        "400000256": [{"name": "(Water) Above 10 Hits = Flame Res +10%", "icon": "Icon_Ability_1080001", "cond": ["hits", ">=", 10], "ele": "water", "ab": [["actcond", "MYSELF", "688"]], "actconds": {"694": {"remove": 688, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "water", "ab": [["actcond", "MYSELF", "694"]], "actconds": {"694": {"remove": 688, "coei": 1}}}],
+        "400000277": [{"name": "(Water) HP Below 40% = Flame Res +9%", "icon": "Icon_Ability_1080001", "cond": ["hp", "<=", 40], "ele": "water", "ab": [["actcond", "MYSELF", "810"]], "actconds": {"816": {"remove": 810, "coei": 1}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "water", "ab": [["actcond", "MYSELF", "816"]], "actconds": {"816": {"remove": 810, "coei": 1}}}],
+        "400000287": [{"name": "(Wind) Above 10 Hits = Water Res +7%", "icon": "Icon_Ability_1080002", "cond": ["hits", ">=", 10], "ele": "wind", "ab": [["actcond", "MYSELF", "703"]], "actconds": {"709": {"remove": 703, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "wind", "ab": [["actcond", "MYSELF", "709"]], "actconds": {"709": {"remove": 703, "coei": 1}}}],
+        "400000331": [{"name": "(Wind) Poison = User Water Res +7%", "icon": "Icon_Ability_1080002", "cond": ["aff", "poison"], "cd": 10.0, "ele": "wind", "ab": [["hitattr", {"actcond": "699", "target": "MYSELF"}]], "actconds": {"699": {"duration": 15.0, "icon": "resist_water-buff", "mods": [[0.07, "resist_water", "buff"]], "coei": 1, "text": "Water Res +7%"}}}],
+        "400000367": [{"name": "(Wind) Defense +6%", "icon": "Icon_Ability_1020003", "ele": "wind", "ab": [["mod", 0.06, "def"]]}],
+        "400000396": [{"name": "(Wind) HP 80% = Water Res +5%", "icon": "Icon_Ability_1080002", "cond": ["hp", ">=", 80], "ele": "wind", "ab": [["mod", 0.05, "eleres", "water"]]}],
+        "400000397": [{"name": "(Wind) HP 80% = Water Res +6%", "icon": "Icon_Ability_1080002", "cond": ["hp", ">=", 80], "ele": "wind", "ab": [["mod", 0.06, "eleres", "water"]]}],
+        "400000430": [{"name": "(Light) HP Below 60% = HP Regen III", "icon": "Icon_Ability_1010011", "cond": ["hp", "<", 60, 1], "cd": 45.0, "ele": "light", "ab": [["actcond", "MYSELF", "308020401"]], "actconds": {"308020401": {"duration": 20.0, "slip": {"value": ["percent", -0.04], "kind": "hp", "iv": 3.9}, "coei": 1, "text": "HP Regen"}}}],
+        "400000438": [{"name": "(Light) HP 80% = Shadow Res +6%", "icon": "Icon_Ability_1080005", "cond": ["hp", ">=", 80], "ele": "light", "ab": [["mod", 0.06, "eleres", "shadow"]]}],
+        "400000489": [{"name": "(Light) Above 10 Hits = Shadow Res +10%", "icon": "Icon_Ability_1080005", "cond": ["hits", ">=", 10], "ele": "light", "ab": [["actcond", "MYSELF", "726"]], "actconds": {"732": {"remove": 726, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "light", "ab": [["actcond", "MYSELF", "732"]], "actconds": {"732": {"remove": 726, "coei": 1}}}],
+        "400000505": [{"name": "(Light) Defense +5%", "icon": "Icon_Ability_1020003", "ele": "light", "ab": [["mod", 0.05, "def"]]}],
+        "400000516": [{"name": "(Light) Paralysis = User Shadow Res +7%", "icon": "Icon_Ability_1080005", "cond": ["aff", "paralysis"], "cd": 10.0, "ele": "light", "ab": [["hitattr", {"actcond": "719", "target": "MYSELF"}]], "actconds": {"719": {"duration": 15.0, "icon": "resist_shadow-buff", "mods": [[0.07, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +7%"}}}],
+        "400000570": [{"name": "(Shadow) HP 80% = Light Res +5%", "icon": "Icon_Ability_1080004", "cond": ["hp", ">=", 80], "ele": "shadow", "ab": [["mod", 0.05, "eleres", "light"]]}],
+        "400000571": [{"name": "(Shadow) HP 80% = Light Res +6%", "icon": "Icon_Ability_1080004", "cond": ["hp", ">=", 80], "ele": "shadow", "ab": [["mod", 0.06, "eleres", "light"]]}],
+        "400000644": [{"name": "(Shadow) HP Below 40% = Light Res +9%", "icon": "Icon_Ability_1080004", "cond": ["hp", "<=", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "743"]], "actconds": {"749": {"remove": 743, "coei": 1}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "749"]], "actconds": {"749": {"remove": 743, "coei": 1}}}],
+        "400000645": [{"name": "(Shadow) HP Below 40% = Light Res +10%", "icon": "Icon_Ability_1080004", "cond": ["hp", "<=", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "744"]], "actconds": {"750": {"remove": 744, "coei": 1}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "750"]], "actconds": {"750": {"remove": 744, "coei": 1}}}],
+        "400000672": [{"name": "(Shadow) HP +7%", "icon": "Icon_Ability_1020001", "ele": "shadow", "ab": [["mod", 0.07, "hp"]]}],
+        "400000708": [{"name": "(Flame) Combo Time VI", "icon": "Icon_Ability_1020036", "ele": "flame", "ab": [["ctime", 2.5]]}],
+        "400000752": [{"name": "(Light) Energy = Shadow Res +8%", "icon": "Icon_Ability_1080005", "cond": ["event", "energy"], "cd": 15.0, "ele": "light", "ab": [["actcond", "MYSELF", "720"]], "actconds": {"720": {"duration": 15.0, "icon": "resist_shadow-buff", "mods": [[0.08, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +8%"}}}],
+        "400000917": [{"name": "(Wind) Dragon Haste +20%", "icon": "Icon_Ability_1020005", "ele": "wind", "ab": [["mod", 0.2, "dph"]]}],
+        "400000940": [{"name": "(Flame) Scorchrend = Wind Res +8%", "icon": "Icon_Ability_1080003", "cond": ["aff", "scorchrend"], "cd": 10.0, "ele": "flame", "ab": [["hitattr", {"actcond": "662", "target": "MYSELF"}]], "actconds": {"662": {"duration": 15.0, "icon": "resist_wind-buff", "mods": [[0.08, "resist_wind", "buff"]], "coei": 1, "text": "Wind Res +8%"}}}],
+        "400000960": [{"name": "(Water) Combo = Buff Skill Time +15%", "icon": "Icon_Ability_1010006", "cond": ["hits", ">=", 10], "ele": "water", "ab": [["mod", 0.15, "bufftime", "-t:s"]]}],
+        "400000978": [{"name": "(Shadow) Team Critical Dmg Amp = Light Res +6%", "icon": "Icon_Ability_1080004", "cond": ["auratype", 4, 2], "ele": "shadow", "ab": [["mod", 0.06, "eleres", "light"]]}],
+        "400000994": [{"name": "(Light) Team Strength Amp = Curse Res +100%", "icon": "Icon_Ability_1030007", "cond": ["aura", 2, 1], "ele": "light", "ab": [["mod", 1.0, "affres_curse"]]}],
+        "400000128": [{"name": "(Flame) HP 60% = Strength +6%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "flame", "ab": [["actcond", "MYSELF", "619"]], "actconds": {"624": {"remove": 619}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "flame", "ab": [["actcond", "MYSELF", "624"]], "actconds": {"624": {"remove": 619}}}],
+        "400000153": [{"name": "(Water) HP 60% = Strength +3%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "water", "ab": [["actcond", "MYSELF", "617"]], "actconds": {"622": {"remove": 617}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "water", "ab": [["actcond", "MYSELF", "622"]], "actconds": {"622": {"remove": 617}}}],
+        "400000155": [{"name": "(Water) HP 60% = Strength +5%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "water", "ab": [["actcond", "MYSELF", "675"]], "actconds": {"676": {"remove": 675}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "water", "ab": [["actcond", "MYSELF", "676"]], "actconds": {"676": {"remove": 675}}}],
+        "400000156": [{"name": "(Water) HP 60% = Strength +6%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "water", "ab": [["actcond", "MYSELF", "619"]], "actconds": {"624": {"remove": 619}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "water", "ab": [["actcond", "MYSELF", "624"]], "actconds": {"624": {"remove": 619}}}],
+        "400000208": [{"name": "(Water) Dragon Haste +14%", "icon": "Icon_Ability_1020005", "ele": "water", "ab": [["mod", 0.14, "dph"]]}],
+        "400000290": [{"name": "(Wind) Above 10 Hits = Water Res +10%", "icon": "Icon_Ability_1080002", "cond": ["hits", ">=", 10], "ele": "wind", "ab": [["actcond", "MYSELF", "706"]], "actconds": {"712": {"remove": 706, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "wind", "ab": [["actcond", "MYSELF", "712"]], "actconds": {"712": {"remove": 706, "coei": 1}}}],
+        "400000302": [{"name": "(Wind) Above 10 Hits = Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "wind", "ab": [["actcond", "MYSELF", "591"]], "actconds": {"596": {"remove": 591}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "wind", "ab": [["actcond", "MYSELF", "596"]], "actconds": {"596": {"remove": 591}}}],
+        "400000323": [{"name": "(Wind) Poison = User Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["aff", "poison"], "cd": 10.0, "ele": "wind", "ab": [["hitattr", {"actcond": "302030101", "target": "MYSELF"}]], "actconds": {"302030101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"}}}],
+        "400000450": [{"name": "(Light) HP 60% = Strength +3%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "light", "ab": [["actcond", "MYSELF", "617"]], "actconds": {"622": {"remove": 617}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "light", "ab": [["actcond", "MYSELF", "622"]], "actconds": {"622": {"remove": 617}}}],
+        "400000523": [{"name": "(Light) Paralysis = User Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["aff", "paralysis"], "cd": 10.0, "ele": "light", "ab": [["hitattr", {"actcond": "302031201", "target": "MYSELF"}]], "actconds": {"302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000534": [{"name": "(Light) Energy = Strength +9%", "icon": "Icon_Ability_1020002", "cond": ["event", "energy"], "cd": 15.0, "ele": "light", "ab": [["actcond", "MYSELF", "652"]], "actconds": {"652": {"duration": 15.0, "icon": "att-buff", "mods": [[0.09, "att", "buff"]], "text": "Strength +9%"}}}],
+        "400000633": [{"name": "(Shadow) HP Below 40% = Strength +15%", "icon": "Icon_Ability_1020002", "cond": ["hp", "<=", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "609"]], "actconds": {"614": {"remove": 609}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "614"]], "actconds": {"614": {"remove": 609}}}],
+        "400000674": [{"name": "(Shadow) HP +9%", "icon": "Icon_Ability_1020001", "ele": "shadow", "ab": [["mod", 0.09, "hp"]]}],
+        "400000711": [{"name": "(Water) Combo Time VI", "icon": "Icon_Ability_1020036", "ele": "water", "ab": [["ctime", 2.5]]}],
+        "400000833": [{"name": "(Shadow) Poised Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["zone"], "ele": "shadow", "ab": [["actcond", "MYSELF", "591"]], "actconds": {"591": {"icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000912": [{"name": "(Flame) Team Strength Amp = Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["auratype", 2, 2], "ele": "flame", "ab": [["mod", 0.08, "att"]]}],
+        "400000045": [{"name": "(Flame) Burning Edge +40%", "icon": "Icon_Ability_1040002", "ele": "flame", "ab": [["mod", 0.4, "edge_burn"]]}],
+        "400000056": [{"name": "(Flame) Burn = User Wind Res +7%", "icon": "Icon_Ability_1080003", "cond": ["aff", "burn"], "cd": 10.0, "ele": "flame", "ab": [["hitattr", {"actcond": "661", "target": "MYSELF"}]], "actconds": {"661": {"duration": 15.0, "icon": "resist_wind-buff", "mods": [[0.07, "resist_wind", "buff"]], "coei": 1, "text": "Wind Res +7%"}}}],
+        "400000199": [{"name": "(Water) Frostbite = User Flame Res +7%", "icon": "Icon_Ability_1080001", "cond": ["aff", "frostbite"], "cd": 10.0, "ele": "water", "ab": [["hitattr", {"actcond": "681", "target": "MYSELF"}]], "actconds": {"681": {"duration": 15.0, "icon": "resist_flame-buff", "mods": [[0.07, "resist_flame", "buff"]], "coei": 1, "text": "Flame Res +7%"}}}],
+        "400000253": [{"name": "(Water) Above 10 Hits = Flame Res +7%", "icon": "Icon_Ability_1080001", "cond": ["hits", ">=", 10], "ele": "water", "ab": [["actcond", "MYSELF", "685"]], "actconds": {"691": {"remove": 685, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "water", "ab": [["actcond", "MYSELF", "691"]], "actconds": {"691": {"remove": 685, "coei": 1}}}],
+        "400000332": [{"name": "(Wind) Poison = User Water Res +8%", "icon": "Icon_Ability_1080002", "cond": ["aff", "poison"], "cd": 10.0, "ele": "wind", "ab": [["hitattr", {"actcond": "700", "target": "MYSELF"}]], "actconds": {"700": {"duration": 15.0, "icon": "resist_water-buff", "mods": [[0.08, "resist_water", "buff"]], "coei": 1, "text": "Water Res +8%"}}}],
+        "400000343": [{"name": "(Wind) Poison Edge +45%", "icon": "Icon_Ability_1040001", "ele": "wind", "ab": [["mod", 0.45, "edge_poison"]]}],
+        "400000488": [{"name": "(Light) Above 10 Hits = Shadow Res +9%", "icon": "Icon_Ability_1080005", "cond": ["hits", ">=", 10], "ele": "light", "ab": [["actcond", "MYSELF", "725"]], "actconds": {"731": {"remove": 725, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "light", "ab": [["actcond", "MYSELF", "731"]], "actconds": {"731": {"remove": 725, "coei": 1}}}],
+        "400000511": [{"name": "(Light) Paralyzing Edge +40%", "icon": "Icon_Ability_1040004", "ele": "light", "ab": [["mod", 0.4, "edge_paralysis"]]}],
+        "400000517": [{"name": "(Light) Paralysis = User Shadow Res +8%", "icon": "Icon_Ability_1080005", "cond": ["aff", "paralysis"], "cd": 10.0, "ele": "light", "ab": [["hitattr", {"actcond": "720", "target": "MYSELF"}]], "actconds": {"720": {"duration": 15.0, "icon": "resist_shadow-buff", "mods": [[0.08, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +8%"}}}],
+        "400000616": [{"name": "(Shadow) Poison = User Light Res +8%", "icon": "Icon_Ability_1080004", "cond": ["aff", "poison"], "cd": 10.0, "ele": "shadow", "ab": [["hitattr", {"actcond": "738", "target": "MYSELF"}]], "actconds": {"738": {"duration": 15.0, "icon": "resist_light-buff", "mods": [[0.08, "resist_light", "buff"]], "coei": 1, "text": "Light Res +8%"}}}],
+        "400000707": [{"name": "(Flame) HP Below 40% = Shield VI", "icon": "Icon_Ability_1020022", "cond": ["hp", "<=", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "316010701"]], "actconds": {"316010701": {"count": 1, "shield": {"1": 0.5}, "coei": 1, "text": "Shield"}}}],
+        "400000709": [{"name": "(Flame) Combo = Energy Level Up VI", "icon": "Icon_Ability_1010012", "cond": ["hits", ">=", 20, 1], "ele": "flame", "ab": [["actcond", "MYSELF", "1"]], "actconds": {"1": {"count": 1, "energy": 1, "text": "Energy Level +1"}}}],
+        "400000712": [{"name": "(Water) Combo = Energy Level Up VI", "icon": "Icon_Ability_1010012", "cond": ["hits", ">=", 20, 1], "ele": "water", "ab": [["actcond", "MYSELF", "1"]], "actconds": {"1": {"count": 1, "energy": 1, "text": "Energy Level +1"}}}],
+        "400000716": [{"name": "(Shadow) HP Below 60% = HP Regen VI", "icon": "Icon_Ability_1010011", "cond": ["hp", "<", 60, 1], "cd": 30.0, "ele": "shadow", "ab": [["actcond", "MYSELF", "308020401"]], "actconds": {"308020401": {"duration": 20.0, "slip": {"value": ["percent", -0.04], "kind": "hp", "iv": 3.9}, "coei": 1, "text": "HP Regen"}}}],
+        "400000734": [{"name": "Defense +3%", "icon": "Icon_Ability_1020003", "ab": [["mod", 0.03, "def"]]}],
+        "400000751": [{"name": "(Light) Energy = Shadow Res +7%", "icon": "Icon_Ability_1080005", "cond": ["event", "energy"], "cd": 15.0, "ele": "light", "ab": [["actcond", "MYSELF", "719"]], "actconds": {"719": {"duration": 15.0, "icon": "resist_shadow-buff", "mods": [[0.07, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +7%"}}}],
+        "400000757": [{"name": "(Shadow) Above 10 Hits = Light Res +9%", "icon": "Icon_Ability_1080004", "cond": ["hits", ">=", 10], "ele": "shadow", "ab": [["actcond", "MYSELF", "822"]], "actconds": {"828": {"remove": 822, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "shadow", "ab": [["actcond", "MYSELF", "828"]], "actconds": {"828": {"remove": 822, "coei": 1}}}],
+        "400000799": [{"name": "(Shadow) Poised Light Res +7%", "icon": "Icon_Ability_1080004", "cond": ["zone"], "ele": "shadow", "ab": [["actcond", "MYSELF", "1335"]], "actconds": {"1341": {"remove": 1335, "coei": 1}}}, {"cond": ["zone"], "ele": "shadow", "ab": [["actcond", "MYSELF", "1341"]], "actconds": {"1341": {"remove": 1335, "coei": 1}}}],
+        "400000873": [{"name": "(Wind) Vengeful Shield V", "icon": "Icon_Ability_1020022", "cond": ["selfaff", "all"], "cd": 20.0, "ele": "wind", "ab": [["actcond", "MYSELF", "1569"]], "actconds": {"1569": {"count": 1, "shield": {"1": 0.25}, "coei": 1, "text": "Shield"}}}],
+        "400000950": [{"name": "(Light) Poised Shadow Res +7%", "icon": "Icon_Ability_1080005", "cond": ["zone"], "ele": "light", "ab": [["actcond", "MYSELF", "723"]], "actconds": {"723": {"icon": "resist_shadow-buff", "mods": [[0.07, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +7%"}}}],
+        "400000018": [{"name": "(Flame) HP Below 40% = Strength +15%", "icon": "Icon_Ability_1020002", "cond": ["hp", "<=", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "609"]], "actconds": {"614": {"remove": 609}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "flame", "ab": [["actcond", "MYSELF", "614"]], "actconds": {"614": {"remove": 609}}}],
+        "400000037": [{"name": "(Flame) Burn = User Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["aff", "burn"], "cd": 10.0, "ele": "flame", "ab": [["hitattr", {"actcond": "302030101", "target": "MYSELF"}]], "actconds": {"302030101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"}}}],
+        "400000062": [{"name": "(Flame) Above 10 Hits = Critical Rate +12%", "icon": "Icon_Ability_1020010", "cond": ["hits", ">=", 10], "ele": "flame", "ab": [["actcond", "MYSELF", "580"]], "actconds": {"585": {"remove": 580}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "flame", "ab": [["actcond", "MYSELF", "585"]], "actconds": {"585": {"remove": 580}}}],
+        "400000074": [{"name": "(Flame) Above 10 Hits = Strength +10%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "flame", "ab": [["actcond", "MYSELF", "590"]], "actconds": {"595": {"remove": 590}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "flame", "ab": [["actcond", "MYSELF", "595"]], "actconds": {"595": {"remove": 590}}}],
+        "400000075": [{"name": "(Flame) Above 10 Hits = Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "flame", "ab": [["actcond", "MYSELF", "591"]], "actconds": {"596": {"remove": 591}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "flame", "ab": [["actcond", "MYSELF", "596"]], "actconds": {"596": {"remove": 591}}}],
+        "400000137": [{"name": "(Flame) HP +7%", "icon": "Icon_Ability_1020001", "ele": "flame", "ab": [["mod", 0.07, "hp"]]}],
+        "400000301": [{"name": "(Wind) Above 10 Hits = Strength +10%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "wind", "ab": [["actcond", "MYSELF", "590"]], "actconds": {"595": {"remove": 590}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "wind", "ab": [["actcond", "MYSELF", "595"]], "actconds": {"595": {"remove": 590}}}],
+        "400000361": [{"name": "(Wind) Critical Rate Doublebuff +10%", "icon": "Icon_Ability_1020010", "cond": ["event", "doublebuff"], "cd": 15.0, "ele": "wind", "ab": [["actcond", "MYSELF", "158"]], "actconds": {"158": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.1, "crit", "buff"]], "text": "Critical Rate +10%"}}}],
+        "400000372": [{"name": "(Wind) HP 60% = Strength +5%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "wind", "ab": [["actcond", "MYSELF", "675"]], "actconds": {"676": {"remove": 675}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "wind", "ab": [["actcond", "MYSELF", "676"]], "actconds": {"676": {"remove": 675}}}],
+        "400000453": [{"name": "(Light) HP 60% = Strength +6%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "light", "ab": [["actcond", "MYSELF", "619"]], "actconds": {"624": {"remove": 619}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "light", "ab": [["actcond", "MYSELF", "624"]], "actconds": {"624": {"remove": 619}}}],
+        "400000462": [{"name": "(Light) Above 10 Hits = Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "light", "ab": [["actcond", "MYSELF", "588"]], "actconds": {"593": {"remove": 588}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "light", "ab": [["actcond", "MYSELF", "593"]], "actconds": {"593": {"remove": 588}}}],
+        "400000583": [{"name": "(Shadow) HP 60% = Strength +3%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "shadow", "ab": [["actcond", "MYSELF", "617"]], "actconds": {"622": {"remove": 617}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "shadow", "ab": [["actcond", "MYSELF", "622"]], "actconds": {"622": {"remove": 617}}}],
+        "400000586": [{"name": "(Shadow) HP 60% = Strength +6%", "icon": "Icon_Ability_1020002", "cond": ["hp", ">=", 60, 1], "ele": "shadow", "ab": [["actcond", "MYSELF", "619"]], "actconds": {"624": {"remove": 619}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "shadow", "ab": [["actcond", "MYSELF", "624"]], "actconds": {"624": {"remove": 619}}}],
+        "400000610": [{"name": "(Shadow) Poison = User Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["aff", "poison"], "cd": 10.0, "ele": "shadow", "ab": [["hitattr", {"actcond": "302031201", "target": "MYSELF"}]], "actconds": {"302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000632": [{"name": "(Shadow) HP Below 40% = Strength +14%", "icon": "Icon_Ability_1020002", "cond": ["hp", "<=", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "650"]], "actconds": {"651": {"remove": 650}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "651"]], "actconds": {"651": {"remove": 650}}}],
+        "400000662": [{"name": "(Shadow) Dragon Haste +18%", "icon": "Icon_Ability_1020005", "ele": "shadow", "ab": [["mod", 0.18, "dph"]]}],
+        "400000706": [{"name": "(Flame) Damage Taken = Force Strike Damage VI", "icon": "Icon_Ability_1010001", "cond": ["damaged", -1], "ele": "flame", "ab": [["actcond", "MYSELF", "567"]], "actconds": {"567": {"count": 1, "icon": "fs-buff", "mods": [[0.2, "fs", "buff"]], "text": "Force Strike Damage +20%", "overwrite": -1}}}],
+        "400000710": [{"name": "(Flame) HP Below 60% = HP Regen VI", "icon": "Icon_Ability_1010011", "cond": ["hp", "<", 60, 1], "cd": 30.0, "ele": "flame", "ab": [["actcond", "MYSELF", "308020401"]], "actconds": {"308020401": {"duration": 20.0, "slip": {"value": ["percent", -0.04], "kind": "hp", "iv": 3.9}, "coei": 1, "text": "HP Regen"}}}],
+        "400000719": [{"name": "Dragon Haste +14%", "icon": "Icon_Ability_1020005", "ab": [["mod", 0.14, "dph"]]}],
+        "400000890": [{"name": "(Light) HP Below 40% = Shield VI", "icon": "Icon_Ability_1020022", "cond": ["hp", "<=", 40], "ele": "light", "ab": [["actcond", "MYSELF", "316010701"]], "actconds": {"316010701": {"count": 1, "shield": {"1": 0.5}, "coei": 1, "text": "Shield"}}}],
+        "400000895": [{"name": "(Shadow) Dragon Damage +12%", "icon": "Icon_Ability_1020002", "ele": "shadow", "ab": [["mod", 0.12, "da"]]}],
+        "400000945": [{"name": "(Wind) Combo = Critical Rate V", "icon": "Icon_Ability_1020010", "cond": ["mult", "hits", 10, 20], "ele": "wind", "ab": [["mod", 0.01, "crit"]]}],
+        "400000999": [],
+        "400000863": [{"name": "(Shadow) Above 10 Hits = Light Res +10%", "icon": "Icon_Ability_1080004", "cond": ["hits", ">=", 10], "ele": "shadow", "ab": [["actcond", "MYSELF", "823"]], "actconds": {"829": {"remove": 823, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "shadow", "ab": [["actcond", "MYSELF", "829"]], "actconds": {"829": {"remove": 823, "coei": 1}}}],
+        "400000145": [{"name": "(Flame) HP 80% = Wind Res +5%", "icon": "Icon_Ability_1080003", "cond": ["hp", ">=", 80], "ele": "flame", "ab": [["mod", 0.05, "eleres", "wind"]]}],
+        "400000210": [{"name": "(Water) Dragon Haste +18%", "icon": "Icon_Ability_1020005", "ele": "water", "ab": [["mod", 0.18, "dph"]]}],
+        "400000211": [{"name": "(Water) Dragon Haste +20%", "icon": "Icon_Ability_1020005", "ele": "water", "ab": [["mod", 0.2, "dph"]]}],
+        "400000226": [{"name": "(Water) Buff Skill Time +9%", "icon": "Icon_Ability_1010006", "ele": "water", "ab": [["mod", 0.09, "bufftime", "-t:s"]]}],
+        "400000352": [{"name": "(Wind) Water Res Doublebuff +5%", "icon": "Icon_Ability_1080002", "cond": ["event", "doublebuff"], "cd": 15.0, "ele": "wind", "ab": [["actcond", "MYSELF", "697"]], "actconds": {"697": {"duration": 15.0, "icon": "resist_water-buff", "mods": [[0.05, "resist_water", "buff"]], "coei": 1, "text": "Water Res +5%"}}}],
+        "400000354": [{"name": "(Wind) Water Res Doublebuff +7%", "icon": "Icon_Ability_1080002", "cond": ["event", "doublebuff"], "cd": 15.0, "ele": "wind", "ab": [["actcond", "MYSELF", "699"]], "actconds": {"699": {"duration": 15.0, "icon": "resist_water-buff", "mods": [[0.07, "resist_water", "buff"]], "coei": 1, "text": "Water Res +7%"}}}],
+        "400000406": [{"name": "(Wind) Dragon's Claws V", "icon": "Icon_Ability_1020002", "cond": ["event", "dragon"], "count": 3, "ele": "wind", "ab": [["actcond", "MYSELF", "509", "510", "512"]], "actconds": {"509": {"icon": "att-buff", "mods": [[0.09, "att", "buff"]], "text": "Strength +9%"}, "510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}, "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}}}],
+        "400000437": [{"name": "(Light) HP 80% = Shadow Res +5%", "icon": "Icon_Ability_1080005", "cond": ["hp", ">=", 80], "ele": "light", "ab": [["mod", 0.05, "eleres", "shadow"]]}],
+        "400000486": [{"name": "(Light) Above 10 Hits = Shadow Res +7%", "icon": "Icon_Ability_1080005", "cond": ["hits", ">=", 10], "ele": "light", "ab": [["actcond", "MYSELF", "723"]], "actconds": {"729": {"remove": 723, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "light", "ab": [["actcond", "MYSELF", "729"]], "actconds": {"729": {"remove": 723, "coei": 1}}}],
+        "400000541": [{"name": "(Light) Energy = Inspiration VI", "icon": "Icon_Ability_1020010", "cond": ["event", "energy"], "cd": 15.0, "ele": "light", "ab": [["actcond", "MYSELF", "434"]], "actconds": {"434": {"count": 1, "inspiration": 1, "text": "Inspiration Level +1"}}}],
+        "400000568": [{"name": "(Shadow) HP 80% = Light Res +3%", "icon": "Icon_Ability_1080004", "cond": ["hp", ">=", 80], "ele": "shadow", "ab": [["mod", 0.03, "eleres", "light"]]}],
+        "400000598": [{"name": "(Shadow) HP 60% = Critical Rate +8%", "icon": "Icon_Ability_1020010", "cond": ["hp", ">=", 60, 1], "ele": "shadow", "ab": [["actcond", "MYSELF", "713"]], "actconds": {"714": {"remove": 713}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "shadow", "ab": [["actcond", "MYSELF", "714"]], "actconds": {"714": {"remove": 713}}}],
+        "400000906": [{"name": "(Wind) Team Strength Amp = Water Res +6%", "icon": "Icon_Ability_1080002", "cond": ["auratype", 2, 2], "ele": "wind", "ab": [["mod", 0.06, "eleres", "water"]]}],
+        "400000972": [{"name": "(Light) Flashburn = Shadow Res +8%", "icon": "Icon_Ability_1080005", "cond": ["aff", "flashburn"], "cd": 10.0, "ele": "light", "ab": [["hitattr", {"actcond": "720", "target": "MYSELF"}]], "actconds": {"720": {"duration": 15.0, "icon": "resist_shadow-buff", "mods": [[0.08, "resist_shadow", "buff"]], "coei": 1, "text": "Shadow Res +8%"}}}],
+        "400000005": [{"name": "(Flame) Dragon Haste +18%", "icon": "Icon_Ability_1020005", "ele": "flame", "ab": [["mod", 0.18, "dph"]]}],
+        "400000255": [{"name": "(Water) Above 10 Hits = Flame Res +9%", "icon": "Icon_Ability_1080001", "cond": ["hits", ">=", 10], "ele": "water", "ab": [["actcond", "MYSELF", "687"]], "actconds": {"693": {"remove": 687, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "water", "ab": [["actcond", "MYSELF", "693"]], "actconds": {"693": {"remove": 687, "coei": 1}}}],
+        "400000278": [{"name": "(Water) HP Below 40% = Flame Res +10%", "icon": "Icon_Ability_1080001", "cond": ["hp", "<=", 40], "ele": "water", "ab": [["actcond", "MYSELF", "811"]], "actconds": {"817": {"remove": 811, "coei": 1}}}, {"icon": "#N/A", "cond": ["hp", ">", 40], "ele": "water", "ab": [["actcond", "MYSELF", "817"]], "actconds": {"817": {"remove": 811, "coei": 1}}}],
+        "400000329": [{"name": "(Wind) Poison = User Water Res +5%", "icon": "Icon_Ability_1080002", "cond": ["aff", "poison"], "cd": 10.0, "ele": "wind", "ab": [["hitattr", {"actcond": "697", "target": "MYSELF"}]], "actconds": {"697": {"duration": 15.0, "icon": "resist_water-buff", "mods": [[0.05, "resist_water", "buff"]], "coei": 1, "text": "Water Res +5%"}}}],
+        "400000500": [{"name": "(Light) Combo Time V", "icon": "Icon_Ability_1020036", "ele": "light", "ab": [["ctime", 2.200000047683716]]}],
+        "400000613": [{"name": "(Shadow) Poison = User Light Res +5%", "icon": "Icon_Ability_1080004", "cond": ["aff", "poison"], "cd": 10.0, "ele": "shadow", "ab": [["hitattr", {"actcond": "735", "target": "MYSELF"}]], "actconds": {"735": {"duration": 15.0, "icon": "resist_light-buff", "mods": [[0.05, "resist_light", "buff"]], "coei": 1, "text": "Light Res +5%"}}}],
+        "400000615": [{"name": "(Shadow) Poison = User Light Res +7%", "icon": "Icon_Ability_1080004", "cond": ["aff", "poison"], "cd": 10.0, "ele": "shadow", "ab": [["hitattr", {"actcond": "737", "target": "MYSELF"}]], "actconds": {"737": {"duration": 15.0, "icon": "resist_light-buff", "mods": [[0.07, "resist_light", "buff"]], "coei": 1, "text": "Light Res +7%"}}}],
+        "400000627": [{"name": "(Shadow) Poison Edge +50%", "icon": "Icon_Ability_1040001", "ele": "shadow", "ab": [["mod", 0.5, "edge_poison"]]}],
+        "400000714": [{"name": "(Light) Combo Time VI", "icon": "Icon_Ability_1020036", "ele": "light", "ab": [["ctime", 2.5]]}],
+        "400000737": [{"name": "(Flame) Above 10 Hits = Wind Res +7%", "icon": "Icon_Ability_1080003", "cond": ["hits", ">=", 10], "ele": "flame", "ab": [["actcond", "MYSELF", "796"]], "actconds": {"802": {"remove": 796, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "flame", "ab": [["actcond", "MYSELF", "802"]], "actconds": {"802": {"remove": 796, "coei": 1}}}],
+        "400000739": [{"name": "(Flame) Above 10 Hits = Wind Res +9%", "icon": "Icon_Ability_1080003", "cond": ["hits", ">=", 10], "ele": "flame", "ab": [["actcond", "MYSELF", "798"]], "actconds": {"804": {"remove": 798, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "flame", "ab": [["actcond", "MYSELF", "804"]], "actconds": {"804": {"remove": 798, "coei": 1}}}],
+        "400000740": [{"name": "(Flame) Above 10 Hits = Wind Res +10%", "icon": "Icon_Ability_1080003", "cond": ["hits", ">=", 10], "ele": "flame", "ab": [["actcond", "MYSELF", "799"]], "actconds": {"805": {"remove": 799, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "flame", "ab": [["actcond", "MYSELF", "805"]], "actconds": {"805": {"remove": 799, "coei": 1}}}],
+        "400000758": [{"name": "(Shadow) Above 10 Hits = Light Res +10%", "icon": "Icon_Ability_1080004", "cond": ["hits", ">=", 10], "ele": "shadow", "ab": [["actcond", "MYSELF", "823"]], "actconds": {"829": {"remove": 823, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "shadow", "ab": [["actcond", "MYSELF", "829"]], "actconds": {"829": {"remove": 823, "coei": 1}}}],
+        "400000770": [{"name": "(Wind) Above 10 Hits = HP Regen VI", "icon": "Icon_Ability_1010011", "cond": ["hits", ">=", 10], "ele": "wind", "ab": [["actcond", "MYSELF", "1104"]], "actconds": {"1110": {"remove": 1104, "coei": 1}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "wind", "ab": [["actcond", "MYSELF", "1110"]], "actconds": {"1110": {"remove": 1104, "coei": 1}}}],
+        "400000812": [{"name": "(Wind) Stormlash = User Water Res +8%", "icon": "Icon_Ability_1080002", "cond": ["aff", "stormlash"], "cd": 10.0, "ele": "wind", "ab": [["hitattr", {"actcond": "700", "target": "MYSELF"}]], "actconds": {"700": {"duration": 15.0, "icon": "resist_water-buff", "mods": [[0.08, "resist_water", "buff"]], "coei": 1, "text": "Water Res +8%"}}}],
+        "400000900": [{"name": "(Wind) Combo = Shapeshift Prep V", "icon": "Icon_Ability_1010008", "cond": ["hits", ">=", 50, 1], "ele": "wind", "ab": [["dprep", 0.03]]}],
+        "400000922": [{"name": "(Water) Team Strength Amp = Burn Res +100%", "icon": "Icon_Ability_1030002", "cond": ["aura", 2, 1], "ele": "water", "ab": [["mod", 1.0, "affres_burn"]]}],
+        "400000817": [{"name": "(Flame) Flame Dancer V", "icon": "Icon_Ability_1010095", "ele": "flame", "ab": [["mod", 0.2, "dt"]]}],
+        "400000011": [{"name": "(Flame) Dragon's Claws V", "icon": "Icon_Ability_1020002", "cond": ["event", "dragon"], "count": 3, "ele": "flame", "ab": [["actcond", "MYSELF", "509", "510", "512"]], "actconds": {"509": {"icon": "att-buff", "mods": [[0.09, "att", "buff"]], "text": "Strength +9%"}, "510": {"icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}, "512": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}}}],
+        "400000048": [{"name": "(Flame) Burn = Critical Rate +9%", "icon": "Icon_Ability_1020010", "cond": ["aff", "burn"], "cd": 10.0, "ele": "flame", "ab": [["hitattr", {"actcond": "571", "target": "MYSELF"}]], "actconds": {"571": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.09, "crit", "buff"]], "text": "Critical Rate +9%"}}}],
+        "400000180": [{"name": "(Water) HP +7%", "icon": "Icon_Ability_1020001", "ele": "water", "ab": [["mod", 0.07, "hp"]]}],
+        "400000243": [{"name": "(Water) Above 10 Hits = Strength +10%", "icon": "Icon_Ability_1020002", "cond": ["hits", ">=", 10], "ele": "water", "ab": [["actcond", "MYSELF", "590"]], "actconds": {"595": {"remove": 590}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "water", "ab": [["actcond", "MYSELF", "595"]], "actconds": {"595": {"remove": 590}}}],
+        "400000314": [{"name": "(Wind) Above 10 Hits = Critical Rate +13%", "icon": "Icon_Ability_1020010", "cond": ["hits", ">=", 10], "ele": "wind", "ab": [["actcond", "MYSELF", "581"]], "actconds": {"586": {"remove": 581}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "wind", "ab": [["actcond", "MYSELF", "586"]], "actconds": {"586": {"remove": 581}}}],
+        "400000335": [{"name": "(Wind) Poison = User Critical Rate +9%", "icon": "Icon_Ability_1020010", "cond": ["aff", "poison"], "cd": 10.0, "ele": "wind", "ab": [["hitattr", {"actcond": "571", "target": "MYSELF"}]], "actconds": {"571": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.09, "crit", "buff"]], "text": "Critical Rate +9%"}}}],
+        "400000360": [{"name": "(Wind) Critical Rate Doublebuff +9%", "icon": "Icon_Ability_1020010", "cond": ["event", "doublebuff"], "cd": 15.0, "ele": "wind", "ab": [["actcond", "MYSELF", "571"]], "actconds": {"571": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.09, "crit", "buff"]], "text": "Critical Rate +9%"}}}],
+        "400000384": [{"name": "(Wind) HP 60% = Critical Rate +7%", "icon": "Icon_Ability_1020010", "cond": ["hp", ">=", 60, 1], "ele": "wind", "ab": [["actcond", "MYSELF", "630"]], "actconds": {"635": {"remove": 630}}}, {"icon": "#N/A", "cond": ["hp", "<", 60], "ele": "wind", "ab": [["actcond", "MYSELF", "635"]], "actconds": {"635": {"remove": 630}}}],
+        "400000474": [{"name": "(Light) Above 10 Hits = Critical Rate +9%", "icon": "Icon_Ability_1020010", "cond": ["hits", ">=", 10], "ele": "light", "ab": [["actcond", "MYSELF", "578"]], "actconds": {"583": {"remove": 578}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "light", "ab": [["actcond", "MYSELF", "583"]], "actconds": {"583": {"remove": 578}}}],
+        "400000477": [{"name": "(Light) Above 10 Hits = Critical Rate +13%", "icon": "Icon_Ability_1020010", "cond": ["hits", ">=", 10], "ele": "light", "ab": [["actcond", "MYSELF", "581"]], "actconds": {"586": {"remove": 581}}}, {"icon": "#N/A", "cond": ["hits", "<", 1], "ele": "light", "ab": [["actcond", "MYSELF", "586"]], "actconds": {"586": {"remove": 581}}}],
+        "400000528": [{"name": "(Light) Paralysis = User Critical Rate +12%", "icon": "Icon_Ability_1020010", "cond": ["aff", "paralysis"], "cd": 10.0, "ele": "light", "ab": [["hitattr", {"actcond": "521", "target": "MYSELF"}]], "actconds": {"521": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.12, "crit", "buff"]], "text": "Critical Rate +12%"}}}],
+        "400000550": [{"name": "(Light) HP +7%", "icon": "Icon_Ability_1020001", "ele": "light", "ab": [["mod", 0.07, "hp"]]}],
+        "400000713": [{"name": "(Water) HP Below 60% = HP Regen VI", "icon": "Icon_Ability_1010011", "cond": ["hp", "<", 60, 1], "cd": 30.0, "ele": "water", "ab": [["actcond", "MYSELF", "308020401"]], "actconds": {"308020401": {"duration": 20.0, "slip": {"value": ["percent", -0.04], "kind": "hp", "iv": 3.9}, "coei": 1, "text": "HP Regen"}}}],
+        "400000731": [{"name": "Dragon's Claws III", "icon": "Icon_Ability_1020002", "cond": ["event", "dragon"], "count": 3, "ab": [["actcond", "MYSELF", "302040701", "302040801", "302041201"]], "actconds": {"302040701": {"icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"}, "302040801": {"icon": "att-buff", "mods": [[0.09, "att", "buff"]], "text": "Strength +9%"}, "302041201": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}}}],
+        "400000782": [{"name": "(Flame) Taking Damage = Strength +13%", "icon": "Icon_Ability_1020002", "cond": ["damaged", -1], "cd": 5.0, "ele": "flame", "ab": [["actcond", "MYSELF", "302031201"]], "actconds": {"302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}}}],
+        "400000828": [{"name": "(Water) HP Recovery = Strength +8%", "icon": "Icon_Ability_1020002", "cond": ["event", "heal"], "cd": 10.0, "ele": "water", "ab": [["actcond", "MYSELF", "302030101"]], "actconds": {"302030101": {"duration": 15.0, "icon": "att-buff", "mods": [[0.08, "att", "buff"]], "text": "Strength +8%"}}}],
+        "400000843": [{"name": "(Flame) Onmyo Combo Time V", "icon": "Icon_Ability_1020036", "ele": "flame", "ab": [["ctime", 1.5]]}],
+        "400000983": [{"name": "(Water) Vengeful Shield V", "icon": "Icon_Ability_1020022", "cond": ["selfaff", "all"], "cd": 20.0, "ele": "water", "ab": [["actcond", "MYSELF", "1569"]], "actconds": {"1569": {"count": 1, "shield": {"1": 0.25}, "coei": 1, "text": "Shield"}}}],
+        "400000848": [{"name": "(Flame) Combo = Buff Skill Time +15%", "icon": "Icon_Ability_1010006", "cond": ["hits", ">=", 10], "ele": "flame", "ab": [["mod", 0.15, "bufftime", "-t:s"]]}],
+        "400000657": [{"name": "(Shadow) HP Below 40% = Shield VI", "icon": "Icon_Ability_1020022", "cond": ["hp", "<=", 40], "ele": "shadow", "ab": [["actcond", "MYSELF", "316010701"]], "actconds": {"316010701": {"count": 1, "shield": {"1": 0.5}, "coei": 1, "text": "Shield"}}}],
+        "400000349": [{"name": "(Wind) Strength Doublebuff +10%", "icon": "Icon_Ability_1020002", "cond": ["event", "doublebuff"], "cd": 15.0, "ele": "wind", "ab": [["actcond", "MYSELF", "302030201"]], "actconds": {"302030201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"}}}],
+        "400000823": [{"name": "(Flame) Combo = Shapeshift Prep V", "icon": "Icon_Ability_1010008", "cond": ["hits", ">=", 50, 1], "ele": "flame", "ab": [["dprep", 0.03]]}],
+        "400000853": [],
+        "400000858": [{"name": "(Shadow) Poised Shadowblighted Punisher +8%", "icon": "Icon_Ability_1070017", "cond": ["zone"], "ele": "shadow", "ab": [["mod", 0.08, "killer_shadowblight"]]}],
+        "400000989": [{"name": "(Light) Combo = Critical Rate V", "icon": "Icon_Ability_1020010", "cond": ["mult", "hits", 10, 20], "ele": "light", "ab": [["mod", 0.01, "crit"]]}],
+        "400000006": [{"name": "(Flame) Dragon Haste +20%", "icon": "Icon_Ability_1020005", "ele": "flame", "ab": [["mod", 0.2, "dph"]]}],
+        "400000506": [{"name": "(Light) Defense +6%", "icon": "Icon_Ability_1020003", "ele": "light", "ab": [["mod", 0.06, "def"]]}],
+        "400000547": [{"name": "(Light) Shapeshift = HP Regen VI", "icon": "Icon_Ability_1010011", "cond": ["event", "dragon"], "ele": "light", "ab": [["actcond", "MYSELF", "834"]], "actconds": {"834": {"duration": 20.0, "slip": {"value": ["percent", -0.07], "kind": "hp", "iv": 3.9}, "coei": 1, "text": "HP Regen"}}}],
+        "400000879": [{"name": "(Wind) Gentleman Thief V", "icon": "Icon_Ability_1080002", "cond": ["hits", ">=", 10], "ele": "wind", "ab": [["actcond", "MYSELF", "706"]], "actconds": {"706": {"icon": "resist_water-buff", "mods": [[0.1, "resist_water", "buff"]], "coei": 1, "text": "Water Res +10%"}}}],
+        "400000868": [{"name": "(Light) Divine Grace V?", "icon": "Icon_Ability_1020009", "ele": "light", "ab": [["mod", 0.2, "rcv", "-t:s"]]}],
+        "400000838": [{"name": "(Flame) Combo = Critical Rate V", "icon": "Icon_Ability_1020010", "cond": ["mult", "hits", 10, 20], "ele": "flame", "ab": [["mod", 0.01, "crit"]]}]
     },
-    "generic": {
-        "Axe": {
-            "category": "Axe",
-            "ex": [],
-            "chain": []
-        },
-        "Blade": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": []
-        },
-        "Bow": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": []
-        },
-        "Dagger": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": []
-        },
-        "Gun": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": []
-        },
-        "Lance": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": []
-        },
-        "Staff": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": []
-        },
-        "Sword": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": []
-        },
-        "Wand": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": []
-        }
-    },
-    "light": {
-        "Albert": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["affself_paralysis_crit_chance", 0.13]]
-        },
-        "Alfonse": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Annelie": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["energy_att", 0.1]]
-        },
-        "Dragonyule_Malora": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["affself_paralysis_att", 0.13]]
-        },
-        "Estelle": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hp", 0.07]]
-        },
-        "Fritz": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["ctime", 2.2]]
-        },
-        "Gala_Audric": {
-            "category": "Axe2",
-            "ex": [["cd", 0.3]],
-            "chain": []
-        },
-        "Gala_Prince": {
-            "category": "Gala_Prince",
-            "ex": [["da", 0.1], ["dt", 0.2]],
-            "chain": []
-        },
-        "Gala_Zena": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hitcount_10_crit_chance", 0.13]]
-        },
-        "Halloween_Althemia": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["affself_paralysis_crit_chance", 0.12]]
-        },
-        "Halloween_Edward": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["hpless_60_regen", 4.0, 20.0, 45.0]]
-        },
-        "Halloween_Elisanne": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hitcount_10_att", 0.13]]
-        },
-        "Halloween_Laxi": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": [["critcombo", 0.01, 10.0, 20.0]]
-        },
-        "Hildegarde": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Hope": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hitcount_10_crit_chance", 0.09]]
-        },
-        "Humanoid_Jupiter": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["affres_curse", 100.0, "amp_2_team_1"]]
-        },
-        "Hunter_Vanessa": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_paralysis_crit_chance", 0.13]]
-        },
-        "Linus": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Lucretia": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": [["energy_inspiration", 1]]
-        },
-        "Malora": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["edge_paralysis", 40.0]]
-        },
-        "Mitsuhide": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["ctime", 2.5]]
-        },
-        "Odetta": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Pecorine": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Peony": {
-            "category": "Peony",
-            "ex": [["ele_light", 0.2]],
-            "chain": []
-        },
-        "Raemond": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hitcount_10_att", 0.08]]
-        },
-        "Ryozen": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Ryszarda": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["healed_att", 0.08]]
-        },
-        "Sha_Wujing": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hp", 0.09]]
-        },
-        "Sharena": {
-            "category": "Sharena",
-            "ex": [["k_paralysis", 0.08]],
-            "chain": [["affself_paralysis_att", 0.13]]
-        },
-        "Sharpshooter_Joe": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Sophie_Persona": {
-            "category": "Peony",
-            "ex": [["ele_light", 0.15]],
-            "chain": [["rcv", 0.2]]
-        },
-        "Summer_Luca": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["energy_att", 0.09]]
-        },
-        "Vixel": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["energy_att", 0.09]]
-        }
-    },
-    "shadow": {
-        "Alberius": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["da", 0.12]]
-        },
-        "Audric": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["dh", 0.18]]
-        },
-        "Berserker": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpless_40_att", 0.14]]
-        },
-        "Cleo": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["dshift_att", 0.08, 0.09, 0.15]]
-        },
-        "Curran": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpless_40_att", 0.15]]
-        },
-        "Delphi": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["edge_poison", 50.0]]
-        },
-        "Dragonyule_Victor": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["poised_att", 0.13]]
-        },
-        "Edward": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Erik": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["affself_poison_att", 0.08]]
-        },
-        "Forte": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["dshift_att", 0.1, 0.1, 0.15]]
-        },
-        "Gala_Alex": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["affself_poison_att", 0.13]]
-        },
-        "Gala_Chelle": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": [["poised_shadowblight-killer_passive", 0.08]]
-        },
-        "Grace": {
-            "category": "Grace",
-            "ex": [["fs", 0.2, "ex"]],
-            "chain": []
-        },
-        "Halloween_Sylas": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["hpless_60_regen", 4.0, 20.0, 30.0]]
-        },
-        "Heinwald": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["affself_poison_att", 0.13]]
-        },
-        "Ieyasu": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["dh", 0.2]]
-        },
-        "Joker": {
-            "category": "Joker",
-            "ex": [["spd", 0.07]],
-            "chain": []
-        },
-        "Lathna": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["dh", 0.2]]
-        },
-        "Patia": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Rodrigo": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Sazanka": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hp", 0.09]]
-        },
-        "Summer_Leonidas": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_shadowblight_att", 0.13]]
-        },
-        "Summer_Mym": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": [["dh", 0.2]]
-        },
-        "Summer_Patia": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpless_40_att", 0.15]]
-        },
-        "Summer_Prince": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["dh", 0.2]]
-        },
-        "Summer_Verica": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Taro": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["hp", 0.07]]
-        },
-        "Vania": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": [["hpmore_60_crit_chance", 0.08]]
-        },
-        "Yaten": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Zace": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_poison_att", 0.08]]
-        },
-        "Zena": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": [["hpless_60_regen", 4.0, 20.0, 30.0]]
-        }
-    },
-    "water": {
-        "Catherine": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hitcount_10_att", 0.13]]
-        },
-        "Cibella": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["bt", 0.05]]
-        },
-        "Dragonyule_Cleo": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["ctime", 2.5]]
-        },
-        "Dragonyule_Lily": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["healed_att", 0.08]]
-        },
-        "Elisanne": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Eugene": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["dshift_att", 0.1, 0.1, 0.15]]
-        },
-        "Faeblessed_Tobias": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hitcount_10_crit_chance", 0.13]]
-        },
-        "Finni": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Fjorm": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_frostbite_att", 0.13]]
-        },
-        "Gala_Elisanne": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["ctime", 2.5]]
-        },
-        "Gala_Mascula": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["bt", 0.15, "hit10"]]
-        },
-        "Gauld": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_frostbite_att", 0.1]]
-        },
-        "Halloween_Odetta": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["affself_frostbite_att", 0.1]]
-        },
-        "Humanoid_Mercury": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["affres_burn", 100.0, "amp_2_team_1"]]
-        },
-        "Hunter_Sarisse": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["ecombo", 20]]
-        },
-        "Jakob": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_frostbite_att", 0.08]]
-        },
-        "Jiang_Ziya": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hpless_60_regen", 4.0, 20.0, 30.0]]
-        },
-        "Karina": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Lazry": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["affself_frostbite_att", 0.13]]
-        },
-        "Nurse_Aeleen": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["dh", 0.18]]
-        },
-        "Pietro": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["dh", 0.14]]
-        },
-        "Pipple": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": [["dh", 0.18]]
-        },
-        "Renee": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["bt", 0.09]]
-        },
-        "Rex": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Ricardt": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hp", 0.07]]
-        },
-        "Sharpshooter_Sarisse": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": [["ecombo", 20]]
-        },
-        "Summer_Celliera": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["dshift_att", 0.1, 0.1, 0.15]]
-        },
-        "Summer_Estelle": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": [["bt", 0.09]]
-        },
-        "Summer_Ieyasu": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["affself_frostbite_att", 0.13]]
-        },
-        "Summer_Julietta": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Summer_Ranzal": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["hp", 0.09]]
-        },
-        "Thaniel": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hitcount_10_att", 0.1]]
-        },
-        "Tiki": {
-            "category": "Dagger2",
-            "ex": [["x", 0.2, "ex"]],
-            "chain": [["dh", 0.2]]
-        },
-        "Xainfried": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["dshift_att", 0.1, 0.1, 0.15]]
-        },
-        "Xander": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hitcount_10_att", 0.13]]
-        },
-        "Yoshitsune": {
-            "category": "Gun",
-            "ex": [["odaccel", 0.2]],
-            "chain": [["dodge_att", 0.1, 15.0, 15.0, "iframe"]]
-        },
-        "Yurius": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": [["dh", 0.2]]
-        },
-        "Zardin": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.03]]
-        }
-    },
-    "wind": {
-        "Aeleen": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["bc_att", 0.09, 15.0, 15.0]]
-        },
-        "Akasha": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hitcount_10_crit_chance", 0.13]]
-        },
-        "Dragonyule_Xainfried": {
-            "category": "Wand",
-            "ex": [["s", 0.15, "ex"]],
-            "chain": [["dshift_att", 0.09, 0.1, 0.15]]
-        },
-        "Eleonora": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["edge_poison", 45.0]]
-        },
-        "Formal_Noelle": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["affself_poison_att", 0.13]]
-        },
-        "Gala_Leif": {
-            "category": "Gala_Leif",
-            "ex": [["k_debuff", 0.08]],
-            "chain": [["bc_att", 0.1, 15.0, 15.0]]
-        },
-        "Gala_Notte": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["dpcombo", 50]]
-        },
-        "Gala_Ranzal": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["bc_crit_chance", 0.1, 15.0, 15.0]]
-        },
-        "Grimnir": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["ctime", 2.5]]
-        },
-        "Halloween_Melsa": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Humanoid_Midgardsormr": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["dh", 0.2]]
-        },
-        "Johanna": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["affself_poison_att", 0.08]]
-        },
-        "Kirsty": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["hpmore_60_crit_chance", 0.08]]
-        },
-        "Ku_Hai": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hitcount_10_att", 0.1]]
-        },
-        "Lin_You": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hitcount_10_att", 0.13]]
-        },
-        "Lowen": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["bc_crit_chance", 0.09, 15.0, 15.0]]
-        },
-        "Meene": {
-            "category": "Bow",
-            "ex": [["sp", 0.15]],
-            "chain": [["ctime", 2.5]]
-        },
-        "Mona": {
-            "category": "Mona",
-            "ex": [["ele_wind", 0.2]],
-            "chain": []
-        },
-        "Nino": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["critcombo", 0.01, 10.0, 20.0]]
-        },
-        "Pia": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["bc_att", 0.09, 15.0, 15.0]]
-        },
-        "Ranzal": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.03]]
-        },
-        "Sophie": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["affself_poison_crit_chance", 0.09]]
-        },
-        "Summer_Amane": {
-            "category": "Axe",
-            "ex": [],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Summer_Norwin": {
-            "category": "Dagger",
-            "ex": [["cc", 0.1]],
-            "chain": [["hitcount_10_heal", 7.2]]
-        },
-        "Sylas": {
-            "category": "Lance",
-            "ex": [["hp", 0.15]],
-            "chain": [["affself_poison_att", 0.13]]
-        },
-        "Templar_Hope": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.05]]
-        },
-        "Tobias": {
-            "category": "Tobias",
-            "ex": [["bt", 0.2, "ex"]],
-            "chain": []
-        },
-        "Valentines_Melody": {
-            "category": "Axe2",
-            "ex": [["cd", 0.3]],
-            "chain": []
-        },
-        "Wedding_Elisanne": {
-            "category": "Sword",
-            "ex": [["dh", 0.15]],
-            "chain": [["hpmore_60_att", 0.06]]
-        },
-        "Wedding_Xania": {
-            "category": "Staff",
-            "ex": [["rcv", 0.2]],
-            "chain": [["hpmore_60_crit_chance", 0.07]]
-        },
-        "Yukata_Lathna": {
-            "category": "Blade",
-            "ex": [["a", 0.1, "ex"]],
-            "chain": [["dh", 0.2]]
-        }
+    "lookup": {
+        "Gala_Mym": ["101010010", "400000012"],
+        "Alain": ["101010010", "400000015"],
+        "Emma": ["101010010", "400000017"],
+        "Nadine": ["101010010", "400000040"],
+        "Xuan_Zang": ["101010010", "400000127"],
+        "Jakob": ["101010010", "400000191"],
+        "Gauld": ["101010010", "400000193"],
+        "Fjorm": ["101010010", "400000194"],
+        "Xainfried": ["101010010", "400000217"],
+        "Cibella": ["101010010", "400000222"],
+        "Faeblessed_Tobias": ["101010010", "400000232"],
+        "Catherine": ["101010010", "400000244"],
+        "Sylas": ["101010010", "400000326"],
+        "Aeleen": ["101010010", "400000348"],
+        "Pia": ["101010010", "400000348"],
+        "Halloween_Melsa": ["101010010", "400000373"],
+        "Kirsty": ["101010010", "400000385"],
+        "Ryozen": ["101010010", "400000452"],
+        "Halloween_Elisanne": ["101010010", "400000465"],
+        "Malka": ["101010010", "400000503"],
+        "Hunter_Vanessa": ["101010010", "400000529"],
+        "Annelie": ["101010010", "400000535"],
+        "Sha_Wujing": ["101010010", "400000552"],
+        "Patia": ["101010010", "400000585"],
+        "Zace": ["101010010", "400000607"],
+        "Lathna": ["101010010", "400000663"],
+        "Forte": ["101010010", "400000669"],
+        "Botan": ["101010010", "400000704"],
+        "Elisanne": ["101010010", "400000722"],
+        "Grimnir": ["101010010", "400000794"],
+        "Ryszarda": ["101010010", "400000884"],
+        "Summer_Leonidas": ["101010010", "400000966"],
+        "Aoi": ["101020010", "400000054"],
+        "Rena": ["101020010", "400000057"],
+        "Laxi": ["101020010", "400000096"],
+        "Mikoto": ["101020010", "400000146"],
+        "Halloween_Akasha": ["101020010", "400000168"],
+        "Regina": ["101020010", "400000168"],
+        "Summer_Ranzal": ["101020010", "400000182"],
+        "Jurota": ["101020010", "400000197"],
+        "Valerio": ["101020010", "400000256"],
+        "Celliera": ["101020010", "400000277"],
+        "Melody": ["101020010", "400000287"],
+        "Musashi": ["101020010", "400000331"],
+        "Victor": ["101020010", "400000367"],
+        "Addis": ["101020010", "400000396"],
+        "Forager_Mitsuba": ["101020010", "400000397"],
+        "Harle": ["101020010", "400000397"],
+        "Halloween_Edward": ["101020010", "400000430"],
+        "Mordecai": ["101020010", "400000438"],
+        "Gala_Luca": ["101020010", "400000489"],
+        "Hanabusa": ["101020010", "400000505"],
+        "Yachiyo": ["101020010", "400000516"],
+        "Durant": ["101020010", "400000570"],
+        "Linnea": ["101020010", "400000571"],
+        "Aldred": ["101020010", "400000644"],
+        "Natalie": ["101020010", "400000645"],
+        "Ieyasu": ["101020010", "400000663"],
+        "Taro": ["101020010", "400000672"],
+        "Nobunaga": ["101020010", "400000708"],
+        "Beautician_Zardin": ["101020010", "400000752"],
+        "Yukata_Lathna": ["101020010", "400000917"],
+        "Armored_Yachiyo": ["101020010", "400000940"],
+        "Gala_Mascula": ["101020010", "400000960"],
+        "Gala_Zethia": ["101020010", "400000978"],
+        "Humanoid_Jupiter": ["101020010", "400000994"],
+        "Yue": ["101030010", "400000017"],
+        "Vanessa": ["101030010", "400000127"],
+        "Ramona": ["101030010", "400000128"],
+        "Rex": ["101030010", "400000153"],
+        "Karina": ["101030010", "400000155"],
+        "Summer_Julietta": ["101030010", "400000156"],
+        "Finni": ["101030010", "400000156"],
+        "Lazry": ["101030010", "400000194"],
+        "Pietro": ["101030010", "400000208"],
+        "Kimono_Luca": ["101030010", "400000290"],
+        "Lin_You": ["101030010", "400000302"],
+        "Johanna": ["101030010", "400000323"],
+        "Summer_Amane": ["101030010", "400000373"],
+        "Julietta": ["101030010", "400000438"],
+        "Linus": ["101030010", "400000450"],
+        "Zhu_Bajie": ["101030010", "400000489"],
+        "Dragonyule_Malora": ["101030010", "400000523"],
+        "Summer_Luca": ["101030010", "400000534"],
+        "Erik": ["101030010", "400000607"],
+        "Curran": ["101030010", "400000633"],
+        "Summer_Patia": ["101030010", "400000633"],
+        "Sazanka": ["101030010", "400000674"],
+        "Gala_Elisanne": ["101030010", "400000711"],
+        "Ranzal": ["101030010", "400000722"],
+        "Dragonyule_Victor": ["101030010", "400000833"],
+        "Child_Ranzal": ["101030010", "400000912"],
+        "Joe": ["101040010", "400000045"],
+        "Valentines_Ezelith": ["101040010", "400000056"],
+        "Pinon": ["101040010", "400000168"],
+        "Dragonyule_Nefaria": ["101040010", "400000199"],
+        "Waike": ["101040010", "400000253"],
+        "Laranoa": ["101040010", "400000256"],
+        "Philia": ["101040010", "400000287"],
+        "Joachim": ["101040010", "400000331"],
+        "Louise": ["101040010", "400000332"],
+        "Eleonora": ["101040010", "400000343"],
+        "Hawk": ["101040010", "400000367"],
+        "Rawn": ["101040010", "400000488"],
+        "Summer_Cleo": ["101040010", "400000489"],
+        "Malora": ["101040010", "400000511"],
+        "Summer_Mikoto": ["101040010", "400000517"],
+        "Chelle": ["101040010", "400000571"],
+        "Nefaria": ["101040010", "400000616"],
+        "Valentines_Addis": ["101040010", "400000645"],
+        "Chelsea": ["101040010", "400000707"],
+        "Summer_Alex": ["101040010", "400000708"],
+        "Gala_Sarisse": ["101040010", "400000709"],
+        "Hunter_Sarisse": ["101040010", "400000712"],
+        "Halloween_Sylas": ["101040010", "400000716"],
+        "Luca": ["101040010", "400000734"],
+        "Elias": ["101040010", "400000751"],
+        "Norwin": ["101040010", "400000757"],
+        "Meene": ["101040010", "400000794"],
+        "Opera_Karina": ["101040010", "400000799"],
+        "Valentines_Chelsea": ["101040010", "400000873"],
+        "Humanoid_Midgardsormr": ["101040010", "400000917"],
+        "Isaac": ["101040010", "400000950"],
+        "Undercover_Grace": ["101050010", "400000018"],
+        "Valentines_Orion": ["101050010", "400000037"],
+        "Serena": ["101050010", "400000062"],
+        "Karl": ["101050010", "400000074"],
+        "Marth": ["101050010", "400000075"],
+        "Naveed": ["101050010", "400000128"],
+        "Marty": ["101050010", "400000137"],
+        "Zardin": ["101050010", "400000153"],
+        "Halloween_Odetta": ["101050010", "400000193"],
+        "Summer_Ieyasu": ["101050010", "400000194"],
+        "Summer_Celliera": ["101050010", "400000217"],
+        "Eugene": ["101050010", "400000217"],
+        "Xander": ["101050010", "400000244"],
+        "Ku_Hai": ["101050010", "400000301"],
+        "Gala_Ranzal": ["101050010", "400000361"],
+        "Templar_Hope": ["101050010", "400000372"],
+        "Wedding_Elisanne": ["101050010", "400000373"],
+        "Odetta": ["101050010", "400000452"],
+        "Alfonse": ["101050010", "400000453"],
+        "Pecorine": ["101050010", "400000453"],
+        "Raemond": ["101050010", "400000462"],
+        "Albert": ["101050010", "400000529"],
+        "Rodrigo": ["101050010", "400000583"],
+        "Yaten": ["101050010", "400000586"],
+        "Gala_Alex": ["101050010", "400000610"],
+        "Berserker": ["101050010", "400000632"],
+        "Audric": ["101050010", "400000662"],
+        "Hunter_Berserker": ["101050010", "400000706"],
+        "Lea": ["101050010", "400000710"],
+        "The_Prince": ["101050010", "400000719"],
+        "Civilian_Leif": ["101050010", "400000890"],
+        "Alberius": ["101050010", "400000895"],
+        "Nino": ["101050010", "400000945"],
+        "Chrom": ["101060010", "400000057"],
+        "Gala_Gatov": ["101060010", "400000999"],
+        "Joker": ["101100007", "400000863"],
+        "Xania": ["102000010", "400000054"],
+        "Sinoa": ["102000010", "400000145"],
+        "Student_Maribelle": ["102000010", "400000146"],
+        "Incognito_Nefaria": ["102000010", "400000146"],
+        "Yukata_Cleo": ["102000010", "400000146"],
+        "Lily": ["102000010", "400000168"],
+        "Forager_Cleo": ["102000010", "400000168"],
+        "Dragonyule_Xander": ["102000010", "400000199"],
+        "Pipple": ["102000010", "400000210"],
+        "Yurius": ["102000010", "400000211"],
+        "Summer_Estelle": ["102000010", "400000226"],
+        "Basileus": ["102000010", "400000290"],
+        "Summer_Sinoa": ["102000010", "400000332"],
+        "Nicolas": ["102000010", "400000352"],
+        "Noelle": ["102000010", "400000354"],
+        "Maribelle": ["102000010", "400000397"],
+        "Dragonyule_Xainfried": ["102000010", "400000406"],
+        "Amane": ["102000010", "400000437"],
+        "Radiant_Xuan_Zang": ["102000010", "400000438"],
+        "Xiao_Lei": ["102000010", "400000486"],
+        "Chitose": ["102000010", "400000505"],
+        "Lucretia": ["102000010", "400000541"],
+        "Althemia": ["102000010", "400000568"],
+        "Gala_Cleo": ["102000010", "400000571"],
+        "Vania": ["102000010", "400000598"],
+        "Cassandra": ["102000010", "400000616"],
+        "Kleimann": ["102000010", "400000644"],
+        "Veronica": ["102000010", "400000645"],
+        "Zena": ["102000010", "400000716"],
+        "Myriam": ["102000010", "400000906"],
+        "Summer_Chelle": ["102000010", "400000972"],
+        "Yuya": ["103000010", "400000005"],
+        "Renee": ["103000010", "400000226"],
+        "Luther": ["103000010", "400000255"],
+        "Orsem": ["103000010", "400000255"],
+        "Mitsuba": ["103000010", "400000278"],
+        "Wedding_Aoi": ["103000010", "400000290"],
+        "Francesca": ["103000010", "400000329"],
+        "Su_Fang": ["103000010", "400000331"],
+        "Farren": ["103000010", "400000438"],
+        "Irfan": ["103000010", "400000486"],
+        "Wu_Kong": ["103000010", "400000489"],
+        "Fritz": ["103000010", "400000500"],
+        "Fleur": ["103000010", "400000516"],
+        "Vice": ["103000010", "400000613"],
+        "Vida": ["103000010", "400000613"],
+        "Alex": ["103000010", "400000615"],
+        "Delphi": ["103000010", "400000627"],
+        "Bellina": ["103000010", "400000645"],
+        "Summer_Prince": ["103000010", "400000663"],
+        "Ezelith": ["103000010", "400000708"],
+        "Dragonyule_Cleo": ["103000010", "400000711"],
+        "Mitsuhide": ["103000010", "400000714"],
+        "Renelle": ["103000010", "400000737"],
+        "Melsa": ["103000010", "400000739"],
+        "Summer_Mitsuhide": ["103000010", "400000740"],
+        "Yukata_Curran": ["103000010", "400000752"],
+        "Orion": ["103000010", "400000757"],
+        "Nevin": ["103000010", "400000758"],
+        "Summer_Norwin": ["103000010", "400000770"],
+        "Dragonyule_Nevin": ["103000010", "400000812"],
+        "Gala_Notte": ["103000010", "400000900"],
+        "Humanoid_Mercury": ["103000010", "400000922"],
+        "Panther": ["103150005", "400000817"],
+        "Verica": ["104000010", "400000011"],
+        "Valentines_Hildegarde": ["104000010", "400000018"],
+        "Aurien": ["104000010", "400000048"],
+        "Halloween_Lowen": ["104000010", "400000127"],
+        "Ricardt": ["104000010", "400000180"],
+        "Nurse_Aeleen": ["104000010", "400000210"],
+        "Thaniel": ["104000010", "400000243"],
+        "Akasha": ["104000010", "400000314"],
+        "Formal_Noelle": ["104000010", "400000326"],
+        "Sophie": ["104000010", "400000335"],
+        "Lowen": ["104000010", "400000360"],
+        "Wedding_Xania": ["104000010", "400000384"],
+        "Hildegarde": ["104000010", "400000453"],
+        "Hope": ["104000010", "400000474"],
+        "Gala_Zena": ["104000010", "400000477"],
+        "Felicia": ["104000010", "400000505"],
+        "Halloween_Althemia": ["104000010", "400000528"],
+        "Vixel": ["104000010", "400000534"],
+        "Estelle": ["104000010", "400000550"],
+        "Edward": ["104000010", "400000583"],
+        "Summer_Verica": ["104000010", "400000586"],
+        "Heinwald": ["104000010", "400000610"],
+        "Jiang_Ziya": ["104000010", "400000713"],
+        "Cleo": ["104000010", "400000731"],
+        "Yukata_Cassandra": ["104000010", "400000782"],
+        "Dragonyule_Lily": ["104000010", "400000828"],
+        "Kuzunoha": ["104000010", "400000843"],
+        "Sandalphon": ["104000010", "400000983"],
+        "Mega_Man": ["106000008", "400000146"],
+        "Seimei": ["106000008", "400000848"],
+        "Grace": ["106000016", "400000657"],
+        "Tiki": ["106070008", "400000211"],
+        "Gala_Laxi": ["106070008", "400000740"],
+        "Gala_Leif": ["106080008", "400000349"],
+        "Faris": ["109000009", "400000146"],
+        "Lapis": ["109000009", "400000256"],
+        "Saiga": ["109000009", "400000290"],
+        "Sharpshooter_Joe": ["109000009", "400000450"],
+        "Ilia": ["109000009", "400000489"],
+        "Summer_Mym": ["109000009", "400000663"],
+        "Sharpshooter_Sarisse": ["109000009", "400000712"],
+        "Formal_Joachim": ["109000009", "400000812"],
+        "Cecile": ["109000009", "400000812"],
+        "Gala_Leonidas": ["109000009", "400000823"],
+        "Yoshitsune": ["109000009", "400000853"],
+        "Gala_Chelle": ["109000009", "400000858"],
+        "Eirene": ["109000009", "400000890"],
+        "Halloween_Laxi": ["109000009", "400000989"],
+        "Tobias": ["118000008", "400000290"],
+        "Sharena": ["120040008", "400000523"],
+        "Halloween_Mym": ["126000008", "400000006"],
+        "Valentines_Melody": ["126000008", "400000397"],
+        "Gala_Audric": ["126000008", "400000506"],
+        "Gala_Prince": ["136000008", "400000547"],
+        "Mona": ["157570005", "400000879"],
+        "Peony": ["157570408", "400000506"],
+        "Sophie_Persona": ["157570413", "400000868"],
+        "Kimono_Elisanne": ["166000008", "400000838"]
     }
 }

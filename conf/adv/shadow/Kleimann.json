@@ -1,11 +1,11 @@
 {
     "actconds": {
         "72": {"aff": "sleep", "duration": 5.5, "rate": 1.1},
-        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.582, "iv": 2.9, "value": ["mod", 0.582]}, "rate": 1.2, "debuff": 1},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"value": ["mod", 0.582], "iv": 2.9}, "rate": 1.2},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "310012101": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Madness", "overwrite": -1},
-        "318010101": {"slip": {"fixed": -100, "iv": 2.9, "kind": "sp", "value": ["fixed", -100]}, "text": "Skill Charger & Damage Over Time"},
-        "318010102": {"slip": {"percent": 0.01, "iv": 2.9, "kind": "hp", "value": ["percent", 0.01]}, "icon": 0, "hide": 1, "debuff": 1}
+        "318010101": {"slip": {"value": ["fixed", -100], "kind": "sp", "iv": 2.9}, "text": "Skill Charger & Damage Over Time"},
+        "318010102": {"slip": {"value": ["percent", 0.01], "kind": "hp", "iv": 2.9}, "debuff": 1, "icon": 0, "hide": 1}
     },
     "c": {
         "name": "Kleimann",
@@ -54,4 +54,3 @@
         "cancel": {"any": 1.66667}
     }
 }
-

@@ -1,22 +1,22 @@
 {
     "actconds": {
         "36": {"aff": "all", "relief": 1, "count": 1, "text": "Recovered from Afflictions"},
-        "410": {"aff": "frostbite", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9, "value": ["mod", 0.31]}, "rate": 1.1, "debuff": 1},
+        "410": {"aff": "frostbite", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
         "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
         "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
-        "1257": {"aff": "flashburn", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9, "value": ["mod", 0.311]}, "rate": 1.1, "debuff": 1},
-        "1352": {"aff": "shadowblight", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9, "value": ["mod", 0.31]}, "rate": 1.1, "debuff": 1},
-        "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"dmg": 0.31, "iv": 2.9, "value": ["mod", 0.31]}, "rate": 1.1, "debuff": 1},
-        "1383": {"aff": "scorchrend", "duration": 21.0, "slip": {"dmg": 0.311, "iv": 2.9, "value": ["mod", 0.311]}, "rate": 1.1, "debuff": 1},
+        "1257": {"aff": "flashburn", "duration": 21.0, "slip": {"value": ["mod", 0.311], "iv": 2.9}, "rate": 1.1},
+        "1352": {"aff": "shadowblight", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
+        "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
+        "1383": {"aff": "scorchrend", "duration": 21.0, "slip": {"value": ["mod", 0.311], "iv": 2.9}, "rate": 1.1},
         "1871": {"coei": 1, "icon": 280, "text": "Preservation Protocol", "overwrite": 52},
         "1872": {"coei": 1, "icon": 281, "text": "Restoration Protocol", "overwrite": 53},
         "1873": {"coei": 1, "icon": 282, "text": "Purification Protocol", "overwrite": 54},
         "1874": {"remove": 1871, "coei": 1},
         "1875": {"remove": 1872, "coei": 1},
         "1876": {"remove": 1873, "coei": 1},
-        "101020901": {"aff": "poison", "duration": 15.0, "slip": {"dmg": 0.436, "iv": 2.9, "value": ["mod", 0.436]}, "rate": 1.1, "debuff": 1},
-        "102040801": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.727, "iv": 3.9, "value": ["mod", 0.727]}, "rate": 1.1, "debuff": 1},
-        "104031101": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.727, "iv": 3.9, "value": ["mod", 0.727]}, "rate": 1.1, "debuff": 1}
+        "101020901": {"aff": "poison", "duration": 15.0, "slip": {"value": ["mod", 0.436], "iv": 2.9}, "rate": 1.1},
+        "102040801": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.727], "iv": 3.9}, "rate": 1.1},
+        "104031101": {"aff": "paralysis", "duration": 13.0, "slip": {"value": ["mod", 0.727], "iv": 3.9}, "rate": 1.1}
     },
     "c": {
         "name": "Regina",
@@ -67,7 +67,7 @@
         "startup": 0.0,
         "recovery": 3.8,
         "attr": [
-            {"dmg": 3.0, "actcond": "410", "target": "HOSTILE", "iv": 2.33333},
+            {"dmg": 3.0, "actcond": "410", "DEBUG_ADD_RNG_HITS": [2, [{"actcond": "101020901", "target": "FIXED_OBJECT"}, {"actcond": "102040801", "target": "FIXED_OBJECT"}, {"actcond": "1257", "target": "FIXED_OBJECT"}, {"actcond": "1360", "target": "FIXED_OBJECT"}, {"actcond": "1352", "target": "FIXED_OBJECT"}, {"actcond": "1383", "target": "FIXED_OBJECT"}, {"actcond": "104031101", "target": "FIXED_OBJECT"}]], "target": "HOSTILE", "iv": 2.33333},
             {"dmg": 3.0, "actcond": "410", "target": "HOSTILE", "iv": 2.5},
             {"dmg": 3.0, "actcond": "410", "target": "HOSTILE", "iv": 2.6},
             {"dmg": 3.0, "actcond": "410", "target": "HOSTILE", "iv": 2.7},
@@ -78,4 +78,3 @@
         "cancel": {"any": 3.5}
     }
 }
-

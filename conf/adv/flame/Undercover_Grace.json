@@ -1,6 +1,6 @@
 {
     "actconds": {
-        "346": {"slip": {"heal": 5.0, "iv": 2.9, "kind": "hp", "value": ["heal", 5.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
+        "346": {"slip": {"value": ["heal", 5.0], "kind": "hp", "iv": 2.9}, "coei": 1, "debuff": 1, "text": "HP Regen"},
         "1308": {"duration": 10.0, "icon": "att-buff", "mods": [[-0.1, "att", "buff"]], "debuff": 1, "text": "Strength -10%", "overwrite": 1},
         "1827": {"coei": 1, "icon": 278, "text": "Soul Seal", "maxstack": 4, "lost_on_drg": 1},
         "1828": {"remove": 1827, "count": 1, "coei": 1},
@@ -32,10 +32,10 @@
         "recovery": 2.46667,
         "attr": [
             {"dmg": 22.0, "actcond": "1308", "target": "HOSTILE", "iv": 1.4},
-            {"actcond": "1827", "target": "MYSELF", "iv": 2.0},
-            {"actcond": "1827", "target": "MYSELF", "iv": 2.06667},
-            {"actcond": "1827", "target": "MYSELF", "iv": 2.1},
-            {"actcond": "1827", "target": "MYSELF", "iv": 2.13333}
+            {"DEBUG_PARTCOND": "ActionContainerHitCount{'_compare': <PartConditionComparisonType.GreaterThanOrEqual: 3>, '_count': 1, '_padding3': 0, '_padding4': 0}", "actcond": "1827", "target": "MYSELF", "iv": 2.0},
+            {"DEBUG_PARTCOND": "ActionContainerHitCount{'_compare': <PartConditionComparisonType.GreaterThanOrEqual: 3>, '_count': 2, '_padding3': 0, '_padding4': 0}", "actcond": "1827", "target": "MYSELF", "iv": 2.06667},
+            {"DEBUG_PARTCOND": "ActionContainerHitCount{'_compare': <PartConditionComparisonType.GreaterThanOrEqual: 3>, '_count': 3, '_padding3': 0, '_padding4': 0}", "actcond": "1827", "target": "MYSELF", "iv": 2.1},
+            {"DEBUG_PARTCOND": "ActionContainerHitCount{'_compare': <PartConditionComparisonType.GreaterThanOrEqual: 3>, '_count': 4, '_padding3': 0, '_padding4': 0}", "actcond": "1827", "target": "MYSELF", "iv": 2.13333}
         ],
         "cancel": {"any": 2.16667},
         "abilities": [
@@ -74,4 +74,3 @@
         "cancel": {"any": 2.16667}
     }
 }
-

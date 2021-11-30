@@ -1,6 +1,6 @@
 {
     "actconds": {
-        "21": {"duration": 30.0, "slip": {"dmg": 1.46, "iv": 4.9, "kind": "bleed", "value": ["mod", 1.46]}, "debuff": 1, "text": "Bleeding"}
+        "21": {"duration": 30.0, "slip": {"value": ["mod", 1.46], "kind": "bleed", "iv": 4.9}, "debuff": 1, "text": "Bleeding"}
     },
     "d": {
         "name": "Summer Marishiten",
@@ -53,10 +53,9 @@
         "startup": 0.03333,
         "recovery": 2.26667,
         "attr": [
-            {"dmg": 5.5, "sp": 5, "target": "HOSTILE", "msl": 1.33333, "msl_spd": 1}
+            {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.5, "sp": 5, "target": "HOSTILE", "msl": 1.33333, "msl_spd": 1}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"any": 1.46667, "dodge": 0.0, "dx1": 1.36667, "s": 0.0}
     }
 }
-

@@ -1,8 +1,8 @@
 {
     "actconds": {
         "89": {"duration": 10.0, "icon": "aspd-buff", "mods": [[0.3, "aspd", "buff"]], "text": "Attack Rate +30%"},
-        "851": {"duration": 15.0, "slip": {"heal": 7.0, "iv": 2.9, "kind": "hp", "value": ["heal", 7.0]}, "coei": 1, "text": "HP Regen", "debuff": 1},
-        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"dmg": 0.97, "iv": 3.9, "value": ["mod", 0.97]}, "rate": 1.2, "debuff": 1},
+        "851": {"duration": 15.0, "slip": {"value": ["heal", 7.0], "kind": "hp", "iv": 2.9}, "coei": 1, "debuff": 1, "text": "HP Regen"},
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.97], "iv": 3.9}, "rate": 1.2},
         "302020101": {"duration": 10.0, "icon": "att-buff", "mods": [[0.1, "att", "buff"]], "text": "Strength +10%"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"}
     },
@@ -69,4 +69,3 @@
         "cancel": {"any": 1.76667}
     }
 }
-

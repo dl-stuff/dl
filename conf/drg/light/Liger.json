@@ -1,15 +1,17 @@
 {
     "actconds": {
-        "104030901": {"aff": "paralysis", "duration": 13.0, "slip": {"dmg": 0.883, "iv": 3.9, "value": ["mod", 0.883]}, "rate": 1.1, "debuff": 1}
+        "1839": {"duration": 180.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
+        "104030901": {"aff": "paralysis", "duration": 13.0, "slip": {"value": ["mod", 0.883], "iv": 3.9}, "rate": 1.1}
     },
     "d": {
         "name": "Liger",
         "icon": "210043_01",
-        "att": 119,
-        "hp": 377,
+        "att": 139,
+        "hp": 397,
         "ele": "light",
         "abilities": [
-            {"ab": [["mod", 0.35, "hp"], ["mod", 0.35, "att"]]}
+            {"ab": [["mod", 0.4, "hp"], ["mod", 0.4, "att"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1839"]]}
         ]
     },
     "ds1": {
@@ -59,4 +61,3 @@
         "cancel": {"any": 0.7, "dodge": 0.0, "s": 0.0}
     }
 }
-

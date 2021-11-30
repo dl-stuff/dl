@@ -1,15 +1,17 @@
 {
     "actconds": {
-        "67": {"aff": "stun", "duration": 6.5, "rate": 1.8}
+        "67": {"aff": "stun", "duration": 6.5, "rate": 1.8},
+        "2052": {"duration": 180.0, "icon": "critdmg-buff", "mods": [[0.3, "critdmg", "buff"]], "coei": 1, "text": "Critical Damage Surge"}
     },
     "d": {
         "name": "Arctos",
         "icon": "210030_01",
-        "att": 121,
-        "hp": 374,
+        "att": 141,
+        "hp": 394,
         "ele": "flame",
         "abilities": [
-            {"ab": [["mod", 0.45, "att"], ["mod", 0.55, "critdmg"]]}
+            {"ab": [["mod", 0.5, "att"], ["mod", 0.6, "critdmg"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "2052"]]}
         ]
     },
     "ds1": {
@@ -58,4 +60,3 @@
         "cancel": {"any": 1.0, "dodge": 0.0, "dx1": 0.83333, "s": 0.0}
     }
 }
-
