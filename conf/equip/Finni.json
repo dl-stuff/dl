@@ -187,39 +187,31 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54326.827650403,
-        "team": 0.0,
+        "dps": 58880.74078365129,
+        "team": 0.1377196636759198,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "Snipers_Allure"
-      ],
       "acl": [
-        "`dragon, self.sr.count=1",
-        "`s3, not buff(s3)",
+        "`dragon, self.sr.count=1 and (dshift_count or dgauge>=950)",
+        "`s3",
         "`s4",
         "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count>1.7 and cancel",
+        "`s1, self.sr.count=2 and cancel",
         "else",
         "`s2, self.sr.count=2",
         "end"
       ],
-      "coabs": [
-        "Gala_Mascula",
-        "Summer_Estelle",
-        "Tiki"
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

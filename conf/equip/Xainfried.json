@@ -120,17 +120,19 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40458.45186515333,
+        "dps": 44057.06009884955,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_and_Tamer",
         "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
+        "The_Prince_of_Dragonyule",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -154,9 +156,6 @@
         "`fs, x=5",
         "`dodge, fscf"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Summer_Celliera",
         "Tiki",
@@ -169,6 +168,63 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44057.06009884955,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "The_Prince_of_Dragonyule",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, dshift_count=0 and s=4",
+        "`dragon, dshift_count=1 and fscf",
+        "`dragon, dshift_count=2 and fscf",
+        "`dragon, dshift_count=3 and fscf and not s1.check()",
+        "`dragon, dshift_count>=4",
+        "queue prep and not buff(s3)",
+        "`s3",
+        "`s2",
+        "`fs",
+        "`s4, fscf",
+        "end",
+        "`s2",
+        "`s4",
+        "`s1, fscf",
+        "`s1, duration-now<10 and xf=2",
+        "`fs, charged_in(fs, s2)",
+        "`fs, charged_in(fs, s4)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -270,6 +326,64 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51491.3099955108,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Blossoms_on_the_Waters_Edge",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, dshift_count=0 and s=4",
+        "`dragon, dshift_count=1 and fscf",
+        "`dragon, dshift_count=2 and fscf",
+        "`dragon, dshift_count=3 and fscf and not s1.check()",
+        "`dragon, dshift_count>=4",
+        "queue prep",
+        "`s2",
+        "`fs",
+        "`s4,fscf",
+        "`fs",
+        "`s3,fscf",
+        "end",
+        "`s2",
+        "`s4",
+        "`s3, fscf",
+        "`s1, fscf or duration-now<10",
+        "`fs, charged_in(fs, s2)",
+        "`fs, charged_in(fs, s3)",
+        "`fs, charged_in(fs, s4)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -318,8 +432,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39725.05596949498,
-        "team": 0.13330739023400046,
+        "dps": 40398.493089456504,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },

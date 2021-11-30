@@ -33,41 +33,45 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90785.06559332006,
-        "team": 0.033317992248902265,
+        "dps": 104550.69435839409,
+        "team": 0.17973096686395545,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Moonlight_Party",
-        "A_Small_Courage",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, cancel",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s1(low), aff_timeleft(frostbite)<5",
-        "`s1(high)",
+        "`s1(low), not aff(frostbite)",
         "`s2(high)",
+        "`s1(high)",
         "`s4"
       ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
       "coabs": [
-        "Blade",
-        "Catherine",
-        "Wand"
+        "Eugene",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 165727.2514469247,
+      "tdps": 284728.1475488797,
       "pref": "PERSONAL"
     }
   },
@@ -165,41 +169,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 99543.53274711112,
-        "team": 0.08934970404270841,
+        "dps": 113564.4746068767,
+        "team": 0.17892049314793776,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
-        "`high",
-        "`dragon, s=2",
-        "`s3, not buff(s3) and x=1",
-        "`s4",
-        "`s1(high), x=4",
-        "`s2(low), dgauge>=500",
-        "`s2(high), dgauge<=350"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2(high)",
+        "`s1(high)",
+        "`s4"
       ]
     },
     "META": {
-      "tdps": 199821.306698662,
+      "tdps": 299447.06011058687,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -270,29 +254,70 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 60288.3837839493,
-        "team": 0.03332825447766482,
+        "dps": 75194.7470132229,
+        "team": 0.17943966022020422,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Chariot_Drift",
-        "Snipers_Allure"
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(high)",
+        "`s1(high)"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75786.32217748933,
+        "team": 0.1789204931479378,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, cancel",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s1(high)",
         "`s2(high)",
+        "`s1(high)",
         "`s4"
       ]
     },
     "META": {
+      "tdps": 1139469.7311674587,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

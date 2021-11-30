@@ -2,15 +2,15 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54601.787457556784,
-        "team": 0.17469414174654244,
+        "dps": 63347.99740390889,
+        "team": 0.187362635891575,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_Brethren",
-        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
@@ -19,20 +19,19 @@
       "slots.d": "Daikokuten",
       "acl": [
         "`dragon, buff(s3, 1)",
-        "queue prep",
-        "`s3",
         "`s4",
-        "`s2",
-        "`s1",
-        "end",
-        "`s4",
-        "`s1",
+        "`s1, buff(s3, 1)",
         "`s2",
         "`s3"
       ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
@@ -80,53 +79,8 @@
       ]
     },
     "META": {
-      "tdps": 1395555.8716927879,
+      "tdps": 931205.2284045471,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 65863.07966219478,
-        "team": 0.13179253945947997,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s4",
-        "`s1",
-        "`s2",
-        "`s3"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<5",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
-      "coabs": [
-        "Halloween_Laxi",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
-    "META": {
-      "tdps": 37697478.11295366,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {

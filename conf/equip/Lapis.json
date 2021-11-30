@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 115849.68764860487,
-        "team": 0.04147155375811913,
+        "dps": 117337.04739974807,
+        "team": 0.04166217718131425,
         "noaff": true,
         "nihil": false
       },
@@ -48,9 +48,8 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Leviathan",
       "acl": [
-        "`dragon, s and duration-now<10",
         "`s3, not buff(s3)",
         "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
         "`s4, energy()<5",
@@ -58,8 +57,7 @@
         "`fs"
       ],
       "dacl": [
-        "ds1,x=3",
-        "sack, x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -72,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 162889.6345496434,
+      "tdps": 165392.09473014149,
       "pref": "PERSONAL"
     }
   },
@@ -152,8 +150,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 127945.32306819918,
-        "team": 0.040941962093857205,
+        "dps": 134067.27098437445,
+        "team": 0.04166217718131425,
         "noaff": false,
         "nihil": false
       },
@@ -166,13 +164,16 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, x=1"
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
+        "`s4, energy()<5",
+        "`s2, energy()=5 and stronger_bullets=3",
+        "`fs"
       ]
     },
     "META": {
-      "tdps": 182658.56061063465,
+      "tdps": 192964.82489391832,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
