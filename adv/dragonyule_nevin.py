@@ -74,7 +74,9 @@ class Dragonyule_Nevin(SigilAdv):
 
     def divine_sting_dmg(self, t):
         # self.dmg_make("fs_divine_sting", sum(self.divine_sting_stacks), fixed=True)
-        log("dmg", "fs_divine_sting", sum(self.divine_sting_stacks), 0)
+        count = sum(self.divine_sting_stacks)
+        if count > 0:
+            log("dmg", "fs_divine_sting", sum(self.divine_sting_stacks), 0)
 
     def s1_proc(self, e):
         if not self.unlocked:
