@@ -3,6 +3,7 @@ from core.advbase import Dodge, Shift, Action, S, float_ceil
 from core.timeline import Event, Listener, Timer, now
 from core.log import log, g_logs
 from core.acl import allow_acl, CONTINUE
+from core.modifier import Modifier
 from conf import DRG, DEFAULT, DDRIVE
 
 
@@ -40,7 +41,7 @@ class DragonForm:
         self.shift_end_reason = None
 
         # mods
-        self.dracolith_mod = self.adv.Modifier("dracolith", "ex", "dragon", 0)
+        self.dracolith_mod = Modifier("ex", "dragon", 0)
         self.dracolith_mod.get = self.ddamage
         self.dracolith_mod.off()
         self.shift_mods = [self.dracolith_mod]

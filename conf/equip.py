@@ -10,7 +10,7 @@ from lark.tree import Tree
 
 from core.afflic import AFFLICT_LIST
 from core.acl import regenerate_acl
-from conf import SKIP_VARIANT, get_conf_json_path, ELE_AFFLICT, list_advs, load_json, mono_elecoabs, wyrmprints
+from conf import SKIP_VARIANT, get_conf_json_path, ELE_AFFLICT, load_json, wyrmprints
 
 
 TDPS_WEIGHT = 15000
@@ -102,7 +102,8 @@ class SituationCondition(ValueEnum):
 
 
 def all_monoele_coabs(ele, coab_list):
-    return all((coab in mono_elecoabs[ele] for coab in coab_list))
+    return True
+    # return all((coab in mono_elecoabs[ele] for coab in coab_list))
 
 
 class MonoCondition(ValueEnum):
@@ -869,13 +870,3 @@ def n_pass_test(advname):
     # second_pass = sha256sum(new_equip_file)
     # if first_pass != second_pass:
     #     print(f"{advname} differed")
-
-
-if __name__ == "__main__":
-    # advname = sys.argv[1]
-    # convert_from_existing(advname)
-    # n_pass_test("alberius")
-    # python deploy.py lea valerio gala_notte sophie_persona patia chelsea hunter_sarisse noelle hildegarde gala_chelle -c
-    # advlist = ["lea", "valerio", "gala_notte", "sophie_persona", "patia", "chelsea", "hunter_sarisse", "noelle", "hildegarde", "gala_chelle"]
-    for advname in list_advs():
-        n_pass_test(advname)

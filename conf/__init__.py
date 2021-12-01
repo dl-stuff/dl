@@ -97,7 +97,10 @@ def save_json(fn, data, indent=None):
 def load_json(fn, fuzzy=False):
     fpath = get_conf_json_path(fn)
     if fuzzy:
-        fpath = glob.glob(fpath)[0]
+        fpath_glob = glob.glob(fpath)
+        if not fpath_glob:
+            raise FileNotFoundError(fpath)
+        fpath = fpath_glob[0]
     with open(fpath, "r", encoding="utf8") as f:
         return json.load(f, parse_float=float, parse_int=int)
 

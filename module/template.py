@@ -6,7 +6,6 @@ from conf import DEFAULT
 from core.log import log
 from core.timeline import now, Event
 from core.advbase import Adv, ReservoirSkill, ReservoirChainSkill
-from core.modifier import ModeManager, EffectBuff
 from core.acl import allow_acl, CONTINUE
 
 

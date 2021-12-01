@@ -113,7 +113,7 @@ class Modifier(object):
         self.off()
 
     def __repr__(self):
-        return "<{} {} {} {}>"(
+        return "<{} {} {} {}>".format(
             self.target,
             self.mod_type,
             self.mod_order,
@@ -122,7 +122,7 @@ class Modifier(object):
 
 
 class KillerModifier(Modifier):
-    def __init__(self, value, killer_states, order, get=None, target="MYSELF"):
+    def __init__(self, value, killer_states, order="hit", get=None, target="MYSELF"):
         if "afflicted" in killer_states:
             self.killer_states = AFFLICT_LIST
         else:
@@ -153,7 +153,7 @@ class KillerModifier(Modifier):
         return self
 
     def __repr__(self):
-        return "<{} {} {} {}>"(
+        return "<{} {} {} {}>".format(
             self.target,
             self.killer_states,
             self.mod_order,
@@ -243,7 +243,7 @@ class SlipDmg:
 
 
 class ActCond:
-    def __init__(self, adv, id, data, target="MYSELF"):
+    def __init__(self, adv, id, target, data):
         self._adv = adv
         self._id = id
         self.target = target

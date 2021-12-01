@@ -69,7 +69,7 @@ class CondHits(CompareCond):
         return self._op(self._adv.hits, self.value)
 
 
-CONDITONS["hits"] = CondHP
+CONDITONS["hits"] = CondHits
 
 
 class CondBuffedBy(Cond):
@@ -164,7 +164,7 @@ class Ab:
 class AbModifier(Ab):
     def __init__(self, adv, cond, value, mtype, morder) -> None:
         super().__init__(adv, cond)
-        self.modifier = Modifier(str((cond, value, mtype, morder)), value, mtype, morder, self._cond_get)
+        self.modifier = Modifier(mtype, morder, value, self._cond_get)
 
 
 class AbMod(AbModifier):
@@ -177,6 +177,7 @@ SUB_ABILITIES["mod"] = AbMod
 
 class AbActdmg(AbModifier):
     def __init__(self, adv, cond, *args) -> None:
+        print(adv, cond, *args)
         try:
             self.target = args[1].replace("-t:", "")
             super().__init__(adv, cond, args[0], self.target, "passive")
@@ -202,15 +203,17 @@ class AbCtime(AbModifier):
 class Ability:
     def __init__(self, adv, data):
         self._adv = adv
+        self.cond = None
         if cond := data.get("cond"):
             try:
-                self.cond = CONDITONS[cond[0]](cond[1:])
+                print(cond)
+                self.cond = CONDITONS[cond[0]](*cond[1:])
             except KeyError:
                 self.cond = None
         self.abs = []
         if ab_lst := data.get("ab"):
             for ab in ab_lst:
                 try:
-                    self.abs.append(SUB_ABILITIES[ab[0]](ab[1:]))
+                    self.abs.append(SUB_ABILITIES[ab[0]](adv, self.cond, *ab[1:]))
                 except KeyError:
                     pass
