@@ -4,21 +4,30 @@ from module.template import SigilAdv
 
 class Dragonyule_Nevin(SigilAdv):
     DIVINE_DAGGER_ATTR = {"dmg": 2.0, "sp": 30}
+    S1_SP_MOD = 0.2
 
     def prerun(self):
         self.config_sigil(duration=300, s1=True, s2=True, fs=True)
-
-        self.a1_sp_mod = Modifier("a1_sp_mod", "sp_s1", "passive", -0.8)
 
         self.divine_dagger_timer = Timer(self.divine_dagger_dmg, 1.5, True)
         self.divine_dagger = 0
         self.divine_sting_timer = Timer(self.divine_sting_dmg, 2.9, True)
         self.divine_sting_stacks = []
 
+        self.s1_sp_mod = self.S1_SP_MOD
+
+    def _add_sp_fn(self, s, name, sp):
+        if s.name == "s1":
+            sp = float_ceil(sp, self.sp_mod(name, target=s.name) * self.s1_sp_mod)
+        else:
+            sp = float_ceil(sp, self.sp_mod(name, target=s.name))
+        s.charge(sp)
+        return sp
+
     def _prep_sp_fn(self, s, _, percent):
         # this may need to be generalized
         if s.name == "s1":
-            sp = float_ceil(s.real_sp, percent * 0.2)
+            sp = float_ceil(s.real_sp, percent * self.s1_sp_mod)
         else:
             sp = float_ceil(s.real_sp, percent)
         s.charge(sp)
@@ -55,12 +64,13 @@ class Dragonyule_Nevin(SigilAdv):
     def a_sigil_unlock(self):
         self.divine_dagger_timer.on()
         self.divine_sting_timer.on()
-        self.a1_sp_mod.off()
+        self.s1_sp_mod = 1
         return super().a_sigil_unlock()
 
     def divine_dagger_dmg(self, t):
-        for i in range(self.divine_dagger):
-            self.hitattr_make("#divine_dagger", "#", "default", i, self.DIVINE_DAGGER_ATTR, dtype="#")
+        if not self.in_dform():
+            for i in range(self.divine_dagger):
+                self.hitattr_make("#divine_dagger", "#", "default", i, self.DIVINE_DAGGER_ATTR, dtype="#")
 
     def divine_sting_dmg(self, t):
         self.dmg_make("fs_divine_sting", sum(self.divine_sting_stacks), fixed=True)
