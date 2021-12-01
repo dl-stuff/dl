@@ -44,10 +44,12 @@ class Dragonyule_Nevin(SigilAdv):
             log("divine_dagger", f"{count:+}", self.divine_dagger)
             # skip impl. sting decreasing but not returning to 0 since that's not a thing that happens
             if self.divine_sting == 0:
+                self.afflics.stormlash.set_res_mod(0.15 * len(self.divine_sting_stacks))
                 self.divine_sting_stacks = []
             else:
                 while len(self.divine_sting_stacks) < self.divine_sting:
-                    self.divine_sting_stacks.append(self.dmg_formula("fs_divine_sting", 2.9, dtype="fs"))
+                    self.afflics.stormlash.set_res_mod(-0.15)
+                    self.divine_sting_stacks.append(self.dmg_formula("fs_divine_sting", 1.5, dtype="fs"))
 
     def fs1_sigil_proc(self, e):
         self.update_divine_dagger(-1)
