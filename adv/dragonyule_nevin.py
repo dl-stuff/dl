@@ -73,7 +73,8 @@ class Dragonyule_Nevin(SigilAdv):
                 self.hitattr_make("#divine_dagger", "#", "default", i, self.DIVINE_DAGGER_ATTR, dtype="#")
 
     def divine_sting_dmg(self, t):
-        self.dmg_make("fs_divine_sting", sum(self.divine_sting_stacks), fixed=True)
+        # self.dmg_make("fs_divine_sting", sum(self.divine_sting_stacks), fixed=True)
+        log("dmg", "fs_divine_sting", sum(self.divine_sting_stacks), 0)
 
     def s1_proc(self, e):
         if not self.unlocked:
