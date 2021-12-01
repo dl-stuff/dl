@@ -118,6 +118,56 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17875.78659553782,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sisters_Day_Out",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, dshift_count=0 and dgauge>=1000",
+        "`dragon, dshift_count=1 and x=4",
+        "`dragon, dshift_count=2 and s=1",
+        "`dragon, dshift_count=3 and fscf",
+        "`dragon, dshift_count=4",
+        "queue not buff(s3)",
+        "`s3",
+        "`s2",
+        "`s4",
+        "end",
+        "`s2",
+        "`s4",
+        "`s1, amp_lvl(team) and (xf or fscf)",
+        "`fs, charged_in(fs, s2) or charged_in(fs, s4)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3 and dshift_count<5",
+        "sack, x=3 and duration-now<5"
+      ],
+      "coabs": [
+        "The_Prince",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 44057.06009884955,
@@ -213,17 +263,13 @@
         "Summer_Celliera",
         "Tiki",
         "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

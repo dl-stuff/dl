@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101502.00785191258,
-        "team": 0.08595859291979625,
+        "dps": 104180.749961073,
+        "team": 0.07411022813020147,
         "noaff": false,
         "nihil": false
       },
@@ -50,17 +50,17 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Arctos",
       "acl": [
-        "`dragon, s=1 and not s4.check()",
-        "`s3, not buff(s3) and xf=3",
-        "`s4, xf>1",
+        "`dragon, s=1 and aff(poison)",
+        "`s3, not buff(s3)",
+        "`s4, x>2",
         "`s2",
-        "`s1",
-        "`fs, xf>3 and charged_in(fs,s1)"
+        "`s1, buff(s3)",
+        "`fs, hits=1"
       ],
       "dacl": [
-        "ds1,x=1"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 266266.37370267126,
+      "tdps": 262139.5654531348,
       "pref": "PERSONAL"
     }
   },
@@ -120,8 +120,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 119416.00309026745,
-        "team": 0.08595859291979625,
+        "dps": 125782.99822985414,
+        "team": 0.0740940640533935,
         "noaff": false,
         "nihil": false
       },
@@ -133,10 +133,38 @@
         "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Halloween_Mym"
       ]
     },
     "META": {
-      "tdps": 439324.7774380745,
+      "tdps": 449331.94297692756,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 114789.71877231753,
+        "team": 0.07805296448358857,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Halloween_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 366631.9200194616,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -183,8 +211,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80412.7450489923,
-        "team": 0.18308329737957652,
+        "dps": 80950.34581760658,
+        "team": 0.1832964052574187,
         "noaff": false,
         "nihil": false
       },
@@ -212,7 +240,7 @@
       ]
     },
     "META": {
-      "tdps": 1013087.4852898123,
+      "tdps": 1135084.7841490586,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

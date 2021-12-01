@@ -65,7 +65,7 @@ class Dragonyule_Nevin(SigilAdv):
     @allow_acl
     def fs(self, n=None):
         if self.unlocked and n is not None:
-            n = min(n, self.divine_dagger) or None
+            n = min(n, self.divine_dagger) or 1
         super().fs(n=n)
 
     def a_sigil_unlock(self):
