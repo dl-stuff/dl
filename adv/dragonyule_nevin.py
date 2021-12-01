@@ -14,11 +14,9 @@ class Dragonyule_Nevin(SigilAdv):
         self.divine_sting_timer = Timer(self.divine_sting_dmg, 2.9, True)
         self.divine_sting_stacks = []
 
-        self.s1_sp_mod = self.S1_SP_MOD
-
     def _add_sp_fn(self, s, name, sp):
-        if s.name == "s1":
-            sp = float_ceil(sp, self.sp_mod(name, target=s.name) * self.s1_sp_mod)
+        if not self.unlocked and s.name == "s1":
+            sp = float_ceil(sp, self.sp_mod(name, target=s.name) * self.S1_SP_MOD)
         else:
             sp = float_ceil(sp, self.sp_mod(name, target=s.name))
         s.charge(sp)
@@ -26,8 +24,8 @@ class Dragonyule_Nevin(SigilAdv):
 
     def _prep_sp_fn(self, s, _, percent):
         # this may need to be generalized
-        if s.name == "s1":
-            sp = float_ceil(s.real_sp, percent * self.s1_sp_mod)
+        if not self.unlocked and s.name == "s1":
+            sp = float_ceil(s.real_sp, percent * self.S1_SP_MOD)
         else:
             sp = float_ceil(s.real_sp, percent)
         s.charge(sp)
@@ -66,7 +64,6 @@ class Dragonyule_Nevin(SigilAdv):
     def a_sigil_unlock(self):
         self.divine_dagger_timer.on()
         self.divine_sting_timer.on()
-        self.s1_sp_mod = 1
         return super().a_sigil_unlock()
 
     def divine_dagger_dmg(self, t):
