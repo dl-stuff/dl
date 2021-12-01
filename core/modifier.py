@@ -1,4 +1,5 @@
 from collections import defaultdict
+import functools
 from conf import load_json
 from itertools import chain
 from functools import reduce
@@ -1183,17 +1184,28 @@ class ModeManager(MultiBuffManager):
         if timed_mode:
             self.pause_by = group
             if "s" in pause:
-                self.l_s = Listener("s", self.pause, order=0).on()
-                self.l_s_end = Listener("s_end", self.resume, order=0).on()
+                self.l_s = Listener("s", functools.partial(self.pause_kind, "s"), order=0).on()
+                self.l_s_end = Listener("s_end", functools.partial(self.resume_kind, "s"), order=0).on()
             if "dragon" in pause:
-                self.l_dragon = Listener("dragon", self.pause, order=0).on()
-                self.l_dragon_end = Listener("dragon_end", self.resume, order=0).on()
+                self.l_dragon = Listener("dragon", functools.partial(self.pause_kind, "dragon"), order=0).on()
+                self.l_dragon_end = Listener("dragon_end", functools.partial(self.resume_kind, "dragon"), order=0).on()
             if not kwargs.get("source"):
                 for b in self.buffs:
                     b.no_bufftime()
             else:
                 for b in self.buffs:
                     b.source = kwargs.get("source")
+            self.pause_kind = None
+
+    def pause_kind(self, kind, e):
+        if self.pause_kind is None:
+            self.pause_kind = kind
+            self.pause(e)
+
+    def resume_kind(self, kind, e):
+        if self.pause_kind == kind:
+            self.pause_kind = None
+            self.resume(e)
 
     def on_except(self, exclude=None):
         for b in self.buffs:
