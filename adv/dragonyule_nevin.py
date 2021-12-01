@@ -4,6 +4,7 @@ from module.template import SigilAdv
 
 class Dragonyule_Nevin(SigilAdv):
     DIVINE_DAGGER_ATTR = {"dmg": 2.0, "sp": 30}
+    DIVINE_STING_ATTR = {"dmg": 1.0, "sp": 30}
     S1_SP_MOD = 0.2
 
     def prerun(self):
@@ -35,7 +36,7 @@ class Dragonyule_Nevin(SigilAdv):
     def divine_sting(self):
         return 4 - self.divine_dagger
 
-    def update_divine_dagger(self, count):
+    def update_divine_dagger(self, count, fs=False):
         old_divine_dagger = self.divine_dagger
         self.divine_dagger = max(min(self.divine_dagger + count, 4), 0)
         if old_divine_dagger != self.divine_dagger:
@@ -60,6 +61,12 @@ class Dragonyule_Nevin(SigilAdv):
 
     def fs4_sigil_proc(self, e):
         self.update_divine_dagger(-4)
+
+    @allow_acl
+    def fs(self, n=None):
+        if self.unlocked and n is not None:
+            n = min(n, self.divine_dagger) or None
+        super().fs(n=n)
 
     def a_sigil_unlock(self):
         self.divine_dagger_timer.on()
