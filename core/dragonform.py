@@ -41,7 +41,7 @@ class DragonForm:
         self.shift_end_reason = None
 
         # mods
-        self.dracolith_mod = Modifier("ex", "dragon", 0)
+        self.dracolith_mod = Modifier("dragondmg", "passive", 0)
         self.dracolith_mod.get = self.ddamage
         self.dracolith_mod.off()
         self.shift_mods = [self.dracolith_mod]

@@ -1493,7 +1493,11 @@ class Adv(object):
         return 1
 
     def combine_crit_mods(self):
-        chance = min(self.mod("crit", operator=operator.add, initial=0), 1)
+        if self.conf.c.wt == "axe":
+            base_chance = 0.04
+        else:
+            base_chance = 0.02
+        chance = min(self.mod("crit", operator=operator.add, initial=base_chance), 1)
         cdmg = self.mod("critdmg", operator=operator.add, initial=1.7)
         return chance, cdmg
 

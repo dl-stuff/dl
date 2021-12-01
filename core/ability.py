@@ -206,7 +206,6 @@ class Ability:
         self.cond = None
         if cond := data.get("cond"):
             try:
-                print(cond)
                 self.cond = CONDITONS[cond[0]](*cond[1:])
             except KeyError:
                 self.cond = None
@@ -214,6 +213,7 @@ class Ability:
         if ab_lst := data.get("ab"):
             for ab in ab_lst:
                 try:
+                    print(ab)
                     self.abs.append(SUB_ABILITIES[ab[0]](adv, self.cond, *ab[1:]))
                 except KeyError:
                     pass
