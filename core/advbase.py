@@ -965,8 +965,11 @@ class Adv(object):
                     res = int(getattr(self.afflics, aff).resist * 100)
                     if not "999 all affliction res" in self.condition:
                         self.condition(f"{res} {aff} res")
-        if conf.get("energizable"):
-            self.energy.extra_tensionable.add(name)
+        if (energizable := conf["energizable"]) is not None:
+            if energizable:
+                self.energy.extra_tensionable.add(name)
+            else:
+                self.energy.not_tensionable.add(name)
 
     @property
     def current_x(self):

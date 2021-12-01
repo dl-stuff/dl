@@ -21,6 +21,7 @@ class Tension:
         self.active = set()
         self.disabled_reasons = set()
         self.extra_tensionable = set()
+        self.not_tensionable = set()
 
     def set_disabled(self, reason):
         self.disabled_reasons.add(reason)
@@ -66,7 +67,7 @@ class Tension:
         )
 
     def on(self, e):
-        if self.stack >= self.MAX_STACK and (e.name in self.modifier._static.damage_sources or e.name in self.extra_tensionable):
+        if self.stack >= self.MAX_STACK and not e.name in self.not_tensionable and (e.name in self.modifier._static.damage_sources or e.name in self.extra_tensionable):
             log(self.name, "active", "stack <{}>".format(int(self.stack)))
             self.active.add(e.name)
 

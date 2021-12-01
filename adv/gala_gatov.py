@@ -3,6 +3,8 @@ from core.advbase import *
 
 
 class Gala_Gatov(Adv):
+    comment = "s2 always counter"
+
     def prerun(self):
         self.charge_p("prep", 100, target="s2")
         self.buff2025 = 0
