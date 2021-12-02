@@ -44,19 +44,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 109904.75311261772,
-        "team": 0.24097399685291454,
+        "dps": 118139.10452654984,
+        "team": 0.2555459607752343,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
+        "A_Small_Courage",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -65,10 +65,12 @@
         "`s2, x=5",
         "`s1",
         "else",
-        "`dragon, (dgauge>=900 and fsc) or dshift_count",
-        "`s4, aff_timeleft(poison)<1",
-        "`s2, not divine_dagger",
-        "`fs4, charged_in(fs, s2) and divine_dagger",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
         "end"
       ],
       "dacl": [
@@ -78,7 +80,7 @@
       "coabs": [
         "Humanoid_Midgardsormr",
         "Mona",
-        "Nino"
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -86,7 +88,7 @@
       ]
     },
     "META": {
-      "tdps": 169939.8813038934,
+      "tdps": 337349.83550080756,
       "pref": "PERSONAL"
     }
   },
@@ -186,8 +188,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 117844.2496432237,
-        "team": 0.3535393152585862,
+        "dps": 118136.44829948108,
+        "team": 0.3626074250340036,
         "noaff": false,
         "nihil": false
       },
@@ -206,22 +208,22 @@
         "`s2, x=5",
         "`s1, x=5",
         "else",
-        "`dragon, (dgauge>=900 and fsc) or dshift_count",
+        "`dragon, dgauge>=900 or dshift_count",
         "`s4, x=5",
         "`s2, not divine_dagger",
         "`fs4, charged_in(fs, s2) and divine_dagger",
         "end"
       ],
       "coabs": [
-        "Gala_Notte",
         "Humanoid_Midgardsormr",
-        "Mona"
+        "Nino",
+        "Yukata_Lathna"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 127681.97343752052,
-        "team": 0.3412907396025652,
+        "dps": 132852.57835446871,
+        "team": 0.35459253371521654,
         "noaff": false,
         "nihil": false
       },
@@ -231,16 +233,13 @@
         "`s2, x=5",
         "`s1, x=5",
         "else",
-        "`dragon, (dgauge>=900 and fsc) or dshift_count",
-        "`s4, x=5",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, x=5 or s",
         "`s2, not divine_dagger",
+        "`s1, not divine_dagger",
         "`fs4, charged_in(fs, s2) and divine_dagger",
         "end"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -248,7 +247,7 @@
       ]
     },
     "META": {
-      "tdps": 803172.8807145766,
+      "tdps": 1836098.5158329858,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -285,8 +284,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 92303.9598521464,
-        "team": 0.38210857653136016,
+        "dps": 76152.12013443465,
+        "team": 0.3508377106863509,
         "noaff": false,
         "nihil": false
       },
@@ -319,40 +318,33 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94426.16104240663,
-        "team": 0.401923448652447,
+        "dps": 79270.97841151533,
+        "team": 0.35459253371521654,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
         "Worthy_Rivals",
         "A_Passion_for_Produce",
-        "Lord_of_the_Skies",
+        "A_Small_Courage",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
       "acl": [
-        "if not unlocked",
         "`s3, not buff(s3)",
+        "if not unlocked",
         "`s2, x=5",
-        "`s1",
+        "`s1, x=5",
         "else",
-        "`dragon, dgauge>=900 or dshift_count",
-        "`s4, x=5",
-        "`s2, fsc",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, x=5 or s",
+        "`s2, not divine_dagger",
+        "`s1, not divine_dagger",
         "`fs4, charged_in(fs, s2) and divine_dagger",
         "end"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Nino",
-        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",

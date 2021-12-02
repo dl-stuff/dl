@@ -10,7 +10,7 @@ class Dragonyule_Nevin(SigilAdv):
     def prerun(self):
         self.config_sigil(duration=300, s1=True, s2=True, fs=True)
 
-        self.divine_dagger_timer = Timer(self.divine_dagger_dmg, 1.5, True)
+        self.divine_dagger_timer = Timer(self.divine_dagger_dmg, 2.0, True)
         self.divine_dagger = 0
         self.divine_sting_timer = Timer(self.divine_sting_dmg, 2.9, True)
         self.divine_sting_stacks = []
