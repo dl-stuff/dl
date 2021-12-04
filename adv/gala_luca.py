@@ -170,4 +170,4 @@ class Gala_Luca_FAST(Gala_Luca):
         return 1.0 + current_rate * crit_dmg
 
 
-variants = {None: Gala_Luca, "MAX": Gala_Luca_MAX, "50MC": Gala_Luca_50MC, "FAST": Gala_Luca_Fast}
+variants = {None: Gala_Luca, "MAX": Gala_Luca_MAX, "50MC": Gala_Luca_50MC, "FAST": Gala_Luca_FAST}
