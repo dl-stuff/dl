@@ -2,15 +2,15 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 96555.82403842692,
-        "team": 0.3195248877430859,
+        "dps": 84601.38282955711,
+        "team": 0.34353767374861144,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Sweet_Surprise",
+        "The_Red_Impulse",
         "A_Passion_for_Produce",
         "Lord_of_the_Skies",
         "Applelicious_Dreams",
@@ -18,14 +18,18 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "if not unlocked",
         "`s3, not buff(s3)",
-        "`s1",
+        "if not unlocked",
+        "`s4, x=5",
+        "`s2, x=5",
+        "`s1, x=5",
         "else",
-        "`dragon, dgauge>=900 or dshift_count",
-        "`s4, x=5 and not have_buff(s4_20)",
-        "`s2, fsc",
-        "`fs4, charged_in(fs, s2) and divine_dagger",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, x>2",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
         "end"
       ],
       "dacl": [
@@ -35,17 +39,17 @@
       "coabs": [
         "Humanoid_Midgardsormr",
         "Mona",
-        "Nino"
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 118139.10452654984,
-        "team": 0.2555459607752343,
+        "dps": 108466.7272608489,
+        "team": 0.26073968398023845,
         "noaff": false,
         "nihil": false
       },
@@ -67,7 +71,7 @@
         "else",
         "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
         "`dragon, (dgauge>=900 or dshift_count) and fsc",
-        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
+        "`s4, x=5 and aff_timeleft(poison)<1",
         "`s2, divine_dagger=0",
         "`s1, divine_dagger=0",
         "`fs4, charged_in(fs, s2) and divine_dagger=4",
@@ -88,15 +92,15 @@
       ]
     },
     "META": {
-      "tdps": 337349.83550080756,
+      "tdps": 288235.79531405267,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 88808.23517120918,
-        "team": 0.18525527917994142,
+        "dps": 77948.23465433974,
+        "team": 0.2772109330255791,
         "noaff": false,
         "nihil": true
       },
@@ -115,11 +119,12 @@
         "`s2, x=5",
         "`s1",
         "else",
-        "`s4, aff_timeleft(poison)<4",
-        "`fs4, charged_in(fs, s2) or (charged_in(fs, s1) and (dgauge>=1000 or dshift_count) and dragonform.check())",
-        "`dragon, fsc",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
         "`s2, divine_dagger=0",
         "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
         "`s3, x=5",
         "end"
       ],
@@ -128,7 +133,7 @@
         "`dfs, x=3"
       ],
       "coabs": [
-        "Mona",
+        "Humanoid_Midgardsormr",
         "Nino",
         "Yukata_Lathna"
       ],
@@ -139,8 +144,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 91592.67226821682,
-        "team": 0.17384566461836204,
+        "dps": 89937.20449324537,
+        "team": 0.26484238435119045,
         "noaff": false,
         "nihil": true
       },
@@ -159,10 +164,12 @@
         "`s2, x=5",
         "`s1",
         "else",
-        "`s4, aff_timeleft(poison)<6",
-        "`dragon, (dgauge>=950 or dshift_count) and divine_dagger",
-        "`fs4, charged_in(fs, s2) and divine_dagger",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
         "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
         "`s3, x=5",
         "end"
       ],
@@ -171,8 +178,8 @@
         "`dfs, x=3"
       ],
       "coabs": [
+        "Humanoid_Midgardsormr",
         "Mona",
-        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
@@ -181,15 +188,15 @@
       ]
     },
     "META": {
-      "tdps": 244043.04650079302,
+      "tdps": 969310.9640042898,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 118136.44829948108,
-        "team": 0.3626074250340036,
+        "dps": 108535.03250503015,
+        "team": 0.3830893187846508,
         "noaff": false,
         "nihil": false
       },
@@ -222,32 +229,33 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 132852.57835446871,
-        "team": 0.35459253371521654,
+        "dps": 122988.9522481395,
+        "team": 0.34353767374861144,
         "noaff": false,
         "nihil": false
       },
       "acl": [
         "`s3, not buff(s3)",
         "if not unlocked",
+        "`s4, x=5",
         "`s2, x=5",
         "`s1, x=5",
         "else",
         "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
         "`dragon, (dgauge>=900 or dshift_count) and fsc",
-        "`s4, x=5 or s",
-        "`s2, not divine_dagger",
-        "`s1, not divine_dagger",
-        "`fs4, charged_in(fs, s2) and divine_dagger",
+        "`s4, cancel",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
         "end"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 1836098.5158329858,
+      "tdps": 365444.2117373114,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -256,24 +264,15 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 91433.8395430575,
-        "team": 0.18525527917994142,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96640.54694198756,
-        "team": 0.17384566461836204,
+        "dps": 93591.4725841468,
+        "team": 0.26484238435119045,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 456343.84674685413,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -284,42 +283,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 76152.12013443465,
-        "team": 0.3508377106863509,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Passion_for_Produce",
-        "Lord_of_the_Skies",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "if not unlocked",
-        "`s2, x=5",
-        "`s1",
-        "else",
-        "`dragon, dgauge>=900 or dshift_count",
-        "`s4, x=5",
-        "`s2, not divine_dagger",
-        "`fs4, charged_in(fs, s2) and divine_dagger",
-        "end"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 79270.97841151533,
-        "team": 0.35459253371521654,
+        "dps": 67846.2732937582,
+        "team": 0.3599403317886849,
         "noaff": false,
         "nihil": false
       },
@@ -345,17 +310,94 @@
         "`s1, not divine_dagger",
         "`fs4, charged_in(fs, s2) and divine_dagger",
         "end"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71847.93242602049,
+        "team": 0.34353767374861144,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "A_Passion_for_Produce",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s4, x=5",
+        "`s2, x=5",
+        "`s1, x=5",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, cancel",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 243964.0650000628,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40532.88932016428,
+        "team": 0.13662133246209757,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s2, x=5",
+        "`s1",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

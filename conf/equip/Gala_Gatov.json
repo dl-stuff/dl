@@ -2,35 +2,37 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 106346.77447200872,
-        "team": 0.005841473723909182,
+        "dps": 87536.21808473862,
+        "team": 0.01960586839062205,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
+        "Sweet_Surprise",
         "The_Cutie_Competition",
-        "Rogues_Banquet",
         "The_Plaguebringer",
+        "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Cerberus",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`s3, not buff(s3) and x=5",
-        "if not dualsword_mode.get()",
-        "`s1",
-        "else",
+        "`s3, not buff(s3)",
         "`s4",
-        "`dragon, s",
+        "`dragon, s=4",
+        "if not dualsword_mode.get()",
+        "`s2",
+        "`s1, buff(s3)",
+        "else",
         "`s1",
         "`s2",
         "end"
       ],
       "dacl": [
         "`ds1, x=2",
-        "`dodge, xf=2"
+        "`dodge, xf=2",
+        "`sack, duration-now<2.2"
       ],
       "coabs": [
         "Blade",
@@ -39,12 +41,12 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116920.06788470289,
+        "dps": 118003.9702092307,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -58,27 +60,28 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "if not dualsword_mode.get()",
-        "`dragon, not dshift_count",
         "`s3, not buff(s3)",
-        "`s2, buff(s3)",
+        "`s4",
+        "`dragon, s=4",
+        "if not dualsword_mode.get()",
+        "`s2",
         "`s1, buff(s3)",
         "else",
-        "`dragon, dshift_count",
-        "`s4",
         "`s1",
         "`s2",
         "end"
       ],
       "dacl": [
-        "`ds1, x=1"
+        "`ds1, x=2",
+        "`dodge, xf=2",
+        "`sack, duration-now<2.2"
       ],
       "coabs": [
-        "Halloween_Mym",
+        "Blade",
         "Kimono_Elisanne",
-        "Serena"
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -86,21 +89,21 @@
       ]
     },
     "META": {
-      "tdps": 1810038.6841453423,
+      "tdps": 1554011.866113797,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58030.88172576596,
-        "team": 0.027070987524310173,
+        "dps": 68530.35646738502,
+        "team": 0.03702624183053013,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Cutie_Competition",
         "A_Small_Courage",
         "To_the_Extreme",
@@ -109,65 +112,20 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dualsword_mode.get()",
-        "`dragon, s",
-        "`s4",
-        "`s3",
-        "`s1",
-        "`s2, s=1",
-        "`fs, x=7",
-        "else",
         "`dragon",
+        "if not dualsword_mode.get()",
+        "`s2",
         "`s1",
-        "`s3",
-        "`s4",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Yuya"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 68027.52280355299,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "Chariot_Drift",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "if dualsword_mode.get()",
-        "`dragon, s",
-        "`s4",
-        "`s1",
-        "`s2, s=1",
-        "`fs, x=7",
         "else",
-        "`s3",
         "`s1",
-        "end"
+        "`s2",
+        "end",
+        "`s4"
       ],
       "dacl": [
         "`ds1, x=2",
-        "`dodge, xf=2"
+        "`dodge, x=2",
+        "`sack, duration-now<2.2"
       ],
       "coabs": [
         "Kimono_Elisanne",
@@ -175,12 +133,55 @@
         "Wand"
       ],
       "share": [
-        "Summer_Cleo",
-        "Summer_Celliera"
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74798.3020758,
+        "team": 0.02467958038049877,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "if not dualsword_mode.get()",
+        "`s2",
+        "`s1",
+        "else",
+        "`s1",
+        "`s2",
+        "end",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2",
+        "`sack, duration-now<2.2"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Nobunaga",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 369275.07978088665,
+      "tdps": 507663.19573774864,
       "pref": "PERSONAL"
     }
   },
@@ -208,7 +209,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 130546.13577846653,
+        "dps": 134543.1796677398,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -221,10 +222,15 @@
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2",
+        "`sack, duration-now<2.2"
       ]
     },
     "META": {
-      "tdps": 949543.4657794181,
+      "tdps": 1049964.3709331646,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -235,8 +241,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 88363.54703181608,
-        "team": 0.0,
+        "dps": 90235.47323861942,
+        "team": 0.012339763466848206,
         "noaff": false,
         "nihil": true
       },
@@ -255,12 +261,15 @@
         "`s4",
         "`s1",
         "`s2, s=1",
-        "`fs, x=7",
         "else",
         "`s1",
         "`s3",
         "`s2",
         "end"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
@@ -298,8 +307,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86885.22931505802,
-        "team": 0.07719340424490427,
+        "dps": 87493.09494444975,
+        "team": 0.06996717107634123,
         "noaff": false,
         "nihil": false
       },
@@ -318,7 +327,7 @@
       ]
     },
     "META": {
-      "tdps": 50436464.29794889,
+      "tdps": 2332884.4693587194,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

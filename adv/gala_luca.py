@@ -120,7 +120,7 @@ class Gala_Luca_50MC(Gala_Luca, LowerMCAdv):
     CONNECTING_CALL_CRITR = 0.03
 
 
-class Gala_Luca_Fast(Gala_Luca):
+class Gala_Luca_FAST(Gala_Luca):
     NO_DEPLOY = True
     comment = "faster but less accurate crit estimation"
 

@@ -315,6 +315,44 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23089.47953819646,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1) and s=1",
+        "`s3",
+        "`s2, cancel",
+        "`s1, dgauge>=500 and buff(s3, 1)",
+        "`s4, not buff(s4, 2)",
+        "`fs"
+      ],
+      "dacl": [
+        "`dodge, fsc",
+        "`dfs3, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Prince",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 74580.94859685251,
