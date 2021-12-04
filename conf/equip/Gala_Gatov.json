@@ -44,40 +44,41 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116701.73027656799,
+        "dps": 116920.06788470289,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
+        "Sweet_Surprise",
         "The_Cutie_Competition",
-        "Rogues_Banquet",
         "The_Plaguebringer",
+        "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, s",
         "if not dualsword_mode.get()",
-        "`s1",
+        "`dragon, not dshift_count",
+        "`s3, not buff(s3)",
+        "`s2, buff(s3)",
+        "`s1, buff(s3)",
         "else",
+        "`dragon, dshift_count",
         "`s4",
         "`s1",
         "`s2",
         "end"
       ],
       "dacl": [
-        "`ds1, x=2",
-        "`dodge, xf=2"
+        "`ds1, x=1"
       ],
       "coabs": [
-        "Blade",
+        "Halloween_Mym",
         "Kimono_Elisanne",
-        "Marth"
+        "Serena"
       ],
       "share": [
         "Weapon",
@@ -85,7 +86,7 @@
       ]
     },
     "META": {
-      "tdps": 1772661.5395317764,
+      "tdps": 1810038.6841453423,
       "pref": "PERSONAL"
     }
   },
@@ -137,7 +138,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66915.56888725486,
+        "dps": 68027.52280355299,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -179,7 +180,7 @@
       ]
     },
     "META": {
-      "tdps": 328199.595729942,
+      "tdps": 369275.07978088665,
       "pref": "PERSONAL"
     }
   },
@@ -207,7 +208,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 127436.00622342671,
+        "dps": 130546.13577846653,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -220,25 +221,10 @@
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "if not dualsword_mode.get()",
-        "`s1",
-        "else",
-        "`s4",
-        "`s1",
-        "`s2",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, x=2"
       ]
     },
     "META": {
-      "tdps": 871405.2131821212,
+      "tdps": 949543.4657794181,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -249,7 +235,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80060.09620622252,
+        "dps": 88363.54703181608,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -262,6 +248,19 @@
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "if dualsword_mode.get()",
+        "`dragon, s",
+        "`s4",
+        "`s1",
+        "`s2, s=1",
+        "`fs, x=7",
+        "else",
+        "`s1",
+        "`s3",
+        "`s2",
+        "end"
       ]
     },
     "META": {
@@ -299,8 +298,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71576.74322331425,
-        "team": 0.0,
+        "dps": 86885.22931505802,
+        "team": 0.07719340424490427,
         "noaff": false,
         "nihil": false
       },
@@ -313,13 +312,14 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "dacl": [
-        "`ds1, x=3"
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 22309.701124842548,
-      "pref": "TEAMBUFF",
+      "tdps": 50436464.29794889,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
