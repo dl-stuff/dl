@@ -17,6 +17,10 @@ class Dragonyule_Ilia(Adv):
             for _ in range(3)
         ]
 
+    @property
+    def starfall_spirit(self):
+        return sum((bool(ss_buff.get()) for ss_buff in self.starfall_spirit_buffs))
+
     def alchemy_bars(self):
         if self.alchemy < 33:
             return 0

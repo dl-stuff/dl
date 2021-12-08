@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 93950.69514597017,
+        "dps": 81773.73340684213,
         "team": 0.10291671453685343,
         "noaff": true,
         "nihil": false
@@ -41,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 133144.78216505813,
+        "dps": 119095.24966075957,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -61,7 +61,7 @@
         "`dragon, dshift_count=1 and s=1",
         "`s3, not buff(s3)",
         "`s2, cartridge_loaded=0 and s1.check()",
-        "`s1, cartridge_loaded=3 and cancel",
+        "`s1, cartridge_loaded=3 and starfall_spirit=0",
         "`s4, x=2",
         "`dodge, x=2"
       ],
@@ -79,14 +79,53 @@
       ]
     },
     "META": {
-      "tdps": 380833.05705462414,
+      "tdps": 362638.0459371639,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47114.31364551448,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81176.21039873811,
+        "dps": 71509.99271132924,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -130,7 +169,7 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 97825.046082083,
+        "dps": 92889.45968751685,
         "team": 0.11420791156223657,
         "noaff": false,
         "nihil": false
@@ -155,7 +194,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 155990.6871320981,
+        "dps": 137112.4647015115,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -176,7 +215,7 @@
       ]
     },
     "META": {
-      "tdps": 509296.074627179,
+      "tdps": 387214.8996428826,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,7 +226,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 152155.34209528012,
+        "dps": 119626.8728325255,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -207,7 +246,7 @@
       ]
     },
     "META": {
-      "tdps": 475713.9437191294,
+      "tdps": 234111.74216628892,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -218,7 +257,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 102907.10350377756,
+        "dps": 83465.25911997975,
         "team": 0.049349523011876985,
         "noaff": false,
         "nihil": true
@@ -260,7 +299,7 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 99533.05447814542,
+        "dps": 83462.73343805964,
         "team": 0.11787729184703533,
         "noaff": false,
         "nihil": false
@@ -284,7 +323,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 112607.97129680721,
+        "dps": 105159.7579587675,
         "team": 0.0893040018473447,
         "noaff": false,
         "nihil": false
@@ -317,7 +356,7 @@
       ]
     },
     "META": {
-      "tdps": 457592.2765213022,
+      "tdps": 759346.3868158963,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -325,10 +364,53 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 83462.73343805964,
+        "team": 0.11787729184703533,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3 and cancel",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51889.743278655485,
+        "dps": 47114.31364551448,
         "team": 0.0,
         "noaff": true,
         "nihil": true
