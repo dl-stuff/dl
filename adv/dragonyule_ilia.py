@@ -6,6 +6,20 @@ class Dragonyule_Ilia(Adv):
     def prerun(self):
         self.alchemy = 0
         self.cartridge_loaded = 0
+        self.starfall_spirit_buffs = [
+            MultiBuffManager(
+                "starfall_spirit",
+                [
+                    Selfbuff("starfall_str", 0.15, 15, "att").ex_bufftime(),
+                    Selfbuff("starfall_crit", 0.15, 15, "crit").ex_bufftime(),
+                ],
+            )
+            for _ in range(3)
+        ]
+
+    @property
+    def starfall_spirit(self):
+        return sum((bool(ss_buff.get()) for ss_buff in self.starfall_spirit_buffs))
 
     def alchemy_bars(self):
         if self.alchemy < 33:
@@ -25,13 +39,8 @@ class Dragonyule_Ilia(Adv):
 
     def a_deplete_cartridge(self):
         for i in range(min(3, self.cartridge_loaded)):
-            MultiBuffManager(
-                "starfall_spirit",
-                [
-                    Selfbuff("starfall_str", 0.15, 15, "att").ex_bufftime(),
-                    Selfbuff("starfall_crit", 0.15, 15, "crit").ex_bufftime(),
-                ],
-            ).on()
+            if not self.starfall_spirit_buffs[i].get():
+                self.starfall_spirit_buffs[i].on()
             log("cartridge_loaded", self.cartridge_loaded)
         self.cartridge_loaded = 0
 

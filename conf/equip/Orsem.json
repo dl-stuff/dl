@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64104.015232865655,
+        "dps": 73513.80005845467,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -44,32 +44,35 @@
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
-        "A_Small_Courage",
+        "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Nimis",
       "acl": [
-        "`s2, dgauge>=500",
-        "`dragon, aff_timeleft(frostbite)>18",
+        "`dragon",
         "`s3, not buff(s3)",
+        "`s1",
         "`s4",
-        "`s1, x=5 or aff(frostbite)",
-        "`s2, dgauge<=400"
+        "`s2, x=5"
+      ],
+      "dacl": [
+        "ds1,x=3 and dshift_timeleft<4",
+        "sack, x=3 and dshift_timeleft<2 and dshift_count=1"
       ],
       "coabs": [
+        "Eugene",
         "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 441718.0323283733,
+      "tdps": 567237.7589758126,
       "pref": "PERSONAL"
     }
   },
@@ -121,28 +124,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65724.33918014432,
+        "dps": 78531.19414129877,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=4",
-        "`s4",
-        "`s1, xf",
-        "`s2, xf"
-      ]
+      }
     },
     "META": {
-      "tdps": 441023.3249843886,
+      "tdps": 611857.5112843802,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

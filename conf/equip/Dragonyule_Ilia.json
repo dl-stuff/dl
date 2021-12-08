@@ -1,11 +1,266 @@
 {
-  "ALWAYS-NORMAL-ANY": {
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 81773.73340684213,
+        "team": 0.10291671453685343,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81825.9978417035,
-        "team": 0.07324000211649981,
+        "dps": 119095.24966075957,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Arctos",
+      "acl": [
+        "`dragon, dshift_count=0 and s=4",
+        "`dragon, dshift_count=1 and s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0 and s1.check()",
+        "`s1, cartridge_loaded=3 and starfall_spirit=0",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 362638.0459371639,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47114.31364551448,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71509.99271132924,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "The_Cutie_Competition",
+        "Worthy_Rivals",
+        "Beautiful_Gunman",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1",
+        "`s2",
+        "`s4",
+        "`s1, cartridge_loaded >= 3",
+        "`s3",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 92889.45968751685,
+        "team": 0.11420791156223657,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s2",
+        "`s1, cartridge_loaded>=3 or dgauge>=500",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`dodge, x=2"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 137112.4647015115,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Kimono_Elisanne"
+      ]
+    },
+    "META": {
+      "tdps": 387214.8996428826,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 119626.8728325255,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, s=1 and aff_timeleft(poison)>10",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3 or s2.check()",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Kimono_Elisanne",
+        "Serena"
+      ]
+    },
+    "META": {
+      "tdps": 234111.74216628892,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 83465.25911997975,
+        "team": 0.049349523011876985,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
@@ -16,16 +271,82 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon",
+        "`dragon, s=1",
         "`s2",
-        "`s1",
+        "`s1, cartridge_loaded=3",
+        "`s3",
+        "`s4",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "ds1,x=1"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 83462.73343805964,
+        "team": 0.11787729184703533,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Arctos",
+      "acl": [
+        "`dragon, s=1",
         "`s3, not buff(s3)",
-        "`s4"
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3 and cancel",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 105159.7579587675,
+        "team": 0.0893040018473447,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Beautiful_Gunman",
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3",
+        "`s4, x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Dagger2",
         "Gala_Leonidas",
         "Kimono_Elisanne"
       ],
@@ -35,7 +356,94 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 759346.3868158963,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 83462.73343805964,
+        "team": 0.11787729184703533,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3 and cancel",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47114.31364551448,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   }
 }
