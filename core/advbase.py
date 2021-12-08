@@ -2599,14 +2599,13 @@ class Adv(object):
                 target = attr["heal"][1]
                 self.heal_make(name, value, target)
 
-        # coei: _CurseOfEmptinessInvalid
         if (actcond_id := attr.get("actcond")) and action.check_once_per_act(actcond_id, attr):
             target = attr.get("target")
             if not (actcond := self.actconds.get((actcond_id, target))):
                 actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
                 self.actconds[(actcond_id, target)] = actcond
-            log("actcond", actcond_id, target)
-            # actcond.on(dtype)
+            # log("actcond", actcond_id, target)
+            actcond.on(name, dtype)
 
         # if "amp" in attr:
         #     amp_id, amp_max_lvl, amp_target = attr["amp"]

@@ -188,7 +188,7 @@ class CrisisModifier(Modifier):
 
 
 class SlipDmg:
-    def __init__(self, actcond, data, source, target, ev=1) -> None:
+    def __init__(self, actcond, data, source, dtype, target, ev=1) -> None:
         self._actcond = actcond
         self._adv = actcond._adv
         self._data = data
@@ -198,15 +198,15 @@ class SlipDmg:
         self.is_percent = self.func == "percent"
         self.slip_timer = Timer(self.tick, self.iv, 1)
         self.slip_value = None
-        self.on(source, target, ev=ev)
+        self.on(source, dtype, target, ev=ev)
 
-    def on(self, source, target, ev=1):
+    def on(self, source, dtype, target, ev=1):
         if not self.slip_timer.online:
             self.slip_timer.on()
         if self.func == "mod":
-            value = self._adv.dmg_formula(self, source, self.value, dtype=source)
+            value = self._adv.dmg_formula(source, self.value, dtype=dtype)
         elif self.func == "heal":
-            value = self._adv.heal_formula(self, source, self.value)
+            value = self._adv.heal_formula(source, self.value)
         else:
             value = self.value
         self.slip_value = (source, target, value * ev)
@@ -320,11 +320,11 @@ class ActCond:
 
     @allow_acl
     def check(self, source):
-        if self.adv.nihilism and not (self.coei or self.debuff) and (SELF in self.generic_target or TEAM in self.generic_target):
+        if self._adv.nihilism and not (self.coei or self.debuff) and (SELF in self.generic_target or TEAM in self.generic_target):
             return False
         return True
 
-    def on(self, source):
+    def on(self, source, dtype):
         if not self.check(source):
             return False
         if self.stack == self.maxstack or self.overwrite == -1:
@@ -343,7 +343,7 @@ class ActCond:
                 self.cooldown_timer.on()
 
         stack_key = (now(), source)
-        if not self.effect_on(source, stack_key):
+        if not self.effect_on(source, dtype, stack_key):
             return False
 
         duration = -1
@@ -378,10 +378,10 @@ class ActCond:
             self.effect_off(stack_key)
         self.buff_stack = {}
 
-    def effect_on(self, source, stack_key):
+    def effect_on(self, source, dtype, stack_key):
         if self.slip is not None:
             # TODO: EV maffs
-            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source, self.target, ev=1)
+            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source, dtype, self.target, ev=1)
 
     def effect_off(self, stack_key):
         if self.slip is not None:
