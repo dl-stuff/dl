@@ -147,7 +147,7 @@ class Gala_Luca_FAST(Gala_Luca):
         icon_avg = 0
 
         def decay(value, ratio):
-            return value * (1.0 - ratio ** 0.5)
+            return value * (1.0 - ratio ** 2)
 
         t_diff = t - self.prev_t
         self.prev_t = t
@@ -160,7 +160,7 @@ class Gala_Luca_FAST(Gala_Luca):
             base_rate + self.CONNECTING_CALL_CRITR * self.a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(in_s1),
         )
         proc_rate = current_rate * (1 - self.a1_cooldown_rate)
-        self.a1_buff_count = min(self.a1_buff_count + proc_rate, self.a1_buff_types)
+        self.a1_buff_count = min(self.a1_buff_count + (proc_rate * (self.a1_buff_types - self.a1_buff_count) / self.a1_buff_types), self.a1_buff_types)
         self.a1_cooldown_rate = min(self.a1_cooldown_rate + proc_rate, 1.0)
 
         self.all_icon_avg = self.update_icon_avg(icon_count, *self.all_icon_avg)
