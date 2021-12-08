@@ -319,6 +319,7 @@ class DragonForm:
         self.l_act_end.off()
         self.set_dacts_enabled(False)
         self.adv.set_dacl(False)
+        log("d_shift_end", "self.end_event", self.end_event.name)
         self.end_event()
         self.d_end()
         self.status = False

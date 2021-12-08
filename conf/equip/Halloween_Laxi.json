@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 47643.495374406884,
-        "team": 0.17601564401738756,
+        "dps": 47702.12149668943,
+        "team": 0.17601564401738792,
         "noaff": false,
         "nihil": false
       },
@@ -77,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 666018.3772073976,
+      "tdps": 665503.4042447858,
       "pref": "PERSONAL"
     }
   },
@@ -133,8 +133,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30328.95753370106,
-        "team": 0.048830168491687136,
+        "dps": 32718.41532278125,
+        "team": 0.04901103907980544,
         "noaff": false,
         "nihil": true
       },
@@ -208,7 +208,7 @@
       ]
     },
     "META": {
-      "tdps": 1008984.2291527247,
+      "tdps": 956507.2074796853,
       "pref": "PERSONAL"
     }
   },
@@ -315,6 +315,44 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23089.47953819646,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1) and s=1",
+        "`s3",
+        "`s2, cancel",
+        "`s1, dgauge>=500 and buff(s3, 1)",
+        "`s4, not buff(s4, 2)",
+        "`fs"
+      ],
+      "dacl": [
+        "`dodge, fsc",
+        "`dfs3, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Prince",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 74580.94859685251,

@@ -1,13 +1,11 @@
 from collections import defaultdict
 from functools import reduce
 import operator
-from os import kill
 
 from conf import GENERIC_TARGET, SELF, TEAM, ENEMY
 
 from core.timeline import Timer, Listener, now
 from core.log import log
-from core.ctx import Static
 from core.acl import allow_acl
 from core.afflic import AFFLICT_LIST
 

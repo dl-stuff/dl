@@ -1,0 +1,404 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 84601.38282955711,
+        "team": 0.34353767374861144,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "A_Passion_for_Produce",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s4, x=5",
+        "`s2, x=5",
+        "`s1, x=5",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, x>2",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 108466.7272608489,
+        "team": 0.26073968398023845,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s2, x=5",
+        "`s1",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, x=5 and aff_timeleft(poison)<1",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 288235.79531405267,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77948.23465433974,
+        "team": 0.2772109330255791,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "Liber_Grimortis",
+        "Applelicious_Dreams",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "if not unlocked",
+        "`s2, x=5",
+        "`s1",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "`s3, x=5",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 89937.20449324537,
+        "team": 0.26484238435119045,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "Liber_Grimortis",
+        "Applelicious_Dreams",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "if not unlocked",
+        "`s2, x=5",
+        "`s1",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "`s3, x=5",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 969310.9640042898,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 108535.03250503015,
+        "team": 0.3830893187846508,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s2, x=5",
+        "`s1, x=5",
+        "else",
+        "`dragon, dgauge>=900 or dshift_count",
+        "`s4, x=5",
+        "`s2, not divine_dagger",
+        "`fs4, charged_in(fs, s2) and divine_dagger",
+        "end"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Nino",
+        "Yukata_Lathna"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 122988.9522481395,
+        "team": 0.34353767374861144,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s4, x=5",
+        "`s2, x=5",
+        "`s1, x=5",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, cancel",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 365444.2117373114,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 93591.4725841468,
+        "team": 0.26484238435119045,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 67846.2732937582,
+        "team": 0.3599403317886849,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s2, x=5",
+        "`s1, x=5",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, x=5 or s",
+        "`s2, not divine_dagger",
+        "`s1, not divine_dagger",
+        "`fs4, charged_in(fs, s2) and divine_dagger",
+        "end"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71847.93242602049,
+        "team": 0.34353767374861144,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "A_Passion_for_Produce",
+        "Lord_of_the_Skies",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s4, x=5",
+        "`s2, x=5",
+        "`s1, x=5",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, cancel",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 243964.0650000628,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40532.88932016428,
+        "team": 0.13662133246209757,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if not unlocked",
+        "`s2, x=5",
+        "`s1",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}

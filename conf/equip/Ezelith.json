@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101502.00785191258,
-        "team": 0.08595859291979625,
+        "dps": 104357.36274113198,
+        "team": 0.07432172543440933,
         "noaff": false,
         "nihil": false
       },
@@ -50,17 +50,17 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, s=1 and not s4.check()",
-        "`s3, not buff(s3) and xf=3",
-        "`s4, xf>1",
+        "`dragon, s=1 and aff(poison)",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
         "`s2",
-        "`s1",
-        "`fs, xf>3 and charged_in(fs,s1)"
+        "`s1, buff(s3)",
+        "`fs, hits=1"
       ],
       "dacl": [
-        "ds1,x=1"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 266266.37370267126,
+      "tdps": 264154.7849191654,
       "pref": "PERSONAL"
     }
   },
@@ -120,8 +120,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 119416.00309026745,
-        "team": 0.08595859291979625,
+        "dps": 122297.85369588461,
+        "team": 0.07430557196570496,
         "noaff": false,
         "nihil": false
       },
@@ -133,10 +133,38 @@
         "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Halloween_Mym"
       ]
     },
     "META": {
-      "tdps": 439324.7774380745,
+      "tdps": 419895.5423106141,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 125232.53720742627,
+        "team": 0.07437974378788022,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Gala_Reborn_Agni",
+      "dacl": [
+        "`ds1, x=2",
+        "dodge, x=2"
+      ]
+    },
+    "META": {
+      "tdps": 445664.50916303694,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -183,28 +211,27 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80412.7450489923,
-        "team": 0.18308329737957652,
+        "dps": 85887.30141598282,
+        "team": 0.1866842770557889,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "Twinfold_Bonds",
         "Worthy_Rivals",
-        "A_Small_Courage",
-        "Amaterasu_Oblation",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "From_Whence_He_Comes",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Ravenous_Fire_Crown"
       ],
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon, s=1",
-        "`s3, not buff(s3) and xf=3",
+        "`s3, not buff(s3)",
         "`s4, xf>1",
         "`s2",
-        "`s1",
-        "`fs, xf>3 and charged_in(fs,s1)"
+        "`s1, buff(s3)",
+        "`fs, hits=1"
       ],
       "share": [
         "Weapon",
@@ -212,7 +239,7 @@
       ]
     },
     "META": {
-      "tdps": 1013087.4852898123,
+      "tdps": 4284647.040128022,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

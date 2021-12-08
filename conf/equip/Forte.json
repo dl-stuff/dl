@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 109910.47161529405,
-        "team": 0.06665727027043954,
+        "dps": 104405.54802493576,
+        "team": 0.06666271163065988,
         "noaff": false,
         "nihil": false
       },
@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 126218.90368949855,
+        "dps": 128036.77269381162,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -56,16 +56,16 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon",
+        "`dragon, xf",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, xf",
         "`s2",
         "`s1",
         "`fs, x=5 or charged_in(fs, s2) or hits=0"
       ],
       "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3"
+        "`ds1, x=5",
+        "`sack, x=5"
       ],
       "coabs": [
         "Cleo",
@@ -78,7 +78,7 @@
       ]
     },
     "META": {
-      "tdps": 244660.965083606,
+      "tdps": 354489.4003082715,
       "pref": "PERSONAL"
     }
   },
@@ -97,7 +97,7 @@
       ]
     },
     "META": {
-      "tdps": 261763.13095391312,
+      "tdps": 289035.0098793129,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -108,7 +108,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43079.351077144274,
+        "dps": 44065.24959298296,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -118,7 +118,7 @@
         "Memory_of_a_Friend",
         "Worthy_Rivals",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Saint_Starfalls_Circus",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
@@ -148,7 +148,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43079.351077144274,
+        "dps": 44065.24959298296,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -158,7 +158,7 @@
         "Memory_of_a_Friend",
         "Worthy_Rivals",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Saint_Starfalls_Circus",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
@@ -218,7 +218,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 139811.57241335072,
+        "dps": 140746.86542294617,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -231,14 +231,10 @@
         "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "dacl": [
-        "`ds1, x=5",
-        "`sack, x=5"
       ]
     },
     "META": {
-      "tdps": 168068.705384623,
+      "tdps": 175333.55461469074,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -329,19 +325,80 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 79076.8041988329,
+        "team": 0.09336853245021863,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=5 or charged_in(fs, s2) or hits=0"
+      ],
+      "dacl": [
+        "`ds1, x=5",
+        "`sack, x=5"
+      ],
+      "coabs": [
+        "Cleo",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80185.19540466623,
+        "dps": 87016.8523246354,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=5 or charged_in(fs, s2) or hits=0"
+      ],
       "dacl": [
         "`ds1, x=5",
-        "`sack, x=5"
+        "`sack, x=5 and duration-now>10"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 85039.87282905937,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
