@@ -139,8 +139,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74798.3020758,
-        "team": 0.02467958038049877,
+        "dps": 79871.51445418753,
+        "team": 0.024679759908632092,
         "noaff": false,
         "nihil": true
       },
@@ -153,22 +153,17 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Agni",
       "acl": [
-        "`dragon",
-        "if not dualsword_mode.get()",
-        "`s2",
+        "if dualsword_mode.get()",
+        "`s4",
         "`s1",
+        "`s2",
         "else",
         "`s1",
         "`s2",
-        "end",
-        "`s4"
-      ],
-      "dacl": [
-        "`ds1, x=2",
-        "`dodge, x=2",
-        "`sack, duration-now<2.2"
+        "`s3",
+        "end"
       ],
       "coabs": [
         "Kimono_Elisanne",
@@ -176,12 +171,12 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
+        "Ranzal",
         "Seimei"
       ]
     },
     "META": {
-      "tdps": 507663.19573774864,
+      "tdps": 918574.0568483353,
       "pref": "PERSONAL"
     }
   },
@@ -241,8 +236,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 90235.47323861942,
-        "team": 0.012339763466848206,
+        "dps": 90496.84517636553,
+        "team": 0.01230334593306687,
         "noaff": false,
         "nihil": true
       },
@@ -260,16 +255,12 @@
         "`dragon, s",
         "`s4",
         "`s1",
-        "`s2, s=1",
+        "`s2",
         "else",
         "`s1",
         "`s3",
         "`s2",
         "end"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
       ]
     },
     "META": {
@@ -332,6 +323,59 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27914.476677981787,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`dragon, s=4",
+        "if not dualsword_mode.get()",
+        "`s2",
+        "`s1, buff(s3)",
+        "else",
+        "`s1",
+        "`s2",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, xf=2",
+        "`sack, duration-now<2.2"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

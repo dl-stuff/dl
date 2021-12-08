@@ -43,7 +43,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77239.09061915976,
+        "dps": 77965.23069659615,
         "team": 0.1534341241080884,
         "noaff": false,
         "nihil": false
@@ -54,7 +54,7 @@
         "Sweet_Surprise",
         "Hastened_Squall",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -81,7 +81,7 @@
       ]
     },
     "META": {
-      "tdps": 23509.741363006913,
+      "tdps": 26126.071189812697,
       "pref": "TEAMBUFF"
     }
   },
@@ -126,6 +126,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 94748.45934764366,
+        "team": 0.4309756137156561,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 100809.84716911147,
@@ -133,18 +141,8 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
-        "`dragon, dgauge>=1000",
-        "`dragon, dshift_count>0",
+        "`dragon, dgauge>=1000 or dshift_count",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s2, butterflies>=9",
@@ -162,6 +160,7 @@
       ]
     },
     "META": {
+      "tdps": 59982.48316271449,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

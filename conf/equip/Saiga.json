@@ -83,8 +83,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76047.03502240666,
-        "team": 0.09137054186332971,
+        "dps": 76477.4795390868,
+        "team": 0.12318275816497087,
         "noaff": false,
         "nihil": true
       },
@@ -99,7 +99,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, x=2",
+        "`dragon, x=2 and (dgauge >= 900 or dshift_count)",
         "`s1, x=2",
         "`s3, x=2",
         "`s4",
@@ -206,14 +206,17 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78515.80163520665,
-        "team": 0.09137054186332971,
+        "dps": 81269.75836404297,
+        "team": 0.12318275816497087,
         "noaff": false,
         "nihil": true
       },
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      "acl": [
+        "`dragon, x=2 and (dgauge > 900 or dshift_count)",
+        "`s1, x=2",
+        "`s3, x=2",
+        "`s4",
+        "`dodge, x=2"
       ]
     },
     "META": {
@@ -262,8 +265,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41462.81623491541,
-        "team": 0.11106205870185151,
+        "dps": 42827.997728631526,
+        "team": 0.14423456923809286,
         "noaff": false,
         "nihil": true
       },
@@ -277,7 +280,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon, x=2",
+        "`dragon, x=2 and (dgauge >= 900 or dshift_count)",
         "`s1, x=2",
         "`s3, x=2",
         "`s4",
@@ -295,8 +298,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41462.81623491541,
-        "team": 0.11106205870185151,
+        "dps": 42827.997728631526,
+        "team": 0.14423456923809286,
         "noaff": false,
         "nihil": true
       },
