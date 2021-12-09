@@ -44,29 +44,6 @@ DDRIVE = "ddrive"
 ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 
 
-# class ActionTargetGroup(ShortEnum):
-#     NONE = 0
-#     MYSELF = 1
-#     ALLY = 2
-#     HOSTILE = 3
-#     BOTH = 4
-#     DUNOBJ = 5
-#     MYPARTY = 6
-#     ALLY_HP_LOWEST = 7
-#     HIT_OR_GUARDED_RECORD = 8
-#     HIT_RECORD = 9
-#     HOSTILE_AND_DUNOBJ = 10
-#     BIND = 11
-#     MYPARTY_EXCEPT_MYSELF = 12
-#     MYPARTY_EXCEPT_SAME_CHARID = 13
-#     HIT_OR_GUARDED_RECORD_ALLY = 14
-#     HIT_OR_GUARDED_RECORD_MYSELF = 15
-#     FIXED_OBJECT = 16
-#     MYSELF_CHECK_COLLISION = 17
-#     RESERVE_11 = 18
-#     RESERVE_12 = 19
-#     RESERVE_13 = 20
-
 SELF_TARGETS = ("MYSELF", "ALLY", "MYPARTY", "ALLY_HP_LOWEST", "MYSELF_CHECK_COLLISION", "HIT_OR_GUARDED_RECORD_MYSELF")
 SELF = "self"
 TEAM_TARGETS = ("ALLY", "MYPARTY", "MYPARTY_EXCEPT_MYSELF", "MYPARTY_EXCEPT_SAME_CHARID", "HIT_OR_GUARDED_RECORD_ALLY")
@@ -81,6 +58,205 @@ for target in TEAM_TARGETS:
     GENERIC_TARGET[target].add(TEAM)
 for target in ENEMY_TARGETS:
     GENERIC_TARGET[target].add(ENEMY)
+
+AFFLICT_LIST = (
+    "poison",
+    "paralysis",
+    "burn",
+    "blind",
+    "bog",
+    "stun",
+    "freeze",
+    "sleep",
+    "frostbite",
+    "flashburn",
+    "shadowblight",
+    "stormlash",
+    "scorchrend",
+)
+
+AFFRES_PROFILES = {
+    None: {
+        "poison": 0,
+        "burn": 0,
+        "paralysis": 0,
+        "frostbite": 0,
+        "flashburn": 0,
+        "shadowblight": 0,
+        "stormlash": 0,
+        "scorchrend": 0,
+        "blind": 99,
+        "bog": 99,
+        "freeze": 99,
+        "stun": 99,
+        "sleep": 99,
+    },
+    "immune": {
+        "poison": 999,
+        "burn": 999,
+        "paralysis": 999,
+        "frostbite": 999,
+        "flashburn": 999,
+        "shadowblight": 999,
+        "stormlash": 999,
+        "scorchrend": 999,
+        "blind": 999,
+        "bog": 999,
+        "freeze": 999,
+        "stun": 999,
+        "sleep": 999,
+    },
+    ("flame", False): {  # Legend Volk
+        "poison": 0,
+        "burn": 0,
+        "freeze": 100,
+        "paralysis": 100,
+        "blind": 99,
+        "stun": 99,
+        "bog": 99,
+        "sleep": 99,
+        "frostbite": 0,
+        "flashburn": 0,
+        "stormlash": 0,
+        "shadowblight": 0,
+        "scorchrend": 0,
+    },
+    ("flame", True): {  # Master Jaldabaoth (wind side)
+        "poison": 100,
+        "burn": 60,
+        "freeze": 100,
+        "paralysis": 100,
+        "blind": 100,
+        "stun": 100,
+        "bog": 100,
+        "sleep": 100,
+        "frostbite": 100,
+        "flashburn": 100,
+        "stormlash": 100,
+        "shadowblight": 100,
+        "scorchrend": 0,
+    },
+    ("shadow", False): {  # Legend Kai Yan
+        "poison": 0,
+        "burn": 0,
+        "freeze": 100,
+        "paralysis": 100,
+        "blind": 100,
+        "stun": 99,
+        "bog": 99,
+        "sleep": 99,
+        "frostbite": 0,
+        "flashburn": 0,
+        "stormlash": 0,
+        "shadowblight": 0,
+        "scorchrend": 0,
+    },
+    ("shadow", True): {  # Master Asura (light Side)
+        "poison": 80,
+        "burn": 100,
+        "freeze": 100,
+        "paralysis": 100,
+        "blind": 100,
+        "stun": 100,
+        "bog": 100,
+        "sleep": 100,
+        "frostbite": 100,
+        "flashburn": 100,
+        "stormlash": 100,
+        "shadowblight": 80,
+        "scorchrend": 100,
+    },
+    ("wind", False): {  # Legend Ciella
+        "poison": 85,
+        "burn": 100,
+        "freeze": 100,
+        "paralysis": 100,
+        "blind": 100,
+        "stun": 100,
+        "bog": 100,
+        "sleep": 100,
+        "frostbite": 100,
+        "flashburn": 100,
+        "stormlash": 20,
+        "shadowblight": 100,
+        "scorchrend": 100,
+    },
+    ("wind", True): {  # Master Iblis (water side)
+        "poison": 0,
+        "burn": 100,
+        "freeze": 100,
+        "paralysis": 100,
+        "blind": 100,
+        "stun": 100,
+        "bog": 100,
+        "sleep": 100,
+        "frostbite": 100,
+        "flashburn": 100,
+        "stormlash": 0,
+        "shadowblight": 100,
+        "scorchrend": 100,
+    },
+    ("water", False): {  # Legend Ayaha & Otoha
+        "poison": 100,
+        "burn": 0,
+        "freeze": 100,
+        "paralysis": 100,
+        "blind": 100,
+        "stun": 100,
+        "bog": 100,
+        "sleep": 100,
+        "frostbite": 0,
+        "flashburn": 100,
+        "stormlash": 100,
+        "shadowblight": 100,
+        "scorchrend": 100,
+    },
+    ("water", True): {  # Master Surtr (flame side)
+        "poison": 85,
+        "burn": 85,
+        "freeze": 100,
+        "paralysis": 85,
+        "blind": 100,
+        "stun": 100,
+        "bog": 100,
+        "sleep": 100,
+        "frostbite": 0,
+        "flashburn": 85,
+        "stormlash": 85,
+        "shadowblight": 0,
+        "scorchrend": 85,
+    },
+    ("light", False): {  # Legend Tartarus
+        "poison": 200,
+        "burn": 200,
+        "freeze": 200,
+        "paralysis": 85,
+        "blind": 200,
+        "stun": 200,
+        "bog": 200,
+        "sleep": 200,
+        "frostbite": 200,
+        "flashburn": 20,
+        "stormlash": 200,
+        "shadowblight": 200,
+        "scorchrend": 200,
+    },
+    ("light", True): {  # Master Lilith (shadow side)
+        "poison": 100,
+        "burn": 100,
+        "freeze": 100,
+        "paralysis": 30,
+        "blind": 100,
+        "stun": 100,
+        "bog": 100,
+        "sleep": 100,
+        "frostbite": 100,
+        "flashburn": 30,
+        "stormlash": 100,
+        "shadowblight": 100,
+        "scorchrend": 100,
+    },
+}
 
 
 def get_conf_json_path(fn):

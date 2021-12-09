@@ -1438,11 +1438,11 @@ class Adv(object):
 
     @allow_acl
     def mod(self, mtype, operator=None, initial=1):
-        return Modifier.MODS[SELF].mod(mtype, operator=operator, initial=initial)
+        return Modifier.SELF.mod(mtype, operator=operator, initial=initial)
 
     @allow_acl
     def sub_mod(self, mtype, morder):
-        return Modifier.MODS[SELF].sub_mod(mtype, morder)
+        return Modifier.SELF.sub_mod(mtype, morder)
 
     @allow_acl
     def speed(self, target=None):
@@ -2604,7 +2604,7 @@ class Adv(object):
             if not (actcond := self.actconds.get((actcond_id, target))):
                 actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
                 self.actconds[(actcond_id, target)] = actcond
-            # log("actcond", actcond_id, target)
+            log("actcond", actcond_id, target)
             actcond.on(name, dtype)
 
         # if "amp" in attr:

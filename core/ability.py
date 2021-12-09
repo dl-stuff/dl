@@ -204,16 +204,16 @@ class Ability:
     def __init__(self, adv, data):
         self._adv = adv
         self.cond = None
+        print(data)
         if cond := data.get("cond"):
             try:
-                self.cond = CONDITONS[cond[0]](*cond[1:])
+                self.cond = CONDITONS[cond[0]](adv, *cond[1:])
             except KeyError:
                 self.cond = None
         self.abs = []
         if ab_lst := data.get("ab"):
             for ab in ab_lst:
                 try:
-                    print(ab)
                     self.abs.append(SUB_ABILITIES[ab[0]](adv, self.cond, *ab[1:]))
                 except KeyError:
                     pass

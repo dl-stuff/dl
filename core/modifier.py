@@ -1,13 +1,12 @@
-from collections import defaultdict
+from collections import UserDict, UserList, defaultdict
 from functools import reduce
 import operator
 
-from conf import GENERIC_TARGET, SELF, TEAM, ENEMY
+from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICT_LIST, AFFRES_PROFILES
 
 from core.timeline import Timer, Listener, now
 from core.log import log
 from core.acl import allow_acl
-from core.afflic import AFFLICT_LIST
 
 
 ### modifiers
@@ -64,6 +63,9 @@ class Modifier(object):
         TEAM: ModifierDict(),
         ENEMY: ModifierDict(),
     }
+    SELF = MODS[SELF]
+    TEAM = MODS[TEAM]
+    ENEMY = MODS[ENEMY]
 
     def __init__(self, mtype, order, value, get=None, target="MYSELF"):
         self.mod_value = value
@@ -187,6 +189,140 @@ class CrisisModifier(Modifier):
             return 0
 
 
+class AffEV:
+    THRESHOLD = 0.00001
+
+    def __init__(self, allaff, aff, tolerance) -> None:
+        self._allaff = allaff
+        self.aff = aff
+        self._edge_mtype = f"edge_{self.aff}"
+        self._affres_mtype = f"affres_{self.aff}"
+        self.tolerance = tolerance
+        self.get_override = None
+        self.reset(0.0)
+
+    def reset(self, initial):
+        self._res_states = self._init_state()
+        self._res_states[initial] = 1.0
+        self._stacks = {}
+        self._get = 0
+
+    def get(self):
+        return self.get_override or self._get
+
+    def update(self):
+        self._get = 1.0 - reduce(operator.mul, self._stacks.values(), 1.0)
+
+    def _init_state(self):
+        return defaultdict(float)
+
+    def edge_mod(self):
+        return Modifier.SELF.mod(self._edge_mtype, operator=operator.add, initial=0.0)
+
+    def affres_mod(self):
+        return Modifier.ENEMY.mod(self._affres_mtype, operator=operator.add, initial=0.0)
+
+    def proc(self, rate, stack_key, speshul_sandy_sum=1.0):
+        total_success_p = 0.0
+        rate = rate + self.edge_mod()
+        n_states = self._init_state()
+        for res, state_p in self._res_states.items():
+            res = max(0, res + self.affres_mod())
+            if res >= rate or res >= 1:
+                n_states[res] += state_p
+            else:
+                rate_after_res = min(1.0, rate - res) * speshul_sandy_sum
+                success_p = state_p * rate_after_res
+                fail_p = state_p * (1.0 - rate_after_res)
+                total_success_p += success_p
+                n_states[res + self.tolerance] += success_p
+                if fail_p > 0:
+                    n_states[res] += fail_p
+        if total_success_p > AffEV.THRESHOLD:
+            self._res_states = n_states
+            self._stacks[stack_key] = 1 - total_success_p
+            self.update()
+            return total_success_p
+        else:
+            self._get = 0
+            return 0.0
+
+    def end(self, stack_key):
+        del self._stacks[stack_key]
+        self.update()
+
+
+class AffEVCapped(AffEV):
+    def __init__(self, allaff, aff, tolerance, group=None) -> None:
+        self.group = group
+        super().__init__(allaff, aff, tolerance)
+
+    def proc(self, rate, stack_key, speshul_sandy_sum=1.0):
+        if self.group:
+            no_stack_p = 1.0
+            for aff in self.group:
+                no_stack_p *= 1.0 - self._allaff[aff].get()
+        else:
+            no_stack_p = 1.0 - self._allaff[self.aff].get()
+        total_success_p = 0.0
+        rate = rate + self.edge_mod()
+        n_states = self._init_state()
+        for res, state_p in self._res_states.items():
+            res = max(0, res + self.affres_mod())
+            if res >= rate or res >= 1:
+                n_states[res] += state_p
+            else:
+                rate_after_res = min(1.0, rate - res) * no_stack_p * speshul_sandy_sum
+                success_p = state_p * rate_after_res
+                fail_p = state_p * (1.0 - rate_after_res)
+                total_success_p += success_p
+                n_states[res + self.tolerance] += success_p
+                if fail_p > 0:
+                    n_states[res] += fail_p
+        if total_success_p > AffEV.THRESHOLD:
+            self._res_states = n_states
+            self._stacks[stack_key] = 1 - total_success_p
+            self.update()
+            return total_success_p
+        else:
+            self._get = 0
+            return 0.0
+
+
+class Afflictions(UserDict):
+    UNCAPPED = ("poison", "burn", "paralysis", "frostbite", "flashburn", "shadowblight", "stormlash", "scorchrend")
+    CAPPED_SCC = ("bog", "blind")
+    CAPPED_CC = ("freeze", "stun", "sleep")
+
+    def __init__(self) -> None:
+        super().__init__()
+        for aff in Afflictions.UNCAPPED:
+            self[aff] = AffEV(self, aff, 0.05)
+        for aff in Afflictions.CAPPED_CC:
+            self[aff] = AffEVCapped(self, aff, 0.2, Afflictions.CAPPED_CC)
+        self["bog"] = AffEVCapped(self, "bog", 0.2)
+        self["blind"] = AffEVCapped(self, "blind", 0.1)
+
+    def set_resist(self, profile):
+        for aff, initial in AFFRES_PROFILES[profile].items():
+            self[aff].reset(initial)
+
+    def proc(self, aff, rate, stack_key):
+        return self[aff].proc(rate, stack_key)
+
+    def end(self, aff, stack_key):
+        return self[aff].end(stack_key)
+
+
+if __name__ == "__main__":
+    aff = Afflictions()
+    for i in range(10):
+        aff["poison"].proc(1.2, i)
+        print(aff["poison"].get(), dict(aff["poison"]._res_states))
+        aff["poison"].end(i)
+        print(aff["poison"].get())
+
+
 class SlipDmg:
     def __init__(self, actcond, data, source, dtype, target, ev=1) -> None:
         self._actcond = actcond
@@ -297,18 +433,16 @@ class ActCond:
 
     @property
     def rate(self):
-        if self.aff and not self.relief:
-            return self._rate + self._adv.mod(f"edge_{self.aff}", operator=operator.add, initial=0)
         if self.debuff:
-            return self._rate + self._adv.mod("debuffrate", operator=operator.add, initial=0)
+            return self._rate + Modifier.SELF.mod("debuffrate", operator=operator.add, initial=0)
         return self._rate
 
     def bufftime(self, source="s"):
         if source == "s":
             if self.debuff:
-                return self._adv.mod("debufftime", operator=operator.add)
+                return Modifier.SELF.mod("debufftime", operator=operator.add)
             else:
-                return self._adv.mod("bufftime", operator=operator.add)
+                return Modifier.SELF.mod("bufftime", operator=operator.add)
         else:
             if self.debuff:
                 return 1.0
@@ -343,8 +477,6 @@ class ActCond:
                 self.cooldown_timer.on()
 
         stack_key = (now(), source)
-        if not self.effect_on(source, dtype, stack_key):
-            return False
 
         duration = -1
         if self.duration:
@@ -352,6 +484,9 @@ class ActCond:
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
         self.buff_stack[stack_key] = timer
+
+        if not self.effect_on(source, dtype, stack_key):
+            return False
 
         self.log("start", self.text, duration)
 

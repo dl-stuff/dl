@@ -360,7 +360,7 @@ class AmuletStack:
         for shift, abilities in shift_abilities.items():
             to_level, to_ability = shift_groups[shift]
             sum_level = min(max(to_level.values()), sum((to_level[abid] for abid in abilities)))
-            merged_abilities.append(to_ability[str(sum_level)])
+            merged_abilities.extend(to_ability[str(sum_level)])
 
         for lg, abilities in mix_abilities.items():
             if len(abilities) == 1:
@@ -515,4 +515,4 @@ class Slots:
             adv.actconds.update(slot.actconds)
         from pprint import pprint
 
-        pprint(Modifier.MODS[SELF])
+        pprint(Modifier.SELF)
