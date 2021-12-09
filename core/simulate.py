@@ -409,7 +409,7 @@ def damage_counts(real_d, damage, counts, output, res=None):
 
 def compile_stats(adv, real_d):
     stats = {}
-    for aff, up in adv.afflics.get_uptimes():
+    for aff, up in adv.afflictions.get_uptimes():
         stats[aff] = f"{up:.1%}"
     if adv.logs.team_doublebuffs > 0:
         stats["doublebuff"] = f"every {real_d / adv.logs.team_doublebuffs:.2f}s"

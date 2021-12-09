@@ -5,8 +5,9 @@ from module.template import LowerMCAdv
 class Elisanne(Adv):
     conf = {}
     conf["prefer_baseconf"] = True
+    conf["share"] = ["Weapon", "Xania"]
     conf["acl"] = [
-        "`s2",
+        "`s4",
     ]
 
 

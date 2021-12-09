@@ -1570,11 +1570,11 @@ class Adv(object):
                 cond_p = cond[1]
                 if on:
                     p *= cond_p
-                    for order, mods in self.all_modifiers[f"{cond_name}_killer"].items():
+                    for order, mods in Modifier.SELF[f"{cond_name}_killer"].items():
                         for mod in mods:
                             modifiers[order].add(mod)
                     if cond_name in AFFLICT_LIST:
-                        for order, mods in self.all_modifiers["afflicted_killer"].items():
+                        for order, mods in Modifier.SELF["afflicted_killer"].items():
                             for mod in mods:
                                 modifiers[order].add(mod)
                 else:
@@ -2076,16 +2076,12 @@ class Adv(object):
                         modified_attr = []
                         hitseq = []
                         for idx, attr in enumerate(self.conf[dst_sn].get("attr", [])):
-                            if isinstance(attr, dict):
-                                if attr.get("ab"):
-                                    continue
-                                hitseq.append(idx + 1)
-                                if attr.get("buffele", self.slots.c.ele) != self.slots.c.ele:
-                                    attr = dict(attr)
-                                    del attr["buff"]
-                                    del attr["buffele"]
-                                    if all((k == "iv" or k == "msl" for k in attr)):
-                                        continue
+                            print(attr)
+                            if attr.get("ab"):
+                                continue
+                            if actcond_id := attr.get("actcond"):
+                                self.conf.actconds[actcond_id] = owner_conf.actconds[actcond_id]
+                            hitseq.append(idx + 1)
                             modified_attr.append(attr)
                         self.conf[dst_sn]["attr"] = modified_attr
                         self.conf[dst_sn].owner = owner
@@ -2418,11 +2414,7 @@ class Adv(object):
             dtype = e.dtype
         else:
             dtype = name
-        if hasattr(e, "modifiers"):
-            if e.modifiers != None and e.modifiers != 0:
-                self.all_modifiers = e.modifiers
         e.dmg = self.dmg_formula(name, dmg_coef, dtype=dtype)
-        self.all_modifiers = self.modifier._static.all_modifiers
         e.ret = e.dmg
         return
 

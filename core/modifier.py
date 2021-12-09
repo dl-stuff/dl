@@ -207,12 +207,32 @@ class AffEV:
         self._res_states[self.resist] = 1.0
         self._stacks = {}
         self._get = 0
+        self._uptime = (0, 0)
 
     def get(self):
         return self.get_override or self._get
 
+    @staticmethod
+    def _mul_no_p(acc, value):
+        return acc * max(0, 1.0 - value)
+
+    def uptime(self):
+        next_r = self.get()
+        next_t = now()
+        prev_r, prev_t = self._uptime
+        rate = prev_r + next_r * (next_t - prev_t)
+        self._uptime = (rate, next_t)
+        if next_t > 0 and rate > 0:
+            log(
+                "uptime",
+                self.aff,
+                "{:.2f}/{:.2f}".format(rate, next_t),
+                "{:.2%}".format(rate / next_t),
+            )
+
     def update(self):
-        self._get = 1.0 - reduce(operator.mul, self._stacks.values(), 1.0)
+        self.uptime()
+        self._get = 1.0 - reduce(AffEV._mul_no_p, self._stacks.values(), 1.0)
 
     def _init_state(self):
         return defaultdict(float)
@@ -223,7 +243,7 @@ class AffEV:
     def affres_mod(self):
         return Modifier.ENEMY.mod(self._affres_mtype, operator=operator.add, initial=0.0)
 
-    def on(self, rate, stack_key, speshul_sandy_sum=1.0):
+    def on(self, rate, stack_key, extra_p=1.0):
         total_success_p = 0.0
         rate = rate + self.edge_mod()
         n_states = self._init_state()
@@ -232,7 +252,7 @@ class AffEV:
             if res >= rate or res >= 1:
                 n_states[res] += state_p
             else:
-                rate_after_res = min(1.0, rate - res) * speshul_sandy_sum
+                rate_after_res = min(1.0, rate - res) * extra_p
                 success_p = state_p * rate_after_res
                 fail_p = state_p * (1.0 - rate_after_res)
                 total_success_p += success_p
@@ -241,7 +261,7 @@ class AffEV:
                     n_states[res] += fail_p
         if total_success_p > AffEV.THRESHOLD:
             self._res_states = n_states
-            self._stacks[stack_key] = 1 - total_success_p
+            self._stacks[stack_key] = total_success_p
             self.update()
             return total_success_p
         else:
@@ -258,35 +278,14 @@ class AffEVCapped(AffEV):
         self.group = group
         super().__init__(allaff, aff, tolerance)
 
-    def on(self, rate, stack_key, speshul_sandy_sum=1.0):
+    def on(self, rate, stack_key, extra_p=1.0):
         if self.group:
             no_stack_p = 1.0
             for aff in self.group:
                 no_stack_p *= 1.0 - self._allaff[aff].get()
         else:
             no_stack_p = 1.0 - self._allaff[self.aff].get()
-        total_success_p = 0.0
-        rate = rate + self.edge_mod()
-        n_states = self._init_state()
-        for res, state_p in self._res_states.items():
-            res = max(0, res + self.affres_mod())
-            if res >= rate or res >= 1:
-                n_states[res] += state_p
-            else:
-                rate_after_res = min(1.0, rate - res) * no_stack_p * speshul_sandy_sum
-                success_p = state_p * rate_after_res
-                fail_p = state_p * (1.0 - rate_after_res)
-                total_success_p += success_p
-                n_states[res + self.tolerance] += success_p
-                if fail_p > 0:
-                    n_states[res] += fail_p
-        if total_success_p > AffEV.THRESHOLD:
-            self._res_states = n_states
-            self._stacks[stack_key] = 1 - total_success_p
-            self.update()
-            return total_success_p
-        else:
-            return 0.0
+        return super().on(rate, stack_key, extra_p=(extra_p * no_stack_p))
 
 
 class Afflictions(UserDict):
@@ -307,11 +306,14 @@ class Afflictions(UserDict):
         for aff, initial in AFFRES_PROFILES[profile].items():
             self[aff].reset(initial)
 
-    def proc(self, aff, rate, stack_key):
-        return self[aff].proc(rate, stack_key)
-
-    def end(self, aff, stack_key):
-        return self[aff].end(stack_key)
+    def get_uptimes(self):
+        uptimes = {}
+        for atype, aff in self.items():
+            aff.uptime()
+            rate, t = aff._uptime
+            if rate > 0:
+                uptimes[atype] = rate / t
+        return uptimes.items()
 
 
 class SlipDmg:
@@ -374,8 +376,10 @@ class ActCond:
         self.target = target
         self.generic_target = GENERIC_TARGET[self.target]
 
+        self.aff = data.get("aff")
+
         self.hidden = bool(data.get("hide"))
-        self.text = data.get("text")
+        self.text = data.get("text") or self.aff
         self.icon = data.get("icon")
         self.overwrite = data.get("overwrite")
         self.maxstack = data.get("maxstack")
@@ -386,7 +390,6 @@ class ActCond:
         if data.get("lost_on_drg"):
             self.l_drg = Listener("dragon", self.all_off)
 
-        self.aff = data.get("aff")
         self.remove_id = data.get("remove")
         self.duration = data.get("duration")
         self.duration_scale = data.get("duration_scale")
@@ -429,7 +432,9 @@ class ActCond:
         return self._rate
 
     def bufftime(self, source="s"):
-        if source == "s":
+        if self.aff:
+            return 1.0
+        elif source[0] == "s":
             if self.debuff:
                 return Modifier.SELF.mod("debufftime", operator=operator.add)
             else:
@@ -438,7 +443,7 @@ class ActCond:
             if self.debuff:
                 return 1.0
             else:
-                return self._adv.sub_mod("bufftime", "ex")
+                return 1.0 + Modifier.SELF.sub_mod("bufftime", "ex")
 
     def l_on(self, e):
         return self.on(e.source, e.target)
@@ -474,11 +479,10 @@ class ActCond:
             duration = self.duration * self.bufftime(source)
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
+            timer.on()
         self.buff_stack[stack_key] = timer
 
-        if not self.effect_on(source, dtype, stack_key):
-            return False
-
+        self.effect_on(source, dtype, stack_key)
         self.log("start", self.text, duration)
 
     def _off(self, stack_key):
@@ -486,13 +490,12 @@ class ActCond:
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)
+        self.log("end", self.text, f"from {stack_key[0]:<8.3f} ({stack_key[1]})")
 
     def off(self):
         if self.buff_stack:
             stack_key = min(self.buff_stack.keys())
             self._off(stack_key)
-
-        self.log("end", self.text, f"from {stack_key[0]:<8.3f}, {stack_key[1]}")
 
     def l_off(self, e):
         self._off(e.stack_key)

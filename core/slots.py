@@ -514,5 +514,3 @@ class Slots:
                 self.abilities.append(Ability(adv, ab))
             adv.actconds.update(slot.actconds)
         from pprint import pprint
-
-        pprint(Modifier.SELF)
