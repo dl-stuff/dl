@@ -10,7 +10,6 @@ from collections import OrderedDict, Counter
 from core.config import Conf
 from core.timeline import *
 from core.log import *
-from core.afflic import *
 from core.modifier import *
 from core.dummy import Dummy, dummy_function
 from core.condition import Condition
@@ -977,7 +976,7 @@ class Adv(object):
                 aff = attr.get("afflic")
                 if aff is not None:
                     aff = aff[0]
-                    res = int(getattr(self.afflics, aff).resist * 100)
+                    res = int(self.afflictions[aff].resist * 100)
                     if not "999 all affliction res" in self.condition:
                         self.condition(f"{res} {aff} res")
 
@@ -1009,7 +1008,7 @@ class Adv(object):
         self.nihilism = bool(self.conf["nihilism"])
         if self.nihilism:
             self.condition("Curse of Nihility")
-            self.afflics.set_resist((self.conf.c.ele, self.nihilism))
+            self.afflictions.set_resist((self.conf.c.ele, self.nihilism))
         self.afflic_condition()
 
         # auto fsf/dodge
@@ -1208,11 +1207,11 @@ class Adv(object):
             res_conf = self.conf.afflict_res
             if self.berserk_mode or all((value >= 300 for value in res_conf.values())):
                 self.condition("999 all affliction res")
-                self.afflics.set_resist("immune")
+                self.afflictions.set_resist("immune")
             else:
                 for afflic, resist in res_conf.items():
                     if self.condition(f"{resist} {afflic} res"):
-                        vars(self.afflics)[afflic].resist = resist
+                        vars(self.afflictions)[afflic].resist = resist
 
     def sim_affliction(self):
         if self.berserk_mode:
@@ -1220,12 +1219,12 @@ class Adv(object):
         if "sim_afflict" in self.conf:
             if self.conf.sim_afflict["onele"]:
                 for aff_type in globalconf.ELE_AFFLICT[self.conf.c.ele]:
-                    aff = vars(self.afflics)[aff_type]
+                    aff = self.afflictions[aff_type]
                     aff.get_override = 1
                     self.sim_afflict.add(aff_type)
             else:
                 for aff_type in AFFLICT_LIST:
-                    aff = vars(self.afflics)[aff_type]
+                    aff = self.afflictions[aff_type]
                     if self.conf.sim_afflict[aff_type]:
                         aff.get_override = min(self.conf.sim_afflict[aff_type], 1.0)
                         self.sim_afflict.add(aff_type)
@@ -1371,15 +1370,15 @@ class Adv(object):
         self.dragonform = None
 
         # set afflic
-        self.afflics = Afflics()
+        self.afflictions = Afflictions()
         if self.conf["berserk"]:
             self.berserk_mode = True
             self.condition(f"Agito Berserk Phase ODPS (FS {self.conf.berserk:.0f}x)")
-            self.afflics.set_resist("immune")
+            self.afflictions.set_resist("immune")
         else:
             self.nihilism = bool(self.conf["nihilism"])
             self.berserk_mode = False
-            self.afflics.set_resist((self.conf.c.ele, self.nihilism))
+            self.afflictions.set_resist((self.conf.c.ele, self.nihilism))
         self.sim_afflict = set()
         self.sim_affliction()
 
@@ -1524,13 +1523,10 @@ class Adv(object):
         #     exit()
         return cc * att * k
 
-    def uses_affliction(self):
-        return bool(self.afflics.get_attempts()) or any((self.mod(f"{afflic}_killer") > 1 for afflic in AFFLICT_LIST))
-
     def build_rates(self, as_list=True):
         rates = {}
         for afflic in AFFLICT_LIST:
-            rate = vars(self.afflics)[afflic].get()
+            rate = self.afflictions[afflic].get()
             if rate > 0:
                 rates[afflic] = rate
 
@@ -2880,12 +2876,12 @@ class Adv(object):
     @allow_acl
     def aff(self, afflictname=None):
         if not afflictname:
-            return any([getattr(self.afflics, afflictname).get() for afflictname in AFFLICT_LIST])
-        return getattr(self.afflics, afflictname).get()
+            return any([self.afflictions[afflictname].get() for afflictname in AFFLICT_LIST])
+        return self.afflictions[afflictname].get()
 
     @allow_acl
     def aff_timeleft(self, afflictname):
-        return getattr(self.afflics, afflictname).timeleft()
+        return self.afflictions[afflictname].timeleft()
 
     @allow_acl
     def buff(self, *args):

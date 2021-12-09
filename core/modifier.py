@@ -201,9 +201,10 @@ class AffEV:
         self.get_override = None
         self.reset(0.0)
 
-    def reset(self, initial):
+    def reset(self, resist):
+        self.resist = resist
         self._res_states = self._init_state()
-        self._res_states[initial] = 1.0
+        self._res_states[self.resist] = 1.0
         self._stacks = {}
         self._get = 0
 
@@ -285,7 +286,6 @@ class AffEVCapped(AffEV):
             self.update()
             return total_success_p
         else:
-            self._get = 0
             return 0.0
 
 
@@ -312,15 +312,6 @@ class Afflictions(UserDict):
 
     def end(self, aff, stack_key):
         return self[aff].end(stack_key)
-
-
-if __name__ == "__main__":
-    aff = Afflictions()
-    for i in range(10):
-        aff["poison"].proc(1.2, i)
-        print(aff["poison"].get(), dict(aff["poison"]._res_states))
-        aff["poison"].end(i)
-        print(aff["poison"].get())
 
 
 class SlipDmg:
@@ -514,11 +505,17 @@ class ActCond:
         self.buff_stack = {}
 
     def effect_on(self, source, dtype, stack_key):
+        ev = 1
+        if self.aff and not self.relief:
+            self._adv.afflictions[self.aff].proc(self._rate, stack_key)
+            ev = self._adv.afflictions[self.aff].get()
         if self.slip is not None:
             # TODO: EV maffs
-            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source, dtype, self.target, ev=1)
+            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source, dtype, self.target, ev=ev)
 
     def effect_off(self, stack_key):
+        if self.aff and not self.relief:
+
         if self.slip is not None:
             try:
                 self.slip_stack[stack_key].off()
