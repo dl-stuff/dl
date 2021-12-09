@@ -223,7 +223,7 @@ class AffEV:
     def affres_mod(self):
         return Modifier.ENEMY.mod(self._affres_mtype, operator=operator.add, initial=0.0)
 
-    def proc(self, rate, stack_key, speshul_sandy_sum=1.0):
+    def on(self, rate, stack_key, speshul_sandy_sum=1.0):
         total_success_p = 0.0
         rate = rate + self.edge_mod()
         n_states = self._init_state()
@@ -248,7 +248,7 @@ class AffEV:
             self._get = 0
             return 0.0
 
-    def end(self, stack_key):
+    def off(self, stack_key):
         del self._stacks[stack_key]
         self.update()
 
@@ -258,7 +258,7 @@ class AffEVCapped(AffEV):
         self.group = group
         super().__init__(allaff, aff, tolerance)
 
-    def proc(self, rate, stack_key, speshul_sandy_sum=1.0):
+    def on(self, rate, stack_key, speshul_sandy_sum=1.0):
         if self.group:
             no_stack_p = 1.0
             for aff in self.group:
@@ -507,7 +507,7 @@ class ActCond:
     def effect_on(self, source, dtype, stack_key):
         ev = 1
         if self.aff and not self.relief:
-            self._adv.afflictions[self.aff].proc(self._rate, stack_key)
+            self._adv.afflictions[self.aff].on(self._rate, stack_key)
             ev = self._adv.afflictions[self.aff].get()
         if self.slip is not None:
             # TODO: EV maffs
@@ -515,7 +515,7 @@ class ActCond:
 
     def effect_off(self, stack_key):
         if self.aff and not self.relief:
-
+            self._adv.afflictions[self.aff].off(stack_key)
         if self.slip is not None:
             try:
                 self.slip_stack[stack_key].off()
