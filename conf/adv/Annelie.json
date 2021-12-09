@@ -2,20 +2,23 @@
     "c": {
         "name": "Annelie",
         "icon": "110275_01_r05",
-        "att": 483,
-        "hp": 793,
+        "att": 578,
+        "hp": 951,
         "ele": "light",
         "wt": "lance",
-        "spiral": false,
-        "a": [["s", 0.35, "hp70"], ["affres_poison", 100.0], ["energized_att", 0.2]]
+        "spiral": true,
+        "a": [["k_stun", 0.1], ["s", 0.35, "hp70"], ["affres_poison", 100.0], ["resself_poison_att", 0.15, 10.0, 15.0], ["energized_att", 0.25]]
     },
     "s1_phase1": {
         "sp": 3051,
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
+            {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
             {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 17.908, "afflic": ["stun", 110], "iv": 0.33333},
+            {"dmg": 18.0, "afflic": ["stun", 110], "iv": 0.33333},
+            {"afflic": ["paralysis", 120, 0.97], "iv": 0.33333},
+            {"dispel": 100, "iv": 0.33333},
             {"buff": ["energy", 1, "team"], "iv": 1.6}
         ],
         "cancel": {"any": 1.66667}
@@ -25,45 +28,52 @@
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
+            {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
+            {"dispel": 100, "iv": 0.33333},
             {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 8.954, "afflic": ["stun", 110], "iv": 0.33333},
+            {"dmg": 9.0, "afflic": ["stun", 110], "iv": 0.33333},
+            {"afflic": ["paralysis", 120, 0.97], "iv": 0.33333},
             {"dmg": 0.22, "iv": 0.5},
-            {"dmg": 8.954, "iv": 0.5},
+            {"dmg": 9.0, "iv": 0.5},
             {"buff": ["energy", 2, "team"], "iv": 1.73333}
         ],
-        "phase_coei": true,
-        "cancel": {"any": 1.76667}
+        "cancel": {"any": 1.76667},
+        "phase_coei": true
     },
     "s1_phase3": {
         "sp": 3051,
         "startup": 0.0,
         "recovery": 3.43333,
         "attr": [
+            {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
             {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 7.788, "afflic": ["stun", 110], "iv": 0.33333},
+            {"dmg": 7.9, "afflic": ["stun", 110], "iv": 0.33333},
+            {"afflic": ["paralysis", 120, 0.97], "iv": 0.33333},
             {"dmg": 0.22, "iv": 0.33333},
-            {"dmg": 7.788, "iv": 0.33333},
+            {"dmg": 7.9, "iv": 0.33333},
+            {"dispel": 100, "iv": 0.33333},
             {"dmg": 0.22, "iv": 0.66667},
-            {"dmg": 7.788, "iv": 0.66667}
+            {"dmg": 7.9, "iv": 0.66667}
         ],
-        "phase_coei": true,
-        "cancel": {"any": 1.7}
+        "cancel": {"any": 1.7},
+        "phase_coei": true
     },
     "s2": {
         "sp": 10206,
         "startup": 0.0,
         "recovery": 3.46667,
         "attr": [
-            {"dmg": 1.825, "iv": 0.26667},
-            {"dmg": 1.825, "iv": 0.56667},
-            {"dmg": 1.825, "iv": 0.86667},
-            {"dmg": 1.825, "iv": 1.16667},
-            {"dmg": 1.825, "iv": 1.46667},
-            {"dmg": 1.825, "iv": 1.76667},
-            {"dmg": 1.825, "iv": 2.06667},
-            {"dmg": 1.825, "iv": 2.36667},
-            {"dmg": 1.825, "iv": 2.66667},
-            {"dmg": 1.825, "iv": 3.0},
+            {"sp": [1.0, "%", "s1"]},
+            {"dmg": 1.9, "iv": 0.26667},
+            {"dmg": 1.9, "iv": 0.56667},
+            {"dmg": 1.9, "iv": 0.86667},
+            {"dmg": 1.9, "iv": 1.16667},
+            {"dmg": 1.9, "iv": 1.46667},
+            {"dmg": 1.9, "iv": 1.76667},
+            {"dmg": 1.9, "iv": 2.06667},
+            {"dmg": 1.9, "iv": 2.36667},
+            {"dmg": 1.9, "iv": 2.66667},
+            {"dmg": 1.9, "iv": 3.0},
             {"buff": ["energy", 3, "team"], "iv": 3.0}
         ]
     }
