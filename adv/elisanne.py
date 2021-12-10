@@ -7,7 +7,7 @@ class Elisanne(Adv):
     conf["prefer_baseconf"] = True
     conf["share"] = ["Weapon", "Xania"]
     conf["acl"] = [
-        "`s4",
+        "`s1",
     ]
 
 

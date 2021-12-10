@@ -2,7 +2,7 @@ from collections import UserDict, UserList, defaultdict
 from functools import reduce
 import operator
 
-from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICT_LIST, AFFRES_PROFILES
+from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICT_LIST, AFFRES_PROFILES, wyrmprints_meta
 
 from core.timeline import Timer, Listener, now
 from core.log import log
@@ -13,7 +13,7 @@ from core.acl import allow_acl
 
 
 class ModifierDict(defaultdict):
-    BUFF_CAPS_FOR_TYPE = {"maxhp": 0.3}
+    BUFF_LIMITS = {"maxhp": 0.3}
 
     def __init__(self, *args, **kwargs):
         if args:
@@ -43,18 +43,23 @@ class ModifierDict(defaultdict):
         )
 
     def sub_mod(self, mtype, morder):
-        if morder == "buff":
-            capped_sum = 0
-            uncapped_sum = 0
-            for modifier in self[mtype][morder]:
-                if modifier.buff_capped:
-                    capped_sum += modifier.get()
-                else:
-                    uncapped_sum += modifier.get()
-            capped_sum = min(capped_sum, ModifierDict.BUFF_CAPS_FOR_TYPE.get(mtype, 2.0))
-            return capped_sum + uncapped_sum
-        else:
-            return sum((modifier.get() for modifier in self[mtype][morder]))
+        capped_sum = 0
+        uncapped_sum = 0
+        wp_limits = {}
+        for modifier in self[mtype][morder]:
+            if modifier.limit_group:
+                if not modifier.limit_group in wp_limits and modifier.limit_group in wyrmprints_meta["lim_groups"]:
+                    lim_group_data = wyrmprints_meta["lim_groups"][modifier.limit_group]
+                    wp_limits[modifier.limit_group] = lim_group_data["max"]
+                modifier_value = min(wp_limits[modifier.limit_group], modifier.get())
+                wp_limits[modifier.limit_group] -= modifier_value
+                uncapped_sum += modifier_value
+            elif morder == "buff":
+                capped_sum += modifier.get()
+            else:
+                uncapped_sum += modifier.get()
+        capped_sum = min(capped_sum, ModifierDict.BUFF_LIMITS.get(mtype, 2.0))
+        return capped_sum + uncapped_sum
 
 
 class Modifier(object):
@@ -73,7 +78,7 @@ class Modifier(object):
         self.mod_order = order
         self.mod_get = get
         self.target = target
-        self.buff_capped = order == "buff"
+        self.limit_group = None
         self._mod_active = 0
         self.on()
 
@@ -113,6 +118,14 @@ class Modifier(object):
         self.off()
 
     def __repr__(self):
+        if self.limit_group:
+            return "<{} {} {} {} lg{}>".format(
+                self.target,
+                self.mod_type,
+                self.mod_order,
+                self.get(),
+                self.limit_group,
+            )
         return "<{} {} {} {}>".format(
             self.target,
             self.mod_type,
@@ -483,14 +496,14 @@ class ActCond:
         self.buff_stack[stack_key] = timer
 
         self.effect_on(source, dtype, stack_key)
-        self.log("start", self.text, duration)
+        self.log("start", self.text, f"stack {self.stack}", duration, self._id, self.target)
 
     def _off(self, stack_key):
         timer = self.buff_stack.pop(stack_key)
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)
-        self.log("end", self.text, f"from {stack_key[0]:<8.3f} ({stack_key[1]})")
+        self.log("end", self.text, f"stack {self.stack}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", self._id, self.target)
 
     def off(self):
         if self.buff_stack:
@@ -525,4 +538,3 @@ class ActCond:
                 del self.slip_stack[stack_key]
             except KeyError:
                 pass
-        # no real need to turn off modifiers

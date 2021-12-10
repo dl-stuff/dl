@@ -100,15 +100,15 @@
             "attr": [
                 {"amp": ["10000", 1, 2], "target": "MYSELF"},
                 {"amp": ["20000", 1, 2], "target": "MYSELF"},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 2.66667},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.06667},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.13333},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.2},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.26667},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.33333},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.4},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.46667},
-                {"dmg": 5.4, "target": "HOSTILE", "iv": 3.53333}
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 2.66667},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.06667},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.13333},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.2},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.26667},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.33333},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.4},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.46667},
+                {"DEBUG_PARTCOND": "TargetIdContains[1, 0, 0, 0]", "dmg": 5.4, "target": "HOSTILE", "iv": 3.53333}
             ]
         }
     },
@@ -174,12 +174,12 @@
         "startup": 0.33333,
         "recovery": 0.6,
         "attr": [
-            {"dmg": 0.49, "sp": 220, "utp": 60, "target": "HOSTILE"},
-            {"dmg": 0.73, "sp": 220, "target": "HOSTILE"},
-            {"dmg": 0.49, "sp": 220, "utp": 60, "target": "HOSTILE", "iv": 0.1},
-            {"dmg": 0.73, "sp": 220, "target": "HOSTILE", "iv": 0.1},
-            {"dmg": 0.49, "sp": 220, "utp": 60, "target": "HOSTILE", "iv": 0.2},
-            {"dmg": 0.73, "sp": 220, "target": "HOSTILE", "iv": 0.2}
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 0.49, "sp": 220, "utp": 60, "target": "HOSTILE"},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 0.73, "sp": 220, "target": "HOSTILE"},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 0.49, "sp": 220, "utp": 60, "target": "HOSTILE", "iv": 0.1},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 0.73, "sp": 220, "target": "HOSTILE", "iv": 0.1},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 0.49, "sp": 220, "utp": 60, "target": "HOSTILE", "iv": 0.2},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 0.73, "sp": 220, "target": "HOSTILE", "iv": 0.2}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.26667}
@@ -202,12 +202,12 @@
         "recovery": 1.56667,
         "attr": [
             {"cond": ["actcond", 1868, "=", 1], "amp": ["30000", 1, 0], "target": "MYSELF"},
-            {"dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.33333},
-            {"dmg": 1.55, "sp": 660, "target": "HOSTILE", "iv": 0.33333},
-            {"dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.4},
-            {"dmg": 1.55, "sp": 660, "target": "HOSTILE", "iv": 0.4},
-            {"dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.46667},
-            {"dmg": 1.55, "sp": 660, "target": "HOSTILE", "iv": 0.46667}
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.33333},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 1.55, "sp": 660, "target": "HOSTILE", "iv": 0.33333},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.4},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 1.55, "sp": 660, "target": "HOSTILE", "iv": 0.4},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.46667},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 1.55, "sp": 660, "target": "HOSTILE", "iv": 0.46667}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x6": 0.8}
@@ -226,12 +226,12 @@
         "startup": 0.26667,
         "recovery": 1.1,
         "attr": [
-            {"dmg": 0.88, "sp": 240, "utp": 90, "target": "HOSTILE"},
-            {"dmg": 0.88, "sp": 240, "target": "HOSTILE"},
-            {"dmg": 0.88, "sp": 240, "utp": 90, "target": "HOSTILE", "iv": 0.26666},
-            {"dmg": 0.88, "sp": 240, "target": "HOSTILE", "iv": 0.26666},
-            {"dmg": 0.88, "sp": 240, "utp": 90, "target": "HOSTILE", "iv": 0.46666},
-            {"dmg": 1.32, "sp": 240, "target": "HOSTILE", "iv": 0.46666}
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 0.88, "sp": 240, "utp": 90, "target": "HOSTILE"},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 0.88, "sp": 240, "target": "HOSTILE"},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 0.88, "sp": 240, "utp": 90, "target": "HOSTILE", "iv": 0.26666},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 0.88, "sp": 240, "target": "HOSTILE", "iv": 0.26666},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 0.88, "sp": 240, "utp": 90, "target": "HOSTILE", "iv": 0.46666},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 1.32, "sp": 240, "target": "HOSTILE", "iv": 0.46666}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x8": 0.53333}
@@ -240,12 +240,12 @@
         "startup": 0.26667,
         "recovery": 1.26666,
         "attr": [
-            {"dmg": 1.44, "sp": 360, "utp": 90, "target": "HOSTILE"},
-            {"dmg": 1.44, "sp": 360, "target": "HOSTILE"},
-            {"dmg": 1.44, "sp": 360, "utp": 90, "target": "HOSTILE", "iv": 0.13333},
-            {"dmg": 1.44, "sp": 360, "target": "HOSTILE", "iv": 0.13333},
-            {"dmg": 1.44, "sp": 360, "utp": 90, "target": "HOSTILE", "iv": 0.4},
-            {"dmg": 2.14, "sp": 360, "target": "HOSTILE", "iv": 0.4}
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.44, "sp": 360, "utp": 90, "target": "HOSTILE"},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 1.44, "sp": 360, "target": "HOSTILE"},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.44, "sp": 360, "utp": 90, "target": "HOSTILE", "iv": 0.13333},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 1.44, "sp": 360, "target": "HOSTILE", "iv": 0.13333},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.44, "sp": 360, "utp": 90, "target": "HOSTILE", "iv": 0.4},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 2.14, "sp": 360, "target": "HOSTILE", "iv": 0.4}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x9": 0.43333}
@@ -262,13 +262,12 @@
             {"dmg": 0.95, "sp": 360, "target": "HOSTILE", "iv": 0.66667},
             {"dmg": 0.95, "sp": 360, "target": "HOSTILE", "iv": 0.86667},
             {"dmg": 0.95, "sp": 360, "target": "HOSTILE", "iv": 1.0},
-            {"dmg": 1.89, "sp": 330, "utp": 100, "target": "HOSTILE", "iv": 1.16667, "msl": 0.26667, "ifhc": 1},
-            {"dmg": 2.84, "sp": 330, "target": "HOSTILE", "iv": 1.16667, "msl": 0.26667, "ifhc": 1},
-            {"dmg": 1.89, "sp": 330, "utp": 100, "target": "HOSTILE", "iv": 1.53333, "ifhc": 1},
-            {"dmg": 2.84, "sp": 330, "target": "HOSTILE", "iv": 1.53333, "ifhc": 1}
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.89, "sp": 330, "utp": 100, "target": "HOSTILE", "iv": 1.16667, "msl": 0.26667, "ifhc": 1},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 2.84, "sp": 330, "target": "HOSTILE", "iv": 1.16667, "msl": 0.26667, "ifhc": 1},
+            {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.89, "sp": 330, "utp": 100, "target": "HOSTILE", "iv": 1.53333, "ifhc": 1},
+            {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 2.84, "sp": 330, "target": "HOSTILE", "iv": 1.53333, "ifhc": 1}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.83333}
     }
 }
-

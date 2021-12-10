@@ -481,8 +481,11 @@ class Action(object):
         for mt in self.delayed:
             if mt.online:
                 count += 1
-            if mt.actmod:
-                self._static.actmod_off(mt)
+            try:
+                if mt.actmod:
+                    self._static.actmod_off(mt)
+            except AttributeError:
+                pass
             mt.off()
         self.delayed = set()
         return count
@@ -2076,7 +2079,6 @@ class Adv(object):
                         modified_attr = []
                         hitseq = []
                         for idx, attr in enumerate(self.conf[dst_sn].get("attr", [])):
-                            print(attr)
                             if attr.get("ab"):
                                 continue
                             if actcond_id := attr.get("actcond"):
@@ -2592,7 +2594,6 @@ class Adv(object):
             if not (actcond := self.actconds.get((actcond_id, target))):
                 actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
                 self.actconds[(actcond_id, target)] = actcond
-            log("actcond", actcond_id, target)
             actcond.on(name, dtype)
 
         # if "amp" in attr:

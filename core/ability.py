@@ -11,6 +11,11 @@ OPS = {
     ">": operator.gt,
 }
 
+
+class InactiveAbility(Exception):
+    pass
+
+
 ### Conditions
 
 CONDITONS = {}
@@ -169,7 +174,10 @@ class AbModifier(Ab):
 
 class AbMod(AbModifier):
     def __init__(self, adv, cond, *args) -> None:
-        super().__init__(adv, cond, args[0], args[1], "passive")
+        if len(args) == 3:
+            super().__init__(adv, cond, args[0], args[1], args[2].replace("-t:", ""))
+        else:
+            super().__init__(adv, cond, args[0], args[1], "passive")
 
 
 SUB_ABILITIES["mod"] = AbMod
@@ -201,7 +209,7 @@ class AbCtime(AbModifier):
 
 ### Ability
 class Ability:
-    def __init__(self, adv, data):
+    def __init__(self, adv, data, use_limit=False):
         self._adv = adv
         self.cond = None
         if cond := data.get("cond"):
@@ -213,6 +221,15 @@ class Ability:
         if ab_lst := data.get("ab"):
             for ab in ab_lst:
                 try:
-                    self.abs.append(SUB_ABILITIES[ab[0]](adv, self.cond, *ab[1:]))
+                    sub_ab = SUB_ABILITIES[ab[0]](adv, self.cond, *ab[1:])
                 except KeyError:
-                    pass
+                    continue
+                if use_limit and isinstance(sub_ab, AbModifier):
+                    sub_ab.modifier.limit_group = data.get("lg")
+                self.abs.append(sub_ab)
+
+
+def make_ability(adv, data, use_limit=False):
+    if not data.get("ele", adv.slots.c.ele) == adv.slots.c.ele or not data.get("wt") == adv.slots.c.wt:
+        return None
+    return Ability(adv, data, use_limit=use_limit)

@@ -48,7 +48,7 @@
         "startup": 0.0,
         "recovery": 2.63333,
         "attr": [
-            {"actcond": "1684", "target": "MYSELF"},
+            {"DEBUG_PARTCOND": "NearestEnemyDistance[0, 2, 3, 0]", "actcond": "1684", "target": "MYSELF"},
             {"cond": ["actcond", 1686, ">=", 1], "actcond": "1688", "target": "MYSELF", "iv": 0.03333},
             {"cond": ["actcond", 1686, "<=", 0], "dmg": 2.25, "actcond": "1361", "target": "HOSTILE", "iv": 0.96667, "blt": [5, 0.0]},
             {"cond": ["actcond", 1686, ">=", 1], "dmg": 4.0, "killer": [0.2, ["stormlash"]], "actcond": "1361", "target": "HOSTILE", "iv": 0.96667, "blt": [5, 0.0]}
@@ -69,4 +69,3 @@
         "cancel": {"any": 2.0}
     }
 }
-

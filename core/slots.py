@@ -7,12 +7,13 @@ from conf import (
     load_drg_json,
     load_json,
     wyrmprints,
+    wyrmprints_meta,
     weapons,
     subclass_dict,
     get_icon,
 )
 from core.config import Conf
-from core.ability import Ability
+from core.ability import make_ability
 from core.modifier import Modifier
 
 
@@ -277,7 +278,6 @@ class WeaponBase(EquipBase):
 
 class AmuletStack:
     # actually depends on weapon but i choose to not care
-    META = load_json("wyrmprints_meta.json")
     RARITY_LIMITS = {1: 3, 2: 2, 3: 2}
 
     def __init__(self, confs, c, quals):
@@ -326,9 +326,10 @@ class AmuletStack:
         self.actconds = {}
         merged_abilities = []
 
-        lim_groups = AmuletStack.META["lim_groups"]
-        shift_groups = AmuletStack.META["shift_groups"]
-        actconds = AmuletStack.META["actconds"]
+        lim_groups = wyrmprints_meta["lim_groups"]
+        shift_groups = wyrmprints_meta["shift_groups"]
+        actconds = wyrmprints_meta["actconds"]
+        unions = wyrmprints_meta["unions"]
 
         shift_abilities = defaultdict(list)
         mix_abilities = defaultdict(list)
@@ -339,7 +340,7 @@ class AmuletStack:
             if shiftgroup := ability.get("shiftgroup"):
                 shift_abilities[shiftgroup].append(ability["id"])
                 merged = False
-            elif (lg := ability["lg"]) and lg in lim_groups:
+            elif (lg := ability["lg"]) and (lg_info := lim_groups[lg]) and lg_info["mix"]:
                 mix_abilities[lg].append(ability)
                 merged = False
             elif ablst := ability["ab"]:
@@ -364,6 +365,7 @@ class AmuletStack:
 
         for lg, abilities in mix_abilities.items():
             if len(abilities) == 1:
+                del abilities[0]["lg"]
                 merged_abilities.append(abilities[0])
                 continue
             actcond_duration = 0
@@ -380,9 +382,9 @@ class AmuletStack:
                 actcond_mods.append([min(value, lim_groups[lg]["max"]), *modto])
             mix_ability = dict(abilities[0])
             mix_ability["ab"] = [["actcond", actcond_target, {"duration": actcond_duration, "mods": actcond_mods}]]
+            del mix_ability["lg"]
             merged_abilities.append(mix_ability)
 
-        unions = AmuletStack.META["unions"]
         union_counter = defaultdict(int)
         for amulet in self.an:
             if amulet.union:
@@ -509,8 +511,12 @@ class Slots:
 
     def oninit(self, adv=None):
         self.abilities = []
-        for slot in (self.c, self.d, self.a, self.w):
+        for slot in (self.c, self.d, self.w):
             for ab in slot.abilities:
-                self.abilities.append(Ability(adv, ab))
+                if ability := make_ability(adv, ab):
+                    self.abilities.append(ability)
             adv.actconds.update(slot.actconds)
-        from pprint import pprint
+        for ab in self.a.abilities:
+            if ability := make_ability(adv, ab, use_limit=True):
+                self.abilities.append(ability)
+        adv.actconds.update(self.a.actconds)
