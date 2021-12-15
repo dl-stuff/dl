@@ -124,37 +124,40 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 2239.2513026008055,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 25324.399004180683,
+        "team": 0.03332405196198255,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Halloween_Spectacular",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes",
-        "Beneath_the_Boughs",
-        "Promised_Piety_Staff"
+        "Brothers_in_Arms",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Azazel",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`fs, fs_prep_c and x=2",
         "`dragon, fscf",
-        "`s3, not buff(s3)",
+        "`s3, fscf and not buff(s3)",
         "`s1",
-        "`s4, x=4",
+        "`s4",
+        "`s2",
         "`fs, x=5"
       ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
       "coabs": [
-        "Bow",
+        "Ieyasu",
         "Joker",
-        "Tobias"
+        "Vania"
       ],
       "share": [
-        "Weapon",
-        "Karl"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -225,7 +228,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, fscf",
         "`s3",
@@ -233,17 +235,36 @@
         "`s2",
         "`fs, x=5"
       ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
-      ],
       "coabs": [
         "Dagger2",
         "Ieyasu",
         "Summer_Prince"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34930.50821657118,
+        "team": 0.033327092930353096,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_Brethren",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Such_High_Spirits",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
@@ -281,6 +302,23 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2239.2513026008055,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Halloween_Spectacular",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 22840.46891532393,

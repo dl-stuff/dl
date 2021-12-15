@@ -2,36 +2,41 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33756.22727723768,
-        "team": 0.06345877199531791,
+        "dps": 23090.639231097968,
+        "team": 0.08979849737247259,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "Taiko_Tandem",
-        "An_Unfreezing_Flower_Deer",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Having_a_Summer_Ball",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Cupid",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, energy()=5 and not inspiration()=5 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, not energy()=5 and cancel"
+        "`dragon, buff(s3, 1) and energy()=5 and xf",
+        "`s3, x=5 or s",
+        "`s1, x=5 and not energy()<5",
+        "`s2, x=5",
+        "`s4, xf"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Patia"
+        "Akasha"
       ]
     },
     "PERSONAL": {
@@ -74,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 5877189.74500923,
+      "tdps": 2259647.515129612,
       "pref": "PERSONAL"
     }
   },
@@ -220,10 +225,6 @@
         "Blade",
         "Lucretia",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {
@@ -315,6 +316,40 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31385.84577070119,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon, s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 31385.84577070119,

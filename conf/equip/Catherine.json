@@ -31,19 +31,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88152.3610130871,
+        "dps": 92576.94735428295,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
+        "Dragon_and_Tamer",
         "Emissaries_of_the_Heavens",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
         "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Saint_Starfalls_Circus",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -64,7 +64,7 @@
       ]
     },
     "META": {
-      "tdps": 124267.80714588975,
+      "tdps": 131606.06556533967,
       "pref": "PERSONAL"
     }
   },
@@ -110,7 +110,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 97370.87470331229,
+        "dps": 98450.64100097335,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -125,19 +125,18 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon",
-        "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3",
-        "`s3, not buff(s3)",
-        "`s4, xf",
-        "`s1, xf"
+        "`dragon, xf",
+        "`s3, not buff(s3) and xf",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`s2, cancel"
       ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+      "dacl": [
+        "`ds1, x=3"
       ]
     },
     "META": {
-      "tdps": 139556.88288891746,
+      "tdps": 141347.69529799523,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -179,32 +178,34 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52522.024167077485,
-        "team": 0.0,
+        "dps": 79939.72984019414,
+        "team": 0.12024736607876987,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
+        "Dragon_and_Tamer",
         "Emissaries_of_the_Heavens",
-        "Once_in_a_Lifetime",
-        "Dueling_Dancers",
         "From_Whence_He_Comes",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Saint_Starfalls_Circus",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Tiki"
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and xf=3",
+        "`s4, xf",
+        "`s1, xf",
+        "`s2"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 65174.23337750012,
+      "tdps": 138210.71182601518,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

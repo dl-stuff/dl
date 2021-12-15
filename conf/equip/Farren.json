@@ -41,14 +41,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70369.67404928856,
-        "team": 0.11346889644074953,
-        "noaff": true,
+        "dps": 72583.87343709455,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Gentle_Winds",
+        "Extreme_Teamwork",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
@@ -74,12 +74,12 @@
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Ilia"
       ]
     },
     "META": {
-      "tdps": 149096.99139016808,
-      "pref": "PERSONAL"
+      "tdps": 36210.22783234706,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -167,8 +167,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 90495.85674437351,
-        "team": 0.0978093250680861,
+        "dps": 84278.15854175502,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -198,7 +198,7 @@
       ]
     },
     "META": {
-      "tdps": 697499.8322022456,
+      "tdps": 125992.56421819054,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -248,6 +248,49 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67867.43649613133,
+        "team": 0.13025151244008376,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`fs, now=0",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4",
+        "`dragon"
+      ],
+      "dacl": [
+        "`s4",
+        "`s2, dgauge>=1600 and x=4",
+        "`s1, x=4"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
