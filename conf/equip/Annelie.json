@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106323.11768852602,
-        "team": 0.0624551988040577,
+        "dps": 98755.77340968438,
+        "team": 0.062455198804057525,
         "noaff": false,
         "nihil": false
       },
@@ -79,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 393742.7917434547,
+      "tdps": 332773.42692159617,
       "pref": "PERSONAL"
     }
   },
@@ -121,7 +121,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54383.93876356481,
+        "dps": 47870.850440727336,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -160,15 +160,15 @@
       ]
     },
     "META": {
-      "tdps": 371331.7556499256,
+      "tdps": 175737.15680620418,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 128562.47352990866,
-        "team": 0.06245519880405762,
+        "dps": 119175.31838319336,
+        "team": 0.0624551988040577,
         "noaff": false,
         "nihil": false
       },
@@ -193,8 +193,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 89153.55813287495,
-        "team": 0.03324159023778699,
+        "dps": 78886.29506778215,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -234,43 +234,23 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 98733.37351835432,
         "team": 0.06247838941930382,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Moonlight_Party",
-        "Pecorines_Grand_Adventure",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, (xf or fscf) and buff(s3, 1)",
         "`s3, fscf or s",
         "`s1, fscf",
         "`s4",
         "`fs, x=5"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
-      "coabs": [
-        "Halloween_Laxi",
-        "Mitsuhide",
-        "Peony"
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -278,35 +258,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 40893.32756916248,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon",
-        "`s3, x=5 and not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40893.32756916248,
+        "dps": 45176.50821956089,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -342,7 +296,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
