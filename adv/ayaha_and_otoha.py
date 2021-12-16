@@ -22,7 +22,16 @@ class Ayaha_and_Otoha(Adv):
         return self.current_s["s1"] == "otoha"
 
     def add_playtime(self, t):
-        self.playtime_stacks.append(Selfbuff("playtime", 0.05, -1, "att", "buff", "a3").on())
+        self.playtime_stacks.append(
+            MultiBuffManager(
+                "playtime",
+                [
+                    Selfbuff("playtime_att", 0.05, -1, "att", "buff", "a3"),
+                    Selfbuff("playtime_rcv", 0.1, -1, "recovery", "buff", "a3"),
+                ],
+                -1,
+            )
+        )
         if len(self.playtime_stacks) == 3:
             self.playtime_timer.off()
 
@@ -39,7 +48,7 @@ class Ayaha_and_Otoha(Adv):
             self.current_s["s1"] = "otoha"
             self.current_s["s2"] = "otoha"
         else:
-            self.current_x == DEFAULT
+            self.current_x = DEFAULT
             self.current_s["s1"] = DEFAULT
             self.current_s["s2"] = DEFAULT
 
@@ -47,7 +56,7 @@ class Ayaha_and_Otoha(Adv):
         return min(100, 20 * self.s1_count)
 
     def a2_amp(self, e):
-        if e.base in ("s1", "s2"):
+        if e.base in ("s1", "s2") and not self.is_set_cd("a2", 8):
             self.add_amp(amp_id="10000", max_level=1)
 
 

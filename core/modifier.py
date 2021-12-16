@@ -1315,7 +1315,7 @@ class AmpBuff:
         self.amp_id = amp_id
         amp_data = load_json("amp.json")[amp_id]
         self.publish_level = amp_data["publish"] - 1
-        self.max_team_level = 2
+        self.max_team_level = 1
         self.extend = amp_data["extend"]
         self.amp_type = amp_data["type"]
         self.mod_type, self.mod_order = AmpBuff.TYPE_BUFFARGS[amp_data["type"]]
