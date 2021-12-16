@@ -83,8 +83,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60956.2654018909,
-        "team": 0.0543940013315233,
+        "dps": 86030.68810579294,
+        "team": 0.1057167768428943,
         "noaff": false,
         "nihil": true
       },
@@ -111,8 +111,8 @@
         "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
+        "Bow",
         "Mona",
-        "Valentines_Melody",
         "Wand"
       ],
       "share": [
@@ -122,8 +122,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65927.2006234395,
-        "team": 0.054301693122009866,
+        "dps": 87376.75138255714,
+        "team": 0.1057167768428943,
         "noaff": false,
         "nihil": true
       },
@@ -160,43 +160,23 @@
       ]
     },
     "META": {
-      "tdps": 53851496.50015874,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 104758.89307581904,
-        "team": 0.1906884603625614,
+        "dps": 134806.7276751939,
+        "team": 0.21911376614165426,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, xf",
-        "`s3, not buff(s3) and xf",
-        "`s1, xf=5",
-        "`s2, xf=5",
-        "`s4, xf"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
+        "`s3, not buff(s3)",
+        "`s4, xf=5",
+        "`s1, xf",
+        "`s2, xf"
       ],
       "share": [
         "Weapon",
@@ -205,8 +185,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108631.47675285258,
-        "team": 0.15588221689578266,
+        "dps": 137213.04124233,
+        "team": 0.20344093864842483,
         "noaff": false,
         "nihil": false
       },
@@ -215,7 +195,7 @@
         "`s3, not buff(s3)",
         "`s4, xf=5",
         "`s1",
-        "`s2, xf"
+        "`s2"
       ],
       "share": [
         "Weapon",
@@ -223,7 +203,7 @@
       ]
     },
     "META": {
-      "tdps": 111261.17878046165,
+      "tdps": 153534.10660428743,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -232,73 +212,65 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 68291.38978601886,
-        "team": 0.054368454459489124,
+        "dps": 76082.37887316957,
+        "team": 0.11267158788050445,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "`dragon, xf",
         "`s1",
-        "`s4",
+        "`s4, xf=5",
         "`s2, xf>3",
         "`s3, xf=5",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 67604.45948147314,
-        "team": 0.1682751783895315,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dragonyule_Dreaming",
-        "Emissaries_of_the_Heavens",
-        "Worthy_Rivals",
-        "A_Choice_Blend",
-        "Lord_of_the_Skies",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3)",
-        "`s4, xf",
-        "`s2, xf",
-        "`s1"
+        "`fsf, xf>3"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Meene",
+        "Mona",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Akasha"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67604.45948147314,
-        "team": 0.1682751783895315,
+        "dps": 92826.67170371125,
+        "team": 0.10591051007359016,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, xf",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`s3, xf=5",
+        "`fsf, xf=5"
+      ]
+    },
+    "META": {
+      "tdps": 2476571.5332277277,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81924.58543166365,
+        "team": 0.22083107205497454,
         "noaff": false,
         "nihil": false
       },
