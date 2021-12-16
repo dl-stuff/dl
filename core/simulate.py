@@ -545,6 +545,7 @@ def load_adv_module(name, in_place=None):
     parts = os.path.basename(name).split(".")
     vkey = None if len(parts) == 1 else parts[1].upper()
     try:
+        name = parts[0]
         advconf = load_adv_json(name)
     except FileNotFoundError:
         name = cap_snakey(parts[0])
