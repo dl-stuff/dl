@@ -544,9 +544,12 @@ def cap_snakey(name):
 def load_adv_module(name, in_place=None):
     parts = os.path.basename(name).split(".")
     vkey = None if len(parts) == 1 else parts[1].upper()
-    name = cap_snakey(parts[0])
+    try:
+        advconf = load_adv_json(name)
+    except FileNotFoundError:
+        name = cap_snakey(parts[0])
+        advconf = load_adv_json(name)
     lname = name.lower()
-    advconf = load_adv_json(name)
     try:
         # when a py exist, use specifically defined modules
         advmodule = getattr(__import__(f"adv.{lname}"), lname)
