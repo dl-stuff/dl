@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79366.75334783661,
-        "team": 0.11791982129920198,
+        "dps": 85116.36813425334,
+        "team": 0.130062799494682,
         "noaff": false,
         "nihil": false
       },
@@ -13,29 +13,31 @@
         "Sweet_Surprise",
         "Hastened_Squall",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, cancel",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2, charged_in(4,s1) and cancel",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs",
-        "`dodge, fsc",
-        "end"
+        "`s4, cancel",
+        "`s2, (charged_in(4,s1) or dgauge>=500) and cancel",
+        "`s1",
+        "`fs, x=4 and hits<50 and c_fs(enhanced)"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
-        "Valentines_Melody"
+        "Valentines_Melody",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Halloween_Lowen"
       ]
     },
     "PERSONAL": {
@@ -79,7 +81,7 @@
       ]
     },
     "META": {
-      "tdps": 846979.8341158218,
+      "tdps": 588954.9296423825,
       "pref": "PERSONAL"
     }
   },

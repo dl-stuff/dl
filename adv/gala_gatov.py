@@ -10,6 +10,7 @@ class Gala_Gatov(Adv):
         self.buff2025 = 0
         self.dualsword_mode = ModeManager(group="dualsword", x=True, fs=True, s1=True, s2=True, duration=33.33, pause=("s", "dragon"))
         self.dualsword_mode.extra_effect_off(self.dualsword_end)
+        Listener("s", self.s_dualsword_reset).on()
 
     @property
     def dualsword(self):
@@ -39,6 +40,13 @@ class Gala_Gatov(Adv):
         if e.group == "dualswordboosted":
             self.current_s["s2"] = "dualsword"
             self.buff2025 = 0
+
+    def s_dualsword_reset(self, e):
+        if e.base in ("s3", "s4"):
+            if self.current_s["s1"] == "dualswordboosted":
+                self.current_s["s1"] = "dualsword"
+            if self.current_s["s2"] == "dualswordboosted":
+                self.current_s["s2"] = "dualsword"
 
 
 variants = {None: Gala_Gatov}

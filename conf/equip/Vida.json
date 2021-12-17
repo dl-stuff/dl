@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64630.291732401136,
+        "dps": 65386.517485331155,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -25,8 +25,8 @@
         "`fs, xf=3"
       ],
       "coabs": [
-        "Axe2",
         "Blade",
+        "Bow",
         "Vania"
       ],
       "share": [
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64630.291732401136,
+        "dps": 65386.517485331155,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -59,8 +59,8 @@
         "`fs, xf=3"
       ],
       "coabs": [
-        "Axe2",
         "Blade",
+        "Bow",
         "Vania"
       ],
       "share": [
@@ -70,28 +70,6 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 59397.350993523985,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Forte",
-        "Vania"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -183,28 +161,6 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 64614.766161682506,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Ieyasu",
-        "Vania",
-        "Yaten"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -265,11 +221,10 @@
       ]
     },
     "META": {
-      "tdps": -576465.4946404737,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

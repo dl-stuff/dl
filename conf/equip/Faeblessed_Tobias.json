@@ -190,8 +190,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81666.0319609482,
-        "team": 0.11476679387484616,
+        "dps": 82447.70949444524,
+        "team": 0.11490215443204796,
         "noaff": false,
         "nihil": false
       },
@@ -209,10 +209,10 @@
         "`dragon, not buff(s2)",
         "`s3, not buff(s3)",
         "`s4, not buff(s2)",
-        "`s2, not buff(s2) or duration-now < 1.1",
+        "`s2, not buff(s2) or duration-now<1.1",
         "`s1, buff(s3)",
         "`fs, x=5",
-        "`dodge, fscf"
+        "`dodge, fsc"
       ],
       "dacl": [
         "`ds1, x=3"
@@ -224,7 +224,7 @@
       ]
     },
     "META": {
-      "tdps": 56971.52113127816,
+      "tdps": 66245.2678183627,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -233,10 +233,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 51108.48973821367,
-        "team": 0.0997771975179424,
+        "dps": 42594.18061711509,
+        "team": 0.09988875167750674,
         "noaff": false,
         "nihil": true
       },
@@ -249,14 +249,49 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, not buff(s2)",
-        "`s3, not buff(s2)",
-        "`s4, not buff(s2)",
-        "`s2",
+        "`s3",
+        "`s4",
+        "`s2, not buff(s2)",
+        "`s1, buff(s3)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52673.55056519627,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Sisters_Day_Out",
+        "His_Clever_Brother",
+        "Saint_Starfalls_Circus",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, not buff(s2)",
+        "`s3",
+        "`s4, cancel",
+        "`s2, not buff(s2)",
         "`s1",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -269,6 +304,7 @@
       ]
     },
     "META": {
+      "tdps": 100905.95566378352,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

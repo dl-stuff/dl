@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38370.96935541066,
-        "team": 0.1076952464924651,
+        "dps": 39921.13718394011,
+        "team": 0.10047678156333516,
         "noaff": false,
         "nihil": false
       },
@@ -76,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 1229206.937107368,
+      "tdps": 1421997.3386881072,
       "pref": "PERSONAL"
     }
   },
@@ -180,7 +180,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49210.96220155722,
+        "dps": 49271.073311738255,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -191,8 +191,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -251,7 +251,46 @@
         "Patia"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28789.86488873106,
+        "team": 0.10310584614018672,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Brothers_in_Arms",
+        "Emissaries_of_the_Heavens",
+        "A_Game_of_Cat_and_Boar",
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.charged<s1.sp/3",
+        "`s1",
+        "`fs,x=5"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<2"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
     "META": {
+      "tdps": -117021.84067422239,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -260,9 +299,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 23425.76603792503,
+        "dps": 23458.994074858263,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -273,7 +312,42 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s2, s=1",
+        "`s1",
+        "`s3",
+        "`s4",
+        "`fs,x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23458.994074858263,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
