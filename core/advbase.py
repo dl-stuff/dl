@@ -1089,7 +1089,7 @@ class Adv(object):
         if self.conf["dash"]:
             self.a_dash = DashX("dash", self.conf.dash)
 
-        self.actconds = {}
+        self.active_actconds = ActiveActconds()
 
     @property
     def ctime(self):
@@ -2591,10 +2591,11 @@ class Adv(object):
 
         if (actcond_id := attr.get("actcond")) and action.check_once_per_act(actcond_id, attr):
             target = attr.get("target")
-            if not (actcond := self.actconds.get((actcond_id, target))):
+            if not (actcond := self.active_actconds.get((actcond_id, target))):
                 actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
-                self.actconds[(actcond_id, target)] = actcond
-            actcond.on(name, dtype)
+            actcond_source = (name, aseq)
+            actcond.on(actcond_source, dtype)
+            self.active_actconds.add(actcond, actcond_source)
 
         # if "amp" in attr:
         #     amp_id, amp_max_lvl, amp_target = attr["amp"]
@@ -2869,7 +2870,7 @@ class Adv(object):
     @allow_acl
     def aff(self, afflictname=None):
         if not afflictname:
-            return any([self.afflictions[afflictname].get() for afflictname in AFFLICT_LIST])
+            return any((aff.get() for aff in self.afflictions.values()))
         return self.afflictions[afflictname].get()
 
     @allow_acl
@@ -2878,11 +2879,11 @@ class Adv(object):
 
     @allow_acl
     def buff(self, *args):
-        return self.active_buff_dict.check(*args)
+        return self.active_actconds.check(*args)
 
-    @allow_acl
-    def timeleft(self, *args):
-        return self.active_buff_dict.timeleft(*args)
+    # @allow_acl
+    # def timeleft(self, *args):
+    #     return self.active_actconds.check(*args)
 
     def stop(self):
         doing = self.action.getdoing()

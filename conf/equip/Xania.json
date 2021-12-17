@@ -57,11 +57,12 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, s=2 and aff(scorchrend)",
-        "`s3, cancel",
+        "`dragon",
+        "`s3, not buff(s3) and x=5",
+        "`s1, cancel",
         "`s4",
-        "`s1",
-        "`s2, cancel"
+        "`s2, not aff(burn) or x=5",
+        "`fs, charged_in(fs, s1) and x=4"
       ],
       "dacl": [
         "`ds1, x=2",

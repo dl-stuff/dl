@@ -385,10 +385,11 @@ class SlipDmg:
 class ActCond:
     def __init__(self, adv, id, target, data):
         self._adv = adv
-        self._id = id
+        self.id = id
         self.target = target
         self.generic_target = GENERIC_TARGET[self.target]
 
+        print(id, target, data)
         self.aff = data.get("aff")
 
         self.hidden = bool(data.get("hide"))
@@ -422,7 +423,7 @@ class ActCond:
         if mod_args := data.get("mods"):
             for mod in mod_args:
                 value, mtype, morder = mod
-                mod_name = "_".join((self._id, mtype, morder))
+                mod_name = "_".join((self.id, mtype, morder))
                 self.mod_list.append(Modifier(mod_name, mtype, morder, value, self.get))
 
         self.buff_stack = {}
@@ -444,10 +445,10 @@ class ActCond:
             return self._rate + Modifier.SELF.mod("debuffrate", operator=operator.add, initial=0)
         return self._rate
 
-    def bufftime(self, source="s"):
+    def bufftime(self, dtype="s"):
         if self.aff:
             return 1.0
-        elif source[0] == "s":
+        elif dtype == "s":
             if self.debuff:
                 return Modifier.SELF.mod("debufftime", operator=operator.add)
             else:
@@ -488,22 +489,23 @@ class ActCond:
         stack_key = (now(), source)
 
         duration = -1
+        timer = None
         if self.duration:
-            duration = self.duration * self.bufftime(source)
+            duration = self.duration * self.bufftime(dtype)
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
             timer.on()
         self.buff_stack[stack_key] = timer
 
         self.effect_on(source, dtype, stack_key)
-        self.log("start", self.text, f"stack {self.stack}", duration, self._id, self.target)
+        self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target)
 
     def _off(self, stack_key):
         timer = self.buff_stack.pop(stack_key)
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)
-        self.log("end", self.text, f"stack {self.stack}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", self._id, self.target)
+        self.log("end", self.text, f"stack {self.stack}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", self.id, self.target)
 
     def off(self):
         if self.buff_stack:
@@ -538,3 +540,25 @@ class ActCond:
                 del self.slip_stack[stack_key]
             except KeyError:
                 pass
+
+
+class ActiveActconds(UserDict):
+    def __init__(self) -> None:
+        super().__init__()
+        self._by_source = defaultdict(dict)
+
+    def add(self, actcond, actcond_source):
+        abs_key = (actcond.id, actcond.target)
+        if abs_key not in self:
+            self[abs_key] = actcond
+        name, aseq = actcond_source
+        self._by_source[name][aseq] = actcond
+
+    def check(self, name, aseq=None):
+        if aseq is not None:
+            try:
+                return self._by_source[name][aseq].get()
+            except KeyError:
+                pass
+        else:
+            return any((actcond.get() for actcond in self._by_source[name].values()))

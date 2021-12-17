@@ -221,6 +221,7 @@ class DragonBase(EquipBase):
     def __init__(self, conf, c, qual=None):
         super().__init__(conf.d, c, qual)
         self.dform = conf
+        self._actconds = conf.actconds
 
     def oninit(self, adv):
         unique_dform = False
@@ -256,6 +257,10 @@ class DragonBase(EquipBase):
         return self.conf.ele
 
     @property
+    def actconds(self):
+        return self._actconds
+
+    @property
     def abilities(self):
         return super().abilities if self.on_ele else []
 
@@ -264,6 +269,7 @@ class WeaponBase(EquipBase):
     def __init__(self, conf, c, series):
         super().__init__(conf.w, c, f"{c.wt}-{c.ele}-{series}")
         self.s3_conf = {sn: sconf for sn, sconf in conf.find(r"s3.*")}
+        self._actconds = conf.actconds
         self.series = series
 
     @property
@@ -274,6 +280,10 @@ class WeaponBase(EquipBase):
     @property
     def ele(self):
         return self.conf.ele
+
+    @property
+    def actconds(self):
+        return self._actconds
 
 
 class AmuletStack:
@@ -515,8 +525,9 @@ class Slots:
             for ab in slot.abilities:
                 if ability := make_ability(adv, ab):
                     self.abilities.append(ability)
-            adv.actconds.update(slot.actconds)
+            adv.conf.actconds.update(slot.actconds)
         for ab in self.a.abilities:
             if ability := make_ability(adv, ab, use_limit=True):
                 self.abilities.append(ability)
-        adv.actconds.update(self.a.actconds)
+        adv.conf.actconds.update(self.a.actconds)
+        print(adv.conf.actconds)

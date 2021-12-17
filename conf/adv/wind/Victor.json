@@ -1,35 +1,40 @@
 {
     "actconds": {
         "19": {"duration": 30.0, "slip": {"value": ["mod", 1.46], "kind": "bleed", "iv": 4.9}, "debuff": 1, "text": "Bleeding", "rate": 0.8},
-        "186": {"duration": 20.0, "icon": "res_water-buff", "mods": [[0.03, "res_water", "buff"]], "coei": 1, "text": "Water Res +3%"},
+        "187": {"duration": 20.0, "icon": "res_water-buff", "mods": [[0.04, "res_water", "buff"]], "coei": 1, "text": "Water Res +4%"},
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
+        "301040601": {"icon": "hp-buff", "mods": [[0.03, "hp", "buff"]], "coei": 1, "text": "HP +3%"},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "316010401": {"count": 1, "shield": {"1": 0.2}, "coei": 1, "text": "Shield"},
-        "326010301": {"duration": 15.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1}
+        "326010401": {"duration": 20.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1}
     },
     "c": {
         "name": "Victor",
         "icon": "110307_01_r05",
-        "att": 494,
-        "hp": 781,
+        "att": 592,
+        "hp": 936,
         "ele": "wind",
         "wt": "blade",
-        "spiral": false,
+        "spiral": true,
         "abilities": [
-            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "att"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.15, "att"]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 2, 0], "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
-            {"ab": [["mod", 0.3, "bufftime", "-t:s"]]}
+            {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.35, "bufftime", "-t:s"]]}
         ],
-        "skillshare": {"src": "s1", "cost": 7, "sp": 9649}
+        "skillshare": {"src": "s1", "cost": 7, "sp": 11068}
     },
     "s1": {
         "sp": 2838,
         "startup": 0.0,
         "recovery": 3.16667,
         "attr": [
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 0.6},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 0.8},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.06667},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.33333},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.66667}
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.66667}
         ],
         "cancel": {"any": 2.26667}
     },
@@ -38,12 +43,12 @@
         "startup": 0.0,
         "recovery": 3.16667,
         "attr": [
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 0.6},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 0.8},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.06667},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.33333},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.66667},
-            {"actcond": "186", "target": "MYPARTY", "iv": 1.73333}
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.66667},
+            {"actcond": "187", "target": "MYPARTY", "iv": 1.73333}
         ],
         "cancel": {"any": 2.26667}
     },
@@ -52,13 +57,14 @@
         "startup": 0.0,
         "recovery": 3.16667,
         "attr": [
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 0.6},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 0.8},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.06667},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.33333},
-            {"dmg": 3.42, "actcond": "19", "target": "HOSTILE", "iv": 1.66667},
-            {"actcond": "186", "target": "MYPARTY", "iv": 1.73333},
-            {"actcond": "316010401", "target": "MYPARTY", "iv": 1.73333}
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.06667},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.33333},
+            {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.66667},
+            {"actcond": "187", "target": "MYPARTY", "iv": 1.73333},
+            {"actcond": "316010401", "target": "MYPARTY", "iv": 1.73333},
+            {"actcond": "301040601", "target": "MYPARTY", "iv": 1.73333}
         ],
         "cancel": {"any": 2.26667}
     },
@@ -67,8 +73,8 @@
         "startup": 0.0,
         "recovery": 2.56667,
         "attr": [
-            {"dmg": 19.14, "target": "HOSTILE", "iv": 1.13333},
-            {"actcond": "326010301", "target": "MYPARTY", "iv": 1.16667}
+            {"dmg": 21.0, "actcond": "19", "target": "HOSTILE", "iv": 1.13333},
+            {"actcond": "326010401", "target": "MYPARTY", "iv": 1.16667}
         ]
     }
 }
