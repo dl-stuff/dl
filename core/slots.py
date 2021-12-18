@@ -106,6 +106,16 @@ class ExBase:
         self.coab_id, self.chain_id = self.LOOKUP[qual]
         self.coab = self.DATA["coab"][self.coab_id]
         self.chain = self.DATA["chain"][self.chain_id]
+        self.actconds = {}
+        for chain in self.chain:
+            for ab in chain.get("ab", tuple()):
+                print(ab)
+                if ab[0] == "actcond":
+                    for actcond_id in ab[2:]:
+                        self.actconds[actcond_id] = self.DATA["actconds"][actcond_id]
+                elif ab[0] == "hitattr":
+                    actcond_id = ab[1]["actcond"]
+                    self.actconds[actcond_id] = self.DATA["actconds"][actcond_id]
 
 
 class CharaBase(SlotBase):
@@ -142,11 +152,14 @@ class CharaBase(SlotBase):
     def abilities(self):
         chara_ab = list(super().abilities)
         coab_abs = {}
+        chain_actconds = {}
         for ex in self.coabs.values():
             if "ab" in ex.coab:
                 coab_abs[ex.coab["category"]] = ex.coab
             chara_ab.extend(ex.chain)
+            chain_actconds.update(ex.actconds)
         chara_ab.extend(coab_abs.values())
+        self.conf.actconds.update(chain_actconds)
         return chara_ab
 
     def fort_mod(self, key):
@@ -530,4 +543,3 @@ class Slots:
             if ability := make_ability(adv, ab, use_limit=True):
                 self.abilities.append(ability)
         adv.conf.actconds.update(self.a.actconds)
-        print(adv.conf.actconds)

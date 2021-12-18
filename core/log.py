@@ -26,7 +26,7 @@ class Log:
         self.team_tension = {}
         self.team_sp = 0
         self.act_seq = []
-        self.hitattr_set = set()
+        self.conf_set = set()
         self.total_hits = 0
         self.echo_att = None
 
@@ -124,12 +124,12 @@ class Log:
         elif category == "dmg":
             self.shift_dmg += float(args[2])
 
-    def log_hitattr(self, name, attr):
+    def log_conf(self, kind, name, attr):
         attr_str = Log.fmt_dict(attr)
-        if (name, attr_str) in self.hitattr_set:
+        if (name, attr_str) in self.conf_set:
             return
-        self.hitattr_set.add((name, attr_str))
-        log("hitattr", name, attr_str)
+        self.conf_set.add((name, attr_str))
+        log(kind, name, attr_str)
         return attr_str
 
     def log(self, *args):

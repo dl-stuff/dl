@@ -22,7 +22,7 @@
             {"ab": [["actcond", "MYSELF", "395"]]},
             {"ab": [["mod", 1.0, "affres_paralysis"]]},
             {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.7, "edge_poison"]]}
+            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.7, "edge_poison"]]}
         ]
     },
     "fs_enhanced": {

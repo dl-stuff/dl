@@ -4,13 +4,13 @@
         "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
         "1951": {"icon": "edge_flashburn-passive", "mods": [[0.25, "edge_flashburn", "passive"]], "coei": 1, "text": "Flashburn Infliction Rate +25%", "maxstack": 3},
         "1953": {"icon": "killer_flashburn-passive", "mods": [[0.07, "killer_flashburn", "passive"]], "coei": 1, "text": "Flashburn Trickster", "maxstack": 3},
-        "1955": {"remove": 1951, "coei": 1},
-        "1957": {"remove": 1953, "coei": 1},
+        "1955": {"remove": "1951", "coei": 1},
+        "1957": {"remove": "1953", "coei": 1},
         "1965": {"duration": 0.7, "coei": 1, "icon": 0, "hide": 1, "overwrite": -1, "lost_on_drg": 1},
         "1983": {"icon": 0, "mods": [[0.12, "fspd", "buff"]], "coei": 1, "hide": 1, "overwrite": -1},
-        "1985": {"remove": 1983, "coei": 1},
+        "1985": {"remove": "1983", "coei": 1},
         "1990": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 4},
-        "1991": {"remove": 1990, "coei": 1}
+        "1991": {"remove": "1990", "coei": 1}
     },
     "c": {
         "name": "Halloween Laxi",
@@ -26,11 +26,11 @@
             {"cond": ["event", "cp_full"], "ab": [["actcond", "MYSELF", "1965"]]},
             {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", "1985"]]},
             {"cond": ["hits", ">=", 25, 1], "ab": [["actcond", "MYSELF", "1990"]]},
-            {"cond": ["hits", "<", 0], "ab": [["actcond", "MYSELF", "1991"]]},
+            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1991"]]},
             {"ab": [["ctime", 1.0]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},
             {"cond": ["hits", ">=", 15, 1], "ab": [["actcond", "MYSELF", "1951"]]},
-            {"cond": ["hits", "<", 0], "ab": [["actcond", "MYSELF", "1955"], ["actcond", "MYSELF", "1957"]]},
+            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1955"], ["actcond", "MYSELF", "1957"]]},
             {"cond": ["aff", "flashburn"], "cd": 1.0, "ab": [["hitattr", {"actcond": "1953", "target": "MYSELF"}]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 7481}

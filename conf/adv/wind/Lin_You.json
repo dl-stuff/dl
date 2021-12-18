@@ -16,8 +16,8 @@
         "spiral": true,
         "abilities": [
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.1, "crit"]]},
-            {"cond": ["hits", ">=", 25], "ab": [["mod", 0.2, "crit"]]},
-            {"cond": ["hits", ">=", 50], "ab": [["mod", 0.2, "crit"]]},
+            {"cond": ["thits", ">=", 25, 1], "ab": [["mod", 0.2, "crit"]]},
+            {"cond": ["thits", ">=", 50, 1], "ab": [["mod", 0.2, "crit"]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"ab": [["mod", 0.08, "sph"], ["ctime", 2.0]]}

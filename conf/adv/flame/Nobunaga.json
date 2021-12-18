@@ -12,9 +12,9 @@
         "wt": "blade",
         "spiral": false,
         "abilities": [
-            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.2, "att"]]},
+            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.2, "att"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
-            {"cond": ["hits", ">=", 15], "ab": [["actgrant", 291, "-t:fs"]]}
+            {"cond": ["thits", ">=", 15, 1], "ab": [["actgrant", 291, "-t:fs"]]}
         ],
         "skillshare": {"src": "s1", "cost": 6, "sp": 8910}
     },

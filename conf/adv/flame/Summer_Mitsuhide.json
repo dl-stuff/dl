@@ -2,7 +2,7 @@
     "actconds": {
         "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
         "1771": {"coei": 1, "icon": 1003, "text": "Sizzling Sunflower", "maxstack": 3},
-        "1772": {"remove": 1771, "count": 1, "coei": 1},
+        "1772": {"remove": "1771", "count": 1, "coei": 1},
         "1784": {"count": 1, "coei": 1, "alt": {"s2": "enhanced"}, "icon": 0, "hide": 1, "overwrite": -1},
         "1785": {"count": 1, "coei": 1, "alt": {"s2": "default"}, "icon": 0, "hide": 1, "overwrite": -1}
     },
@@ -20,7 +20,7 @@
             {"cond": ["actcond", 1771, ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]},
             {"cond": ["sp", "s2", "<", 100], "ab": [["mod", 0.1, "spd"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
-            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.35, "killer_scorchrend"]]}
+            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.35, "killer_scorchrend"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 5521}
     },

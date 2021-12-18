@@ -1024,7 +1024,7 @@ class Adv(object):
 
         self.hits = 0
         self.last_c = 0
-        self.hit_event = Event("hit")
+        self.hit_event = Event("hits")
 
         self._hp = 3000
         self.base_hp = 3000
@@ -1627,8 +1627,8 @@ class Adv(object):
 
     @allow_acl
     def def_mod(self):
-        defa = min(1 - self.mod("def", operator=operator.add), 0.5)
-        defb = min(1 - self.mod("defb", operator=operator.add), 0.3)
+        defa = min(1 - Modifier.ENEMY.mod("def", operator=operator.add), 0.5)
+        defb = min(1 - Modifier.ENEMY.mod("defb", operator=operator.add), 0.3)
         berserk_def = 4 if self.berserk_mode else 1
         return (1 - min(defa + defb, 0.5)) * berserk_def
 
@@ -1636,11 +1636,11 @@ class Adv(object):
     def sp_mod(self, name, target=None):
         if name == "sp_regen":
             return 1
-        sp_mod = self.mod("sp", operator=operator.add)
+        sp_mod = Modifier.SELF.mod("sph", operator=operator.add)
         if name.startswith("fs"):
             sp_mod += self.mod("spf", operator=operator.add, initial=0)
         if target is not None:
-            sp_mod += self.mod(f"sp_{target}", operator=operator.add, initial=0)
+            sp_mod += self.mod(f"sph_{target}", operator=operator.add, initial=0)
         return sp_mod
 
     @allow_acl
@@ -2132,6 +2132,10 @@ class Adv(object):
         self.config_slots()
         self.doconfig()
 
+        from pprint import pprint
+
+        print('actconds', self.conf.actconds)
+
         self.l_idle = Listener("idle", self.l_idle)
         self.l_defer = Listener("defer", self.l_defer)
         self.l_x = Listener("x", self.l_x)
@@ -2427,7 +2431,7 @@ class Adv(object):
         ex = self.mod("ex")
         # to allow dragon overriding
         ele = (self.mod(self.element) + 0.5) * (self.mod(f"{self.slots.c.ele}_resist"))
-        # log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
+        log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -2501,8 +2505,15 @@ class Adv(object):
                 t.on(self.conf.attenuation.delay)
         return count
 
+    def actcond_make(self, actcond_id, target, source, dtype="#"):
+        if not (actcond := self.active_actconds.get((actcond_id, target))):
+            actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
+        actcond.on(source, dtype)
+        self.active_actconds.add(actcond, source)
+        return actcond
+
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None, action=None):
-        g_logs.log_hitattr(name, attr)
+        g_logs.log_conf("hitattr", name, attr)
         # hitmods = self.actmods(name, base, group, aseq, attr)
         hitmods = []
         crisis_mod_key = dtype if dtype in self.crisis_mods else None
@@ -2590,12 +2601,7 @@ class Adv(object):
                 self.heal_make(name, value, target)
 
         if (actcond_id := attr.get("actcond")) and action.check_once_per_act(actcond_id, attr):
-            target = attr.get("target")
-            if not (actcond := self.active_actconds.get((actcond_id, target))):
-                actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
-            actcond_source = (name, aseq)
-            actcond.on(actcond_source, dtype)
-            self.active_actconds.add(actcond, actcond_source)
+            self.actcond_make(actcond_id, attr.get("target"), (name, aseq), dtype=dtype)
 
         # if "amp" in attr:
         #     amp_id, amp_max_lvl, amp_target = attr["amp"]

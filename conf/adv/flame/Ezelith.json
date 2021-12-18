@@ -14,7 +14,7 @@
         "wt": "dagger",
         "spiral": true,
         "abilities": [
-            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.2, "debuffrate"]]},
+            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.2, "debuffrate"]]},
             {"cond": ["hits", ">=", 2, 1, "s1"], "ab": [["actcond", "MYSELF", "329"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
             {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},

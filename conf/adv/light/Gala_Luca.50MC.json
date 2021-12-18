@@ -15,7 +15,7 @@
             {"cond": ["bufficon"], "count": 7, "ab": [["mod", 0.04, "crit"]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},
             {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": "304020201", "target": "MYSELF"}]]},
-            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.13, "crit"]]}
+            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.13, "crit"]]}
         ],
         "skillshare": {"src": "s1", "cost": 6, "sp": 11193}
     },

@@ -2,13 +2,13 @@
     "actconds": {
         "291": {"dispel": "buff"},
         "1045": {"icon": "critdmg-buff", "mods": [[0.04, "critdmg", "buff"]], "text": "Critical Damage +4%", "maxstack": 10},
-        "1047": {"remove": 1045, "coei": 1},
+        "1047": {"remove": "1045", "coei": 1},
         "1088": {"icon": "crit-buff", "mods": [[0.04, "crit", "buff"]], "text": "Critical Rate +4%", "maxstack": 3},
-        "1090": {"remove": 1088, "coei": 1},
+        "1090": {"remove": "1088", "coei": 1},
         "1711": {"duration": 26.0, "coei": 1, "icon": 254, "text": "Master Control", "overwrite": -1},
         "1752": {"duration": 11.0, "coei": 1, "icon": 259, "text": "Amplified Current", "overwrite": -1},
-        "1790": {"remove": 1710, "count": 1, "coei": 1},
-        "1791": {"remove": 1711, "count": 1, "coei": 1},
+        "1790": {"remove": "1710", "count": 1, "coei": 1},
+        "1791": {"remove": "1711", "count": 1, "coei": 1},
         "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"},
         "326010301": {"duration": 15.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1}
     },
@@ -23,21 +23,21 @@
         "abilities": [
             {"cond": ["sp", "s1", ">", -1], "actcond": "1711", "ab": [["mode", "mode2"]]},
             {"cond": ["actcondend", 1711], "ab": [["mode", ""]]},
-            {"cond": ["hits", ">=", 30], "actcond": "1711", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
+            {"cond": ["thits", ">=", 30, 1], "actcond": "1711", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1710", "ab": [["mode", "mode2"]]},
             {"cond": ["actcondend", 1710], "ab": [["mode", ""]]},
             {"cd": 20.0, "ab": [["hitattr", {"amp": ["10000", 3, 0], "target": "MYSELF"}]]},
             {"cond": ["actcond", 1710], "ab": [["mod", 0.06, "spd"]]},
             {"cond": ["actcond", 1711], "ab": [["mod", 0.06, "spd"]]},
-            {"cond": ["hits", ">=", 30], "actcond": "1710", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
+            {"cond": ["thits", ">=", 30, 1], "actcond": "1710", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
             {"cond": ["actcondend", 1710], "ab": [["prep", 0.5]]},
             {"cond": ["actcondend", 1711], "ab": [["prep", 0.5]]},
             {"cond": ["event", "dragon"], "ab": [["actcond", "MYSELF", "1790"], ["actcond", "MYSELF", "1791"]]},
             {"ab": [["mod", 1.0, "affres_burn"], ["mod", 1.0, "affres_stun"]]},
             {"cond": ["hits", ">=", 15, 1], "ab": [["actcond", "MYSELF", "1088"]]},
-            {"cond": ["hits", "<", 0], "ab": [["actcond", "MYSELF", "1047"]]},
+            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1047"]]},
             {"cond": ["event", "crit"], "cd": 1.0, "ab": [["actcond", "MYSELF", "1045"]]},
-            {"cond": ["hits", "<", 0], "ab": [["actcond", "MYSELF", "1090"]]}
+            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1090"]]}
         ],
         "skillshare": {"src": "s2", "cost": 6, "sp": 16668}
     },

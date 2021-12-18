@@ -2,18 +2,18 @@
     "actconds": {
         "995": {"duration": 20.0, "coei": 1, "icon": 157, "text": "Fig", "overwrite": -1},
         "1045": {"icon": "critdmg-buff", "mods": [[0.04, "critdmg", "buff"]], "text": "Critical Damage +4%", "maxstack": 10},
-        "1047": {"remove": 1045, "coei": 1},
+        "1047": {"remove": "1045", "coei": 1},
         "1070": {"icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"},
         "1072": {"icon": "s-buff", "mods": [[0.15, "s", "buff"]], "text": "Skill Damage +15%"},
         "1074": {"icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "1075": {"remove": 1069, "count": 1, "coei": 1},
-        "1076": {"remove": 1070, "count": 1, "coei": 1},
-        "1077": {"remove": 1071, "count": 1, "coei": 1},
-        "1078": {"remove": 1072, "count": 1, "coei": 1},
-        "1079": {"remove": 1073, "count": 1, "coei": 1},
-        "1080": {"remove": 1074, "count": 1, "coei": 1},
+        "1075": {"remove": "1069", "count": 1, "coei": 1},
+        "1076": {"remove": "1070", "count": 1, "coei": 1},
+        "1077": {"remove": "1071", "count": 1, "coei": 1},
+        "1078": {"remove": "1072", "count": 1, "coei": 1},
+        "1079": {"remove": "1073", "count": 1, "coei": 1},
+        "1080": {"remove": "1074", "count": 1, "coei": 1},
         "1088": {"icon": "crit-buff", "mods": [[0.04, "crit", "buff"]], "text": "Critical Rate +4%", "maxstack": 3},
-        "1090": {"remove": 1088, "coei": 1},
+        "1090": {"remove": "1088", "coei": 1},
         "102040901": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.97], "iv": 3.9}, "rate": 1.2}
     },
     "c": {
@@ -38,9 +38,9 @@
             {"cond": ["actcondend", 995], "ab": [["actcond", "MYSELF", "1076"], ["actcond", "MYSELF", "1078"], ["actcond", "MYSELF", "1080"]]},
             {"ab": [["mod", 1.0, "affres_stun"], ["mod", 1.0, "affres_sleep"]]},
             {"cond": ["hits", ">=", 15, 1], "ab": [["actcond", "MYSELF", "1088"]]},
-            {"cond": ["hits", "<", 0], "ab": [["actcond", "MYSELF", "1047"]]},
+            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1047"]]},
             {"cond": ["event", "crit"], "cd": 1.0, "ab": [["actcond", "MYSELF", "1045"]]},
-            {"cond": ["hits", "<", 0], "ab": [["actcond", "MYSELF", "1090"]]}
+            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1090"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 5075}
     },

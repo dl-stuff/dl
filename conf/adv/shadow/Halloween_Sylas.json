@@ -24,7 +24,7 @@
         "wt": "bow",
         "spiral": false,
         "abilities": [
-            {"cond": ["hits", ">=", 0], "actcond": "999999", "ab": [["altskill", "enhanced", "-t:s1"], ["altskill", "enhanced", "-t:s2"]]},
+            {"cond": ["thits", ">=", 0, 1], "actcond": "999999", "ab": [["altskill", "enhanced", "-t:s1"], ["altskill", "enhanced", "-t:s2"]]},
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.3, "att"]]},
             {"ab": [["mod", 1.0, "affres_blind"]]},
             {"cond": ["event", "dispel"], "ab": [["actcond", "MYSELF", "2019"]]},

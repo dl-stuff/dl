@@ -5,7 +5,7 @@ import operator
 from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICT_LIST, AFFRES_PROFILES, wyrmprints_meta
 
 from core.timeline import Timer, Listener, now
-from core.log import log
+from core.log import log, g_logs
 from core.acl import allow_acl
 
 
@@ -384,12 +384,12 @@ class SlipDmg:
 
 class ActCond:
     def __init__(self, adv, id, target, data):
+        g_logs.log_conf("actcond", id, data)
         self._adv = adv
         self.id = id
         self.target = target
         self.generic_target = GENERIC_TARGET[self.target]
 
-        print(id, target, data)
         self.aff = data.get("aff")
 
         self.hidden = bool(data.get("hide"))
@@ -416,6 +416,8 @@ class ActCond:
         self.dispel = data.get("dispel")
         self.relief = data.get("relief")
 
+        self.buff_stack = {}
+
         self.slip = data.get("slip")
         self.slip_stack = {}
 
@@ -423,10 +425,7 @@ class ActCond:
         if mod_args := data.get("mods"):
             for mod in mod_args:
                 value, mtype, morder = mod
-                mod_name = "_".join((self.id, mtype, morder))
-                self.mod_list.append(Modifier(mod_name, mtype, morder, value, self.get))
-
-        self.buff_stack = {}
+                self.mod_list.append(Modifier(mtype, morder, value, self.get, target=self.target))
 
     def get(self):
         return self.stack
@@ -529,7 +528,7 @@ class ActCond:
             ev = self._adv.afflictions[self.aff].get()
         if self.slip is not None:
             # TODO: EV maffs
-            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source, dtype, self.target, ev=ev)
+            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source[0], dtype, self.target, ev=ev)
 
     def effect_off(self, stack_key):
         if self.aff and not self.relief:

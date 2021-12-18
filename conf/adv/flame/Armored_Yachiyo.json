@@ -3,7 +3,7 @@
         "291": {"dispel": "buff"},
         "1383": {"aff": "scorchrend", "duration": 21.0, "slip": {"value": ["mod", 0.311], "iv": 2.9}, "rate": 1.1},
         "1695": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 3},
-        "1696": {"remove": 1695, "coei": 1},
+        "1696": {"remove": "1695", "coei": 1},
         "1704": {"count": 3, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Peerless Flourish", "overwrite": -1},
         "326010301": {"duration": 15.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1}
     },
@@ -20,7 +20,7 @@
             {"cond": ["actcond", 1695, ">=", 1], "ab": [["mod", 0.2, "att"]]},
             {"cond": ["actcond", 1695, ">=", 2], "ab": [["mod", 0.2, "att"]]},
             {"cond": ["actcond", 1695, ">=", 3], "ab": [["mod", 0.2, "att"]]},
-            {"cond": ["hits", ">=", 15], "ab": [["actgrant", 291, "-t:fs"]]},
+            {"cond": ["thits", ">=", 15, 1], "ab": [["actgrant", 291, "-t:fs"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"ab": [["actdmg", 0.5, "-t:fs"]]}
         ],

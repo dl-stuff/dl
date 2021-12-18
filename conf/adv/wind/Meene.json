@@ -16,7 +16,7 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["hitattr", {"actcond": "649", "target": "MYPARTY"}]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
-            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.13, "crit"]]}
+            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.13, "crit"]]}
         ],
         "skillshare": {"src": "s99", "cost": 3, "sp": 7917}
     },

@@ -5,7 +5,7 @@
         "1764": {"duration": 1.1, "coei": 1, "alt": {"s1": "enhanced"}, "nobufftime": 1, "icon": 0, "hide": 1, "overwrite": 47},
         "1765": {"count": 1, "coei": 1, "alt": {"s1": "default"}, "icon": 0, "hide": 1, "overwrite": 47},
         "1766": {"duration": 30.0, "triggerbomb": 1, "icon": 261, "text": "Scorchbloom", "overwrite": -1},
-        "1767": {"remove": 1766, "coei": 1}
+        "1767": {"remove": "1766", "coei": 1}
     },
     "c": {
         "name": "Summer Alex",
@@ -16,7 +16,7 @@
         "wt": "bow",
         "spiral": false,
         "abilities": [
-            {"cond": ["hits", ">=", 15], "ab": [["mod", 0.5, "edge_scorchrend"], ["mod", 0.3, "afftime_scorchrend"]]},
+            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.5, "edge_scorchrend"], ["mod", 0.3, "afftime_scorchrend"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
             {"cond": ["auratype", 2, 1], "ab": [["mod", 0.3, "edge_scorchrend"], ["mod", 0.3, "afftime_scorchrend"]]}
         ],

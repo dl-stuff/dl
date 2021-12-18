@@ -19,7 +19,7 @@
             {"ab": [["actdmg", 0.35, "-t:s"]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
             {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["hits", ">=", 15], "ab": [["actgrant", 1497, "-t:x"], ["mod", 0.1, "killer_frostbite"]]}
+            {"cond": ["thits", ">=", 15, 1], "ab": [["actgrant", 1497, "-t:x"], ["mod", 0.1, "killer_frostbite"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 9907}
     },
