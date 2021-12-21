@@ -2,58 +2,57 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41631.6843446156,
-        "team": 0.14612740098743313,
+        "dps": 95255.03066455838,
+        "team": 0.14923788481849332,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Adventure_in_the_Past",
         "Emissaries_of_the_Heavens",
-        "The_Shining_Overlord",
-        "Odd_Sparrows",
-        "The_Plaguebringer",
+        "His_Clever_Brother",
+        "Snipers_Allure",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Andromeda",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "queue s=4 and dgauge=1000",
         "`s1",
         "`dragon, x=4",
         "end",
         "`s3, not buff(s3)",
-        "`s1, duration-now<3",
-        "`s4, x=5",
-        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
-        "`s1, (sr.count>1 and x=5) or sr.count=3"
+        "`s4",
+        "`s2, not aff(poison)",
+        "`s1"
       ],
       "dacl": [
         "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
-        "Berserker",
+        "Blade",
         "Delphi",
-        "Grace"
+        "Vania"
       ],
       "share": [
         "Weapon",
-        "Patia"
+        "Xander"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110739.57160363584,
-        "team": 0.13403721856861794,
+        "dps": 111317.02599736862,
+        "team": 0.13403721856861783,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
@@ -83,24 +82,24 @@
       ]
     },
     "META": {
-      "tdps": 5716033.461287733,
+      "tdps": 1056663.9033300146,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65267.385233210916,
-        "team": 0.11908220195841362,
+        "dps": 67429.48670046544,
+        "team": 0.11908220195841358,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
-        "Worthy_Rivals",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
@@ -155,7 +154,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 133450.4484514584,
+        "dps": 133450.44845145842,
         "team": 0.13280359486104937,
         "noaff": false,
         "nihil": false
@@ -191,7 +190,7 @@
       ]
     },
     "META": {
-      "tdps": 134446.6042248909,
+      "tdps": 134446.60422489117,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -239,7 +238,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97099.52641069137,
+        "dps": 97099.52641069138,
         "team": 0.14467712237041946,
         "noaff": false,
         "nihil": true
@@ -276,7 +275,7 @@
       ]
     },
     "META": {
-      "tdps": 983593.2810293088,
+      "tdps": 983593.281029309,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -336,7 +335,6 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, fsc",
         "`s3, cancel",

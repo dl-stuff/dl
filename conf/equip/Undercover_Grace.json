@@ -37,7 +37,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 159986.0195568523,
+        "dps": 160956.07435683714,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -56,13 +56,13 @@
         "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s4, soul_seal=4 or fsc",
-        "`s2, soul_seal=4 and fsc and dgauge>=500 and s1.check()",
+        "`s2, (soul_seal=4 and fsc and dgauge>=500 and s1.check()) or duration-now<3",
         "`s1, dgauge<500",
         "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
       ],
       "dacl": [
-        "ds1",
-        "sack"
+        "ds1, xf",
+        "sack, xf"
       ],
       "coabs": [
         "Gala_Sarisse",
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 607192.016768273,
+      "tdps": 615776.3202837969,
       "pref": "PERSONAL"
     }
   },
@@ -160,7 +160,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 180396.2991738213,
+        "dps": 180698.33797300022,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -185,8 +185,8 @@
         "`fs, charged_in(fs,s1)"
       ],
       "dacl": [
-        "ds1,x=2",
-        "sack, x=2"
+        "ds1,xf",
+        "sack, xf"
       ]
     },
     "META": {
@@ -251,8 +251,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 114271.83844057277,
-        "team": 0.1106022806368403,
+        "dps": 117726.92781829076,
+        "team": 0.11372224975044228,
         "noaff": false,
         "nihil": false
       },

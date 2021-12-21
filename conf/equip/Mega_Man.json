@@ -171,7 +171,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67240.52996858957,
+        "dps": 74504.6445495656,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -185,25 +185,33 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Cerberus",
+      "slots.d": "Agni",
       "acl": [
-        "`dragon, s=4",
+        "`dragon, x=5",
         "`s3, not buff(s3)",
-        "`s4, x=5 or dgauge>=500",
+        "`s4",
         "if bleed_stack>=3",
         "`s2, c_x(metalblade) or c_x(default)",
         "`s1, c_x(metalblade)",
         "else",
-        "`s1, c_x(default) and s1.check_full()",
+        "`s1, c_x(default) and s1.check_full() and buff(s3)",
         "end"
+      ],
+      "dacl": [
+        "`ds1, x=5"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Kimono_Elisanne",
+        "Serena"
       ],
       "share": [
         "Weapon",
-        "Summer_Ieyasu"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 314519.05065742775,
+      "tdps": 459813.7800553567,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

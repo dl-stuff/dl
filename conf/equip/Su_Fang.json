@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 69569.00980922143,
-        "team": 0.06174505265074269,
+        "dps": 73882.51309366402,
+        "team": 0.061807728027838356,
         "noaff": false,
         "nihil": false
       },
@@ -36,13 +36,13 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Formal_Noelle"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69569.00980922143,
-        "team": 0.06174505265074269,
+        "dps": 81272.48180767584,
+        "team": 0.052328041441228,
         "noaff": false,
         "nihil": false
       },
@@ -58,11 +58,11 @@
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3) and fscf",
+        "`s3, not buff(s3)",
         "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2, fscf",
-        "`fs, x=5"
+        "`s1, buff(s3)",
+        "`s2",
+        "`fs, s=2"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
@@ -75,10 +75,11 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Formal_Noelle"
       ]
     },
     "META": {
+      "tdps": 779558.3373452267,
       "pref": "PERSONAL"
     }
   },
@@ -127,10 +128,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 105553.37795991983,
-        "team": 0.10671800605133645,
+        "dps": 113157.49393945954,
+        "team": 0.148496884367249,
         "noaff": false,
         "nihil": false
       },
@@ -152,30 +153,7 @@
         "Akasha"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 120449.29524397534,
-        "team": 0.06176992510669685,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=5",
-        "`s4, xf",
-        "`s1, (x=5 and buff(s3)) or buff(s2)",
-        "`s2, charged_in(5,s1)",
-        "`fs, hits=0",
-        "`fs, x=5 and buff(s2,0)"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ]
-    },
     "META": {
-      "tdps": 331402.74225282494,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

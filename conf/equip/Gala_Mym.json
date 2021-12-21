@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 101303.24255406293,
+        "dps": 104614.27933597003,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -30,7 +30,7 @@
         "`dragon, dshift_count=3"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Blade",
         "Kimono_Elisanne",
         "Wand"
       ],
@@ -41,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101303.24255406293,
+        "dps": 104614.27933597003,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -69,7 +69,7 @@
         "`dragon, dshift_count=3"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Blade",
         "Kimono_Elisanne",
         "Wand"
       ],
@@ -83,44 +83,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 45502.89377498928,
-        "team": 0.011668757771265028,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "The_Cutie_Competition",
-        "Chariot_Drift",
-        "To_the_Extreme",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon,      dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
-        "`s3",
-        "`s1, cancel",
-        "`s2, fscf",
-        "`s4, fscf",
-        "`fs, x=5",
-        "`dodge, fsc and s"
-      ],
-      "coabs": [
-        "Ayaha_and_Otoha",
-        "Kimono_Elisanne",
-        "Yuya"
-      ],
-      "share": [
-        "Gala_Leonidas",
-        "Student_Maribelle"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47874.800935285224,
@@ -166,8 +128,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 117322.02651530248,
-        "team": 0.0,
+        "dps": 115519.87299787508,
+        "team": 0.10703818401204003,
         "noaff": false,
         "nihil": false
       },
@@ -180,19 +142,32 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "acl": [
+        "`dragon, xf or fscf",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4, xf or fscf",
+        "`s2, x=5",
+        "`fs, x=5",
+        "`dodge, fscf and not buff(s3)"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, dshift_count=1 and x=3"
+      ],
       "coabs": [
-        "Ayaha_and_Otoha",
+        "Gala_Leonidas",
         "Kimono_Elisanne",
         "Yuya"
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 122278.48950579928,
+        "dps": 124938.3819009279,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -205,6 +180,19 @@
         "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, xf or fscf",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4, xf or fscf",
+        "`s2, fscf",
+        "`fs, x=5",
+        "`dodge, fscf and not buff(s3)"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, dshift_count=1 and x=3"
       ],
       "coabs": [
         "Kimono_Elisanne",
@@ -217,6 +205,7 @@
       ]
     },
     "META": {
+      "tdps": 87992.04685678703,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
