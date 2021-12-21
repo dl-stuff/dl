@@ -1438,6 +1438,9 @@ class Adv(object):
         else:
             return mod
 
+    def ele_mod(self):
+        return (Modifier.SELF.mod(f"dmg_{self.element}", operator=operator.add, initial=1.5)) * (Modifier.ENEMY.mod(f"res_{self.element}", operator=operator.add))
+
     @allow_acl
     def mod(self, mtype, operator=None, initial=1):
         return Modifier.SELF.mod(mtype, operator=operator, initial=initial)
@@ -2134,7 +2137,7 @@ class Adv(object):
 
         from pprint import pprint
 
-        print('actconds', self.conf.actconds)
+        print("actconds", self.conf.actconds)
 
         self.l_idle = Listener("idle", self.l_idle)
         self.l_defer = Listener("defer", self.l_defer)
@@ -2428,9 +2431,8 @@ class Adv(object):
         dmg_mod = self.dmg_mod(name, dtype=dtype)
         att = self.att_mod(name)
         armor = 10 * self.def_mod()
-        ex = self.mod("ex")
-        # to allow dragon overriding
-        ele = (self.mod(self.element) + 0.5) * (self.mod(f"{self.slots.c.ele}_resist"))
+        ex = Modifier.SELF.mod("ex")
+        ele = self.ele_mod()
         log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
