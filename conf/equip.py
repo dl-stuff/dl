@@ -16,6 +16,7 @@ from conf import SKIP_VARIANT, get_conf_json_path, ELE_AFFLICT, list_advs, load_
 TDPS_WEIGHT = 15000
 BUFFER_TDPS_THRESHOLD = 40000
 BUFFER_TEAM_THRESHOLD = 1.6
+HAS_7SLOT = ("agito", "primal_dragon")
 BANNED_PRINTS = (
     # srry no full hp sd allowed
     "Witchs_Kitchen",
@@ -312,11 +313,11 @@ def validate_sim(adv):
         return False, "Using a banned share"
     if not len(adv.slots.c.coab_list) == 3:
         return False, "Less than 3 coabilities"
-    if adv.slots.w.series == "agito":
+    if adv.slots.w.series in HAS_7SLOT:
         if not len(wp_qual_lst) == 7:
-            return False, "Less than 7 wyrmprints"
+            return False, "Not 7 wyrmprints"
     elif not len(wp_qual_lst) == 5:
-        return False, "Less than 5 wyrmprints"
+        return False, "Not 5 wyrmprints"
     return True, None
 
 

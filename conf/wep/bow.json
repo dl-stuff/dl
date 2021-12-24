@@ -561,6 +561,32 @@
                 ],
                 "phase_coei": true
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Jormungand's Wrath",
+                "icon": "306148_01_60301",
+                "att": 1694,
+                "hp": 278,
+                "ele": "wind",
+                "wt": "bow",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "a": [["ctime", 2.5]]
+            },
+            "s3": {
+                "sp": 6750,
+                "startup": 0.0,
+                "recovery": 3.0,
+                "attr": [
+                    {"dmg": 3.16, "iv": 1.16667},
+                    {"dmg": 3.16, "iv": 1.36667},
+                    {"dmg": 3.16, "iv": 2.13333},
+                    {"buff": ["self", 0.2, 15.0, "att", "buff"], "iv": 2.6},
+                    {"buff": [["self", 0.15, 90.0, "att", "buff"], ["self", 0.05, 90.0, "spd", "buff"], "-refresh"], "coei": 1, "iv": 2.6}
+                ],
+                "cancel": {"any": 2.66667}
+            }
         }
     }
 }

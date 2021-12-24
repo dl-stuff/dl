@@ -576,6 +576,32 @@
                 ],
                 "phase_coei": true
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Tempest's Guide",
+                "icon": "304146_01_60301",
+                "att": 1852,
+                "hp": 292,
+                "ele": "wind",
+                "wt": "axe",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "a": [["ctime", 2.5]]
+            },
+            "s3": {
+                "sp": 8895,
+                "startup": 0.0,
+                "recovery": 2.5,
+                "attr": [
+                    {"dmg": 4.18, "iv": 0.36667},
+                    {"dmg": 4.18, "iv": 0.83333},
+                    {"dmg": 4.18, "iv": 1.73333},
+                    {"buff": ["self", 0.2, 15.0, "att", "buff"], "iv": 2.1},
+                    {"buff": [["self", 0.15, 90.0, "att", "buff"], ["self", 0.05, 90.0, "spd", "buff"], "-refresh"], "coei": 1, "iv": 2.1}
+                ],
+                "cancel": {"any": 2.16667}
+            }
         }
     }
 }
