@@ -174,6 +174,38 @@ class CondAffProc(Cond):
 
 CONDITONS["aff"] = CondAffProc
 
+
+class CondMult(Cond):
+    def __init__(self, adv, *args) -> None:
+        super().__init__(adv, *args)
+        self.value = args[0]
+        self.threshold = args[1]
+        self.max_count = args[2]
+
+    def get(self):
+        return min(self.max_count, getattr(self._adv, self.value, 0) // self.threshold)
+
+
+CONDITONS["mult"] = CondMult
+
+
+class CondGetDP(Cond):
+    def __init__(self, adv, *args) -> None:
+        super().__init__(adv, *args)
+        self.event = "dp"
+        self.threshold = args[0]
+        self.cache = 0
+
+    def check(self, e):
+        self.cache += e.value
+        if self.cache > self.threshold:
+            self.cache = self.cache % self.threshold
+            return True
+        return False
+
+
+CONDITONS["get_dp"] = CondGetDP
+
 ### Sub Abilities
 SUB_ABILITIES = {}
 
