@@ -181,24 +181,29 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91543.19541627394,
-        "team": 0.01846868793955914,
+        "dps": 106274.68439604029,
+        "team": 0.020466776910599588,
         "noaff": false,
         "nihil": true
       },
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, fsc",
         "`s4",
-        "`s3",
+        "`s3, fsc",
         "`s1",
         "`fs, x=4 or hits=3"
       ],
       "dacl": [
+        "`s3, xf=5 and timeleft(s3)<5",
         "`s4, xf=5",
-        "`s3, xf=5",
         "`s2, xf=5 or s",
         "`s1, xf=5 or duration-now<2",
         "`s1, dgauge>=1500 and s=1"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
