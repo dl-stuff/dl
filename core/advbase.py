@@ -1576,18 +1576,18 @@ class Adv(object):
                 cond_p = cond[1]
                 if on:
                     p *= cond_p
-                    for order, mods in Modifier.SELF[f"{cond_name}_killer"].items():
+                    for order, mods in Modifier.SELF[f"killer_{cond_name}"].items():
                         for mod in mods:
                             modifiers[order].add(mod)
                     if cond_name in AFFLICTION_LIST:
-                        for order, mods in Modifier.SELF["afflicted_killer"].items():
+                        for order, mods in Modifier.SELF["killer_afflicted"].items():
                             for mod in mods:
                                 modifiers[order].add(mod)
                 else:
                     p *= 1 - cond_p
             total += p * reduce(
                 operator.mul,
-                [1 + sum([mod.get() for mod in order]) for order in modifiers.values()],
+                [1 + sum((mod.get() for mod in order)) for order in modifiers.values()],
                 1.0,
             )
         return total

@@ -160,7 +160,7 @@ class KillerModifier(Modifier):
 
         for kmtype in self._killer_mtypes:
             for generic_target in GENERIC_TARGET[self.target]:
-                self.MODS[generic_target][kmtype][self.mod_order].append(self)
+                self.MODS[generic_target][kmtype][self.mod_order].remove(self)
 
         self._mod_active = 0
         return self
