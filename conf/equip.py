@@ -8,7 +8,7 @@ from pprint import pprint
 
 from lark.tree import Tree
 
-from core.afflic import AFFLICT_LIST
+from core.afflic import AFFLICTION_LIST
 from core.acl import regenerate_acl
 from conf import SKIP_VARIANT, get_conf_json_path, ELE_AFFLICT, load_json, wyrmprints
 
@@ -80,7 +80,7 @@ class AfflictionCondition(ValueEnum):
 
     def get_conf(self):
         if self == AfflictionCondition.IMMUNE:
-            return {"afflict_res": {aff: 999 for aff in AFFLICT_LIST}}
+            return {"afflict_res": {aff: 999 for aff in AFFLICTION_LIST}}
         if self == AfflictionCondition.ALWAYS:
             return {"sim_afflict": {"onele": True}}
         return {}

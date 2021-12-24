@@ -1226,7 +1226,7 @@ class Adv(object):
                     aff.get_override = 1
                     self.sim_afflict.add(aff_type)
             else:
-                for aff_type in AFFLICT_LIST:
+                for aff_type in AFFLICTION_LIST:
                     aff = self.afflictions[aff_type]
                     if self.conf.sim_afflict[aff_type]:
                         aff.get_override = min(self.conf.sim_afflict[aff_type], 1.0)
@@ -1531,7 +1531,7 @@ class Adv(object):
 
     def build_rates(self, as_list=True):
         rates = {}
-        for afflic in AFFLICT_LIST:
+        for afflic in AFFLICTION_LIST:
             rate = self.afflictions[afflic].get()
             if rate > 0:
                 rates[afflic] = rate
@@ -1579,7 +1579,7 @@ class Adv(object):
                     for order, mods in Modifier.SELF[f"{cond_name}_killer"].items():
                         for mod in mods:
                             modifiers[order].add(mod)
-                    if cond_name in AFFLICT_LIST:
+                    if cond_name in AFFLICTION_LIST:
                         for order, mods in Modifier.SELF["afflicted_killer"].items():
                             for mod in mods:
                                 modifiers[order].add(mod)
@@ -2135,10 +2135,6 @@ class Adv(object):
         self.config_slots()
         self.doconfig()
 
-        from pprint import pprint
-
-        print("actconds", self.conf.actconds)
-
         self.l_idle = Listener("idle", self.l_idle)
         self.l_defer = Listener("defer", self.l_defer)
         self.l_x = Listener("x", self.l_x)
@@ -2507,14 +2503,14 @@ class Adv(object):
                 t.on(self.conf.attenuation.delay)
         return count
 
-    def actcond_make(self, actcond_id, target, source, dtype="#"):
+    def actcond_make(self, actcond_id, target, source, dtype="#", ev=1):
         if not (actcond := self.active_actconds.get((actcond_id, target))):
             actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
-        actcond.on(source, dtype)
+        actcond.on(source, dtype, ev=ev)
         self.active_actconds.add(actcond, source)
         return actcond
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None, action=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None, action=None, ev=1):
         g_logs.log_conf("hitattr", name, attr)
         # hitmods = self.actmods(name, base, group, aseq, attr)
         hitmods = []
@@ -2555,7 +2551,7 @@ class Adv(object):
         if onhit:
             onhit(name, base, group, aseq, dtype)
 
-        if "sp" in attr and action.check_once_per_act("sp", attr):
+        if "sp" in attr and (action is None or action.check_once_per_act("sp", attr)):
             dragon_sp = base in ("ds1", "ds2") or base.startswith("dfs") or group == globalconf.DRG
             if isinstance(attr["sp"], int):
                 value = attr["sp"]
@@ -2571,10 +2567,10 @@ class Adv(object):
                     charge_f = self.charge_p
                 charge_f(base, value, target=target, dragon_sp=dragon_sp)
 
-        if "dp" in attr and action.check_once_per_act("sp", attr):
+        if "dp" in attr and (action is None or action.check_once_per_act("dp", attr)):
             self.dragonform.charge_dp(name, attr["dp"])
 
-        if "utp" in attr and action.check_once_per_act("sp", attr):
+        if "utp" in attr and (action is None or action.check_once_per_act("utp", attr)):
             self.dragonform.charge_utp(name, attr["utp"])
 
         if "hp" in attr:
@@ -2602,8 +2598,8 @@ class Adv(object):
                 target = attr["heal"][1]
                 self.heal_make(name, value, target)
 
-        if (actcond_id := attr.get("actcond")) and action.check_once_per_act(actcond_id, attr):
-            self.actcond_make(actcond_id, attr.get("target"), (name, aseq), dtype=dtype)
+        if (actcond_id := attr.get("actcond")) and (action is None or action.check_once_per_act(actcond_id, attr)):
+            self.actcond_make(actcond_id, attr.get("target"), (name, aseq), dtype=dtype, ev=ev)
 
         # if "amp" in attr:
         #     amp_id, amp_max_lvl, amp_target = attr["amp"]
@@ -2792,7 +2788,7 @@ class Adv(object):
         # assume 100 rate for now
         type = set(affs)
         if "all" in type:
-            type = set(AFFLICT_LIST)
+            type = set(AFFLICTION_LIST)
         affs = [buff for buff in self.all_buffs if buff.name in type]
         if len(affs) > 0:
             self.aff_relief_event()

@@ -2,9 +2,9 @@ from collections import UserDict, UserList, defaultdict
 from functools import reduce
 import operator
 
-from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICT_LIST, AFFRES_PROFILES, wyrmprints_meta
+from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICTION_LIST, AFFRES_PROFILES, wyrmprints_meta
 
-from core.timeline import Timer, Listener, now
+from core.timeline import Event, Timer, Listener, now
 from core.log import log, g_logs
 from core.acl import allow_acl
 
@@ -137,7 +137,7 @@ class Modifier(object):
 class KillerModifier(Modifier):
     def __init__(self, value, killer_states, order="hit", get=None, target="MYSELF"):
         if "afflicted" in killer_states:
-            self.killer_states = AFFLICT_LIST
+            self.killer_states = AFFLICTION_LIST
         else:
             self.killer_states = killer_states
         self._killer_mtypes = [f"killer_{kstate}" for kstate in killer_states]
@@ -210,6 +210,7 @@ class AffEV:
         self.aff = aff
         self._edge_mtype = f"edge_{self.aff}"
         self._affres_mtype = f"affres_{self.aff}"
+        self.aff_event = Event(self.aff)
         self.tolerance = tolerance
         self.get_override = None
         self.reset(0.0)
@@ -276,6 +277,8 @@ class AffEV:
             self._res_states = n_states
             self._stacks[stack_key] = total_success_p
             self.update()
+            self.aff_event.ev = self._get
+            self.aff_event()
             return total_success_p
         else:
             self._get = 0
@@ -428,7 +431,7 @@ class ActCond:
                 self.mod_list.append(Modifier(mtype, morder, value, self.get, target=self.target))
 
     def get(self):
-        return self.stack
+        return sum((stack[1] for stack in self.buff_stack.values()))
 
     def log(self, *args):
         if not self.hidden:
@@ -467,7 +470,7 @@ class ActCond:
             return False
         return True
 
-    def on(self, source, dtype):
+    def on(self, source, dtype, ev=1):
         if not self.check(source):
             return False
         if self.stack == self.maxstack or self.overwrite == -1:
@@ -494,13 +497,13 @@ class ActCond:
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
             timer.on()
-        self.buff_stack[stack_key] = timer
+        self.buff_stack[stack_key] = (timer, ev)
 
         self.effect_on(source, dtype, stack_key)
         self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target)
 
     def _off(self, stack_key):
-        timer = self.buff_stack.pop(stack_key)
+        timer, _ = self.buff_stack.pop(stack_key)
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)

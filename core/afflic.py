@@ -5,7 +5,7 @@ from core.log import *
 from core.acl import allow_acl
 import random
 
-AFFLICT_LIST = [
+AFFLICTION_LIST = [
     "poison",
     "paralysis",
     "burn",
@@ -566,11 +566,11 @@ class Afflics(object):
             getattr(self, aff).resist = resist
 
     def get_resist(self):
-        return {aff: int(getattr(self, aff).resist * 100) for aff in AFFLICT_LIST}
+        return {aff: int(getattr(self, aff).resist * 100) for aff in AFFLICTION_LIST}
 
     def get_uptimes(self):
         uptimes = {}
-        for atype in AFFLICT_LIST:
+        for atype in AFFLICTION_LIST:
             aff = self.__dict__[atype]
             aff.uptime()
             rate, t = aff.c_uptime
@@ -580,7 +580,7 @@ class Afflics(object):
 
     def get_attempts(self):
         attempts = {}
-        for atype in AFFLICT_LIST:
+        for atype in AFFLICTION_LIST:
             aff = self.__dict__[atype]
             if aff.attempts > 0:
                 attempts[atype] = aff.attempts

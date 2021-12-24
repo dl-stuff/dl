@@ -59,7 +59,7 @@ for target in TEAM_TARGETS:
 for target in ENEMY_TARGETS:
     GENERIC_TARGET[target].add(ENEMY)
 
-AFFLICT_LIST = (
+AFFLICTION_LIST = (
     "poison",
     "paralysis",
     "burn",
@@ -257,6 +257,7 @@ AFFRES_PROFILES = {
         "scorchrend": 100,
     },
 }
+
 
 def get_conf_json_path(fn):
     froot = os.path.join(ROOT_DIR, "conf")

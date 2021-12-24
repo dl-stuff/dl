@@ -109,7 +109,6 @@ class ExBase:
         self.actconds = {}
         for chain in self.chain:
             for ab in chain.get("ab", tuple()):
-                print(ab)
                 if ab[0] == "actcond":
                     for actcond_id in ab[2:]:
                         self.actconds[actcond_id] = self.DATA["actconds"][actcond_id]
@@ -130,6 +129,7 @@ class CharaBase(SlotBase):
         super().__init__(conf, qual)
         self.coabs = {self.qual: ExBase(self.qual)}
         self.base_id = self.icon[0:6]
+        self.coab_list = []
 
     def set_coabs(self, coab_list):
         self.coabs = {self.qual: ExBase(self.qual)}
@@ -143,10 +143,9 @@ class CharaBase(SlotBase):
                 self.coabs[coab] = ExBase(coab)
             except KeyError:
                 pass
-
-    @property
-    def coab_list(self):
-        return self.coabs.keys()
+        self.coab_list = set(self.coabs.keys())
+        self.coab_list.discard(self.qual)
+        self.coab_list = sorted(self.coab_list)
 
     @property
     def abilities(self):

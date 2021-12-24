@@ -166,10 +166,13 @@ class CondSlayer(Cond):
 CONDITONS["slayer"] = CondSlayer
 
 
-# ac_ABNORMAL_STATUS
-# ac_TENSION_MAX, ac_TENSION_MAX_MOMENT
-# ac_DEBUFF_SLIP_HP
-# ac_SP1_OVER
+class CondAffProc(Cond):
+    def __init__(self, adv, *args) -> None:
+        super().__init__(adv, *args)
+        self.event = args[0]
+
+
+CONDITONS["aff"] = CondAffProc
 
 ### Sub Abilities
 SUB_ABILITIES = {}
@@ -235,12 +238,11 @@ class AbActcond(Ab):
         self.count = 0
         self.idx = 0
         self.l_cond = None
-        print(ability.data)
         if self._cond is not None:
             self.l_cond = self._cond.listener(self._actcond_on)
 
     def _actcond_on(self, e):
-        self._adv.actcond_make(self.actcond_list[self.idx], self.target, ("ability", -1))
+        self._adv.actcond_make(self.actcond_list[self.idx], self.target, ("ability", -1), ev=getattr(e, "ev", 1))
         self.idx = (self.idx + 1) % len(self.actcond_list)
         if self.max_count is not None:
             self.count += 1
@@ -249,6 +251,27 @@ class AbActcond(Ab):
 
 
 SUB_ABILITIES["actcond"] = AbActcond
+
+
+class AbHitattr(Ab):
+    def __init__(self, adv, ability, *args) -> None:
+        super().__init__(adv, ability)
+        self.hitattr = args[0]
+        self.max_count = ability.data.get("count")
+        self.count = 0
+        self.l_cond = None
+        if self._cond is not None:
+            self.l_cond = self._cond.listener(self._actcond_on)
+
+    def _actcond_on(self, e):
+        self._adv.hitattr_make("ab", "ab", "default", 1, self.hitattr, ev=getattr(e, "ev", 1))
+        if self.max_count is not None:
+            self.count += 1
+            if self.count > self.max_count:
+                self.l_cond.off()
+
+
+SUB_ABILITIES["hitattr"] = AbHitattr
 
 
 ### Ability
@@ -261,6 +284,7 @@ class Ability:
             try:
                 self.cond = CONDITONS[cond[0]](adv, *cond[1:])
             except KeyError:
+                print(cond)
                 self.cond = None
         self.abs = []
         if ab_lst := data.get("ab"):

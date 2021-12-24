@@ -11,7 +11,7 @@ from flask import jsonify
 from flask_cors import CORS
 
 import core.simulate
-from core.afflic import AFFLICT_LIST, Afflics
+from core.afflic import AFFLICTION_LIST, Afflics
 from conf import (
     ROOT_DIR,
     TRIBE_TYPES,
@@ -162,7 +162,7 @@ def simc_adv_test():
         conf["coabs"] = coab
     if share is not None:
         conf["share"] = share
-    for afflic in AFFLICT_LIST:
+    for afflic in AFFLICTION_LIST:
         try:
             conf[f"sim_afflict.{afflic}"] = min(abs(int(params["sim_afflict"][afflic])), 100) / 100
         except KeyError:
@@ -260,7 +260,7 @@ def get_adv_slotlist():
         if equip_cond.aff == AfflictionCondition.ALWAYS:
             result["ui"]["sim_afflict"] = {aff: 100 for aff in adv.sim_afflict}
         else:
-            result["ui"]["sim_afflict"] = {aff: "" for aff in AFFLICT_LIST}
+            result["ui"]["sim_afflict"] = {aff: "" for aff in AFFLICTION_LIST}
         if equip_cond.sit == SituationCondition.NIHILISM:
             result["ui"]["specialmode"] = "nihilism"
         else:
