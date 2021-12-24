@@ -227,7 +227,6 @@ def get_adv_slotlist():
         adv.slots.d.oninit(adv)
         adv.config_acl()
         result["adv"]["acl"] = adv.conf.acl
-        print(adv.conf.dacl, flush=True)
         if adv.DISABLE_DACL:
             result["adv"]["dacl"] = "DISABLED"
         else:

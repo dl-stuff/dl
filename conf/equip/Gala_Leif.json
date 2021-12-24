@@ -286,12 +286,29 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 115016.87213771597,
-        "team": 0.16838925793583734,
+        "dps": 116091.17099047298,
+        "team": 0.17078926261021482,
         "noaff": false,
         "nihil": true
       },
       "slots.w": "primal_dragon",
+      "acl": [
+        "`striking",
+        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s=1)",
+        "`s3, timeleft(s3)<5",
+        "`s1(striking)",
+        "queue s2.check() and cancel",
+        "`s2(shielding)",
+        "`striking",
+        "end",
+        "`s4, fsc",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Wand"
+      ],
       "share": [
         "Weapon",
         "Formal_Joachim"
