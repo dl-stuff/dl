@@ -1,16 +1,18 @@
 {
     "actconds": {
         "257": {"duration": 10.0, "ele": "flame", "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
+        "1839": {"duration": 180.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
         "102040901": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.97], "iv": 3.9}, "rate": 1.2}
     },
     "d": {
         "name": "Kagutsuchi",
         "icon": "210107_01",
-        "att": 127,
-        "hp": 369,
+        "att": 147,
+        "hp": 389,
         "ele": "flame",
         "abilities": [
             {"ab": [["mod", 0.45, "att"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1839"]]},
             {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", "257"]]}
         ]
     },

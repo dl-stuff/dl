@@ -1,15 +1,17 @@
 {
     "actconds": {
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
         "303030501": {"duration": 15.0, "icon": "def-buff", "mods": [[0.3, "def", "buff"]], "text": "Defense +30%"}
     },
     "d": {
         "name": "Andromeda",
         "icon": "210115_01",
-        "att": 128,
-        "hp": 368,
+        "att": 148,
+        "hp": 388,
         "ele": "shadow",
         "abilities": [
-            {"ab": [["mod", 0.4, "att"]]},
+            {"ab": [["mod", 0.45, "att"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]},
             {"cond": ["hp", "<=", 30], "ab": [["mod", 0.4, "att"], ["mod", 1.0, "def"]]}
         ]
     },

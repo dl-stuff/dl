@@ -631,6 +631,40 @@
                 "1395": {"count": 1, "coei": 1, "alt": {"s3": "enhanced"}},
                 "1396": {"count": 1, "coei": 1, "alt": {"s3": "default"}}
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Cyclone Trigger",
+                "icon": "309043_01_60301",
+                "att": 1835,
+                "hp": 275,
+                "ele": "wind",
+                "wt": "gun",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "abilities": [
+                    {"ab": [["ctime", 2.5]]}
+                ]
+            },
+            "s3": {
+                "sp": 7316,
+                "startup": 0.0,
+                "recovery": 2.13333,
+                "attr": [
+                    {"dmg": 0.41, "target": "HOSTILE", "iv": 0.66667, "blt": [5, 0.0]},
+                    {"dmg": 0.41, "target": "HOSTILE", "iv": 0.86667, "blt": [5, 0.0]},
+                    {"dmg": 0.41, "target": "HOSTILE", "iv": 1.06667, "blt": [5, 0.0]},
+                    {"dmg": 0.41, "target": "HOSTILE", "iv": 1.26667, "blt": [5, 0.0]},
+                    {"dmg": 0.41, "target": "HOSTILE", "iv": 1.46667, "blt": [5, 0.0]},
+                    {"actcond": "302030401", "target": "MYSELF", "iv": 1.66667},
+                    {"actcond": "2082", "target": "MYSELF", "iv": 1.66667}
+                ],
+                "cancel": {"any": 1.93333}
+            },
+            "actconds": {
+                "2082": {"duration": 90.0, "icon": 305, "mods": [[0.15, "att", "buff"], [0.05, "aspd", "buff"]], "coei": 1, "text": "Primal Dragalia", "overwrite": -1},
+                "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+            }
         }
     }
 }

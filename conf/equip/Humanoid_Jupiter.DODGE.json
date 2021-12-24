@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 74573.17443172263,
-        "team": 0.24353390093954216,
+        "dps": 70891.99209457633,
+        "team": 0.16237212108777271,
         "noaff": false,
         "nihil": false
       },
@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74573.17443172263,
-        "team": 0.24353390093954216,
+        "dps": 70891.99209457633,
+        "team": 0.16237212108777271,
         "noaff": false,
         "nihil": false
       },
@@ -83,8 +83,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63170.4595200239,
-        "team": 0.23380794756594084,
+        "dps": 58354.784652893,
+        "team": 0.16351483392277666,
         "noaff": false,
         "nihil": true
       },
@@ -126,8 +126,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 99621.08287386157,
-        "team": 0.34954096746050983,
+        "dps": 91404.97091497606,
+        "team": 0.22215308417304697,
         "noaff": false,
         "nihil": false
       },
@@ -167,10 +167,40 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63499.256845482065,
+        "team": 0.16351483392277666,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, xf",
+        "`s4, xf",
+        "`s3, xf",
+        "`s2, xf",
+        "`s1, xf=5",
+        "`dodge, not is_cd(a1_dodge) and overcharged<4"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Peony",
+        "Wand"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81292.59643101488,
-        "team": 0.29446547504861725,
+        "dps": 74845.40888139713,
+        "team": 0.18076244862379073,
         "noaff": false,
         "nihil": true
       },
@@ -213,8 +243,8 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68599.9035383993,
-        "team": 0.23380794756594084,
+        "dps": 63499.256845482065,
+        "team": 0.16351483392277666,
         "noaff": false,
         "nihil": true
       },
@@ -228,7 +258,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   }

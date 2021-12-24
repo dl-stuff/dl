@@ -696,6 +696,44 @@
                 "777": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
                 "1322": {"slip": {"value": ["heal", 1.9], "kind": "hp", "iv": 2.9}, "debuff": 1, "text": "HP Regen"}
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Gale's Aid",
+                "icon": "305156_01_60301",
+                "att": 1799,
+                "hp": 290,
+                "ele": "wind",
+                "wt": "lance",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "abilities": [
+                    {"ab": [["ctime", 2.5]]}
+                ]
+            },
+            "s3": {
+                "sp": 6762,
+                "startup": 0.0,
+                "recovery": 3.46667,
+                "attr": [
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 0.26667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 0.56667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 0.86667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 1.16667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 1.46667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 1.76667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 2.06667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 2.36667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 2.66667},
+                    {"dmg": 0.92, "target": "HOSTILE", "iv": 3.0},
+                    {"actcond": "302030401", "target": "MYSELF", "iv": 3.33333},
+                    {"actcond": "2082", "target": "MYSELF", "iv": 3.33333}
+                ]
+            },
+            "actconds": {
+                "2082": {"duration": 90.0, "icon": 305, "mods": [[0.15, "att", "buff"], [0.05, "aspd", "buff"]], "coei": 1, "text": "Primal Dragalia", "overwrite": -1},
+                "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+            }
         }
     }
 }

@@ -1,16 +1,18 @@
 {
     "actconds": {
         "250": {"duration": 10.0, "ele": "wind", "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": -1},
-        "256": {"aff": "sleep", "duration": 5.5, "rate": 1.2}
+        "256": {"aff": "sleep", "duration": 5.5, "rate": 1.2},
+        "1839": {"duration": 180.0, "icon": "att-buff", "mods": [[0.4, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
     },
     "d": {
         "name": "Hastur",
         "icon": "210105_01",
-        "att": 126,
-        "hp": 369,
+        "att": 146,
+        "hp": 389,
         "ele": "wind",
         "abilities": [
             {"ab": [["mod", 0.45, "att"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1839"]]},
             {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", "250"]]}
         ]
     },

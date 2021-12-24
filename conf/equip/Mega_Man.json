@@ -43,7 +43,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54492.361851473,
+        "dps": 55696.25111056976,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 59533.86061835661,
+      "tdps": 83613.70712623415,
       "pref": "PERSONAL"
     }
   },
@@ -171,7 +171,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67240.52996858957,
+        "dps": 75421.65354883227,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -180,30 +180,38 @@
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "His_Clever_Brother",
+        "Chariot_Drift",
         "To_the_Extreme",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Cerberus",
+      "slots.d": "Agni",
       "acl": [
-        "`dragon, s=4",
+        "`dragon, x=5",
         "`s3, not buff(s3)",
-        "`s4, x=5 or dgauge>=500",
+        "`s4",
         "if bleed_stack>=3",
         "`s2, c_x(metalblade) or c_x(default)",
         "`s1, c_x(metalblade)",
         "else",
-        "`s1, c_x(default) and s1.check_full()",
+        "`s1, c_x(default) and s1.check_full() and buff(s3)",
         "end"
+      ],
+      "dacl": [
+        "`ds1, x=5"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Kimono_Elisanne",
+        "Serena"
       ],
       "share": [
         "Weapon",
-        "Summer_Ieyasu"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 314519.05065742775,
+      "tdps": 478155.53016387654,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,7 +222,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56435.71480269993,
+        "dps": 57099.868946918665,
         "team": 0.0,
         "noaff": false,
         "nihil": true

@@ -2,15 +2,15 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3092.2893355323235,
-        "team": 0.19659807701773718,
+        "dps": 3092.930889336375,
+        "team": 0.19659807701773738,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "A_Dragonyule_for_Ilia",
         "Jewels_of_the_Sun",
         "Warrior_Maiden",
-        "Wily_Warriors_Flash_and_Heat",
         "Bellathorna",
         "From_Whence_He_Comes",
         "A_Kings_Pride_Staff",
@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76835.37246232938,
+        "dps": 79820.34266227578,
         "team": 0.09922932442636186,
         "noaff": true,
         "nihil": false
@@ -61,7 +61,7 @@
         "`dfs3, duration-now<16"
       ],
       "coabs": [
-        "Gala_Audric",
+        "Ayaha_and_Otoha",
         "Halloween_Laxi",
         "Peony"
       ],
@@ -71,12 +71,35 @@
       ]
     },
     "META": {
-      "tdps": 757358.815474124,
+      "tdps": 788008.5728831199,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76835.37246232938,
+        "team": 0.09922932442636186,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Gala_Audric",
+        "Halloween_Laxi",
+        "Peony"
+      ]
+    },
+    "META": {
+      "tdps": 757352.2265655971,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 54512.347853749285,
         "team": 0.0,
@@ -107,69 +130,6 @@
         "Blade",
         "Mitsuhide",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 59359.728361294285,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Blossoms_on_the_Waters_Edge",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "Beautiful_Nothingness",
-        "Dueling_Dancers",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Chronos_Nyx",
-      "acl": [
-        "`dragon",
-        "`s4",
-        "`s3"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 54512.347853749285,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Blossoms_on_the_Waters_Edge",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Mana_Fount",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
       ],
       "share": [
         "Weapon",
@@ -177,11 +137,7 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
+      "pref": "PERSONAL"
     }
   }
 }

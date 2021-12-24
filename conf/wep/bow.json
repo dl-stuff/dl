@@ -694,6 +694,38 @@
                 "779": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
                 "1322": {"slip": {"value": ["heal", 1.9], "kind": "hp", "iv": 2.9}, "debuff": 1, "text": "HP Regen"}
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Jormungand's Wrath",
+                "icon": "306148_01_60301",
+                "att": 1694,
+                "hp": 278,
+                "ele": "wind",
+                "wt": "bow",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "abilities": [
+                    {"ab": [["ctime", 2.5]]}
+                ]
+            },
+            "s3": {
+                "sp": 6750,
+                "startup": 0.0,
+                "recovery": 3.0,
+                "attr": [
+                    {"dmg": 3.16, "target": "HOSTILE", "iv": 1.16667},
+                    {"dmg": 3.16, "target": "HOSTILE", "iv": 1.36667},
+                    {"dmg": 3.16, "target": "HOSTILE", "iv": 2.13333},
+                    {"actcond": "302030401", "target": "MYSELF", "iv": 2.6},
+                    {"actcond": "2082", "target": "MYSELF", "iv": 2.6}
+                ],
+                "cancel": {"any": 2.66667}
+            },
+            "actconds": {
+                "2082": {"duration": 90.0, "icon": 305, "mods": [[0.15, "att", "buff"], [0.05, "aspd", "buff"]], "coei": 1, "text": "Primal Dragalia", "overwrite": -1},
+                "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+            }
         }
     }
 }

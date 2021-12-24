@@ -220,12 +220,14 @@ def get_adv_slotlist():
         result["adv"]["ele"] = adv.slots.c.ele
         result["adv"]["wt"] = adv.slots.c.wt
         result["adv"]["pref_dra"] = adv.slots.d.qual
-        result["adv"]["pref_wep"] = adv.slots.w.qual
+        result["adv"]["pref_wep"] = adv.slots.w.series
         result["adv"]["pref_wp"] = adv.slots.a.qual_lst
         result["adv"]["pref_coab"] = adv.conf["coabs"] or []
         result["adv"]["pref_share"] = adv.conf["share"] or []
+        adv.slots.d.oninit(adv)
         adv.config_acl()
         result["adv"]["acl"] = adv.conf.acl
+        print(adv.conf.dacl, flush=True)
         if adv.DISABLE_DACL:
             result["adv"]["dacl"] = "DISABLED"
         else:

@@ -707,6 +707,36 @@
                 "771": {"count": 1, "coei": 1, "alt": {"s3": "default"}},
                 "1322": {"slip": {"value": ["heal", 1.9], "kind": "hp", "iv": 2.9}, "debuff": 1, "text": "HP Regen"}
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Noble Horizon",
+                "icon": "302150_01_60301",
+                "att": 1870,
+                "hp": 251,
+                "ele": "wind",
+                "wt": "blade",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "abilities": [
+                    {"ab": [["ctime", 2.5]]}
+                ]
+            },
+            "s3": {
+                "sp": 7582,
+                "startup": 0.0,
+                "recovery": 2.5,
+                "attr": [
+                    {"dmg": 9.57, "target": "HOSTILE", "iv": 0.4},
+                    {"actcond": "302030401", "target": "MYSELF", "iv": 1.2},
+                    {"actcond": "2082", "target": "MYSELF", "iv": 1.2}
+                ],
+                "cancel": {"any": 2.2}
+            },
+            "actconds": {
+                "2082": {"duration": 90.0, "icon": 305, "mods": [[0.15, "att", "buff"], [0.05, "aspd", "buff"]], "coei": 1, "text": "Primal Dragalia", "overwrite": -1},
+                "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+            }
         }
     }
 }

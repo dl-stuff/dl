@@ -77,6 +77,45 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42645.357065772456,
+        "team": 0.06662228881983624,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "ds1, x=3",
+        "sack, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54501.00655109173,
@@ -113,6 +152,7 @@
       ]
     },
     "META": {
+      "tdps": 282687.6932437703,
       "pref": "PERSONAL"
     }
   },
@@ -148,9 +188,47 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57338.57115561667,
+        "team": 0.09999208396001996,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, fsc",
+        "`s1",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59690.59798108744,
+        "dps": 60104.60543343295,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -169,15 +247,16 @@
         "Yurius"
       ],
       "share": [
-        "Humanoid_Mercury",
-        "Summer_Celliera"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 27662.53255529938,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -266,7 +345,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

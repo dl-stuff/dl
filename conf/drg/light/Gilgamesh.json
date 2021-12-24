@@ -1,12 +1,16 @@
 {
+    "actconds": {
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
+    },
     "d": {
         "name": "Gilgamesh",
         "icon": "210048_01",
-        "att": 124,
-        "hp": 371,
+        "att": 144,
+        "hp": 391,
         "ele": "light",
         "abilities": [
-            {"ab": [["mod", 0.5, "att"], ["mod", 0.15, "eleres", "shadow"]]}
+            {"ab": [["mod", 0.55, "att"], ["mod", 0.15, "eleres", "shadow"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]}
         ]
     },
     "dodge": {

@@ -44,7 +44,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 133646.54723823018,
+        "dps": 135176.69161952438,
         "team": 0.06248027358917707,
         "noaff": false,
         "nihil": false
@@ -74,8 +74,8 @@
         "`dfs3"
       ],
       "coabs": [
+        "Ayaha_and_Otoha",
         "Blade",
-        "Mitsuhide",
         "Peony"
       ],
       "share": [
@@ -84,8 +84,31 @@
       ]
     },
     "META": {
-      "tdps": 842966.8248097083,
+      "tdps": 868969.831817795,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 133646.54723823018,
+        "team": 0.06248027358917707,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ]
+    },
+    "META": {
+      "tdps": 842966.8248097083,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -161,7 +184,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 163063.09115107043,
+        "dps": 165969.33155469477,
         "team": 0.06248027358917716,
         "noaff": false,
         "nihil": false
@@ -177,11 +200,29 @@
       ]
     },
     "META": {
-      "tdps": 2270289.3488445967,
+      "tdps": 2317387.7527636043,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 163063.09115107043,
+        "team": 0.06248027358917716,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 2270289.3488445967,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
       }
     }
   },
@@ -224,24 +265,40 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 133198.6527800626,
-        "team": 0.06227088121156855,
+        "dps": 135176.69161952438,
+        "team": 0.06248027358917707,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, buffstack(ro_att)=6 and buff(s3, 1)",
         "`s2, fsc",
         "`s1, fsc",
         "`s4, not buff(s4, 2)",
         "`s3",
-        "`fs3, hits>1"
+        "`fs3, hits>1",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Ayaha_and_Otoha",
+        "Blade",
+        "Peony"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

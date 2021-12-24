@@ -2,17 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 78417.08505502135,
-        "team": 0.21376643417315322,
+        "dps": 77366.42455879257,
+        "team": 0.2585329665266346,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Dogs_Day",
         "A_Man_Unchanging",
+        "Bloody_Little_Queen",
         "Emissaries_of_the_Heavens",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "From_Whence_He_Comes",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
@@ -25,6 +25,10 @@
         "`s1",
         "`dodge, fsc",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Meene",
@@ -38,8 +42,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78417.08505502135,
-        "team": 0.21376643417315322,
+        "dps": 84171.36214093589,
+        "team": 0.2430819966849216,
         "noaff": false,
         "nihil": false
       },
@@ -54,13 +58,17 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=1",
+        "`dragon, s=2 and aff(poison)",
         "`s3, not buff(s3) and x=5",
         "`s2, overload>2 and x>=2",
         "`s4",
         "`s1",
         "`dodge, fsc",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs, x=3"
       ],
       "coabs": [
         "Meene",
@@ -73,6 +81,7 @@
       ]
     },
     "META": {
+      "tdps": 440421.3879035617,
       "pref": "PERSONAL"
     }
   },
@@ -187,6 +196,41 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45731.77372887418,
+        "team": 0.19458477875238667,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, s=2 and aff(poison)",
+        "`s3, not buff(s3) and x=5",
+        "`s2, overload>2 and x>=2",
+        "`s4",
+        "`s1",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Bow",
+        "Mona",
+        "Yukata_Lathna"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50109.75455774655,
@@ -204,6 +248,39 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34006.69245454084,
+        "team": 0.05426800100903745,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3",
+        "`s1",
+        "`s2, overload>2"
+      ],
+      "coabs": [
+        "Eleonora",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 34006.69245454084,
