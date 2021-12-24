@@ -23,6 +23,10 @@
         "`s3",
         "`s4"
       ],
+      "dacl": [
+        "ds1,x=2",
+        "dodge, x=2"
+      ],
       "coabs": [
         "Gala_Sarisse",
         "Joker",
@@ -137,6 +141,48 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21185.480613622203,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Proper_Maintenance",
+        "Springtime_Breeze",
+        "The_Cutie_Competition",
+        "Dragons_Nest",
+        "Entwined_Flames",
+        "Beneath_the_Boughs",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, x=5",
+        "`s1, x=5",
+        "`s4, x=5"
+      ],
+      "coabs": [
+        "Gala_Mym",
+        "Seimei",
+        "The_Prince"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Yukata_Cassandra"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -181,6 +227,65 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22985.57441444122,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6750.220528426706,
+        "team": 0.5425287482715383,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "#`s2, prep or x=5 and mod(maxhp)<1.30",
+        "`s1, x=5",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Karl",
+        "Valentines_Orion"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -195,6 +300,23 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18459.22731471473,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

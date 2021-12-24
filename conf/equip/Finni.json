@@ -187,15 +187,24 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58880.74078365129,
-        "team": 0.1377196636759198,
+        "dps": 61853.118940005406,
+        "team": 0.13635447875264983,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`dragon, self.sr.count=1 and (dshift_count or dgauge>=950)",
-        "`s3",
         "`s4",
+        "`s3",
         "if s2_autocharge_buff.get()",
         "`s1, self.sr.count=2 and cancel",
         "else",
@@ -203,7 +212,7 @@
         "end"
       ],
       "dacl": [
-        "ds1,x=3",
+        "ds1, x=3",
         "sack, x=3"
       ]
     },

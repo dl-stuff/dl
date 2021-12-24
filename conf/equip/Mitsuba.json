@@ -44,15 +44,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69843.12546276618,
-        "team": 0.16502422793180113,
+        "dps": 77068.1727479546,
+        "team": 0.12586357283117802,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
@@ -60,21 +60,19 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon, s=2",
+        "`tempura",
+        "`dragon",
         "`s3, not buff(s3)",
-        "if xf=2 and hits>19",
-        "`s2",
         "`s4",
-        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "if xf=2 and hits>=20",
+        "`s2(tempura)",
         "`s1(tempura)",
         "`fsf",
-        "else",
-        "`fs, x=2",
         "end"
       ],
       "dacl": [
-        "ds1",
-        "sack"
+        "`ds1, x=2",
+        "`sack, x=1"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -83,11 +81,11 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 135634.3017808652,
+      "tdps": 139379.88780756158,
       "pref": "PERSONAL"
     }
   },
@@ -106,7 +104,7 @@
       ]
     },
     "META": {
-      "tdps": 213793.60946562327,
+      "tdps": 210204.86644563463,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,35 +209,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77928.46471762353,
-        "team": 0.16329267594211086,
+        "dps": 88034.89558746463,
+        "team": 0.12586357283117802,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`tempura",
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if xf=2 and hits>19",
-        "`s2(tempura)",
-        "`s1(tempura)",
-        "`dodge",
-        "end",
-        "`fs, x=2 and hits<20"
-      ]
+      }
     },
     "META": {
-      "tdps": 152215.9488920174,
+      "tdps": 160846.51557839726,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -316,21 +293,23 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44088.70856805525,
-        "team": 0.10924804912764896,
+        "dps": 60308.26215332147,
+        "team": 0.12586357283117802,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 72467.85992046769,
+      "tdps": 106573.48178521804,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

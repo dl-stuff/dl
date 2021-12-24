@@ -185,18 +185,42 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80028.33018460505,
+        "dps": 82444.86308647659,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
-        "`dragon, s2.check() and not in_drg and aff(stormlash)",
-        "`s1",
-        "`s2",
+        "`dragon, s2.check()",
+        "`s3, not buff(s3)",
+        "`s1, x=4",
+        "`s2, x=4",
         "`s4",
-        "`s3, fsc",
-        "`fs, x=4"
+        "`fs, x=4 or hits=1"
+      ],
+      "dacl": [
+        "`s1, x=4",
+        "`s2, x=4",
+        "`s4",
+        "`dodge, x=4"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {

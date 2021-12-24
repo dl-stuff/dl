@@ -76,27 +76,30 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51932.79591576879,
-        "team": 0.0960358027101476,
+        "dps": 71126.20035328536,
+        "team": 0.10665708912507128,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Emissaries_of_the_Heavens",
         "The_Cutie_Competition",
+        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon, x=5",
-        "`s3, x=5",
+        "`s1, (sunflowers>0 and x=5) or not aff(scorchrend)",
         "`s4, x=5",
-        "`s1, sunflowers > 0 and x=5",
+        "`s3, x=5",
         "`s2"
+      ],
+      "dacl": [
+        "`ds1, x=2"
       ],
       "coabs": [
         "Blade",
@@ -104,14 +107,14 @@
         "Wand"
       ],
       "share": [
-        "Gala_Mym",
-        "Sha_Wujing"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72043.80308140397,
-        "team": 0.06662966605739377,
+        "dps": 72825.24847409969,
+        "team": 0.06665168623636786,
         "noaff": false,
         "nihil": true
       },
@@ -129,7 +132,7 @@
         "`dragon, s1.check()",
         "`s3",
         "`s4",
-        "`s1, (sunflowers > 0 and x=5) or not afflics.scorchrend",
+        "`s1, (sunflowers > 0 and x=5) or not aff(scorchrend)",
         "`s2"
       ],
       "coabs": [
@@ -143,7 +146,7 @@
       ]
     },
     "META": {
-      "tdps": 683905.1114778733,
+      "tdps": 42470.466440274315,
       "pref": "PERSONAL"
     }
   },
@@ -264,34 +267,43 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82740.6037219118,
-        "team": 0.08172863881657232,
+        "dps": 86770.23929848107,
+        "team": 0.10580137360808589,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
+        "A_Small_Courage",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon, s1.check()",
-        "`s1, (sunflowers >1 and x=5 and hits>29) or duration-now<3",
-        "`s4, cancel",
+        "`dragon, x=5",
+        "`s1, sunflowers>0 and x=5",
+        "`s4, x=5",
         "`s3, x=5",
         "`s2"
       ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
       "share": [
-        "Student_Maribelle",
-        "Summer_Julietta"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 786248.5570113828,
+      "tdps": 6547883.070150283,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
