@@ -19,7 +19,7 @@
         "spiral": true,
         "abilities": [
             {"cond": ["slayer", 3, "fs"], "count": 5, "ab": [["actcond", "MYSELF", "507"]]},
-            {"cond": ["actcond", 1082], "ab": [["actcond", "MYSELF", "254"]]},
+            {"cond": ["actcond", "1082", ">=", 1], "ab": [["actcond", "MYSELF", "254"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"ab": [["actdmg", 0.55, "-t:fs"]]}

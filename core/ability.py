@@ -93,6 +93,18 @@ class CondTotalHits(CompareCond):
 CONDITONS["thits"] = CondTotalHits
 
 
+class CondActcond(CompareCond):
+    def __init__(self, adv, *args) -> None:
+        super().__init__("actcond", adv, *args[1:])
+        self.actcond_id = args[0]
+
+    def get(self):
+        return self._op(sum((int(actcond_id == self.actcond_id) for actcond_id, _ in self._adv.active_actconds)), self.value)
+
+
+CONDITONS["actcond"] = CondActcond
+
+
 class CondBuffedBy(Cond):
     def __init__(self, adv, *args) -> None:
         super().__init__(adv, *args)
@@ -103,7 +115,7 @@ class CondBuffedBy(Cond):
         return e.base == self.target
 
 
-CONDITONS["buffedby"] = CondBuffedBy
+CONDITONS["buffed_by"] = CondBuffedBy
 
 
 class CondShift(Cond):
@@ -205,6 +217,7 @@ class CondGetDP(Cond):
 
 
 CONDITONS["get_dp"] = CondGetDP
+
 
 ### Sub Abilities
 SUB_ABILITIES = {}

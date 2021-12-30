@@ -16,11 +16,11 @@
         "wt": "sword",
         "spiral": false,
         "abilities": [
-            {"cond": ["actcond", 1827, "=", 4], "ab": [["actcond", "MYSELF", "1830"]]},
-            {"cond": ["actcond", 1827, "=", 1], "ab": [["mod", -0.1, "actdmgdown"]]},
-            {"cond": ["actcond", 1827, "=", 2], "ab": [["mod", -0.15, "actdmgdown"]]},
-            {"cond": ["actcond", 1827, "=", 3], "ab": [["mod", -0.2, "actdmgdown"]]},
-            {"cond": ["actcond", 1827, "=", 4], "ab": [["mod", -0.8, "actdmgdown"]]},
+            {"cond": ["actcond", "1827", "=", 4], "ab": [["actcond", "MYSELF", "1830"]]},
+            {"cond": ["actcond", "1827", "=", 1], "ab": [["mod", -0.1, "actdmgdown"]]},
+            {"cond": ["actcond", "1827", "=", 2], "ab": [["mod", -0.15, "actdmgdown"]]},
+            {"cond": ["actcond", "1827", "=", 3], "ab": [["mod", -0.2, "actdmgdown"]]},
+            {"cond": ["actcond", "1827", "=", 4], "ab": [["mod", -0.8, "actdmgdown"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"cond": ["auratype", 3, 2], "ab": [["actcond", "MYSELF", "346"]]}
         ],
@@ -39,7 +39,7 @@
         ],
         "cancel": {"any": 2.16667},
         "abilities": [
-            {"cond": ["actcond", 1827, "=", 4], "ab": [["actcond", "MYSELF", "1897"]]},
+            {"cond": ["actcond", "1827", "=", 4], "ab": [["actcond", "MYSELF", "1897"]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1897", "ab": [["mode", "mode2"]]},
             {"cond": ["actcondend", 1897], "ab": [["mode", ""]]}
         ]
@@ -53,10 +53,10 @@
             {"cond": ["actcond", 1827, ">=", 2], "amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.43333},
             {"cond": ["actcond", 1827, ">=", 3], "amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.43333},
             {"cond": ["actcond", 1827, ">=", 4], "amp": ["20000", 2, 0], "target": "MYSELF", "iv": 1.43333},
-            {"cond": ["actcond", 1827, ">=", 1], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 0.3},
-            {"cond": ["actcond", 1827, ">=", 2], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 0.6},
-            {"cond": ["actcond", 1827, ">=", 3], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 0.9},
-            {"cond": ["actcond", 1827, ">=", 4], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 1.2},
+            {"cond": ["actcond", "1827", ">=", 1], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 0.3},
+            {"cond": ["actcond", "1827", ">=", 2], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 0.6},
+            {"cond": ["actcond", "1827", ">=", 3], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 0.9},
+            {"cond": ["actcond", "1827", ">=", 4], "dmg": 10.0, "target": "HOSTILE", "iv": 1.43333, "msl": 1.2},
             {"cond": ["actcond", 1827, ">=", 4], "actcond": "1828", "target": "MYSELF", "iv": 1.5},
             {"cond": ["actcond", 1827, ">=", 3], "actcond": "1828", "target": "MYSELF", "iv": 1.5},
             {"cond": ["actcond", 1827, ">=", 2], "actcond": "1828", "target": "MYSELF", "iv": 1.5},

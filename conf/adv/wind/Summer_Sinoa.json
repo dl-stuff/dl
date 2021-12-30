@@ -16,12 +16,12 @@
         "wt": "wand",
         "spiral": false,
         "abilities": [
-            {"cond": ["actcond", 1096, "=", 1], "ab": [["actdmg", 0.2, "-t:s1"]]},
-            {"cond": ["actcond", 1096, "=", 2], "ab": [["actdmg", 0.25, "-t:s1"]]},
-            {"cond": ["actcond", 1096, "=", 3], "ab": [["actdmg", 0.3, "-t:s1"]]},
-            {"cond": ["actcond", 1096, "=", 3], "ab": [["hitattr", {"actcond": "435", "target": "MYPARTY"}]]},
-            {"cond": ["actcond", 1096, "=", 3], "ab": [["hitattr", {"actcond": "304030401", "target": "MYPARTY"}]]},
-            {"cond": ["actcond", 1096, "=", 3], "ab": [["hitattr", {"actcond": "1085", "target": "MYPARTY"}]]},
+            {"cond": ["actcond", "1096", "=", 1], "ab": [["actdmg", 0.2, "-t:s1"]]},
+            {"cond": ["actcond", "1096", "=", 2], "ab": [["actdmg", 0.25, "-t:s1"]]},
+            {"cond": ["actcond", "1096", "=", 3], "ab": [["actdmg", 0.3, "-t:s1"]]},
+            {"cond": ["actcond", "1096", "=", 3], "ab": [["hitattr", {"actcond": "435", "target": "MYPARTY"}]]},
+            {"cond": ["actcond", "1096", "=", 3], "ab": [["hitattr", {"actcond": "304030401", "target": "MYPARTY"}]]},
+            {"cond": ["actcond", "1096", "=", 3], "ab": [["hitattr", {"actcond": "1085", "target": "MYPARTY"}]]},
             {"ab": [["mod", 1.0, "affres_freeze"]]},
             {"ab": [["actdmg", 0.3, "-t:s"]]}
         ],

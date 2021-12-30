@@ -23,7 +23,7 @@
             {"cond": ["energy", "=", 3], "ab": [["mod", 0.08, "att"], ["mod", 0.03, "crit"]]},
             {"cond": ["energy", "=", 4], "ab": [["mod", 0.1, "att"], ["mod", 0.04, "crit"]]},
             {"cond": ["energy", "=", 5], "ab": [["mod", 0.2, "att"], ["mod", 0.08, "crit"]]},
-            {"cond": ["actcond", 1884], "ab": [["altskill", "enhanced", "-t:s1"]]},
+            {"cond": ["actcond", "1884", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]},
             {"cd": 30.0, "ab": [["hitattr", {"amp": ["20000", 2, 0], "target": "MYSELF"}]]},
             {"ab": [["actcond", "MYSELF", "1884"]]},
             {"ab": [["mod", 1.0, "affres_paralysis"]]},
@@ -46,7 +46,7 @@
         ],
         "abilities": [
             {"cond": ["energy", "=", 5], "ab": [["actcond", "MYSELF", "1884"]]},
-            {"cond": ["actcond", 1884], "ab": [["altskill", "enhanced", "-t:s1"]]}
+            {"cond": ["actcond", "1884", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]}
         ]
     },
     "s1_enhanced": {

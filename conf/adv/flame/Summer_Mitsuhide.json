@@ -17,7 +17,7 @@
         "abilities": [
             {"cond": ["break"], "ab": [["actdmg", -0.15, "-t:s1"]]},
             {"ab": [["mod", 0.05, "spd"]]},
-            {"cond": ["actcond", 1771, ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]},
+            {"cond": ["actcond", "1771", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]},
             {"cond": ["sp", "s2", "<", 100], "ab": [["mod", 0.1, "spd"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
             {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.35, "killer_scorchrend"]]}

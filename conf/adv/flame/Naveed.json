@@ -20,7 +20,7 @@
             {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.08, "att"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
             {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["actcond", 338], "ab": [["mod", 0.2, "def"]]},
+            {"cond": ["actcond", "338", ">=", 1], "ab": [["mod", 0.2, "def"]]},
             {"cond": ["event", "start"], "ab": [["prep", 1.0]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 9065}

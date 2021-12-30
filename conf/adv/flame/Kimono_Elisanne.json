@@ -15,10 +15,10 @@
         "wt": "lance",
         "spiral": false,
         "abilities": [
-            {"cond": ["actcond", 1442, "=", 1], "ab": [["mod", 0.07, "sph"], ["actcond", "MYSELF", "1470"]]},
-            {"cond": ["actcond", 1443, "=", 1], "ab": [["mod", 0.08, "sph"], ["actcond", "MYSELF", "1470"]]},
-            {"cond": ["actcond", 1444, "=", 1], "ab": [["mod", 0.1, "sph"]]},
-            {"cond": ["actcond", 1444, "=", 1], "ab": [["actcond", "MYSELF", "1468"]]},
+            {"cond": ["actcond", "1442", "=", 1], "ab": [["mod", 0.07, "sph"], ["actcond", "MYSELF", "1470"]]},
+            {"cond": ["actcond", "1443", "=", 1], "ab": [["mod", 0.08, "sph"], ["actcond", "MYSELF", "1470"]]},
+            {"cond": ["actcond", "1444", "=", 1], "ab": [["mod", 0.1, "sph"]]},
+            {"cond": ["actcond", "1444", "=", 1], "ab": [["actcond", "MYSELF", "1468"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
             {"cond": ["event", "start"], "ab": [["prep", 1.0]]}
         ],

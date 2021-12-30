@@ -38,7 +38,7 @@
         ],
         "abilities": [
             {"cond": ["energy", "=", 5], "ab": [["actcond", "MYSELF", "1884"]]},
-            {"cond": ["actcond", 1884], "ab": [["altskill", "enhanced", "-t:s1"]]}
+            {"cond": ["actcond", "1884", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]}
         ]
     },
     "s1_enhanced": {

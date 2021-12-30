@@ -22,7 +22,7 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["mod", 0.05, "def"]]},
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "969"]]},
-            {"cond": ["actcond", 977], "ab": [["altskill", "enhanced", "-t:s1"], ["altskill", "enhanced", "-t:s2"]]},
+            {"cond": ["actcond", "977", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"], ["altskill", "enhanced", "-t:s2"]]},
             {"cond": ["actcondend", 969], "ab": [["actcond", "MYSELF", "970"]]},
             {"cond": ["actcondend", 970], "ab": [["actcond", "MYSELF", "969"]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},

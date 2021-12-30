@@ -16,10 +16,10 @@
         "spiral": true,
         "abilities": [
             {"ab": [["actdmg", 0.5, "-t:fs"]]},
-            {"cond": ["buffedby", "s2"], "ab": [["actdmg", 0.1, "-t:fs"]]},
+            {"cond": ["buffed_by", "s2"], "ab": [["actdmg", 0.1, "-t:fs"]]},
             {"ab": [["mod", 1.0, "affres_poison"]]},
             {"cond": ["selfaff", "poison"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["buffedby", "s2"], "ab": [["mod", 0.3, "att"], ["mod", 0.1, "spd"]]}
+            {"cond": ["buffed_by", "s2"], "ab": [["mod", 0.3, "att"], ["mod", 0.1, "spd"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 4702}
     },

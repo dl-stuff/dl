@@ -18,8 +18,8 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
-            {"cond": ["actcond", 1171], "ab": [["mod", 0.12, "sph"]]},
-            {"cond": ["actcond", 1171], "ab": [["mod", 0.12, "sph"]]},
+            {"cond": ["actcond", "1171", ">=", 1], "ab": [["mod", 0.12, "sph"]]},
+            {"cond": ["actcond", "1171", ">=", 1], "ab": [["mod", 0.12, "sph"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]}
         ],
         "skillshare": {"src": "s1", "cost": 6, "sp": 13144}

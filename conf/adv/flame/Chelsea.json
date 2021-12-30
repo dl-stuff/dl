@@ -13,7 +13,7 @@
         "abilities": [
             {"cond": ["hp", "<=", 30], "ab": [["mod", 0.2, "att"], ["mod", 0.1, "spd"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
-            {"cond": ["buffedby", "s2"], "ab": [["mod", 0.3, "att"], ["mod", -0.2, "def"]]}
+            {"cond": ["buffed_by", "s2"], "ab": [["mod", 0.3, "att"], ["mod", -0.2, "def"]]}
         ],
         "skillshare": {"src": "s1", "cost": 4, "sp": 5820}
     },

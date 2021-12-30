@@ -24,7 +24,7 @@
             {"ab": [["actcond", "MYSELF", "1703"]]},
             {"cond": ["hits", ">=", 1, 1, "fs"], "cd": 1.0, "ab": [["actcond", "MYSELF", "1703"]]},
             {"cond": ["hits", ">=", 10, 1], "ab": [["actcond", "MYSELF", "1703"]]},
-            {"cond": ["actcond", 1703], "ab": [["mod", 0.2, "def"]]},
+            {"cond": ["actcond", "1703", ">=", 1], "ab": [["mod", 0.2, "def"]]},
             {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
             {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_burn"], ["mod", 1.0, "affres_stun"]]},

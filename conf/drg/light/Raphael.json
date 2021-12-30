@@ -10,7 +10,7 @@
         "ele": "light",
         "abilities": [
             {"ab": [["mod", 0.6, "att"]]},
-            {"cond": ["actcond", 1749], "ele": "light", "ab": [["mod", 0.5, "def"]]},
+            {"cond": ["actcond", "1749", ">=", 1], "ele": "light", "ab": [["mod", 0.5, "def"]]},
             {"cond": ["damaged", -1], "cd": 60.0, "ele": "light", "ab": [["hitattr", {"heal": 132, "target": "MYSELF"}], ["actcond", "MYSELF", "1749"]]}
         ]
     },

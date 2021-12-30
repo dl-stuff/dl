@@ -14,11 +14,11 @@
         "abilities": [
             {"cond": ["hits", ">=", 100, 1], "ab": [["actcond", "MYSELF", "1665"]]},
             {"cond": ["slayer", 5], "ab": [["actcond", "MYSELF", "1665"]]},
-            {"cond": ["actcond", 1665], "ab": [["mod", -0.15, "actdmgdown"]]},
-            {"cond": ["actcond", 1666], "ab": [["mod", -0.2, "actdmgdown"]]},
-            {"cond": ["actcond", 1667], "ab": [["mod", -0.25, "actdmgdown"]]},
-            {"cond": ["actcond", 1668], "ab": [["mod", -0.3, "actdmgdown"]]},
-            {"cond": ["actcond", 1669], "ab": [["mod", -0.5, "actdmgdown"]]},
+            {"cond": ["actcond", "1665", ">=", 1], "ab": [["mod", -0.15, "actdmgdown"]]},
+            {"cond": ["actcond", "1666", ">=", 1], "ab": [["mod", -0.2, "actdmgdown"]]},
+            {"cond": ["actcond", "1667", ">=", 1], "ab": [["mod", -0.25, "actdmgdown"]]},
+            {"cond": ["actcond", "1668", ">=", 1], "ab": [["mod", -0.3, "actdmgdown"]]},
+            {"cond": ["actcond", "1669", ">=", 1], "ab": [["mod", -0.5, "actdmgdown"]]},
             {"ab": [["mod", 1.0, "affres_freeze"]]},
             {"ab": [["ctime", 2.0]]},
             {"cond": ["actcond", 1669, ">=", 1], "ab": [["hitattr", {"dmg": 0.8, "target": "HOSTILE"}]]}
@@ -37,7 +37,7 @@
         ],
         "cancel": {"any": 2.16667},
         "abilities": [
-            {"cond": ["actcond", 1669], "ab": [["altskill", "enhanced", "-t:s1"]]}
+            {"cond": ["actcond", "1669", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]}
         ]
     },
     "s1_enhanced": {
