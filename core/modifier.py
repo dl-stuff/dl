@@ -970,12 +970,9 @@ class AffResDebuff(Buff):
             self.bufftime = self._no_bufftime
         else:
             self.bufftime = self._debufftime
+        self.res_modifier = Modifier(name, f"affres_{affname}", "debuff", value, get=self.get)
+        self.afflic.aff_res_mods.append(self.res_modifier)
 
-    def effect_on(self):
-        self.afflic.set_res_mod(self.value())
-
-    def effect_off(self):
-        self.afflic.set_res_mod(-self.value())
 
 
 bufftype_dict["affres"] = AffResDebuff

@@ -93,7 +93,6 @@ class AfflicBase:
         self._resist = 0
         self._rate = 1
         self.tolerance = tolerance
-        self.res_modifier = 0
         self.duration = duration
         self.default_duration = duration
         self.states = None
@@ -108,6 +107,7 @@ class AfflicBase:
         self.get_override = 0
         self.aff_edge_mods = []
         self.aff_time_mods = []
+        self.aff_res_mods = []
 
     @property
     def edge(self):
@@ -116,6 +116,10 @@ class AfflicBase:
     @property
     def time(self):
         return 1 + sum((m.get() for m in self.aff_time_mods))
+
+    @property
+    def res_modifier(self):
+        return sum((m.get() for m in self.aff_res_mods))
 
     @property
     def rate(self):
@@ -144,9 +148,6 @@ class AfflicBase:
             return 0
         else:
             return self.get_override or self._get
-
-    def set_res_mod(self, delta):
-        self.res_modifier = max(min(self.res_modifier + delta, 0), -1)
 
     def uptime(self):
         next_r = self.get()

@@ -1917,7 +1917,7 @@ class Adv(object):
             x_next = self.a_x_dict[self.current_x][1]
         # special: in dform and if there isn't enough time left to complete next x, try sack instead
         if x_next.group == globalconf.DRG:
-            if self.dragonform.dform_mode == -1 and not self.dragonform.untimed_shift and x_next.getstartup() >= self.dshift_timeleft:
+            if prev.status == Action.RECOVERY and self.dragonform.dform_mode == -1 and not self.dragonform.untimed_shift and x_next.getstartup() >= self.dshift_timeleft:
                 return self.sack()
         elif not x_next.enabled:
             self.current_x = globalconf.DEFAULT

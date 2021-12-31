@@ -308,7 +308,7 @@ class DragonBase(EquipBase):
         return super().ab if self.on_ele else []
 
 
-from core.modifier import EffectBuff, SelfAffliction, Selfbuff, SingleActionBuff
+from core.modifier import EffectBuff, Modifier, SelfAffliction, Selfbuff, SingleActionBuff
 from core.timeline import Listener, Timer, now, Event
 from core.log import log
 
@@ -377,6 +377,25 @@ class Gabriel(DragonBase):
         self.gabriel_favor = Selfbuff("gabriel_favor", 0.1, -1, "att", "buff")
 
         adv.heal_event.listener(self.gab_buff_on)
+
+
+class Gala_Beast_Ciella(DragonBase):
+    def ds1_proc(self, e):
+        for _ in range(self.adv.crystal_arrow * 6):
+            self.adv.dmg_make("d_crystal_arrow", 0.9, dtype="#")
+        self.adv.crystal_arrow = 0
+
+    def shift_end_proc(self, _=None):
+        self.adv.crystal_arrow = 0
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        self.adv.crystal_arrow = 0
+        self.adv.vulnerability = 0
+        self.vulnerability_defdown = Modifier("vulnerability_defdown", "def", "debuff", 0.0)
+        self.vulnerability_defdown.get = lambda: self.adv.vulnerability * -0.00
+        self.vulnerability_resdown = Modifier("vulnerability_resdown", "affres_frostbite", "debuff", 0.0)
+        self.vulnerability_resdown.get = lambda: self.adv.vulnerability * -0.00
 
 
 ### WATER DRAGONS ###
