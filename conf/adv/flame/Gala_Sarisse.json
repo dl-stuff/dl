@@ -16,7 +16,7 @@
         "wt": "bow",
         "spiral": false,
         "abilities": [
-            {"cond": ["hits", ">=", 20, 1], "ab": [["actcond", "MYSELF", "22"], ["actcond", "MYSELF", "23"]]},
+            {"cond": ["hitcount", 20], "ab": [["actcond", "MYSELF", "22"], ["actcond", "MYSELF", "23"]]},
             {"ab": [["mod", 1.0, "affres_stun"], ["mod", 1.0, "affres_sleep"]]},
             {"ab": [["mod", 0.3, "bufftime", "-t:s"]]}
         ],

@@ -1430,11 +1430,11 @@ class Adv(object):
                 mod *= 1 if self.a_s_dict[name].owner is None else self.skill_share_att
             except:
                 pass
-            return mod * self.mod("s")
+            return mod * Modifier.SELF.mod("s")
         elif dtype == "x":
-            return mod * self.mod("x")
+            return mod * Modifier.SELF.mod("x")
         elif dtype == "fs":
-            return mod * self.mod("fs")
+            return mod * Modifier.SELF.mod("fs")
         else:
             return mod
 
@@ -1502,13 +1502,15 @@ class Adv(object):
             base_chance = 0.04
         else:
             base_chance = 0.02
-        chance = min(self.mod("crit", operator=operator.add, initial=base_chance), 1)
-        cdmg = self.mod("critdmg", operator=operator.add, initial=1.7)
+        chance = min(Modifier.SELF.mod("crit", operator=operator.add, initial=base_chance), 1)
+        cdmg = Modifier.SELF.mod("critdmg", operator=operator.add, initial=1.7)
         return chance, cdmg
 
     def solid_crit_mod(self, name=None):
         chance, cdmg = self.combine_crit_mods()
+        # chance * cdmg + (1 - chance) * 1 - 1
         average = chance * (cdmg - 1) + 1
+        log("solid_crit_mod", chance, cdmg, average)
         return average
 
     def rand_crit_mod(self, name=None):
@@ -1524,9 +1526,7 @@ class Adv(object):
         att = self.mod("att")
         cc = self.crit_mod(name)
         k = self.killer_mod(name)
-        # if name == 's1_ddrive':
-        #     print(dict(self.all_modifiers['att']))
-        #     exit()
+        log("att_mod", str((att, cc, k)), cc * att * k)
         return cc * att * k
 
     def build_rates(self, as_list=True):
@@ -1928,7 +1928,7 @@ class Adv(object):
             self.hits = self.echo
             log("combo", f"reset combo after {delta:2.4}s")
         self.hit_event.name = name
-        self.hit_event.add = self.echo
+        self.hit_event.count = self.echo
         self.hit_event.hits = self.hits
         self.hit_event.kept_combo = kept_combo
         self.hit_event()

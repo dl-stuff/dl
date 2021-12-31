@@ -69,20 +69,12 @@ CONDITONS["hp"] = CondHP
 class CondHits(CompareCond):
     def __init__(self, adv, *args) -> None:
         super().__init__("hits", adv, *args)
+        self.current_state = False
 
     def get(self):
         return self._op(self._adv.hits, self.value)
 
-
-CONDITONS["hits"] = CondHits
-
-
-class CondTotalHits(CompareCond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__("hits", adv, *args)
-        self.current_state = False
-
-    def get(self):
+    def check(self, e):
         # check is true only when here is a change from current state
         new_state = self._op(self._adv.hits, self.value)
         result = self.current_state != new_state
@@ -90,7 +82,7 @@ class CondTotalHits(CompareCond):
         return result
 
 
-CONDITONS["thits"] = CondTotalHits
+CONDITONS["hits"] = CondHits
 
 
 class CondActcond(CompareCond):
@@ -158,21 +150,38 @@ class CondEvent(Cond):
 CONDITONS["event"] = CondEvent
 
 
-class CondSlayer(Cond):
-    def __init__(self, adv, *args) -> None:
+class CondPersistentCount(Cond):
+    def __init__(self, event, adv, *args) -> None:
         super().__init__(adv, *args)
-        self.event = "slayed"
+        self.event = event
         self.threshold = args[0]
         self.count = 0
-        # self.target = args[-1]
+        self.target = None
+        if len(args) > 1:
+            self.target = args[1]
 
     def check(self, e):
-        if (e.count + self.count) < self.threshold:
-            self.count += e.count
+        if self.target is not None and not e.name.startswith(self.target):
+            return False
+        self.count += e.count
+        if self.count < self.threshold:
             return False
         else:
-            e.count += self.count
+            self.count -= self.threshold
             return True
+
+
+class CondHitsEvent(CondPersistentCount):
+    def __init__(self, adv, *args) -> None:
+        super().__init__("hits", adv, *args)
+
+
+CONDITONS["hitcount"] = CondHitsEvent
+
+
+class CondSlayer(CondPersistentCount):
+    def __init__(self, adv, *args) -> None:
+        super().__init__("slayer", adv, *args)
 
 
 CONDITONS["slayer"] = CondSlayer
@@ -252,7 +261,10 @@ class AbActdmg(AbModifier):
     def __init__(self, adv, ability, *args) -> None:
         try:
             self.target = args[1].replace("-t:", "")
-            super().__init__(adv, ability, args[0], self.target, "passive")
+            if len(args) == 3:
+                super().__init__(adv, ability, args[0], self.target, args[2])
+            else:
+                super().__init__(adv, ability, args[0], self.target, "passive")
         except IndexError:
             self.target = "act"
             if isinstance(self._cond, CondOverdrive):

@@ -12,7 +12,7 @@
         "wt": "dagger",
         "spiral": false,
         "abilities": [
-            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.1, "crit"]]},
+            {"cond": ["hits", ">=", 15, 1], "ab": [["mod", 0.1, "crit"]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.06, "crit"]]}
         ],

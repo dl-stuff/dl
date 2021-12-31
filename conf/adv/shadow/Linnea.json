@@ -15,7 +15,7 @@
         "wt": "blade",
         "spiral": false,
         "abilities": [
-            {"cond": ["hits", ">=", 3, 1, "fs"], "ab": [["hitattr", {"sp": [0.3, "%", "s1"], "target": "MYSELF"}]]},
+            {"cond": ["hitcount", 3, "fs"], "ab": [["hitattr", {"sp": [0.3, "%", "s1"], "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_blind"]]},
             {"ab": [["actdmg", 0.5, "-t:fs"]]}
         ]

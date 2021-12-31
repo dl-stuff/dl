@@ -18,7 +18,7 @@
             {"cond": ["event", "dispel"], "ab": [["actcond", "MYSELF", "1319"]]},
             {"cond": ["event", "dispel"], "ab": [["actcond", "HOSTILE", "1321"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
-            {"cond": ["hits", ">=", 30, 1], "ab": [["actcond", "MYSELF", "1319"]]}
+            {"cond": ["hitcount", 30], "ab": [["actcond", "MYSELF", "1319"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 5750}
     },

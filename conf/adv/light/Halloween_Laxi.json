@@ -25,12 +25,12 @@
             {"cond": ["event", "start"], "ab": [["cprep", 1.0]]},
             {"cond": ["event", "cp_full"], "ab": [["actcond", "MYSELF", "1965"]]},
             {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", "1985"]]},
-            {"cond": ["hits", ">=", 25, 1], "ab": [["actcond", "MYSELF", "1990"]]},
-            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1991"]]},
+            {"cond": ["hitcount", 25], "ab": [["actcond", "MYSELF", "1990"]]},
+            {"cond": ["hits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1991"]]},
             {"ab": [["ctime", 1.0]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},
-            {"cond": ["hits", ">=", 15, 1], "ab": [["actcond", "MYSELF", "1951"]]},
-            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1955"], ["actcond", "MYSELF", "1957"]]},
+            {"cond": ["hitcount", 15], "ab": [["actcond", "MYSELF", "1951"]]},
+            {"cond": ["hits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1955"], ["actcond", "MYSELF", "1957"]]},
             {"cond": ["aff", "flashburn"], "cd": 1.0, "ab": [["hitattr", {"actcond": "1953", "target": "MYSELF"}]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 7481}

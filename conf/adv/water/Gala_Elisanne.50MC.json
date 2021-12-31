@@ -19,8 +19,8 @@
         "spiral": false,
         "abilities": [
             {"ab": [["actcond", "MYSELF", "251"]]},
-            {"cond": ["hits", ">=", 1, 1, "fs"], "cd": 1.0, "ab": [["actcond", "MYSELF", "251"]]},
-            {"cond": ["hits", ">=", 10, 1], "ab": [["actcond", "MYSELF", "251"]]},
+            {"cond": ["hitcount", 1, "fs"], "cd": 1.0, "ab": [["actcond", "MYSELF", "251"]]},
+            {"cond": ["hitcount", 10], "ab": [["actcond", "MYSELF", "251"]]},
             {"ab": [["mod", 1.0, "affres_burn"], ["mod", 1.0, "affres_stun"]]},
             {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", "146"]]}
         ],

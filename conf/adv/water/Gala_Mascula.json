@@ -23,21 +23,21 @@
         "abilities": [
             {"cond": ["sp", "s1", ">", -1], "actcond": "1711", "ab": [["mode", "mode2"]]},
             {"cond": ["actcondend", 1711], "ab": [["mode", ""]]},
-            {"cond": ["thits", ">=", 30, 1], "actcond": "1711", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
+            {"cond": ["hits", ">=", 30, 1], "actcond": "1711", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1710", "ab": [["mode", "mode2"]]},
             {"cond": ["actcondend", 1710], "ab": [["mode", ""]]},
             {"cd": 20.0, "ab": [["hitattr", {"amp": ["10000", 3, 0], "target": "MYSELF"}]]},
             {"cond": ["actcond", "1710", ">=", 1], "ab": [["mod", 0.06, "spd"]]},
             {"cond": ["actcond", "1711", ">=", 1], "ab": [["mod", 0.06, "spd"]]},
-            {"cond": ["thits", ">=", 30, 1], "actcond": "1710", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
+            {"cond": ["hits", ">=", 30, 1], "actcond": "1710", "ab": [["mod", 0.1, "att"], ["mod", 0.08, "crit"], ["mod", 0.08, "critdmg"]]},
             {"cond": ["actcondend", 1710], "ab": [["prep", 0.5]]},
             {"cond": ["actcondend", 1711], "ab": [["prep", 0.5]]},
             {"cond": ["event", "dragon"], "ab": [["actcond", "MYSELF", "1790"], ["actcond", "MYSELF", "1791"]]},
             {"ab": [["mod", 1.0, "affres_burn"], ["mod", 1.0, "affres_stun"]]},
-            {"cond": ["hits", ">=", 15, 1], "ab": [["actcond", "MYSELF", "1088"]]},
-            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1047"]]},
+            {"cond": ["hitcount", 15], "ab": [["actcond", "MYSELF", "1088"]]},
+            {"cond": ["hits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1047"]]},
             {"cond": ["event", "crit"], "cd": 1.0, "ab": [["actcond", "MYSELF", "1045"]]},
-            {"cond": ["thits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1090"]]}
+            {"cond": ["hits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1090"]]}
         ],
         "skillshare": {"src": "s2", "cost": 6, "sp": 16668}
     },

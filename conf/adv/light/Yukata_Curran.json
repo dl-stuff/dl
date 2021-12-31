@@ -20,7 +20,7 @@
             {"cond": ["hp", "<", 50, 1], "ab": [["actcond", "MYSELF", "1093"]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1094", "ab": [["mode", "mode2"]]},
             {"cond": ["hp", "<", 30, 1], "ab": [["mode", ""], ["actcond", "MYSELF", "1095"]]},
-            {"cond": ["hits", ">=", 10, 1, "s1"], "ab": [["actcond", "MYSELF", "47"]]},
+            {"cond": ["hitcount", 10, "s1"], "ab": [["actcond", "MYSELF", "47"]]},
             {"ab": [["mod", 1.0, "affres_poison"]]},
             {"cond": ["energy", "=", 1], "ab": [["mod", 0.04, "att"], ["mod", 0.01, "crit"]]},
             {"cond": ["energy", "=", 2], "ab": [["mod", 0.06, "att"], ["mod", 0.02, "crit"]]},

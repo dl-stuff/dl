@@ -14,10 +14,10 @@
         "wt": "sword",
         "spiral": true,
         "abilities": [
-            {"cond": ["hits", ">=", 20, 1], "count": 3, "ab": [["actcond", "MYSELF", "1455"]]},
+            {"cond": ["hitcount", 20], "count": 3, "ab": [["actcond", "MYSELF", "1455"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["hits", ">=", 30, 1], "count": 3, "ab": [["actcond", "MYSELF", "918"]]}
+            {"cond": ["hitcount", 30], "count": 3, "ab": [["actcond", "MYSELF", "918"]]}
         ],
         "skillshare": {"src": "s2", "cost": 3, "sp": 9277}
     },

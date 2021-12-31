@@ -13,7 +13,7 @@
         "wt": "bow",
         "spiral": false,
         "abilities": [
-            {"cond": ["hits", ">=", 35, 1], "ab": [["actcond", "MYSELF", "1"]]},
+            {"cond": ["hitcount", 35], "ab": [["actcond", "MYSELF", "1"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"cond": ["break"], "ab": [["actdmg", 0.2]]}
         ],

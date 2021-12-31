@@ -15,10 +15,10 @@
         "spiral": false,
         "utp": [1, 1800, 560, 65],
         "abilities": [
-            {"cond": ["thits", ">=", 20, 1], "ab": [["actcond", "MYSELF", "1570"]]},
-            {"cond": ["thits", "<", 19, 1], "ab": [["actcond", "MYSELF", "1596"]]},
+            {"cond": ["hits", ">=", 20, 1], "ab": [["actcond", "MYSELF", "1570"]]},
+            {"cond": ["hits", "<", 19, 1], "ab": [["actcond", "MYSELF", "1596"]]},
             {"ab": [["mod", 1.0, "affres_freeze"], ["mod", 1.0, "affres_bog"]]},
-            {"cond": ["thits", ">=", 15, 1], "ab": [["mod", 0.2, "att"]]}
+            {"cond": ["hits", ">=", 15, 1], "ab": [["mod", 0.2, "att"]]}
         ],
         "skillshare": {"src": "s99", "cost": 6, "sp": 8279}
     },

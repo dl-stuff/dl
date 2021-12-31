@@ -23,7 +23,7 @@
             {"cond": ["selfaff", "freeze"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
             {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_freeze"], ["mod", 1.0, "affres_bog"]]},
-            {"cond": ["thits", ">=", 10, 1], "ab": [["mod", 0.25, "att"], ["mod", 0.7, "edge_poison"], ["mod", 0.3, "afftime_poison"]]}
+            {"cond": ["hits", ">=", 10, 1], "ab": [["mod", 0.25, "att"], ["mod", 0.7, "edge_poison"], ["mod", 0.3, "afftime_poison"]]}
         ]
     },
     "fs_shielding": {
