@@ -525,6 +525,30 @@ class Gala_Beast_Volk(DragonBase):
         Event("divinedragon_end").listener(self.shift_end_proc)
 
 
+class Fudo_Myoo(DragonBase):
+    COMPASSION_CD = 15
+
+    def ds1_proc(self, e):
+        log("debug", "mantra of compassion")
+        self.adv.compassion = True
+        Timer(self.end_compassion, self.COMPASSION_CD).on()
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        self.adv.compassion = True
+        self.wrath_mods = [Modifier("wrath_eledmg", "wind", "ele", 0.3, get=self.is_wrath), Modifier("wrath_aspd", "spd", "buff", 0.3, get=self.is_wrath)]
+        Timer(self.end_compassion, self.COMPASSION_CD).on()
+
+    def end_compassion(self, _=None):
+        log("debug", "mantra of wrath")
+        self.adv.compassion = False
+        if self.adv.compassion <= 0 and not self.adv.is_set_cd("wrath_dprep", 180):
+            self.adv.dragonform.charge_dprep(50)
+
+    def is_wrath(self):
+        return not self.adv.compassion
+
+
 ### WIND DRAGONS ###
 
 ### LIGHT DRAGONS ###

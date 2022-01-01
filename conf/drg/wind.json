@@ -149,6 +149,62 @@
             "cancel": {"any": 1.66667}
         }
     },
+    "Fudo_Myoo": {
+        "d": {
+            "name": "Fudo Myo-o",
+            "icon": "210169_01",
+            "att": 126,
+            "hp": 369,
+            "ele": "wind",
+            "a": [["a", 0.7]]
+        },
+        "dx1": {
+            "startup": 0.93333,
+            "recovery": 1.36667,
+            "attr": [
+                {"dmg": 2.75, "sp": 5},
+                {"dmg": 2.75}, 3
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.2, "dodge": 0.0, "dx2": 0.66667, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.66667,
+            "recovery": 1.5,
+            "attr": [
+                {"dmg": 3.0, "sp": 5},
+                {"dmg": 3.0}, 3
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.33333, "dodge": 0.0, "dx3": 0.83333, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.66667,
+            "recovery": 1.83333,
+            "attr": [
+                {"dmg": 2.5, "sp": 5},
+                {"dmg": 2.5}, 5
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.5, "dodge": 0.0, "dx1": 1.33333, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 2.8,
+            "cancel": {"any": 2.5},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 4.17, "afflic": ["stormlash", 120, 0.41], "iv": 0.66667},
+                {"dmg": 4.17, "iv": 0.66667, "msl": 0.2, "msl_spd": 1},
+                {"dmg": 4.17, "iv": 0.66667, "msl": 0.4, "msl_spd": 1},
+                {"dmg": 4.17, "iv": 0.66667, "msl": 0.6, "msl_spd": 1},
+                {"dmg": 4.17, "iv": 0.66667, "msl": 0.8, "msl_spd": 1},
+                {"dmg": 4.17, "iv": 0.66667, "msl": 1.0, "msl_spd": 1}
+            ]
+        }
+    },
     "Gala_Beast_Volk": {
         "dacl": ["`ds1, blood_moon=0", "`fst(6.8), blood_moon=1 and moonlit_rage=1"],
         "d": {
