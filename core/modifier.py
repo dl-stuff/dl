@@ -974,7 +974,6 @@ class AffResDebuff(Buff):
         self.afflic.aff_res_mods.append(self.res_modifier)
 
 
-
 bufftype_dict["affres"] = AffResDebuff
 
 
@@ -1425,6 +1424,56 @@ class AmpBuff:
         if level > 0:
             return self.buffs[level - 1].timeleft()
         return 0
+
+
+class BurstGambit:
+    active_burst_gambit = None
+    is_cd = False
+
+    def __init__(self, name, count, effect_on, effect_off) -> None:
+        self.name = name
+        self.count = 0
+        self.required_count = count
+        self.effect_on = effect_on
+        self.effect_off = effect_off
+        self.bg_listeners = [Listener(affname, self.update) for affname in AFFLICT_LIST]
+        self.bg_listeners.append(Listener("buff", self.update))
+        self.bg_listeners.append(Listener("bleed", self.update))
+        for listener in self.bg_listeners:
+            listener.off()
+
+    def on(self):
+        if BurstGambit.is_cd:
+            return
+        if BurstGambit.active_burst_gambit is not None:
+            BurstGambit.active_burst_gambit.update()
+        else:
+            self.effect_on()
+            BurstGambit.active_burst_gambit = self
+            for listener in self.bg_listeners:
+                listener.on()
+            self.count = self.required_count
+
+    def update(self, e=None):
+        if e is not None:
+            if e.name == "buff" and not e.buff.bufftype == "debuff":
+                return
+            if e.name in AFFLICT_LIST and e.rate < 0.025:
+                return
+        self.count -= 1
+        if self.count <= 0:
+            self.effect_off()
+            for listener in self.bg_listeners:
+                listener.off()
+            BurstGambit.active_burst_gambit = None
+            self.count = 0
+            BurstGambit.is_cd = True
+            Timer(self.cd_end, 5).on()
+        else:
+            log("burst_gambit", self.name, self.count)
+
+    def cd_end(self, t):
+        BurstGambit.is_cd = False
 
 
 class ActiveBuffDict(defaultdict):
