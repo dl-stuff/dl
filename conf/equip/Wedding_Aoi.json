@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 77164.90823411588,
-        "team": 0.06901019330180691,
+        "dps": 99058.16394216934,
+        "team": 0.0690144138576324,
         "noaff": false,
         "nihil": false
       },
@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77164.90823411588,
-        "team": 0.06901019330180691,
+        "dps": 99058.16394216934,
+        "team": 0.0690144138576324,
         "noaff": false,
         "nihil": false
       },
@@ -85,8 +85,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55777.973092881366,
-        "team": 0.07399361424010067,
+        "dps": 62280.167643921915,
+        "team": 0.054332711203294574,
         "noaff": false,
         "nihil": true
       },
@@ -100,6 +100,7 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, fscf",
         "`s2, fscf",
@@ -114,8 +115,8 @@
         "Yukata_Lathna"
       ],
       "share": [
-        "Formal_Joachim",
-        "Gala_Mym"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -144,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 2555677.4138551834,
+      "tdps": 339557.96973492,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -155,8 +156,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91286.09856726587,
-        "team": 0.16187848802321317,
+        "dps": 94958.7439343551,
+        "team": 0.1454813679016657,
         "noaff": false,
         "nihil": false
       },
@@ -171,13 +172,12 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dodge, fsc",
         "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Gala_Notte",
-        "Yukata_Lathna"
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -195,8 +195,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70994.56812986538,
-        "team": 0.06893200906512754,
+        "dps": 89234.24186044002,
+        "team": 0.11004244629620072,
         "noaff": false,
         "nihil": true
       },
@@ -210,25 +210,21 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon",
+        "`dragon, dgauge>=950 or dshift_count",
         "`s2",
         "`s1",
-        "`s3, cancel",
+        "`s3, cancel and timeleft(s3)<5",
         "`s4, cancel",
         "`fs, xf=5"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fs"
+        "`fs, x=3"
       ],
       "coabs": [
         "Mona",
-        "Wand",
+        "Nino",
         "Yukata_Lathna"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
       ]
     },
     "META": {
@@ -239,11 +235,46 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 104366.585672323,
+        "team": 0.11004244629620072,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, dgauge>=950 or dshift_count",
+        "`s2",
+        "`s1",
+        "`s3, cancel and timeleft(s3)<5",
+        "`s4, cancel",
+        "`fs, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48581.39870338122,
-        "team": 0.06901019330180691,
+        "dps": 48663.844861554135,
+        "team": 0.06901019330180688,
         "noaff": false,
         "nihil": false
       }
@@ -259,8 +290,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35071.96714408046,
-        "team": 0.08510871826389042,
+        "dps": 40351.50083545879,
+        "team": 0.06838985404626063,
         "noaff": false,
         "nihil": true
       },

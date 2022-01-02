@@ -89,8 +89,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63292.02311654262,
-        "team": 0.07403733099197672,
+        "dps": 68599.45029253098,
+        "team": 0.07405988533641227,
         "noaff": false,
         "nihil": true
       },
@@ -104,6 +104,7 @@
         "Savage_Hawk_Bow"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -119,7 +120,7 @@
         "Mona"
       ],
       "share": [
-        "Summer_Celliera",
+        "Weapon",
         "Formal_Joachim"
       ]
     },
@@ -130,8 +131,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 129689.30297436439,
-        "team": 0.20664489767019004,
+        "dps": 129929.71568842603,
+        "team": 0.20664489767019023,
         "noaff": false,
         "nihil": false
       },
@@ -161,8 +162,85 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86998.107943121,
-        "team": 0.10434004534170122,
+        "dps": 101580.92563971257,
+        "team": 0.07402720609735548,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "Saint_Starfalls_Circus",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "if brewing_storm.level<5",
+        "`s1, xf or fsc",
+        "`s2",
+        "`s3, timeleft(s3)<5",
+        "`s4, cancel",
+        "`fs, xf=3",
+        "else",
+        "`dragon",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3, timeleft(s3)<5",
+        "`s4, fsc",
+        "`fs, x=5",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76419.05310502888,
+        "team": 0.20664489767019006,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Blossoms_on_the_Waters_Edge",
+        "Emissaries_of_the_Heavens",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40061.6373311334,
+        "team": 0.10555371402957917,
         "noaff": false,
         "nihil": true
       },
@@ -192,87 +270,6 @@
         "`fs, x=5",
         "end"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Catherine"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 76277.62364215714,
-        "team": 0.20664489767019004,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Blossoms_on_the_Waters_Edge",
-        "Emissaries_of_the_Heavens",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39018.452942874166,
-        "team": 0.10536823706373659,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "if brewing_storm.level<5",
-        "`s1, xf or fsc",
-        "`s2",
-        "`s3, fscf",
-        "`s4, cancel",
-        "`fs, x=3",
-        "else",
-        "`dragon",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s3",
-        "`s4, fsc",
-        "`fs, x=5",
-        "end"
-      ],
       "coabs": [
         "Gala_Notte",
         "Mona",
@@ -285,8 +282,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39627.32898918247,
-        "team": 0.10484984133007338,
+        "dps": 40061.6373311334,
+        "team": 0.10555371402957917,
         "noaff": false,
         "nihil": true
       },
@@ -326,7 +323,6 @@
       ]
     },
     "META": {
-      "tdps": 1174539.0765578353,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

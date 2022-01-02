@@ -34,9 +34,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117337.04739974807,
-        "team": 0.04166217718131425,
-        "noaff": true,
+        "dps": 124703.02031046718,
+        "team": 0.041655396953300325,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -48,16 +48,19 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Leviathan",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
+        "`dragon",
         "`s3, not buff(s3)",
         "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
         "`s4, energy()<5",
-        "`s2, energy()=5 and stronger_bullets>=3",
+        "`s2, energy()=5 and stronger_bullets=3",
         "`fs"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, crystal_arrow=2",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -70,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 165392.09473014149,
+      "tdps": 177529.81622212272,
       "pref": "PERSONAL"
     }
   },
@@ -109,8 +112,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61138.45360599582,
-        "team": 0.04189196829186692,
+        "dps": 74264.36628340295,
+        "team": 0.04163335372425271,
         "noaff": false,
         "nihil": true
       },
@@ -123,7 +126,7 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Leviathan",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, s",
         "`s4",
@@ -131,6 +134,11 @@
         "`s3",
         "`s1, s",
         "`fs"
+      ],
+      "dacl": [
+        "`fs, x=2 and crystal_arrow < 2",
+        "`ds, x=2 and crystal_arrow = 2",
+        "`dodge, x=2 or fsc"
       ],
       "coabs": [
         "Blade",
@@ -143,15 +151,15 @@
       ]
     },
     "META": {
-      "tdps": 240105.95787140008,
+      "tdps": 303999.5838962943,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 134067.27098437445,
-        "team": 0.04166217718131425,
+        "dps": 156555.80567632924,
+        "team": 0.041655396953300325,
         "noaff": false,
         "nihil": false
       },
@@ -163,17 +171,10 @@
         "His_Clever_Brother",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
-        "`s4, energy()<5",
-        "`s2, energy()=5 and stronger_bullets=3",
-        "`fs"
       ]
     },
     "META": {
-      "tdps": 192964.82489391832,
+      "tdps": 230025.13629042121,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -184,8 +185,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64221.320778477995,
-        "team": 0.0957283177042339,
+        "dps": 77935.49710512182,
+        "team": 0.09570249372729506,
         "noaff": false,
         "nihil": true
       },
@@ -198,7 +199,9 @@
         "`fs"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, crystal_arrow=2",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Blade",
@@ -211,7 +214,7 @@
       ]
     },
     "META": {
-      "tdps": 346574.085121029,
+      "tdps": 437703.5943669477,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -219,10 +222,29 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 110166.26799348611,
+        "team": 0.0415503207670913,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.d": "Leviathan"
+    },
+    "META": {
+      "tdps": 153545.77788444163,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51527.90458179402,
+        "dps": 51622.7412159936,
         "team": 0.04355967755924466,
         "noaff": true,
         "nihil": true
@@ -248,7 +270,7 @@
       ]
     },
     "META": {
-      "tdps": 194631.88225933714,
+      "tdps": 195100.1288505102,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

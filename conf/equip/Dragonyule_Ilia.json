@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 93950.69514597017,
-        "team": 0.10291671453685343,
+        "dps": 81925.5410802456,
+        "team": 0.10291671453685328,
         "noaff": true,
         "nihil": false
       },
@@ -78,14 +78,14 @@
       ]
     },
     "META": {
-      "tdps": 291584.1012770173,
+      "tdps": 408427.64918699785,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 111369.85583987858,
+        "dps": 111703.85929484878,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -110,7 +110,7 @@
       ]
     },
     "META": {
-      "tdps": 169254.92396738715,
+      "tdps": 289343.8480679434,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -230,7 +230,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 145780.79236349676,
+        "dps": 146050.2024520537,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -255,7 +255,7 @@
       ]
     },
     "META": {
-      "tdps": 419898.6359651687,
+      "tdps": 422257.58014750865,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -296,16 +296,12 @@
         "Gala_Laxi",
         "Halloween_Mym",
         "Kimono_Elisanne"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85546.46184823515,
-        "team": 0.03700528650121906,
+        "dps": 85787.19913106582,
+        "team": 0.03701896355638525,
         "noaff": false,
         "nihil": true
       },
@@ -341,7 +337,7 @@
       ]
     },
     "META": {
-      "tdps": 168597.1203207674,
+      "tdps": 188307.75841658487,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -352,8 +348,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 99533.05447814542,
-        "team": 0.11787729184703533,
+        "dps": 83616.94501698464,
+        "team": 0.11787729184703515,
         "noaff": false,
         "nihil": false
       },
@@ -376,8 +372,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108829.78532992376,
-        "team": 0.07323107397586949,
+        "dps": 109031.03210780933,
+        "team": 0.07323107397586937,
         "noaff": false,
         "nihil": false
       },
@@ -410,7 +406,7 @@
       ]
     },
     "META": {
-      "tdps": 208231.0953775663,
+      "tdps": 569232.6988181022,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -418,10 +414,53 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 83616.94501698464,
+        "team": 0.11787729184703515,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, cartridge_loaded=0",
+        "`s1, cartridge_loaded=3 and cancel",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49480.11300493132,
+        "dps": 49571.969650361185,
         "team": 0.0,
         "noaff": true,
         "nihil": true

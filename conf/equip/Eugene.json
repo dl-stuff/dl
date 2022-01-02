@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56947.85779022135,
-        "team": 0.36234666173613866,
+        "dps": 55714.29762652558,
+        "team": 0.36156171085986033,
         "noaff": false,
         "nihil": false
       },
@@ -68,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 105541.41813295695,
+      "tdps": 102709.77911323648,
       "pref": "PERSONAL"
     }
   },
@@ -87,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 142950.6250208275,
+      "tdps": 138963.1702837076,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -210,21 +210,24 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59987.14300461386,
-        "team": 0.32727750418969415,
+        "dps": 100976.03271183194,
+        "team": 0.20020164583610947,
         "noaff": false,
         "nihil": false
       },
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`s2, inspiration()=5 or duration-now<6 or (s1.phase=2 and checkmate=2)",
-        "`dragon, dgauge>=1000 or dshift_count>0",
+        "`s2, inspiration()=5 or duration-now<6",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, inspiration()<5",
         "`fs, x=4 or hits=0"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Tiki",
@@ -233,7 +236,7 @@
       ]
     },
     "META": {
-      "tdps": 104215.30518514123,
+      "tdps": 148519.6081671889,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -242,10 +245,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 36120.09952920004,
-        "team": 0.13327546956696334,
+        "dps": 37472.76781742232,
+        "team": 0.166387596134737,
         "noaff": false,
         "nihil": true
       },
@@ -261,28 +264,28 @@
       "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, fsc",
-        "`s4, cancel",
+        "`s4, x=5",
         "`s3, cancel",
-        "`fs, x=4"
+        "`fs, x=5"
       ],
       "dacl": [
         "`ds1, x=3",
         "`sack, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 34867.949496158864,
-        "team": 0.0,
+        "dps": 38768.6238066161,
+        "team": 0.09997858791908752,
         "noaff": false,
         "nihil": true
       },
@@ -295,21 +298,23 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, fsc",
-        "`s4, cancel",
+        "`s4, x=5",
         "`s3, cancel",
-        "`fs, x=4"
+        "`fs, x=5"
       ],
       "dacl": [
         "`ds1, x=3"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 19513.25616828609,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

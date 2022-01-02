@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 92090.7853501014,
-        "team": 0.31975097344833336,
+        "dps": 92254.6479574859,
+        "team": 0.3197509734483335,
         "noaff": false,
         "nihil": false
       },
@@ -40,35 +40,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97107.18272181432,
-        "team": 0.2907235459054838,
+        "dps": 137976.7945493632,
+        "team": 0.03326846436126743,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
-        "A_Choice_Blend",
-        "His_Clever_Brother",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Summer_Marishiten",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, cancel and dshift_count or (amp_lvl(self, att)=2 and s1.check())",
+        "`dragon, s=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, cancel",
-        "`fs, charged_in(fs,s2) and x=4",
+        "`fs, charged_in(fs, s2) and x=4",
         "`s1, masterctrl_buff.get() and x=4"
       ],
       "dacl": [
-        "ds1,x=3",
-        "sack, x=3"
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
@@ -78,15 +79,15 @@
       ]
     },
     "META": {
-      "tdps": 172815.77447081165,
+      "tdps": 159598.387830308,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 57183.92270330735,
-        "team": 0.32356847807024947,
+        "dps": 57285.75398631682,
+        "team": 0.32356847807024935,
         "noaff": false,
         "nihil": true
       },
@@ -123,32 +124,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59420.12758815022,
-        "team": 0.2735443200069788,
+        "dps": 68368.92729908772,
+        "team": 0.033324849504324724,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
         "Moonlight_Party",
+        "OneWinged_Journey",
         "A_Choice_Blend",
         "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Summer_Marishiten",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
-        "`s3",
+        "`s3, not buff(s3)",
         "`s4",
         "`s2",
-        "`s1, masterctrl_buff.get() and x=4",
-        "`fs, x=4"
+        "`s1, masterctrl_buff.get() and x=4"
       ],
       "dacl": [
-        "ds1,x=3",
-        "sack, x=3"
+        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -161,8 +162,8 @@
       ]
     },
     "META": {
-      "tdps": 44702.49918078618,
-      "pref": "PERSONAL"
+      "tdps": 38185.75921039907,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -198,14 +199,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105091.36342964988,
-        "team": 0.2907235459054838,
+        "dps": 145735.45745071623,
+        "team": 0.03326846436126743,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "dacl": [
+        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
+        "`dfs, x=2",
+        "`dodge, fsc"
+      ]
     },
     "META": {
-      "tdps": 621120.7516933691,
+      "tdps": 213507.1843798367,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,10 +220,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 66837.9366186992,
-        "team": 0.36354610207963584,
+        "dps": 80670.23082190072,
+        "team": 0.03330977281426647,
         "noaff": false,
         "nihil": true
       },
@@ -237,35 +243,19 @@
         "`s4, cancel",
         "`s3, x>2"
       ],
+      "dacl": [
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Dagger",
         "Tiki",
         "Yurius"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 68174.97876114002,
-        "team": 0.3062216654677744,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s2.check())",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4",
-        "`s4, cancel",
-        "`s3, x>2"
-      ],
-      "coabs": [
-        "Renee",
-        "Tiki",
-        "Yurius"
-      ]
-    },
     "META": {
-      "tdps": 23324.121813770595,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -275,8 +265,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86284.65513473975,
-        "team": 0.2907235459054838,
+        "dps": 86438.18654957024,
+        "team": 0.29072354590548394,
         "noaff": false,
         "nihil": false
       }
@@ -292,8 +282,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53005.620698336315,
-        "team": 0.2735443200069788,
+        "dps": 53100.030076188064,
+        "team": 0.27354432000697887,
         "noaff": false,
         "nihil": true
       }

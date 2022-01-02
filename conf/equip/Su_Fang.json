@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81272.48180767584,
-        "team": 0.052328041441228,
+        "dps": 81437.20106549442,
+        "team": 0.05232804144122806,
         "noaff": false,
         "nihil": false
       },
@@ -79,15 +79,15 @@
       ]
     },
     "META": {
-      "tdps": 779558.3373452267,
+      "tdps": 796934.3609419654,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43620.49152468964,
-        "team": 0.052547186835497806,
+        "dps": 56009.09633455574,
+        "team": 0.06178920338044033,
         "noaff": false,
         "nihil": true
       },
@@ -101,6 +101,7 @@
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon",
         "`s3, not buff(s3) and fscf",
@@ -119,7 +120,7 @@
         "Mona"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -130,8 +131,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 113157.49393945954,
-        "team": 0.148496884367249,
+        "dps": 113386.83624578196,
+        "team": 0.14849688436724884,
         "noaff": false,
         "nihil": false
       },
@@ -161,11 +162,41 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57744.633426156135,
+        "team": 0.07955354058261387,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon",
+        "`s3, timeleft(s3)<5",
+        "`s4",
+        "`s1, buff(s3)",
+        "`s2",
+        "`fs, s=2"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42345.48913752737,
-        "team": 0.148496884367249,
+        "dps": 42431.312990663835,
+        "team": 0.14849688436724884,
         "noaff": false,
         "nihil": false
       },

@@ -41,43 +41,33 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 121441.109884339,
-        "team": 0.2967519006756877,
+        "dps": 198827.30587087432,
+        "team": 0.1110916145327605,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Summer_Marishiten",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, dshift_count=0 and dgauge>=1000",
-        "`dragon, dshift_count=1 and x=4",
-        "`dragon, dshift_count=2 and s=1",
-        "`dragon, dshift_count=3 and fscf",
-        "`dragon, dshift_count=4",
-        "queue not buff(s3)",
-        "`s3",
+        "`dragon",
+        "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "end",
-        "`s2",
-        "`s4",
-        "`s1, amp_lvl(team) and (xf or fscf)",
-        "`fs, charged_in(fs, s2) or charged_in(fs, s4)",
-        "`fs, x=5",
+        "`fs, charged_in(fs, s2) or charged_in(fs, s4) or x=5",
         "`dodge, fscf"
       ],
       "dacl": [
-        "ds1,x=3",
-        "sack, x=3 and dshift_count<5",
-        "sack, x=3 and duration-now<5"
+        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Eugene",
@@ -90,7 +80,7 @@
       ]
     },
     "META": {
-      "tdps": 177739.2095186324,
+      "tdps": 240041.260105612,
       "pref": "PERSONAL"
     }
   },
@@ -109,7 +99,7 @@
       ]
     },
     "META": {
-      "tdps": 204928.85046114924,
+      "tdps": 266298.9795578247,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -120,44 +110,36 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44057.06009884955,
+        "dps": 69496.39837605417,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "The_Prince_of_Dragonyule",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep and not buff(s3)",
-        "`s3",
-        "`s2",
-        "`fs",
-        "`s4, fscf",
-        "end",
+        "`dragon",
+        "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1, fscf",
-        "`s1, duration-now<10 and xf=2",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
+        "`fs, charged_in(fs, s2) or charged_in(fs, s4) or x=5",
         "`dodge, fscf"
       ],
+      "dacl": [
+        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
+        "`dfs, x=2",
+        "`dodge, fsc"
+      ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
@@ -170,97 +152,17 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44057.06009884955,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "The_Prince_of_Dragonyule",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep and not buff(s3)",
-        "`s3",
-        "`s2",
-        "`fs",
-        "`s4, fscf",
-        "end",
-        "`s2",
-        "`s4",
-        "`s1, fscf",
-        "`s1, duration-now<10 and xf=2",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 125468.90496643708,
-        "team": 0.2962310205060207,
+        "dps": 204575.44231610157,
+        "team": 0.1110916145327605,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon, dshift_count=0 and dgauge>=1000",
-        "`dragon, dshift_count=1 and x=4",
-        "`dragon, dshift_count=2 and s=1",
-        "`dragon, dshift_count=3 and fscf",
-        "`dragon, dshift_count=4",
-        "queue not buff(s3)",
-        "`s3",
-        "`s2",
-        "`s4",
-        "end",
-        "`s2",
-        "`s4",
-        "`s1, amp_lvl(team) and (xf or fscf or duration-now<5)",
-        "`fs, charged_in(fs, s2) or charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, x=3 and dshift_count<5",
-        "sack, x=1 and duration-now<3"
-      ]
+      }
     },
     "META": {
-      "tdps": 185202.01377222192,
+      "tdps": 248109.38847643154,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -271,7 +173,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51491.3099955108,
+        "dps": 78583.1660357871,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -323,64 +225,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 51491.3099955108,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Blossoms_on_the_Waters_Edge",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep",
-        "`s2",
-        "`fs",
-        "`s4,fscf",
-        "`fs",
-        "`s3,fscf",
-        "end",
-        "`s2",
-        "`s4",
-        "`s3, fscf",
-        "`s1, fscf or duration-now<10",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s3)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -432,7 +276,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40398.493089456504,
+        "dps": 40478.096031504705,
         "team": 0.0,
         "noaff": false,
         "nihil": true

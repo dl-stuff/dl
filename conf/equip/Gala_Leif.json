@@ -144,69 +144,62 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94161.4836382435,
-        "team": 0.1684150469446944,
+        "dps": 94899.28844925975,
+        "team": 0.1500701177060563,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Adventure_in_the_Past",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Plaguebringer",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`striking",
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s=1)",
-        "`s3, cancel",
+        "`dragon, (dgauge>=900 and s=1) or dshift_count",
+        "`s3, not buff(s3)",
+        "if hits>9",
         "`s1(striking)",
-        "queue s2.check() and cancel",
         "`s2(shielding)",
-        "`striking",
-        "end",
         "`s4, fsc",
-        "`fs, x=3"
+        "end",
+        "`fs, xf=3"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
         "`dfs, x=3"
       ],
       "coabs": [
+        "Dragonyule_Xainfried",
         "Mona",
-        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
+        "Weapon",
+        "Formal_Noelle"
       ]
     },
     "META": {
-      "tdps": 413122.855664878,
+      "tdps": 160760.4957437162,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 124219.04401810748,
-        "team": 0.4523342075325117,
+        "dps": 126794.56958868961,
+        "team": 0.47243819869292336,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Adventure_in_the_Past",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`striking",
         "`dragon, (dgauge>900 and s=1) or dshift_count",
@@ -218,7 +211,8 @@
         "`fs, x=2",
         "`s2(shielding),fsc",
         "end",
-        "`s4, not buff(s4)",
+        "`s3, timeleft(s3)<5",
+        "`s4",
         "`s1(striking)",
         "queue s2.check() and cancel",
         "`s2(shielding)",
@@ -275,7 +269,7 @@
       ]
     },
     "META": {
-      "tdps": 471175.9950050262,
+      "tdps": 62708.876051868196,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -286,12 +280,20 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 116091.17099047298,
+        "dps": 115769.59720766004,
         "team": 0.17078926261021482,
         "noaff": false,
         "nihil": true
       },
-      "slots.w": "primal_dragon",
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Snipers_Allure",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`striking",
         "`dragon, dshift_count or (amp_lvl(self, att)=2 and s=1)",
@@ -303,11 +305,6 @@
         "end",
         "`s4, fsc",
         "`fs, x=3"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Wand"
       ],
       "share": [
         "Weapon",
@@ -325,8 +322,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70063.69567492086,
-        "team": 0.158836065642613,
+        "dps": 70206.8873685136,
+        "team": 0.15883606564261293,
         "noaff": false,
         "nihil": false
       },
@@ -364,8 +361,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47366.44993680597,
-        "team": 0.13950780232409868,
+        "dps": 49668.03922859861,
+        "team": 0.13972376977653397,
         "noaff": false,
         "nihil": true
       },

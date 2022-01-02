@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 124552.81397192461,
+        "dps": 125075.59275479146,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -16,7 +16,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -41,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 124552.81397192461,
+        "dps": 125075.59275479146,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -55,7 +55,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -152,8 +152,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 134148.16640970303,
-        "team": 0.09750877947486193,
+        "dps": 148465.61278196625,
+        "team": 0.09054080477949736,
         "noaff": false,
         "nihil": false
       },
@@ -176,7 +176,7 @@
       ]
     },
     "META": {
-      "tdps": 817762.0809047135,
+      "tdps": 1862014.204428808,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,26 +187,26 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84769.41191866307,
+        "dps": 99823.61133157034,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.w": "primal_dragon",
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
+      "acl": [
+        "`dragon, cancel and timeleft(s3,default)>15",
+        "`s3, timeleft(s3)<10",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fsc"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -244,25 +244,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42663.25169795448,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Ranzal"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44860.595201514894,
+        "dps": 51892.947258342945,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -272,7 +256,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

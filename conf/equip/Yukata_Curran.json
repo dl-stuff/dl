@@ -2,27 +2,28 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23090.639231097968,
-        "team": 0.08979849737247259,
+        "dps": 65468.0382978719,
+        "team": 0.1308781093348429,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
+        "Castle_Cheer_Corps",
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, buff(s3, 1) and energy()=5 and xf",
-        "`s3, x=5 or s",
-        "`s1, x=5 and not energy()<5",
-        "`s2, x=5",
-        "`s4, xf"
+        "`fs, now=0",
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
@@ -31,7 +32,7 @@
       ],
       "coabs": [
         "Blade",
-        "Halloween_Laxi",
+        "Lucretia",
         "Peony"
       ],
       "share": [
@@ -41,7 +42,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 113124.42410933394,
+        "dps": 113336.39991965711,
         "team": 0.04995432509542092,
         "noaff": false,
         "nihil": false
@@ -79,43 +80,48 @@
       ]
     },
     "META": {
-      "tdps": 2259647.515129612,
+      "tdps": 591524.0132636576,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26232.25555808867,
+        "dps": 53495.09300250863,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "His_Clever_Brother",
+        "Having_a_Summer_Ball",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, energy()=5 and not inspiration()=5 and cancel",
-        "`s3, not buff(s3)",
+        "`dragon",
+        "`s3",
         "`s2",
         "`s4",
-        "`s1, not energy()=5 and cancel"
+        "`s1"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
+        "Blade",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Ilia"
       ]
     },
     "META": {
@@ -162,7 +168,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 138404.7888497585,
+        "dps": 138664.135737047,
         "team": 0.04995432509542092,
         "noaff": false,
         "nihil": false
@@ -183,7 +189,7 @@
       ]
     },
     "META": {
-      "tdps": 723761.2861055048,
+      "tdps": 726795.9548162102,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -228,7 +234,7 @@
       ]
     },
     "META": {
-      "tdps": 830894.3066955631,
+      "tdps": 835332.737709327,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -239,7 +245,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63894.92496045394,
+        "dps": 64014.52860534654,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -287,7 +293,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 114052.43597750757,
+        "dps": 114266.15072324907,
         "team": 0.04995432509542092,
         "noaff": false,
         "nihil": false
@@ -318,7 +324,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31385.84577070119,
+        "dps": 31444.30450661514,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -352,7 +358,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31385.84577070119,
+        "dps": 31444.30450661514,
         "team": 0.0,
         "noaff": false,
         "nihil": true
