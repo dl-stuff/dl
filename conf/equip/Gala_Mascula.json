@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106943.12724365346,
-        "team": 0.03326846436126743,
+        "dps": 104997.96564671816,
+        "team": 0.03328656020337916,
         "noaff": false,
         "nihil": false
       },
@@ -74,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 51271.818768187106,
+      "tdps": 44484.81940524849,
       "pref": "PERSONAL"
     }
   },
@@ -192,22 +192,8 @@
         "`ds1, x=3"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 114594.90509255248,
-        "team": 0.03326846436126743,
-        "noaff": false,
-        "nihil": false
-      },
-      "dacl": [
-        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
-        "`dfs, x=2",
-        "`dodge, fsc"
-      ]
-    },
     "META": {
-      "tdps": 107079.13444041838,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -215,10 +201,41 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 78577.89278165576,
+        "team": 0.03328656020337916,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Ciella",
+      "acl": [
+        "`dragon, s=4",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel",
+        "`fs, charged_in(fs, s2) and x=4",
+        "`s1, masterctrl_buff.get() and x=4"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80081.79176508111,
-        "team": 0.03326846436126743,
+        "dps": 78577.89278165576,
+        "team": 0.03328656020337916,
         "noaff": false,
         "nihil": false
       }
@@ -234,8 +251,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45365.077524200904,
-        "team": 0.033324849504324724,
+        "dps": 41373.73011146352,
+        "team": 0.033278367760274014,
         "noaff": false,
         "nihil": true
       }
