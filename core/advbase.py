@@ -995,12 +995,6 @@ class Adv(object):
         self.action._static.c_spd_func = self.c_speed
         self.action._static.f_spd_func = self.f_speed
         self.action._static.actmod_off = self.actmod_off
-        # set buff
-        self.base_buff = Buff()
-        self.all_buffs = []
-        self.base_buff._static.all_buffs = self.all_buffs
-        self.base_buff._static.adv = self
-        self.active_buff_dict = ActiveBuffDict()
         # set modifier
         self.modifier = Modifier(0, 0, 0, 0)
         self.all_modifiers = ModifierDict()
@@ -2212,6 +2206,12 @@ class Adv(object):
         self.ctx.on()
         g_logs.reset()
 
+        # set buff
+        self.base_buff = Buff()
+        self.all_buffs = []
+        self.base_buff._static.all_buffs = self.all_buffs
+        self.base_buff._static.adv = self
+        self.active_buff_dict = ActiveBuffDict()
         self.config_slots()
         self.doconfig()
 
