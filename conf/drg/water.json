@@ -151,7 +151,11 @@
         }
     },
     "Gala_Beast_Ciella": {
-        "dacl": ["`fs, x=2 and crystal_arrow < 2", "`ds, x=2 and crystal_arrow = 2", "`dodge, x=2 or fsc"],
+        "dacl": [
+            "`ds1, x=2 and crystal_arrow=2",
+            "`dfs, x=2 and ds1.check()",
+            "`dodge, fsc"
+        ],
         "d": {
             "name": "Gala Beast Ciella",
             "icon": "210167_01",
@@ -168,10 +172,10 @@
                 {"dmg": 3.3, "sp": 5, "msl": 0.33333, "msl_spd": 1, "vars": ["crystal_arrow", 1, 2]}
             ],
             "interrupt": {"s": 0.0},
-            "cancel": {"any": 1.5, "dodge": 0.0, "s": 0.0}
+            "cancel": {"any": 1.5, "dodge": 0.33333, "s": 0.0}
         },
         "dx1": {
-            "startup": 0.5,
+            "startup": 0.56667,
             "recovery": 0.63333,
             "attr": [
                 {"cond": ["hits", 15], "vars": ["vulnerability", 1, 10]},
@@ -183,7 +187,7 @@
             "cancel": {"any": 0.5, "dfs": 0.0, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
         },
         "dx2": {
-            "startup": 0.5,
+            "startup": 0.56667,
             "recovery": 0.66667,
             "attr": [
                 {"cond": ["hits", 15], "vars": ["vulnerability", 1, 10]},
@@ -195,7 +199,7 @@
             "cancel": {"any": 0.5, "dfs": 0.0, "dodge": 0.0, "dx3": 0.13333, "s": 0.0}
         },
         "dx3": {
-            "startup": 1.5,
+            "startup": 1.36667,
             "recovery": 1.06667,
             "attr": [
                 {"cond": ["hits", 15], "vars": ["vulnerability", 1, 10]},
