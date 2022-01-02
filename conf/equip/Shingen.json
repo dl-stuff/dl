@@ -2,28 +2,31 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 56290.388203456976,
-        "team": 0.1268729351949301,
+        "dps": 85296.34096848463,
+        "team": 0.071436129819029,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dear_Diary",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Hastened_Squall",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Warrioresses",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, s1.check()",
         "`s3, not buff(s3)",
-        "`s2, s=1",
-        "`s1",
         "`s4",
-        "`fs, x=5"
+        "`s1",
+        "`s2"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -32,33 +35,38 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56290.388203456976,
-        "team": 0.1268729351949301,
+        "dps": 90409.93124469825,
+        "team": 0.06180878897474294,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dear_Diary",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Hastened_Squall",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Warrioresses",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, s1.check()",
         "`s3, not buff(s3)",
-        "`s2, s=1",
-        "`s1",
         "`s4",
-        "`fs, x=5"
+        "`s1",
+        "`s2",
+        "`dodge, fsc",
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -67,37 +75,44 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 531152.9277836469,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39040.591964039515,
-        "team": 0.05434329343226847,
+        "dps": 63293.050200247315,
+        "team": 0.06177457205960991,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Hastened_Squall",
         "The_Plaguebringer",
+        "The_Warrioresses",
         "Applelicious_Dreams",
-        "Treasured_Memory_of_the_Sea"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, s1.check()",
         "`s3, not buff(s3)",
-        "`s2, s=1",
+        "`s4",
         "`s1",
-        "`s4"
+        "`s2",
+        "`dodge, fsc",
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -105,8 +120,8 @@
         "Yukata_Lathna"
       ],
       "share": [
-        "Weapon",
-        "Saiga"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -116,50 +131,15 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67221.08411205535,
-        "team": 0.10750402229069411,
+        "dps": 110208.21876225813,
+        "team": 0.11685886448149722,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dear_Diary",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Hastened_Squall",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon, s1.check()",
-        "`s3, not buff(s3)",
-        "`s2, s=1",
-        "`s1",
-        "`s4, cancel",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Akasha"
       ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 22690.382497262017,
-        "team": 0.1268729351949301,
-        "noaff": false,
-        "nihil": false
-      }
     },
     "META": {
       "pref": "PERSONAL",

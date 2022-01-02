@@ -85,14 +85,14 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52532.58951656504,
+        "dps": 28140.756544781052,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
+        "Castle_Cheer_Corps",
         "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
@@ -101,24 +101,25 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon",
-        "`s3, x=5",
-        "`s1"
+        "`fs, now=0",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4",
+        "`dragon"
       ],
       "dacl": [
         "`s4",
-        "`s2, dgauge>=1600",
-        "`s1, cancel",
-        "`s3, x=4"
+        "`s2, dgauge>=1600 and x=4",
+        "`s1, x=4"
       ],
       "coabs": [
         "Blade",
-        "Lucretia",
-        "Peony"
+        "Peony",
+        "Wand"
       ],
       "share": [
-        "Summer_Celliera",
-        "Ilia"
+        "Weapon",
+        "Akasha"
       ]
     },
     "PERSONAL": {
@@ -247,7 +248,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
