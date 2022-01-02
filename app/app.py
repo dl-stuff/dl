@@ -211,6 +211,7 @@ def get_adv_slotlist():
     if advname is not None:
         adv = ADV_MODULES[advname][variant](name=advname, duration=duration, equip_conditions=equip_cond, opt_mode=opt_mode)
         adv.config_slots()
+        adv.doconfig()
         result["adv"]["basename"] = adv.name
         result["adv"]["ele"] = adv.slots.c.ele
         result["adv"]["wt"] = adv.slots.c.wt
