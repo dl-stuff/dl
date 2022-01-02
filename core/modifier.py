@@ -1191,16 +1191,16 @@ class ModeManager(MultiBuffManager):
             else:
                 for b in self.buffs:
                     b.source = kwargs.get("source")
-            self.pause_kind = None
+            self._pkind = None
 
     def pause_kind(self, kind, e):
-        if self.pause_kind is None:
-            self.pause_kind = kind
+        if self._pkind is None:
+            self._pkind = kind
             self.pause(e)
 
     def resume_kind(self, kind, e):
-        if self.pause_kind == kind:
-            self.pause_kind = None
+        if self._pkind == kind:
+            self._pkind = None
             self.resume(e)
 
     def on_except(self, exclude=None):
