@@ -542,7 +542,7 @@ class Fudo_Myoo(DragonBase):
     def end_compassion(self, _=None):
         log("debug", "mantra of wrath")
         self.adv.compassion = False
-        if self.adv.compassion <= 0 and not self.adv.is_set_cd("wrath_dprep", 180):
+        if not self.adv.is_set_cd("wrath_dprep", 180):
             self.adv.dragonform.charge_dprep(50)
 
     def is_wrath(self):
