@@ -393,9 +393,9 @@ class Gala_Beast_Ciella(DragonBase):
         self.adv.crystal_arrow = 0
         self.adv.vulnerability = 0
         self.vulnerability_defdown = Modifier("vulnerability_defdown", "def", "debuff", 0.0)
-        self.vulnerability_defdown.get = lambda: self.adv.vulnerability * -0.00
+        self.vulnerability_defdown.get = lambda: self.adv.vulnerability * -0.01
         self.vulnerability_resdown = Modifier("vulnerability_resdown", "affres_frostbite", "debuff", 0.0)
-        self.vulnerability_resdown.get = lambda: self.adv.vulnerability * -0.00
+        self.vulnerability_resdown.get = lambda: self.adv.vulnerability * -0.02
 
 
 ### WATER DRAGONS ###
