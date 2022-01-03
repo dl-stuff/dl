@@ -42,8 +42,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78492.37668288112,
-        "team": 0.08844575721095019,
+        "dps": 82394.71787621481,
+        "team": 0.08836411193941754,
         "noaff": false,
         "nihil": false
       },
@@ -56,7 +56,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -81,15 +81,15 @@
       ]
     },
     "META": {
-      "tdps": 117882.74349435244,
+      "tdps": 149908.49395716513,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 57338.668989470134,
-        "team": 0.10731508903097066,
+        "dps": 57440.674923628125,
+        "team": 0.10731508903097065,
         "noaff": false,
         "nihil": true
       },
@@ -125,78 +125,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59233.277238538,
+        "dps": 59781.56902044936,
         "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "The_Prince_of_Dragonyule",
-        "His_Clever_Brother",
-        "Rogues_Banquet",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon",
-        "`s1, cancel",
-        "`s2",
-        "`s3",
-        "`s4"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Ranzal"
-      ]
-    },
-    "META": {
-      "tdps": 17654.63054800329,
-      "pref": "TEAMBUFF"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 70661.93245421113,
-        "team": 0.2099136952739964,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 80551.68751611316,
-        "team": 0.20880270589263902,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Summer_Marishiten"
-    },
-    "META": {
-      "tdps": 8901754.8032899,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 62095.98701647339,
-        "team": 0.16334731667821525,
         "noaff": false,
         "nihil": true
       },
@@ -209,6 +139,60 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Beast_Ciella",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, xf=5",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx3;ds1;dx3;sack, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 21813.280107755047,
+      "pref": "TEAMBUFF"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70787.64057678236,
+        "team": 0.2099136952739964,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62206.45625607573,
+        "team": 0.16334731667821525,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, dgauge=1000 or (dshift_count and amp_timeleft(team, att) < 4)",
@@ -221,10 +205,6 @@
       "dacl": [
         "`ds1, x=3",
         "`sack, x=3"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -238,7 +218,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55425.91733484154,
+        "dps": 55524.52046906046,
         "team": 0.20880270589263897,
         "noaff": false,
         "nihil": false
@@ -256,7 +236,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40183.62960609445,
+        "dps": 39413.00369189433,
         "team": 0.0,
         "noaff": false,
         "nihil": true

@@ -11,6 +11,8 @@ class Halloween_Laxi(Adv):
             Listener("fs_end", lambda _: self.clockwork_timer.pause(), order=0),
         )
         self.clockwork_regen = Timer(self.clockwork_on, 10.0)
+        self.l_clockwork_regen_s = Listener("s", self.clockwork_regen.pause, order=0)
+        self.l_clockwork_regen_s_end = Listener("s_end", self.clockwork_regen.resume, order=0)
         self.clockwork_on()
 
         self.a3_edge_buffs = []
@@ -28,6 +30,8 @@ class Halloween_Laxi(Adv):
             lst.on()
         self.clockwork_timer.on()
         self.clockwork_timer.pause()
+        self.l_clockwork_regen_s.off()
+        self.l_clockwork_regen_s_end.off()
 
     def clockwork_off(self, t=None):
         log("clockwork", "timeout")
@@ -35,6 +39,8 @@ class Halloween_Laxi(Adv):
         for lst in self.clockwork_listeners:
             lst.off()
         self.clockwork_regen.on()
+        self.l_clockwork_regen_s.on()
+        self.l_clockwork_regen_s_end.on()
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         if add_gauge := attr.get("cp", 0):

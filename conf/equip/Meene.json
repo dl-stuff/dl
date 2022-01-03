@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 70714.16198098217,
-        "team": 0.4309756137156561,
+        "dps": 70851.11645867291,
+        "team": 0.430975613715656,
         "noaff": false,
         "nihil": false
       },
@@ -43,23 +43,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77965.23069659615,
-        "team": 0.1534341241080884,
+        "dps": 91406.86412997483,
+        "team": 0.1878654113665288,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, butterflies>=9",
+        "`dragon, s",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, butterflies>=9",
@@ -67,87 +67,7 @@
         "`fs, x=3 or butterflies=6"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Saiga"
-      ]
-    },
-    "META": {
-      "tdps": 26126.071189812697,
-      "pref": "TEAMBUFF"
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 63118.204871927526,
-        "team": 0.1245331009394027,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, fsc",
-        "`s3",
-        "`s4",
-        "`s2, butterflies>=9",
-        "`s1, butterflies>=9",
-        "`fs, xf=2 or butterflies=6"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 94748.45934764366,
-        "team": 0.4309756137156561,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 100809.84716911147,
-        "team": 0.3299229813158756,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon, dgauge>=1000 or dshift_count",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, butterflies>=9",
-        "`s1, butterflies>=9",
-        "`fs, x=3"
+        "`ds1, x=3 and dshift_timeleft<3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -160,7 +80,93 @@
       ]
     },
     "META": {
-      "tdps": 59982.48316271449,
+      "tdps": 84553.20867933829,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73212.61196524286,
+        "team": 0.20822694244725204,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Initios_Sentinel",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, butterflies>=9",
+        "`s1, butterflies>=9",
+        "`fs, x=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3",
+        "`sack, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 94931.96185122208,
+        "team": 0.430975613715656,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 115924.73418518658,
+        "team": 0.19159513266106765,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, butterflies>=9",
+        "`s1, butterflies>=9",
+        "`fs, x=3"
+      ]
+    },
+    "META": {
+      "tdps": 87696.25761248807,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -171,8 +177,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67859.23095060501,
-        "team": 0.13514487177497025,
+        "dps": 77666.28666006705,
+        "team": 0.160173903075433,
         "noaff": false,
         "nihil": true
       },
@@ -190,51 +196,41 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32373.124744450502,
-        "team": 0.12533908207429204,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon, fsc",
-        "`s3",
-        "`s4",
-        "`s2, butterflies>=9",
-        "`s1, butterflies>=9",
-        "`fs, xf=2 or butterflies=6"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
+  "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32883.53797221781,
-        "team": 0.1245331009394027,
+        "dps": 91484.6606984655,
+        "team": 0.19159513266106765,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, butterflies>=9",
+        "`s1, butterflies>=9",
+        "`fs, x=3"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38913.40603370328,
+        "team": 0.20822694244725204,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 633281.854465976,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

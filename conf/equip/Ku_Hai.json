@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 88730.52013300096,
-        "team": 0.14555071283984025,
+        "dps": 88898.323175908,
+        "team": 0.14555071283984028,
         "noaff": false,
         "nihil": false
       },
@@ -81,14 +81,14 @@
       ]
     },
     "META": {
-      "tdps": 32903.1188636399,
+      "tdps": 31166.115754485563,
       "pref": "TEAMBUFF"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 87072.52403152706,
+        "dps": 87237.19154913221,
         "team": 0.04894579485052755,
         "noaff": false,
         "nihil": false
@@ -109,7 +109,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87072.52403152706,
+        "dps": 87237.19154913221,
         "team": 0.04894579485052755,
         "noaff": false,
         "nihil": false
@@ -131,8 +131,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57091.55883798024,
-        "team": 0.14511587715073007,
+        "dps": 57199.527745217434,
+        "team": 0.14511587715073015,
         "noaff": false,
         "nihil": true
       },
@@ -199,8 +199,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108283.98515103912,
-        "team": 0.22659372235081326,
+        "dps": 108488.76679978061,
+        "team": 0.2265937223508134,
         "noaff": false,
         "nihil": false
       },
@@ -229,7 +229,7 @@
       ]
     },
     "META": {
-      "tdps": 545836.1614475889,
+      "tdps": 557126.4303862839,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -240,7 +240,7 @@
   "ALWAYS-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89280.70223317714,
+        "dps": 89449.54575494674,
         "team": 0.04960615428447421,
         "noaff": false,
         "nihil": false
@@ -265,7 +265,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89280.70223317714,
+        "dps": 89449.54575494674,
         "team": 0.04960615428447421,
         "noaff": false,
         "nihil": false
@@ -299,19 +299,24 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79670.7561548969,
-        "team": 0.04948788591616272,
+        "dps": 81919.34847983261,
+        "team": 0.11398640158416071,
         "noaff": false,
         "nihil": true
       },
       "slots.w": "primal_dragon",
       "acl": [
-        "`s3, fsc",
+        "`dragon, fsc",
+        "`s3, fsc and timeleft(s3)<5",
         "`s4, fsc",
         "`s2, fsc",
         "`s1, duration-now<1",
         "`fs, x=1 and buff(s2)",
         "`fs, x=3 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "sack, x=3"
       ],
       "coabs": [
         "Blade",
@@ -330,8 +335,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54545.72115604343,
-        "team": 0.14555071283984025,
+        "dps": 54648.87549317398,
+        "team": 0.14555071283984028,
         "noaff": false,
         "nihil": false
       },

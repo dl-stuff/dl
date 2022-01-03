@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9679.26907359015,
-        "team": 0.29374170177035125,
+        "dps": 9814.09530299228,
+        "team": 0.2937417017703512,
         "noaff": true,
         "nihil": false
       },
@@ -21,6 +21,9 @@
         "`s3",
         "`s4"
       ],
+      "dacl": [
+        "`ds1, x=1"
+      ],
       "coabs": [
         "Blade",
         "Wand",
@@ -33,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53474.125054691394,
+        "dps": 71895.37044607931,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -41,11 +44,11 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "A_Small_Courage",
-        "Amaterasu_Oblation",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "His_Clever_Brother",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -68,48 +71,14 @@
       ]
     },
     "META": {
-      "tdps": 149093.0831991308,
+      "tdps": 211346.4815139612,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 26152.897074320183,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Pecorines_Grand_Adventure",
-        "A_Small_Courage",
-        "Amaterasu_Oblation",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`fsf, x=4 and s1.charged=sp_val(4)"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Summer_Alex",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40152.660148786315,
+        "dps": 41118.27638193168,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -148,7 +117,7 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26152.897074320183,
+        "dps": 26207.099969811003,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -183,7 +152,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82955.73044672719,
+        "dps": 83036.70655590399,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -212,7 +181,7 @@
       ]
     },
     "META": {
-      "tdps": 249458.8304333613,
+      "tdps": 249275.50569635336,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -223,7 +192,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60021.80725982274,
+        "dps": 61379.05674421956,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -262,10 +231,50 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 9814.09530299228,
+        "team": 0.2937417017703512,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Karl",
+        "Templar_Hope"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29239.557639691855,
+        "dps": 29980.253514265092,
         "team": 0.0,
         "noaff": false,
         "nihil": true

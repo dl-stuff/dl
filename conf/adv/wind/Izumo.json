@@ -1,0 +1,71 @@
+{
+    "actconds": {
+        "19": {"duration": 30.0, "slip": {"value": ["mod", 1.46], "kind": "bleed", "iv": 4.9}, "debuff": 1, "text": "Bleeding", "rate": 0.8},
+        "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
+        "2072": {"coei": 1, "icon": 300, "text": "Amaterasu's Restorative Burst", "overwrite": -1},
+        "2074": {"coei": 1, "icon": 301, "text": "Amaterasu's Resilient Burst", "overwrite": -1},
+        "101021001": {"aff": "poison", "duration": 15.0, "slip": {"value": ["mod", 0.582], "iv": 2.9}, "rate": 1.2}
+    },
+    "c": {
+        "name": "Izumo",
+        "icon": "110403_01_r05",
+        "att": 461,
+        "hp": 750,
+        "ele": "wind",
+        "wt": "lance",
+        "spiral": false,
+        "utp": [0, 3000, 1200, 75],
+        "abilities": [
+            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.2, "def"], ["actdmg", 0.25, "-t:s"], ["mod", 0.15, "debufftime", "-t:s"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "def"]]}
+        ]
+    },
+    "s1": {
+        "sp": 3380,
+        "startup": 0.0,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 4.4, "actcond": "2072", "target": "HOSTILE", "iv": 0.23333},
+            {"dmg": 4.4, "actcond": "2072", "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 4.4, "actcond": "2072", "target": "HOSTILE", "iv": 1.13333}
+        ],
+        "cancel": {"any": 1.6}
+    },
+    "s1_ddrive": {
+        "sp": 3380,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "attr": [
+            {"dmg": 4.4, "actcond": "2072", "target": "HOSTILE", "iv": 0.26667},
+            {"dmg": 4.4, "actcond": "2072", "target": "HOSTILE", "iv": 0.6},
+            {"dmg": 4.4, "actcond": "2072", "target": "HOSTILE", "iv": 0.93333},
+            {"dmg": 4.4, "actcond": "2072", "target": "HOSTILE", "iv": 1.26667},
+            {"dmg": 4.4, "actcond": "19", "target": "HOSTILE", "iv": 2.0}
+        ],
+        "cancel": {"any": 2.53333}
+    },
+    "s2": {
+        "sp": 6710,
+        "startup": 0.0,
+        "recovery": 1.76667,
+        "attr": [
+            {"utp": 1000, "target": "MYSELF"},
+            {"dmg": 7.52, "actcond": "2074", "target": "HOSTILE", "iv": 0.5},
+            {"dmg": 7.52, "actcond": "2074", "target": "HOSTILE", "iv": 0.66667}
+        ],
+        "cancel": {"any": 1.33333}
+    },
+    "s2_ddrive": {
+        "sp": 6710,
+        "startup": 0.0,
+        "recovery": 3.23333,
+        "attr": [
+            {"dmg": 7.52, "actcond": "2074", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 7.52, "actcond": "2074", "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 12.25, "actcond": "2074", "target": "HOSTILE", "iv": 2.0},
+            {"actcond": "101021001", "target": "HOSTILE", "iv": 2.0},
+            {"actcond": "1360", "target": "HOSTILE", "iv": 2.0}
+        ]
+    }
+}

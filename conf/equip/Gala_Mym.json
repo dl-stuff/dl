@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 104614.27933597003,
+        "dps": 124136.18092873428,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -18,21 +18,20 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
+        "`dragon, aff_timeleft(poison)>10",
         "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2, x=5 or dshift_count=4",
-        "`s4,xf",
-        "`fs, x=5",
-        "`dodge, fscf and not buff(s3) or dshift_count>=2 or s",
-        "`dragon, dshift_count=0 and cancel",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count=2",
-        "`dragon, dshift_count=3"
+        "`s1",
+        "`s2, x=5 or duration-now<10",
+        "`s4, xf"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, dshift_count<3"
       ],
       "coabs": [
-        "Blade",
         "Kimono_Elisanne",
-        "Wand"
+        "Verica",
+        "Yuya"
       ],
       "share": [
         "Weapon",
@@ -41,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104614.27933597003,
+        "dps": 124136.18092873428,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -57,21 +56,20 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
+        "`dragon, aff_timeleft(poison)>10",
         "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2, x=5 or dshift_count=4",
-        "`s4,xf",
-        "`fs, x=5",
-        "`dodge, fscf and not buff(s3) or dshift_count>=2 or s",
-        "`dragon, dshift_count=0 and cancel",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count=2",
-        "`dragon, dshift_count=3"
+        "`s1",
+        "`s2, x=5 or duration-now<10",
+        "`s4, xf"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, dshift_count<3"
       ],
       "coabs": [
-        "Blade",
         "Kimono_Elisanne",
-        "Wand"
+        "Verica",
+        "Yuya"
       ],
       "share": [
         "Weapon",
@@ -123,8 +121,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47874.800935285224,
-        "team": 0.011668757771265028,
+        "dps": 47954.4182758421,
+        "team": 0.011666522998296973,
         "noaff": false,
         "nihil": true
       },
@@ -160,7 +158,7 @@
       ]
     },
     "META": {
-      "tdps": 69106688.29631773,
+      "tdps": 65674505.65740224,
       "pref": "PERSONAL"
     }
   },
@@ -206,7 +204,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 124938.3819009279,
+        "dps": 140345.25758551527,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -216,35 +214,13 @@
         "The_Cutie_Competition",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, xf or fscf",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, xf or fscf",
-        "`s2, fscf",
-        "`fs, x=5",
-        "`dodge, fscf and not buff(s3)"
-      ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, dshift_count=1 and x=3"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Verica",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 87992.04685678703,
+      "tdps": 231930.1734869469,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -255,7 +231,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69565.61309083455,
+        "dps": 69693.59561696243,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -287,14 +263,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 96561.19153879167,
+        "dps": 103684.97860328888,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -309,16 +285,15 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, dshift_count=0 and cancel",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
+        "`dragon, s",
         "`s3, not buff(s3)",
-        "`s4, fscf",
         "`s1",
-        "`s2, fscf or x=5 or dshift_count=5",
-        "`fs, x=5",
-        "`dodge, fscf",
-        "`fs, xf<3 and charged_in(fs, s1)"
+        "`s2, x=5 or duration-now<10",
+        "`s4, x=5"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
       ],
       "coabs": [
         "Serena",
@@ -341,8 +316,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43218.03827398247,
-        "team": 0.017531436720615263,
+        "dps": 43289.79887145764,
+        "team": 0.017528073713518347,
         "noaff": false,
         "nihil": true
       },
@@ -375,7 +350,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

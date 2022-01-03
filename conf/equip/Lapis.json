@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117337.04739974807,
-        "team": 0.04166217718131425,
+        "dps": 110166.26799348611,
+        "team": 0.0415503207670913,
         "noaff": true,
         "nihil": false
       },
@@ -50,14 +50,17 @@
       ],
       "slots.d": "Leviathan",
       "acl": [
+        "`dragon",
         "`s3, not buff(s3)",
         "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
         "`s4, energy()<5",
-        "`s2, energy()=5 and stronger_bullets>=3",
+        "`s2, energy()=5 and stronger_bullets=3",
         "`fs"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, crystal_arrow=2",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -70,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 165392.09473014149,
+      "tdps": 153545.77788444163,
       "pref": "PERSONAL"
     }
   },
@@ -109,8 +112,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61138.45360599582,
-        "team": 0.04189196829186692,
+        "dps": 64787.03879499402,
+        "team": 0.04183630480061293,
         "noaff": false,
         "nihil": true
       },
@@ -123,7 +126,7 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Leviathan",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, s",
         "`s4",
@@ -131,6 +134,11 @@
         "`s3",
         "`s1, s",
         "`fs"
+      ],
+      "dacl": [
+        "`fs, x=2 and crystal_arrow < 2",
+        "`ds, x=2 and crystal_arrow = 2",
+        "`dodge, x=2 or fsc"
       ],
       "coabs": [
         "Blade",
@@ -143,15 +151,15 @@
       ]
     },
     "META": {
-      "tdps": 240105.95787140008,
+      "tdps": 257903.06547093013,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 134067.27098437445,
-        "team": 0.04166217718131425,
+        "dps": 125966.69476236265,
+        "team": 0.0415503207670913,
         "noaff": false,
         "nihil": false
       },
@@ -163,17 +171,10 @@
         "His_Clever_Brother",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
-        "`s4, energy()<5",
-        "`s2, energy()=5 and stronger_bullets=3",
-        "`fs"
       ]
     },
     "META": {
-      "tdps": 192964.82489391832,
+      "tdps": 179581.32983410425,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -181,49 +182,11 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 64221.320778477995,
-        "team": 0.0957283177042339,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon",
-        "`s1, not have_buff(s1_res_down)",
-        "`s4",
-        "`s3",
-        "`s2",
-        "`fs"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Yurius"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
-      ]
-    },
-    "META": {
-      "tdps": 346574.085121029,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51527.90458179402,
-        "team": 0.04355967755924466,
+        "dps": 49665.07849492501,
+        "team": 0.043463033693672666,
         "noaff": true,
         "nihil": true
       },
@@ -248,7 +211,7 @@
       ]
     },
     "META": {
-      "tdps": 194631.88225933714,
+      "tdps": 185345.91949588523,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

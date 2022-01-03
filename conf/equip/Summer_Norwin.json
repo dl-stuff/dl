@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86523.86958250927,
-        "team": 0.06181236350082464,
+        "dps": 86689.28664553016,
+        "team": 0.06181236350082468,
         "noaff": false,
         "nihil": false
       },
@@ -77,33 +77,33 @@
       ]
     },
     "META": {
-      "tdps": 253410.36398917445,
+      "tdps": 256184.8562810532,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45207.31696633143,
-        "team": 0.05431235379525885,
+        "dps": 88023.85953437383,
+        "team": 0.05435739989292512,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, x=5",
         "`s3, not buff(s3)",
         "`s1, c_s(1, a) or c_s(1, c)",
-        "`s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
         "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
         "`s4"
       ],
@@ -114,7 +114,7 @@
       ],
       "share": [
         "Weapon",
-        "Nadine"
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -124,8 +124,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 114547.55307082407,
-        "team": 0.061767524740683505,
+        "dps": 133743.58672043437,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -138,6 +138,7 @@
         "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Lance"
       ],
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -163,44 +164,11 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 78872.93032986022,
-        "team": 0.036985594185036094,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, x=5",
-        "`s3",
-        "`s1",
-        "`s2, x=5 or s=1",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48158.11561454603,
-        "team": 0.06181236350082464,
+        "dps": 48250.13070205135,
+        "team": 0.06181236350082468,
         "noaff": false,
         "nihil": false
       }
@@ -216,16 +184,25 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25976.533193088588,
-        "team": 0.05431235379525885,
+        "dps": 39693.66111811185,
+        "team": 0.05437905178385452,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, x=5",
         "`s3, not buff(s3)",
         "`s1, c_s(1, a) or c_s(1, c)",
-        "`s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
         "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
         "`s4"
       ],
@@ -236,19 +213,20 @@
       ],
       "share": [
         "Weapon",
-        "Nadine"
+        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 25976.533193088588,
-        "team": 0.05431235379525885,
+        "dps": 39586.195051526476,
+        "team": 0.05435739989292512,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -4963357.100578431,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

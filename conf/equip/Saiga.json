@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103885.65088413945,
-        "team": 0.10824991941388254,
+        "dps": 123382.44068541442,
+        "team": 0.09645424991336063,
         "noaff": false,
         "nihil": false
       },
@@ -54,16 +54,17 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Fudo_Myoo",
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, x=2",
-        "`s3, not buff(s3)",
+        "`s3, x=2",
         "`s1, x=2",
         "`s4, x=2",
         "`dodge, x=2"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`dodge, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -76,15 +77,15 @@
       ]
     },
     "META": {
-      "tdps": 223491.8552534826,
+      "tdps": 373497.91164277017,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76477.4795390868,
-        "team": 0.12318275816497087,
+        "dps": 90875.45673760527,
+        "team": 0.3041648101634822,
         "noaff": false,
         "nihil": true
       },
@@ -98,6 +99,7 @@
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, x=2 and (dgauge >= 900 or dshift_count)",
         "`s1, x=2",
@@ -119,49 +121,54 @@
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
+  "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 106431.17643571463,
-        "team": 0.26375280014133434,
+        "dps": 90875.45673760527,
+        "team": 0.3041648101634822,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
+      "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, dgauge>=1000 and x=2",
-        "`dragon, dshift_count>0",
-        "`s3, not buff(s3)",
+        "`dragon, x=2 and (dgauge >= 900 or dshift_count)",
         "`s1, x=2",
-        "`s4, x=2",
+        "`s3, x=2",
+        "`s4",
         "`dodge, x=2"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
       ],
       "coabs": [
         "Gala_Notte",
-        "Humanoid_Midgardsormr",
+        "Mona",
         "Yukata_Lathna"
       ],
       "share": [
-        "Weapon",
-        "Akasha"
+        "Gala_Mym",
+        "Formal_Joachim"
       ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 120446.82474502231,
-        "team": 0.2446942919808521,
+        "dps": 143195.4526049137,
+        "team": 0.09645424991336063,
         "noaff": false,
         "nihil": false
       },
@@ -173,28 +180,9 @@
         "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, (dgauge>=900 or dshift_count) and x=2",
-        "`s3, not buff(s3) and x=2",
-        "`s1, x=2",
-        "`s4, x=2",
-        "`dodge, x=2"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dodge, fsc",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
       ]
     },
     "META": {
-      "tdps": 735401.1232825184,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -205,17 +193,30 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81269.75836404297,
-        "team": 0.12318275816497087,
+        "dps": 121428.12988860831,
+        "team": 0.3175880867989816,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "`dragon, x=2 and (dgauge > 900 or dshift_count)",
-        "`s1, x=2",
         "`s3, x=2",
-        "`s4",
+        "`s1, x=2",
+        "`s4, x=2",
         "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -237,14 +238,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89327.88640777458,
-        "team": 0.10824991941388254,
+        "dps": 105745.28673059368,
+        "team": 0.09645424991336049,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
+        "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Lord_of_the_Skies",
@@ -253,7 +254,7 @@
       ]
     },
     "META": {
-      "tdps": 334674.7422276155,
+      "tdps": 445615.8596461345,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -264,8 +265,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42827.997728631526,
-        "team": 0.14423456923809286,
+        "dps": 46792.419225331316,
+        "team": 0.16143036516529666,
         "noaff": false,
         "nihil": true
       },
@@ -278,6 +279,7 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, x=2 and (dgauge >= 900 or dshift_count)",
         "`s1, x=2",
@@ -297,8 +299,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42827.997728631526,
-        "team": 0.14423456923809286,
+        "dps": 46792.419225331316,
+        "team": 0.16143036516529666,
         "noaff": false,
         "nihil": true
       },

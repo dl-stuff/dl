@@ -1,0 +1,78 @@
+{
+    "actconds": {
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
+        "2087": {"coei": 1, "icon": 0, "hide": 1},
+        "2094": {"icon": 307, "mods": [[-0.01, "def", "buff"], [-0.02, "affres_frostbite", "passive"]], "debuff": 1, "text": "Vulnerability", "maxstack": 10}
+    },
+    "d": {
+        "name": "Gala Beast Ciella",
+        "icon": "210167_01",
+        "att": 125,
+        "hp": 370,
+        "ele": "water",
+        "abilities": [
+            {"ab": [["mod", 1.0, "att"]]},
+            {"cond": ["shift", "dform"], "ab": [["actcond", "MYSELF", "2087"]]},
+            {"ab": [["ctime", -1.0], ["mod", -0.2, "def"]]},
+            {"ele": "water", "ab": [["mod", 0.15, "killer_frostbite"]]},
+            {"cond": ["hits", ">=", 15, 1], "actcond": "2087", "ab": [["actgrant", 2094, "-t:x"]]}
+        ]
+    },
+    "dfs": {
+        "charge": 0.35,
+        "startup": 0.0,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 3.3, "sp": 5, "target": "HOSTILE", "msl": 0.33333, "msl_spd": 1}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.5, "dodge": 0.0, "s": 0.0}
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.53333,
+        "cancel": {"any": 1.83333},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 24.0, "actcond": "411", "target": "HOSTILE", "iv": 0.96667}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.5,
+        "recovery": 0.63333,
+        "attr": [
+            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
+            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
+            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dfs": 0.0, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.5,
+        "recovery": 0.66667,
+        "attr": [
+            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
+            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
+            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dfs": 0.0, "dodge": 0.0, "dx3": 0.13333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 1.5,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 18.0, "sp": 5, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dfs": 0.0, "dodge": 0.0, "dx1": 0.5, "s": 0.0}
+    }
+}

@@ -33,21 +33,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104550.69435839409,
-        "team": 0.17973096686395545,
+        "dps": 102176.1769149292,
+        "team": 0.033311880482302755,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Summer_Marishiten",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -57,8 +57,9 @@
         "`s4"
       ],
       "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3"
+        "`ds1, crystal_arrow=2",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Eugene",
@@ -71,15 +72,15 @@
       ]
     },
     "META": {
-      "tdps": 284728.1475488797,
+      "tdps": 190169.59614298723,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 69373.97102970911,
-        "team": 0.15789815248489578,
+        "dps": 69518.58230151635,
+        "team": 0.15789815248489594,
         "noaff": false,
         "nihil": true
       },
@@ -117,8 +118,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70938.931040163,
-        "team": 0.14498343232138652,
+        "dps": 73550.02335353101,
+        "team": 0.03328890559005614,
         "noaff": false,
         "nihil": true
       },
@@ -131,7 +132,7 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Summer_Marishiten",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, cancel",
         "`s1(low), aff_timeleft(frostbite)<5",
@@ -154,8 +155,8 @@
       ]
     },
     "META": {
-      "tdps": 121176.45528826231,
-      "pref": "PERSONAL"
+      "tdps": 32352.663646357447,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -169,8 +170,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 113564.4746068767,
-        "team": 0.17892049314793776,
+        "dps": 118659.64908857021,
+        "team": 0.033317768382537326,
         "noaff": false,
         "nihil": false
       },
@@ -183,7 +184,7 @@
       ]
     },
     "META": {
-      "tdps": 299447.06011058687,
+      "tdps": 216816.72640609049,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -221,8 +222,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76271.71847682487,
-        "team": 0.16267965844170912,
+        "dps": 79360.68583618214,
+        "team": 0.033325803553163905,
         "noaff": false,
         "nihil": true
       },
@@ -245,8 +246,8 @@
       ]
     },
     "META": {
-      "tdps": 164064.58165901108,
-      "pref": "PERSONAL",
+      "tdps": 36548.20706397196,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -254,9 +255,9 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 75194.7470132229,
+        "dps": 75351.52150472133,
         "team": 0.17943966022020422,
         "noaff": false,
         "nihil": false
@@ -281,43 +282,9 @@
       "dacl": [
         "`ds1, x=3",
         "`sack, x=3"
-      ],
-      "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 75786.32217748933,
-        "team": 0.1789204931479378,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Lord_of_the_Skies",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2(high)",
-        "`s1(high)",
-        "`s4"
       ]
     },
     "META": {
-      "tdps": 1139469.7311674587,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -328,8 +295,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41567.081832005155,
-        "team": 0.11564338766197889,
+        "dps": 38542.97180250663,
+        "team": 0.033184943172720624,
         "noaff": false,
         "nihil": true
       },

@@ -293,6 +293,7 @@ class Nop(object):
     status = -2
     idle = 1
     has_delayed = 0
+    to_x = 1
 
 
 class Action(object):
@@ -365,6 +366,10 @@ class Action(object):
         # self.rt_name = self.name
         # self.tap, self.o_tap = self.rt_tap, self.tap
         self.explicit_x = False
+
+        self.to_x = 1
+        if conf is not None:
+            self.to_x = conf["to_x"] or 1
 
     def __call__(self):
         return self.tap()
@@ -880,7 +885,6 @@ class DashX(Misc):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act=act)
         self.act_event.dtype = "x"
-        self.to_x = conf["to_x"] or 1
 
     def getstartup(self):
         return super().getstartup() + DashX.DASH_TIME
@@ -1840,13 +1844,13 @@ class Adv(object):
                     x_next = self.a_x_dict[self.current_x][1]
                 if not prev.has_follow(x_next.name, "any"):
                     x_next = self.a_x_dict[self.current_x][1]
-        elif isinstance(prev, DashX):
+        elif prev is not None:
             x_next = self.a_x_dict[self.current_x][prev.to_x]
         else:
             x_next = self.a_x_dict[self.current_x][1]
         # special: in dform and if there isn't enough time left to complete next x, try sack instead
         if x_next.group == globalconf.DRG:
-            if self.dragonform.dform_mode == -1 and not self.dragonform.untimed_shift and x_next.getstartup() >= self.dshift_timeleft:
+            if prev.status == Action.RECOVERY and self.dragonform.dform_mode == -1 and not self.dragonform.untimed_shift and x_next.getstartup() >= self.dshift_timeleft:
                 return self.sack()
         elif not x_next.enabled:
             self.current_x = globalconf.DEFAULT
@@ -2888,6 +2892,12 @@ class Adv(object):
     # @allow_acl
     # def timeleft(self, *args):
     #     return self.active_actconds.check(*args)
+
+    @allow_acl
+    def burst_gambit(self):
+        if BurstGambit.active_burst_gambit is None:
+            return 0
+        return BurstGambit.active_burst_gambit.count
 
     def stop(self):
         doing = self.action.getdoing()

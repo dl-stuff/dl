@@ -1,0 +1,134 @@
+{
+    "actconds": {
+        "265": {"duration": 30.0, "icon": "att-buff", "mods": [[-0.1, "att", "buff"]], "debuff": 1, "text": "Strength -10%", "overwrite": 1},
+        "393": {"duration": 3.0, "icon": "res-buff", "mods": [[0.7, "res", "buff"]], "coei": 1, "text": "70% Damage Reduction"},
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
+        "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
+        "2076": {"coei": 1, "icon": 304, "text": "Veteran's Mettle", "maxstack": 3},
+        "2077": {"remove": "2076", "coei": 1},
+        "2080": {"coei": 1, "icon": 300, "text": "Tiger's Burst", "overwrite": -1},
+        "2084": {"duration": 30.0, "coei": 1, "icon": 308, "text": "Battle Fervor"},
+        "301040201": {"icon": "hp-buff", "mods": [[0.1, "hp", "buff"]], "coei": 1, "text": "HP +10%"},
+        "326010201": {"duration": 10.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "overwrite": -1}
+    },
+    "c": {
+        "name": "Shingen",
+        "icon": "110401_01_r05",
+        "att": 467,
+        "hp": 822,
+        "ele": "wind",
+        "wt": "axe",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["sp", "s1", ">", -1], "actcond": "2084", "ab": [["mode", "mode2"]]},
+            {"cond": ["actcondend", 2084], "ab": [["mode", ""]]},
+            {"cond": ["damaged", -1], "cd": 20.0, "ab": [["actcond", "MYSELF", "2076"], ["actcond", "MYSELF", "2076"]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"cond": ["actcond", "2084", "=", 1], "ab": [["mod", -0.5, "actdmgdown"], ["mod", 0.2, "att"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 15026}
+    },
+    "fs": {
+        "charge": 0.55,
+        "startup": 0.1,
+        "recovery": 1.13333,
+        "attr": [
+            {"dmg": 5.0, "odmg": 1.2, "sp": 300, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9, "dodge": 0.0, "s": 0.0, "x1": 0.73333}
+    },
+    "s1": {
+        "sp": 2040,
+        "startup": 0.0,
+        "recovery": 2.2,
+        "attr": [
+            {"dmg": 16.0, "actcond": "2080", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 2.06667}
+        ],
+        "DEBUG_attr_N2": [{"dmg": 8.0, "actcond": "265", "target": "HOSTILE", "iv": 0.4}],
+        "DEBUG_attr_N3": [{"dmg": 8.0, "actcond": "265", "target": "HOSTILE", "iv": 0.4}, {"dmg": 8.0, "actcond": "1384", "target": "HOSTILE", "iv": 1.06667}],
+        "DEBUG_attr_N4": [{"actcond": "2084", "target": "MYSELF"}, {"actcond": "2077", "target": "MYSELF"}, {"dmg": 8.0, "actcond": "265", "target": "HOSTILE", "iv": 0.4}, {"dmg": 8.0, "actcond": "1384", "target": "HOSTILE", "iv": 1.06667}, {"dmg": 8.0, "target": "HOSTILE", "iv": 1.86667}, {"actcond": "326010201", "target": "MYSELF", "iv": 1.86667}, {"heal": 35, "target": "MYSELF", "iv": 1.86667}]
+    },
+    "s1_mode2": {
+        "sp": 2040,
+        "startup": 0.0,
+        "recovery": 2.2,
+        "attr": [
+            {"dmg": 16.0, "actcond": "2080", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 2.06667}
+        ],
+        "DEBUG_attr_N2": [{"dmg": 8.0, "actcond": "265", "target": "HOSTILE", "iv": 0.4}],
+        "DEBUG_attr_N3": [{"dmg": 8.0, "actcond": "265", "target": "HOSTILE", "iv": 0.4}, {"dmg": 8.0, "actcond": "1384", "target": "HOSTILE", "iv": 1.06667}],
+        "DEBUG_attr_N4": [{"dmg": 8.0, "actcond": "265", "target": "HOSTILE", "iv": 0.4}, {"dmg": 8.0, "actcond": "1384", "target": "HOSTILE", "iv": 1.06667}, {"dmg": 8.0, "target": "HOSTILE", "iv": 1.86667}, {"actcond": "326010201", "target": "MYSELF", "iv": 1.86667}, {"heal": 35, "target": "MYSELF", "iv": 1.86667}]
+    },
+    "s2": {
+        "sp": 7500,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"actcond": "2076", "target": "MYSELF", "iv": 0.73333},
+            {"amp": ["20000", 3, 0], "target": "MYSELF", "iv": 0.73333}
+        ],
+        "cancel": {"any": 1.5}
+    },
+    "s2_mode2": {
+        "sp": 7500,
+        "startup": 0.0,
+        "recovery": 2.16667,
+        "attr": [
+            {"amp": ["20000", 3, 0], "target": "MYSELF", "iv": 0.73333},
+            {"actcond": "301040201", "target": "MYSELF", "iv": 0.73333},
+            {"actcond": "393", "target": "MYSELF", "iv": 0.73333}
+        ],
+        "cancel": {"any": 2.0}
+    },
+    "x1_mode2": {
+        "startup": 0.27778,
+        "recovery": 1.15555,
+        "attr": [
+            {"dmg": 1.51, "sp": 200, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.41666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_mode2": 0.13889}
+    },
+    "x2_mode2": {
+        "startup": 0.61905,
+        "recovery": 1.61428,
+        "attr": [
+            {"dmg": 1.61, "sp": 240, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.40659, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_mode2": 0.15018}
+    },
+    "x3_mode2": {
+        "startup": 0.83333,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 0.5, "sp": 360, "target": "HOSTILE"},
+            {"dmg": 2.7, "sp": 360, "target": "HOSTILE", "iv": 0.02778}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.41667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_mode2": 0.27778}
+    },
+    "x4_mode2": {
+        "startup": 0.4,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 2.85, "sp": 380, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.93333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_mode2": 0.76667}
+    },
+    "x5_mode2": {
+        "startup": 0.53333,
+        "recovery": 0.73334,
+        "attr": [
+            {"dmg": 3.01, "sp": 420, "target": "HOSTILE"},
+            {"dmg": 0.5, "sp": 420, "target": "HOSTILE"},
+            {"dmg": 0.5, "sp": 420, "target": "HOSTILE"},
+            {"dmg": 0.5, "sp": 420, "target": "HOSTILE"},
+            {"dmg": 0.5, "sp": 420, "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.36667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_mode2": 0.3}
+    }
+}

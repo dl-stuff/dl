@@ -15,6 +15,10 @@ class Dragonyule_Nevin(SigilAdv):
         self.divine_sting_timer = Timer(self.divine_sting_dmg, 2.9, True)
         self.divine_sting_stacks = []
 
+        self.divine_sting_resdown = Modifier("divine_sting_resdown", f"affres_stormlash", "debuff", 0.0)
+        self.divine_sting_resdown.get = lambda: 0.15 * len(self.divine_sting_stacks)
+        self.afflics.stormlash.aff_res_mods.append(self.divine_sting_resdown)
+
     def _add_sp_fn(self, s, name, sp):
         if not self.unlocked and s.name == "s1":
             sp = float_ceil(sp, self.sp_mod(name, target=s.name) * self.S1_SP_MOD)
@@ -43,11 +47,9 @@ class Dragonyule_Nevin(SigilAdv):
             log("divine_dagger", f"{count:+}", self.divine_dagger)
             # skip impl. sting decreasing but not returning to 0 since that's not a thing that happens
             if self.divine_sting == 0:
-                self.afflics.stormlash.set_res_mod(0.15 * len(self.divine_sting_stacks))
                 self.divine_sting_stacks = []
             else:
                 while len(self.divine_sting_stacks) < self.divine_sting:
-                    self.afflics.stormlash.set_res_mod(-0.15)
                     self.divine_sting_stacks.append(self.dmg_formula("fs_divine_sting", 1.5, dtype="fs"))
 
     def fs1_sigil_proc(self, e):

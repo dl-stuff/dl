@@ -1,0 +1,73 @@
+{
+    "actconds": {
+        "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
+        "2065": {"count": 2, "shield": {"3": 1.0}, "coei": 1, "icon": 298, "text": "Mantra of Compassion", "overwrite": -1},
+        "2067": {"icon": 306, "mods": [[0.1, "aspd", "buff"], [0.3, "dmg_wind", "buff"]], "coei": 1, "text": "Mantra of Wrath", "overwrite": -1}
+    },
+    "d": {
+        "name": "Fudo Myo-o",
+        "icon": "210169_01",
+        "att": 126,
+        "hp": 369,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.7, "att"]]},
+            {"cond": ["event", "start"], "ele": "wind", "ab": [["actcond", "MYSELF", "2065"]]},
+            {"cond": ["actcondend", 2065], "cd": 180.0, "ele": "wind", "ab": [["dprep", 0.5]]},
+            {"cond": ["actcond", "2065", "=", 0], "ele": "wind", "ab": [["actcond", "MYSELF", "2067"]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "cancel": {"any": 2.5},
+        "sp_db": 45,
+        "uses": 1,
+        "attr": [
+            {"dmg": 4.17, "actcond": "1361", "target": "HOSTILE", "iv": 0.66667},
+            {"dmg": 4.17, "actcond": "1361", "target": "HOSTILE", "iv": 0.66667, "msl": 0.2, "msl_spd": 1},
+            {"dmg": 4.17, "actcond": "1361", "target": "HOSTILE", "iv": 0.66667, "msl": 0.4, "msl_spd": 1},
+            {"dmg": 4.17, "actcond": "1361", "target": "HOSTILE", "iv": 0.66667, "msl": 0.6, "msl_spd": 1},
+            {"dmg": 4.17, "actcond": "1361", "target": "HOSTILE", "iv": 0.66667, "msl": 0.8, "msl_spd": 1},
+            {"dmg": 4.17, "actcond": "1361", "target": "HOSTILE", "iv": 0.66667, "msl": 1.0, "msl_spd": 1},
+            {"actcond": "2065", "target": "MYSELF", "iv": 2.0}
+        ]
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.93333,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 2.75, "sp": 5, "target": "HOSTILE", "blt": [1, 0.3]},
+            {"dmg": 2.75, "sp": 5, "target": "HOSTILE", "blt": [1, 0.3]}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.2, "dodge": 0.0, "dx2": 0.66667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.66667,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 3.0, "sp": 5, "target": "HOSTILE", "blt": [1, 0.3]},
+            {"dmg": 3.0, "sp": 5, "target": "HOSTILE", "blt": [1, 0.3]}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.33333, "dodge": 0.0, "dx3": 0.83333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.66667,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 2.5, "sp": 5, "target": "HOSTILE", "blt": [1, 0.3]},
+            {"dmg": 2.5, "sp": 5, "target": "HOSTILE", "blt": [1, 0.3]},
+            {"dmg": 2.5, "sp": 5, "target": "HOSTILE", "blt": [1, 0.3]}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.5, "dodge": 0.0, "dx1": 1.33333, "s": 0.0}
+    }
+}
