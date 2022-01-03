@@ -1432,6 +1432,10 @@ class BurstGambit:
 
     @staticmethod
     def reset():
+        if BurstGambit.active_burst_gambit is not None:
+            for listener in BurstGambit.active_burst_gambit.bg_listeners:
+                listener.off()
+            BurstGambit.active_burst_gambit.count = 0
         BurstGambit.active_burst_gambit = None
         BurstGambit.is_cd = False
 
@@ -1470,8 +1474,8 @@ class BurstGambit:
             self.effect_off()
             for listener in self.bg_listeners:
                 listener.off()
-            BurstGambit.active_burst_gambit = None
             self.count = 0
+            BurstGambit.active_burst_gambit = None
             BurstGambit.is_cd = True
             Timer(self.cd_end, 5).on()
         else:
