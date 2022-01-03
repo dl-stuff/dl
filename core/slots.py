@@ -536,7 +536,7 @@ class Fudo_Myoo(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         self.adv.compassion = True
-        self.wrath_mods = [Modifier("wrath_eledmg", "wind", "ele", 0.3, get=self.is_wrath), Modifier("wrath_aspd", "spd", "buff", 0.3, get=self.is_wrath)]
+        self.wrath_mods = [Modifier("wrath_eledmg", "wind", "ele", 0.3, get=self.is_wrath), Modifier("wrath_aspd", "spd", "buff", 0.1, get=self.is_wrath)]
         Timer(self.end_compassion, self.COMPASSION_CD).on()
 
     def end_compassion(self, _=None):
