@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 125075.59275479146,
-        "team": 0.0,
+        "dps": 129304.01140402714,
+        "team": 0.06238665863800473,
         "noaff": false,
         "nihil": false
       },
@@ -12,37 +12,37 @@
         "Sweet_Surprise",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "The_Plaguebringer",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, xf or fsc",
         "`s1, xf or fsc",
-        "`fs, x=4"
+        "`fs, x=4",
+        "`dodge, fsc"
       ],
       "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 125075.59275479146,
-        "team": 0.0,
+        "dps": 131786.05136747475,
+        "team": 0.05906053414465529,
         "noaff": false,
         "nihil": false
       },
@@ -51,34 +51,35 @@
         "Sweet_Surprise",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "The_Plaguebringer",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon",
+        "`dragon, fsc",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, xf or fsc",
         "`s1, xf or fsc",
-        "`fs, x=4"
+        "`fs, x=4",
+        "`dodge, fsc"
       ],
       "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 746225.8157836325,
       "pref": "PERSONAL"
     }
   },
@@ -128,32 +129,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 133096.46933484622,
-        "team": 0.09879484677905057,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon, fsc",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, xf or fsc",
-        "`s1, xf or fsc",
-        "`fs, xf=4"
-      ],
-      "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3 and duration-now>10"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 148465.61278196625,
-        "team": 0.09054080477949736,
+        "dps": 66881.98951941848,
+        "team": 0.10951380585416315,
         "noaff": false,
         "nihil": false
       },
@@ -164,19 +141,32 @@
         "`s2, xf or fsc",
         "`s1, xf or fsc",
         "`fs, xf=4",
-        "`dodge, fsc"
-      ],
-      "dacl": [
-        "`ds1, x=3",
-        "`sack, x=3 and duration-now>10"
+        "`dodge, fscf"
       ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 155857.63412753757,
+        "team": 0.05906053414465529,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
+    },
     "META": {
-      "tdps": 1862014.204428808,
+      "tdps": 1763525.76539356,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,11 +177,12 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 99823.61133157034,
+        "dps": 106117.52981562557,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon, cancel and timeleft(s3,default)>15",
         "`s3, timeleft(s3)<10",
@@ -213,8 +204,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73653.03601710072,
-        "team": 0.09879484677905057,
+        "dps": 105680.28432067437,
+        "team": 0.09320571543359274,
         "noaff": false,
         "nihil": false
       },

@@ -40,31 +40,31 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95561.07764741009,
-        "team": 0.5375589812705267,
+        "dps": 117512.13162025802,
+        "team": 0.16774176823508652,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "Sweet_Surprise",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, (dgauge>=900 and s=1) or dshift_count",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
         "`s4, cancel"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`ds1, dshift_timeleft<1",
+        "`dodge, x=3"
       ],
       "coabs": [
         "Humanoid_Midgardsormr",
@@ -77,6 +77,7 @@
       ]
     },
     "META": {
+      "tdps": 59356.49612595055,
       "pref": "PERSONAL"
     }
   },
@@ -136,18 +137,8 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Fudo_Myoo",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel"
-      ],
       "dacl": [
-        "queue",
-        "`dx3;dx3;ds1;dx2",
-        "end"
+        "`ds1, x=3 and dshift_timeleft<3"
       ]
     },
     "META": {
@@ -207,8 +198,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70890.40037677935,
-        "team": 0.5375589812705267,
+        "dps": 115273.89296138902,
+        "team": 0.16774176823508652,
         "noaff": false,
         "nihil": false
       }

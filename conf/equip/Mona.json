@@ -137,29 +137,36 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 110712.30399182791,
-        "team": 0.0942265172138821,
+        "dps": 122250.30752731915,
+        "team": 0.11137851830822133,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, s2.check()",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`fs, x=4"
-      ],
-      "dacl": [
+        "`s3, x=4",
         "`s1, x=4",
         "`s2, x=4",
-        "`s4, x=4",
-        "`dodge, x=4"
+        "`s4",
+        "`fs, x=4 or hits=1"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Nino",
-        "Yukata_Lathna"
+      "dacl": [
+        "`s3, x=4",
+        "`s1, x=4",
+        "`s2, x=4",
+        "`s4",
+        "`dodge, x=4"
       ]
     },
     "PERSONAL": {
@@ -175,7 +182,7 @@
       ]
     },
     "META": {
-      "tdps": 4399442.729178203,
+      "tdps": 422995.04669968167,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -61,8 +61,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, dgauge>=900 and s=2",
-        "`dragon, dshift_count>0",
+        "`dragon, (dgauge>=900 and s=2) or dshift_count",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s2, fsc",
@@ -165,6 +164,10 @@
         "`dodge, x=5",
         "end"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Bow",
         "Mona",
@@ -222,14 +225,41 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 159521.9227072163,
-        "team": 0.2107168141263874,
+        "dps": 168084.73779646552,
+        "team": 0.13533121873279821,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, fsc",
+        "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "`fs, x=4 and gauges[fs]<1000",
+        "`fs, (x=3 or hits=0) and gauges[fs]<1000 and not  c_fs(enhanced)",
+        "`dodge, x=5"
+      ],
+      "dacl": [
+        "`dodge, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
-      "tdps": 160847.37872360664,
+      "tdps": 140491.99637457874,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -287,23 +317,38 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82443.66398947984,
-        "team": 0.3154245446543044,
-        "noaff": false,
+        "dps": 129827.4837181397,
+        "team": 0.13533121873279821,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Hastened_Squall",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, fsc",
+        "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "`fs, x=4 and gauges[fs]<1000",
+        "`fs, (x=3 or hits=0) and gauges[fs]<1000 and not  c_fs(enhanced)",
+        "`dodge, x=5"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs"
+        "`dodge, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",

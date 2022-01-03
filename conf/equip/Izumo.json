@@ -2,14 +2,14 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51624.90571558323,
+        "dps": 69168.84824855004,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Gentle_Winds",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
         "Saint_Starfalls_Circus",
@@ -17,12 +17,11 @@
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Fudo_Myoo",
-      "slots.w": "primal_dragon",
       "acl": [
         "`dragon",
         "`s1",
         "`s2",
-        "`s3",
+        "`s3, not buff(s3)",
         "`s4"
       ],
       "dacl": [
@@ -32,8 +31,8 @@
         "`s1, dgauge>=1500 and s=1"
       ],
       "coabs": [
+        "Eleonora",
         "Mona",
-        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
@@ -43,14 +42,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51624.90571558323,
+        "dps": 69168.84824855004,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Gentle_Winds",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
         "Saint_Starfalls_Circus",
@@ -58,12 +57,11 @@
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Fudo_Myoo",
-      "slots.w": "primal_dragon",
       "acl": [
         "`dragon",
         "`s1",
         "`s2",
-        "`s3",
+        "`s3, not buff(s3)",
         "`s4"
       ],
       "dacl": [
@@ -73,8 +71,8 @@
         "`s1, dgauge>=1500 and s=1"
       ],
       "coabs": [
+        "Eleonora",
         "Mona",
-        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
@@ -133,12 +131,83 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 76441.41742319368,
-        "team": 0.0,
+        "dps": 94858.54937557518,
+        "team": 0.10734650433175252,
         "noaff": false,
         "nihil": false
+      },
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel or fsc",
+        "`s2, cancel or fsc",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`s4, x=5 or fsc",
+        "`s2, fsc",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 97096.80361823813,
+        "team": 0.10679637212606563,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf",
+        "`s2, xf"
+      ],
+      "dacl": [
+        "`s4, xf=5",
+        "`s2, xf",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 4068575.1888825996,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67118.16265027077,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
@@ -148,24 +217,12 @@
         "Saint_Starfalls_Circus",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon",
-        "`s1",
-        "`s4, xf",
-        "`s2, xf"
-      ],
-      "dacl": [
-        "`s4, xf=5",
-        "`s2",
-        "`s1"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

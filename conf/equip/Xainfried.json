@@ -41,14 +41,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 118861.37741930789,
-        "team": 0.11077219741909629,
+        "dps": 139775.25889230345,
+        "team": 0.08881666613654238,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
+        "The_Red_Impulse",
         "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -61,12 +61,13 @@
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
+        "`s1",
         "`fs, charged_in(fs, s2) or charged_in(fs, s4) or x=5",
         "`dodge, fscf"
       ],
       "dacl": [
-        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
-        "`dfs, x=2",
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
         "`dodge, fsc"
       ],
       "coabs": [
@@ -80,7 +81,7 @@
       ]
     },
     "META": {
-      "tdps": 127743.1981222809,
+      "tdps": 152390.81170379123,
       "pref": "PERSONAL"
     }
   },
@@ -99,7 +100,7 @@
       ]
     },
     "META": {
-      "tdps": 141479.16058109776,
+      "tdps": 168326.67522587432,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -155,14 +156,19 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 123236.43469157981,
-        "team": 0.11077219741909629,
+        "dps": 146873.15370497497,
+        "team": 0.08881666613654238,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "dacl": [
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
+        "`dodge, fsc"
+      ]
     },
     "META": {
-      "tdps": 133881.3101035758,
+      "tdps": 162051.42927097238,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -231,41 +237,23 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84299.53997565266,
-        "team": 0.3024611461737869,
+        "dps": 106326.18538149276,
+        "team": 0.08881666613654238,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "acl": [
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1 and xf=2",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf",
-        "`dragon, dshift_count>=4",
-        "queue prep and not buff(s3)",
-        "`s3",
-        "`s2",
-        "`s4, xf=2",
-        "end",
-        "`s2",
-        "`s4",
-        "`s1, fscf and not duration-now<20",
-        "`s1, duration-now<10 and x=4",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 108408.59903217264,
+      "tdps": 106864.81904078522,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

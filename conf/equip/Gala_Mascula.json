@@ -63,6 +63,11 @@
         "`fs, charged_in(fs, s2) and x=4",
         "`s1, masterctrl_buff.get() and x=4"
       ],
+      "dacl": [
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Eugene",
         "Tiki",
@@ -119,8 +124,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68368.92729908772,
-        "team": 0.033324849504324724,
+        "dps": 50660.851948788026,
+        "team": 0.033278367760274014,
         "noaff": false,
         "nihil": true
       },
@@ -157,7 +162,7 @@
       ]
     },
     "META": {
-      "tdps": 38185.75921039907,
+      "tdps": -22821.65944425266,
       "pref": "TEAMBUFF"
     }
   },
@@ -192,8 +197,26 @@
         "`ds1, x=3"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 112968.79373471759,
+        "team": 0.03328656020337916,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
+    },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 101527.90575025094,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -201,37 +224,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 78577.89278165576,
-        "team": 0.03328656020337916,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "Wings_of_Rebellion_at_Rest",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`dragon, s=4",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, cancel",
-        "`fs, charged_in(fs, s2) and x=4",
-        "`s1, masterctrl_buff.get() and x=4"
-      ],
-      "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 78577.89278165576,

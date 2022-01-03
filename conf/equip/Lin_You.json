@@ -42,23 +42,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 121972.10856747763,
-        "team": 0.06791968010541768,
+        "dps": 129368.47592492508,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
         "Sweet_Surprise",
+        "Dueling_Dancers",
         "Hastened_Squall",
-        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, s=2",
+        "`dragon, not dshift_count or s=2",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s2, (charged_in(4,s1) or dgauge>=500) and cancel",
@@ -66,14 +66,12 @@
         "`fs, x=4 and hits<50 and c_fs(enhanced)"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3",
-        "`dodge, fsc"
+        "`ds1, dshift_timeleft<1"
       ],
       "coabs": [
-        "Mona",
-        "Valentines_Melody",
-        "Yukata_Lathna"
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Valentines_Melody"
       ],
       "share": [
         "Weapon",
@@ -81,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 593078.3777100091,
+      "tdps": 340236.4700944417,
       "pref": "PERSONAL"
     }
   },
@@ -198,18 +196,35 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 145171.94204338238,
-        "team": 0.0,
+        "dps": 160471.6455157217,
+        "team": 0.08391304520923903,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Fudo_Myoo",
-      "dacl": [
-        "`ds1, x=3 and dshift_timeleft<3"
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, (charged_in(4,s1) or dgauge>=500) and cancel",
+        "`s1",
+        "`fs, x=4 and hits<50 and c_fs(enhanced)"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 86797.74687439954,
+      "tdps": 266918.8248891107,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -301,23 +316,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79159.32770041052,
-        "team": 0.1647677502143912,
+        "dps": 113416.99374637158,
+        "team": 0.08339283746517225,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "From_Whence_He_Comes",
-        "Hastened_Squall",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Dragonyule_Lily"
       ]
     },
     "META": {

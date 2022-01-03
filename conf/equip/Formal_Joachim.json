@@ -202,31 +202,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100765.17303398126,
-        "team": 0.1010212247676185,
+        "dps": 104085.19901813928,
+        "team": 0.0837004071289833,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3) and xf",
-        "`s2, s1.check() and xf",
-        "`s1, s2.charged < 3763 or s=2",
-        "`s4, xf",
+        "`dragon, xf=1",
+        "`s3, not buff(s3) and xf=1",
+        "`s1, s2.charged<3763 or s=2",
+        "`s2, s1.check() and xf=1",
+        "`s4, xf=1",
         "`dodge, xf=1"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Basileus"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 141705.56054312648,
+      "tdps": 149225.8802908112,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -237,7 +250,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81001.66984622816,
+        "dps": 81001.6698462282,
         "team": 0.0451185951757296,
         "noaff": false,
         "nihil": true

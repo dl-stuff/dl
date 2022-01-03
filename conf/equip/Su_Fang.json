@@ -2,60 +2,58 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 73882.51309366402,
-        "team": 0.061807728027838356,
+        "dps": 79481.04628918841,
+        "team": 0.09698385188304018,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3) and fscf",
-        "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2, fscf",
-        "`fs, x=5"
+        "`s3, not buff(s3) and x=5",
+        "`s4, xf",
+        "`s1, (x=5 and buff(s3)) or buff(s2)",
+        "`s2, charged_in(5, s1)"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`ds1, dshift_timeleft<1"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81437.20106549442,
-        "team": 0.05232804144122806,
+        "dps": 89212.12991911107,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -65,13 +63,12 @@
         "`fs, s=2"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`ds1, dshift_timeleft<1"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -79,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 796934.3609419654,
+      "tdps": 100337.15346404348,
       "pref": "PERSONAL"
     }
   },
@@ -129,10 +126,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 113386.83624578196,
-        "team": 0.14849688436724884,
+        "dps": 126140.89269403214,
+        "team": 0.09998801715249787,
         "noaff": false,
         "nihil": false
       },
@@ -144,9 +141,36 @@
         "`s2, charged_in(5,s1)",
         "`fs, hits=0"
       ],
+      "dacl": [
+        "`dodge, x=3"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 133759.2460416947,
+        "team": 0.09509417952677401,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and x=5",
+        "`s4, xf",
+        "`s1, (x=5 and buff(s3)) or buff(s2)",
+        "`s2, charged_in(5, s1)"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
@@ -155,6 +179,7 @@
       ]
     },
     "META": {
+      "tdps": 1556723.7677886228,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

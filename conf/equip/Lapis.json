@@ -34,9 +34,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110166.26799348611,
-        "team": 0.0415503207670913,
-        "noaff": true,
+        "dps": 114047.69897541901,
+        "team": 0.04165848810256245,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -48,9 +48,9 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Leviathan",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon",
+        "`dragon, not dshift_count and s=2",
         "`s3, not buff(s3)",
         "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
         "`s4, energy()<5",
@@ -58,8 +58,8 @@
         "`fs"
       ],
       "dacl": [
-        "`ds1, crystal_arrow=2",
-        "`dfs, x=2",
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
         "`dodge, fsc"
       ],
       "coabs": [
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 153545.77788444163,
+      "tdps": 159970.01606600464,
       "pref": "PERSONAL"
     }
   },
@@ -158,23 +158,49 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 125966.69476236265,
-        "team": 0.0415503207670913,
+        "dps": 149332.67058521562,
+        "team": 0.04165848848821349,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
+        "Wings_of_Rebellion_at_Rest",
+        "Beautiful_Gunman",
         "Enter_the_Blue_Rose",
-        "His_Clever_Brother",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, not dshift_count and energy()=0",
+        "`s3, not buff(s3)",
+        "`s1, not have_buff(s1_res_down) and energy()<5 and buff(s3) and fsc",
+        "`s4, energy()<5",
+        "`s2, energy()=5 and stronger_bullets=3",
+        "`fs"
       ]
     },
     "META": {
-      "tdps": 179581.32983410425,
+      "tdps": 218122.0833902235,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 112433.60011412583,
+        "team": 0.04165848810256245,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 157309.86980135422,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
