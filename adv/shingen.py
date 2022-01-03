@@ -22,6 +22,7 @@ class Shingen(Adv):
 
     @staticmethod
     def prerun_skillshare(adv, dst):
+        adv.current_s[dst] = "furinkazan"
         adv.rebind_function(Shingen, "heal_burst_on")
         adv.rebind_function(Shingen, "heal_burst_off")
         adv.shingen_heal_burst = BurstGambit("heal_burst", 30, adv.heal_burst_on, adv.heal_burst_off)
@@ -36,14 +37,13 @@ class Shingen(Adv):
 
     def s1_before(self, e):
         self.shingen_heal_burst.on()
-
-    def s1_proc(self, e):
         if e.group == DEFAULT and self.fervor == 3:
             self.fervor = 0
             self.furinkazan_mode.on()
 
     def s2_proc(self, e):
-        self.fervor = min(3, self.fervor + 1)
+        if e.group == DEFAULT:
+            self.fervor = min(3, self.fervor + 1)
 
 
 variants = {None: Shingen}
