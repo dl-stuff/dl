@@ -1001,6 +1001,8 @@ class Adv(object):
         self.base_buff._static.all_buffs = self.all_buffs
         self.base_buff._static.adv = self
         self.active_buff_dict = ActiveBuffDict()
+        # burst gambit reset
+        BurstGambit.reset()
         # set modifier
         self.modifier = Modifier(0, 0, 0, 0)
         self.all_modifiers = ModifierDict()

@@ -1430,6 +1430,11 @@ class BurstGambit:
     active_burst_gambit = None
     is_cd = False
 
+    @staticmethod
+    def reset():
+        BurstGambit.active_burst_gambit = None
+        BurstGambit.is_cd = False
+
     def __init__(self, name, count, effect_on, effect_off) -> None:
         self.name = name
         self.count = 0
