@@ -10,7 +10,7 @@ class Shingen(Adv):
         self.furinkazan_mode = ModeManager(
             "furinkazan_mode",
             group="furinkazan",
-            buffs=[],
+            buffs=[Selfbuff("furinkazen_att", 0.2, 30, "att", "passive"), Selfbuff("furinkazen_actdown", 0.5, 30, "ex", "actdown")],
             duration=30,
             x=True,
             s1=True,

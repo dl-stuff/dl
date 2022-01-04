@@ -69,9 +69,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 50683.636365557126,
+        "dps": 62718.28057886892,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -79,13 +79,52 @@
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
-        "The_Prince_of_Dragonyule",
-        "His_Clever_Brother",
+        "Wings_of_Rebellion_at_Rest",
+        "Saint_Starfalls_Circus",
         "Snipers_Allure",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
+      "acl": [
+        "`dragon, cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3, cancel",
+        "`s4, cancel"
+      ],
+      "dacl": [
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Karina"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62902.56606068422,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
+        "Saint_Starfalls_Circus",
+        "Snipers_Allure",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, cancel",
         "`s1, cancel",
@@ -110,7 +149,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98631.39493181977,
+        "dps": 115792.73271013731,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -124,6 +163,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, xf",
         "`s3, not buff(s3) and xf",
@@ -132,11 +172,13 @@
         "`s2, cancel"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
+        "`dodge, fsc"
       ]
     },
     "META": {
-      "tdps": 141647.47904106125,
+      "tdps": 170109.8756877782,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -147,31 +189,22 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53883.103104931,
+        "dps": 64450.68054101334,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Tiki"
+      "dacl": [
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
+        "`dodge, fsc"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

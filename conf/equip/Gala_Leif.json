@@ -53,8 +53,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 128145.84283907693,
-        "team": 0.09103088609321658,
+        "dps": 111507.70469610182,
+        "team": 0.10074765501809867,
         "noaff": false,
         "nihil": false
       },
@@ -93,7 +93,7 @@
       ]
     },
     "META": {
-      "tdps": 414656.20827727456,
+      "tdps": 330904.5314269773,
       "pref": "PERSONAL"
     }
   },
@@ -189,13 +189,22 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 126794.56958868961,
         "team": 0.47243819869292336,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Snipers_Allure",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
@@ -218,43 +227,10 @@
         "end",
         "`fs, x=3",
         "`fs, x=2 and charged_in(fs,s1)"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 150472.51192385785,
-        "team": 0.25923014727389954,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Snipers_Allure",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
       ],
-      "acl": [
-        "`striking",
-        "`dragon",
-        "queue now=0",
-        "`s3",
-        "`s4",
-        "`fs, x=2",
-        "`s1(striking),fsc",
-        "`fs, x=2",
-        "`s2(shielding),fsc",
-        "end",
-        "`s4",
-        "`s1(striking)",
-        "queue s2.check() and cancel",
-        "`s2(shielding)",
-        "`striking",
-        "end",
-        "`fs, x=3",
-        "`fs, x=2 and charged_in(fs,s1)"
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -267,7 +243,6 @@
       ]
     },
     "META": {
-      "tdps": 111055.57307792896,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -278,8 +253,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 115679.43270848958,
-        "team": 0.08588290649128809,
+        "dps": 103836.82435846339,
+        "team": 0.08377436248702672,
         "noaff": false,
         "nihil": true
       },
@@ -292,6 +267,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`striking",
         "`dragon, dshift_count or (amp_lvl(self, att)=2 and s=1)",
