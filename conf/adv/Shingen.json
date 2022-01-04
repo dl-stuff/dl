@@ -14,7 +14,7 @@
         "startup": 0.1,
         "recovery": 1.13333,
         "attr": [
-            {"dmg": 5.0, "odmg": 1.2, "sp": 300}
+            {"dmg": 5.0, "odmg": 1.2, "vars": ["mettle", 3, 3], "sp": 300}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"any": 0.9, "dodge": 0.0, "s": 0.0, "x1": 0.73333}
@@ -22,30 +22,61 @@
     "s1": {
         "sp": 2040,
         "startup": 0.0,
-        "recovery": 3.33333,
+        "recovery": 2.2,
         "attr": [
             {"dmg": 16.0, "iv": 2.06667},
-            {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
-            {"cond": ["var>=", ["fervor", 1]], "dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4},
-            {"cond": ["var>=", ["fervor", 2]], "dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 1.06667},
-            {"cond": ["var>=", ["fervor", 3]], "dmg": 8.0, "iv": 1.86667},
-            {"cond": ["var>=", ["fervor", 3]], "heal": 35, "iv": 1.86667}
+            {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667}
         ],
         "DEBUG_attr_N2": [{"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4}],
         "DEBUG_attr_N3": [{"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4}, {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 1.06667}],
         "DEBUG_attr_N4": [{"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4}, {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 1.06667}, {"dmg": 8.0, "iv": 1.86667}, {"heal": 35, "iv": 1.86667}]
     },
-    "s1_furinkazan": {
+    "s1_mettle1": {
         "sp": 2040,
         "startup": 0.0,
-        "recovery": 2.2,
+        "recovery": 3.16667,
         "attr": [
             {"dmg": 16.0, "iv": 2.06667},
             {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
-            {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4},
-            {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 1.06667},
-            {"dmg": 8.0, "iv": 1.86667},
-            {"heal": 35, "iv": 1.86667}
+            {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 2.6}
+        ]
+    },
+    "s1_mettle2": {
+        "sp": 2040,
+        "startup": 0.0,
+        "recovery": 4.23333,
+        "attr": [
+            {"dmg": 16.0, "iv": 2.06667},
+            {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
+            {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 2.6},
+            {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 3.66667}
+        ]
+    },
+    "s1_mettle3": {
+        "sp": 2040,
+        "startup": 0.0,
+        "recovery": 5.43333,
+        "attr": [
+            {"dmg": 16.0, "iv": 2.06667},
+            {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
+            {"vars": ["mettle", -3, 3], "iv": 2.2},
+            {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 2.6},
+            {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 3.66667},
+            {"dmg": 8.0, "iv": 4.46667},
+            {"heal": 35, "iv": 4.46667}
+        ]
+    },
+    "s1_furinkazan": {
+        "sp": 2040,
+        "startup": 0.0,
+        "recovery": 5.43333,
+        "attr": [
+            {"dmg": 16.0, "iv": 2.06667},
+            {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
+            {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 2.6},
+            {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 3.66667},
+            {"dmg": 8.0, "iv": 4.46667},
+            {"heal": 35, "iv": 4.46667}
         ]
     },
     "s2": {
@@ -53,7 +84,7 @@
         "startup": 0.0,
         "recovery": 2.16667,
         "attr": [
-            {"amp": ["20000", 3, 0], "iv": 0.73333}
+            {"amp": ["20000", 3, 0], "vars": ["mettle", 1, 3], "iv": 0.73333}
         ],
         "cancel": {"any": 1.5}
     },
