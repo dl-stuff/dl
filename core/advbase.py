@@ -1049,7 +1049,7 @@ class Adv(object):
         self._cooldowns = {}
 
         self._echoes = {}
-        self.bleed = None
+        self.bleed = Bleed(self)
         self.alive = True
 
         # init dragon here so that actions can be processed
@@ -1547,11 +1547,11 @@ class Adv(object):
             if rate > 0:
                 rates[afflic] = rate
 
-        if self.bleed is None:
-            debuff_rates = {}
-        else:
-            rates["bleed"] = self.bleed.get()
-            debuff_rates = {"debuff": 1 - rates["bleed"]}
+        debuff_rates = defaultdict(float)
+
+        for actcond in self.active_actconds.by_generic_target[ENEMY].items():
+            if actcond.debuff:
+                actcond.update_debuff_rates(debuff_rates)
 
         # for buff in self.all_buffs:
         #     if buff.get() and (buff.bufftype == "debuff" or buff.name == "simulated_def") and buff.val < 0:
@@ -1567,6 +1567,8 @@ class Adv(object):
         # for dkey in debuff_rates.keys():
         #     debuff_rates[dkey] = 1 - debuff_rates[dkey]
         # rates.update(debuff_rates)
+        for buff in self.active_actconds:
+            pass
 
         if self.conf["classbane"]:
             enemy_class = self.conf["classbane"]
@@ -2873,7 +2875,7 @@ class Adv(object):
     @property
     def bleed_stack(self):
         try:
-            return self.bleed._static["stacks"]
+            return self.bleed.get()
         except AttributeError:
             return 0
 

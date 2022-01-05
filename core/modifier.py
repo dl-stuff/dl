@@ -1,6 +1,7 @@
 from collections import UserDict, UserList, defaultdict
 from functools import reduce
 import operator
+import random
 
 from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICTION_LIST, AFFRES_PROFILES, wyrmprints_meta
 
@@ -335,6 +336,91 @@ class Afflictions(UserDict):
         return uptimes.items()
 
 
+class Bleed:
+    def __init__(self, adv) -> None:
+        self._adv = adv
+        self.slip_timer = None
+        self._stacks = {}
+
+    def tick(self, t):
+        mod = 0.5 + 0.5 * len(self._stacks.values())
+        dmg_by_source = defaultdict(float)
+        for stack_key, value in self._stacks.items():
+            dmg_by_source[stack_key[1]] += value
+        for source, value in dmg_by_source.items():
+            log("dmg", f"{source}_bleed", value * mod, 0)
+
+    def on(self, rate, slip, dtype, stack_key):
+        # {"value": ["mod", 1.32], "kind": "bleed", "iv": 4.9}
+        if random.random() <= rate:
+            if len(self._stacks) > 3:
+                oldest_bleed = min(self._stacks.keys(), key=lambda k: k[0])
+                del self._stacks[oldest_bleed]
+            self._stacks[stack_key] = self._adv.dmg_formula(stack_key[1], slip["value"][1], dtype=dtype, actcond_dmg=True)
+            if self.slip_timer is None:
+                self.slip_timer = Timer(self.tick, slip["iv"], repeat=True)
+                self.slip_timer.on()
+            return True
+        return False
+
+
+class Bleed:
+    THRESHOLD = 0.00001
+
+    def __init__(self, use_ev=True) -> None:
+        self.use_ev = use_ev
+        self.need_ev = False
+        self.iv = 4.9
+        self.slip_timer = None
+        self.reset()
+
+    def _init_state(self):
+        return defaultdict(float)
+
+    def reset(self):
+        self._stack_states = self._init_state()
+        self._stack_states[(None, None, None)] = 1.0
+        self._stacks = {}
+        self._get = 0
+
+    def on(self, rate, slip, source, dtype, stack_key):
+        if self.use_ev and rate < 1:
+            self.need_ev = True
+            self.update(rate=rate, stack_key=stack_key)
+        else:
+            if random.random() <= rate:
+                if len(self._stacks) > 3:
+                    oldest_bleed = min(self._stacks.item(), key=lambda kv: kv[0][0])
+                if not self.slip_timer:
+                    self.slip_timer = Timer()
+                self._stacks[stack_key] = 1
+                return True
+            else:
+                return False
+
+    def update(self, rate=0):
+        n_states = self._init_state()
+        for state, state_p in self._stack_states:
+            state = [stack for stack in state if stack in self._stacks]
+            success_p = state_p * rate
+            fail_p = state_p * (1 - rate)
+            if len(state) == 3:
+                oldest_bleed = self._stacks[state[0]]
+                oldest_bleed.bleed_modifier *= fail_p
+        self._stack_states = n_states
+
+    def get(self):
+        if not self.need_ev:
+            return len(self._stacks)
+        return self._get
+
+    def off(self, stack_key):
+        self._stacks[stack_key].off()
+        del self._stacks[stack_key]
+        if self.need_ev:
+            self.update()
+
+
 class SlipDmg:
     def __init__(self, actcond, data, source, dtype, target, ev=1) -> None:
         self._actcond = actcond
@@ -350,6 +436,8 @@ class SlipDmg:
         self.dtype = dtype
         self.target = target
 
+        self.bleed_modifier = 1
+
     def on(self, ev=1):
         if not self.slip_timer.online:
             self.slip_timer.on()
@@ -360,7 +448,6 @@ class SlipDmg:
         else:
             value = self.value
         self.slip_value = (self.source, self.target, value * ev)
-        log("slip_dmg", value, ev)
 
     def off(self):
         self.slip_value = None
@@ -371,8 +458,6 @@ class SlipDmg:
         if ENEMY in GENERIC_TARGET[target]:
             if self.kind is None:
                 log("dmg", f"{source}_{self._actcond.aff}", value, 0)
-            elif self.kind == "bleed":  # TODO: handle mbleed
-                log("dmg", f"{source}_bleed", value * (0.5 + 0.5 * self._adv.get_slipcount(self.kind)), 0)
         else:
             if self.kind == "corrosion":  # TODO: corrosion maffs
                 self._adv.add_hp(value, percent=self.is_percent, can_die=True)
@@ -429,6 +514,9 @@ class ActCond:
 
         self.slip = data.get("slip")
         self.slip_stack = {}
+        self.is_bleed = False
+        if self.slip:
+            self.is_bleed = self.slip.get("kind") == "bleed"
 
         self.mod_list = []
         if mod_args := data.get("mods"):
@@ -437,7 +525,7 @@ class ActCond:
                 self.mod_list.append(Modifier(mtype, morder, value, self.get, target=self.target))
 
     def get(self):
-        return sum((stack[1] for stack in self.buff_stack.values()))
+        return sum((ev for _, ev in self.buff_stack.values()))
 
     def log(self, *args):
         if not self.hidden:
@@ -447,10 +535,9 @@ class ActCond:
     def stack(self):
         return len(self.buff_stack)
 
-    @property
-    def rate(self):
+    def get_rate(self):
         if self.debuff:
-            return self._rate + Modifier.SELF.mod("debuffrate", operator=operator.add, initial=0)
+            return min(1.0, self._rate + Modifier.SELF.mod("debuffrate", operator=operator.add, initial=0))
         return self._rate
 
     def bufftime(self, dtype="s"):
@@ -466,6 +553,12 @@ class ActCond:
                 return 1.0
             else:
                 return 1.0 + Modifier.SELF.sub_mod("bufftime", "ex")
+
+    def update_debuff_rates(self, debuff_rates):
+        for mod in self.mod_list:
+            dkey = f"debuff_{mod.mod_type}"
+            for _, ev in self.buff_stack.values():
+                debuff_rates[dkey] *= 1 - ev
 
     def l_on(self, e):
         return self.on(e.source, e.target)
@@ -503,7 +596,7 @@ class ActCond:
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
             timer.on()
-        self.buff_stack[stack_key] = (timer, ev)
+        self.buff_stack[stack_key] = (timer, ev * self.get_rate())
 
         self.effect_on(source, dtype, stack_key)
         self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target)
@@ -533,12 +626,15 @@ class ActCond:
     def effect_on(self, source, dtype, stack_key):
         slip_dmg = None
         if self.slip is not None:
-            slip_dmg = SlipDmg(self, self.slip, source[0], dtype, self.target)
+            if self.is_bleed:
+                self._adv.bleed.on(self.get_rate(), self.slip, source, dtype, stack_key)
+            else:
+                slip_dmg = SlipDmg(self, self.slip, source[0], dtype, self.target)
         if self.aff and not self.relief:
             if ENEMY in self.generic_target:
                 if self._adv.afflictions[self.aff].on(self._rate, stack_key, slip_dmg=slip_dmg):
                     self.slip_stack[stack_key] = slip_dmg
-            else:
+            elif slip_dmg:
                 selfaff = Event("selfaff")
                 selfaff.atype = self.aff
                 selfaff.on()
@@ -549,30 +645,36 @@ class ActCond:
         if self.aff and not self.relief and ENEMY in self.generic_target:
             self._adv.afflictions[self.aff].off(stack_key)
         if self.slip is not None:
-            try:
-                self.slip_stack[stack_key].off()
-                del self.slip_stack[stack_key]
-            except KeyError:
-                pass
+            if self.is_bleed:
+                self._adv.bleed.off(stack_key)
+            else:
+                try:
+                    self.slip_stack[stack_key].off()
+                    del self.slip_stack[stack_key]
+                except KeyError:
+                    pass
 
 
 class ActiveActconds(UserDict):
     def __init__(self) -> None:
         super().__init__()
-        self._by_source = defaultdict(dict)
+        self.by_source = defaultdict(dict)
+        self.by_generic_target = defaultdict(dict)
 
     def add(self, actcond, actcond_source):
         abs_key = (actcond.id, actcond.target)
         if abs_key not in self:
             self[abs_key] = actcond
         name, aseq = actcond_source
-        self._by_source[name][aseq] = actcond
+        self.by_source[name][aseq] = actcond
+        for gtarget in actcond.generic_target:
+            self.by_generic_target[gtarget][actcond.id] = actcond
 
     def check(self, name, aseq=None):
         if aseq is not None:
             try:
-                return self._by_source[name][aseq].get()
+                return self.by_source[name][aseq].get()
             except KeyError:
                 pass
         else:
-            return any((actcond.get() for actcond in self._by_source[name].values()))
+            return any((actcond.get() for actcond in self.by_source[name].values()))
