@@ -82,17 +82,17 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 23652.94623104009,
-        "team": 0.11903435743917518,
+        "dps": 34647.76664589356,
+        "team": 0.15641863579645487,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
@@ -100,11 +100,53 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=1",
+        "`dragon, (dgauge>=900 and s=1) or dshift_count",
         "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s1, x=5 or dgauge>=500",
-        "`s4"
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35981.66658361997,
+        "team": 0.15641863579645487,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, (dgauge>=900 and s=1) or dshift_count",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Humanoid_Midgardsormr",
@@ -159,6 +201,15 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 67941.85394240834,
+        "team": 0.16097122947559503,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.w": "primal_dragon"
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 69010.3349168127,
@@ -182,10 +233,6 @@
         "`s2",
         "`s4, cancel"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
       "coabs": [
         "Mona",
         "Nino",
@@ -200,7 +247,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

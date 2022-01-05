@@ -35,39 +35,41 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 13833.11949439788,
-        "team": 1.480566781827169,
-        "noaff": true,
+        "dps": 46028.798379441134,
+        "team": 0.5006156532601004,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Dogs_Day",
-        "Gentle_Winds",
-        "Jewels_of_the_Sun",
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
         "Bellathorna",
         "From_Whence_He_Comes",
-        "Beneath_the_Boughs",
-        "Promised_Piety_Staff"
+        "Mask_of_Determination_Bow",
+        "Ravenous_Fire_Crown"
       ],
-      "slots.d": "Ariel",
+      "slots.d": "Fudo_Myoo",
       "acl": [
+        "`dragon",
         "`s1",
-        "`s3, speed()<1.5",
-        "`s4, s=1",
+        "`s3, not buff(s3)",
+        "`s4",
         "`fs,x=5"
       ],
       "coabs": [
-        "Humanoid_Midgardsormr",
-        "Joker",
+        "Axe2",
+        "Gala_Notte",
         "Tobias"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Weapon",
+        "Mikoto"
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 32854.37196457063,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -109,6 +111,24 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64913.74467545515,
+        "team": 0.5006156532601004,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 52125.686365349466,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }
