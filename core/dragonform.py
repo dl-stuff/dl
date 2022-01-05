@@ -101,6 +101,7 @@ class DragonForm:
         # make separate dodge action, may want to handle forward/backward later
         self.d_dodge = Dodge("dodge", self.conf.dodge)
         self.d_shift = Shift("dshift", self.name, self.conf.dshift)
+        self.d_shift.is_dragon = True
         self.d_end = Shift("dend", self.name, self.conf.dend)
 
         self.shift_event = Event("dragon")

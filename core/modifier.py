@@ -244,9 +244,12 @@ class AffEV:
                 "{:.2%}".format(rate / next_t),
             )
 
-    def update(self):
+    def update(self, slip_dmg=None):
         self.uptime()
-        self._get = 1.0 - reduce(AffEV._mul_no_p, self._stacks.values(), 1.0)
+        exist_p = 1.0 - reduce(AffEV._mul_no_p, self._stacks.values(), 1.0)
+        if slip_dmg is not None:
+            slip_dmg.on(ev=exist_p)
+        self._get = exist_p
 
     def _init_state(self):
         return defaultdict(float)
@@ -257,7 +260,7 @@ class AffEV:
     def affres_mod(self):
         return Modifier.ENEMY.mod(self._affres_mtype, operator=operator.add, initial=0.0)
 
-    def on(self, rate, stack_key, extra_p=1.0):
+    def on(self, rate, stack_key, extra_p=1.0, slip_dmg=None):
         total_success_p = 0.0
         rate = rate + self.edge_mod()
         n_states = self._init_state()
@@ -276,7 +279,7 @@ class AffEV:
         if total_success_p > AffEV.THRESHOLD:
             self._res_states = n_states
             self._stacks[stack_key] = total_success_p
-            self.update()
+            self.update(slip_dmg=slip_dmg)
             self.aff_event.ev = self._get
             self.aff_event()
             return total_success_p
@@ -343,18 +346,21 @@ class SlipDmg:
         self.is_percent = self.func == "percent"
         self.slip_timer = Timer(self.tick, self.iv, 1)
         self.slip_value = None
-        self.on(source, dtype, target, ev=ev)
+        self.source = source
+        self.dtype = dtype
+        self.target = target
 
-    def on(self, source, dtype, target, ev=1):
+    def on(self, ev=1):
         if not self.slip_timer.online:
             self.slip_timer.on()
         if self.func == "mod":
-            value = self._adv.dmg_formula(source, self.value, dtype=dtype, actcond_dmg=True)
+            value = self._adv.dmg_formula(self.source, self.value, dtype=self.dtype, actcond_dmg=True)
         elif self.func == "heal":
-            value = self._adv.heal_formula(source, self.value)
+            value = self._adv.heal_formula(self.source, self.value)
         else:
             value = self.value
-        self.slip_value = (source, target, value * ev)
+        self.slip_value = (self.source, self.target, value * ev)
+        log("slip_dmg", value, ev)
 
     def off(self):
         self.slip_value = None
@@ -525,13 +531,12 @@ class ActCond:
         self.buff_stack = {}
 
     def effect_on(self, source, dtype, stack_key):
-        ev = 1
-        if self.aff and not self.relief:
-            self._adv.afflictions[self.aff].on(self._rate, stack_key)
-            ev = self._adv.afflictions[self.aff].get()
+        slip_dmg = None
         if self.slip is not None:
-            # TODO: EV maffs
-            self.slip_stack[stack_key] = SlipDmg(self, self.slip, source[0], dtype, self.target, ev=ev)
+            slip_dmg = SlipDmg(self, self.slip, source[0], dtype, self.target)
+        if self.aff and not self.relief:
+            if self._adv.afflictions[self.aff].on(self._rate, stack_key, slip_dmg=slip_dmg):
+                self.slip_stack[stack_key] = slip_dmg
 
     def effect_off(self, stack_key):
         if self.aff and not self.relief:

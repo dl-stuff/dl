@@ -1523,7 +1523,6 @@ class Adv(object):
         chance, cdmg = self.combine_crit_mods()
         # chance * cdmg + (1 - chance) * 1 - 1
         average = chance * (cdmg - 1) + 1
-        log("solid_crit_mod", chance, cdmg, average)
         return average
 
     def rand_crit_mod(self, name=None):
@@ -2443,7 +2442,6 @@ class Adv(object):
         armor = 10 * self.def_mod()
         ex = Modifier.SELF.mod("ex")
         ele = self.ele_mod()
-        log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
