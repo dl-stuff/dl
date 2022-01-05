@@ -41,6 +41,17 @@ class Condition(dict):
                 pass
         elif key == "ddrive":
             return self.adv.dragonform.in_ddrive()
+        elif key.startswith("alt"):
+            _, target, group = key.split("_")
+            if target == "x":
+                return self.adv._current_x == group
+            elif target == "fs":
+                return self.adv.current_fs == group
+            else:
+                try:
+                    return self.adv.current_s[target] == group
+                except KeyError:
+                    return False
         elif key == "zone":
             return self.adv.zonecount > 0 and self.global_cond
         elif key.startswith("amp"):
