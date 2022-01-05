@@ -1,0 +1,5 @@
+#!/bin/bash
+./sim "$@" > bolb1
+cd ../dl-master
+./sim "$@" > ../dl/bolb2
+cd ../dl

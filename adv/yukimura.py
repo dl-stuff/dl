@@ -20,6 +20,10 @@ class Yukimura(Adv):
             self.monkey_burst.on()
             self.monkey_burst.on()
 
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        adv.current_s[dst] = "monke"
+
     def monkey_burst_on(self):
         self.monkey_burst_dmg = self.dmg_formula("s", 43.0)
 

@@ -2,38 +2,41 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 87566.74363928473,
-        "team": 0.16361336524027395,
+        "dps": 55784.63032111792,
+        "team": 0.17820667543588745,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
         "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "Liber_Grimortis",
-        "Promised_Piety_Staff",
-        "Savage_Hawk_Lance"
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Cupid",
       "acl": [
-        "`dragon, s=1 and buff(s2)",
-        "`s3, not buff(s3) or duration-now<=2.4",
-        "`s2, charged_in(5, s1)",
-        "`s1",
-        "`s4, xf or fsc",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`dragon, buff(s3, 1) and buff(s2) and xf",
+        "`s3, xf=5",
+        "`s2, (xf=5 and dgauge<=400) or (dgauge>=500 and buff(s3,1))",
+        "`s4, xf",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
         "Axe2",
-        "Lucretia",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "PERSONAL": {
@@ -66,7 +69,7 @@
         "`dfs3, x=1"
       ],
       "coabs": [
-        "Axe2",
+        "Gala_Audric",
         "Halloween_Laxi",
         "Peony"
       ],
@@ -76,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 1188392.2122307126,
+      "tdps": 1363631.4797818926,
       "pref": "PERSONAL"
     }
   },
@@ -88,40 +91,15 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Moonlight_Party",
-        "Pecorines_Grand_Adventure",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "A_Kings_Pride_Sword",
-        "Mask_of_Determination_Bow"
-      ],
       "slots.d": "Gala_Thor",
-      "acl": [
-        "`dragon, buff(s3, 1) and buff(s2) and xf",
-        "`s3, xf=5",
-        "`s2, (xf=5 and dgauge<=400) or (dgauge>=500 and buff(s3,1))",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1",
-        "`dodge, fsc",
-        "`dfs3, x=1"
-      ],
       "coabs": [
         "Gala_Audric",
         "Halloween_Laxi",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {
-      "tdps": 2413197.3768933066,
+      "tdps": 2420763.1898103813,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -132,8 +110,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35890.05631844696,
-        "team": 0.0333091786272987,
+        "dps": 35964.70003550178,
+        "team": 0.033309178627298736,
         "noaff": false,
         "nihil": true
       },
@@ -209,7 +187,7 @@
       ]
     },
     "META": {
-      "tdps": 1393451.599424658,
+      "tdps": 1391210.6640389473,
       "pref": "PERSONAL"
     }
   },
@@ -243,7 +221,7 @@
       ]
     },
     "META": {
-      "tdps": 1624567.9373116852,
+      "tdps": 1722504.8574136,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -278,7 +256,7 @@
       ]
     },
     "META": {
-      "tdps": 2567171.028315949,
+      "tdps": 2575405.431715376,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -358,7 +336,7 @@
       "slots.d": "Gala_Reborn_Jeanne"
     },
     "META": {
-      "tdps": 2199003.6246128674,
+      "tdps": 2206752.32301148,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

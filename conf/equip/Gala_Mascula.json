@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104997.96564671816,
+        "dps": 114064.01573664205,
         "team": 0.03328656020337916,
         "noaff": false,
         "nihil": false
@@ -63,6 +63,11 @@
         "`fs, charged_in(fs, s2) and x=4",
         "`s1, masterctrl_buff.get() and x=4"
       ],
+      "dacl": [
+        "`ds1, x=2 and crystal_arrow=2",
+        "`dfs, x=2 and ds1.check()",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Eugene",
         "Tiki",
@@ -74,12 +79,12 @@
       ]
     },
     "META": {
-      "tdps": 44484.81940524849,
+      "tdps": 76132.90437059302,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 57285.75398631682,
         "team": 0.32356847807024935,
@@ -117,48 +122,8 @@
         "Humanoid_Mercury"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 68368.92729908772,
-        "team": 0.033324849504324724,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "OneWinged_Journey",
-        "A_Choice_Blend",
-        "His_Clever_Brother",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4"
-      ],
-      "dacl": [
-        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
-        "`dfs, x=2",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "META": {
-      "tdps": 38185.75921039907,
-      "pref": "TEAMBUFF"
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -192,10 +157,49 @@
         "`ds1, x=3"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 125679.2827486241,
+        "team": 0.03324972692982129,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`dfs3"
+      ]
+    },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 144952.56784806988,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62895.85999190385,
+        "team": 0.32356847807024935,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -203,7 +207,7 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 78577.89278165576,
+        "dps": 85313.65786825691,
         "team": 0.03328656020337916,
         "noaff": false,
         "nihil": false
@@ -234,7 +238,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78577.89278165576,
+        "dps": 85313.65786825691,
         "team": 0.03328656020337916,
         "noaff": false,
         "nihil": false
@@ -251,8 +255,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41373.73011146352,
-        "team": 0.033278367760274014,
+        "dps": 51666.640936348405,
+        "team": 0.32356847807024935,
         "noaff": false,
         "nihil": true
       }
@@ -261,7 +265,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

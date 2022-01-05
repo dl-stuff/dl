@@ -56,8 +56,10 @@
       "acl": [
         "`s3, not buff(s3)",
         "if radiance_level=3",
-        "`dragon",
         "`s2, radiance_level=3 and fsc",
+        "end",
+        "if radiance_level<4",
+        "`dragon",
         "end",
         "`s4",
         "`s1",

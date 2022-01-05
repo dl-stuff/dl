@@ -60,6 +60,10 @@
         "`s1",
         "`s4"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
@@ -151,13 +155,23 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 93035.11344552053,
-        "team": 0.1374324793710216,
+        "dps": 111186.35367556813,
+        "team": 0.06249432503456118,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
         "`s3, not buff(s3) and x=4",
@@ -165,16 +179,57 @@
         "`s4"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`ds1, dshift_timeleft<1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
         "Akasha"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 100256.88851221775,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and x=4",
+        "`s1, buff(s3)",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -174887.32228576066,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -202,6 +257,10 @@
         "`s3",
         "`s1",
         "`s4,cancel"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Dragonyule_Xainfried",

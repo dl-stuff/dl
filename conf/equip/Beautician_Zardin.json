@@ -2,9 +2,9 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 100009.34579100522,
-        "team": 0.06579632243338987,
-        "noaff": true,
+        "dps": 44004.21280760865,
+        "team": 0.10992111427584662,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -16,11 +16,11 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3",
-        "`s1, buff(s3, 1)",
+        "`dragon, buff(s3, 1) and buff(s2) and xf",
+        "`s3, xf=5",
+        "`s2, (xf=5 and dgauge<=400) or (dgauge>=500 and buff(s3,1))",
         "`s4"
       ],
       "dacl": [
@@ -30,7 +30,7 @@
       ],
       "coabs": [
         "Gala_Zena",
-        "Halloween_Elisanne",
+        "Halloween_Laxi",
         "Peony"
       ],
       "share": [
@@ -77,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 5266709.682136578,
+      "tdps": 1549267.4288628718,
       "pref": "PERSONAL"
     }
   },
@@ -128,34 +128,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 106936.6303806549,
-        "team": 0.08813142391819122,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
-      ],
-      "acl": [
-        "`dragon, buff(s3, 1) and xf",
-        "`s3, xf=5",
-        "`s1, buff(s3, 1)",
-        "`s4"
-      ],
-      "coabs": [
-        "Gala_Audric",
-        "Halloween_Laxi",
-        "Peony"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 142516.313508982,
@@ -179,7 +151,6 @@
       ]
     },
     "META": {
-      "tdps": 1386641.875424217,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -244,7 +215,6 @@
       ]
     },
     "META": {
-      "tdps": 5090624.721125413,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
