@@ -349,7 +349,7 @@ class SlipDmg:
         if not self.slip_timer.online:
             self.slip_timer.on()
         if self.func == "mod":
-            value = self._adv.dmg_formula(source, self.value, dtype=dtype)
+            value = self._adv.dmg_formula(source, self.value, dtype=dtype, actcond_dmg=True)
         elif self.func == "heal":
             value = self._adv.heal_formula(source, self.value)
         else:

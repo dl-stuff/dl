@@ -41,8 +41,7 @@ class DragonForm:
         self.shift_end_reason = None
 
         # mods
-        self.dracolith_mod = Modifier("dragondmg", "passive", 0)
-        self.dracolith_mod.get = self.ddamage
+        self.dracolith_mod = Modifier("ex", "dragon", 1, get=self.ddamage)
         self.dracolith_mod.off()
         self.shift_mods = [self.dracolith_mod]
         self.shift_spd_mod = None
@@ -212,7 +211,7 @@ class DragonForm:
         return not bool(self.allow_force_end_timer.online)
 
     def dhaste(self):
-        return self.adv.mod("dh", operator=operator.add)
+        return self.adv.mod("dph", operator=operator.add)
 
     def _charge_dp(self, name, value):
         gauge_before = self.dragon_gauge
@@ -243,7 +242,7 @@ class DragonForm:
 
     @allow_acl
     def ddamage(self):
-        return self.conf.dracolith + self.adv.mod("da", operator=operator.add, initial=0)
+        return self.conf.dracolith + self.adv.mod("dragondmg", operator=operator.add, initial=0)
 
     def extend_shift_time(self, value, percent=True):
         max_d = self.dtime()

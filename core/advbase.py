@@ -294,6 +294,7 @@ class Nop(object):
     idle = 1
     has_delayed = 0
     to_x = 1
+    is_dragon = False
 
 
 class Action(object):
@@ -370,6 +371,8 @@ class Action(object):
         self.to_x = 1
         if conf is not None:
             self.to_x = conf["to_x"] or 1
+
+        self.is_dragon = False
 
     def __call__(self):
         return self.tap()
@@ -1059,6 +1062,8 @@ class Adv(object):
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
             self.a_x_dict[a_x.group][a_x.index] = a_x
             self.hitattr_check(xn, xconf)
+            if xn[0] == "d":
+                a_x.is_dragon = True
         self.a_x_dict = dict(self.a_x_dict)
         for group, actions in self.a_x_dict.items():
             gxmax = f"{group}.x_max"
@@ -1076,8 +1081,11 @@ class Adv(object):
                     fs_conf.update(self.conf[base], rebase=True)
             except KeyError:
                 pass
-            self.a_fs_dict[name] = Fs(name, fs_conf)
+            a_fs = Fs(name, fs_conf)
+            self.a_fs_dict[name] = a_fs
             self.hitattr_check(name, fs_conf)
+            if name[0] == "d":
+                a_fs.is_dragon = True
         if "fs1" in self.a_fs_dict:
             self.a_fs_dict["fs"].enabled = False
         self.current_fs = None
@@ -1413,7 +1421,7 @@ class Adv(object):
 
         self.stats = []
 
-    def dmg_mod(self, name, dtype=None):
+    def dmg_mod(self, name, dtype=None, actcond_dmg=False):
         mod = 1
         if dtype is None:
             dtype = name.split("_")
@@ -1430,10 +1438,11 @@ class Adv(object):
             mod *= self.mod("odaccel")
 
         if dtype == "s":
-            try:
-                mod *= 1 if self.a_s_dict[name].owner is None else self.skill_share_att
-            except:
-                pass
+            if not actcond_dmg:
+                try:
+                    mod *= 1 if self.a_s_dict[name].owner is None else self.skill_share_att
+                except:
+                    pass
             return mod * Modifier.SELF.mod("s")
         elif dtype == "x":
             return mod * Modifier.SELF.mod("x")
@@ -1530,7 +1539,6 @@ class Adv(object):
         att = self.mod("att")
         cc = self.crit_mod(name)
         k = self.killer_mod(name)
-        log("att_mod", str((att, cc, k)), cc * att * k)
         return cc * att * k
 
     def build_rates(self, as_list=True):
@@ -2125,6 +2133,8 @@ class Adv(object):
                 phase_up = snconf.get("phase_coei")
             self.a_s_dict[s.base].add_action(s.group, s, phase_up=phase_up)
             self.hitattr_check(sn, snconf)
+            if sn[0] == "d":
+                s.is_dragon = True
 
         return preruns
 
@@ -2427,8 +2437,8 @@ class Adv(object):
         e.ret = e.dmg
         return
 
-    def dmg_formula(self, name, dmg_coef, dtype=None):
-        dmg_mod = self.dmg_mod(name, dtype=dtype)
+    def dmg_formula(self, name, dmg_coef, dtype=None, actcond_dmg=False):
+        dmg_mod = self.dmg_mod(name, dtype=dtype, actcond_dmg=actcond_dmg)
         att = self.att_mod(name)
         armor = 10 * self.def_mod()
         ex = Modifier.SELF.mod("ex")
@@ -2518,6 +2528,8 @@ class Adv(object):
         g_logs.log_conf("hitattr", name, attr)
         # hitmods = self.actmods(name, base, group, aseq, attr)
         hitmods = []
+        if action is not None and action.is_dragon:
+            hitmods.extend(self.dragonform.shift_mods)
         crisis_mod_key = dtype if dtype in self.crisis_mods else None
         if "dmg" in attr:
             if "killer" in attr:
