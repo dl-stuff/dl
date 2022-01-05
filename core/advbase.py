@@ -1197,8 +1197,8 @@ class Adv(object):
             self.hp_event.source = source
             self.hp_event()
 
-            if self._hp < max_hp:
-                self.slots.c.set_need_regen()
+            # if self._hp < max_hp:
+            #     self.slots.c.set_need_regen()
             return delta
 
     @property

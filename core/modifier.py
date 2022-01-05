@@ -385,7 +385,7 @@ class SlipDmg:
                 else:
                     self._adv.charge("sp_regen", value, target=target)
             else:  # self affliction
-                self._adv.add_hp(value, percent=self.is_percent)
+                self._adv.add_hp(-value, percent=self.is_percent)
 
     def get(self):
         return self.slip_value is not None
@@ -535,11 +535,18 @@ class ActCond:
         if self.slip is not None:
             slip_dmg = SlipDmg(self, self.slip, source[0], dtype, self.target)
         if self.aff and not self.relief:
-            if self._adv.afflictions[self.aff].on(self._rate, stack_key, slip_dmg=slip_dmg):
+            if ENEMY in self.generic_target:
+                if self._adv.afflictions[self.aff].on(self._rate, stack_key, slip_dmg=slip_dmg):
+                    self.slip_stack[stack_key] = slip_dmg
+            else:
+                selfaff = Event("selfaff")
+                selfaff.atype = self.aff
+                selfaff.on()
+                slip_dmg.on()
                 self.slip_stack[stack_key] = slip_dmg
 
     def effect_off(self, stack_key):
-        if self.aff and not self.relief:
+        if self.aff and not self.relief and ENEMY in self.generic_target:
             self._adv.afflictions[self.aff].off(stack_key)
         if self.slip is not None:
             try:
