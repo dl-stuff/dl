@@ -343,12 +343,12 @@ class Bleed:
         self._stacks = {}
 
     def tick(self, t):
-        mod = 0.5 + 0.5 * len(self._stacks.values())
+        mod = 0.5 + 0.5 * len(self._stacks)
         dmg_by_source = defaultdict(float)
         for stack_key, value in self._stacks.items():
             dmg_by_source[stack_key[1]] += value
         for source, value in dmg_by_source.items():
-            log("dmg", f"{source}_bleed", value * mod, 0)
+            log("dmg", f"{source[0]}_bleed", value * mod, 0)
 
     def on(self, rate, slip, dtype, stack_key):
         # {"value": ["mod", 1.32], "kind": "bleed", "iv": 4.9}
@@ -363,62 +363,30 @@ class Bleed:
             return True
         return False
 
-
-class Bleed:
-    THRESHOLD = 0.00001
-
-    def __init__(self, use_ev=True) -> None:
-        self.use_ev = use_ev
-        self.need_ev = False
-        self.iv = 4.9
-        self.slip_timer = None
-        self.reset()
-
-    def _init_state(self):
-        return defaultdict(float)
-
-    def reset(self):
-        self._stack_states = self._init_state()
-        self._stack_states[(None, None, None)] = 1.0
-        self._stacks = {}
-        self._get = 0
-
-    def on(self, rate, slip, source, dtype, stack_key):
-        if self.use_ev and rate < 1:
-            self.need_ev = True
-            self.update(rate=rate, stack_key=stack_key)
-        else:
-            if random.random() <= rate:
-                if len(self._stacks) > 3:
-                    oldest_bleed = min(self._stacks.item(), key=lambda kv: kv[0][0])
-                if not self.slip_timer:
-                    self.slip_timer = Timer()
-                self._stacks[stack_key] = 1
-                return True
-            else:
-                return False
-
-    def update(self, rate=0):
-        n_states = self._init_state()
-        for state, state_p in self._stack_states:
-            state = [stack for stack in state if stack in self._stacks]
-            success_p = state_p * rate
-            fail_p = state_p * (1 - rate)
-            if len(state) == 3:
-                oldest_bleed = self._stacks[state[0]]
-                oldest_bleed.bleed_modifier *= fail_p
-        self._stack_states = n_states
-
     def get(self):
-        if not self.need_ev:
-            return len(self._stacks)
-        return self._get
+        return len(self._stacks)
 
     def off(self, stack_key):
-        self._stacks[stack_key].off()
         del self._stacks[stack_key]
-        if self.need_ev:
-            self.update()
+
+    # def update(self, rate, stack_key):
+    #     n_states = self._init_state()
+    #     for state, state_p in self._stack_states:
+    #         state = [stack for stack in state if stack in self._stacks]
+    #         success_p = state_p * rate
+    #         fail_p = state_p * (1 - rate)
+    #         if len(state) < 3:
+    #             fail_state = list(state)
+    #             while len(fail_state) < 3:
+    #                 fail_state.append(None)
+    #             n_states[tuple(fail_state)] += fail_p
+    #             state.append(stack_key)
+    #             while len(state) < 3:
+    #                 state.append(None)
+    #             n_states[tuple(state)] += success_p
+    #         else:
+    #             pass
+    #     self._stack_states = n_states
 
 
 class SlipDmg:
@@ -435,8 +403,6 @@ class SlipDmg:
         self.source = source
         self.dtype = dtype
         self.target = target
-
-        self.bleed_modifier = 1
 
     def on(self, ev=1):
         if not self.slip_timer.online:
@@ -519,10 +485,16 @@ class ActCond:
             self.is_bleed = self.slip.get("kind") == "bleed"
 
         self.mod_list = []
+        self.is_doublebuff = False
         if mod_args := data.get("mods"):
             for mod in mod_args:
                 value, mtype, morder = mod
                 self.mod_list.append(Modifier(mtype, morder, value, self.get, target=self.target))
+                self.is_doublebuff = self.is_doublebuff or (mtype == "def" and morder == "buff")
+
+        self.actcond_event = Event("actcond")
+        self.actcond_event.actcond = self
+        self.actcond_event.source = None
 
     def get(self):
         return sum((ev for _, ev in self.buff_stack.values()))
@@ -569,7 +541,7 @@ class ActCond:
             return False
         return True
 
-    def on(self, source, dtype, ev=1):
+    def on(self, source, dtype, ev=1, trigger=None):
         if not self.check(source):
             return False
         if self.stack == self.maxstack or self.overwrite == -1:
@@ -599,7 +571,13 @@ class ActCond:
         self.buff_stack[stack_key] = (timer, ev * self.get_rate())
 
         self.effect_on(source, dtype, stack_key)
-        self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target)
+        if trigger:
+            self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target, f"from {trigger}")
+        else:
+            self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target)
+
+        self.actcond_event.source = source
+        self.actcond_event()
 
     def _off(self, stack_key):
         timer, _ = self.buff_stack.pop(stack_key)
@@ -627,7 +605,7 @@ class ActCond:
         slip_dmg = None
         if self.slip is not None:
             if self.is_bleed:
-                self._adv.bleed.on(self.get_rate(), self.slip, source, dtype, stack_key)
+                self._adv.bleed.on(self.get_rate(), self.slip, dtype, stack_key)
             else:
                 slip_dmg = SlipDmg(self, self.slip, source[0], dtype, self.target)
         if self.aff and not self.relief:

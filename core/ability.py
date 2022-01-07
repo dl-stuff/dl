@@ -2,6 +2,8 @@ import operator
 
 from core.modifier import Modifier
 from core.timeline import Event, Listener
+from conf import float_ceil
+from core.log import log
 
 OPS = {
     ">=": operator.ge,
@@ -87,7 +89,7 @@ CONDITONS["hits"] = CondHits
 
 class CondActcond(CompareCond):
     def __init__(self, adv, *args) -> None:
-        super().__init__("actcond", adv, *args[1:])
+        super().__init__(None, adv, *args[1:])
         self.actcond_id = args[0]
 
     def get(self):
@@ -228,6 +230,18 @@ class CondGetDP(Cond):
 CONDITONS["get_dp"] = CondGetDP
 
 
+class CondDoublebuff(Cond):
+    def __init__(self, adv, *args) -> None:
+        super().__init__(adv, *args)
+        self.event = "actcond"
+
+    def check(self, e):
+        return e.actcond.is_doublebuff
+
+
+CONDITONS["doublebuff"] = CondDoublebuff
+
+
 ### Sub Abilities
 SUB_ABILITIES = {}
 
@@ -299,7 +313,13 @@ class AbActcond(Ab):
             self.l_cond = self._cond.listener(self._actcond_on)
 
     def _actcond_on(self, e):
-        self._adv.actcond_make(self.actcond_list[self.idx], self.target, ("ability", -1), ev=getattr(e, "ev", 1))
+        if e.name == "actcond":
+            source = e.source
+            trigger = e.actcond.text
+        else:
+            source = ("ability", -1)
+            trigger = None
+        self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, ev=getattr(e, "ev", 1), trigger=trigger)
         self.idx = (self.idx + 1) % len(self.actcond_list)
         if self.max_count is not None:
             self.count += 1
@@ -329,6 +349,34 @@ class AbHitattr(Ab):
 
 
 SUB_ABILITIES["hitattr"] = AbHitattr
+
+
+class AbDragonPrep(Ab):
+    def __init__(self, adv, ability, *args) -> None:
+        super().__init__(adv, ability, *args)
+        self.value = args[0]
+        if self._cond is not None:
+            self.l_cond = self._cond.listener(self._dprep)
+
+    def _dprep(self, e):
+        self._adv.dragonform.charge_dprep(self.value)
+
+
+SUB_ABILITIES["dprep"] = AbDragonPrep
+
+
+class AbDragonPrepMax(Ab):
+    def __init__(self, adv, ability, *args) -> None:
+        super().__init__(adv, ability, *args)
+        self.value = args[0]
+        if self._cond is not None:
+            self.l_cond = self._cond.listener(self._dprep_max, order=2)
+
+    def _dprep_max(self, e):
+        self._adv.dragonform.dragon_gauge = min(float_ceil(self._adv.dragonform.max_dragon_gauge, self.value), self._adv.dragonform.dragon_gauge)
+
+
+SUB_ABILITIES["dprepmax"] = AbDragonPrepMax
 
 
 ### Ability

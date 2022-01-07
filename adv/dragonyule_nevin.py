@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import float_ceil
 from module.template import SigilAdv
 
 

@@ -5,6 +5,8 @@ import glob
 
 from core import Conf
 import functools
+from ctypes import c_float
+
 
 ELEMENTS = ("flame", "water", "wind", "light", "shadow")
 WEAPON_TYPES = (
@@ -374,3 +376,9 @@ def all_subclasses(cl):
 
 def subclass_dict(cl):
     return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
+
+
+def float_ceil(value, percent):
+    c_float_value = c_float(c_float(percent).value * value).value
+    int_value = int(c_float_value)
+    return int_value if int_value == c_float_value else int_value + 1

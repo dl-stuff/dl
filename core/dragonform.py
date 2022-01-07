@@ -1,10 +1,10 @@
 import operator
-from core.advbase import Dodge, Shift, Action, S, float_ceil
+from core.advbase import Dodge, Shift, Action, S
 from core.timeline import Event, Listener, Timer, now
 from core.log import log, g_logs
 from core.acl import allow_acl, CONTINUE
 from core.modifier import Modifier
-from conf import DRG, DEFAULT, DDRIVE
+from conf import DRG, DEFAULT, DDRIVE, float_ceil
 
 
 class DragonForm:
@@ -233,7 +233,7 @@ class DragonForm:
         return value
 
     def charge_dprep(self, value):
-        return self._charge_dp("dprep", float_ceil(self.max_dragon_gauge, value / 100))
+        return self._charge_dp("dprep", float_ceil(self.max_dragon_gauge, value))
 
     def charge_dp(self, name, value):
         return self._charge_dp(name, float_ceil(value, self.dhaste()))

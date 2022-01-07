@@ -387,8 +387,16 @@ class AmuletStack:
 
         for lg, abilities in mix_abilities.items():
             if len(abilities) == 1:
-                del abilities[0]["lg"]
-                merged_abilities.append(abilities[0])
+                ability = abilities[0]
+                del ability["lg"]
+                for ab in ability["ab"]:
+                    if ab[0] == "actcond":
+                        for actcond_id in ab[2:]:
+                            self.actconds[actcond_id] = actconds[actcond_id]
+                    elif ab[0] == "hitattr":
+                        actcond_id = ab[1]["actcond"]
+                        self.actconds[actcond_id] = actconds[actcond_id]
+                merged_abilities.append(ability)
                 continue
             actcond_duration = 0
             actcond_target = None
@@ -423,6 +431,7 @@ class AmuletStack:
                 if count > int(max_count):
                     merged_abilities.extend(max_ab)
 
+        print(merged_abilities)
         return merged_abilities
 
 

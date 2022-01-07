@@ -16,7 +16,7 @@
         "wt": "sword",
         "spiral": true,
         "abilities": [
-            {"cond": ["event", "doublebuff"], "ab": [["actcond", "MYSELF", "302030301"]]},
+            {"cond": ["doublebuff"], "ab": [["actcond", "MYSELF", "302030301"]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
             {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"ab": [["mod", 0.35, "bufftime", "-t:s"]]}

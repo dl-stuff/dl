@@ -1,4 +1,5 @@
 from core.advbase import *
+from conf import float_ceil
 
 ROMANCE_GAUGE_MODS = {
     "hpdef": (-0.1, -0.05, 0, 0.05, 0.10, 0.15),

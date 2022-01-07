@@ -18,13 +18,6 @@ import core.acl
 from core.acl import CONTINUE, allow_acl
 import conf as globalconf
 from conf.equip import get_equip_manager
-from ctypes import c_float
-
-
-def float_ceil(value, percent):
-    c_float_value = c_float(c_float(percent).value * value).value
-    int_value = int(c_float_value)
-    return int_value if int_value == c_float_value else int_value + 1
 
 
 class Skill(object):
@@ -1215,7 +1208,7 @@ class Adv(object):
 
     @property
     def max_hp(self):
-        return float_ceil(self.base_hp, self.max_hp_mod())
+        return globalconf.float_ceil(self.base_hp, self.max_hp_mod())
 
     def afflic_condition(self):
         if "afflict_res" in self.conf:
@@ -1465,9 +1458,9 @@ class Adv(object):
     @allow_acl
     def speed(self, target=None):
         if target is None:
-            return 1 + min(self.sub_mod("spd", "buff"), 0.50) + self.sub_mod("spd", "passive")
+            return 1 + min(self.sub_mod("aspd", "buff"), 0.50) + self.sub_mod("aspd", "passive")
         else:
-            return 1 + min(self.sub_mod("spd", "buff"), 0.50) + self.sub_mod("spd", "passive") + self.sub_mod("spd", target)
+            return 1 + min(self.sub_mod("aspd", "buff"), 0.50) + self.sub_mod("aspd", "passive") + self.sub_mod("aspd", target)
 
     @allow_acl
     def c_speed(self):
@@ -1549,7 +1542,7 @@ class Adv(object):
 
         debuff_rates = defaultdict(float)
 
-        for actcond in self.active_actconds.by_generic_target[ENEMY].items():
+        for actcond in self.active_actconds.by_generic_target[ENEMY].values():
             if actcond.debuff:
                 actcond.update_debuff_rates(debuff_rates)
 
@@ -2208,6 +2201,8 @@ class Adv(object):
             self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
 
         Event("idle")()
+        Event("start")()
+
         if "dragonbattle" in self.conf and self.conf["dragonbattle"]:
             self.dragonform.set_dragonbattle()
             self.dragon()
@@ -2300,7 +2295,7 @@ class Adv(object):
     @staticmethod
     def sp_convert(haste, sp):
         # FIXME: dum
-        return float_ceil(sp, haste)
+        return globalconf.float_ceil(sp, haste)
 
     def _get_sp_targets(self, target, name, no_autocharge, filter_func=None):
         if target is None:
@@ -2373,12 +2368,12 @@ class Adv(object):
         return charged_sp, all_sp_str, target_str
 
     def _add_sp_fn(self, s, name, sp):
-        sp = float_ceil(sp, self.sp_mod(name, target=s.name))
+        sp = globalconf.float_ceil(sp, self.sp_mod(name, target=s.name))
         s.charge(sp)
         return sp
 
     def _prep_sp_fn(self, s, _, percent):
-        sp = float_ceil(s.real_sp, percent)
+        sp = globalconf.float_ceil(s.real_sp, percent)
         s.charge(sp)
         return sp
 
@@ -2517,10 +2512,10 @@ class Adv(object):
                 t.on(self.conf.attenuation.delay)
         return count
 
-    def actcond_make(self, actcond_id, target, source, dtype="#", ev=1):
+    def actcond_make(self, actcond_id, target, source, dtype="#", ev=1, trigger=None):
         if not (actcond := self.active_actconds.get((actcond_id, target))):
             actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
-        actcond.on(source, dtype, ev=ev)
+        actcond.on(source, dtype, ev=ev, trigger=trigger)
         self.active_actconds.add(actcond, source)
         return actcond
 
@@ -2879,13 +2874,13 @@ class Adv(object):
         except AttributeError:
             return 0
 
-    @allow_acl
-    def bleed_timeleft(self, stack=3):
-        try:
-            # only available for rng bleed
-            return self.bleed.timeleft(stack=stack)
-        except AttributeError:
-            return 0
+    # @allow_acl
+    # def bleed_timeleft(self, stack=3):
+    #     try:
+    #         # only available for rng bleed
+    #         return self.bleed.timeleft(stack=stack)
+    #     except AttributeError:
+    #         return 0
 
     @allow_acl
     def aff(self, afflictname=None):
