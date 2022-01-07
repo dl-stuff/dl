@@ -431,7 +431,6 @@ class AmuletStack:
                 if count > int(max_count):
                     merged_abilities.extend(max_ab)
 
-        print(merged_abilities)
         return merged_abilities
 
 

@@ -2512,10 +2512,10 @@ class Adv(object):
                 t.on(self.conf.attenuation.delay)
         return count
 
-    def actcond_make(self, actcond_id, target, source, dtype="#", ev=1, trigger=None):
+    def actcond_make(self, actcond_id, target, source, dtype="#", ev=1):
         if not (actcond := self.active_actconds.get((actcond_id, target))):
             actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
-        actcond.on(source, dtype, ev=ev, trigger=trigger)
+        actcond.on(source, dtype, ev=ev)
         self.active_actconds.add(actcond, source)
         return actcond
 

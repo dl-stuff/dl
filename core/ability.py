@@ -236,6 +236,8 @@ class CondDoublebuff(Cond):
         self.event = "actcond"
 
     def check(self, e):
+        if e.actcond.is_doublebuff:
+            log("doublebuff", 1)
         return e.actcond.is_doublebuff
 
 
@@ -315,11 +317,9 @@ class AbActcond(Ab):
     def _actcond_on(self, e):
         if e.name == "actcond":
             source = e.source
-            trigger = e.actcond.text
         else:
             source = ("ability", -1)
-            trigger = None
-        self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, ev=getattr(e, "ev", 1), trigger=trigger)
+        self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, ev=getattr(e, "ev", 1))
         self.idx = (self.idx + 1) % len(self.actcond_list)
         if self.max_count is not None:
             self.count += 1

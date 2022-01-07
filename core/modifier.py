@@ -344,11 +344,11 @@ class Bleed:
 
     def tick(self, t):
         mod = 0.5 + 0.5 * len(self._stacks)
-        dmg_by_source = defaultdict(float)
+        dmg_by_source = defaultdict(list)
         for stack_key, value in self._stacks.items():
-            dmg_by_source[stack_key[1]] += value
-        for source, value in dmg_by_source.items():
-            log("dmg", f"{source[0]}_bleed", value * mod, 0)
+            dmg_by_source[stack_key[1]].append(value)
+        for source, values in dmg_by_source.items():
+            log("dmg", f"{source[0]}_bleed", mod * sum(values), mod, "+".join((f"{value:.2f}" for value in values)))
 
     def on(self, rate, slip, dtype, stack_key):
         # {"value": ["mod", 1.32], "kind": "bleed", "iv": 4.9}
@@ -541,7 +541,7 @@ class ActCond:
             return False
         return True
 
-    def on(self, source, dtype, ev=1, trigger=None):
+    def on(self, source, dtype, ev=1):
         if not self.check(source):
             return False
         if self.stack == self.maxstack or self.overwrite == -1:
@@ -571,10 +571,7 @@ class ActCond:
         self.buff_stack[stack_key] = (timer, ev * self.get_rate())
 
         self.effect_on(source, dtype, stack_key)
-        if trigger:
-            self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target, f"from {trigger}")
-        else:
-            self.log("start", self.text, f"stack {self.stack}", duration, self.id, self.target)
+        self.log("start", self.text, f"stack {self.stack}", duration, f"{self.id}-{self.target}")
 
         self.actcond_event.source = source
         self.actcond_event()
@@ -584,7 +581,7 @@ class ActCond:
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)
-        self.log("end", self.text, f"stack {self.stack}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", self.id, self.target)
+        self.log("end", self.text, f"stack {self.stack}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", f"{self.id}-{self.target}")
 
     def off(self):
         if self.buff_stack:
