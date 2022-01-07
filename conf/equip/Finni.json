@@ -187,24 +187,25 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61963.724557025074,
-        "team": 0.13635447875264997,
+        "dps": 73513.08170946123,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
+        "Wings_of_Rebellion_at_Rest",
         "A_Small_Courage",
-        "His_Clever_Brother",
+        "Chariot_Drift",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, self.sr.count=1 and (dshift_count or dgauge>=950)",
+        "`dragon",
         "`s4",
-        "`s3",
+        "`s3, cancel",
         "if s2_autocharge_buff.get()",
         "`s1, self.sr.count=2 and cancel",
         "else",
@@ -212,8 +213,12 @@
         "end"
       ],
       "dacl": [
-        "ds1, x=3",
-        "sack, x=3"
+        "ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
       ]
     },
     "META": {

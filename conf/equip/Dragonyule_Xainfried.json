@@ -82,44 +82,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34647.76664589356,
-        "team": 0.15641863579645487,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Pecorines_Grand_Adventure",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, (dgauge>=900 and s=1) or dshift_count",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35981.66658361997,
@@ -173,7 +135,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 130300.55554346398,
+        "dps": 131547.61425405726,
         "team": 0.1675262438215715,
         "noaff": false,
         "nihil": false
@@ -189,10 +151,15 @@
       ],
       "dacl": [
         "`ds1, x=3 and dshift_timeleft<3"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Humanoid_Midgardsormr",
+        "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": 48549.66784246546,
+      "tdps": 51919.798602221024,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -201,15 +168,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 67941.85394240834,
-        "team": 0.16097122947559503,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.w": "primal_dragon"
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 69010.3349168127,
@@ -247,7 +205,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

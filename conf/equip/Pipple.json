@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98904.62591184907,
+        "dps": 110619.74601889137,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -50,17 +50,13 @@
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, dshift_count=0 and x=4",
-        "`dragon, dshift_count=1 and s=2",
-        "`dragon, dshift_count>=2 and x>1",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s2, x=5 or energy()<5",
         "`s4, not energy()=5 and x>3"
       ],
       "dacl": [
-        "`ds1, x=2 and crystal_arrow=2",
-        "`dfs, x=2",
-        "`dodge, fsc"
+        "`ds1, dshift_timeleft<3 and x=3"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -73,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 194725.39510444345,
+      "tdps": 222442.9990592867,
       "pref": "PERSONAL"
     }
   },
@@ -112,7 +108,7 @@
       ]
     },
     "META": {
-      "tdps": 334428.728075504,
+      "tdps": 451635.3026136331,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -161,7 +157,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 123062.35628299754,
+        "dps": 128475.29096951999,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -169,29 +165,25 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Entwined_Flames",
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon, not dshift_count and energy()=5",
+        "`dragon, not dshift_count and energy()=5 and cancel",
         "`dragon, dshift_count and s=2",
         "`s3, not buff(s3)",
         "`s2, x=5 or energy()<5",
-        "`s4, not energy()=5 and x>3"
+        "`s4, not energy()=5"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 251881.8217357735,
+      "tdps": 264688.6541458205,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -216,7 +208,7 @@
       ]
     },
     "META": {
-      "tdps": 487952.4340237458,
+      "tdps": 542107.366026922,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",

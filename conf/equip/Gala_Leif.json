@@ -98,49 +98,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 71548.43019899011,
-        "team": 0.098305630075279,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`striking",
-        "`dragon, (dgauge>900 and s=1) or dshift_count",
-        "`s4, fsc",
-        "`s1(striking)",
-        "`s3, cancel",
-        "queue s2.check() and cancel",
-        "`s2(shielding)",
-        "`striking",
-        "end",
-        "`fs, x=3"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 90726.52123577862,
@@ -251,33 +208,24 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 84055.63280470912,
-        "team": 0.17021405683174315,
+        "dps": 119777.46781841053,
+        "team": 0.33143348817679685,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Snipers_Allure",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
         "`striking",
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s=1)",
-        "`s3, timeleft(s3)<5",
+        "`s3, timeleft(s3)<6",
+        "`dragon, (dgauge>900 and s=1) or dshift_count",
+        "`s4, fsc",
         "`s1(striking)",
         "queue s2.check() and cancel",
         "`s2(shielding)",
         "`striking",
         "end",
-        "`s4, fsc",
         "`fs, x=3"
       ],
       "share": [
@@ -286,18 +234,18 @@
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 95220.09969614992,
-        "team": 0.08023380019082983,
+        "dps": 78906.50626084162,
+        "team": 0.07345553210472262,
         "noaff": false,
         "nihil": false
       },
@@ -335,20 +283,11 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63539.510545479745,
-        "team": 0.09157118550328183,
+        "dps": 47463.25445333328,
+        "team": 0.13950780232409868,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
       "acl": [
         "`shielding",
         "`dragon, fsc",
@@ -368,7 +307,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

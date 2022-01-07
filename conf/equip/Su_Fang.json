@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79481.04628918841,
-        "team": 0.09698385188304018,
+        "dps": 71953.93997523999,
+        "team": 0.06236790980685984,
         "noaff": false,
         "nihil": false
       },
@@ -39,45 +39,43 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69535.55551682386,
-        "team": 0.0,
+        "dps": 71953.93997523999,
+        "team": 0.06236790980685984,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buff(s3)",
-        "`s2",
-        "`fs, s=2"
+        "`s3, not buff(s3) and x=5",
+        "`s4, xf",
+        "`s1, (x=5 and buff(s3)) or buff(s2)",
+        "`s2, charged_in(5, s1)"
       ],
       "dacl": [
         "`ds1, dshift_timeleft<1"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": -102547.90441153574,
-      "pref": "TEAMBUFF"
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -126,25 +124,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 126140.89269403214,
-        "team": 0.09998801715249787,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=5",
-        "`s4, xf",
-        "`s1, (x=5 and buff(s3)) or buff(s2)",
-        "`s2, charged_in(5,s1)",
-        "`fs, hits=0"
-      ],
-      "dacl": [
-        "`dodge, x=3"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 116270.73244379967,
@@ -160,27 +139,10 @@
         "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=5",
-        "`s4, xf",
-        "`s1, (x=5 and buff(s3)) or buff(s2)",
-        "`s2, charged_in(5, s1)"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Nino",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {
-      "tdps": -263224.4890281308,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -220,8 +182,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60424.83944380229,
-        "team": 0.06235148474655667,
+        "dps": 68775.45240399425,
+        "team": 0.062387615013332454,
         "noaff": false,
         "nihil": false
       },
@@ -232,10 +194,6 @@
         "`s1, (x=5 and buff(s3)) or buff(s2)",
         "`s2, charged_in(5,s1)",
         "`fs, hits=0"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {

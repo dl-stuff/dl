@@ -100,6 +100,45 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4638.998147132094,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Gentle_Winds",
+        "Proper_Maintenance",
+        "From_Whence_He_Comes",
+        "Rogues_Banquet",
+        "Promised_Piety_Staff",
+        "Ravenous_Fire_Crown"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon, dshift_count=0 and s=4",
+        "`s3, (xf or fscf) and not speed()>=1.5",
+        "`s4, s=1",
+        "`s1, 1=1",
+        "`fs, fs_prep_c=3",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "ds1",
+        "sack"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 25632.959370972178,
@@ -167,41 +206,46 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36186.81250525714,
+        "dps": 52229.88563998768,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_and_Tamer",
         "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Rogues_Banquet",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon",
         "`s3",
-        "`s1",
         "`s4",
-        "`s2",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "dacl": [
+        "ds1, x=3"
       ],
       "coabs": [
-        "Blade",
+        "Dragonyule_Cleo",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

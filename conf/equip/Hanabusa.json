@@ -149,9 +149,6 @@
         "`s3",
         "`s1"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Dagger",
         "Peony",
@@ -164,6 +161,48 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34904.90898068792,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Worthy_Rivals",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3",
+        "`s1"
+      ],
+      "coabs": [
+        "Dagger",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -230,6 +269,43 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43664.634850644725,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon, cancel and aff(flashburn)",
+        "`s3",
+        "`s4",
+        "`s1, xf>3",
+        "`fsf,xf=5"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Ryszarda"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -244,6 +320,23 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29779.77590490233,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }
