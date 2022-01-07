@@ -109,14 +109,14 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42761.77444043962,
+        "dps": 50357.346301211735,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
+        "The_Red_Impulse",
         "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -129,16 +129,15 @@
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
+        "`s1",
         "`fs, charged_in(fs, s2) or charged_in(fs, s4) or x=5",
         "`dodge, fscf"
       ],
       "dacl": [
-        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
-        "`dfs, x=2",
-        "`dodge, fsc"
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Eugene",
+        "Summer_Celliera",
         "Tiki",
         "Yurius"
       ],
@@ -175,42 +174,27 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53240.0804802825,
+        "dps": 70122.38476328342,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Blossoms_on_the_Waters_Edge",
         "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, dshift_count=0 and s=4",
-        "`dragon, dshift_count=1 and fscf",
-        "`dragon, dshift_count=2 and fscf",
-        "`dragon, dshift_count=3 and fscf and not s1.check()",
-        "`dragon, dshift_count>=4",
-        "queue prep",
-        "`s2",
-        "`fs",
-        "`s4,fscf",
-        "`fs",
-        "`s3,fscf",
-        "end",
-        "`s2",
-        "`s4",
-        "`s3, fscf",
-        "`s1, fscf or duration-now<10",
-        "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s3)",
-        "`fs, charged_in(fs, s4)",
-        "`fs, x=5",
-        "`dodge, fscf"
+        "`dragon, cancel",
+        "`s4, fsc",
+        "`s3, x=5",
+        "`s2, cancel",
+        "`s1, x=5",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
@@ -218,8 +202,8 @@
         "Yurius"
       ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -233,8 +217,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 117009.86561324773,
-        "team": 0.08881666613654238,
+        "dps": 120762.52363311629,
+        "team": 0.08875828107828233,
         "noaff": false,
         "nihil": false
       },
@@ -249,7 +233,7 @@
       ]
     },
     "META": {
-      "tdps": 121405.8839132571,
+      "tdps": 126503.40120653326,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -260,7 +244,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36381.616903403476,
+        "dps": 40133.08292889665,
         "team": 0.0,
         "noaff": false,
         "nihil": true

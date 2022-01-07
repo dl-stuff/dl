@@ -264,11 +264,49 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41746.23392525155,
-        "team": 0.03334284607969151,
+        "dps": 47882.55912034602,
+        "team": 0.043947670844189594,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "if aff(scorchrend)",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count>=1",
+        "end",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
+        "`s4",
+        "`s3",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3), x=4",
+        "else",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Nobunaga"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Sha_Wujing"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
@@ -317,7 +355,7 @@
       ]
     },
     "META": {
-      "tdps": 405116.7306911308,
+      "tdps": 167731.74684915828,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

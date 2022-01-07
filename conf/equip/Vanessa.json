@@ -119,10 +119,43 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 76232.62837244773,
+        "team": 0.023372095905701027,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, fsc",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, c_fs(vanessa) and def_mod()<1"
+      ],
+      "dacl": [
+        "`ds1, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Marth"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85341.75363725694,
-        "team": 0.017505492472260388,
+        "dps": 85593.81122755483,
+        "team": 0.017528005568086452,
         "noaff": false,
         "nihil": false
       },
@@ -137,12 +170,16 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, s",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1, fsc or not buff(s1)",
-        "`s2, cancel",
-        "`fs, buff(s1) and buff(s2)"
+        "`s2",
+        "`s1",
+        "`fs, c_fs(vanessa) and def_mod()<1"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Blade",
@@ -151,6 +188,7 @@
       ]
     },
     "META": {
+      "tdps": 1601820.3542911233,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

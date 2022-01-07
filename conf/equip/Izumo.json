@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63597.59537038439,
+        "dps": 64900.96023575319,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -31,9 +31,9 @@
         "`s1, dgauge>=1500 and s=1"
       ],
       "coabs": [
-        "Eleonora",
+        "Humanoid_Midgardsormr",
         "Mona",
-        "Yukata_Lathna"
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -42,7 +42,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63597.59537038439,
+        "dps": 64900.96023575319,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -71,9 +71,9 @@
         "`s1, dgauge>=1500 and s=1"
       ],
       "coabs": [
-        "Eleonora",
+        "Humanoid_Midgardsormr",
         "Mona",
-        "Yukata_Lathna"
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -133,8 +133,40 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 94858.54937557518,
-        "team": 0.10734650433175252,
+        "dps": 49333.54102917416,
+        "team": 0.10352518979241869,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel or fsc",
+        "`s2, cancel or fsc",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`s4, x=5 or fsc",
+        "`s2, fsc",
+        "`s1",
+        "`fs, x=5",
+        "`sack, duration-now>12"
+      ],
+      "coabs": [
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 89121.3120676531,
+        "team": 0.10210727762184371,
         "noaff": false,
         "nihil": false
       },
@@ -162,39 +194,9 @@
         "Akasha"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 86004.42467885143,
-        "team": 0.09708001987038341,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, xf",
-        "`s2, xf"
-      ],
-      "dacl": [
-        "`s4, xf=5",
-        "`s2, xf",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Mona",
-        "Wand",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "META": {
-      "tdps": -862430.0489656599,
-      "pref": "TEAMBUFF",
+      "tdps": 28060814.95325947,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

@@ -31,26 +31,26 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 115735.93718060176,
+        "dps": 164051.0612562072,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
         "Emissaries_of_the_Heavens",
-        "His_Clever_Brother",
-        "Saint_Starfalls_Circus",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, aff_timeleft(frostbite)>15 and xf",
-        "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3.1",
-        "`s3, not buff(s3) and xf=3",
+        "`dragon, xf and speed()=1.15",
+        "`s3, not buff(s3)",
         "`s4, xf",
+        "`s2, xf",
         "`s1, xf"
       ],
       "dacl": [
@@ -67,14 +67,14 @@
       ]
     },
     "META": {
-      "tdps": 170015.67924981497,
+      "tdps": 250147.20764456954,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 62718.28057886892,
+        "dps": 79852.45930347011,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -91,8 +91,8 @@
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
+        "`s1, cancel and not buff(escort3)",
+        "`s2",
         "`s3, cancel",
         "`s4, cancel"
       ],
@@ -111,40 +111,6 @@
         "Karina"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 62902.56606068422,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Wings_of_Rebellion_at_Rest",
-        "Saint_Starfalls_Circus",
-        "Snipers_Allure",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`dragon, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s3, cancel",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Karina"
-      ]
-    },
     "META": {
       "pref": "PERSONAL"
     }
@@ -152,15 +118,18 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 118376.71900138646,
+        "dps": 171176.86200680793,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Gala_Beast_Ciella"
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
     },
     "META": {
-      "tdps": 174395.46482431592,
+      "tdps": 261965.48020635787,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -169,47 +138,31 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 70431.45981386726,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "The_Prince_of_Dragonyule",
-        "His_Clever_Brother",
-        "Snipers_Allure",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Tiki"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71639.471563564,
+        "dps": 98523.13558186653,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Dragon_and_Tamer",
         "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "The_Prince_of_Dragonyule",
-        "His_Clever_Brother",
+        "Wings_of_Rebellion_at_Rest",
+        "Saint_Starfalls_Circus",
         "Snipers_Allure",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon, cancel and speed()=1.15",
+        "`s2, timeleft(s1)<4 and c_s(2, escort3)",
+        "`s3, cancel",
+        "`s1, cancel",
+        "`s4, cancel and not buff(s4)"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -217,24 +170,24 @@
         "Tiki"
       ],
       "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
+        "Gala_Mym",
+        "Akasha"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80086.61786970861,
-        "team": 0.12024736607876987,
-        "noaff": true,
+        "dps": 115917.79586425217,
+        "team": 0.12608978336251978,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -259,7 +212,7 @@
       ]
     },
     "META": {
-      "tdps": 138515.01660174597,
+      "tdps": 215352.23802078638,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

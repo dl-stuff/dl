@@ -175,10 +175,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 98383.66925148459,
-        "team": 0.24473161170079388,
+        "dps": 104595.43825489473,
+        "team": 0.24657999373593908,
         "noaff": false,
         "nihil": false
       },
@@ -192,44 +192,22 @@
         "`fs, x=1 and buff(s2)",
         "`fs, x=2 or hits=0"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Grace",
+        "Mona",
+        "Yukata_Lathna"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 100925.806281154,
-        "team": 0.1533743459973137,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Fudo_Myoo",
-      "acl": [
-        "`dragon, s2.check()",
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, duration-now<1 and fsc",
-        "`fs, x=1 and buff(s2)",
-        "`fs, x=2 or hits=0"
-      ],
-      "dacl": [
-        "`dodge, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Grace",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "META": {
-      "tdps": 27826.32569061846,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

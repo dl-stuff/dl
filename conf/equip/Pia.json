@@ -186,6 +186,35 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73711.8858444396,
+        "team": 0.061068679992198734,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, timeleft(s3)>15",
+        "`s3, not buff(s3) or dgauge>=500",
+        "`s4",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
