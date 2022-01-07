@@ -17,9 +17,9 @@
         "spiral": true,
         "abilities": [
             {"cond": ["actcond", "956", ">=", 1], "ab": [["actcond", "MYSELF", "1058"]]},
-            {"cond": ["actcond", "956", "=", 1], "ab": [["mod", 0.05, "spd"]]},
-            {"cond": ["actcond", "956", "=", 2], "ab": [["mod", 0.1, "spd"]]},
-            {"cond": ["actcond", "956", "=", 3], "ab": [["mod", 0.15, "spd"]]},
+            {"cond": ["actcond", "956", "=", 1], "ab": [["mod", 0.05, "aspd"]]},
+            {"cond": ["actcond", "956", "=", 2], "ab": [["mod", 0.1, "aspd"]]},
+            {"cond": ["actcond", "956", "=", 3], "ab": [["mod", 0.15, "aspd"]]},
             {"cd": 30.0, "ab": [["hitattr", {"amp": ["20000", 2, 0], "target": "MYSELF"}]]},
             {"ab": [["actcond", "MYSELF", "959"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},

@@ -57,7 +57,7 @@ class DragonForm:
 
         self.dragon_gauge = 0
         self.max_dragon_gauge = 1000
-        self.shift_cost = 500
+        self._shift_cost = 500
         self.shift_req = 500
         self.log_utp = False
 
@@ -66,6 +66,10 @@ class DragonForm:
 
         # untimed shift
         self.untimed_shift = False
+
+    @property
+    def shift_cost(self):
+        return float_ceil(self._shift_cost, Modifier.SELF.mod("dpcost", operator=operator.add))
 
     def set_dragonbattle(self):
         self.is_dragonbattle = True
@@ -194,7 +198,7 @@ class DragonForm:
 
     @allow_acl
     def dtime(self):
-        return self.conf.duration * self.adv.mod("dt") + self.conf.exhilaration * int(not self.off_ele)
+        return self.conf.duration * Modifier.SELF.mod("dt") + self.conf.exhilaration * int(not self.off_ele)
 
     def dstime(self):
         try:
@@ -212,7 +216,7 @@ class DragonForm:
         return not bool(self.allow_force_end_timer.online)
 
     def dhaste(self):
-        return self.adv.mod("dph", operator=operator.add)
+        return Modifier.SELF.mod("dph", operator=operator.add)
 
     def _charge_dp(self, name, value):
         gauge_before = self.dragon_gauge
@@ -243,7 +247,7 @@ class DragonForm:
 
     @allow_acl
     def ddamage(self):
-        return self.conf.dracolith + self.adv.mod("dragondmg", operator=operator.add, initial=0)
+        return self.conf.dracolith + Modifier.SELF.mod("dragondmg", operator=operator.add, initial=0)
 
     def extend_shift_time(self, value, percent=True):
         max_d = self.dtime()
@@ -369,7 +373,7 @@ class DragonFormUTP(DragonForm):
         # 2: ddrive as adventurer, with servant
         super().__init__(name, conf, adv, dragon, dform_mode=utp_params[0], unique_dform=True)
         self.shift_mods = []
-        self.shift_cost = 0
+        self._shift_cost = 0
         self.shift_req = 0
         self.utp_gauge = 0
         self.ds_final = None
@@ -406,7 +410,7 @@ class DragonFormUTP(DragonForm):
         self.utp_gauge = self.max_utp_gauge
 
     def utphaste(self):
-        return self.dhaste() + self.adv.mod("utph", operator=operator.add, initial=0)
+        return self.dhaste() + Modifier.SELF.mod("utph", operator=operator.add, initial=0)
 
     def _charge_utp(self, name, value):
         # sync with timer value

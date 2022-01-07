@@ -2231,11 +2231,11 @@ class Adv(object):
             self.last_c = 0
             return self.a_dooodge()
 
-        # log("think", t.dname, "dacl" if self._acl is self._dacl else "acl", "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit))))
+        log("think", t.dname, "dacl" if self._acl is self._dacl else "acl", "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit))))
 
         result = self._c_acl(t)
 
-        # log("think", t.dname, "dacl" if self._acl is self._dacl else "acl", "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit))), result)
+        log("think", t.dname, "dacl" if self._acl is self._dacl else "acl", "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit))), result)
 
         if not result and t.pin[0] == "x" and isinstance(t.doing, X) and t.didx > 0 and t.doing.status == Action.RECOVERY and t.dhit == 0:
             if self.in_dform():
@@ -2502,8 +2502,8 @@ class Adv(object):
     def actcond_make(self, actcond_id, target, source, dtype="#", ev=1):
         if not (actcond := self.active_actconds.get((actcond_id, target))):
             actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
-        actcond.on(source, dtype, ev=ev)
         self.active_actconds.add(actcond, source)
+        actcond.on(source, dtype, ev=ev)
         return actcond
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None, action=None, ev=1):
@@ -2687,6 +2687,8 @@ class Adv(object):
             return
 
         iv /= e.action.speed()
+        if attr.get("msl_spd"):
+            msl /= e.action.speed()
         loop = attr.get("loop")
         try:
             onhit = getattr(self, f"{e.name}_hit{aseq+1}")
@@ -2753,8 +2755,12 @@ class Adv(object):
                     gen, delay = blt
                     if isinstance(gen, str):
                         gen = getattr(self, gen, 0)
-                    for i in range(gen):
-                        res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin, iv=iv, msl=msl + delay * i)
+                    if attr.get("blt_iv"):
+                        for i in range(gen):
+                            res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin, iv=iv + delay * i, msl=msl)
+                    else:
+                        for i in range(gen):
+                            res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin, iv=iv, msl=msl + delay * i)
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin, iv=iv, msl=msl)
                 final_mt = self.compare_mt(res_mt, final_mt)

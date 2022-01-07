@@ -16,9 +16,9 @@
         "spiral": false,
         "abilities": [
             {"cond": ["break"], "ab": [["actdmg", -0.15, "-t:s1"]]},
-            {"ab": [["mod", 0.05, "spd"]]},
+            {"ab": [["mod", 0.05, "aspd"]]},
             {"cond": ["actcond", "1771", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]},
-            {"cond": ["sp", "s2", "<", 100], "ab": [["mod", 0.1, "spd"]]},
+            {"cond": ["sp", "s2", "<", 100], "ab": [["mod", 0.1, "aspd"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
             {"cond": ["hits", ">=", 15, 1], "ab": [["mod", 0.35, "killer_scorchrend"]]}
         ],

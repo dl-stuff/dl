@@ -7,8 +7,8 @@
         "ele": "shadow",
         "abilities": [
             {"ab": [["mod", 1.2, "att"]]},
-            {"cond": ["event", "start"], "ab": [["dprep", 0.5], ["dprepmax", 0.5]]},
-            {"ab": [["mod", 1.0, "dt"]]}
+            {"cond": ["event", "start"], "ab": [["dprep", 0.5], ["dprep_cap", 0.5]]},
+            {"ab": [["mod", 1.0, "dt"], ["mod", 1.0, "dpcost"]]}
         ]
     },
     "dfs": {
@@ -107,7 +107,7 @@
         "startup": 0.76923,
         "recovery": 3.43077,
         "attr": [
-            {"dmg": 6.76, "sp": 5, "target": "HOSTILE"}
+            {"dmg": 6.76, "sp": 5, "target": "HOSTILE", "blt": [4, 0.4], "blt_iv": 1}
         ],
         "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
         "cancel": {"any": 1.79487, "dfs": 0.0, "dodge": 0.0, "dx4": 1.64103, "s": 0.0}

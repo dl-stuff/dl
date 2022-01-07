@@ -495,6 +495,7 @@ class ActCond:
         self.actcond_event = Event("actcond")
         self.actcond_event.actcond = self
         self.actcond_event.source = None
+        self.actcond_event.dtype = None
 
     def get(self):
         return sum((ev for _, ev in self.buff_stack.values()))
@@ -577,6 +578,7 @@ class ActCond:
         self.log("start", self.text, f"stack {self.stack}", duration, f"{self.id}-{self.target}")
 
         self.actcond_event.source = source
+        self.actcond_event.dtype = dtype
         self.actcond_event()
 
     def _off(self, stack_key):

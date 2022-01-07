@@ -1,7 +1,7 @@
 import operator
 
 from core.modifier import Modifier
-from core.timeline import Event, Listener
+from core.timeline import Event, Listener, Timer
 from conf import float_ceil
 from core.log import log
 
@@ -27,6 +27,10 @@ class Cond:
     def __init__(self, adv, *args) -> None:
         self._adv = adv
         self.event = None
+        self.cooldown = None
+
+    def set_cooldown(self, cd):
+        self.cooldown = Timer(timeout=cd - 0.0001)
 
     def get(self):
         return 1
@@ -35,9 +39,17 @@ class Cond:
         return True
 
     def listener(self, callback, order=1):
-        def _checked_callback(e):
-            if self.check(e):
-                callback(e)
+        if self.cooldown is not None:
+
+            def _checked_callback(e):
+                if not self.cooldown.online and self.check(e):
+                    callback(e)
+
+        else:
+
+            def _checked_callback(e):
+                if self.check(e):
+                    callback(e)
 
         return Listener(self.event, _checked_callback, order=order)
 
@@ -86,7 +98,7 @@ CONDITONS["hits"] = CondHits
 
 class CondActcond(CompareCond):
     def __init__(self, adv, *args) -> None:
-        super().__init__(None, adv, *args[1:])
+        super().__init__("actcond", adv, *args[1:])
         self.actcond_id = args[0]
 
     def get(self):
@@ -234,7 +246,7 @@ class CondDoublebuff(Cond):
 
     def check(self, e):
         if e.actcond.is_doublebuff:
-            log("doublebuff", 1)
+            log("doublebuff", e.source[0])
         return e.actcond.is_doublebuff
 
 
@@ -313,10 +325,12 @@ class AbActcond(Ab):
 
     def _actcond_on(self, e):
         if e.name == "actcond":
-            source = e.source
+            source = e.source or ("ability", -1)
+            dtype = e.dtype or "#"
         else:
             source = ("ability", -1)
-        self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, ev=getattr(e, "ev", 1))
+            dtype = "#"
+        self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, dtype=dtype, ev=getattr(e, "ev", 1))
         self.idx = (self.idx + 1) % len(self.actcond_list)
         if self.max_count is not None:
             self.count += 1
@@ -362,7 +376,7 @@ class AbDragonPrep(Ab):
 SUB_ABILITIES["dprep"] = AbDragonPrep
 
 
-class AbDragonPrepMax(Ab):
+class AbDragonPrepCap(Ab):
     def __init__(self, adv, ability, *args) -> None:
         super().__init__(adv, ability, *args)
         self.value = args[0]
@@ -373,7 +387,7 @@ class AbDragonPrepMax(Ab):
         self._adv.dragonform.dragon_gauge = min(float_ceil(self._adv.dragonform.max_dragon_gauge, self.value), self._adv.dragonform.dragon_gauge)
 
 
-SUB_ABILITIES["dprepmax"] = AbDragonPrepMax
+SUB_ABILITIES["dprep_cap"] = AbDragonPrepCap
 
 
 ### Ability
@@ -385,6 +399,8 @@ class Ability:
         if cond := data.get("cond"):
             try:
                 self.cond = CONDITONS[cond[0]](adv, *cond[1:])
+                if cd := data.get("cd"):
+                    self.cond.set_cooldown(cd)
             except KeyError:
                 print(cond)
                 self.cond = None
