@@ -503,6 +503,9 @@ class ActCond:
         if not self.hidden:
             log("actcond", *args)
 
+    def __repr__(self) -> str:
+        return f"{self.text} ({self.id}-{self.target})"
+
     @property
     def stack(self):
         return len(self.buff_stack)

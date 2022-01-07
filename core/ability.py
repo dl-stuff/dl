@@ -52,9 +52,14 @@ class CompareCond(Cond):
             self.moment = bool(args[2])
         except IndexError:
             self.moment = False
+        self.current_state = False
 
     def check(self, e):
-        return self.get()
+        # check is true only when here is a change from current state
+        new_state = self.get()
+        result = self.current_state != new_state
+        self.current_state = new_state
+        return result
 
 
 class CondHP(CompareCond):
@@ -71,17 +76,9 @@ CONDITONS["hp"] = CondHP
 class CondHits(CompareCond):
     def __init__(self, adv, *args) -> None:
         super().__init__("hits", adv, *args)
-        self.current_state = False
 
     def get(self):
         return self._op(self._adv.hits, self.value)
-
-    def check(self, e):
-        # check is true only when here is a change from current state
-        new_state = self._op(self._adv.hits, self.value)
-        result = self.current_state != new_state
-        self.current_state = new_state
-        return result
 
 
 CONDITONS["hits"] = CondHits

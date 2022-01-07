@@ -965,24 +965,6 @@ class Adv(object):
     }
     actual_buffs_trust = ("self", "team", "echo", "ele", "next", "nearby")
 
-    def hitattr_check(self, name, conf):
-        if conf["attr"]:
-            for attr in conf["attr"]:
-                if not isinstance(attr, dict):
-                    continue
-                if "dmg" in attr:
-                    self.damage_sources.add(name)
-                if "buff" in attr:
-                    buffs = attr["buff"] if isinstance(attr["buff"][0], list) else (attr["buff"],)
-                    if any((bargs[0] in Adv.actual_buffs_trust for bargs in buffs)):
-                        self.buff_sources.add(name)
-                aff = attr.get("afflic")
-                if aff is not None:
-                    aff = aff[0]
-                    res = int(self.afflictions[aff].resist * 100)
-                    if not "999 all affliction res" in self.condition:
-                        self.condition(f"{res} {aff} res")
-
     @property
     def current_x(self):
         if self.in_dform():
@@ -1054,7 +1036,6 @@ class Adv(object):
             if xn != a_x.base and self.conf[a_x.base]:
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
             self.a_x_dict[a_x.group][a_x.index] = a_x
-            self.hitattr_check(xn, xconf)
             if xn[0] == "d":
                 a_x.is_dragon = True
         self.a_x_dict = dict(self.a_x_dict)
@@ -1076,7 +1057,6 @@ class Adv(object):
                 pass
             a_fs = Fs(name, fs_conf)
             self.a_fs_dict[name] = a_fs
-            self.hitattr_check(name, fs_conf)
             if name[0] == "d":
                 a_fs.is_dragon = True
         if "fs1" in self.a_fs_dict:
@@ -1321,6 +1301,13 @@ class Adv(object):
         self._dacl.reset(self)
 
         self._c_acl = self._acl
+
+    def check_actconds(self):
+        for actcond in self.active_actconds.values():
+            if actcond.aff and not actcond.relief:
+                res = int(self.afflictions[actcond.aff].resist * 100)
+                if not "999 all affliction res" in self.condition:
+                    self.condition(f"{res} {actcond.aff} res")
 
     def pre_conf(self, equip_conditions=None, name=None):
         self.conf = Conf(self.conf_default)
@@ -2126,7 +2113,6 @@ class Adv(object):
             if self.nihilism:
                 phase_up = snconf.get("phase_coei")
             self.a_s_dict[s.base].add_action(s.group, s, phase_up=phase_up)
-            self.hitattr_check(sn, snconf)
             if sn[0] == "d":
                 s.is_dragon = True
 
@@ -2176,7 +2162,7 @@ class Adv(object):
         self.slots.oninit(self)
         self.base_att = int(self.slots.att)
         self.base_hp = int(self.slots.hp)
-        self._hp = self.max_hp
+        self._hp = 0
 
         self.sim_buffbot()
 
@@ -2192,7 +2178,6 @@ class Adv(object):
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
         self.prerun()
-
         self.config_acl()
 
         self.displayed_att = int(self.base_att * self.mod("att"))
@@ -2203,6 +2188,7 @@ class Adv(object):
         Event("idle")()
         Event("start")()
 
+        self.set_hp(100, percent=True)
         if "dragonbattle" in self.conf and self.conf["dragonbattle"]:
             self.dragonform.set_dragonbattle()
             self.dragon()
@@ -2219,6 +2205,7 @@ class Adv(object):
 
         log("sim", "end", reason)
 
+        self.check_actconds()
         self.post_run(end)
         self.logs = copy.deepcopy(g_logs)
 
