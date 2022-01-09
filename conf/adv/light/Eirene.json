@@ -1,7 +1,7 @@
 {
     "actconds": {
         "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
-        "1564": {"duration": 15.0, "coei": 1, "icon": 0, "hide": 1, "overwrite": -1},
+        "1564": {"duration": 15.0, "coei": 1, "alt": {"x": "enhanced"}, "icon": 0, "hide": 1, "overwrite": -1},
         "1584": {"slip": {"value": ["percent", -0.1], "kind": "sp", "target": "s1", "iv": 1.0}, "coei": 1},
         "1595": {"duration": 15.0, "icon": "killer_flashburn-passive", "mods": [[0.15, "killer_flashburn", "passive"]], "coei": 1, "text": "Overclocked", "overwrite": -1}
     },
@@ -17,7 +17,7 @@
         "abilities": [
             {"cond": ["sp", "s1", "<", 200], "ab": [["actcond", "MYSELF", "1584"]]},
             {"ab": [["mod", 1.0, "affres_poison"]]},
-            {"cond": ["hp", "<", 30, 1], "cd": 90.0, "ab": [["tohp", "sp", 0.7]]}
+            {"cond": ["hp", "<", 30, 1], "cd": 90.0, "ab": [["to_hp", "sp", 0.7]]}
         ],
         "skillshare": {"src": "s1", "cost": 4, "sp": 9452}
     },
@@ -81,7 +81,7 @@
         ],
         "abilities": []
     },
-    "x1": {
+    "x1_enhanced": {
         "startup": 0.1,
         "recovery": 0.86667,
         "attr": [
@@ -105,7 +105,7 @@
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.06667, "s": 0.0, "x2": 0.36667}
     },
-    "x2": {
+    "x2_enhanced": {
         "startup": 0.1,
         "recovery": 0.86667,
         "attr": [

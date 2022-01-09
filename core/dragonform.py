@@ -46,7 +46,6 @@ class DragonForm:
         self.shift_mods = [self.dracolith_mod]
         self.shift_spd_mod = None
         self.off_ele = self.adv.slots.c.ele != self.conf.d.ele
-        self.previous_x = DEFAULT
 
         # gauge
         self.auto_gauge_val = 0.1  # percent
@@ -481,20 +480,25 @@ class DragonFormUTP(DragonForm):
             for _, xact in self.adv.a_x_dict[DDRIVE].items():
                 xact.enabled = enabled
             if enabled:
-                self.previous_x = self.adv.current_x
-                self.adv.current_x = DDRIVE
+                self.adv.current.set_action("x", DDRIVE)
             else:
-                self.adv.current_x = self.previous_x
+                self.adv.current.unset_action("x", DDRIVE)
         except KeyError:
             pass
         if self.ddrive_fs_list:
             for fsn in self.ddrive_fs_list:
                 self.adv.a_fs_dict[fsn].set_enabled(enabled)
-            self.adv.current_fs = DDRIVE if enabled else DEFAULT
+            if enabled:
+                self.adv.current.set_action("fs", DDRIVE)
+            else:
+                self.adv.current.unset_action("fs", DDRIVE)
         if self.shift_skills:
             for sn in self.shift_skills:
                 if DDRIVE in self.adv.a_s_dict[sn].act_dict:
-                    self.adv.current_s[sn] = DDRIVE if enabled else DEFAULT
+                    if enabled:
+                        self.adv.current.set_action(sn, DDRIVE)
+                    else:
+                        self.adv.current.unset_action(sn, DDRIVE)
 
     def dtime(self):
         return self.utp_gauge / self.utp_drain

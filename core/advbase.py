@@ -3,7 +3,7 @@ import operator
 import sys
 import random
 from functools import reduce
-from itertools import product, chain
+from itertools import product
 from collections import OrderedDict, Counter
 
 # from core import *
@@ -20,8 +20,81 @@ import conf as globalconf
 from conf.equip import get_equip_manager
 
 
+class CurrentActions:
+    def __init__(self, in_dform) -> None:
+        self._in_dform = in_dform
+        self._act = {
+            "x": [globalconf.DEFAULT],
+            "fs": [globalconf.DEFAULT],
+            "s1": [globalconf.DEFAULT],
+            "s2": [globalconf.DEFAULT],
+            "s3": [globalconf.DEFAULT],
+            "s4": [globalconf.DEFAULT],
+            "ds1": [globalconf.DEFAULT],
+            "ds2": [globalconf.DEFAULT],
+        }
+
+    @property
+    def x(self):
+        return self.get("x")
+
+    @property
+    def fs(self):
+        return self.get("fs")
+
+    @property
+    def s1(self):
+        return self.get("s1")
+
+    @property
+    def s2(self):
+        return self.get("s2")
+
+    @property
+    def s3(self):
+        return self.get("s3")
+
+    @property
+    def s4(self):
+        return self.get("s4")
+
+    @property
+    def ds1(self):
+        return self.get("ds1")
+
+    @property
+    def ds2(self):
+        return self.get("ds2")
+
+    def get(self, act):
+        if act == "x" and self._in_dform():
+            return globalconf.DRG
+        return self._act[act][-1]
+
+    def set_action(self, act, group):
+        try:
+            if self._act[act][-1] == group:
+                return
+            self._act[act] = [g for g in self._act[act] if g != group]
+            self._act[act].append(group)
+        except KeyError:
+            pass
+
+    def unset_action(self, act, group):
+        try:
+            self._act[act] = [g for g in self._act[act] if g != group]
+        except KeyError:
+            pass
+
+    def reset_action(self, act, group=globalconf.DEFAULT):
+        try:
+            self._act[act] = [group]
+        except KeyError:
+            pass
+
+
 class Skill(object):
-    _static = Static({"s_prev": "<nop>", "first_x_after_s": 0, "silence": 0, "current_s": {}})
+    _static = Static({"s_prev": "<nop>", "first_x_after_s": 0, "silence": 0, "current": None})
     charged = 0
     sp = 0
     silence_duration = 1.9
@@ -73,16 +146,16 @@ class Skill(object):
             ac.uses = ac.conf["uses"] or -1
         self.charged = 0
         if self.overcharge_sp is not None:
-            self._static.current_s[self.name] = globalconf.DEFAULT
+            self._static.current.reset_action(self.name)
 
     @property
-    def phase(self):
-        return self._static.current_s[self.name]
+    def current(self):
+        return self._static.current.get(self.name)
 
     @property
     def ac(self):
         try:
-            return self.act_dict[self._static.current_s[self.name]]
+            return self.act_dict[self.current]
         except KeyError:
             return self.act_base
 
@@ -111,9 +184,9 @@ class Skill(object):
         if self.overcharge_sp is not None:
             # oc_summed = "+".join((str(sp) for _, sp in self.overcharge_sp))
             oc_summed = self.sp
-            if self._static.current_s[self.name] == globalconf.DEFAULT:
+            if self.current == globalconf.DEFAULT:
                 return f"{self.charged}/{oc_summed}"
-            return f"{self.charged}/{oc_summed} [{self._static.current_s[self.name]}]"
+            return f"{self.charged}/{oc_summed} [{self.current}]"
         else:
             if self.maxcharge > 1:
                 return f"{self.charged}/{self.sp} [{self.count}]"
@@ -155,7 +228,7 @@ class Skill(object):
             for oc_group, oc_sp in self.overcharge_sp:
                 oc_threshold += oc_sp
                 if self.charged >= oc_threshold:
-                    self._static.current_s[self.name] = oc_group
+                    self._static.current.set_action(self.name, oc_group)
 
     def cb_silence_end(self, e):
         if loglevel >= 2:
@@ -182,7 +255,7 @@ class Skill(object):
     def cast(self):
         self.charged -= self.sp
         if self.overcharge_sp is not None:
-            self._static.current_s[self.name] = globalconf.DEFAULT
+            self._static.current.reset_action(self.name)
         self._static.s_prev = self.name
         # Even if animation is shorter than 1.9, you can't cast next skill before 1.9
         self.silence_end_timer.on(self.silence_duration)
@@ -221,7 +294,7 @@ class ReservoirSkill(Skill):
     @property
     def ac(self):
         try:
-            return self.act_dict[(self.name, self._static.current_s[self.name])]
+            return self.act_dict[(self.name, self.current)]
         except KeyError:
             return self.act_base
 
@@ -248,21 +321,21 @@ class ReservoirChainSkill(Skill):
 
     @property
     def ac(self):
-        return self.act_dict[(self.name, self._static.current_s[self.name])]
+        return self.act_dict[(self.name, self.current)]
 
     def chain_on(self, skill, timeout=3):
         timeout += self.ac.getrecovery()
         self.chain_status = skill
         self.chain_timer.on(timeout)
         log("skill_chain", f"s{skill}", timeout)
-        self._static.current_s[f"s{skill}"] = f"chain"
-        self._static.current_s[f"s{3-skill}"] = self.altchain
+        self._static.current.set_action(f"s{skill}", "chain")
+        self._static.current.set_action(f"s{3-skill}", self.altchain)
 
     def chain_off(self, t=None, reason="timeout"):
         log("skill_chain", "chain off", reason)
         self.chain_status = 0
-        self._static.current_s["s1"] = globalconf.DEFAULT
-        self._static.current_s["s2"] = globalconf.DEFAULT
+        self._static.current.reset_action("s1")
+        self._static.current.reset_action("s2")
 
     @property
     def sp(self):
@@ -965,16 +1038,6 @@ class Adv(object):
     }
     actual_buffs_trust = ("self", "team", "echo", "ele", "next", "nearby")
 
-    @property
-    def current_x(self):
-        if self.in_dform():
-            return globalconf.DRG
-        return self._current_x
-
-    @current_x.setter
-    def current_x(self, value):
-        self._current_x = value
-
     def doconfig(self):
         # comment
         if self.conf.c["comment"]:
@@ -1030,6 +1093,9 @@ class Adv(object):
         # init dragon here so that actions can be processed
         self.slots.d.oninit(self)
 
+        self.Skill = Skill()
+        self.current = CurrentActions(self.in_dform)
+        self.Skill._static.current = self.current
         # init actions
         for xn, xconf in self.conf.find(r"^d?x\d+(_[A-Za-z0-9]+)?$"):
             a_x = X(xn, self.conf[xn])
@@ -1043,7 +1109,6 @@ class Adv(object):
             gxmax = f"{group}.x_max"
             if not self.conf[gxmax]:
                 self.conf[gxmax] = max(actions.keys())
-        self.current_x = globalconf.DEFAULT
         self.deferred_x = None
 
         for name, fs_conf in self.conf.find(r"^d?fs\d*(_[A-Za-z0-9]+)?$"):
@@ -1061,8 +1126,6 @@ class Adv(object):
                 a_fs.is_dragon = True
         if "fs1" in self.a_fs_dict:
             self.a_fs_dict["fs"].enabled = False
-        self.current_fs = None
-        self.alt_fs_buff = None
 
         if not self.conf["cannot_fsf"]:
             self.a_fsf = Fs("fsf", self.conf.fsf)
@@ -1302,7 +1365,15 @@ class Adv(object):
 
         self._c_acl = self._acl
 
-    def check_actconds(self):
+    def check_conf_actconds(self):
+        need_ev_bleed = False
+        for actcond in self.conf.actconds.values():
+            if (slip := actcond.get("slip")) and slip["kind"] == "bleed" and slip.get("rate", 1) < 1:
+                need_ev_bleed = True
+        if need_ev_bleed and not self.variant == "RNG":
+            self.bleed = BleedEV(self)
+
+    def check_used_actconds(self):
         for actcond in self.active_actconds.values():
             if actcond.aff and not actcond.relief:
                 res = int(self.afflictions[actcond.aff].resist * 100)
@@ -1381,8 +1452,6 @@ class Adv(object):
 
         self.crit_mod = self.solid_crit_mod
         # self.crit_mod = self.rand_crit_mod
-
-        self.Skill = Skill()
 
         self.a_x_dict = defaultdict(lambda: {})
         self.a_fs_dict = {}
@@ -1654,8 +1723,8 @@ class Adv(object):
             if target not in ("s1", "s2", "s3", "s4"):
                 return 0
             if isinstance(param, int):
-                suffix = "" if self.current_x == globalconf.DEFAULT else f"_{self.current_x}"
-                actkeys = (f"x{i}{suffix}" for i in range(1, min(param, self.conf[self.current_x].x_max) + 1))
+                suffix = "" if self.current.x == globalconf.DEFAULT else f"_{self.current.x}"
+                actkeys = (f"x{i}{suffix}" for i in range(1, min(param, self.conf[self.current.x].x_max) + 1))
             else:
                 actkeys = (param,)
         sp_sum = 0
@@ -1770,8 +1839,8 @@ class Adv(object):
         if self.in_dform():
             fsn = "d" + fsn
         self.check_deferred_x()
-        if self.current_fs is not None:
-            fsn += "_" + self.current_fs
+        if self.current.fs is not None:
+            fsn += "_" + self.current.fs
         try:
             return self.a_fs_dict[fsn]()
         except KeyError:
@@ -1793,8 +1862,8 @@ class Adv(object):
         fsn = "fs" if n is None else f"fs{n}"
         if self.in_dform():
             fsn = "d" + fsn
-        if self.current_fs is not None:
-            fsn += "_" + self.current_fs
+        if self.current.fs is not None:
+            fsn += "_" + self.current.fs
         try:
             fs_act = self.a_fs_dict[fsn]
         except KeyError:
@@ -1815,7 +1884,7 @@ class Adv(object):
     def check_deferred_x(self):
         if self.deferred_x is not None and not self.in_dform():
             log("deferred_x", self.deferred_x)
-            self.current_x = self.deferred_x
+            self.current.set_action("x", self.deferred_x)
             self.deferred_x = None
 
     def _next_x(self, prev=None):
@@ -1824,26 +1893,26 @@ class Adv(object):
         if prev is self.action.nop:
             prev = self.action.getprev()
         if isinstance(prev, X):
-            if prev.group == self.current_x and prev.conf["loop"]:
+            if prev.group == self.current.x and prev.conf["loop"]:
                 x_next = prev
             else:
-                if prev.index < self.conf[self.current_x].x_max:
-                    x_next = self.a_x_dict[self.current_x][prev.index + 1]
+                if prev.index < self.conf[self.current.x].x_max:
+                    x_next = self.a_x_dict[self.current.x][prev.index + 1]
                 else:
-                    x_next = self.a_x_dict[self.current_x][1]
+                    x_next = self.a_x_dict[self.current.x][1]
                 if not prev.has_follow(x_next.name, "any"):
-                    x_next = self.a_x_dict[self.current_x][1]
+                    x_next = self.a_x_dict[self.current.x][1]
         elif prev is not None:
-            x_next = self.a_x_dict[self.current_x][prev.to_x]
+            x_next = self.a_x_dict[self.current.x][prev.to_x]
         else:
-            x_next = self.a_x_dict[self.current_x][1]
+            x_next = self.a_x_dict[self.current.x][1]
         # special: in dform and if there isn't enough time left to complete next x, try sack instead
         if x_next.group == globalconf.DRG:
             if prev.status == Action.RECOVERY and self.dragonform.dform_mode == -1 and not self.dragonform.untimed_shift and x_next.getstartup() >= self.dshift_timeleft:
                 return self.sack()
         elif not x_next.enabled:
-            self.current_x = globalconf.DEFAULT
-            x_next = self.a_x_dict[self.current_x][1]
+            self.current.x = globalconf.DEFAULT
+            x_next = self.a_x_dict[self.current.x][1]
         return x_next()
 
     @allow_acl
@@ -1857,13 +1926,13 @@ class Adv(object):
             if prev.index < self.conf[prev.group].x_max or self.dragonform.auto_dodge(prev.index):
                 x_next = self.dragonform.d_dodge
             else:
-                x_next = self.a_x_dict[self.current_x][1]
+                x_next = self.a_x_dict[self.current.x][1]
             return x_next()
         return False
 
     def l_x(self, e):
         # FIXME: race condition?
-        x_max = self.conf[self.current_x].x_max
+        x_max = self.conf[self.current.x].x_max
         logname = e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name
         if e.index == x_max and not self.conf[e.name]["loop"]:
             log("x", logname, "-" * 45 + f" c{x_max} ")
@@ -2010,15 +2079,6 @@ class Adv(object):
         return self.a_s_dict["ds2"]
 
     def config_skills(self):
-        self.current_s = {
-            "s1": globalconf.DEFAULT,
-            "s2": globalconf.DEFAULT,
-            "s3": globalconf.DEFAULT,
-            "s4": globalconf.DEFAULT,
-            "ds1": globalconf.DEFAULT,
-            "ds2": globalconf.DEFAULT,
-        }
-        self.Skill._static.current_s = self.current_s
         self.conf.s1.owner = None
         self.conf.s2.owner = None
 
@@ -2100,19 +2160,19 @@ class Adv(object):
             s = S(sn, snconf)
             if s.group != globalconf.DEFAULT and self.conf[s.base]:
                 snconf.update(self.conf[s.base], rebase=True)
-            if s.group.startswith("phase"):
-                s.group = int(s.group[5:])
-                try:
-                    self.a_s_dict[s.base].p_max = max(self.a_s_dict[s.base].p_max, s.group)
-                except ValueError:
-                    self.a_s_dict[s.base].p_max = s.group
-                self.current_s[s.base] = 0
-                s.group -= 1
-                s.act_event.group = s.group
-            phase_up = True
-            if self.nihilism:
-                phase_up = snconf.get("phase_coei")
-            self.a_s_dict[s.base].add_action(s.group, s, phase_up=phase_up)
+            # if s.group.startswith("phase"):
+            #     s.group = int(s.group[5:])
+            #     try:
+            #         self.a_s_dict[s.base].p_max = max(self.a_s_dict[s.base].p_max, s.group)
+            #     except ValueError:
+            #         self.a_s_dict[s.base].p_max = s.group
+            #     self.current_s[s.base] = 0
+            #     s.group -= 1
+            #     s.act_event.group = s.group
+            # phase_up = True
+            # if self.nihilism:
+            #     phase_up = snconf.get("phase_coei")
+            self.a_s_dict[s.base].add_action(s.group, s)
             if sn[0] == "d":
                 s.is_dragon = True
 
@@ -2185,6 +2245,8 @@ class Adv(object):
         if self.conf["fleet"]:
             self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
 
+        self.check_conf_actconds()
+
         Event("idle")()
         Event("start")()
 
@@ -2205,7 +2267,7 @@ class Adv(object):
 
         log("sim", "end", reason)
 
-        self.check_actconds()
+        self.check_used_actconds()
         self.post_run(end)
         self.logs = copy.deepcopy(g_logs)
 
@@ -2833,13 +2895,13 @@ class Adv(object):
 
     @allow_acl
     def c_fs(self, group):
-        if self.current_fs == group and self.alt_fs_buff is not None:
+        if self.current.fs == group and self.alt_fs_buff is not None:
             return self.alt_fs_buff.uses
         return 0
 
     @allow_acl
     def c_x(self, group):
-        return self.current_x == group
+        return self.current.x == group
 
     @allow_acl
     def c_s(self, seq, group):

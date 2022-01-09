@@ -1,7 +1,7 @@
 {
     "actconds": {
         "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
-        "1205": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1205": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
         "1206": {"duration": 1.0, "coei": 1, "text": "Unlocking Sigil...", "overwrite": -1},
         "1221": {"ele": "shadow", "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
         "1222": {"ele": "shadow", "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
@@ -17,7 +17,7 @@
         "spiral": false,
         "abilities": [
             {"cond": ["event", "start"], "cd": 5.0, "ab": [["actcond", "MYSELF", "1152"]]},
-            {"cond": ["event", "dragon"], "ab": [["acduration", 1152, -4.0]]},
+            {"cond": ["event", "dragon"], "ab": [["ac_t", 1152, -4.0]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1205"]]},
             {"cond": ["fs_hold", "charge"], "cd": 0.5, "ab": [["hitattr", {"heal": 5, "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_blind"]]},
@@ -53,7 +53,7 @@
         ],
         "cancel": {"any": 1.63333},
         "abilities": [
-            {"cond": ["sp", "s1", ">", -1], "actcond": "1206", "ab": [["acduration", 1152, -1.0]]}
+            {"cond": ["sp", "s1", ">", -1], "actcond": "1206", "ab": [["ac_t", 1152, -1.0]]}
         ]
     },
     "s2_sigil": {

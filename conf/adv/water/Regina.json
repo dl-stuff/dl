@@ -3,7 +3,7 @@
         "36": {"aff": "all", "relief": 1, "count": 1, "text": "Recovered from Afflictions"},
         "410": {"aff": "frostbite", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
         "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
-        "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1171": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
         "1257": {"aff": "flashburn", "duration": 21.0, "slip": {"value": ["mod", 0.311], "iv": 2.9}, "rate": 1.1},
         "1352": {"aff": "shadowblight", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
         "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
@@ -29,12 +29,12 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"], ["actcond", "MYSELF", "1871"]]},
             {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"cond": ["actcond", 1871, "=", 1], "actcond": "1874", "target": "MYSELF"}]]},
-            {"ab": [["acduration", 1152, -0.15]]},
+            {"ab": [["ac_t", 1152, -0.15]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1171"], ["mode", "sigil"]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1871"], ["actcond", "MYSELF", "1872"], ["actcond", "MYSELF", "1873"]]},
-            {"cond": ["event", "relief"], "ab": [["acduration", 1152, -0.5]]},
+            {"cond": ["event", "relief"], "ab": [["ac_t", 1152, -0.5]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
-            {"ab": [["affnumkiller", [25, 30, 35, 40]]]}
+            {"ab": [["aff_num_k", [25, 30, 35, 40]]]}
         ],
         "skillshare": {"src": "s2", "cost": 6, "sp": 11431}
     },

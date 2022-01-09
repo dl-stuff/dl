@@ -3,7 +3,7 @@
         "291": {"dispel": "buff"},
         "1029": {"duration": 15.0, "icon": "att-buff", "mods": [[-0.2, "att", "buff"]], "debuff": 1, "text": "Strength -20%", "overwrite": 1},
         "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
-        "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1171": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
         "1267": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "overwrite": 6},
         "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
         "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
@@ -23,7 +23,7 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
-            {"cond": ["hitcount", 25], "cd": 8.0, "ab": [["acduration", 1152, -0.25]]},
+            {"cond": ["hitcount", 25], "cd": 8.0, "ab": [["ac_t", 1152, -0.25]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1898"]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"cond": ["hitcount", 15], "ab": [["actcond", "MYSELF", "1894"]]},

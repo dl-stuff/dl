@@ -152,6 +152,14 @@ class CondOverdrive(Cond):
 CONDITONS["overdrive"] = CondOverdrive
 
 
+class CondBleed(Cond):
+    def get(self):
+        return self._adv.bleed.get()
+
+
+CONDITONS["bleed"] = CondBleed
+
+
 class CondEvent(Cond):
     def __init__(self, adv, *args) -> None:
         super().__init__(adv, *args)
@@ -292,12 +300,12 @@ class AbActdmg(AbModifier):
                 super().__init__(adv, ability, args[0], self.target, "passive")
         except IndexError:
             self.target = "act"
-            if isinstance(self._cond, CondOverdrive):
+            if isinstance(ability.cond, (CondOverdrive, CondBleed)):
                 super().__init__(adv, ability, args[0], "killer", "passive")
-            if self._cond is None:
-                super().__init__(adv, ability, args[0], self.target, "passive")
+            elif isinstance(ability.cond, CondBreak):
+                super().__init__(adv, ability, args[0], "killer", "break")
             else:
-                super().__init__(adv, ability, args[0], self.target, str(self._cond.__class__.__name__))
+                super().__init__(adv, ability, args[0], self.target, "passive")
 
 
 SUB_ABILITIES["actdmg"] = AbActdmg

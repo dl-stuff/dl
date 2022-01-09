@@ -2,7 +2,7 @@
     "actconds": {
         "291": {"dispel": "buff"},
         "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
-        "1171": {"coei": 1, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1171": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
         "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
         "1540": {"duration": 20.0, "icon": 103, "mods": [[0.15, "att", "buff"], [0.1, "aspd", "buff"]], "coei": 1, "text": "Raphael's Steel", "overwrite": 34},
         "1563": {"lifeshield": 0.3},
@@ -19,7 +19,7 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"]]},
             {"cond": ["actcondend", 1152], "ab": [["mode", "sigil"], ["actcond", "MYSELF", "1171"]]},
-            {"cond": ["event", "heal"], "cd": 20.0, "ab": [["acduration_healed", 1152, -0.5, 1, 999], ["acduration_healed", 1152, -0.75, 1000, 99999]]},
+            {"cond": ["event", "heal"], "cd": 20.0, "ab": [["ac_t_healed", 1152, -0.5, 1, 999], ["ac_t_healed", 1152, -0.75, 1000, 99999]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},
             {"cond": ["damaged", -1], "cd": 60.0, "ab": [["hitattr", {"actcond": "1563", "target": "MYPARTY_EXCEPT_MYSELF"}]]}
         ],

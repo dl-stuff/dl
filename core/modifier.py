@@ -229,7 +229,7 @@ class AffEV:
 
     @staticmethod
     def _mul_no_p(acc, value):
-        return acc * max(0, 1.0 - value)
+        return acc * max(0, 1.0 - value[1])
 
     def uptime(self):
         next_r = self.get()
@@ -261,8 +261,9 @@ class AffEV:
     def affres_mod(self):
         return Modifier.ENEMY.mod(self._affres_mtype, operator=operator.add, initial=0.0)
 
-    def on(self, rate, stack_key, extra_p=1.0, slip_dmg=None):
+    def on(self, actcond, stack_key, extra_p=1.0, slip_dmg=None):
         total_success_p = 0.0
+        rate = actcond._rate
         rate = rate + self.edge_mod()
         n_states = self._init_state()
         for res, state_p in self._res_states.items():
@@ -279,7 +280,7 @@ class AffEV:
                     n_states[res] += fail_p
         if total_success_p > AffEV.THRESHOLD:
             self._res_states = n_states
-            self._stacks[stack_key] = total_success_p
+            self._stacks[stack_key] = (actcond, total_success_p)
             self.update(slip_dmg=slip_dmg)
             self.aff_event.ev = self._get
             self.aff_event()
@@ -337,30 +338,40 @@ class Afflictions(UserDict):
 
 
 class Bleed:
+    CAP = 3
+
     def __init__(self, adv) -> None:
         self._adv = adv
         self.slip_timer = None
         self._stacks = {}
+        self._dmg_by_source = defaultdict(list)
+        self._mod = 0
 
     def tick(self, t):
-        mod = 0.5 + 0.5 * len(self._stacks)
-        dmg_by_source = defaultdict(list)
-        for stack_key, value in self._stacks.items():
-            dmg_by_source[stack_key[1]].append(value)
-        for source, values in dmg_by_source.items():
-            log("dmg", f"{source[0]}_bleed", mod * sum(values), mod, "+".join((f"{value:.2f}" for value in values)))
+        for source, values in self._dmg_by_source.items():
+            log("dmg", f"{source[0]}_bleed", self._mod * sum(values), self._mod, "+".join((f"{value:.2f}" for value in values)))
 
-    def on(self, rate, slip, dtype, stack_key):
-        # {"value": ["mod", 1.32], "kind": "bleed", "iv": 4.9}
+    def update(self):
+        self._mod = 0.5 + 0.5 * len(self._stacks)
+        self._dmg_by_source = defaultdict(list)
+        for stack_key, value in self._stacks.items():
+            self._dmg_by_source[stack_key[1]].append(value[1])
+
+    def on(self, actcond, dtype, stack_key):
+        rate = actcond.get_rate()
         if random.random() <= rate:
-            if len(self._stacks) > 3:
+
+            if len(self._stacks) >= Bleed.CAP:
                 oldest_bleed = min(self._stacks.keys(), key=lambda k: k[0])
                 del self._stacks[oldest_bleed]
-            self._stacks[stack_key] = self._adv.dmg_formula(stack_key[1], slip["value"][1], dtype=dtype, actcond_dmg=True)
+            self._stacks[stack_key] = (actcond, self._adv.dmg_formula(stack_key[1], actcond.slip["value"][1], dtype=dtype, actcond_dmg=True))
             if self.slip_timer is None:
-                self.slip_timer = Timer(self.tick, slip["iv"], repeat=True)
+                self.slip_timer = Timer(self.tick, actcond.slip["iv"], repeat=True)
                 self.slip_timer.on()
+
+            self.update()
             return True
+
         return False
 
     def get(self):
@@ -368,25 +379,74 @@ class Bleed:
 
     def off(self, stack_key):
         del self._stacks[stack_key]
+        self.update()
 
-    # def update(self, rate, stack_key):
-    #     n_states = self._init_state()
-    #     for state, state_p in self._stack_states:
-    #         state = [stack for stack in state if stack in self._stacks]
-    #         success_p = state_p * rate
-    #         fail_p = state_p * (1 - rate)
-    #         if len(state) < 3:
-    #             fail_state = list(state)
-    #             while len(fail_state) < 3:
-    #                 fail_state.append(None)
-    #             n_states[tuple(fail_state)] += fail_p
-    #             state.append(stack_key)
-    #             while len(state) < 3:
-    #                 state.append(None)
-    #             n_states[tuple(state)] += success_p
-    #         else:
-    #             pass
-    #     self._stack_states = n_states
+
+class BleedEV(Bleed):
+    def __init__(self, adv) -> None:
+        super().__init__(adv)
+        self._stack_states = {tuple((None for _ in range(Bleed.CAP))): 1.0}
+
+    def tick(self, t):
+        for source, value in self._dmg_by_source.items():
+            log("dmg", f"{source[0]}_bleed", value, self._mod)
+
+    def get(self):
+        return (self._mod - 0.5) * 2
+
+    def update(self):
+        self._mod = 0
+        self._dmg_by_source = defaultdict(float)
+        for state, state_p in self._stack_states.items():
+            mod = 0.5 + sum((int(stack is not None) / 2 for stack in state))
+            self._mod += mod * state_p
+            for stack_key in state:
+                if stack_key is not None:
+                    self._dmg_by_source[stack_key[1]] += self._stacks[stack_key][1] * state_p * mod
+
+    def on(self, actcond, dtype, stack_key):
+        self._stacks[stack_key] = (actcond, self._adv.dmg_formula(stack_key[1], actcond.slip["value"][1], dtype=dtype, actcond_dmg=True))
+        if self.slip_timer is None:
+            self.slip_timer = Timer(self.tick, actcond.slip["iv"], repeat=True)
+            self.slip_timer.on()
+
+        rate = actcond.get_rate()
+        n_states = defaultdict(float)
+
+        for state, state_p in self._stack_states.items():
+            state = [stack for stack in state if stack in self._stacks]
+            fail_p = state_p * (1 - rate)
+            success_p = state_p * rate
+            if len(state) < 3:
+                fail_state = list(state)
+                while len(fail_state) < Bleed.CAP:
+                    fail_state.append(None)
+                success_state = list(state)
+                success_state.append(stack_key)
+                while len(success_state) < Bleed.CAP:
+                    success_state.append(None)
+            else:
+                fail_state = state
+                success_state = state[1:] + [stack_key]
+            n_states[tuple(fail_state)] += fail_p
+            n_states[tuple(success_state)] += success_p
+        self._stack_states = n_states
+
+        self.update()
+        return True
+
+    def off(self, stack_key):
+        del self._stacks[stack_key]
+
+        n_states = defaultdict(float)
+
+        for state, state_p in self._stack_states.items():
+            state = [stack for stack in state if stack in self._stacks]
+            while len(state) < 3:
+                state.append(None)
+            n_states[tuple(state)] = state_p
+
+        self._stack_states = n_states
 
 
 class SlipDmg:
@@ -483,6 +543,8 @@ class ActCond:
         self.is_bleed = False
         if self.slip:
             self.is_bleed = self.slip.get("kind") == "bleed"
+
+        self.alt = data.get("alt")
 
         self.mod_list = []
         self.is_doublebuff = False
@@ -607,12 +669,12 @@ class ActCond:
         slip_dmg = None
         if self.slip is not None:
             if self.is_bleed:
-                self._adv.bleed.on(self.get_rate(), self.slip, dtype, stack_key)
+                self._adv.bleed.on(self, dtype, stack_key)
             else:
                 slip_dmg = SlipDmg(self, self.slip, source[0], dtype, self.target)
         if self.aff and not self.relief:
             if ENEMY in self.generic_target:
-                if self._adv.afflictions[self.aff].on(self._rate, stack_key, slip_dmg=slip_dmg):
+                if self._adv.afflictions[self.aff].on(self, stack_key, slip_dmg=slip_dmg):
                     self.slip_stack[stack_key] = slip_dmg
             elif slip_dmg:
                 selfaff = Event("selfaff")
@@ -621,18 +683,27 @@ class ActCond:
                 slip_dmg.on()
                 self.slip_stack[stack_key] = slip_dmg
 
+        if self.alt:
+            for act, group in self.alt.items():
+                self._adv.current.set_action(act, group)
+
     def effect_off(self, stack_key):
-        if self.aff and not self.relief and ENEMY in self.generic_target:
-            self._adv.afflictions[self.aff].off(stack_key)
-        if self.slip is not None:
-            if self.is_bleed:
-                self._adv.bleed.off(stack_key)
-            else:
-                try:
-                    self.slip_stack[stack_key].off()
-                    del self.slip_stack[stack_key]
-                except KeyError:
-                    pass
+        if stack_key in self.slip_stack:
+            if self.aff and not self.relief and ENEMY in self.generic_target:
+                self._adv.afflictions[self.aff].off(stack_key)
+            if self.slip is not None:
+                if self.is_bleed:
+                    self._adv.bleed.off(stack_key)
+                else:
+                    try:
+                        self.slip_stack[stack_key].off()
+                        del self.slip_stack[stack_key]
+                    except KeyError:
+                        pass
+
+        if self.alt:
+            for act, group in self.alt.items():
+                self._adv.current.unset_action(act, group)
 
 
 class ActiveActconds(UserDict):
