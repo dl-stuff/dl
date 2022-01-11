@@ -5,7 +5,7 @@
         "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
         "2022": {"count": 1, "coei": 1, "alt": {"s1": "enhanced"}, "icon": 0, "hide": 1, "overwrite": 57},
         "2024": {"count": 1, "coei": 1, "alt": {"s2": "enhanced"}, "icon": 0, "hide": 1, "overwrite": 58},
-        "2027": {"coei": 1, "icon": 0, "hide": 1, "overwrite": -1},
+        "2027": {"coei": 1, "icon": 0, "hide": 1},
         "326010701": {"icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity"}
     },
     "c": {
@@ -77,14 +77,14 @@
         "startup": 0.0,
         "recovery": 1.86667,
         "attr": [
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 5.84, "actcond": "1384", "target": "HOSTILE", "iv": 0.46667},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 6.72, "actcond": "1384", "target": "HOSTILE", "iv": 0.46667},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 5.84, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.5},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.5},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 5.84, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.56667},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.56667},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 5.84, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.63333},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.63333}
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 5.84, "actcond": "1384", "target": "HOSTILE", "iv": 0.46667},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 6.72, "actcond": "1384", "target": "HOSTILE", "iv": 0.46667},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 5.84, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.5},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.5},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 5.84, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.56667},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.56667},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 5.84, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.63333},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.63333}
         ],
         "cancel": {"any": 1.66667}
     },
@@ -118,22 +118,22 @@
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.53333},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 0.53333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.93333},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 0.93333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.06667},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.06667},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.2},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.2},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.33333},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.33333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.5},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.5},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.56667},
-            {"cond": ["actcond", 2025, "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.56667}
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.53333},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 0.53333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.93333},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 0.93333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.06667},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.06667},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.2},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.2},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.33333},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.33333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.5},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.5},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.56667},
+            {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.56667}
         ],
         "cancel": {"any": 2.16667}
     },
@@ -142,14 +142,14 @@
         "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.53333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.93333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.06667},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.2},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.33333},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.5},
-            {"cond": ["actcond", 2025, "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.56667}
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.53333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 0.93333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.06667},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.2},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.33333},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.5},
+            {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.56667}
         ],
         "cancel": {"any": 2.16667}
     },

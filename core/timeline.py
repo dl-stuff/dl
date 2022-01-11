@@ -151,9 +151,6 @@ class Timer(object):
             return _g_now - self.began
 
     def timeleft(self):
-        from core.log import log
-
-        # log("timeleft", self.timing - _g_now, self.pause_time)
         if self.pause_time > 0:
             return self.pause_time
         return self.timing - _g_now
@@ -227,11 +224,13 @@ class Timer(object):
             self.pause_time = self.timing - _g_now
             if self.pause_time > 0:
                 self.off()
+            return self
 
     def resume(self):
         if self.pause_time > 0:
             self.on(self.pause_time)
-        self.pause_time = -1
+            self.pause_time = -1
+            return self
 
     def __repr__(self):
         # return '%f: Timer:%s'%(self.timing,self.process)

@@ -2,16 +2,8 @@ import operator
 
 from core.modifier import Modifier
 from core.timeline import Event, Listener, Timer
-from conf import float_ceil
+from conf import float_ceil, OPS
 from core.log import log
-
-OPS = {
-    ">=": operator.ge,
-    "<=": operator.le,
-    "=": operator.eq,
-    "<": operator.lt,
-    ">": operator.gt,
-}
 
 
 class InactiveAbility(Exception):
@@ -24,13 +16,22 @@ CONDITONS = {}
 
 
 class Cond:
-    def __init__(self, adv, *args) -> None:
+    def __init__(self, adv, data, *args) -> None:
         self._adv = adv
         self.event = None
-        self.cooldown = None
+        self._extra_checks = []
+        if cd := data.get("cd"):
+            self._cooldown = Timer(timeout=cd - 0.0001)
+            self._extra_checks.append(self.not_cooldown)
+        if actcond := data.get("actcond"):
+            self._actcond_id = actcond
+            self._extra_checks.append(self.has_actcond)
 
-    def set_cooldown(self, cd):
-        self.cooldown = Timer(timeout=cd - 0.0001)
+    def not_cooldown(self):
+        return not self._cooldown.online
+
+    def has_actcond(self):
+        return self._adv.active_actconds.stacks(self.actcond_id) > 0
 
     def get(self):
         return 1
@@ -39,24 +40,19 @@ class Cond:
         return True
 
     def listener(self, callback, order=1):
-        if self.cooldown is not None:
-
-            def _checked_callback(e):
-                if not self.cooldown.online and self.check(e):
-                    callback(e)
-
-        else:
-
-            def _checked_callback(e):
-                if self.check(e):
-                    callback(e)
+        def _checked_callback(e):
+            if all((ec() for ec in self._extra_checks)) and self.check(e):
+                callback(e)
 
         return Listener(self.event, _checked_callback, order=order)
 
 
+CONDITONS["always"] = Cond
+
+
 class CompareCond(Cond):
-    def __init__(self, event, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, event, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self._op = OPS[args[0]]
         self.value = args[1]
         self.event = event
@@ -75,8 +71,8 @@ class CompareCond(Cond):
 
 
 class CondHP(CompareCond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__("hp", adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__("hp", adv, data, *args)
 
     def get(self):
         return self._op(self._adv.hp, self.value)
@@ -86,8 +82,8 @@ CONDITONS["hp"] = CondHP
 
 
 class CondHits(CompareCond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__("hits", adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__("hits", adv, data, *args)
 
     def get(self):
         return self._op(self._adv.hits, self.value)
@@ -97,20 +93,20 @@ CONDITONS["hits"] = CondHits
 
 
 class CondActcond(CompareCond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__("actcond", adv, *args[1:])
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__("actcond", adv, data, *args[1:])
         self.actcond_id = args[0]
 
     def get(self):
-        return self._op(sum((int(actcond_id == self.actcond_id) for actcond_id, _ in self._adv.active_actconds)), self.value)
+        return self._op(self._adv.active_actconds.stacks(self.actcond_id), self.value)
 
 
 CONDITONS["actcond"] = CondActcond
 
 
 class CondBuffedBy(Cond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self.target = args[0]
         self.event = "s"
 
@@ -122,8 +118,8 @@ CONDITONS["buffed_by"] = CondBuffedBy
 
 
 class CondShift(Cond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         if args[0] == "dform":
             self.form_check = self._adv.dragonform.in_dform
         elif args[0] == "ddrive":
@@ -161,8 +157,8 @@ CONDITONS["bleed"] = CondBleed
 
 
 class CondEvent(Cond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self.event = args[0]
 
 
@@ -170,8 +166,8 @@ CONDITONS["event"] = CondEvent
 
 
 class CondPersistentCount(Cond):
-    def __init__(self, event, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, event, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self.event = event
         self.threshold = args[0]
         self.count = 0
@@ -191,24 +187,24 @@ class CondPersistentCount(Cond):
 
 
 class CondHitsEvent(CondPersistentCount):
-    def __init__(self, adv, *args) -> None:
-        super().__init__("hits", adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__("hits", adv, data, *args)
 
 
 CONDITONS["hitcount"] = CondHitsEvent
 
 
 class CondSlayer(CondPersistentCount):
-    def __init__(self, adv, *args) -> None:
-        super().__init__("slayer", adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__("slayer", adv, data, *args)
 
 
 CONDITONS["slayer"] = CondSlayer
 
 
 class CondAffProc(Cond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self.event = args[0]
 
 
@@ -216,8 +212,8 @@ CONDITONS["aff"] = CondAffProc
 
 
 class CondMult(Cond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self.value = args[0]
         self.threshold = args[1]
         self.max_count = args[2]
@@ -230,8 +226,8 @@ CONDITONS["mult"] = CondMult
 
 
 class CondGetDP(Cond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self.event = "dp"
         self.threshold = args[0]
         self.cache = 0
@@ -248,8 +244,8 @@ CONDITONS["get_dp"] = CondGetDP
 
 
 class CondDoublebuff(Cond):
-    def __init__(self, adv, *args) -> None:
-        super().__init__(adv, *args)
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
         self.event = "actcond"
 
     def check(self, e):
@@ -406,9 +402,7 @@ class Ability:
         self.data = data
         if cond := data.get("cond"):
             try:
-                self.cond = CONDITONS[cond[0]](adv, *cond[1:])
-                if cd := data.get("cd"):
-                    self.cond.set_cooldown(cd)
+                self.cond = CONDITONS[cond[0]](adv, data, *cond[1:])
             except KeyError:
                 print(cond)
                 self.cond = None

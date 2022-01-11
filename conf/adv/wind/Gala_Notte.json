@@ -2,7 +2,7 @@
     "actconds": {
         "291": {"dispel": "buff"},
         "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
-        "1570": {"coei": 1, "icon": 0, "hide": 1, "overwrite": -1},
+        "1570": {"coei": 1, "icon": 0, "hide": 1},
         "1596": {"remove": "1570", "icon": 0, "hide": 1}
     },
     "c": {
@@ -97,7 +97,7 @@
         "startup": 0.0,
         "recovery": 2.16667,
         "attr": [
-            {"cond": ["actcond", 1570, ">=", 1], "utp": 80, "target": "MYSELF"},
+            {"pcond": ["actcond", "1570", ">=", 1], "utp": 80, "target": "MYSELF"},
             {"dmg": 1.07, "actcond": "291", "target": "HOSTILE", "iv": 0.53333},
             {"dmg": 1.07, "actcond": "291", "target": "HOSTILE", "iv": 0.6},
             {"dmg": 1.07, "actcond": "291", "target": "HOSTILE", "iv": 0.66667},
@@ -122,7 +122,7 @@
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"cond": ["actcond", 1570, ">=", 1], "utp": 150, "target": "MYSELF"},
+            {"pcond": ["actcond", "1570", ">=", 1], "utp": 150, "target": "MYSELF"},
             {"dmg": 0.82, "actcond": "291", "target": "HOSTILE", "iv": 1.0, "blt": [30, 0.1325]}
         ],
         "cancel": {"any": 1.66667}

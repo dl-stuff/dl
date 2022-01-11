@@ -2,7 +2,7 @@
     "actconds": {
         "1865": {"slip": {"value": ["percent", -0.034], "kind": "sp", "target": "s1", "iv": 1.0}, "coei": 1},
         "1866": {"remove": "1865", "count": 1, "coei": 1},
-        "1868": {"coei": 1, "overwrite": -1}
+        "1868": {"coei": 1, "refresh": 1}
     },
     "c": {
         "name": "Gala Zethia",
@@ -201,7 +201,7 @@
         "startup": 0.0,
         "recovery": 1.56667,
         "attr": [
-            {"cond": ["actcond", 1868, "=", 1], "amp": ["30000", 1, 0], "target": "MYSELF"},
+            {"pcond": ["actcond", "1868", "=", 1], "amp": ["30000", 1, 0], "target": "MYSELF"},
             {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.33333},
             {"DEBUG_PARTCOND": "CharaMode[1, 0, 0, 0]", "dmg": 1.55, "sp": 660, "target": "HOSTILE", "iv": 0.33333},
             {"DEBUG_PARTCOND": "CharaMode[0, 0, 0, 0]", "dmg": 1.04, "sp": 660, "utp": 90, "target": "HOSTILE", "iv": 0.4},
@@ -254,8 +254,8 @@
         "startup": 0.0,
         "recovery": 2.8,
         "attr": [
-            {"cond": ["actcond", 1867, "=", 1], "amp": ["30000", 1, 0], "target": "MYSELF"},
-            {"cond": ["actcond", 1868, "=", 1], "amp": ["30000", 1, 0], "target": "MYSELF"},
+            {"pcond": ["actcond", "1867", "=", 1], "amp": ["30000", 1, 0], "target": "MYSELF"},
+            {"pcond": ["actcond", "1868", "=", 1], "amp": ["30000", 1, 0], "target": "MYSELF"},
             {"dmg": 0.95, "sp": 360, "target": "HOSTILE", "iv": 0.06667},
             {"dmg": 0.95, "sp": 360, "target": "HOSTILE", "iv": 0.3},
             {"dmg": 0.95, "sp": 360, "target": "HOSTILE", "iv": 0.46667},

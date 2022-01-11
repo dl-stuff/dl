@@ -2,8 +2,8 @@
     "actconds": {
         "36": {"aff": "all", "relief": 1, "count": 1, "text": "Recovered from Afflictions"},
         "410": {"aff": "frostbite", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
-        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
-        "1171": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
+        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "unremovable": 1},
+        "1171": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "refresh": 1, "unremovable": 1},
         "1257": {"aff": "flashburn", "duration": 21.0, "slip": {"value": ["mod", 0.311], "iv": 2.9}, "rate": 1.1},
         "1352": {"aff": "shadowblight", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
         "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
@@ -28,7 +28,7 @@
         "spiral": false,
         "abilities": [
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"], ["actcond", "MYSELF", "1871"]]},
-            {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"cond": ["actcond", 1871, "=", 1], "actcond": "1874", "target": "MYSELF"}]]},
+            {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"pcond": ["actcond", "1871", "=", 1], "actcond": "1874", "target": "MYSELF"}]]},
             {"ab": [["ac_t", 1152, -0.15]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1171"], ["mode", "sigil"]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1871"], ["actcond", "MYSELF", "1872"], ["actcond", "MYSELF", "1873"]]},
@@ -43,9 +43,9 @@
         "startup": 0.0,
         "recovery": 2.96667,
         "attr": [
-            {"cond": ["actcond", 1871, "=", 1], "amp": ["20000", 1, 0], "target": "MYSELF", "iv": 2.0},
-            {"cond": ["actcond", 1872, "=", 1], "heal": 50, "target": "MYSELF", "iv": 2.0},
-            {"cond": ["actcond", 1873, "=", 1], "actcond": "36", "target": "MYSELF", "iv": 2.0},
+            {"pcond": ["actcond", "1871", "=", 1], "amp": ["20000", 1, 0], "target": "MYSELF", "iv": 2.0},
+            {"pcond": ["actcond", "1872", "=", 1], "heal": 50, "target": "MYSELF", "iv": 2.0},
+            {"pcond": ["actcond", "1873", "=", 1], "actcond": "36", "target": "MYSELF", "iv": 2.0},
             {"dmg": 24.0, "target": "HOSTILE", "iv": 2.0}
         ],
         "cancel": {"any": 2.5}

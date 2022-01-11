@@ -2,6 +2,7 @@ from collections import defaultdict
 import json
 import os
 import glob
+import operator
 
 from core import Conf
 import functools
@@ -20,6 +21,7 @@ WEAPON_TYPES = (
     "staff",
     "gun",
 )
+AUTO_FSF = ("wand", "lance", "blade")
 TRIBE_TYPES = (
     "thaumian",
     "physian",
@@ -259,6 +261,13 @@ AFFRES_PROFILES = {
         "scorchrend": 100,
     },
 }
+OPS = {
+    ">=": operator.ge,
+    "<=": operator.le,
+    "=": operator.eq,
+    "<": operator.lt,
+    ">": operator.gt,
+}
 
 
 def get_conf_json_path(fn):
@@ -349,6 +358,8 @@ def get_adv(name):
     wt = conf.c.wt
     base = baseconfs[wt]
     baseconf = Conf(base)
+    if wt in AUTO_FSF:
+        baseconf["x5"]["auto_fsf"] = True
 
     if bool(conf.c.spiral):
         baseconf.update(baseconf.lv2)

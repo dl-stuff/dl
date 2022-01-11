@@ -11,7 +11,7 @@
         "hp": 370,
         "ele": "water",
         "abilities": [
-            {"cond": ["repeating"], "cd": 15.0, "ab": [["actcond", "MYSELF", "948"]]},
+            {"cond": ["always"], "cd": 15.0, "ab": [["actcond", "MYSELF", "948"]]},
             {"cond": ["event", "dragon_end"], "ab": [["hitattr", {"actcond": "955", "target": "MYSELF"}]]}
         ]
     },
@@ -24,12 +24,12 @@
         "uses": 1,
         "attr": [
             {"dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [7, 0.18], "msl": 0.73333},
-            {"cond": ["actcond", 946, "=", 1], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
-            {"cond": ["actcond", 946, "=", 2], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
-            {"cond": ["actcond", 946, "=", 2], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
-            {"cond": ["actcond", 946, "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
-            {"cond": ["actcond", 946, "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
-            {"cond": ["actcond", 946, "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"pcond": ["actcond", "946", "=", 1], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"pcond": ["actcond", "946", "=", 2], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"pcond": ["actcond", "946", "=", 2], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"pcond": ["actcond", "946", "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"pcond": ["actcond", "946", "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
+            {"pcond": ["actcond", "946", "=", 3], "dmg": 1.8, "target": "HOSTILE", "iv": 0.43333, "blt": [2, 0.5], "msl": 0.73333},
             {"actcond": "955", "target": "MYSELF", "iv": 0.43333, "mslc": 1}
         ]
     },

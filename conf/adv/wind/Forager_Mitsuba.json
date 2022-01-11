@@ -3,7 +3,7 @@
         "19": {"duration": 30.0, "slip": {"value": ["mod", 1.46], "kind": "bleed", "iv": 4.9}, "debuff": 1, "text": "Bleeding", "rate": 0.8},
         "1372": {"count": 1, "icon": 192, "text": "New Dish", "maxstack": 3},
         "1373": {"remove": "1372"},
-        "1394": {"count": 1, "icon": 190, "mods": [[0.15, "sph"]], "coei": 1, "alt": {"fs": "enhanced"}, "text": "Plucked Mandradish", "overwrite": -1},
+        "1394": {"count": 1, "icon": 190, "mods": [[0.15, "sph"]], "coei": 1, "alt": {"fs": "enhanced"}, "text": "Plucked Mandradish", "refresh": 1},
         "1410": {"icon": 187, "mods": [[0.1, "s", "buff"]], "text": "Fiend Porridge"},
         "1411": {"icon": 188, "mods": [[0.1, "crit", "buff"], [0.1, "s", "buff"]], "text": "Fiend Kebab"},
         "1412": {"icon": 189, "mods": [[0.05, "att", "buff"], [0.1, "crit", "buff"], [0.1, "s", "buff"]], "text": "Fiend Rice Ball"},
@@ -56,9 +56,9 @@
         "startup": 0.0,
         "recovery": 1.96667,
         "attr": [
-            {"cond": ["actcond", 1372, "<=", 1], "actcond": "1410", "target": "ALLY", "iv": 0.5, "zone": 15.0},
-            {"cond": ["actcond", 1372, "=", 2], "actcond": "1411", "target": "ALLY", "iv": 0.5, "zone": 15.0},
-            {"cond": ["actcond", 1372, "=", 3], "actcond": "1412", "target": "ALLY", "iv": 0.5, "zone": 15.0},
+            {"pcond": ["actcond", "1372", "<=", 1], "actcond": "1410", "target": "ALLY", "iv": 0.5, "zone": 15.0},
+            {"pcond": ["actcond", "1372", "=", 2], "actcond": "1411", "target": "ALLY", "iv": 0.5, "zone": 15.0},
+            {"pcond": ["actcond", "1372", "=", 3], "actcond": "1412", "target": "ALLY", "iv": 0.5, "zone": 15.0},
             {"actcond": "1373", "target": "MYSELF", "iv": 0.5}
         ],
         "cancel": {"any": 1.66667},

@@ -1,8 +1,8 @@
 {
     "actconds": {
-        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "overwrite": -1, "unremovable": 1},
-        "1205": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "overwrite": -1, "unremovable": 1},
-        "1206": {"duration": 1.0, "coei": 1, "text": "Unlocking Sigil...", "overwrite": -1},
+        "1152": {"duration": 300.0, "duration_scale": 5, "coei": 1, "icon": 166, "text": "Locked Sigil", "unremovable": 1},
+        "1205": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "refresh": 1, "unremovable": 1},
+        "1206": {"duration": 1.0, "coei": 1, "text": "Unlocking Sigil...", "refresh": 1},
         "1221": {"ele": "shadow", "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
         "1222": {"ele": "shadow", "icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
         "1273": {"duration": 10.0, "icon": "res_light-buff", "mods": [[0.2, "res_light", "buff"]], "coei": 1, "text": "Light Res +20%", "overwrite": 23}
@@ -47,9 +47,9 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"cond": ["actcond", 1152, "=", 0], "dmg": 10.0, "target": "HOSTILE", "iv": 1.33333, "msl": 0.16667},
-            {"cond": ["actcond", 1152, "=", 1], "dmg": 10.0, "target": "HOSTILE", "iv": 1.33333, "msl": 0.16667},
-            {"cond": ["actcond", 1152, "=", 1], "actcond": "1206", "target": "MYSELF", "iv": 1.33333, "msl": 0.16667}
+            {"pcond": ["actcond", "1152", "=", 0], "dmg": 10.0, "target": "HOSTILE", "iv": 1.33333, "msl": 0.16667},
+            {"pcond": ["actcond", "1152", "=", 1], "dmg": 10.0, "target": "HOSTILE", "iv": 1.33333, "msl": 0.16667},
+            {"pcond": ["actcond", "1152", "=", 1], "actcond": "1206", "target": "MYSELF", "iv": 1.33333, "msl": 0.16667}
         ],
         "cancel": {"any": 1.63333},
         "abilities": [

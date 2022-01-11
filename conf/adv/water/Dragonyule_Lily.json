@@ -1,8 +1,8 @@
 {
     "actconds": {
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
-        "1415": {"duration": 30.0, "coei": 1, "echo": 0.4, "icon": 193, "text": "Crystalline Power", "overwrite": -1},
-        "1417": {"count": 3, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Saint Starfall Lily", "overwrite": -1},
+        "1415": {"duration": 30.0, "coei": 1, "echo": 0.4, "icon": 193, "text": "Crystalline Power", "refresh": 1},
+        "1417": {"count": 3, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Saint Starfall Lily", "refresh": 1},
         "1420": {"coei": 1, "icon": 194, "text": "Starfall Strength", "maxstack": 3},
         "1421": {"remove": "1420", "coei": 1},
         "1490": {"duration": 10.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "coei": 1, "text": "Stupendous Strength", "overwrite": 28},
@@ -54,16 +54,16 @@
         "startup": 0.0,
         "recovery": 3.13333,
         "attr": [
-            {"cond": ["actcond", 1420, "=", 0], "actcond": "1490", "target": "MYSELF", "iv": 1.66667},
-            {"cond": ["actcond", 1420, "=", 1], "actcond": "1492", "target": "MYSELF", "iv": 1.66667},
-            {"cond": ["actcond", 1420, "=", 2], "actcond": "1494", "target": "MYSELF", "iv": 1.66667},
-            {"cond": ["actcond", 1420, "<=", 2], "actcond": "1421", "target": "MYSELF", "iv": 1.66667},
-            {"cond": ["actcond", 1420, "<=", 2], "actcond": "1421", "target": "MYSELF", "iv": 1.66667},
-            {"cond": ["actcond", 1420, "<=", 2], "actcond": "1421", "target": "MYSELF", "iv": 1.66667},
-            {"cond": ["actcond", 1420, "=", 3], "actcond": "1496", "target": "MYSELF", "iv": 2.16667},
-            {"cond": ["actcond", 1420, ">=", 3], "actcond": "1421", "target": "MYSELF", "iv": 2.16667},
-            {"cond": ["actcond", 1420, ">=", 3], "actcond": "1421", "target": "MYSELF", "iv": 2.16667},
-            {"cond": ["actcond", 1420, ">=", 3], "actcond": "1421", "target": "MYSELF", "iv": 2.16667}
+            {"pcond": ["actcond", "1420", "=", 0], "actcond": "1490", "target": "MYSELF", "iv": 1.66667},
+            {"pcond": ["actcond", "1420", "=", 1], "actcond": "1492", "target": "MYSELF", "iv": 1.66667},
+            {"pcond": ["actcond", "1420", "=", 2], "actcond": "1494", "target": "MYSELF", "iv": 1.66667},
+            {"pcond": ["actcond", "1420", "<=", 2], "actcond": "1421", "target": "MYSELF", "iv": 1.66667},
+            {"pcond": ["actcond", "1420", "<=", 2], "actcond": "1421", "target": "MYSELF", "iv": 1.66667},
+            {"pcond": ["actcond", "1420", "<=", 2], "actcond": "1421", "target": "MYSELF", "iv": 1.66667},
+            {"pcond": ["actcond", "1420", "=", 3], "actcond": "1496", "target": "MYSELF", "iv": 2.16667},
+            {"pcond": ["actcond", "1420", ">=", 3], "actcond": "1421", "target": "MYSELF", "iv": 2.16667},
+            {"pcond": ["actcond", "1420", ">=", 3], "actcond": "1421", "target": "MYSELF", "iv": 2.16667},
+            {"pcond": ["actcond", "1420", ">=", 3], "actcond": "1421", "target": "MYSELF", "iv": 2.16667}
         ],
         "cancel": {"any": 2.66667}
     },

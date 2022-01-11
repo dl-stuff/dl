@@ -1,5 +1,5 @@
 from collections import UserDict, UserList, defaultdict
-from functools import reduce
+from functools import reduce, total_ordering
 import operator
 import random
 
@@ -117,6 +117,17 @@ class Modifier(object):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.off()
+
+    def same_kind(self, other):
+        return self.target == other.target and self.mod_type == other.mod_type and self.mod_order == other.mod_order
+
+    def __ge__(self, other):
+        if not self.same_kind(other):
+            raise ValueError(f"Cannot compare {self} and {other}")
+        if self.target == ENEMY:
+            return self.mod_value <= other.mod_value
+        else:
+            return self.mod_value >= other.mod_value
 
     def __repr__(self):
         if self.limit_group:
@@ -256,10 +267,10 @@ class AffEV:
         return defaultdict(float)
 
     def edge_mod(self):
-        return Modifier.SELF.mod(self._edge_mtype, operator=operator.add, initial=0.0)
+        return Modifier.SELF.mod(self._edge_mtype, operator=operator.add, initial=0.0) + Modifier.SELF.mod("edge_all", operator=operator.add, initial=0.0)
 
     def affres_mod(self):
-        return Modifier.ENEMY.mod(self._affres_mtype, operator=operator.add, initial=0.0)
+        return Modifier.ENEMY.mod(self._affres_mtype, operator=operator.add, initial=0.0) + Modifier.SELF.mod("affres_all", operator=operator.add, initial=0.0)
 
     def on(self, actcond, stack_key, extra_p=1.0, slip_dmg=None):
         total_success_p = 0.0
@@ -516,6 +527,7 @@ class ActCond:
         self.text = data.get("text") or self.aff
         self.icon = data.get("icon")
         self.overwrite = data.get("overwrite")
+        self.refresh = data.get("refresh")
         self.maxstack = data.get("maxstack")
         self._rate = data.get("rate", 1.0)
         self.coei = bool(data.get("coei"))
@@ -545,6 +557,9 @@ class ActCond:
             self.is_bleed = self.slip.get("kind") == "bleed"
 
         self.alt = data.get("alt")
+        if self.alt:
+            self.l_s = Listener("s", self.l_alt_s_pause, order=0).off()
+            self.l_s_end = Listener("s_end", self.l_alt_s_resume, order=0).off()
 
         self.mod_list = []
         self.is_doublebuff = False
@@ -559,6 +574,10 @@ class ActCond:
         self.actcond_event.source = None
         self.actcond_event.dtype = None
 
+    @property
+    def stacks(self):
+        return len(self.buff_stack)
+
     def get(self):
         return sum((ev for _, ev in self.buff_stack.values()))
 
@@ -569,10 +588,6 @@ class ActCond:
     def __repr__(self) -> str:
         return f"{self.text} ({self.id}-{self.target})"
 
-    @property
-    def stack(self):
-        return len(self.buff_stack)
-
     def get_rate(self):
         if self.debuff:
             return min(1.0, self._rate + Modifier.SELF.mod("debuffrate", operator=operator.add, initial=0))
@@ -580,17 +595,18 @@ class ActCond:
 
     def bufftime(self, dtype="s"):
         if self.aff:
-            return 1.0
-        elif dtype == "s":
-            if self.debuff:
-                return Modifier.SELF.mod("debufftime", operator=operator.add)
-            else:
-                return Modifier.SELF.mod("bufftime", operator=operator.add)
+            return Modifier.SELF.mod(f"afftime_{self.aff}", operator=operator.add)
         else:
-            if self.debuff:
-                return 1.0
+            if dtype == "s":
+                if self.debuff:
+                    return Modifier.SELF.mod("debufftime", operator=operator.add)
+                else:
+                    return Modifier.SELF.mod("bufftime", operator=operator.add)
             else:
-                return 1.0 + Modifier.SELF.sub_mod("bufftime", "ex")
+                if self.debuff:
+                    return 1.0
+                else:
+                    return 1.0 + Modifier.SELF.sub_mod("bufftime", "ex")
 
     def update_debuff_rates(self, debuff_rates):
         for mod in self.mod_list:
@@ -605,12 +621,14 @@ class ActCond:
     def check(self, source):
         if self._adv.nihilism and not (self.coei or self.debuff) and (SELF in self.generic_target or TEAM in self.generic_target):
             return False
+        if not self._adv.active_actconds.can_overwrite(self):
+            return False
         return True
 
     def on(self, source, dtype, ev=1):
         if not self.check(source):
             return False
-        if self.stack == self.maxstack or self.overwrite == -1:
+        if self.stacks == self.maxstack or self.refresh:
             self.off()
         if self.cooldown:
             if self.cooldown_timer:
@@ -636,8 +654,8 @@ class ActCond:
             timer.on()
         self.buff_stack[stack_key] = (timer, ev * self.get_rate())
 
-        self.effect_on(source, dtype, stack_key)
-        self.log("start", self.text, f"stack {self.stack}", duration, f"{self.id}-{self.target}")
+        self.effect_on(source, dtype, stack_key, timer=timer)
+        self.log("start", self.text, f"stack {self.stacks}", duration, f"{self.id}-{self.target}")
 
         self.actcond_event.source = source
         self.actcond_event.dtype = dtype
@@ -648,7 +666,7 @@ class ActCond:
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)
-        self.log("end", self.text, f"stack {self.stack}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", f"{self.id}-{self.target}")
+        self.log("end", self.text, f"stack {self.stacks}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", f"{self.id}-{self.target}")
 
     def off(self):
         if self.buff_stack:
@@ -665,7 +683,7 @@ class ActCond:
             self.effect_off(stack_key)
         self.buff_stack = {}
 
-    def effect_on(self, source, dtype, stack_key):
+    def effect_on(self, source, dtype, stack_key, timer=None):
         slip_dmg = None
         if self.slip is not None:
             if self.is_bleed:
@@ -686,6 +704,16 @@ class ActCond:
         if self.alt:
             for act, group in self.alt.items():
                 self._adv.current.set_action(act, group)
+            if timer is not None and any((sn in self.alt for sn in ("s1", "s2", "s3", "s4"))):
+                self.l_s.on()
+                self.l_s_end.on()
+
+        if self.remove_id:
+            for gtarget in self.generic_target:
+                try:
+                    self._adv.active_actconds.by_generic_target[gtarget][self.remove_id].all_off()
+                except KeyError:
+                    pass
 
     def effect_off(self, stack_key):
         if stack_key in self.slip_stack:
@@ -704,6 +732,35 @@ class ActCond:
         if self.alt:
             for act, group in self.alt.items():
                 self._adv.current.unset_action(act, group)
+            self.l_s.off()
+            self.l_s_end.off()
+
+    def _apply_stack_timer_func(self, func_name, stack_key=None):
+        if stack_key is None:
+            return list(filter(None, (getattr(timer, func_name)() for timer, _ in self.buff_stack.values() if timer is not None)))
+        else:
+            return getattr(self.buff_stack[stack_key][0], func_name)()
+
+    def pause(self, stack_key=None):
+        return self._apply_stack_timer_func("pause", stack_key=stack_key)
+
+    def resume(self, stack_key=None):
+        return self._apply_stack_timer_func("resume", stack_key=stack_key)
+
+    def timeleft(self, stack_key=None):
+        return max(self._apply_stack_timer_func("timeleft", stack_key=stack_key))
+
+    def l_alt_s_pause(self, e):
+        if e.base in self.alt:
+            if timers := self.pause():
+                timer = timers[-1]
+                log("alt_skill", "pause", timer.timing, timer.pause_time)
+
+    def l_alt_s_resume(self, e):
+        if e.act.base in self.alt:
+            if timers := self.resume():
+                timer = timers[-1]
+                log("alt_skill", "resume", timer.timing, timer.timing - now())
 
 
 class ActiveActconds(UserDict):
@@ -711,6 +768,23 @@ class ActiveActconds(UserDict):
         super().__init__()
         self.by_source = defaultdict(dict)
         self.by_generic_target = defaultdict(dict)
+        self.by_overwrite = {}
+
+    def can_overwrite(self, actcond):
+        if not actcond.overwrite:
+            return True
+        c_actcond = None
+        for gtarget in actcond.generic_target:
+            try:
+                c_actcond = self.by_overwrite[(gtarget, actcond.overwrite)]
+            except KeyError:
+                continue
+        if c_actcond is None:
+            return True
+        if all((n_mod >= c_mod for n_mod, c_mod in zip(actcond.mod_list, c_actcond.mod_list))):
+            c_actcond.all_off()
+            return True
+        return False
 
     def add(self, actcond, actcond_source):
         abs_key = (actcond.id, actcond.target)
@@ -720,6 +794,8 @@ class ActiveActconds(UserDict):
         self.by_source[name][aseq] = actcond
         for gtarget in actcond.generic_target:
             self.by_generic_target[gtarget][actcond.id] = actcond
+            if actcond.overwrite:
+                self.by_overwrite[(gtarget, actcond.overwrite)] = actcond
 
     def check(self, name, aseq=None):
         if aseq is not None:
@@ -729,3 +805,9 @@ class ActiveActconds(UserDict):
                 pass
         else:
             return any((actcond.get() for actcond in self.by_source[name].values()))
+
+    def stacks(self, actcond_id, target=SELF):
+        try:
+            return self.by_generic_target[target][actcond_id].stacks
+        except KeyError:
+            return 0

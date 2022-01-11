@@ -2,7 +2,7 @@
     "actconds": {
         "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
         "1353": {"aff": "shadowblight", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
-        "1768": {"duration": 10.0, "coei": 1, "alt": {"x": "enhanced"}, "icon": 44, "text": "Enhanced Standard Attacks", "overwrite": -1}
+        "1768": {"duration": 10.0, "coei": 1, "alt": {"x": "enhanced"}, "icon": 44, "text": "Enhanced Standard Attacks", "refresh": 1}
     },
     "c": {
         "name": "Summer Mym",
@@ -70,10 +70,10 @@
         "startup": 0.33333,
         "recovery": 0.96667,
         "attr": [
-            {"cond": ["actcond", 1768, "=", 0], "dmg": 0.66, "sp": 480, "utp": 150, "target": "HOSTILE"},
-            {"cond": ["actcond", 1768, "=", 0], "dmg": 1.49, "sp": 480, "utp": 150, "target": "HOSTILE"},
-            {"cond": ["actcond", 1768, "=", 1], "dmg": 0.99, "sp": 480, "utp": 200, "target": "HOSTILE"},
-            {"cond": ["actcond", 1768, "=", 1], "dmg": 2.45, "sp": 480, "utp": 200, "target": "HOSTILE"}
+            {"pcond": ["actcond", "1768", "=", 0], "dmg": 0.66, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"pcond": ["actcond", "1768", "=", 0], "dmg": 1.49, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"pcond": ["actcond", "1768", "=", 1], "dmg": 0.99, "sp": 480, "utp": 200, "target": "HOSTILE"},
+            {"pcond": ["actcond", "1768", "=", 1], "dmg": 2.45, "sp": 480, "utp": 200, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.4, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_ddrive": 0.4}
@@ -82,10 +82,10 @@
         "startup": 0.33333,
         "recovery": 0.96667,
         "attr": [
-            {"cond": ["actcond", 1768, "=", 0], "dmg": 0.66, "sp": 480, "utp": 150, "target": "HOSTILE"},
-            {"cond": ["actcond", 1768, "=", 0], "dmg": 1.49, "sp": 480, "utp": 150, "target": "HOSTILE"},
-            {"cond": ["actcond", 1768, "=", 1], "dmg": 0.99, "sp": 480, "utp": 200, "target": "HOSTILE"},
-            {"cond": ["actcond", 1768, "=", 1], "dmg": 2.45, "sp": 480, "utp": 200, "target": "HOSTILE"}
+            {"pcond": ["actcond", "1768", "=", 0], "dmg": 0.66, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"pcond": ["actcond", "1768", "=", 0], "dmg": 1.49, "sp": 480, "utp": 150, "target": "HOSTILE"},
+            {"pcond": ["actcond", "1768", "=", 1], "dmg": 0.99, "sp": 480, "utp": 200, "target": "HOSTILE"},
+            {"pcond": ["actcond", "1768", "=", 1], "dmg": 2.45, "sp": 480, "utp": 200, "target": "HOSTILE"}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.4, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_ddrive": 0.4}

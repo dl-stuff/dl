@@ -36,6 +36,8 @@ class CurrentActions:
 
     @property
     def x(self):
+        if self._in_dform():
+            return globalconf.DRG
         return self.get("x")
 
     @property
@@ -67,8 +69,6 @@ class CurrentActions:
         return self.get("ds2")
 
     def get(self, act):
-        if act == "x" and self._in_dform():
-            return globalconf.DRG
         return self._act[act][-1]
 
     def set_action(self, act, group):
@@ -1032,7 +1032,6 @@ class Adv(object):
         "dooodge.startup": 3.0,
         "dooodge.recovery": 0,
         "acl": "dragon;s1;s2;s3;s4",
-        "mbleed": True,
         "attenuation.hits": 1,
         "attenuation.delay": 0.25,
     }
@@ -1368,10 +1367,11 @@ class Adv(object):
     def check_conf_actconds(self):
         need_ev_bleed = False
         for actcond in self.conf.actconds.values():
-            if (slip := actcond.get("slip")) and slip["kind"] == "bleed" and slip.get("rate", 1) < 1:
+            if (slip := actcond.get("slip")) and slip["kind"] == "bleed" and actcond.get("rate", 1) < 1:
                 need_ev_bleed = True
         if need_ev_bleed and not self.variant == "RNG":
             self.bleed = BleedEV(self)
+            log("bleed", "using ev bleed")
 
     def check_used_actconds(self):
         for actcond in self.active_actconds.values():
@@ -1602,20 +1602,6 @@ class Adv(object):
             if actcond.debuff:
                 actcond.update_debuff_rates(debuff_rates)
 
-        # for buff in self.all_buffs:
-        #     if buff.get() and (buff.bufftype == "debuff" or buff.name == "simulated_def") and buff.val < 0:
-        #         dkey = f"debuff_{buff.mod_type}"
-        #         try:
-        #             debuff_rates[dkey] *= 1 - buff.chance
-        #         except:
-        #             debuff_rates[dkey] = 1 - buff.chance
-        #         try:
-        #             debuff_rates["debuff"] *= 1 - buff.chance
-        #         except:
-        #             debuff_rates["debuff"] = 1 - buff.chance
-        # for dkey in debuff_rates.keys():
-        #     debuff_rates[dkey] = 1 - debuff_rates[dkey]
-        # rates.update(debuff_rates)
         for buff in self.active_actconds:
             pass
 
@@ -2711,38 +2697,50 @@ class Adv(object):
         if t.proc is not None:
             t.proc(t)
 
-    ATTR_COND = {
-        "hp>": lambda s, v: s.hp > v,
-        "hp>=": lambda s, v: s.hp >= v,
-        "hp<": lambda s, v: s.hp < v,
-        "hp<=": lambda s, v: s.hp <= v,
-        "rng": lambda s, v: random.random() <= v if s.FIXED_RNG is None else s.FIXED_RNG,
-        "hits": lambda s, v: s.hits >= v,
-        "zone": lambda s, v: s.zonecount >= v,
-        "var>=": lambda s, v: getattr(s, v[0], 0) >= v[1],
-        "var>": lambda s, v: getattr(s, v[0], 0) > v[1],
-        "var<=": lambda s, v: getattr(s, v[0], 0) <= v[1],
-        "var<": lambda s, v: getattr(s, v[0], 0) < v[1],
-        "var=": lambda s, v: getattr(s, v[0], 0) == v[1],
-        "var!=": lambda s, v: getattr(s, v[0], 0) != v[1],
-        # between 2 values
-        "var<<": lambda s, v: v[1] <= getattr(s, v[0], 0) <= v[2],
-        "amp": lambda s, v: s.active_buff_dict.check_amp_cond(*v),
-    }
+    # ATTR_COND = {
+    #     "hp>": lambda s, v: s.hp > v,
+    #     "hp>=": lambda s, v: s.hp >= v,
+    #     "hp<": lambda s, v: s.hp < v,
+    #     "hp<=": lambda s, v: s.hp <= v,
+    #     "rng": lambda s, v: random.random() <= v if s.FIXED_RNG is None else s.FIXED_RNG,
+    #     "hits": lambda s, v: s.hits >= v,
+    #     "zone": lambda s, v: s.zonecount >= v,
+    #     "var>=": lambda s, v: getattr(s, v[0], 0) >= v[1],
+    #     "var>": lambda s, v: getattr(s, v[0], 0) > v[1],
+    #     "var<=": lambda s, v: getattr(s, v[0], 0) <= v[1],
+    #     "var<": lambda s, v: getattr(s, v[0], 0) < v[1],
+    #     "var=": lambda s, v: getattr(s, v[0], 0) == v[1],
+    #     "var!=": lambda s, v: getattr(s, v[0], 0) != v[1],
+    #     "actcond": None,
+    #     "var<<": lambda s, v: v[1] <= getattr(s, v[0], 0) <= v[2], # between 2 values
+    #     "amp": lambda s, v: s.active_buff_dict.check_amp_cond(*v),
+    # }
 
-    def eval_attr_cond(self, cond):
-        try:
-            return Adv.ATTR_COND[cond[0]](self, cond[1])
-        except KeyError:
-            if cond[0] == "not":
-                return not self.eval_attr_cond(cond[1])
-            if cond[0] == "and":
-                return all((self.eval_attr_cond(subcond) for subcond in cond[1:]))
-            if cond[0] == "or":
-                return any((self.eval_attr_cond(subcond) for subcond in cond[1:]))
+    # def eval_attr_cond(self, cond):
+    #     try:
+    #         return Adv.ATTR_COND[cond[0]](self, cond[1])
+    #     except KeyError:
+    #         if cond[0] == "not":
+    #             return not self.eval_attr_cond(cond[1])
+    #         if cond[0] == "and":
+    #             return all((self.eval_attr_cond(subcond) for subcond in cond[1:]))
+    #         if cond[0] == "or":
+    #             return any((self.eval_attr_cond(subcond) for subcond in cond[1:]))
+
+    def _pcond_actcond(self, actcond_id, op, value):
+        return globalconf.OPS[op](self._adv.active_actconds.stacks(actcond_id), value)
+
+    def _pcond_amp(self, *args):
+        raise NotImplementedError
+
+    def _pcond_and(self, pcond1, pcond2):
+        return self._eval_pcond(pcond1) and self._eval_pcond(pcond2)
+
+    def _eval_pcond(self, pcond):
+        return getattr(self, f"_pcond_{pcond[0]}")(*pcond[1:])
 
     def do_hitattr_make(self, e, aseq, attr, pin=None, iv=None, msl=None):
-        if "cond" in attr and not self.eval_attr_cond(attr["cond"]):
+        if (pcond := attr.get("pcond")) and not self._eval_pcond(pcond):
             return
 
         if "cd" in attr and self.is_set_cd((e.base, aseq), attr["cd"]):
@@ -2925,6 +2923,7 @@ class Adv(object):
     @property
     def bleed_stack(self):
         try:
+            log("bleed_stack", self.bleed.get())
             return self.bleed.get()
         except AttributeError:
             return 0
