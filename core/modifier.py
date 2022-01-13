@@ -222,7 +222,8 @@ class AffEV:
         self.aff = aff
         self._edge_mtype = f"edge_{self.aff}"
         self._affres_mtype = f"affres_{self.aff}"
-        self.aff_event = Event(self.aff)
+        self.aff_event = Event("aff")
+        self.aff_event.atype = self.aff
         self.tolerance = tolerance
         self.get_override = None
         self.reset(0.0)
@@ -377,7 +378,8 @@ class Bleed:
                 del self._stacks[oldest_bleed]
             self._stacks[stack_key] = (actcond, self._adv.dmg_formula(stack_key[1], actcond.slip["value"][1], dtype=dtype, actcond_dmg=True))
             if self.slip_timer is None:
-                self.slip_timer = Timer(self.tick, actcond.slip["iv"], repeat=True)
+                # self.slip_timer = Timer(self.tick, actcond.slip["iv"], repeat=True)
+                self.slip_timer = Timer(self.tick, 4.99, repeat=True)
                 self.slip_timer.on()
 
             self.update()
@@ -507,7 +509,7 @@ class SlipDmg:
                 else:
                     self._adv.charge("sp_regen", value, target=target)
             else:  # self affliction
-                self._adv.add_hp(-value, percent=self.is_percent)
+                self._adv.add_hp(-100 * value, percent=self.is_percent)
 
     def get(self):
         return self.slip_value is not None
@@ -715,9 +717,11 @@ class ActCond:
             elif slip_dmg:
                 selfaff = Event("selfaff")
                 selfaff.atype = self.aff
+                selfaff.ev = 1  # selfaff abilities always proc, even when resisted
                 selfaff.on()
-                slip_dmg.on()
-                self.slip_stack[stack_key] = slip_dmg
+                if (ev := self._rate - Modifier.SELF.mod(f"affres_{self.aff}", operator=operator.add, initial=0)) > AffEV.THRESHOLD:
+                    slip_dmg.on(ev=ev)
+                    self.slip_stack[stack_key] = slip_dmg
 
         if self.alt:
             for act, group in self.alt.items():

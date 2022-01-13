@@ -28,7 +28,10 @@ class Cond:
             self._extra_checks.append(self.has_actcond)
 
     def not_cooldown(self):
-        return not self._cooldown.online
+        if not self._cooldown.online:
+            self._cooldown.on()
+            return True
+        return False
 
     def has_actcond(self):
         return self._adv.active_actconds.stacks(self.actcond_id) > 0
@@ -205,10 +208,23 @@ CONDITONS["slayer"] = CondSlayer
 class CondAffProc(Cond):
     def __init__(self, adv, data, *args) -> None:
         super().__init__(adv, data, *args)
-        self.event = args[0]
+        self.event = "aff"
+        self.aff = args[0]
+
+    def check(self, e):
+        return e.atype == self.aff
 
 
 CONDITONS["aff"] = CondAffProc
+
+
+class CondSelfAff(CondAffProc):
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
+        self.event = "selfaff"
+
+
+CONDITONS["selfaff"] = CondSelfAff
 
 
 class CondMult(Cond):

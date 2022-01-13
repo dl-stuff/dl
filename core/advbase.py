@@ -1825,7 +1825,7 @@ class Adv(object):
         if self.in_dform():
             fsn = "d" + fsn
         self.check_deferred_x()
-        if self.current.fs is not None:
+        if self.current.fs != globalconf.DEFAULT:
             fsn += "_" + self.current.fs
         try:
             return self.a_fs_dict[fsn]()
@@ -2474,6 +2474,7 @@ class Adv(object):
         armor = 10 * self.def_mod()
         ex = Modifier.SELF.mod("ex")
         ele = self.ele_mod()
+        # log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -2681,7 +2682,7 @@ class Adv(object):
             t.msl = 0
             t.on(msl)
             return
-        self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit, t.dtype, t.action)
+        self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, dtype=t.dtype, action=t.action)
         if t.pin is not None:
             self.think_pin(f"{t.pin}-h")
             p = Event(f"{t.pin}-h")
@@ -2750,10 +2751,10 @@ class Adv(object):
         if attr.get("msl_spd"):
             msl /= e.action.speed()
         loop = attr.get("loop")
-        try:
-            onhit = getattr(self, f"{e.name}_hit{aseq+1}")
-        except AttributeError:
-            onhit = None
+        # try:
+        #     onhit = getattr(self, f"{e.name}_hit{aseq+1}")
+        # except AttributeError:
+        #     onhit = None
         if iv > 0 or msl > 0 or loop:
             mt = Timer(self.l_hitattr_make)
             mt.pin = pin
@@ -2772,7 +2773,7 @@ class Adv(object):
                 pass
             mt.aseq = aseq
             mt.attr = attr
-            mt.onhit = onhit
+            # mt.onhit = onhit
             mt.proc = None
             mt.loop = loop
             if msl and not iv:
@@ -2786,7 +2787,7 @@ class Adv(object):
             e.pin = pin
             e.aseq = aseq
             e.attr = attr
-            self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit, e.dtype, e.action)
+            self.hitattr_make(e.name, e.base, e.group, aseq, attr, dtype=e.dtype, action=e.action)
             if pin is not None:
                 p = Event(f"{pin}-h")
                 p.is_hit = e.name in self.damage_sources
