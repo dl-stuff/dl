@@ -7,6 +7,18 @@ from conf import DRG
 DACT_NAME = re.compile(r"(?:ds\d+(?:_[A-Za-z0-9]+)?|dfs\d*(?:_[A-Za-z0-9]+)?|dx(\d)+(?:_[A-Za-z0-9]+)?)")
 
 
+def fmt_dict_v(v):
+    if isinstance(v, list):
+        return "[" + ",".join(map(str, v)) + "]"
+    if isinstance(v, dict):
+        return fmt_dict(v)
+    return str(v)
+
+
+def fmt_dict(attr, exclude=tuple()):
+    return "{" + "/".join([f"{k}:{fmt_dict_v(v)}" for k, v in attr.items() if k not in exclude]) + "}"
+
+
 class Log:
     DEBUG = False
 
@@ -58,18 +70,6 @@ class Log:
                 dict[name] += value
             except KeyError:
                 dict[name] = value
-
-    @staticmethod
-    def fmt_dict_v(v):
-        if isinstance(v, list):
-            return "[" + ",".join(map(str, v)) + "]"
-        if isinstance(v, dict):
-            return Log.fmt_dict(v)
-        return str(v)
-
-    @staticmethod
-    def fmt_dict(attr):
-        return "{" + "/".join([f"{k}:{Log.fmt_dict_v(v)}" for k, v in attr.items()]) + "}"
 
     def set_log_shift(self, shift_name=None, end_reason=None):
         if shift_name and not self.shift_name:
@@ -125,7 +125,7 @@ class Log:
             self.shift_dmg += float(args[2])
 
     def log_conf(self, kind, name, attr):
-        attr_str = Log.fmt_dict(attr)
+        attr_str = fmt_dict(attr)
         if (name, attr_str) in self.conf_set:
             return
         self.conf_set.add((name, attr_str))

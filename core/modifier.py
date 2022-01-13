@@ -6,7 +6,7 @@ import random
 from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICTION_LIST, AFFRES_PROFILES, wyrmprints_meta
 
 from core.timeline import Event, Timer, Listener, now
-from core.log import log, g_logs
+from core.log import log, g_logs, fmt_dict
 from core.acl import allow_acl
 
 
@@ -537,9 +537,9 @@ class ActCond:
             self.l_drg = Listener("dragon", self.all_off)
 
         self.remove_id = data.get("remove")
+        self.count = data.get("count")
         self.duration = data.get("duration")
         self.duration_scale = data.get("duration_scale")
-        self.duration_count = data.get("count")
         self.duration_maxcount = data.get("maxcount")
         self.duration_addcount = data.get("addcount")
         self.cooldown = data.get("cd")
@@ -643,6 +643,12 @@ class ActCond:
                 self.cooldown_timer = Timer(timeout=self.cooldown)
                 self.cooldown_timer.on()
 
+        # skip the usual if it's an removing actcond
+        if self.remove_id is not None:
+            self.remove_actcond()
+            self.log("remove", self.remove_id, self.count or "all", f"{self.id}-{self.target}")
+            return True
+
         stack_key = (now(), source)
 
         duration = -1
@@ -660,6 +666,7 @@ class ActCond:
         self.actcond_event.source = source
         self.actcond_event.dtype = dtype
         self.actcond_event()
+        return True
 
     def _off(self, stack_key):
         timer, _ = self.buff_stack.pop(stack_key)
@@ -676,12 +683,23 @@ class ActCond:
     def l_off(self, e):
         self._off(e.stack_key)
 
-    def all_off(self, e):
-        for stack_key, timer in self.buff_stack.items():
+    def all_off(self, e=None):
+        for stack_key, (timer, _) in self.buff_stack.items():
             if timer is not None:
                 timer.off()
             self.effect_off(stack_key)
         self.buff_stack = {}
+
+    def remove_actcond(self):
+        for gtarget in self.generic_target:
+            try:
+                if self.count:
+                    for _ in range(self.count):
+                        self._adv.active_actconds.by_generic_target[gtarget][self.remove_id].off()
+                else:
+                    self._adv.active_actconds.by_generic_target[gtarget][self.remove_id].all_off()
+            except KeyError:
+                pass
 
     def effect_on(self, source, dtype, stack_key, timer=None):
         slip_dmg = None
@@ -707,13 +725,6 @@ class ActCond:
             if timer is not None and any((sn in self.alt for sn in ("s1", "s2", "s3", "s4"))):
                 self.l_s.on()
                 self.l_s_end.on()
-
-        if self.remove_id:
-            for gtarget in self.generic_target:
-                try:
-                    self._adv.active_actconds.by_generic_target[gtarget][self.remove_id].all_off()
-                except KeyError:
-                    pass
 
     def effect_off(self, stack_key):
         if stack_key in self.slip_stack:

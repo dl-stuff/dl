@@ -2818,11 +2818,14 @@ class Adv(object):
                     if attr.get("blt_iv"):
                         for i in range(gen):
                             res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin, iv=iv + delay * i, msl=msl)
+                            aseq += 1
                     else:
                         for i in range(gen):
                             res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin, iv=iv, msl=msl + delay * i)
+                            aseq += 1
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin, iv=iv, msl=msl)
+                    aseq += 1
                 final_mt = self.compare_mt(res_mt, final_mt)
         return final_mt
 
