@@ -1137,6 +1137,7 @@ class Adv(object):
             self.a_dash = DashX("dash", self.conf.dash)
 
         self.active_actconds = ActiveActconds()
+        self.amps = Amp.initialize()
 
     @property
     def ctime(self):
@@ -2648,10 +2649,8 @@ class Adv(object):
         if (actcond_id := attr.get("actcond")) and (action is None or action.check_once_per_act(actcond_id, attr)):
             self.actcond_make(actcond_id, attr.get("target"), (name, aseq), dtype=dtype, ev=ev)
 
-        # if "amp" in attr:
-        #     amp_id, amp_max_lvl, amp_target = attr["amp"]
-        #     amp_buff = self.active_buff_dict.get_amp(amp_id)
-        #     amp_buff.on(amp_max_lvl, amp_target, fleet=self.conf["fleet"] or 0)
+        if "amp" in attr:
+            self.amps[attr["amp"][0]].on(*attr["amp"][1:])
 
         if "vars" in attr:
             varname = attr["vars"][0]

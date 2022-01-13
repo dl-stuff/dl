@@ -9,7 +9,7 @@
         "spiral": false,
         "abilities": [
             {"ab": [["mod", 1.0, "affres_freeze"]]},
-            {"cond": ["auratype", 2, 2], "ab": [["mod", 0.1, "sph"]]}
+            {"cond": ["amp", 2, 2, ">=", 1], "ab": [["mod", 0.1, "sph"]]}
         ],
         "skillshare": {"src": "s2", "cost": 6, "sp": 14100}
     },
@@ -31,7 +31,7 @@
         ],
         "cancel": {"any": 2.83333},
         "abilities": [
-            {"cond": ["auratype", 2, 2], "ab": [["altskill", "enhanced", "-t:s2"]]}
+            {"cond": ["amp", 2, 2, ">=", 1], "ab": [["altskill", "enhanced", "-t:s2"]]}
         ]
     },
     "s2_enhanced": {

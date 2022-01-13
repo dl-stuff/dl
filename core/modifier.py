@@ -1,9 +1,11 @@
 from collections import UserDict, UserList, defaultdict
 from functools import reduce, total_ordering
 import operator
+from os import stat
 import random
+from typing import Dict
 
-from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICTION_LIST, AFFRES_PROFILES, wyrmprints_meta
+from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICTION_LIST, AFFRES_PROFILES, load_json, wyrmprints_meta
 
 from core.timeline import Event, Timer, Listener, now
 from core.log import log, g_logs, fmt_dict
@@ -675,7 +677,12 @@ class ActCond:
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)
-        self.log("end", self.text, f"stack {self.stacks}", f"from {stack_key[1]} at {stack_key[0]:<.3f}s", f"{self.id}-{self.target}")
+        timing, source = stack_key
+        if source[1] is None:
+            source = f"{source[0]}-N"
+        else:
+            source = f"{source[0]}-{source[1]}"
+        self.log("end", self.text, f"stack {self.stacks}", f"from {source} at {timing:<.3f}s", f"{self.id}-{self.target}")
 
     def off(self):
         if self.buff_stack:
@@ -778,6 +785,78 @@ class ActCond:
                 log("alt_skill", "resume", timer.timing, timer.timing - now())
 
 
+class AmpContext:
+    def __init__(self, mod_type, mod_order, target, values, off_cb) -> None:
+        self.level = 0
+        self.timer = Timer(self.off, timeout=1)
+        self.off_cb = off_cb
+        self.modifier = Modifier(mod_type, mod_order, 1, target=target, get=self.get)
+        self.values = values
+
+    def on(self, max_level, publish=False, extend=None):
+        self.level += 1
+        if self.level > max_level:
+            if publish:
+                self.timer.off()
+                self.level = 0
+                return True
+            else:
+                self.level = max_level
+        if extend is None:
+            self.timer.on(self.values[self.level - 1][1])
+        else:
+            self.timer.add(extend)
+        return False
+
+    def get(self):
+        if self.level == 0:
+            return 0
+        return self.values[self.level - 1][0]
+
+    def off(self, t=None):
+        self.level = 0
+        self.off_cb()
+
+    def __repr__(self) -> str:
+        if self.level == 0:
+            return "lv0"
+        return f"lv{self.level}({self.get()}/{self.timer.timeleft():.2f})"
+
+
+class Amp:
+    MOD_ARGS = {
+        1: ("maxhp", "buff"),
+        2: ("att", "buff"),
+        3: ("def", "buff"),
+        4: ("critdmg", "buff"),
+    }
+
+    @staticmethod
+    def initialize():
+        return {amp_id: Amp(amp_id, **data) for amp_id, data in load_json("amp.json").items()}
+
+    def __init__(self, amp_id, publish=None, extend=None, type=None, values=None):
+        self.amp_id = amp_id
+        self.publish = publish
+        self.extend = extend
+        self.type = type
+        self.mod_type, self.mod_order = Amp.MOD_ARGS[type]
+        self.name = f"{self.amp_id}-{self.mod_type}"
+
+        self.amp_ctx_myself = AmpContext(self.mod_type, self.mod_order, "MYSELF", values[0 : self.publish - 1], self.log)
+        self.amp_ctx_myparty = AmpContext(self.mod_type, self.mod_order, "MYPARTY", values[self.publish - 1 :], self.log)
+        self.max_level = 1
+
+    def on(self, max_level, target):
+        if will_publish := (target == 2 or self.amp_ctx_myself.on(self.publish - 1, publish=True)):
+            self.max_level = max(self.max_level, max_level)
+            self.amp_ctx_myparty.on(self.max_level, extend=self.extend if max_level < self.max_level else None)
+        self.log(will_publish=int(will_publish))
+
+    def log(self, will_publish=0):
+        log("amp", self.name, f"self {self.amp_ctx_myself}", f"team {self.amp_ctx_myparty}", will_publish)
+
+
 class ActiveActconds(UserDict):
     def __init__(self) -> None:
         super().__init__()
@@ -806,7 +885,8 @@ class ActiveActconds(UserDict):
         if abs_key not in self:
             self[abs_key] = actcond
         name, aseq = actcond_source
-        self.by_source[name][aseq] = actcond
+        if aseq is not None:
+            self.by_source[name][aseq] = actcond
         for gtarget in actcond.generic_target:
             self.by_generic_target[gtarget][actcond.id] = actcond
             if actcond.overwrite:

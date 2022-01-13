@@ -140,7 +140,7 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
         equip_conditions = DEFAULT_CONDITONS
     adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     if verbose == 1:
-        adv.logs.write_logs(output=output, log_filter=["dmg"])
+        adv.logs.write_logs(output=output)
         act_sum(adv.logs.act_seq, output)
         return
     if verbose == 4:

@@ -18,7 +18,7 @@
         "abilities": [
             {"cond": ["hits", ">=", 15, 1], "ab": [["mod", 0.5, "edge_scorchrend"], ["mod", 0.3, "afftime_scorchrend"]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
-            {"cond": ["auratype", 2, 1], "ab": [["mod", 0.3, "edge_scorchrend"], ["mod", 0.3, "afftime_scorchrend"]]}
+            {"cond": ["amp", 1, 2, ">=", 1], "ab": [["mod", 0.3, "edge_scorchrend"], ["mod", 0.3, "afftime_scorchrend"]]}
         ],
         "skillshare": {"src": "s99", "cost": 7, "sp": 18430}
     },

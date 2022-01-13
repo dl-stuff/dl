@@ -345,10 +345,10 @@ class AbActcond(Ab):
 
     def _actcond_on(self, e):
         if e.name == "actcond":
-            source = e.source or ("ability", -1)
+            source = (e.source[0], None) or ("ability", None)
             dtype = e.dtype or "#"
         else:
-            source = ("ability", -1)
+            source = ("ability", None)
             dtype = "#"
         self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, dtype=dtype, ev=getattr(e, "ev", 1))
         self.idx = (self.idx + 1) % len(self.actcond_list)

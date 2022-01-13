@@ -18,7 +18,7 @@
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"ab": [["mod", 0.14, "dragondmg"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
-            {"cond": ["aura", 2, 1], "cd": 10.0, "ab": [["actcond", "MYSELF", "1592"]]}
+            {"cond": ["amp", 2, 2, ">=", 1], "cd": 10.0, "ab": [["actcond", "MYSELF", "1592"]]}
         ],
         "skillshare": {"src": "s99", "cost": 6, "sp": 9940}
     },
@@ -105,7 +105,7 @@
         ],
         "cancel": {"any": 1.66667},
         "abilities": [
-            {"cond": ["aura", 2, 1], "ab": [["altskill", "default", "-t:s1"]]}
+            {"cond": ["amp", 2, 2, ">=", 1], "ab": [["altskill", "default", "-t:s1"]]}
         ]
     },
     "s2": {
