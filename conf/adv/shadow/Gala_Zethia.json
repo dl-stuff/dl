@@ -2,7 +2,9 @@
     "actconds": {
         "1865": {"slip": {"value": ["percent", -0.034], "kind": "sp", "target": "s1", "iv": 1.0}, "coei": 1},
         "1866": {"remove": "1865", "count": 1, "coei": 1},
-        "1868": {"coei": 1, "refresh": 1}
+        "1868": {"coei": 1, "refresh": 1},
+        "1917": {"duration": 3.0, "icon": 0, "mods": [[0.3, "res", "buff"]], "coei": 1, "hide": 1},
+        "1918": {"remove": "1917", "coei": 1}
     },
     "c": {
         "name": "Gala Zethia",
@@ -127,11 +129,13 @@
         "startup": 0.0,
         "recovery": 2.83333,
         "attr": [
+            {"actcond": "1917"},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.0},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.1},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.16667},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.26667},
-            {"dmg": 3.94, "target": "HOSTILE", "iv": 1.33333}
+            {"dmg": 3.94, "target": "HOSTILE", "iv": 1.33333},
+            {"actcond": "1918", "iv": 2.66667}
         ],
         "cancel": {"x1": 2.5},
         "abilities": [
@@ -143,11 +147,13 @@
         "startup": 0.0,
         "recovery": 2.83333,
         "attr": [
+            {"actcond": "1917"},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.0},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.1},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.16667},
             {"dmg": 3.94, "target": "HOSTILE", "iv": 1.26667},
-            {"dmg": 3.94, "target": "HOSTILE", "iv": 1.33333}
+            {"dmg": 3.94, "target": "HOSTILE", "iv": 1.33333},
+            {"actcond": "1918", "iv": 2.66667}
         ],
         "cancel": {"x1": 2.5}
     },

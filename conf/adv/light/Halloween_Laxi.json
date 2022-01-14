@@ -9,6 +9,7 @@
         "1965": {"duration": 0.7, "coei": 1, "icon": 0, "hide": 1, "lost_on_drg": 1},
         "1983": {"icon": 0, "mods": [[0.12, "fspd", "buff"]], "coei": 1, "hide": 1},
         "1985": {"remove": "1983", "coei": 1},
+        "1988": {"duration": 0.05, "coei": 1, "icon": 0, "hide": 1, "lost_on_drg": 1},
         "1990": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 4},
         "1991": {"remove": "1990", "coei": 1}
     },
@@ -23,7 +24,7 @@
         "gun": [3],
         "abilities": [
             {"cond": ["event", "start"], "ab": [["cprep", 1.0]]},
-            {"cond": ["event", "cp_full"], "ab": [["actcond", "MYSELF", "1965"]]},
+            {"cond": ["event", "cp_full"], "ab": [["hitattr", {"actcond": "1988"}], ["actcond", "MYSELF", "1965"]]},
             {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", "1985"]]},
             {"cond": ["hitcount", 25], "ab": [["actcond", "MYSELF", "1990"]]},
             {"cond": ["hits", "<", 0, 1], "ab": [["actcond", "MYSELF", "1991"]]},
@@ -40,10 +41,13 @@
     },
     "fs": {
         "charge": 0.001,
-        "startup": 0.0,
-        "recovery": 1.23333,
+        "startup": 0.7,
+        "recovery": 0.53333,
+        "attr": [
+            {"actcond": "1988"}
+        ],
         "interrupt": {"s": 0.0},
-        "cancel": {"any": 1.0, "s": 0.0}
+        "cancel": {"any": 0.3, "s": 0.0}
     },
     "fs_mode2": {
         "charge": 0.4,

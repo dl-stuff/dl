@@ -8,6 +8,9 @@
         "1959": {"coei": 1, "icon": 290, "text": "Combo Sample"},
         "1960": {"coei": 1, "icon": 291, "text": "Strike Sample"},
         "1961": {"coei": 1, "icon": 292, "text": "Dash Sample"},
+        "1962": {"remove": "1959", "coei": 1},
+        "1963": {"remove": "1960", "coei": 1},
+        "1964": {"remove": "1961", "coei": 1},
         "1966": {"dispel": "buff"},
         "1972": {"duration": 20.0, "icon": "res-buff", "mods": [[0.1, "res", "buff"]], "coei": 1, "text": "10% Damage Reduction", "overwrite": 59},
         "1987": {"duration": 30.0, "icon": "dmg_shadow-buff", "mods": [[0.2, "dmg_shadow", "buff"]], "coei": 1, "text": "Shadow-Attuned Damage +20%", "overwrite": 56},
@@ -87,6 +90,9 @@
         "startup": 0.0,
         "recovery": 1.33333,
         "attr": [
+            {"actcond": "1962"},
+            {"actcond": "1963"},
+            {"actcond": "1964"},
             {"dmg": 18.64, "actcond": "291", "addhit": [{"actcond": "101021001", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.33333},
             {"dmg": 1.71, "actcond": "1966", "addhit": [{"actcond": "1353", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.7, "msl": 0.13333},
             {"dmg": 1.71, "actcond": "1966", "addhit": [{"actcond": "1353", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.8, "msl": 0.13333},
@@ -101,17 +107,22 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
+            {"actcond": "2019"},
             {"actcond": "301040301", "target": "MYPARTY", "iv": 0.33333}
         ],
-        "DEBUG_attr_R2": [{"actcond": "1273", "target": "MYPARTY", "iv": 0.33333}],
-        "DEBUG_attr_R3": [{"actcond": "1972", "target": "MYPARTY", "iv": 0.33333}],
-        "DEBUG_attr_R4": [{"actcond": "301040301", "target": "MYPARTY", "iv": 0.33333}, {"actcond": "1273", "target": "MYPARTY", "iv": 0.33333}, {"actcond": "1972", "target": "MYPARTY", "iv": 0.33333}, {"actcond": "36", "target": "MYPARTY", "iv": 0.33333}]
+        "DEBUG_attr_R2": [{"actcond": "2019"}, {"actcond": "1273", "target": "MYPARTY", "iv": 0.33333}],
+        "DEBUG_attr_R3": [{"actcond": "2019"}, {"actcond": "1972", "target": "MYPARTY", "iv": 0.33333}],
+        "DEBUG_attr_R4": [{"actcond": "2019"}, {"actcond": "301040301", "target": "MYPARTY", "iv": 0.33333}, {"actcond": "1273", "target": "MYPARTY", "iv": 0.33333}, {"actcond": "1972", "target": "MYPARTY", "iv": 0.33333}, {"actcond": "36", "target": "MYPARTY", "iv": 0.33333}]
     },
     "s2_enhanced": {
         "sp": 6000,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
+            {"actcond": "1962"},
+            {"actcond": "1963"},
+            {"actcond": "1964"},
+            {"actcond": "2019"},
             {"actcond": "301040301", "target": "MYPARTY", "iv": 0.33333},
             {"actcond": "1273", "target": "MYPARTY", "iv": 0.33333},
             {"actcond": "1972", "target": "MYPARTY", "iv": 0.33333},
@@ -123,6 +134,9 @@
         "startup": 0.0,
         "recovery": 1.33333,
         "attr": [
+            {"actcond": "1962"},
+            {"actcond": "1963"},
+            {"actcond": "1964"},
             {"dmg": 18.64, "actcond": "291", "addhit": [{"actcond": "101021001", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.33333},
             {"dmg": 1.71, "actcond": "1966", "addhit": [{"actcond": "1353", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.7, "msl": 0.13333},
             {"dmg": 1.71, "actcond": "1966", "addhit": [{"actcond": "1353", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 0.8, "msl": 0.13333},

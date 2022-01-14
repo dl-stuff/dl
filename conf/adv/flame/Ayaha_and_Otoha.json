@@ -12,11 +12,18 @@
         "1998": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 5},
         "2000": {"icon": 303, "mods": [[0.05, "att", "buff"], [0.1, "rcv", "buff"]], "coei": 1, "text": "Playtime", "maxstack": 3},
         "2001": {"remove": "2000", "coei": 1},
+        "2032": {"coei": 1, "icon": 0, "text": "Swap (Ayaha)", "hide": 1, "overwrite": 60},
+        "2034": {"coei": 1, "icon": 0, "text": "Swap (Otoha)", "hide": 1, "overwrite": 60},
         "2039": {"duration": 30.0, "slip": {"value": ["heal", 18.0], "kind": "hp", "iv": 2.9}, "icon": 250, "mods": [[0.04, "res_wind", "buff"]], "coei": 1, "text": "Blue Hagoromo", "maxstack": 3},
         "2041": {"duration": 30.0, "icon": 249, "mods": [[0.5, "edge_poison", "passive"], [0.5, "edge_burn", "passive"], [0.5, "edge_freeze", "passive"], [0.5, "edge_paralysis", "passive"], [0.5, "edge_blind", "passive"], [0.5, "edge_stun", "passive"], [0.5, "edge_curse", "passive"], [0.5, "edge_slowmove", "passive"], [0.5, "edge_sleep", "passive"], [0.5, "edge_frostbite", "passive"], [0.5, "edge_flashburn", "passive"], [0.5, "edge_stormlash", "passive"], [0.5, "edge_shadowblight", "passive"], [0.5, "edge_scorchrend", "passive"]], "coei": 1, "echo": 0.3, "text": "Red Hagoromo", "maxstack": 3},
         "2044": {"slip": {"value": ["percent", -0.02], "kind": "hp", "iv": 2.9}, "icon": 302, "mods": [[0.05, "killer_burn", "passive"], [0.1, "killer_stun", "passive"], [0.05, "killer_scorchrend", "passive"]], "coei": 1, "text": "Purple Hagoromo", "overwrite": 62},
+        "2045": {"duration": 1.5, "coei": 1, "nobufftime": 1, "icon": 0, "hide": 1, "overwrite": 63},
+        "2046": {"count": 1, "coei": 1, "icon": 0, "hide": 1, "overwrite": 63},
+        "2047": {"duration": 2.0, "coei": 1, "nobufftime": 1, "icon": 0, "hide": 1, "overwrite": 63},
+        "2048": {"count": 1, "coei": 1, "icon": 0, "hide": 1, "overwrite": 63},
         "2049": {"duration": 30.0, "icon": 25, "mods": [[-0.2, "affres_burn", "passive"]], "debuff": 1, "text": "Burn Res -20%", "overwrite": 66},
         "2081": {"duration": 20.0, "icon": "att-buff", "mods": [[-0.05, "att", "buff"]], "debuff": 1, "text": "Strength -5%", "refresh": 1},
+        "2086": {"duration": 0.1, "coei": 1, "icon": 0, "hide": 1, "maxstack": 5},
         "102040801": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.727], "iv": 3.9}, "rate": 1.1},
         "102040901": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.97], "iv": 3.9}, "rate": 1.2},
         "301040301": {"icon": "hp-buff", "mods": [[0.15, "hp", "buff"]], "coei": 1, "text": "HP +15%"}
@@ -209,6 +216,8 @@
         "recovery": 3.5,
         "attr": [
             {"pcond": ["actcond", "2045", ">", 0], "sp": [1.0, "%", "s2"], "target": "MYSELF"},
+            {"actcond": "2046"},
+            {"actcond": "2086"},
             {"actcond": "36", "target": "MYPARTY"},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 0.1},
@@ -223,7 +232,8 @@
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.0, "msl_spd": 1},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.1, "msl_spd": 1},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.2, "msl_spd": 1},
-            {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.33333, "msl_spd": 1}
+            {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.33333, "msl_spd": 1},
+            {"actcond": "2034", "iv": 2.16667}
         ],
         "cancel": {"any": 3.03333}
     },
@@ -233,6 +243,8 @@
         "recovery": 3.5,
         "attr": [
             {"pcond": ["actcond", "2047", ">", 0], "sp": [1.0, "%", "s2"], "target": "MYSELF"},
+            {"actcond": "2048"},
+            {"actcond": "2086"},
             {"actcond": "36", "target": "MYPARTY"},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 0.1},
@@ -247,7 +259,8 @@
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.0, "msl_spd": 1},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.1, "msl_spd": 1},
             {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.2, "msl_spd": 1},
-            {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.33333, "msl_spd": 1}
+            {"dmg": 0.81, "dp": 40, "target": "HOSTILE", "iv": 0.83333, "msl": 1.33333, "msl_spd": 1},
+            {"actcond": "2032", "iv": 2.16667}
         ],
         "cancel": {"any": 3.03333}
     },
@@ -258,7 +271,9 @@
         "attr": [
             {"actcond": "2039", "target": "MYPARTY"},
             {"heal": 60, "target": "MYPARTY"},
-            {"dmg": 13.95, "actcond": "62", "target": "HOSTILE", "msl": 1.5}
+            {"dmg": 13.95, "actcond": "62", "target": "HOSTILE", "msl": 1.5},
+            {"actcond": "2086"},
+            {"actcond": "2045", "iv": 1.46667}
         ],
         "cancel": {"any": 2.3, "s1": 1.9}
     },
@@ -270,7 +285,9 @@
             {"actcond": "2041", "target": "MYPARTY"},
             {"heal": 60, "target": "MYPARTY"},
             {"actcond": "1901", "target": "MYPARTY"},
-            {"dmg": 10.48, "actcond": "102040801", "addhit": [{"actcond": "1383", "target": "HOSTILE"}], "target": "HOSTILE", "msl": 2.3}
+            {"dmg": 10.48, "actcond": "102040801", "addhit": [{"actcond": "1383", "target": "HOSTILE"}], "target": "HOSTILE", "msl": 2.3},
+            {"actcond": "2086"},
+            {"actcond": "2047", "iv": 1.46667}
         ],
         "cancel": {"any": 3.36667, "s1_mode2": 2.5}
     },

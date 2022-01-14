@@ -13,6 +13,8 @@
         "1901": {"duration": 30.0, "coei": 1, "echo": 0.4, "icon": 252, "text": "Overdamage", "refresh": 1},
         "1902": {"coei": 1, "icon": 288, "text": "Rapid Analysis", "maxstack": 3},
         "1903": {"remove": "1902", "count": 1, "coei": 1},
+        "1980": {"coei": 1, "icon": 0, "hide": 1},
+        "1981": {"remove": "1980", "coei": 1},
         "1994": {"duration": 15.0, "slip": {"value": ["heal", 20.0], "kind": "hp", "iv": 2.9}, "coei": 1, "debuff": 1, "text": "HP Regen"},
         "101020901": {"aff": "poison", "duration": 15.0, "slip": {"value": ["mod", 0.436], "iv": 2.9}, "rate": 1.1},
         "102040801": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.727], "iv": 3.9}, "rate": 1.1},
@@ -85,6 +87,8 @@
                 {"pcond": ["actcond", "1902", ">", 0], "sp": 9999, "target": "MYSELF"},
                 {"pcond": ["actcond", "1902", ">", 0], "heal": 60, "target": "MYPARTY"},
                 {"pcond": ["actcond", "1902", ">", 0], "actcond": "1903", "target": "MYSELF"},
+                {"actcond": "1980"},
+                {"actcond": "1981", "iv": 0.03333},
                 {"dmg": 13.29, "target": "HOSTILE", "iv": 2.5},
                 {"dmg": 13.29, "target": "HOSTILE", "iv": 2.86667}
             ]
@@ -100,6 +104,8 @@
                 {"pcond": ["actcond", "1902", ">", 0], "sp": 9999, "target": "MYSELF"},
                 {"pcond": ["actcond", "1902", ">", 0], "actcond": "1903", "target": "MYSELF"},
                 {"pcond": ["actcond", "1902", ">", 0], "heal": 50, "target": "MYPARTY"},
+                {"actcond": "1980"},
+                {"actcond": "1981", "iv": 0.03333},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 2.53333},
                 {"actcond": "410", "DEBUG_ADD_RNG_HITS": [1, [{"actcond": "101020901", "target": "HOSTILE"}, {"actcond": "102040801", "target": "HOSTILE"}, {"actcond": "1257", "target": "HOSTILE"}, {"actcond": "1360", "target": "HOSTILE"}, {"actcond": "1352", "target": "HOSTILE"}, {"actcond": "1383", "target": "HOSTILE"}, {"actcond": "104031101", "target": "HOSTILE"}]], "target": "HOSTILE", "iv": 2.53333},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 2.63333},
@@ -116,6 +122,8 @@
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
+            {"actcond": "1980"},
+            {"actcond": "1981", "iv": 0.03333},
             {"heal": 80, "target": "MYPARTY", "iv": 1.33333},
             {"actcond": "1901", "target": "MYPARTY", "iv": 1.33333},
             {"actcond": "1994", "target": "MYPARTY", "iv": 1.33333}
@@ -128,6 +136,8 @@
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
+            {"actcond": "1980"},
+            {"actcond": "1981", "iv": 0.03333},
             {"heal": 80, "target": "MYPARTY", "iv": 1.33333},
             {"actcond": "1902", "target": "MYSELF", "iv": 1.33333},
             {"actcond": "1994", "target": "MYPARTY", "iv": 1.33333}
@@ -140,6 +150,8 @@
         "startup": 0.0,
         "recovery": 2.33333,
         "attr": [
+            {"actcond": "1980"},
+            {"actcond": "1981", "iv": 0.03333},
             {"heal": 135, "target": "MYPARTY", "iv": 1.33333},
             {"actcond": "36", "target": "MYPARTY", "iv": 1.33333}
         ],
@@ -153,6 +165,8 @@
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
+            {"actcond": "1980"},
+            {"actcond": "1981", "iv": 0.03333},
             {"heal": 135, "target": "MYPARTY", "iv": 1.33333},
             {"utp": 600, "target": "MYSELF", "iv": 1.33333}
         ],
