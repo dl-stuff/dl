@@ -34,50 +34,47 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81734.05394001146,
-        "team": 0.14436798509694315,
+        "dps": 109018.87369466173,
+        "team": 0.02499548553758426,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "Saint_Starfalls_Circus",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, s=4",
-        "queue prep",
-        "`s3, x=1",
+        "queue prep and not buff(s3)",
+        "`s3",
         "`s4",
         "`s1",
         "end",
-        "`s4, cancel",
+        "`dragon, s",
+        "`s4, fscf",
         "`s1",
-        "`dodge, fscf",
-        "`fs, x=5"
+        "`fs, charged_in(fs, s1) or x=5"
       ],
       "dacl": [
-        "`ds1, x=2 and crystal_arrow=2",
-        "`dfs, x=2 and ds1.check()",
-        "`dodge, fsc"
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Dragonyule_Cleo",
-        "Hunter_Sarisse",
-        "Summer_Estelle"
+        "Eugene",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 157527.08766717312,
+      "tdps": 172148.41537950095,
       "pref": "PERSONAL"
     }
   },
@@ -96,7 +93,7 @@
       ]
     },
     "META": {
-      "tdps": 185681.2374944001,
+      "tdps": 195789.60584109213,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -139,7 +136,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54944.43069496903,
+        "dps": 68853.92466625558,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -153,7 +150,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon",
         "`s4",
@@ -173,7 +170,7 @@
       ]
     },
     "META": {
-      "tdps": 276039.94375449984,
+      "tdps": 355994.4996649032,
       "pref": "PERSONAL"
     }
   },
@@ -219,7 +216,7 @@
       ]
     },
     "META": {
-      "tdps": 153045.34045573135,
+      "tdps": 304298.8662968242,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -230,35 +227,17 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 101192.04922536331,
-        "team": 0.14622894476735804,
+        "dps": 114267.05118742824,
+        "team": 0.024995485537584256,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Wings_of_Rebellion_at_Rest",
-        "A_Small_Courage",
-        "Saint_Starfalls_Circus",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon",
-        "queue prep",
-        "`s3, x=1",
-        "`s4",
-        "`s1",
-        "end",
-        "`s1",
-        "`s4, fscf",
-        "`dodge, fscf",
-        "`fs, x=5"
+      "dacl": [
+        "`ds1"
       ]
     },
     "META": {
-      "tdps": 200579.5016674938,
+      "tdps": 181196.94660429977,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -269,7 +248,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70027.27619721157,
+        "dps": 69615.101371721,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -283,7 +262,6 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon",
         "`s3",
@@ -299,7 +277,7 @@
       ]
     },
     "META": {
-      "tdps": 362739.15915992437,
+      "tdps": 360369.8957490788,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -310,38 +288,24 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31488.435122790797,
-        "team": 0.02948393289456875,
+        "dps": 71593.03326182283,
+        "team": 0.024998083480266484,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
-        "A_Small_Courage",
-        "Dueling_Dancers"
-      ],
-      "acl": [
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s3",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
-      ],
-      "share": [
-        "Weapon",
-        "Weapon"
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
-      "tdps": 38776.06858164618,
-      "pref": "TEAMBUFF",
+      "tdps": 107621.9476089937,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -351,7 +315,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38678.68710217475,
+        "dps": 32756.328525801735,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -375,7 +339,7 @@
       ]
     },
     "META": {
-      "tdps": 182541.19331835693,
+      "tdps": 148498.2906150981,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

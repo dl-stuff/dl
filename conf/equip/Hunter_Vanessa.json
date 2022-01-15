@@ -83,37 +83,42 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31182.97175455427,
-        "team": 0.08001565187552716,
+        "dps": 43893.89694766775,
+        "team": 0.08126274153787111,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "A_Small_Courage",
-        "The_Warrioresses",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, cancel",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
+        "`s3",
+        "`s4",
+        "`s1",
         "`dodge, fsc",
-        "`fs2, x=5"
+        "`fs2, charged_in(fs2, s1) or charged_in(fs2, s4)"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
-        "Malora",
+        "Halloween_Laxi",
+        "Mitsuhide",
         "Peony"
       ],
       "share": [
-        "Hunter_Berserker",
-        "Ilia"
+        "Summer_Celliera",
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
@@ -157,7 +162,7 @@
       ]
     },
     "META": {
-      "tdps": 757317.4168189943,
+      "tdps": 421951.5004663515,
       "pref": "PERSONAL"
     }
   },
@@ -225,10 +230,6 @@
         "Blade",
         "Peony",
         "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Sha_Wujing"
       ]
     },
     "META": {

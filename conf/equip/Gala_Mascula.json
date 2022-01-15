@@ -82,71 +82,29 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 55398.79762152832,
-        "team": 0.033319274066563605,
+        "dps": 62614.41203352817,
+        "team": 0.033325686799909535,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
         "Moonlight_Party",
         "OneWinged_Journey",
+        "Wings_of_Rebellion_at_Rest",
         "A_Choice_Blend",
-        "His_Clever_Brother",
+        "Beautiful_Nothingness",
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
         "`s1, masterctrl_buff.get() and x=4"
-      ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 57285.75398631682,
-        "team": 0.32356847807024935,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "OneWinged_Journey",
-        "A_Choice_Blend",
-        "His_Clever_Brother",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon, dshift_count or (amp_lvl(self, att)=2 and s1.check())",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4"
-      ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, x=3"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -226,19 +184,19 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64523.75950101119,
-        "team": 0.3235684780702494,
+        "dps": 67771.85892033059,
+        "team": 0.033299017264952,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
+        "Moonlight_Party",
         "Wings_of_Rebellion_at_Rest",
         "A_Choice_Blend",
-        "Chariot_Drift",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ]
     },
     "META": {
@@ -283,13 +241,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85313.65786825691,
-        "team": 0.03328656020337916,
+        "dps": 87654.27944790681,
+        "team": 0.03324972692982129,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
+      "tdps": 63546390.357414775,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -298,10 +257,44 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48265.56378659814,
+        "team": 0.033325686799909535,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Moonlight_Party",
+        "OneWinged_Journey",
+        "Wings_of_Rebellion_at_Rest",
+        "A_Choice_Blend",
+        "Beautiful_Nothingness",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Beast_Ciella",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51666.640936348405,
-        "team": 0.32356847807024935,
+        "dps": 48265.56378659814,
+        "team": 0.033325686799909535,
         "noaff": false,
         "nihil": true
       }

@@ -2,39 +2,40 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 104476.68061865085,
-        "team": 0.03332187554299485,
+        "dps": 110781.41687121501,
+        "team": 0.03697159904470929,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
+        "The_Cutie_Competition",
         "Welcome_to_the_Opera",
-        "Beautiful_Nothingness",
         "Saint_Starfalls_Circus",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon",
-        "`s1",
-        "`s2",
         "`s3, not buff(s3)",
-        "`s4"
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=4"
       ],
       "dacl": [
-        "`ds1, ds1.overcharge=2"
+        "`ds1, x=3",
+        "`sack, x=3"
       ],
       "coabs": [
-        "Ieyasu",
-        "Joker",
+        "Blade",
+        "Summer_Leonidas",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Seimei"
       ]
     },
     "PERSONAL": {
@@ -76,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 738994.8718829048,
+      "tdps": 495514.3777545385,
       "pref": "PERSONAL"
     }
   },
@@ -144,9 +145,6 @@
         "`s4",
         "`fs, x=5"
       ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
-      ],
       "coabs": [
         "Delphi",
         "Ieyasu",
@@ -170,15 +168,6 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Cutie_Competition",
-        "Welcome_to_the_Opera",
-        "Saint_Starfalls_Circus",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "`dragon, s=2",
         "`s3, not buff(s3)",
@@ -186,11 +175,6 @@
         "`s2",
         "`s1",
         "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Leonidas",
-        "Vania"
       ],
       "share": [
         "Weapon",
@@ -258,7 +242,10 @@
         "team": 0.03331721520499955,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ]
     },
     "META": {
       "tdps": 175466.59226142868,
@@ -269,10 +256,27 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65653.443194082,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 17926.882831632007,
+        "dps": 19017.705835530276,
         "team": 0.0,
         "noaff": false,
         "nihil": true

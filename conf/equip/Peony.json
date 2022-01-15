@@ -61,7 +61,7 @@
         "`s4"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`ds1, dshift_timeleft<1",
         "`dodge, fsc",
         "`dfs3, x=1"
       ],
@@ -113,49 +113,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 30550.052387793377,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Blossoms_on_the_Waters_Edge",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Snipers_Allure",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon",
-        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
-        "`s3",
-        "`s2, not c_fs(peonydreams)",
-        "`s1",
-        "`s4, cancel"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Luca"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48523.214298942075,
+        "dps": 59628.19596301353,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -181,11 +141,11 @@
       "dacl": [
         "`ds1, dshift_timeleft<1 or duration-now<3",
         "`dodge, fsc",
-        "`dfs3"
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Blade",
-        "Dagger2",
+        "Halloween_Laxi",
+        "Mitsuhide",
         "Sharena"
       ],
       "share": [
@@ -195,33 +155,6 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 30550.052387793377,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Gala_Reborn_Jeanne",
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Luca"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -296,7 +229,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -337,9 +270,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 27288.272439195196,
+        "dps": 53577.53762904287,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -348,68 +281,13 @@
         "Blade",
         "Dagger",
         "Wand"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 39383.54340116329,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "Jewels_of_the_Sun",
-        "A_Small_Courage",
-        "Chariot_Drift",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s2",
-        "`s1",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 27288.272439195196,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

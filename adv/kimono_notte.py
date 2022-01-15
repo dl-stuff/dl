@@ -3,12 +3,8 @@ from module.template import ButterflyAdv
 
 
 class Kimono_Notte(ButterflyAdv):
-    conf = {}
-    conf["dacl"] = [
-        "`ds2, x=3",
-        "`ds1, x=3",
-    ]
-
+    DS2_BUTTERFLY_COUNT = 1 # assuming 1 butterfly can hit boss at a time
+    comment = f"assume {DS2_BUTTERFLY_COUNT} butterfly from ds2 can hit"
     def prerun(self):
         self.config_butterflies()
         Listener("divinedragon", self.clear_all_butterflies).on()
@@ -24,7 +20,7 @@ class Kimono_Notte(ButterflyAdv):
 
     @property
     def butterflies_ds1(self):
-        return self.butterflies + self.ds2_butterfly_count if self.ds2_timers else 0
+        return self.butterflies + self.DS2_BUTTERFLY_COUNT if self.ds2_timers else 0
 
     def s1_proc(self, e):
         self.clear_all_butterflies()
@@ -39,7 +35,7 @@ class Kimono_Notte(ButterflyAdv):
     def ds2_extra_hits(self, t):
         for m in t.actmods:
             m.on()
-        for _ in range(self.ds2_butterfly_count):
+        for _ in range(self.DS2_BUTTERFLY_COUNT):
             self.dmg_make(f"{t.name}_extra", 0.72)
             self.add_combo()
         for m in t.actmods:

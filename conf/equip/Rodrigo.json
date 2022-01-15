@@ -189,10 +189,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 73023.20074538948,
-        "team": 0.033332948152599164,
+        "dps": 71970.06228968277,
+        "team": 0.033326917901637325,
         "noaff": false,
         "nihil": true
       },
@@ -208,19 +208,61 @@
       "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, fsc",
-        "`s3",
         "`s4",
-        "`s1, cancel",
-        "`s2, fsc",
-        "`fs, x=4"
+        "`s3, fsc",
+        "`s2, cancel",
+        "`s1,fsc",
+        "`fs, x=5"
       ],
       "dacl": [
-        "ds1,ds1.overcharge=2"
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4",
+        "end"
       ],
       "coabs": [
-        "Dagger2",
         "Ieyasu",
-        "Summer_Prince"
+        "Summer_Prince",
+        "Wand"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73855.22768214242,
+        "team": 0.03324893644964537,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, fsc",
+        "`s4",
+        "`s3, fsc",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Wand"
       ],
       "share": [
         "Humanoid_Mercury",
@@ -228,6 +270,7 @@
       ]
     },
     "META": {
+      "tdps": 24174535.665918577,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -136,38 +136,41 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 99658.74715815664,
-        "team": 0.06660471371073898,
+        "dps": 124840.91379580704,
+        "team": 0.12451441404121057,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon",
-        "`s3",
+        "`dragon, (dgauge>=900 and s=2) or dshift_count",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
         "`s2, fsc",
-        "`s4",
-        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
-        "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0",
-        "else",
-        "`dodge, x=5",
-        "end"
+        "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "`fs, x=4 and gauges[fs]<1000",
+        "`fs, (x=3 or hits=0) and gauges[fs]<1000 and not  c_fs(enhanced)",
+        "`dodge, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Bow",
+        "Dragonyule_Xainfried",
         "Mona",
-        "Wand"
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -175,7 +178,7 @@
       ]
     },
     "META": {
-      "tdps": 168573.97242189426,
+      "tdps": 18761173.04781603,
       "pref": "PERSONAL"
     }
   },

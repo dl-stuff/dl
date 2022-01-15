@@ -86,31 +86,37 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46207.22857413546,
-        "team": 0.06240735281766686,
-        "noaff": true,
+        "dps": 38717.55591229216,
+        "team": 0.0780800345756436,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "A_Kings_Pride_Sword",
-        "Mask_of_Determination_Bow"
+        "Adventure_in_the_Past",
+        "Extreme_Teamwork",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "Beautiful_Nothingness",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon, buff(s3, 1)",
+        "if gourmand_mode",
+        "`s2",
         "`s3",
         "`s4",
-        "`fs, x=3"
+        "`fs, x=3",
+        "end",
+        "if not gourmand_mode",
+        "`s1",
+        "`fs",
+        "`dodge, fsc",
+        "end"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3, x=1"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -123,7 +129,7 @@
       ]
     },
     "META": {
-      "tdps": 4417518.575523848,
+      "tdps": 2219221.8481776775,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -134,44 +140,40 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 57773.44214701483,
+        "dps": 42852.91616875551,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
+        "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
+        "`s3, not buff(s3) and fsc",
         "if gourmand_mode.get()",
-        "`s3, fsc",
         "`s4, fsc",
         "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge",
         "else",
-        "`dragon, dshift_count=0 and s=2",
-        "`dragon, dshift_count=1",
-        "`s3",
+        "`dragon",
         "`s2",
-        "`fs, x=1",
-        "end"
+        "end",
+        "`fs, x=1"
       ],
       "coabs": [
-        "Blade",
+        "Humanoid_Jupiter",
         "Mitsuhide",
         "Peony"
       ],
       "share": [
-        "Summer_Celliera",
-        "Ilia"
+        "Weapon",
+        "Mikoto"
       ]
     },
     "PERSONAL": {
@@ -289,55 +291,52 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
+  "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 117697.85296511225,
-        "team": 0.06249132064990964,
+        "dps": 60780.06089845889,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
-        "Spirit_of_the_Season",
+        "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Axe",
-        "Applelicious_Dreams"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "High_Jupiter",
       "acl": [
         "if gourmand_mode.get()",
+        "`s3, fsc",
         "`s4, fsc",
         "`s1, fsc",
-        "`fs, x=1",
+        "`dodge, fsc",
+        "`fs, dodge or s",
         "else",
-        "`s2, buff(s3,1)",
-        "`dragon, buff(s3,1)",
+        "`dragon, dshift_count=0 and s=2",
+        "`dragon, dshift_count=1",
         "`s3",
-        "`s4",
+        "`s2",
         "`fs, x=1",
         "end"
       ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1 or duration-now<3",
-        "`dodge, fsc",
-        "`dfs3,x=1"
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
-    "META": {
-      "tdps": 403010.5285498782,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63078.792588143384,
+        "dps": 61223.533982609726,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -354,50 +353,55 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42626.25943527917,
+        "dps": 60780.06089845889,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Levins_Champion",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s1, fsc",
-        "else",
-        "`dragon",
-        "`s2",
-        "end",
-        "`fs, x=1"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Grace",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
         "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 101049.98066914664,
+        "team": 0.04999252056345099,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "A_Kings_Pride_Sword",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s4",
+        "`fs, x=3"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

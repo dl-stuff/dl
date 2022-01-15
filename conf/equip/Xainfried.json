@@ -109,14 +109,14 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50357.346301211735,
+        "dps": 42761.77444043962,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "The_Red_Impulse",
+        "Pecorines_Grand_Adventure",
         "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -129,15 +129,16 @@
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1",
         "`fs, charged_in(fs, s2) or charged_in(fs, s4) or x=5",
         "`dodge, fscf"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, x=2 and (crystal_arrow=2 or duration-now<3)",
+        "`dfs, x=2",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
@@ -153,17 +154,28 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 165859.4852270556,
-        "team": 0.08875939386431846,
+        "dps": 167843.47420997053,
+        "team": 0.11085257212054513,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`dragon, fscf",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, duration-now<3",
+        "`fs, charged_in(fs, s2) or charged_in(fs, s4) or x=5",
+        "`dodge, fscf"
+      ],
       "dacl": [
-        "`ds1"
+        "`ds1, x=3",
+        "sack, x=3 and dshift_count=1",
+        "sack, x=2 and dshift_count=2 and dshift_timeleft<5"
       ]
     },
     "META": {
-      "tdps": 187878.20501031913,
+      "tdps": 196486.19111933396,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,6 +207,9 @@
         "`s2, cancel",
         "`s1, x=5",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -244,7 +259,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40133.08292889665,
+        "dps": 36381.616903403476,
         "team": 0.0,
         "noaff": false,
         "nihil": true

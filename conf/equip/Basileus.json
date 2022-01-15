@@ -2,15 +2,55 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52792.90447514299,
-        "team": 0.16327470050800638,
+        "dps": 80802.82111935962,
+        "team": 0.22072688279424385,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and fsc",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, x=3  and unlocked",
+        "`fs2, x=3 and not unlocked"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Meene",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 104940.12573121504,
+        "team": 0.0892087931858762,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Bloody_Little_Queen",
-        "Brothers_in_Arms",
-        "Super_Soaking_Androids",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "A_Small_Courage",
         "The_Plaguebringer",
         "Applelicious_Dreams",
@@ -18,8 +58,8 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, fsc",
-        "`s3, not buff(s3) and fsc",
+        "`dragon, s",
+        "`s3, not buff(s3)",
         "`s2, fsc",
         "`s1, fsc",
         "`s4, fsc",
@@ -28,69 +68,28 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dfs, x=3",
-        "`sack, dsf"
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Gala_Notte",
-        "Staff",
-        "Templar_Hope"
+        "Akasha",
+        "Blade",
+        "Mona"
       ],
       "share": [
         "Weapon",
-        "Patia"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 87768.85563361572,
-        "team": 0.13459419555987176,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Fudo_Myoo",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and fsc",
-        "`s2, fsc",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`fs, x=3  and unlocked",
-        "`fs1, x=3 and not unlocked"
-      ],
-      "dacl": [
-        "`ds1, duration-now<2",
-        "`dodge, x=3"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Nino",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 1219502.6280646974,
+      "tdps": 183528.40041800393,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 101474.32412427185,
-        "team": 0.11941972525855697,
+        "dps": 96459.32392482039,
+        "team": 0.12354320275736133,
         "noaff": false,
         "nihil": true
       },
@@ -107,12 +106,12 @@
       "slots.w": "primal_dragon",
       "acl": [
         "`dragon, fsc",
-        "`s3, fsc and not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
+        "`s3, fsc",
         "`fs, x=3 and unlocked",
-        "`fs1, x=3 and not unlocked"
+        "`fs2, x=3 and not unlocked"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
@@ -170,52 +169,18 @@
       ]
     },
     "META": {
-      "tdps": 204527.49424103837,
+      "tdps": 502875.2229864816,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 119201.31768555181,
-        "team": 0.25246181694620823,
+        "dps": 121379.6975288136,
+        "team": 0.0892087931858762,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, dgauge=1000",
-        "`dragon, dshift_count>0",
-        "`s3, not buff(s3) and fsc",
-        "`s2, fsc",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`fs, x=3  and unlocked",
-        "`fs1, x=3 and not unlocked"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3",
-        "`sack, dsf"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -253,14 +218,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86861.81408261313,
-        "team": 0.13459419555987176,
+        "dps": 65282.48366665366,
+        "team": 0.0892087931858762,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 2763118.467931165,
+      "tdps": 143704.24265519885,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

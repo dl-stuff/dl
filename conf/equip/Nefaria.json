@@ -83,26 +83,26 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 43892.720153134054,
-        "team": 0.033331842659258884,
+        "dps": 46855.58195077366,
+        "team": 0.033308805099356076,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Dear_Diary",
-        "Forest_Bonds",
-        "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3) and x=4",
+        "`s3, cancel",
         "`fs, c_fs(enhanced) and x=4",
         "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
         "`s4, x>=4",
@@ -110,17 +110,58 @@
         "`dodge, fsc",
         "`fs, x=4"
       ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
       "coabs": [
+        "Blade",
         "Delphi",
-        "Ieyasu",
-        "Vania"
+        "Wand"
       ],
       "share": [
         "Formal_Noelle",
-        "Ranzal"
+        "Grimnir"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49157.80005908758,
+        "team": 0.03328986601550216,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Wand"
+      ],
+      "share": [
+        "Formal_Noelle",
+        "Grimnir"
       ]
     },
     "META": {
+      "tdps": 121559106.34707531,
       "pref": "PERSONAL"
     }
   },
@@ -217,7 +258,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
