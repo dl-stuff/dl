@@ -1,10 +1,10 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 from functools import reduce
 import operator
 from conf import DEFAULT
 
 from core.log import log
-from core.timeline import now, Event
+from core.timeline import now, Event, Timer
 from core.advbase import Adv, ReservoirSkill, ReservoirChainSkill
 from core.modifier import ModeManager, EffectBuff
 from core.acl import allow_acl, CONTINUE
@@ -250,17 +250,17 @@ class SkillChainAdv(Adv):
 
 
 class ButterflyAdv(Adv):
-    def __init__(self, **kwargs):
+    def config_butterflies(self):
         self.butterfly_timers = defaultdict(lambda: set())
         self.act_history = deque(maxlen=6)
-        Event("x").listener(self.push_to_act_history, order=0)
-        Event("fs").listener(self.push_to_act_history, order=0)
-        Event("dodge").listener(self.push_to_act_history, order=0)
+        Event("x_end").listener(self.push_to_act_history, order=0)
+        Event("fs_end").listener(self.push_to_act_history, order=0)
+        Event("dodge_end").listener(self.push_to_act_history, order=0)
         self.cancelable = set()
 
     def push_to_act_history(self, e):
         self.check_delayed()
-        self.act_history.append(e.name)
+        self.act_history.append(e.act.name)
         log("act_history", str(self.act_history))
         if len(self.act_history) > 5:
             oldest = self.act_history.popleft()
@@ -296,7 +296,7 @@ class ButterflyAdv(Adv):
             self.current_s["s1"] = "sixplus"
             self.current_s["s2"] = "sixplus"
 
-    def clear_all_butterflies(self):
+    def clear_all_butterflies(self, _=None):
         for chasers in self.butterfly_timers.values():
             for t in chasers:
                 t.off()
@@ -311,11 +311,7 @@ class ButterflyAdv(Adv):
         if not seq:
             return
         oldest = min(seq)
-        matching = tuple(
-            filter(
-                lambda k: k[1] == name and k[0] == oldest, self.butterfly_timers.keys()
-            )
-        )
+        matching = tuple(filter(lambda k: k[1] == name and k[0] == oldest, self.butterfly_timers.keys()))
         for m in matching:
             for mt in self.butterfly_timers[m]:
                 mt.off()
@@ -344,10 +340,6 @@ class ButterflyAdv(Adv):
     @property
     def butterflies(self):
         return len(self.butterfly_timers.keys())
-
-    @property
-    def butterflies_s1(self):
-        return min(10, self.butterflies)
 
 
 class LowerMCAdv(Adv):

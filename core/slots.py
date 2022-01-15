@@ -263,6 +263,7 @@ class DragonBase(EquipBase):
             "dend.recovery": 0.0,
             "allow_end": 3.0,  # time before force end is allowed, not including the time needed for skill
             "allow_end_step": 2.0,  # for each shift, add this amount of time to allow_end
+            "auto_dodge": True,  # automatically dodge at end of combo
         }
     )
 
