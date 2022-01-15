@@ -43,8 +43,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83642.07483941216,
-        "team": 0.17756956798892276,
+        "dps": 82721.41510963059,
+        "team": 0.17762096190121843,
         "noaff": false,
         "nihil": false
       },
@@ -80,11 +80,53 @@
       ]
     },
     "META": {
-      "tdps": 50476.13739465671,
+      "tdps": 46852.49931645911,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70629.61779015178,
+        "team": 0.132362367057093,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Initios_Sentinel",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, butterflies>=9",
+        "`s1, butterflies>=9",
+        "`fs, x=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3",
+        "`sack, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 73212.61196524286,
@@ -192,7 +234,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

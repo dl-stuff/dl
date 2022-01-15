@@ -75,8 +75,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40284.06448827978,
-        "team": 0.06235862079713983,
+        "dps": 30472.690906590073,
+        "team": 0.06891269724959688,
         "noaff": false,
         "nihil": true
       },
@@ -90,7 +90,6 @@
         "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Beast_Volk",
-      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, not buff(s2)",
         "`s1, prep or (timeleft(s1)<5 and x=5)",
@@ -113,33 +112,89 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 65358.90914472547,
-        "team": 0.21846480898110948,
+        "dps": 91360.0970568999,
+        "team": 0.4780242182238307,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "queue prep and not buff(s3)",
         "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "end",
+        "`dragon, dgauge>=1000 or dshift_count",
         "`s1",
         "`s2",
-        "`s4",
-        "end",
-        "`dragon, not buff(s2)",
-        "`s1, prep or (timeleft(s1)<5 and x=5)",
-        "`s2",
-        "`s3, not buff(s3)",
         "`s4"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
         "`dfs, x=3"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74820.94893858378,
+        "team": 0.28325435042994707,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "end",
+        "`dragon, dgauge>=900 or dshift_count",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dodge, fsc",
+        "`dfs, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -84916.35952548253,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -149,8 +204,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42021.38460872633,
-        "team": 0.06235862079713983,
+        "dps": 31750.32966732071,
+        "team": 0.06891269724959688,
         "noaff": false,
         "nihil": true
       }
@@ -187,7 +242,8 @@
         "team": 0.06235862079713983,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.w": "primal_dragon"
     },
     "META": {
       "pref": "PERSONAL",

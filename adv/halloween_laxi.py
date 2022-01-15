@@ -72,5 +72,23 @@ class Halloween_Laxi(Adv):
             self.buff1990 = min(4, self.hits // 25)
         return result
 
+    def s2_before(self, e):
+        # 25_10/50_20/75_30/100_40
+        if self.hits >= 100:
+            mod = 0.4
+        elif self.hits >= 75:
+            mod = 0.3
+        elif self.hits >= 50:
+            mod = 0.2
+        elif self.hits >= 25:
+            mod = 0.1
+        else:
+            mod = 0
+        self.s2_combo_mod = Modifier(e.name, "ex", "skill_combo", mod).off()
+        self.extra_actmods.append(self.s2_combo_mod)
+
+    def s2_proc(self, e):
+        self.extra_actmods.remove(self.s2_combo_mod)
+
 
 variants = {None: Halloween_Laxi}

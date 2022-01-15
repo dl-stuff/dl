@@ -167,31 +167,27 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 127005.97679859532,
-        "team": 0.20929074657979402,
+        "dps": 131748.5676655566,
+        "team": 0.21044294929405657,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon, dgauge>=1000",
-        "`dragon, dshift_count>0",
+        "`dragon, (dgauge>=800 and s=2) or dshift_count",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2, charged_in(4,s1) and cancel",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs",
-        "`dodge, fsc",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`s4, cancel",
+        "`s2, charged_in(4, s1) and cancel",
+        "`s1",
+        "`fs, x=4 and hits<50 and c_fs(enhanced)"
       ],
       "coabs": [
-        "Gala_Notte",
+        "Nino",
         "Valentines_Melody",
         "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -224,7 +220,7 @@
       ]
     },
     "META": {
-      "tdps": 71912.79626670478,
+      "tdps": 48982.833527647796,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -298,6 +294,10 @@
         "`fs, x=1",
         "`dodge, fsc",
         "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "share": [
         "Weapon",

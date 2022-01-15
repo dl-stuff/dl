@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83638.70031694486,
+        "dps": 112736.3192491325,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -42,22 +42,25 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Holywyrms_Advent",
         "Dueling_Dancers",
         "His_Clever_Brother",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, aff(frostbite) and x=2",
-        "`s3, not buff(s3)",
+        "`dragon, x=2",
+        "`s3, not buff(s3) and x=2",
         "`s4, x=2",
         "`s2, x=2",
         "`dodge, x=2"
       ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
       "coabs": [
-        "Blade",
+        "Eugene",
         "Summer_Celliera",
         "Tiki"
       ],
@@ -67,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 299969.5043095767,
+      "tdps": 574796.9039845234,
       "pref": "PERSONAL"
     }
   },
@@ -148,33 +151,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 72928.02525726575,
-        "team": 0.11723436003569564,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Leviathan",
-      "acl": [
-        "`dragon, aff(frostbite) and x=2",
-        "`s3, not buff(s3)",
-        "`s4, x=2",
-        "`s2, x=2",
-        "`fsf, x=2 and hits>=15",
-        "`dodge, x=2"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Gala_Mascula",
-        "Summer_Celliera",
-        "Tiki"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 85339.98920031535,
-        "team": 0.10577829953031155,
+        "dps": 105048.05083421756,
+        "team": 0.12077589566550116,
         "noaff": false,
         "nihil": false
       },
@@ -187,26 +165,32 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, aff(frostbite) and x=2",
-        "`s3, not buff(s3)",
+        "`dragon, x=2",
+        "`s3, not buff(s3) and x=2",
         "`s4, x=2",
-        "`s2, x=2",
-        "`fsf, x=2 and hits>=15",
         "`dodge, x=2"
       ],
-      "coabs": [
-        "Gala_Mascula",
-        "Summer_Celliera",
-        "Tiki"
+      "dacl": [
+        "`ds1, x=3"
       ],
-      "share": [
-        "Weapon",
-        "Akasha"
+      "coabs": [
+        "Eugene",
+        "Gala_Mascula",
+        "Tiki"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 118020.61274210936,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "META": {
-      "tdps": 1083440.8509990205,
+      "tdps": 107410.19005829093,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -217,28 +201,31 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58935.76224134852,
-        "team": 0.0,
+        "dps": 62493.39747686061,
+        "team": 0.09992976048168854,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "The_Prince_of_Dragonyule",
+        "Wings_of_Rebellion_at_Rest",
         "A_Small_Courage",
-        "His_Clever_Brother",
+        "Enter_the_Blue_Rose",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "coabs": [
-        "Gala_Mascula",
-        "Renee",
-        "Tiki"
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon, cancel",
+        "`s4",
+        "`s3, x=2",
+        "`s2, x=2",
+        "`dodge, x=2"
       ],
-      "share": [
-        "Summer_Celliera",
-        "Yukata_Cassandra"
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
       ]
     },
     "META": {
@@ -252,22 +239,11 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52273.98510771758,
-        "team": 0.10788550707109869,
+        "dps": 85970.25456147632,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon, aff(frostbite) and x=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, x=2",
-        "`dodge, x=2"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",

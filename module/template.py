@@ -1,10 +1,10 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 from functools import reduce
 import operator
 from conf import DEFAULT
 
 from core.log import log
-from core.timeline import now, Event
+from core.timeline import now, Event, Timer
 from core.advbase import Adv, ReservoirSkill, ReservoirChainSkill
 from core.acl import allow_acl, CONTINUE
 
@@ -246,6 +246,99 @@ class SkillChainAdv(Adv):
     @property
     def skills(self):
         return (self.sr, self.s3, self.s4)
+
+
+class ButterflyAdv(Adv):
+    def config_butterflies(self):
+        self.butterfly_timers = defaultdict(lambda: set())
+        self.act_history = deque(maxlen=6)
+        Event("x_end").listener(self.push_to_act_history, order=0)
+        Event("fs_end").listener(self.push_to_act_history, order=0)
+        Event("dodge_end").listener(self.push_to_act_history, order=0)
+        self.cancelable = set()
+
+    def push_to_act_history(self, e):
+        self.check_delayed()
+        self.act_history.append(e.act.name)
+        log("act_history", str(self.act_history))
+        if len(self.act_history) > 5:
+            oldest = self.act_history.popleft()
+            self.clear_oldest_butterflies(oldest)
+        while self.butterflies > 9:
+            oldest = next(iter(sorted(self.butterfly_timers.keys())))
+            for t in self.butterfly_timers[oldest]:
+                t.off()
+            del self.butterfly_timers[oldest]
+            log("butterflies", "cap", self.butterflies)
+
+    def check_delayed(self):
+        for mt, k in self.cancelable.copy():
+            if not mt.online and mt.canceled:
+                self.clear_butterflies(*k, reason="canceled")
+                self.cancelable.remove((mt, k))
+
+    def do_hitattr_make(self, e, aseq, attr, pin=None):
+        mt = super().do_hitattr_make(e, aseq, attr, pin=pin)
+        if attr.get("butterfly"):
+            t = Timer(self.l_clear_butterflies)
+            t.name = e.name
+            t.chaser = attr.get("butterfly")
+            t.start = now()
+            t.on(9.001 + attr.get("iv", 0))
+            self.butterfly_timers[(now(), e.name, t.chaser)].add(t)
+            log("butterflies", "spawn", self.butterflies)
+            if mt:
+                self.cancelable.add((mt, (now(), e.name, t.chaser)))
+        elif mt and attr.get("chaser"):
+            self.butterfly_timers[(now(), e.name, attr.get("chaser"))].add(mt)
+        if self.butterflies >= 6:
+            self.current_s["s1"] = "sixplus"
+            self.current_s["s2"] = "sixplus"
+
+    def clear_all_butterflies(self, _=None):
+        for chasers in self.butterfly_timers.values():
+            for t in chasers:
+                t.off()
+        self.butterfly_timers = defaultdict(lambda: set())
+        self.current_s["s1"] = DEFAULT
+        self.current_s["s2"] = DEFAULT
+        self.act_history.clear()
+        log("butterflies", "remove all", self.butterflies)
+
+    def clear_oldest_butterflies(self, name):
+        seq = [k[0] for k in self.butterfly_timers.keys() if k[1] == name]
+        if not seq:
+            return
+        oldest = min(seq)
+        matching = tuple(filter(lambda k: k[1] == name and k[0] == oldest, self.butterfly_timers.keys()))
+        for m in matching:
+            for mt in self.butterfly_timers[m]:
+                mt.off()
+            del self.butterfly_timers[m]
+        if self.butterflies < 6:
+            self.current_s["s1"] = DEFAULT
+            self.current_s["s2"] = DEFAULT
+        log("butterflies", f"remove {name}", self.butterflies)
+
+    def clear_butterflies(self, name, chaser, start, reason="timeout"):
+        try:
+            key = (name, chaser, start)
+            for mt in self.butterfly_timers[key]:
+                mt.off()
+            del self.butterfly_timers[key]
+            if self.butterflies < 6:
+                self.current_s["s1"] = DEFAULT
+                self.current_s["s2"] = DEFAULT
+            log("butterflies", f"{reason} {name}-{chaser}", self.butterflies)
+        except KeyError:
+            pass
+
+    def l_clear_butterflies(self, t):
+        self.clear_butterflies(t.name, t.chaser, t.start)
+
+    @property
+    def butterflies(self):
+        return len(self.butterfly_timers.keys())
 
 
 class LowerMCAdv(Adv):

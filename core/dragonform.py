@@ -152,6 +152,8 @@ class DragonForm:
             self.adv.a_s_dict[skey].set_enabled(enabled)
 
     def auto_dodge(self, index=None):
+        if not self.conf.auto_dodge:
+            return False
         index = index or self.dx_max
         d_combo = self.adv.a_x_dict[DRG][index]
         if "dodge" not in d_combo.conf.cancel:

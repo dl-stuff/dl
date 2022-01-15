@@ -165,13 +165,13 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89121.3120676531,
-        "team": 0.10210727762184371,
+        "dps": 90705.30387949263,
+        "team": 0.10328754776712393,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon",
+        "`dragon, s1.check()",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, cancel or fsc",
@@ -182,7 +182,8 @@
         "`s4, x=5 or fsc",
         "`s2, fsc",
         "`s1",
-        "`fs, x=5"
+        "`fs, x=5",
+        "sack, s=1 and s=2"
       ],
       "coabs": [
         "Mona",
@@ -195,7 +196,7 @@
       ]
     },
     "META": {
-      "tdps": 28060814.95325947,
+      "tdps": 174092788.50827178,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -206,7 +207,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63139.30101284073,
+        "dps": 71969.69740318597,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -220,10 +221,21 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon, s1.check()",
+        "`s3",
+        "`s1",
+        "`s4, cancel or fsc",
+        "`s2, cancel or fsc",
+        "`fs, x=5"
+      ],
       "dacl": [
-        "`s4, xf=5",
-        "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now<2"
+        "`s4, x=5 or fsc",
+        "`s2, fsc",
+        "`s1",
+        "`fs, x=5",
+        "sack, s=2 and s1.charged<s1.sp/5"
       ]
     },
     "META": {

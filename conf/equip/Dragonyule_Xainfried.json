@@ -40,65 +40,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106643.52918651828,
-        "team": 0.1673205081927544,
+        "dps": 113305.54713522135,
+        "team": 0.16676593656461833,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Fudo_Myoo",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1",
-        "`dodge, x=3"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "tdps": 29933.27907545744,
-      "pref": "TEAMBUFF"
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 35981.66658361997,
-        "team": 0.15641863579645487,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
         "Sweet_Surprise",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon, (dgauge>=900 and s=1) or dshift_count",
         "`s3, not buff(s3)",
@@ -107,13 +63,56 @@
         "`s4, cancel"
       ],
       "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Humanoid_Midgardsormr",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 47855.453982113264,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57267.96360917413,
+        "team": 0.32194081481384407,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, (dgauge>=900 and s=3) or dshift_count",
+        "`s2",
+        "`s3, cancel",
+        "`s4, cancel"
+      ],
+      "dacl": [
         "`ds1, blood_moon=0",
         "`dfs, x=3"
       ],
       "coabs": [
+        "Gala_Notte",
         "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -127,16 +126,25 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 112335.58904947898,
+        "dps": 123759.58097966091,
         "team": 0.5375589812705267,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 131547.61425405726,
-        "team": 0.1675262438215715,
+        "dps": 142068.71397105607,
+        "team": 0.15493602526767603,
         "noaff": false,
         "nihil": false
       },
@@ -149,17 +157,24 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel"
+      ],
       "dacl": [
         "`ds1, x=3 and dshift_timeleft<3"
       ],
       "coabs": [
         "Dagger2",
-        "Humanoid_Midgardsormr",
+        "Nino",
         "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": 51919.798602221024,
+      "tdps": 47851.632277020915,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -167,11 +182,34 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 118924.35470040902,
+        "team": 0.1557156469184539,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ]
+    },
+    "META": {
+      "tdps": -12662.85370008225,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69010.3349168127,
-        "team": 0.30793686027856537,
+        "dps": 79650.16558098514,
+        "team": 0.30793686027856554,
         "noaff": false,
         "nihil": true
       },
@@ -212,8 +250,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 104548.24934376263,
-        "team": 0.1673205081927544,
+        "dps": 97395.38923570662,
+        "team": 0.16676593656461833,
         "noaff": false,
         "nihil": false
       }
