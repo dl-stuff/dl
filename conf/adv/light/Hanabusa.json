@@ -1,5 +1,7 @@
 {
     "actconds": {
+        "339": {"duration": 20.0, "alt": {"s1": "phase2"}, "icon": 81, "text": "Dragon Dance"},
+        "340": {"duration": 15.0, "alt": {"s1": "phase3"}, "icon": 81, "text": "Tiger Dance"},
         "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
     },
     "c": {
@@ -33,7 +35,8 @@
         "attr": [
             {"dmg": 13.82, "target": "HOSTILE", "iv": 0.33333}
         ],
-        "cancel": {"any": 1.86667}
+        "cancel": {"any": 1.86667},
+        "phase_buff": [{"actcond": "339", "target": "MYSELF", "iv": 0.16667}]
     },
     "s1_phase3": {
         "sp": 2567,
@@ -42,7 +45,8 @@
         "attr": [
             {"dmg": 16.33, "target": "HOSTILE", "iv": 0.33333}
         ],
-        "cancel": {"any": 1.86667}
+        "cancel": {"any": 1.86667},
+        "phase_buff": [{"actcond": "340", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2": {
         "sp": 7634,

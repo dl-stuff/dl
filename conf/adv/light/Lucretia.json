@@ -19,7 +19,7 @@
             {"cond": ["event", "energized"], "ab": [["hitattr", {"actcond": "302030501", "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},
             {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["break"], "ab": [["actdmg", 0.35]]}
+            {"ab": [["mod", 0.35, "killer_break", "ex"]]}
         ],
         "skillshare": {"src": "s1", "cost": 3, "sp": 12355}
     },

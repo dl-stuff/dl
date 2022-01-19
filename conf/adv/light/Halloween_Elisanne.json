@@ -3,7 +3,9 @@
         "1147": {"duration": 15.0, "alt": {"x": "enhanced"}, "icon": 103, "text": "Vampire Maiden", "refresh": 1},
         "104031201": {"aff": "paralysis", "duration": 13.0, "slip": {"value": ["mod", 0.97], "iv": 3.9}, "rate": 1.2},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"}
+        "302031201": {"duration": 15.0, "icon": "att-buff", "mods": [[0.13, "att", "buff"]], "text": "Strength +13%"},
+        "311020202": {"count": 1, "coei": 1, "alt": {"s1": "phase2"}, "icon": 81, "text": "Sacred Maiden II"},
+        "311020203": {"count": 1, "coei": 1, "alt": {"s1": "phase3"}, "icon": 81, "text": "Sacred Maiden III"}
     },
     "c": {
         "name": "Halloween Elisanne",
@@ -50,7 +52,8 @@
             {"dmg": 1.872, "actcond": "104031201", "target": "HOSTILE", "iv": 1.73333, "msl": 1.26667},
             {"actcond": "302031201", "target": "MYPARTY", "iv": 1.73333, "msl": 0.96667}
         ],
-        "cancel": {"any": 2.73333}
+        "cancel": {"any": 2.73333},
+        "phase_buff": [{"actcond": "311020202", "target": "MYSELF", "iv": 0.16667}]
     },
     "s1_phase3": {
         "sp": 4548,
@@ -67,7 +70,8 @@
             {"actcond": "302031201", "target": "MYPARTY", "iv": 1.73333, "msl": 0.96667},
             {"heal": 108, "target": "ALLY", "iv": 1.73333, "msl": 0.96667}
         ],
-        "cancel": {"any": 2.73333}
+        "cancel": {"any": 2.73333},
+        "phase_buff": [{"actcond": "311020203", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2": {
         "sp": 5252,

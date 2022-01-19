@@ -15,7 +15,7 @@
         "wt": "dagger",
         "spiral": false,
         "abilities": [
-            {"cond": ["break"], "ab": [["actdmg", -0.15, "-t:s1"]]},
+            {"ab": [["mod", -0.15, "killer_break", "ex", "-t:s1"]]},
             {"ab": [["mod", 0.05, "aspd"]]},
             {"cond": ["actcond", "1771", ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]},
             {"cond": ["sp", "s2", "<", 100], "ab": [["mod", 0.1, "aspd"]]},

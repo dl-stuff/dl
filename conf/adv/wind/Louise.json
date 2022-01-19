@@ -13,7 +13,7 @@
         "wt": "bow",
         "spiral": true,
         "abilities": [
-            {"cond": ["overdrive"], "ab": [["actdmg", 0.15]]},
+            {"ab": [["mod", 0.15, "killer_overdrive"]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"cond": ["doublebuff"], "ab": [["actcond", "MYSELF", "302030301"]]}

@@ -7,7 +7,7 @@
         "ele": "water",
         "abilities": [
             {"ab": [["mod", 0.4, "hp"]]},
-            {"cond": ["overdrive"], "ab": [["actdmg", 0.6]]}
+            {"ab": [["mod", 0.6, "killer_overdrive"]]}
         ]
     },
     "dodge": {
@@ -18,9 +18,6 @@
         "sp": 30,
         "startup": 0.0,
         "recovery": 2.96667,
-        "cancel": {"any": 2.22222},
-        "sp_db": 90,
-        "uses": 1,
         "attr": [
             {"dmg": 1.08, "target": "HOSTILE", "iv": 0.83333},
             {"dmg": 1.08, "target": "HOSTILE", "iv": 1.43333},
@@ -35,7 +32,10 @@
             {"dmg": 1.08, "target": "HOSTILE", "iv": 1.43333, "msl": 0.56667},
             {"dmg": 1.08, "target": "HOSTILE", "iv": 1.43333, "msl": 0.6},
             {"heal": 30, "target": "ALLY", "iv": 1.80556}
-        ]
+        ],
+        "cancel": {"any": 2.22222},
+        "sp_db": 90,
+        "uses": 1
     },
     "dshift": {
         "attr": [

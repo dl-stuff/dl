@@ -4,7 +4,9 @@
         "2": {"count": 1, "energy": 2, "text": "Energy Level +2"},
         "63": {"aff": "stun", "duration": 6.5, "rate": 1.1},
         "102": {"count": 1, "energy": 3, "text": "Energy Level +3"},
-        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+        "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
+        "311030101": {"count": 1, "coei": 1, "alt": {"s1": "phase2"}, "icon": 81, "text": "Stunning Display II"},
+        "311030102": {"count": 1, "coei": 1, "alt": {"s1": "phase3"}, "icon": 81, "text": "Stunning Display III"}
     },
     "c": {
         "name": "Annelie",
@@ -43,7 +45,8 @@
             {"dmg": 8.954, "actcond": "63", "target": "HOSTILE", "iv": 0.5},
             {"actcond": "2", "target": "MYPARTY", "iv": 1.73333}
         ],
-        "cancel": {"any": 1.76667}
+        "cancel": {"any": 1.76667},
+        "phase_buff": [{"actcond": "311030101", "target": "MYSELF", "iv": 0.16667}]
     },
     "s1_phase3": {
         "sp": 3051,
@@ -57,7 +60,8 @@
             {"dmg": 0.22, "target": "HOSTILE", "iv": 0.66667},
             {"dmg": 7.788, "actcond": "63", "target": "HOSTILE", "iv": 0.66667}
         ],
-        "cancel": {"any": 1.7}
+        "cancel": {"any": 1.7},
+        "phase_buff": [{"actcond": "311030102", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2": {
         "sp": 10206,

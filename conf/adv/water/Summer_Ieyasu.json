@@ -3,6 +3,8 @@
         "19": {"duration": 30.0, "slip": {"value": ["mod", 1.46], "kind": "bleed", "iv": 4.9}, "debuff": 1, "text": "Bleeding", "rate": 0.8},
         "291": {"dispel": "buff"},
         "411": {"aff": "frostbite", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
+        "311063001": {"count": 1, "coei": 1, "alt": {"s1": "phase2"}, "icon": 81, "text": "Unrelenting Waves II"},
+        "311063002": {"count": 1, "coei": 1, "alt": {"s1": "phase3"}, "icon": 81, "text": "Unrelenting Waves III"},
         "311064001": {"count": 1, "coei": 1, "alt": {"s2": "enhanced"}},
         "311064002": {"count": 1, "coei": 1, "alt": {"s2": "default"}}
     },
@@ -41,7 +43,8 @@
             {"dmg": 4.5, "actcond": "19", "target": "HOSTILE", "iv": 0.66667},
             {"dmg": 4.5, "actcond": "19", "target": "HOSTILE", "iv": 0.93333}
         ],
-        "cancel": {"any": 1.83333}
+        "cancel": {"any": 1.83333},
+        "phase_buff": [{"actcond": "311063001", "target": "MYSELF", "iv": 0.16667}]
     },
     "s1_phase3": {
         "sp": 2714,
@@ -54,7 +57,8 @@
             {"dmg": 4.5, "actcond": "411", "target": "HOSTILE", "iv": 0.86667},
             {"actcond": "19", "target": "HOSTILE", "iv": 0.86667},
             {"actcond": "291", "target": "HOSTILE", "iv": 0.9}
-        ]
+        ],
+        "phase_buff": [{"actcond": "311063002", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2": {
         "sp": 3372,

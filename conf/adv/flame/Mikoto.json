@@ -2,6 +2,8 @@
     "actconds": {
         "1300": {"duration": 20.0, "icon": 64, "text": "Skill Haste"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "311010201": {"duration": 20.0, "icon": 43, "mods": [[0.1, "att", "buff"]], "alt": {"s1": "phase2"}, "text": "Flare Stance", "refresh": 1},
+        "311010203": {"duration": 15.0, "icon": 43, "mods": [[0.15, "att", "buff"], [0.3, "critdmg", "buff"]], "alt": {"s1": "phase3"}, "text": "Ruin Stance", "refresh": 1},
         "312010202": {"duration": 15.0, "icon": "aspd-buff", "mods": [[0.2, "aspd", "buff"]], "text": "Attack Rate +20%"}
     },
     "c": {
@@ -38,7 +40,8 @@
             {"dmg": 6.85, "target": "HOSTILE", "iv": 0.23333},
             {"dmg": 6.85, "target": "HOSTILE", "iv": 0.43333},
             {"dmg": 6.85, "target": "HOSTILE", "iv": 0.66667}
-        ]
+        ],
+        "phase_buff": [{"actcond": "311010201", "target": "MYSELF", "iv": 0.16667}]
     },
     "s1_phase3": {
         "sp": 4500,
@@ -50,7 +53,8 @@
             {"dmg": 5.17, "target": "HOSTILE", "iv": 0.66667},
             {"dmg": 7.76, "target": "HOSTILE", "iv": 1.16667}
         ],
-        "cancel": {"any": 2.8}
+        "cancel": {"any": 2.8},
+        "phase_buff": [{"actcond": "311010203", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2": {
         "sp": 4500,

@@ -8,7 +8,8 @@
         "1844": {"remove": "1822", "count": 1, "coei": 1},
         "1845": {"remove": "1820", "coei": 1},
         "1846": {"remove": "311065001", "coei": 1},
-        "1847": {"duration": 5.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "overwrite": 6}
+        "1847": {"duration": 5.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%", "overwrite": 6},
+        "311065001": {"count": 1, "coei": 1, "alt": {"ds1": "phase2"}, "icon": 81, "text": "Lunatic Desolation"}
     },
     "d": {
         "name": "Gala Beast Volk",
@@ -45,20 +46,17 @@
         "sp": 30,
         "startup": 0.0,
         "recovery": 2.36667,
-        "sp_db": 120,
-        "uses": 2,
         "attr": [
             {"amp": ["10000", 3, 2], "actcond": "1822", "target": "MYSELF"},
             {"actcond": "1822", "target": "MYSELF", "iv": 2.0}
-        ]
+        ],
+        "sp_db": 120,
+        "uses": 2
     },
     "ds1_phase2": {
         "sp": 30,
         "startup": 0.0,
         "recovery": 2.3,
-        "cancel": {"any": 2.16667, "ds1": 2.0},
-        "sp_db": 120,
-        "uses": 2,
         "attr": [
             {"pcond": ["actcond", "1820", "<=", 1], "dmg": 10.98, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
             {"pcond": ["actcond", "1820", "=", 2], "dmg": 10.98, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
@@ -71,6 +69,10 @@
             {"pcond": ["actcond", "1820", "=", 9], "dmg": 22.44, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
             {"pcond": ["actcond", "1820", "=", 10], "dmg": 36.0, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1}
         ],
+        "cancel": {"any": 2.16667, "ds1": 2.0},
+        "phase_buff": [{"sp": 200, "target": "MYSELF"}, {"actcond": "311065001", "target": "MYSELF"}],
+        "sp_db": 120,
+        "uses": 2,
         "final": true
     },
     "dshift": {

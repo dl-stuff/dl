@@ -5,7 +5,9 @@
         "954": {"remove": "953", "count": 1, "coei": 1},
         "987": {"icon": 149, "mods": [[0.25, "att", "buff"]], "text": "Grassland Warrior's Advance"},
         "990": {"icon": 150, "mods": [[0.25, "att", "buff"], [0.08, "res_flame", "buff"]], "text": "Sellsword's Assault"},
-        "993": {"icon": 151, "mods": [[0.25, "att", "buff"], [0.08, "res_flame", "buff"], [0.2, "critdmg", "buff"]], "text": "Sacred Dragonlord's Encouragement"}
+        "993": {"icon": 151, "mods": [[0.25, "att", "buff"], [0.08, "res_flame", "buff"], [0.2, "critdmg", "buff"]], "text": "Sacred Dragonlord's Encouragement"},
+        "311059001": {"count": 1, "coei": 1, "alt": {"s1": "phase2"}, "icon": 81, "text": "Signature Tactics II"},
+        "311059002": {"count": 1, "coei": 1, "alt": {"s1": "phase3"}, "icon": 81, "text": "Signature Tactics III"}
     },
     "c": {
         "name": "Eugene",
@@ -38,7 +40,8 @@
         "attr": [
             {"actcond": "990", "target": "ALLY", "iv": 0.8, "zone": 10.0}
         ],
-        "cancel": {"any": 1.66667}
+        "cancel": {"any": 1.66667},
+        "phase_buff": [{"actcond": "311059001", "target": "MYSELF", "iv": 0.16667}]
     },
     "s1_phase3": {
         "sp": 3456,
@@ -48,7 +51,8 @@
             {"actcond": "953", "target": "MYSELF"},
             {"actcond": "993", "target": "ALLY", "iv": 0.8, "zone": 10.0}
         ],
-        "cancel": {"any": 1.66667}
+        "cancel": {"any": 1.66667},
+        "phase_buff": [{"actcond": "311059002", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2": {
         "sp": 0,

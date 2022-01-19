@@ -80,9 +80,6 @@
             "sp": 3940,
             "startup": 0.0,
             "recovery": 3.46667,
-            "cancel": {"any": 3.43333, "ds2": 3.03333},
-            "sp_db": 3940,
-            "uses": 1,
             "attr": [
                 {"pcond": ["actcond", "1902", ">", 0], "sp": 9999, "target": "MYSELF"},
                 {"pcond": ["actcond", "1902", ">", 0], "heal": 60, "target": "MYPARTY"},
@@ -91,15 +88,15 @@
                 {"actcond": "1981", "iv": 0.03333},
                 {"dmg": 13.29, "target": "HOSTILE", "iv": 2.5},
                 {"dmg": 13.29, "target": "HOSTILE", "iv": 2.86667}
-            ]
+            ],
+            "cancel": {"any": 3.43333, "ds2": 3.03333},
+            "sp_db": 3940,
+            "uses": 1
         },
         "ds2": {
             "sp": 5240,
             "startup": 0.0,
             "recovery": 3.4,
-            "cancel": {"any": 3.4, "ds1": 3.23333},
-            "sp_db": 5240,
-            "uses": 1,
             "attr": [
                 {"pcond": ["actcond", "1902", ">", 0], "sp": 9999, "target": "MYSELF"},
                 {"pcond": ["actcond", "1902", ">", 0], "actcond": "1903", "target": "MYSELF"},
@@ -114,7 +111,10 @@
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 2.93333},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 3.03333},
                 {"dmg": 3.13, "target": "HOSTILE", "iv": 3.13333}
-            ]
+            ],
+            "cancel": {"any": 3.4, "ds1": 3.23333},
+            "sp_db": 5240,
+            "uses": 1
         }
     },
     "s1": {

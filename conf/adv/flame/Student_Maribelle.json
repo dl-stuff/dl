@@ -13,7 +13,7 @@
         "abilities": [
             {"cond": ["hp", ">=", 100], "ab": [["actdmg", 0.4, "-t:s"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
-            {"cond": ["break"], "ab": [["actdmg", 0.3]]}
+            {"ab": [["mod", 0.3, "killer_break", "ex"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 9006}
     },

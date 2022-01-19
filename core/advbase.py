@@ -2953,6 +2953,10 @@ class Adv(object):
     def buff(self, *args):
         return self.active_actconds.check(*args)
 
+    @allow_acl
+    def actcond(self, *args):
+        return self.active_actconds.stacks(*args)
+
     # @allow_acl
     # def timeleft(self, *args):
     #     return self.active_actconds.check(*args)

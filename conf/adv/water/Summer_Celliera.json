@@ -5,7 +5,9 @@
         "109030111": {"aff": "bog", "duration": 8.0, "text": "Bog", "rate": 1.2},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
-        "303020201": {"duration": 10.0, "icon": "def-buff", "mods": [[0.15, "def", "buff"]], "text": "Defense +15%"}
+        "303020201": {"duration": 10.0, "icon": "def-buff", "mods": [[0.15, "def", "buff"]], "text": "Defense +15%"},
+        "311051501": {"count": 1, "coei": 1, "alt": {"s2": "phase2"}, "icon": 81, "text": "Pep Talk II"},
+        "311051502": {"count": 1, "coei": 1, "alt": {"s2": "phase3"}, "icon": 81, "text": "Pep Talk III"}
     },
     "c": {
         "name": "Summer Celliera",
@@ -52,7 +54,8 @@
             {"actcond": "303020201", "target": "MYPARTY", "iv": 0.9},
             {"actcond": "1113", "target": "MYPARTY", "iv": 0.9}
         ],
-        "cancel": {"any": 2.06667}
+        "cancel": {"any": 2.06667},
+        "phase_buff": [{"actcond": "311051501", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2_phase3": {
         "sp": 7641,
@@ -64,6 +67,7 @@
             {"actcond": "1113", "target": "MYPARTY", "iv": 0.9},
             {"actcond": "1056", "target": "MYPARTY", "iv": 0.9}
         ],
-        "cancel": {"any": 2.06667}
+        "cancel": {"any": 2.06667},
+        "phase_buff": [{"actcond": "311051502", "target": "MYSELF", "iv": 0.16667}]
     }
 }

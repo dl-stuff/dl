@@ -15,7 +15,7 @@
         "wt": "dagger",
         "spiral": true,
         "abilities": [
-            {"cond": ["break"], "ab": [["actdmg", 0.35]]},
+            {"ab": [["mod", 0.35, "killer_break", "ex"]]},
             {"ab": [["mod", 0.5, "affres_blind"]]},
             {"cond": ["selfaff", "blind"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"ab": [["mod", 0.5, "affres_blind"]]}

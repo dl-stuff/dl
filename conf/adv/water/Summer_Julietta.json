@@ -5,6 +5,8 @@
         "109030111": {"aff": "bog", "duration": 8.0, "text": "Bog", "rate": 1.2},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "302030301": {"duration": 15.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "311051601": {"count": 1, "coei": 1, "alt": {"s2": "phase2"}, "icon": 81, "text": "Vacation Vigor II"},
+        "311051602": {"count": 1, "coei": 1, "alt": {"s2": "phase3"}, "icon": 81, "text": "Vacation Vigor III"},
         "316010601": {"count": 1, "shield": {"1": 0.4}, "coei": 1, "text": "Shield"}
     },
     "c": {
@@ -49,7 +51,8 @@
         "attr": [
             {"actcond": "302030301", "target": "ALLY", "iv": 0.13333},
             {"actcond": "572", "target": "ALLY", "iv": 0.13333}
-        ]
+        ],
+        "phase_buff": [{"actcond": "311051601", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2_phase3": {
         "sp": 7475,
@@ -59,6 +62,7 @@
             {"actcond": "302030301", "target": "ALLY", "iv": 0.13333},
             {"actcond": "572", "target": "ALLY", "iv": 0.13333},
             {"actcond": "316010601", "target": "ALLY", "iv": 0.13333}
-        ]
+        ],
+        "phase_buff": [{"actcond": "311051602", "target": "MYSELF", "iv": 0.16667}]
     }
 }

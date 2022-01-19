@@ -5,6 +5,8 @@
         "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
         "301040601": {"icon": "hp-buff", "mods": [[0.03, "hp", "buff"]], "coei": 1, "text": "HP +3%"},
         "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
+        "311051701": {"count": 1, "coei": 1, "alt": {"s1": "phase2"}, "icon": 81, "text": "Steel Formation II"},
+        "311051702": {"count": 1, "coei": 1, "alt": {"s1": "phase3"}, "icon": 81, "text": "Steel Formation III"},
         "316010401": {"count": 1, "shield": {"1": 0.2}, "coei": 1, "text": "Shield"},
         "326010401": {"duration": 20.0, "icon": "kbres-buff", "mods": [[1.0, "kbres", "buff"]], "coei": 1, "text": "Knockback Immunity", "refresh": 1}
     },
@@ -50,7 +52,8 @@
             {"dmg": 3.5, "actcond": "19", "addhit": [{"actcond": "1361", "target": "HOSTILE"}], "target": "HOSTILE", "iv": 1.66667},
             {"actcond": "187", "target": "MYPARTY", "iv": 1.73333}
         ],
-        "cancel": {"any": 2.26667}
+        "cancel": {"any": 2.26667},
+        "phase_buff": [{"actcond": "311051701", "target": "MYSELF", "iv": 0.16667}]
     },
     "s1_phase3": {
         "sp": 2838,
@@ -66,7 +69,8 @@
             {"actcond": "316010401", "target": "MYPARTY", "iv": 1.73333},
             {"actcond": "301040601", "target": "MYPARTY", "iv": 1.73333}
         ],
-        "cancel": {"any": 2.26667}
+        "cancel": {"any": 2.26667},
+        "phase_buff": [{"actcond": "311051702", "target": "MYSELF", "iv": 0.16667}]
     },
     "s2": {
         "sp": 7500,

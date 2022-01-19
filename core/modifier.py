@@ -632,7 +632,7 @@ class ActCond:
     def on(self, source, dtype, ev=1):
         if not self.check(source):
             return False
-        if self.stacks == self.maxstack or self.refresh:
+        if self.stacks == self.maxstack or self.stacks == self.count or self.refresh:
             self.off()
         if self.cooldown:
             if self.cooldown_timer:
@@ -903,6 +903,6 @@ class ActiveActconds(UserDict):
 
     def stacks(self, actcond_id, target=SELF):
         try:
-            return self.by_generic_target[target][actcond_id].stacks
+            return self.by_generic_target[target][str(actcond_id)].stacks
         except KeyError:
             return 0

@@ -12,7 +12,7 @@
         "wt": "blade",
         "spiral": true,
         "abilities": [
-            {"cond": ["overdrive"], "ab": [["actdmg", 0.15]]},
+            {"ab": [["mod", 0.15, "killer_overdrive"]]},
             {"ab": [["mod", 0.5, "affres_sleep"]]},
             {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"ab": [["mod", 0.5, "affres_sleep"]]}

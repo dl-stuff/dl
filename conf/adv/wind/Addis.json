@@ -13,9 +13,9 @@
         "wt": "blade",
         "spiral": false,
         "abilities": [
-            {"cond": ["bleed"], "ab": [["actdmg", 0.08]]},
+            {"ab": [["mod", 0.08, "killer_bleed"]]},
             {"ab": [["mod", 1.0, "affres_freeze"]]},
-            {"cond": ["break"], "ab": [["actdmg", 0.2]]}
+            {"ab": [["mod", 0.2, "killer_break", "ex"]]}
         ],
         "skillshare": {"src": "s1", "cost": 6, "sp": 5708}
     },
