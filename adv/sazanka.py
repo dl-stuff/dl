@@ -1,11 +1,12 @@
 from core.advbase import *
+from module.template import LowerMCAdv
 
 
 class Sazanka_RNG(Adv):
     conf = {"mbleed": False}
 
 
-class Sazanka_50MC(Adv, LowerMCAdv):
+class Sazanka_50MC(LowerMCAdv):
     pass
 
 
