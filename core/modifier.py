@@ -541,11 +541,14 @@ class ActCond:
             self.l_drg = Listener("dragon", self.all_off)
 
         self.remove_id = data.get("remove")
+
         self.count = data.get("count")
+        self.maxcount = data.get("maxcount")
+        self.addcount = bool(data.get("addcount"))
+        self._adv.current_count = 0
+
         self.duration = data.get("duration")
         self.duration_scale = data.get("duration_scale")
-        self.duration_maxcount = data.get("maxcount")
-        self.duration_addcount = data.get("addcount")
         self.cooldown = data.get("cd")
         self.cooldown_timer = None
 
@@ -562,8 +565,16 @@ class ActCond:
 
         self.alt = data.get("alt")
         if self.alt:
-            self.l_s = Listener("s", self.l_alt_s_pause, order=0).off()
-            self.l_s_end = Listener("s_end", self.l_alt_s_resume, order=0).off()
+            self.alt_has_s = any((sn in self.alt for sn in ("s1", "s2", "s3", "s4")))
+            if self.alt_has_s:
+                self.l_s = Listener("s", self.l_alt_s_pause, order=0).off()
+                self.l_s_end = Listener("s_end", self.l_alt_s_resume, order=0).off()
+            self.l_act_count_end = []
+            if self.count:
+                if "fs" in self.alt:
+                    self.l_act_count_end.append(Listener("fs", self.l_alt_count, order=0).off())
+                if self.alt_has_s:
+                    self.l_act_count_end.append(Listener("s", self.l_alt_count, order=0).off())
 
         self.mod_list = []
         self.is_doublebuff = False
@@ -656,16 +667,24 @@ class ActCond:
         stack_key = (now(), source)
 
         duration = -1
+        duration_repr = "Forever"
         timer = None
         if self.duration:
             duration = self.duration * self.bufftime(dtype)
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
             timer.on()
+            duration_repr = str(duration)
+        elif self.count:
+            if self.addcount:
+                self.current_count = max(self.current_count + self.count, self.maxcount)
+            else:
+                self.current_count = self.count
+            duration_repr = f"x{self.current_count}"
         self.buff_stack[stack_key] = (timer, ev * self.get_rate())
 
         self.effect_on(source, dtype, stack_key, timer=timer)
-        self.log("start", self.text, f"stack {self.stacks}", duration, f"{self.id}-{self.target}")
+        self.log("start", self.text, f"stack {self.stacks}", duration_repr, f"{self.id}-{self.target}")
 
         self.actcond_event.source = source
         self.actcond_event.dtype = dtype
@@ -733,9 +752,12 @@ class ActCond:
         if self.alt:
             for act, group in self.alt.items():
                 self._adv.current.set_action(act, group)
-            if timer is not None and any((sn in self.alt for sn in ("s1", "s2", "s3", "s4"))):
+            if self.alt_has_s and timer is not None:
                 self.l_s.on()
                 self.l_s_end.on()
+            elif self.l_act_count_end:
+                for listener in self.l_act_count_end:
+                    listener.on()
 
     def effect_off(self, stack_key):
         if stack_key in self.slip_stack:
@@ -754,8 +776,12 @@ class ActCond:
         if self.alt:
             for act, group in self.alt.items():
                 self._adv.current.unset_action(act, group)
-            self.l_s.off()
-            self.l_s_end.off()
+            if self.alt_has_s and stack_key[0] is not None:
+                self.l_s.off()
+                self.l_s_end.off()
+            elif self.l_act_count_end:
+                for listener in self.l_act_count_end:
+                    listener.on()
 
     def _apply_stack_timer_func(self, func_name, stack_key=None):
         if stack_key is None:
@@ -773,16 +799,22 @@ class ActCond:
         return max(self._apply_stack_timer_func("timeleft", stack_key=stack_key))
 
     def l_alt_s_pause(self, e):
-        if e.base in self.alt:
+        if self.alt.get(e.base) == e.group:
             if timers := self.pause():
                 timer = timers[-1]
                 log("alt_skill", "pause", timer.timing, timer.pause_time)
 
     def l_alt_s_resume(self, e):
-        if e.act.base in self.alt:
+        if self.alt.get(e.act.base) == e.act.group:
             if timers := self.resume():
                 timer = timers[-1]
                 log("alt_skill", "resume", timer.timing, timer.timing - now())
+
+    def l_alt_count(self, e):
+        if self.alt.get(e.base) == e.group:
+            self.current_count -= 1
+            if self.current_count == 0:
+                self.off()
 
 
 class AmpContext:

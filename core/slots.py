@@ -346,7 +346,7 @@ class AmuletStack:
 
     @property
     def abilities(self):
-        self.actconds = {}
+        self.actconds = dict(wyrmprints_meta["actconds"])
         merged_abilities = []
 
         lim_groups = wyrmprints_meta["lim_groups"]
@@ -372,12 +372,6 @@ class AmuletStack:
                         psalm_abilities.append(ab)
                         if len(ablst) == 1:
                             merged = False
-                    elif ab[0] == "actcond":
-                        for actcond_id in ab[2:]:
-                            self.actconds[actcond_id] = actconds[actcond_id]
-                    elif ab[0] == "hitattr":
-                        actcond_id = ab[1]["actcond"]
-                        self.actconds[actcond_id] = actconds[actcond_id]
             if merged:
                 merged_abilities.append(ability)
 
@@ -390,13 +384,6 @@ class AmuletStack:
             if len(abilities) == 1:
                 ability = abilities[0]
                 del ability["lg"]
-                for ab in ability["ab"]:
-                    if ab[0] == "actcond":
-                        for actcond_id in ab[2:]:
-                            self.actconds[actcond_id] = actconds[actcond_id]
-                    elif ab[0] == "hitattr":
-                        actcond_id = ab[1]["actcond"]
-                        self.actconds[actcond_id] = actconds[actcond_id]
                 merged_abilities.append(ability)
                 continue
             actcond_duration = 0

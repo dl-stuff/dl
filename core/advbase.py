@@ -3,8 +3,9 @@ import operator
 import sys
 import random
 from functools import reduce
-from itertools import product
+from itertools import chain, product
 from collections import OrderedDict, Counter
+from tkinter import N
 
 # from core import *
 from core.config import Conf
@@ -77,12 +78,14 @@ class CurrentActions:
                 return
             self._act[act] = [g for g in self._act[act] if g != group]
             self._act[act].append(group)
+            # log("debug", "set_action", act, group, self._act[act])
         except KeyError:
             pass
 
     def unset_action(self, act, group):
         try:
             self._act[act] = [g for g in self._act[act] if g != group]
+            # log("debug", "unset_action", act, group, self._act[act])
         except KeyError:
             pass
 
@@ -94,7 +97,7 @@ class CurrentActions:
 
 
 class Skill(object):
-    _static = Static({"s_prev": "<nop>", "first_x_after_s": 0, "silence": 0, "current": None})
+    _static = Static({"s_prev": "<nop>", "first_x_after_s": 0, "silence": 0, "current": None, "hitattr_make": None})
     charged = 0
     sp = 0
     silence_duration = 1.9
@@ -112,23 +115,30 @@ class Skill(object):
         self.silence_end_event = Event("silence_end")
         self.skill_charged = Event(f"{self.name}_charged")
 
-        self.enable_phase_up = False
-        self.maxcharge = 1
         self.autocharge_sp = 0
 
-        self.p_max = 0
         self.dragonbattle_skill = False
+
+        self.phase_buffs = None
+
+        self.maxcharge = 1
         self.overcharge_sp = None
 
-    def add_action(self, group, act, phase_up=True):
+    def add_action(self, group, act):
         act.cast = self.cast
         self.act_dict[group] = act
-        if act.group == globalconf.DEFAULT:
+        if group == globalconf.DEFAULT:
             self.act_base = act
-        if isinstance(act.group, int):
-            # might need to distinguish which phase can up eventually
-            self.enable_phase_up = self.enable_phase_up or phase_up
-        elif act.group.startswith("overcharge"):
+        if act.conf["phase_buff"]:
+            if self.phase_buffs is None:
+                self.phase_buffs = {}
+            phase = int(group[-1])
+            if phase == 2:
+                prev_phase = globalconf.DEFAULT
+            else:
+                prev_phase = f"phase{int(group[-1]) - 1}"
+            self.phase_buffs[prev_phase] = act.conf["phase_buff"]
+        if group.startswith("overcharge"):
             if self.overcharge_sp is None:
                 self.overcharge_sp = [(globalconf.DEFAULT, self.act_dict[globalconf.DEFAULT].conf.sp)]
             self.overcharge_sp.append((act.group, act.conf.sp))
@@ -197,10 +207,9 @@ class Skill(object):
         return self.act_base.conf["owner"] or None
 
     def phase_up(self):
-        if self.p_max:
-            cur_s = self._static.current_s[self.name]
-            cur_s = (cur_s + 1) % self.p_max
-            self._static.current_s[self.name] = cur_s
+        if self.phase_buffs is None or not (phase_buff := self.phase_buffs.get(self.current)):
+            return
+        self._static.unbound_hitattrs_make("phase", phase_buff)
 
     def __call__(self, *args):
         return self.precast()
@@ -214,7 +223,6 @@ class Skill(object):
             return True
         elif not result:
             return False
-        self.enable_phase_up and self.phase_up()
         return self.cast()
 
     def charge(self, sp):
@@ -262,6 +270,7 @@ class Skill(object):
         self._static.silence = 1
         if self.ac.uses > 0:
             self.ac.uses -= 1
+        self.phase_up()
         if loglevel >= 2:
             log("silence", "start")
         return 1
@@ -783,11 +792,11 @@ class Fs(Action):
         self.act_event.dtype = self.base
         self.act_event.level = self.level
         self.act_event.action = self
-        self.start_event = Event(f"{self.base}_start")
+        self.start_event = Event("fs_start")
         self.start_event.act = self.act_event
-        self.end_event = Event(f"{self.base}_end")
+        self.end_event = Event("fs_end")
         self.end_event.act = self.act_event
-        self.charged_event = Event(f"{self.base}_charged")
+        self.charged_event = Event("fs_charged")
         self.charged_event.act = self.act_event
 
         self.charged_timer = Timer(self._charged)
@@ -1095,6 +1104,7 @@ class Adv(object):
         self.Skill = Skill()
         self.current = CurrentActions(self.in_dform)
         self.Skill._static.current = self.current
+        self.Skill._static.unbound_hitattrs_make = self.unbound_hitattrs_make
         # init actions
         for xn, xconf in self.conf.find(r"^d?x\d+(_[A-Za-z0-9]+)?$"):
             a_x = X(xn, self.conf[xn])
@@ -1602,9 +1612,6 @@ class Adv(object):
         for actcond in self.active_actconds.by_generic_target[ENEMY].values():
             if actcond.debuff:
                 actcond.update_debuff_rates(debuff_rates)
-
-        for buff in self.active_actconds:
-            pass
 
         if self.conf["classbane"]:
             enemy_class = self.conf["classbane"]
@@ -2121,7 +2128,7 @@ class Adv(object):
                         self.conf[dst_sn] = src_snconf
                         modified_attr = []
                         hitseq = []
-                        for idx, attr in enumerate(self.conf[dst_sn].get("attr", [])):
+                        for idx, attr in chain(enumerate(self.conf[dst_sn].get("attr", [])), enumerate(self.conf[dst_sn].get("phase_buff", []))):
                             if attr.get("ab"):
                                 continue
                             if actcond_id := attr.get("actcond"):
@@ -2147,18 +2154,6 @@ class Adv(object):
             s = S(sn, snconf)
             if s.group != globalconf.DEFAULT and self.conf[s.base]:
                 snconf.update(self.conf[s.base], rebase=True)
-            # if s.group.startswith("phase"):
-            #     s.group = int(s.group[5:])
-            #     try:
-            #         self.a_s_dict[s.base].p_max = max(self.a_s_dict[s.base].p_max, s.group)
-            #     except ValueError:
-            #         self.a_s_dict[s.base].p_max = s.group
-            #     self.current_s[s.base] = 0
-            #     s.group -= 1
-            #     s.act_event.group = s.group
-            # phase_up = True
-            # if self.nihilism:
-            #     phase_up = snconf.get("phase_coei")
             self.a_s_dict[s.base].add_action(s.group, s)
             if sn[0] == "d":
                 s.is_dragon = True
@@ -2555,6 +2550,10 @@ class Adv(object):
         self.active_actconds.add(actcond, source)
         actcond.on(source, dtype, ev=ev)
         return actcond
+
+    def unbound_hitattrs_make(self, name, attrs, dtype="#"):
+        for aseq, attr in enumerate(attrs):
+            self.hitattr_make(name, name, globalconf.DEFAULT, aseq, attr, dtype=dtype)
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None, action=None, ev=1):
         g_logs.log_conf("hitattr", name, attr)
