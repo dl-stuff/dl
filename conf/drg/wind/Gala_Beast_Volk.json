@@ -24,7 +24,7 @@
             {"cond": ["event", "divinedragon_end"], "ab": [["hitattr", {"actcond": "1821", "target": "MYSELF"}], ["actcond", "MYSELF", "1844"]]},
             {"cond": ["event", "divinedragon_end"], "ab": [["actcond", "MYSELF", "1845"], ["actcond", "MYSELF", "1846"]]},
             {"cond": ["event", "dragon_end"], "ab": [["hitattr", {"actcond": "1821", "target": "MYSELF"}], ["actcond", "MYSELF", "1844"]]},
-            {"cond": ["always"], "actcond": "1822", "cd": 3.5, "ab": [["hitattr", {"dmg": 2.58, "hp": 10.0, "target": "HOSTILE"}]]},
+            {"cond": ["always"], "actcond": "1822", "cd": 3.5, "ab": [["hitattr", {"dmg": 2.58, "hp": 10.0, "target": "HOSTILE"}, {"actcond": "1820", "target": "MYSELF"}]]},
             {"cond": ["event", "dragon_end"], "ab": [["actcond", "MYSELF", "1845"], ["actcond", "MYSELF", "1846"]]},
             {"ele": "wind", "ab": [["mod", 0.15, "killer_stormlash"], ["mod", 0.15, "killer_poison"]]},
             {"ele": "wind", "ab": [["mod", 0.3, "afftime_stormlash"], ["mod", 0.3, "afftime_poison"]]}

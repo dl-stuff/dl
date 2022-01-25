@@ -313,7 +313,7 @@ class AffEVCapped(AffEV):
         self.group = group
         super().__init__(allaff, aff, tolerance)
 
-    def on(self, rate, stack_key, extra_p=1.0):
+    def on(self, rate, stack_key, extra_p=1.0, slip_dmg=None):
         if self.group:
             no_stack_p = 1.0
             for aff in self.group:

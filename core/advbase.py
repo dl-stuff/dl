@@ -115,6 +115,8 @@ class Skill(object):
         self.silence_end_event = Event("silence_end")
         self.skill_charged = Event(f"{self.name}_charged")
 
+        self.uses = -1
+
         self.autocharge_sp = 0
 
         self.dragonbattle_skill = False
@@ -152,8 +154,7 @@ class Skill(object):
     def reset_uses(self):
         if self.dragonbattle_skill:
             return
-        for ac in self.act_dict.values():
-            ac.uses = ac.conf["uses"] or -1
+        self.uses = self.act_base.conf["uses"] or -1
         self.charged = 0
         if self.overcharge_sp is not None:
             self._static.current.reset_action(self.name)
@@ -250,13 +251,11 @@ class Skill(object):
             return False
         if self.overcharge_sp:
             valid_sp = self.real_sp
-            valid_uses = self.act_dict[globalconf.DEFAULT].uses
         else:
             valid_sp = self.sp
-            valid_uses = self.ac.uses
         if valid_sp == 0:
             return False
-        if self.charged < valid_sp or valid_uses == 0:
+        if self.charged < valid_sp or self.uses == 0:
             return False
         return True
 
@@ -268,8 +267,8 @@ class Skill(object):
         # Even if animation is shorter than 1.9, you can't cast next skill before 1.9
         self.silence_end_timer.on(self.silence_duration)
         self._static.silence = 1
-        if self.ac.uses > 0:
-            self.ac.uses -= 1
+        if self.uses > 0:
+            self.uses -= 1
         self.phase_up()
         if loglevel >= 2:
             log("silence", "start")
@@ -910,8 +909,6 @@ class S(Action):
 
         self.end_event = Event("s_end")
         self.end_event.act = self.act_event
-
-        self.uses = -1
 
     def getstartup(self):
         return S.TAP_DELAY + super().getstartup()
@@ -1612,6 +1609,9 @@ class Adv(object):
         for actcond in self.active_actconds.by_generic_target[ENEMY].values():
             if actcond.debuff:
                 actcond.update_debuff_rates(debuff_rates)
+
+        debuff_rates["bleed"] = self.bleed.get()
+        debuff_rates["debuff"] = sum(debuff_rates.values())
 
         if self.conf["classbane"]:
             enemy_class = self.conf["classbane"]
@@ -2727,7 +2727,7 @@ class Adv(object):
     #             return any((self.eval_attr_cond(subcond) for subcond in cond[1:]))
 
     def _pcond_actcond(self, actcond_id, op, value):
-        return globalconf.OPS[op](self._adv.active_actconds.stacks(actcond_id), value)
+        return globalconf.OPS[op](self.active_actconds.stacks(actcond_id), value)
 
     def _pcond_amp(self, *args):
         raise NotImplementedError

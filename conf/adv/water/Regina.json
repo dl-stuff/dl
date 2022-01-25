@@ -28,7 +28,7 @@
         "spiral": false,
         "abilities": [
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1152"], ["actcond", "MYSELF", "1871"]]},
-            {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"pcond": ["actcond", "1871", "=", 1], "actcond": "1874", "target": "MYSELF"}]]},
+            {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"pcond": ["actcond", "1871", "=", 1], "actcond": "1874", "target": "MYSELF"}, {"pcond": ["actcond", "1872", "=", 1], "actcond": "1875", "target": "MYSELF"}, {"pcond": ["actcond", "1873", "=", 1], "actcond": "1876", "target": "MYSELF"}, {"pcond": ["actcond", "1871", "=", 1], "actcond": "1872", "target": "MYSELF"}, {"pcond": ["actcond", "1872", "=", 1], "actcond": "1873", "target": "MYSELF"}, {"pcond": ["actcond", "1873", "=", 1], "actcond": "1871", "target": "MYSELF"}]]},
             {"ab": [["ac_t", 1152, -0.15]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1171"], ["mode", "sigil"]]},
             {"cond": ["actcondend", 1152], "ab": [["actcond", "MYSELF", "1871"], ["actcond", "MYSELF", "1872"], ["actcond", "MYSELF", "1873"]]},

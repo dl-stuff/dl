@@ -135,30 +135,6 @@ class CondShift(Cond):
 CONDITONS["shift"] = CondShift
 
 
-class CondBreak(Cond):
-    def get(self):
-        return 0.15
-
-
-CONDITONS["break"] = CondBreak
-
-
-class CondOverdrive(Cond):
-    def get(self):
-        return 0.35
-
-
-CONDITONS["overdrive"] = CondOverdrive
-
-
-class CondBleed(Cond):
-    def get(self):
-        return self._adv.bleed.get()
-
-
-CONDITONS["bleed"] = CondBleed
-
-
 class CondEvent(Cond):
     def __init__(self, adv, data, *args) -> None:
         super().__init__(adv, data, *args)
@@ -304,20 +280,11 @@ SUB_ABILITIES["mod"] = AbMod
 
 class AbActdmg(AbModifier):
     def __init__(self, adv, ability, *args) -> None:
-        try:
-            self.target = args[1].replace("-t:", "")
-            if len(args) == 3:
-                super().__init__(adv, ability, args[0], self.target, args[2])
-            else:
-                super().__init__(adv, ability, args[0], self.target, "passive")
-        except IndexError:
-            self.target = "act"
-            if isinstance(ability.cond, (CondOverdrive, CondBleed)):
-                super().__init__(adv, ability, args[0], "killer", "passive")
-            elif isinstance(ability.cond, CondBreak):
-                super().__init__(adv, ability, args[0], "killer", "break")
-            else:
-                super().__init__(adv, ability, args[0], self.target, "passive")
+        self.target = args[1].replace("-t:", "")
+        if len(args) == 3:
+            super().__init__(adv, ability, args[0], self.target, args[2])
+        else:
+            super().__init__(adv, ability, args[0], self.target, "passive")
 
 
 SUB_ABILITIES["actdmg"] = AbActdmg
@@ -364,7 +331,7 @@ SUB_ABILITIES["actcond"] = AbActcond
 class AbHitattr(Ab):
     def __init__(self, adv, ability, *args) -> None:
         super().__init__(adv, ability)
-        self.hitattr = args[0]
+        self.hitattrs = args
         self.max_count = ability.data.get("count")
         self.count = 0
         self.l_cond = None
@@ -372,7 +339,8 @@ class AbHitattr(Ab):
             self.l_cond = self._cond.listener(self._actcond_on)
 
     def _actcond_on(self, e):
-        self._adv.hitattr_make("ab", "ab", "default", 1, self.hitattr, ev=getattr(e, "ev", 1))
+        for aseq, hitattr in enumerate(self.hitattrs):
+            self._adv.hitattr_make("ab", "ab", "default", aseq, hitattr, ev=getattr(e, "ev", 1))
         if self.max_count is not None:
             self.count += 1
             if self.count > self.max_count:

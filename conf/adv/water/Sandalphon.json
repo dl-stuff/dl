@@ -31,7 +31,7 @@
         "spiral": false,
         "utp": [1, 1800, 560, 65],
         "abilities": [
-            {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"pcond": ["actcond", "1889", "=", 1], "actcond": "1891", "target": "MYSELF"}]]},
+            {"cond": ["fs_hold", "charge"], "cd": 1.5, "ab": [["hitattr", {"pcond": ["actcond", "1889", "=", 1], "actcond": "1891", "target": "MYSELF"}, {"pcond": ["actcond", "1890", "=", 1], "actcond": "1892", "target": "MYSELF"}, {"pcond": ["actcond", "1890", "=", 1], "actcond": "1889", "target": "MYSELF"}, {"pcond": ["actcond", "1889", "=", 1], "actcond": "1890", "target": "MYSELF"}]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1889", "ab": [["mode", ""]]},
             {"cond": ["sp", "s1", ">", -1], "actcond": "1890", "ab": [["mode", "mode2"]]},
             {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1889"]]},
