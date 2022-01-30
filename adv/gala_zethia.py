@@ -104,6 +104,9 @@ class ServantAction:
             startup += self.conf["charge"] / self.adv.c_speed()
         self.startup_timer.on(startup)
         self.adv.c_servant_act = self
+        if self.name == "s1":
+            # bahamut skill pauses the timer
+            self.adv.dragonform.shift_end_timer.pause()
 
     def _cb_startup(self, t):
         if self.name != "dshift":
@@ -115,6 +118,9 @@ class ServantAction:
     def _cb_recovery(self, t):
         self.adv.next_servant_action(self)
         self.c_servant_act = None
+        if self.name == "s1":
+            # bahamut skill pauses the timer
+            self.adv.dragonform.shift_end_timer.resume()
 
     def stop(self):
         self.recovery_timer.off()
