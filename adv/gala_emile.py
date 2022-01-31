@@ -3,10 +3,6 @@ from core.advbase import *
 
 
 class Gala_Emile(Adv):
-    conf = {}
-    conf["share"] = ["Cleo", "Ranzal"]
-    conf["slots.d"] = "Summer_Marishiten"
-
     comment = "always get team amp on s1 s2"
 
     def __init__(self, **kwargs):
