@@ -3,7 +3,9 @@ from core.advbase import *
 
 
 class Gala_Emile(Adv):
+    DISABLE_DACL = True
     comment = "always get team amp on s1 s2"
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.sr = ReservoirSkill(name="s1", true_sp=4980, maxcharge=3)
