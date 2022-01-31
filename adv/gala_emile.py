@@ -4,6 +4,7 @@ from core.advbase import *
 
 class Gala_Emile(Adv):
     comment = "always get team amp on s1 s2"
+    conf = {"acl": "`dragon, dgauge>=1000"}
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
