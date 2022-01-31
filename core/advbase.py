@@ -2682,15 +2682,16 @@ class Adv(object):
                 self.heal_make(name, value, target)
 
         if "afflic" in attr:
+            dmg_name = attr.get("dmg_name", name)
             aff_type, aff_args = attr["afflic"][0], attr["afflic"][1:]
-            getattr(self.afflics, aff_type).on(name, *aff_args, dtype=dtype)
+            getattr(self.afflics, aff_type).on(dmg_name, *aff_args, dtype=dtype)
             if self.conf["fleet"]:
                 try:
                     aff_args[1] = 0
                 except IndexError:
                     pass
                 for _ in range(self.conf["fleet"]):
-                    getattr(self.afflics, aff_type).on(name, *aff_args, dtype=dtype)
+                    getattr(self.afflics, aff_type).on(dmg_name, *aff_args, dtype=dtype)
 
         if "bleed" in attr:
             from module.bleed import Bleed, mBleed

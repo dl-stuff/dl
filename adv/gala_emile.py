@@ -1,4 +1,3 @@
-from click import command
 from core.advbase import *
 
 
@@ -30,8 +29,9 @@ class Gala_Emile(Adv):
                         if "dmg" in attr:
                             share_fb_attr = {
                                 "afflic": ["frostbite", 110, 0.31, 42],
+                                "dmg_name": "a3",
                                 "dtype": "#",
-                                "iv": attr.get("iv", 0),
+                                "iv": attr.get("iv", 0) + 0.00001,
                                 "msl": attr.get("msl", 0),
                             }
                             s_act.conf.attr.append(share_fb_attr)
