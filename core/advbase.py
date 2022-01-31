@@ -2594,6 +2594,7 @@ class Adv(object):
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         g_logs.log_hitattr(name, attr)
         hitmods = self.actmods(name, base, group, aseq, attr)
+        dtype = attr.get("dtype", dtype)
         crisis_mod_key = dtype if dtype in self.crisis_mods else None
         if "dmg" in attr:
             if "killer" in attr:

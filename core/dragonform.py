@@ -510,8 +510,8 @@ class DragonFormUTP(DragonForm):
         self.l_s_end.on()
         self.l_ddrive_end.on()
         self.shift_end_timer.on(self.dtime())
-        self.shift_event()
         log("dragondrive", "start", self.dtime())
+        self.shift_event()
 
     def d_shift_start(self, _=None):
         if self.dform_mode == 1:
