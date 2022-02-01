@@ -1,17 +1,19 @@
 {
     "actconds": {
         "47": {"count": 1, "energy": 5},
-        "127": {"duration": 20.0, "slip": {"value": ["heal", 30.0], "kind": "hp", "iv": 2.9}, "coei": 1, "debuff": 1, "text": "HP Regen"}
+        "127": {"duration": 20.0, "slip": {"value": ["heal", 30.0], "kind": "hp", "iv": 2.9}, "coei": 1, "debuff": 1, "text": "HP Regen"},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
     },
     "d": {
         "name": "Freyja",
         "icon": "210084_01",
-        "att": 120,
-        "hp": 375,
+        "att": 140,
+        "hp": 395,
         "ele": "wind",
         "abilities": [
-            {"ab": [["mod", 0.3, "hp"]]},
-            {"ab": [["mod", 0.35, "sph"]]}
+            {"ab": [["mod", 0.4, "hp"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]},
+            {"ab": [["mod", 0.4, "sph"]]}
         ]
     },
     "ds1": {

@@ -1,16 +1,18 @@
 {
     "actconds": {
-        "47": {"count": 1, "energy": 5}
+        "47": {"count": 1, "energy": 5},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
     },
     "d": {
         "name": "Tie Shan Gongzhu",
         "icon": "210085_01",
-        "att": 124,
-        "hp": 371,
+        "att": 144,
+        "hp": 391,
         "ele": "light",
         "abilities": [
-            {"ab": [["mod", 0.3, "hp"]]},
-            {"ab": [["mod", 0.35, "sph"]]}
+            {"ab": [["mod", 0.4, "hp"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]},
+            {"ab": [["mod", 0.4, "sph"]]}
         ]
     },
     "ds1": {

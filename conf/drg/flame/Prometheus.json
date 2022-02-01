@@ -1,12 +1,16 @@
 {
+    "actconds": {
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
+    },
     "d": {
         "name": "Prometheus",
         "icon": "210052_01",
-        "att": 121,
-        "hp": 374,
+        "att": 141,
+        "hp": 394,
         "ele": "flame",
         "abilities": [
-            {"ab": [["mod", 0.5, "att"], ["mod", 0.15, "eleres", "wind"]]}
+            {"ab": [["mod", 0.55, "att"], ["mod", 0.15, "eleres", "wind"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]}
         ]
     },
     "ds1": {

@@ -1,17 +1,19 @@
 {
     "actconds": {
         "87": {"aff": "poison", "duration": 30.0, "slip": {"value": ["mod", 0.291], "iv": 2.9}, "rate": 1.2},
-        "839": {"duration": 40.0, "icon": 121, "mods": [[0.15, "killer_poison", "buff"]], "text": "Poisoned Punisher +15%"}
+        "839": {"duration": 40.0, "icon": 121, "mods": [[0.15, "killer_poison", "buff"]], "text": "Poisoned Punisher +15%"},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
     },
     "d": {
         "name": "Azazel",
         "icon": "210126_01",
-        "att": 128,
-        "hp": 368,
+        "att": 148,
+        "hp": 388,
         "ele": "shadow",
         "abilities": [
-            {"ab": [["mod", 0.3, "hp"]]},
-            {"ab": [["mod", 0.35, "sph"]]}
+            {"ab": [["mod", 0.4, "hp"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]},
+            {"ab": [["mod", 0.4, "sph"]]}
         ]
     },
     "ds1": {

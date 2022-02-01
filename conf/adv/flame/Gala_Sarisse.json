@@ -2,6 +2,12 @@
     "actconds": {
         "22": {"duration": 15.0, "icon": "att-buff", "mods": [[0.02, "att", "buff"]], "text": "Strength +2%"},
         "23": {"duration": 15.0, "icon": "crit-buff", "mods": [[0.01, "crit", "buff"]], "text": "Critical Rate +1%"},
+        "291": {"dispel": "buff"},
+        "641": {"duration": 15.0, "slip": {"value": ["heal", 10.0], "kind": "hp", "iv": 2.9}, "coei": 1, "debuff": 1, "text": "HP Regen"},
+        "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "refresh": 1},
+        "2121": {"coei": 1, "icon": 0, "hide": 1, "refresh": 1},
+        "2122": {"coei": 1, "icon": 0, "hide": 1, "refresh": 1},
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.97], "iv": 3.9}, "rate": 1.2},
         "302030401": {"duration": 15.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
         "303030301": {"duration": 15.0, "icon": "def-buff", "mods": [[0.2, "def", "buff"]], "text": "Defense +20%"},
         "311050301": {"count": 1, "coei": 1, "alt": {"s2": "enhanced"}},
@@ -10,15 +16,21 @@
     "c": {
         "name": "Gala Sarisse",
         "icon": "100029_02_r05",
-        "att": 485,
-        "hp": 843,
+        "att": 582,
+        "hp": 1011,
         "ele": "flame",
         "wt": "bow",
-        "spiral": false,
+        "spiral": true,
         "abilities": [
             {"cond": ["hitcount", 20], "ab": [["actcond", "MYSELF", "22"], ["actcond", "MYSELF", "23"]]},
+            {"cd": 20.0, "ab": [["hitattr", {"amp": ["10000", 3, 0], "target": "MYSELF"}]]},
+            {"cd": 20.0, "ab": [["hitattr", {"amp": ["20000", 3, 0], "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_stun"], ["mod", 1.0, "affres_sleep"]]},
-            {"ab": [["mod", 0.3, "bufftime", "-t:s"]]}
+            {"ab": [["mod", 0.3, "bufftime", "-t:s"]]},
+            {"cond": ["amp", 2, 2, ">=", 1], "ab": [["mod", 0.1, "aspd"]]},
+            {"cond": ["amp", 2, 3, ">=", 1], "ab": [["actdmg", 0.2, "-t:s"]]}
         ],
         "skillshare": {"src": "s1", "cost": 6, "sp": 8969}
     },
@@ -27,33 +39,45 @@
         "startup": 0.0,
         "recovery": 2.56667,
         "attr": [
-            {"cond": ["var", "buffcount", ">=", 1], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.68333},
-            {"cond": ["var", "buffcount", ">=", 2], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.75},
-            {"cond": ["var", "buffcount", ">=", 3], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.76667},
-            {"cond": ["var", "buffcount", ">=", 4], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.73333},
-            {"cond": ["var", "buffcount", ">=", 5], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.68333},
-            {"cond": ["var", "buffcount", ">=", 6], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.71667},
-            {"cond": ["var", "buffcount", ">=", 7], "dmg": 0.95, "target": "HOSTILE", "iv": 0.25006, "msl": 0.7},
-            {"dmg": 14.235, "target": "HOSTILE", "iv": 0.92523}
+            {"cond": ["var", "buffcount", ">=", 1], "dmg": 1.05, "actcond": "102040901", "target": "HOSTILE", "iv": 0.2, "msl": 0.68333},
+            {"cond": ["var", "buffcount", ">=", 2], "dmg": 1.05, "actcond": "102040901", "target": "HOSTILE", "iv": 0.2, "msl": 0.75},
+            {"cond": ["var", "buffcount", ">=", 3], "dmg": 1.05, "actcond": "102040901", "target": "HOSTILE", "iv": 0.2, "msl": 0.76667},
+            {"cond": ["var", "buffcount", ">=", 4], "dmg": 1.05, "actcond": "102040901", "target": "HOSTILE", "iv": 0.2, "msl": 0.73333},
+            {"cond": ["var", "buffcount", ">=", 5], "dmg": 1.05, "actcond": "102040901", "target": "HOSTILE", "iv": 0.2, "msl": 0.68333},
+            {"cond": ["var", "buffcount", ">=", 6], "dmg": 1.05, "actcond": "102040901", "target": "HOSTILE", "iv": 0.2, "msl": 0.71667},
+            {"cond": ["var", "buffcount", ">=", 7], "dmg": 1.05, "actcond": "102040901", "target": "HOSTILE", "iv": 0.2, "msl": 0.7},
+            {"cond": ["var", "buffcount", ">=", 1], "actcond": "291", "target": "HOSTILE", "iv": 0.2, "msl": 0.68333},
+            {"cond": ["var", "buffcount", ">=", 2], "actcond": "291", "target": "HOSTILE", "iv": 0.2, "msl": 0.75},
+            {"cond": ["var", "buffcount", ">=", 3], "actcond": "291", "target": "HOSTILE", "iv": 0.2, "msl": 0.76667},
+            {"cond": ["var", "buffcount", ">=", 4], "actcond": "291", "target": "HOSTILE", "iv": 0.2, "msl": 0.73333},
+            {"cond": ["var", "buffcount", ">=", 5], "actcond": "291", "target": "HOSTILE", "iv": 0.2, "msl": 0.68333},
+            {"cond": ["var", "buffcount", ">=", 6], "actcond": "291", "target": "HOSTILE", "iv": 0.2, "msl": 0.71667},
+            {"cond": ["var", "buffcount", ">=", 7], "actcond": "291", "target": "HOSTILE", "iv": 0.2, "msl": 0.7},
+            {"dmg": 18.0, "actcond": "102040901", "target": "HOSTILE", "iv": 0.93333},
+            {"actcond": "291", "target": "HOSTILE", "iv": 0.93333}
         ]
     },
     "s2": {
-        "sp": 8534,
+        "sp": 5610,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
             {"actcond": "302030401", "target": "MYPARTY", "iv": 0.13333},
+            {"actcond": "641", "target": "MYPARTY", "iv": 0.13333},
+            {"sp": [1.0, "%", "s1"], "actcond": "2121", "target": "MYSELF", "iv": 0.13333},
             {"actcond": "311050301", "target": "MYSELF", "iv": 0.16667}
         ]
     },
     "s2_phase2": {
-        "sp": 8534,
+        "sp": 5610,
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
             {"actcond": "302030401", "target": "MYPARTY", "iv": 0.13333},
-            {"actcond": "303030301", "target": "MYPARTY", "iv": 0.16667},
-            {"actcond": "311050302", "target": "MYSELF", "iv": 0.2}
+            {"actcond": "303030301", "target": "MYPARTY", "iv": 0.13333},
+            {"actcond": "641", "target": "MYPARTY", "iv": 0.13333},
+            {"sp": [1.0, "%", "s1"], "actcond": "2122", "target": "MYSELF", "iv": 0.13333},
+            {"actcond": "311050302", "target": "MYSELF", "iv": 0.16667}
         ],
         "phase_buff": [{"actcond": "311050301", "target": "MYSELF", "iv": 0.16667}]
     }

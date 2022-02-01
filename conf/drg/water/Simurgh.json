@@ -1,13 +1,17 @@
 {
+    "actconds": {
+        "1840": {"duration": 180.0, "icon": "att-buff", "mods": [[0.5, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
+    },
     "d": {
         "name": "Simurgh",
         "icon": "210081_01",
-        "att": 113,
-        "hp": 383,
+        "att": 133,
+        "hp": 403,
         "ele": "water",
         "abilities": [
-            {"ab": [["mod", 0.4, "hp"]]},
-            {"ab": [["mod", 0.6, "killer_overdrive"]]}
+            {"ab": [["mod", 0.6, "hp"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1840"]]},
+            {"ab": [["mod", 0.65, "killer_overdrive"]]}
         ]
     },
     "dodge": {
