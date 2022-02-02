@@ -5,6 +5,7 @@ import random
 from functools import reduce
 from itertools import chain, product
 from collections import OrderedDict, Counter
+from telnetlib import SE
 from tkinter import N
 
 # from core import *
@@ -1596,7 +1597,7 @@ class Adv(object):
         att = self.mod("att")
         cc = self.crit_mod(name)
         k = self.killer_mod(name)
-        log('att_mod', str((att, cc, k)))
+        # log('att_mod', str((att, cc, k)))
         return cc * att * k
 
     def build_rates(self, as_list=True):
@@ -2485,7 +2486,7 @@ class Adv(object):
         armor = 10 * self.def_mod()
         ex = Modifier.SELF.mod("ex")
         ele = self.ele_mod()
-        log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
+        # log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -2665,6 +2666,9 @@ class Adv(object):
 
         if (actcond_id := attr.get("actcond")) and (action is None or action.check_once_per_act(actcond_id, attr)):
             self.actcond_make(actcond_id, attr.get("target"), (name, aseq), dtype=dtype, ev=ev)
+
+        if (actcond_reset := attr.get("actcond_reset")) and (actcond := self.active_actconds.by_generic_target[SELF].get(actcond_reset)):
+            actcond.all_off()
 
         if "amp" in attr:
             self.amps[attr["amp"][0]].on(*attr["amp"][1:])

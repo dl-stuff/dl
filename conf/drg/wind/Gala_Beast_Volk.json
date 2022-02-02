@@ -67,13 +67,16 @@
             {"pcond": ["actcond", "1820", "=", 7], "dmg": 22.44, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
             {"pcond": ["actcond", "1820", "=", 8], "dmg": 22.44, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
             {"pcond": ["actcond", "1820", "=", 9], "dmg": 22.44, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
-            {"pcond": ["actcond", "1820", "=", 10], "dmg": 36.0, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1}
+            {"pcond": ["actcond", "1820", "=", 10], "dmg": 36.0, "actcond": "67", "target": "HOSTILE", "iv": 0.33333, "mslc": 1},
+            {"actcond_reset": "1820", "iv": 0.36667},
+            {"actcond_reset": "1822", "iv": 0.36667}
         ],
         "cancel": {"any": 2.16667, "ds1": 2.0},
         "phase_buff": [{"sp": 200, "target": "MYSELF"}, {"actcond": "311065001", "target": "MYSELF"}],
         "sp_db": 120,
         "uses": 2,
-        "final": true
+        "final": true,
+        "final_check_use": true
     },
     "dshift": {
         "attr": [

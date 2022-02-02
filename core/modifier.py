@@ -618,7 +618,7 @@ class ActCond:
         return self._rate
 
     def bufftime(self, dtype="s"):
-        if self.aff:
+        if self.aff and ENEMY in self.generic_target:
             return Modifier.SELF.mod(f"afftime_{self.aff}", operator=operator.add)
         else:
             if dtype == "s":
@@ -882,7 +882,7 @@ class Amp:
         self.extend = extend
         self.type = type
         self.mod_type, self.mod_order = Amp.MOD_ARGS[type]
-        self.name = f"{self.amp_id}-{self.mod_type}"
+        self.name = f"{self.mod_type}_amp"
 
         self.amp_ctx_myself = AmpContext(self.mod_type, self.mod_order, "MYSELF", values[0 : self.publish - 1], self.log)
         self.amp_ctx_myparty = AmpContext(self.mod_type, self.mod_order, "MYPARTY", values[self.publish - 1 :], self.log)

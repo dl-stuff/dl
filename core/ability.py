@@ -42,12 +42,14 @@ class Cond:
     def check(self, e):
         return True
 
-    def listener(self, callback, order=1):
-        def _checked_callback(e):
-            if all((ec() for ec in self._extra_checks)) and self.check(e):
-                callback(e)
+    def trigger(self, callback, order=1):
+        if self.event is not None:
 
-        return Listener(self.event, _checked_callback, order=order)
+            def _checked_callback(e):
+                if all((ec() for ec in self._extra_checks)) and self.check(e):
+                    callback(e)
+
+            return Listener(self.event, _checked_callback, order=order)
 
 
 CONDITONS["always"] = Cond
@@ -249,6 +251,41 @@ class CondDoublebuff(Cond):
 CONDITONS["doublebuff"] = CondDoublebuff
 
 
+class CondFSHold(Cond):
+    # def update_gozu_tenno_buff(self, t):
+    #     # will ignore cd of 15s for qol reasons
+    #     self.adv.gozu_tenno_buff.on(30)
+
+    # def oninit(self, adv):
+    #     super().oninit(adv)
+    #     adv.gozu_tenno_buff = adv.Selfbuff("gozu_tenno_buff", 0.3, 30, "flame", "ele").no_bufftime()
+
+    #     self.fs_charging_timer = Timer(self.update_gozu_tenno_buff, 3.0 - 0.00001, True)
+
+    #     Event("fs_start").trigger(lambda _: self.fs_charging_timer.on(), order=0)
+    #     Event("fs_end").trigger(lambda _: self.fs_charging_timer.off(), order=0)
+
+    def __init__(self, adv, data, *args) -> None:
+        self.required_time = args[0]
+        if self.required_time == "cd":
+            self.required_time = data["cd"]
+            del data["cd"]
+        super().__init__(adv, data, *args)
+        self.event = args[1]
+
+    def trigger(self, callback, order=1):
+        def _checked_callback(e):
+            if all((ec() for ec in self._extra_checks)) and self.check(e):
+                callback(e)
+
+        fs_charging_timer = Timer(_checked_callback, self.required_time - 0.00001, True)
+        Listener("fs_start", lambda _: fs_charging_timer.on())
+        Listener(self.event, lambda _: fs_charging_timer.off())
+
+
+CONDITONS["fs_hold"] = CondFSHold
+
+
 ### Sub Abilities
 SUB_ABILITIES = {}
 
@@ -308,7 +345,7 @@ class AbActcond(Ab):
         self.idx = 0
         self.l_cond = None
         if self._cond is not None:
-            self.l_cond = self._cond.listener(self._actcond_on)
+            self.l_cond = self._cond.trigger(self._actcond_on)
 
     def _actcond_on(self, e):
         if e.name == "actcond":
@@ -321,7 +358,7 @@ class AbActcond(Ab):
         self.idx = (self.idx + 1) % len(self.actcond_list)
         if self.max_count is not None:
             self.count += 1
-            if self.count > self.max_count:
+            if self.count > self.max_count and self.l_cond:
                 self.l_cond.off()
 
 
@@ -336,7 +373,7 @@ class AbHitattr(Ab):
         self.count = 0
         self.l_cond = None
         if self._cond is not None:
-            self.l_cond = self._cond.listener(self._actcond_on)
+            self.l_cond = self._cond.trigger(self._actcond_on)
 
     def _actcond_on(self, e):
         for aseq, hitattr in enumerate(self.hitattrs):
@@ -355,7 +392,7 @@ class AbDragonPrep(Ab):
         super().__init__(adv, ability, *args)
         self.value = args[0]
         if self._cond is not None:
-            self.l_cond = self._cond.listener(self._dprep)
+            self.l_cond = self._cond.trigger(self._dprep)
 
     def _dprep(self, e):
         self._adv.dragonform.charge_dprep(self.value)
@@ -369,7 +406,7 @@ class AbDragonPrepCap(Ab):
         super().__init__(adv, ability, *args)
         self.value = args[0]
         if self._cond is not None:
-            self.l_cond = self._cond.listener(self._dprep_max, order=2)
+            self.l_cond = self._cond.trigger(self._dprep_max, order=2)
 
     def _dprep_max(self, e):
         self._adv.dragonform.dragon_gauge = min(float_ceil(self._adv.dragonform.max_dragon_gauge, self.value), self._adv.dragonform.dragon_gauge)

@@ -302,7 +302,7 @@ class DragonForm:
         doing = self.d_shift.getdoing()
         if self.ds_final and not (isinstance(doing, S) and doing.base in self.shift_skills) and not self.l_s_final_end.get():
             ds_final = self.adv.a_s_dict[self.ds_final]
-            if ds_final.ac.conf.final and ds_final.ac.enabled and ds_final.uses != 0:
+            if ds_final.ac.conf.final and ds_final.ac.enabled and (not ds_final.ac.conf.final_check_use or ds_final.uses > 0):
                 self.shift_end_reason = reason
                 self.l_s_final_end.on()
                 ds_final.reset_uses()

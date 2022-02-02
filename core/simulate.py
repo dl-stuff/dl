@@ -144,7 +144,7 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
         act_sum(adv.logs.act_seq, output)
         return
     if verbose == 10:
-        adv.logs.write_logs(output=output, log_filter=['dmg'], timestamp=False)
+        adv.logs.write_logs(output=output, log_filter=["dmg"], timestamp=False)
         act_sum(adv.logs.act_seq, output)
         return
     if verbose == 4:
