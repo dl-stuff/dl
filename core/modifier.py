@@ -14,6 +14,8 @@ from core.acl import allow_acl
 
 ### modifiers
 
+EV_THRESHOLD = 0.00001
+
 
 class ModifierDict(defaultdict):
     BUFF_LIMITS = {"maxhp": 0.3}
@@ -217,8 +219,6 @@ class CrisisModifier(Modifier):
 
 
 class AffEV:
-    THRESHOLD = 0.00001
-
     def __init__(self, allaff, aff, tolerance) -> None:
         self._allaff = allaff
         self.aff = aff
@@ -292,7 +292,7 @@ class AffEV:
                 n_states[res + self.tolerance] += success_p
                 if fail_p > 0:
                     n_states[res] += fail_p
-        if total_success_p > AffEV.THRESHOLD:
+        if total_success_p > EV_THRESHOLD:
             self._res_states = n_states
             self._stacks[stack_key] = (actcond, total_success_p)
             self.update(slip_dmg=slip_dmg)
@@ -366,7 +366,7 @@ class Bleed:
             log("dmg", f"{source[0]}_bleed", self._mod * sum(values), self._mod, "+".join((f"{value:.2f}" for value in values)))
 
     def update(self):
-        self._mod = 0.5 + 0.5 * len(self._stacks)
+        self._mod = 0.5 + len(self._stacks) / 2
         self._dmg_by_source = defaultdict(list)
         for stack_key, value in self._stacks.items():
             self._dmg_by_source[stack_key[1]].append(value[1])
@@ -401,20 +401,22 @@ class BleedEV(Bleed):
     def __init__(self, adv) -> None:
         super().__init__(adv)
         self._stack_states = {tuple((None for _ in range(Bleed.CAP))): 1.0}
+        self._get = 1
 
     def tick(self, t):
         for source, value in self._dmg_by_source.items():
-            log("dmg", f"{source[0]}_bleed", value, self._mod)
+            log("dmg", f"{source[0]}_bleed", value, self._get)
 
     def get(self):
-        return (self._mod - 0.5) * 2
+        return self._get
 
     def update(self):
-        self._mod = 0
+        self._get = 0
         self._dmg_by_source = defaultdict(float)
         for state, state_p in self._stack_states.items():
-            mod = 0.5 + sum((int(stack is not None) / 2 for stack in state))
-            self._mod += mod * state_p
+            get = sum((int(stack is not None) for stack in state))
+            self._get += get * state_p
+            mod = 0.5 + (get / 2)
             for stack_key in state:
                 if stack_key is not None:
                     self._dmg_by_source[stack_key[1]] += self._stacks[stack_key][1] * state_p * mod
@@ -445,6 +447,12 @@ class BleedEV(Bleed):
                 success_state = state[1:] + [stack_key]
             n_states[tuple(fail_state)] += fail_p
             n_states[tuple(success_state)] += success_p
+
+        for state, state_p in n_states.copy().items():
+            if state_p < EV_THRESHOLD:
+                del n_states[state]
+        n_states[tuple((None for _ in range(Bleed.CAP)))] = 1 - sum(n_states.values())
+
         self._stack_states = n_states
 
         self.update()
@@ -462,6 +470,7 @@ class BleedEV(Bleed):
             n_states[tuple(state)] = state_p
 
         self._stack_states = n_states
+        self.update()
 
 
 class SlipDmg:
@@ -745,7 +754,7 @@ class ActCond:
                 selfaff.atype = self.aff
                 selfaff.ev = 1  # selfaff abilities always proc, even when resisted
                 selfaff.on()
-                if (ev := self._rate - Modifier.SELF.mod(f"affres_{self.aff}", operator=operator.add, initial=0)) > AffEV.THRESHOLD:
+                if (ev := self._rate - Modifier.SELF.mod(f"affres_{self.aff}", operator=operator.add, initial=0)) > EV_THRESHOLD:
                     slip_dmg.on(ev=ev)
                     self.slip_stack[stack_key] = slip_dmg
 
@@ -760,18 +769,18 @@ class ActCond:
                     listener.on()
 
     def effect_off(self, stack_key):
-        if stack_key in self.slip_stack:
+        if self.is_bleed:
+            log("effect_off", "bleed")
+            self._adv.bleed.off(stack_key)
+        elif stack_key in self.slip_stack:
             if self.aff and not self.relief and ENEMY in self.generic_target:
                 self._adv.afflictions[self.aff].off(stack_key)
             if self.slip is not None:
-                if self.is_bleed:
-                    self._adv.bleed.off(stack_key)
-                else:
-                    try:
-                        self.slip_stack[stack_key].off()
-                        del self.slip_stack[stack_key]
-                    except KeyError:
-                        pass
+                try:
+                    self.slip_stack[stack_key].off()
+                    del self.slip_stack[stack_key]
+                except KeyError:
+                    pass
 
         if self.alt:
             for act, group in self.alt.items():

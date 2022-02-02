@@ -227,9 +227,10 @@ class Log:
             except:
                 continue
 
-    def write_log_entry(self, entry, output, flush=False):
-        time = entry[0]
-        output.write("{:>8.3f}: ".format(time))
+    def write_log_entry(self, entry, output, flush=False, timestamp=True):
+        if timestamp:
+            time = entry[0]
+            output.write("{:>8.3f}: ".format(time))
         for value in entry[1:]:
             if isinstance(value, float):
                 output.write("{:<16.3f},".format(value))
@@ -242,7 +243,7 @@ class Log:
         if flush:
             output.flush()
 
-    def write_logs(self, log_filter=None, output=None, maxlen=None):
+    def write_logs(self, log_filter=None, output=None, maxlen=None, timestamp=True):
         if output is None:
             output = sys.stdout
         if log_filter is None:
@@ -251,7 +252,7 @@ class Log:
             log_iter = self.filter_iter(log_filter)
         maxlen = maxlen or -1
         for entry in log_iter:
-            self.write_log_entry(entry, output)
+            self.write_log_entry(entry, output, timestamp=timestamp)
             maxlen -= 1
             if maxlen == 0:
                 output.write("......")

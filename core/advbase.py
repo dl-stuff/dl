@@ -1377,9 +1377,10 @@ class Adv(object):
         for actcond in self.conf.actconds.values():
             if (slip := actcond.get("slip")) and slip["kind"] == "bleed" and actcond.get("rate", 1) < 1:
                 need_ev_bleed = True
-        if need_ev_bleed and not self.variant == "RNG":
-            self.bleed = BleedEV(self)
-            log("bleed", "using ev bleed")
+        self.bleed = BleedEV(self)
+        # if need_ev_bleed and not self.variant == "RNG":
+        #     self.bleed = BleedEV(self)
+        #     log("bleed", "using ev bleed")
 
     def check_used_actconds(self):
         for actcond in self.active_actconds.values():
@@ -1595,28 +1596,42 @@ class Adv(object):
         att = self.mod("att")
         cc = self.crit_mod(name)
         k = self.killer_mod(name)
+        log('att_mod', str((att, cc, k)))
         return cc * att * k
 
     def build_rates(self, as_list=True):
         rates = {}
+
+        # aff
         for afflic in AFFLICTION_LIST:
             rate = self.afflictions[afflic].get()
             if rate > 0:
                 rates[afflic] = rate
 
+        # debuff
         debuff_rates = defaultdict(float)
-
         for actcond in self.active_actconds.by_generic_target[ENEMY].values():
             if actcond.debuff:
                 actcond.update_debuff_rates(debuff_rates)
 
-        debuff_rates["bleed"] = self.bleed.get()
+        # bleed
+        debuff_rates["bleed"] = min(1, self.bleed.get())
         debuff_rates["debuff"] = sum(debuff_rates.values())
+        rates.update(debuff_rates)
 
+        # tribe
         if self.conf["classbane"]:
             enemy_class = self.conf["classbane"]
             if self.condition(f"vs {enemy_class} enemy"):
                 rates[enemy_class] = 1
+
+        # od/bk
+        if self.berserk_mode:
+            rates["overdrive"] = 1
+            rates["break"] = 0
+        else:
+            rates["overdrive"] = 0.45
+            rates["break"] = 0.15
 
         return rates if not as_list else list(rates.items())
 
@@ -2470,7 +2485,7 @@ class Adv(object):
         armor = 10 * self.def_mod()
         ex = Modifier.SELF.mod("ex")
         ele = self.ele_mod()
-        # log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
+        log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -2928,7 +2943,6 @@ class Adv(object):
     @property
     def bleed_stack(self):
         try:
-            log("bleed_stack", self.bleed.get())
             return self.bleed.get()
         except AttributeError:
             return 0
