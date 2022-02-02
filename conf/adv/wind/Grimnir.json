@@ -1,7 +1,11 @@
 {
     "actconds": {
         "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
-        "1665": {"duration": 60.0, "coei": 1, "-lv": 1666, "icon": 246, "text": "Brewing Storm Lv. {0}", "overwrite": 44}
+        "1665": {"duration": 60.0, "coei": 1, "lvl_up": "1666", "icon": 246, "text": "Brewing Storm Lv. {0}", "overwrite": 44},
+        "1666": {"duration": 60.0, "coei": 1, "lvl_up": "1667", "lvl_down": "1665", "icon": 246, "text": "Brewing Storm Lv. {0}", "overwrite": 44},
+        "1667": {"duration": 60.0, "coei": 1, "lvl_up": "1668", "lvl_down": "1666", "icon": 246, "text": "Brewing Storm Lv. {0}", "overwrite": 44},
+        "1668": {"duration": 60.0, "coei": 1, "lvl_up": "1669", "lvl_down": "1667", "icon": 246, "text": "Brewing Storm Lv. {0}", "overwrite": 44},
+        "1669": {"duration": 60.0, "coei": 1, "lvl_down": "1668", "icon": 246, "text": "Brewing Storm Lv. {0}", "overwrite": 44}
     },
     "c": {
         "name": "Grimnir",

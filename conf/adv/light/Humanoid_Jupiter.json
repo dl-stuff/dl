@@ -1,7 +1,10 @@
 {
     "actconds": {
         "1258": {"aff": "flashburn", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
-        "1967": {"duration": 60.0, "-lv": 1968, "icon": 293, "text": "Overcharged Lv. {0}"},
+        "1967": {"duration": 60.0, "lvl_up": "1968", "icon": 293, "text": "Overcharged Lv. {0}"},
+        "1968": {"duration": 45.0, "lvl_up": "1969", "lvl_down": "1967", "icon": 293, "text": "Overcharged Lv. {0}"},
+        "1969": {"duration": 30.0, "lvl_up": "1970", "lvl_down": "1968", "icon": 293, "text": "Overcharged Lv. {0}"},
+        "1970": {"duration": 15.0, "lvl_down": "1969", "icon": 293, "text": "Overcharged Lv. {0}", "refresh": 1},
         "1979": {"remove": "1970", "coei": 1},
         "104030901": {"aff": "paralysis", "duration": 13.0, "slip": {"value": ["mod", 0.883], "iv": 3.9}, "rate": 1.1}
     },

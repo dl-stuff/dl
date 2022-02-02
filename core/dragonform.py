@@ -271,7 +271,7 @@ class DragonForm:
 
     def d_shift_start(self, _=None):
         self.status = True
-        self.dragon_gauge -= self.shift_cost
+        self.dragon_gauge -= self.shift_cost * Modifier.SELF.mod("dpconsume", operator=operator.add)
         g_logs.set_log_shift(shift_name=self.name)
         if self.shift_start_proc:
             self.shift_start_proc()

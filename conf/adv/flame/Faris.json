@@ -4,7 +4,9 @@
         "1171": {"coei": 1, "alt": {"x": "enhanced"}, "icon": 167, "text": "Sigil Released", "refresh": 1, "unremovable": 1},
         "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2},
         "1538": {"count": 3, "coei": 1, "avoid": 0.3, "icon": 240, "text": "Uriel's Blessing", "overwrite": 31},
-        "1541": {"duration": 15.0, "icon": 239, "mods": [[-0.15, "att", "buff"]], "-lv": 1542, "debuff": 1, "text": "Uriel's Wrath Lv. 1"}
+        "1541": {"duration": 15.0, "icon": 239, "mods": [[-0.15, "att", "buff"]], "lvl_up": "1542", "debuff": 1, "text": "Uriel's Wrath Lv. 1"},
+        "1542": {"duration": 15.0, "icon": 239, "mods": [[-0.2, "att", "buff"]], "lvl_up": "1543", "lvl_down": "1541", "debuff": 1, "text": "Uriel's Wrath Lv. 2"},
+        "1543": {"duration": 10.0, "icon": 239, "mods": [[-0.3, "att", "buff"], [-0.25, "affres_scorchrend", "buff"]], "lvl_down": "1542", "debuff": 1, "text": "Uriel's Wrath Lv. 3", "refresh": 1}
     },
     "c": {
         "name": "Faris",

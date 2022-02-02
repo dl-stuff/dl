@@ -2,7 +2,11 @@
     "actconds": {
         "181": {"duration": 20.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"},
         "291": {"dispel": "buff"},
-        "1376": {"duration": 40.0, "icon": 183, "mods": [[0.1, "res", "buff"]], "coei": 1, "-lv": 1377, "text": "Draconian Grace Lv. 1"},
+        "1376": {"duration": 40.0, "icon": 183, "mods": [[0.1, "res", "buff"]], "coei": 1, "lvl_up": "1377", "text": "Draconian Grace Lv. 1"},
+        "1377": {"duration": 40.0, "icon": 183, "mods": [[0.05, "att", "buff"], [0.1, "res", "buff"]], "coei": 1, "lvl_up": "1378", "lvl_down": "1376", "text": "Draconian Grace Lv. 2"},
+        "1378": {"duration": 40.0, "icon": 183, "mods": [[0.05, "att", "buff"], [0.15, "res", "buff"]], "coei": 1, "lvl_up": "1379", "lvl_down": "1377", "text": "Draconian Grace Lv. 3"},
+        "1379": {"duration": 40.0, "icon": 183, "mods": [[0.1, "att", "buff"], [0.2, "res", "buff"]], "coei": 1, "lvl_up": "1380", "lvl_down": "1378", "text": "Draconian Grace Lv. 4"},
+        "1380": {"icon": 183, "mods": [[0.1, "att", "buff"], [0.2, "res", "buff"]], "coei": 1, "lvl_down": "1379", "text": "Draconian Grace Lv. 5", "refresh": 1},
         "1381": {"remove": "1380", "coei": 1},
         "1384": {"aff": "scorchrend", "duration": 21.0, "slip": {"value": ["mod", 0.416], "iv": 2.9}, "rate": 1.2}
     },
@@ -16,6 +20,7 @@
         "spiral": false,
         "gun": [3],
         "abilities": [
+            {"cond": ["actcond", "1380", ">=", 1], "ab": [["mod", -0.5, "dpconsume"]]},
             {"cond": ["event", "dragon_end"], "ab": [["actcond", "MYSELF", "1381"]]},
             {"ab": [["mod", 1.0, "affres_stun"], ["mod", 1.0, "affres_sleep"]]},
             {"ab": [["mod", 0.3, "killer_scorchrend"]]},

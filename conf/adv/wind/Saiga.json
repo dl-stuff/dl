@@ -2,7 +2,9 @@
     "actconds": {
         "291": {"dispel": "buff"},
         "1361": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
-        "1684": {"coei": 1, "-lv": 1685, "icon": 247, "text": "Enemy Insight Lv. 1", "overwrite": 45},
+        "1684": {"coei": 1, "lvl_up": "1685", "icon": 247, "text": "Enemy Insight Lv. 1", "overwrite": 45},
+        "1685": {"coei": 1, "lvl_up": "1686", "lvl_down": "1684", "icon": 247, "text": "Enemy Insight Lv. 2", "overwrite": 45},
+        "1686": {"coei": 1, "lvl_down": "1685", "icon": 247, "text": "Enemy Insight Lv. 3", "overwrite": 45},
         "1687": {"duration": 30.0, "coei": 1, "icon": 248, "text": "Calculated Shots", "overwrite": 46},
         "1688": {"remove": "1686", "coei": 1}
     },

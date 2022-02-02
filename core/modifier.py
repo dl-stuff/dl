@@ -533,6 +533,7 @@ class ActCond:
         self.id = id
         self.target = target
         self.generic_target = GENERIC_TARGET[self.target]
+        self.dtype = None
 
         self.aff = data.get("aff")
 
@@ -550,6 +551,8 @@ class ActCond:
             self.l_drg = Listener("dragon", self.all_off)
 
         self.remove_id = data.get("remove")
+        self.lvl_up_id = data.get("lvl_up")
+        self.lvl_down_id = data.get("lvl_down")
 
         self.count = data.get("count")
         self.maxcount = data.get("maxcount")
@@ -650,6 +653,10 @@ class ActCond:
         return True
 
     def on(self, source, dtype, ev=1):
+        self.dtype = dtype
+        if self.lvl_up_id and self.get():
+            self.off()
+            return self._adv.active_actconds.get((self.lvl_up_id, self.target)).on(source, dtype, ev=ev)
         if not self.check(source):
             return False
         if self.stacks == self.maxstack or self.stacks == self.count or self.refresh:
@@ -710,6 +717,8 @@ class ActCond:
             source = f"{source[0]}-N"
         else:
             source = f"{source[0]}-{source[1]}"
+        if self.lvl_down_id:
+            self._adv.active_actconds.get((self.lvl_down_id, self.target)).on(source, self.dtype)
         self.log("end", self.text, f"stack {self.stacks}", f"from {source} at {timing:<.3f}s", f"{self.id}-{self.target}")
 
     def off(self):

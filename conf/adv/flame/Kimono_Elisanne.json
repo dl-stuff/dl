@@ -1,6 +1,8 @@
 {
     "actconds": {
-        "1442": {"duration": 15.0, "ele": "flame", "icon": 210, "mods": [[0.15, "att", "buff"]], "coei": 1, "-lv": 1443, "text": "New Year's Prayer Lv. 1"},
+        "1442": {"duration": 15.0, "ele": "flame", "icon": 210, "mods": [[0.15, "att", "buff"]], "coei": 1, "lvl_up": "1443", "text": "New Year's Prayer Lv. 1"},
+        "1443": {"duration": 30.0, "ele": "flame", "icon": 210, "mods": [[0.25, "att", "buff"]], "coei": 1, "lvl_up": "1444", "lvl_down": "1442", "text": "New Year's Prayer Lv. 2"},
+        "1444": {"duration": 60.0, "ele": "flame", "icon": 210, "mods": [[0.4, "att", "buff"], [0.15, "res_wind", "buff"]], "coei": 1, "lvl_down": "1443", "text": "New Year's Prayer Lv. 3", "refresh": 1},
         "1468": {"slip": {"value": ["percent", -0.03], "kind": "sp", "target": "s2", "iv": 1.0}, "coei": 1, "refresh": 1},
         "1470": {"remove": "1468", "coei": 1},
         "1476": {"duration": 30.0, "icon": "affres_scorchrend-buff", "mods": [[-0.2, "affres_scorchrend", "buff"]], "debuff": 1, "text": "Scorchrend Res -20%", "overwrite": 27},
