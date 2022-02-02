@@ -417,7 +417,7 @@ class DragonFormUTP(DragonForm):
         # sync with timer value
         if self.utp_infinte:
             self.utp_gauge = self.max_utp_gauge
-        elif self.status:
+        elif self.status and self.shift_end_timer.online:
             self.utp_gauge = self.shift_end_timer.timeleft() * self.utp_drain
         gauge_before = self.utp_gauge
         # use utp_gauge from here on
@@ -463,6 +463,7 @@ class DragonFormUTP(DragonForm):
         self._charge_utp("auto", float_ceil(self.max_dragon_gauge * self.auto_gauge_val, self.utphaste()))
 
     def config_actions(self):
+        self.l_shift_end = Listener("dshift_end", self.d_shift_timer_start, order=0)
         if self.dform_mode == 1:
             super().config_actions()
             self.shift_event = Event("divinedragon")
@@ -518,13 +519,16 @@ class DragonFormUTP(DragonForm):
         self.l_s.on()
         self.l_s_end.on()
         self.l_ddrive_end.on()
-        self.shift_end_timer.on(self.dtime())
-        self.shift_event()
         log("dragondrive", "start", self.dtime())
+        self.shift_event()
+
+    def d_shift_timer_start(self, _=None):
+        self.shift_end_timer.on(self.dtime())
 
     def d_shift_start(self, _=None):
         if self.dform_mode == 1:
             super().d_shift_start()
+            self.shift_end_timer.off()
         else:
             self.d_dragondrive_start()
         if self.utp_infinte:

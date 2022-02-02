@@ -2559,6 +2559,7 @@ class Adv(object):
         g_logs.log_conf("hitattr", name, attr)
         # hitmods = self.actmods(name, base, group, aseq, attr)
         hitmods = []
+        dtype = attr.get("dtype", dtype)
         if action is not None and action.is_dragon:
             hitmods.extend(self.dragonform.shift_mods)
         crisis_mod_key = dtype if dtype in self.crisis_mods else None
@@ -2587,13 +2588,15 @@ class Adv(object):
                 m.on()
             if "crisis" in attr:
                 self.crisis_mods[crisis_mod_key].set_per_hit(attr["crisis"])
+
+            dmg_name = attr.get("dmg_name", name)
             if "extra" in attr:
                 for _ in range(min(attr["extra"], round(self.buffcount))):
-                    self.add_combo(name)
-                    self.dmg_make(name, attr["dmg"], dtype=dtype, attenuation=attenuation)
+                    self.add_combo(dmg_name)
+                    self.dmg_make(dmg_name, attr["dmg"], dtype=dtype, attenuation=attenuation)
             else:
-                self.add_combo(name)
-                self.dmg_make(name, attr["dmg"], dtype=dtype, attenuation=attenuation)
+                self.add_combo(dmg_name)
+                self.dmg_make(dmg_name, attr["dmg"], dtype=dtype, attenuation=attenuation)
 
         if onhit:
             onhit(name, base, group, aseq, dtype)

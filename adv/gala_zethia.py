@@ -31,9 +31,8 @@ class Gala_Zethia(Adv):
         self._servant_actions = {name: ServantAction(name, conf, self) for name, conf in self.conf.dservant.items()}
         Event("dragondrive").listener(self.start_servant)
         Event("dragondrive_end").listener(self.stop_servant)
-        # irl bahamut will randomly FS, not represented here
+        # bahamut will do x1 fs or fs spam sometimes, but it's random and not controllable
         self.sact_seq = ("x1", "x2", "x3", "x4")
-        # this is likely meant to be reset on each shift irl, but it doesn't seem to happen
         self.st_bahamut = 0
         self.c_servant_act = None
 
@@ -65,6 +64,7 @@ class Gala_Zethia(Adv):
             return
         if self.st_bahamut >= 16:
             nact = "s1"
+            self.st_bahamut = 0
         else:
             try:
                 nact = self.sact_seq[self.sact_seq.index(prev.name) + 1]
@@ -76,6 +76,7 @@ class Gala_Zethia(Adv):
         self._servant_actions["dshift"].run()
 
     def stop_servant(self, _=None):
+        self.st_bahamut = 0
         if self.c_servant_act is not None:
             self.c_servant_act.stop()
 
@@ -103,6 +104,9 @@ class ServantAction:
             startup += self.conf["charge"] / self.adv.c_speed()
         self.startup_timer.on(startup)
         self.adv.c_servant_act = self
+        if self.name == "s1":
+            # bahamut skill pauses the timer
+            self.adv.dragonform.shift_end_timer.pause()
 
     def _cb_startup(self, t):
         if self.name != "dshift":
@@ -114,6 +118,9 @@ class ServantAction:
     def _cb_recovery(self, t):
         self.adv.next_servant_action(self)
         self.c_servant_act = None
+        if self.name == "s1":
+            # bahamut skill pauses the timer
+            self.adv.dragonform.shift_end_timer.resume()
 
     def stop(self):
         self.recovery_timer.off()

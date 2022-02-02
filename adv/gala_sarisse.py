@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.template import LowerMCAdv
 
 
 class Gala_Sarisse(Adv):
@@ -18,4 +19,8 @@ class Gala_Sarisse(Adv):
         return result
 
 
-variants = {None: Gala_Sarisse}
+class Gala_Sarisse_50MC(LowerMCAdv):
+    pass
+
+
+variants = {None: Gala_Sarisse, "50MC": Gala_Sarisse_50MC}
