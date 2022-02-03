@@ -1,4 +1,5 @@
 import enum
+import functools
 import operator
 import sys
 import random
@@ -437,6 +438,7 @@ class Action(object):
 
         self.enabled = True
         self.delayed = set()
+        self.looping = set()
         self.once_per_act = set()
         # ?????
         # self.rt_name = self.name
@@ -531,16 +533,19 @@ class Action(object):
             self.recovery_timer.on(self.getrecovery())
 
     def _cb_act_end(self, e):
-        self.explicit_x = False
-        if self.getdoing() == self:
-            if loglevel >= 2:
-                log("ac_end", self.name)
-            self.status = Action.OFF
-            self._setprev()  # turn self from doing to prev
-            self._static.doing = self.nop
-            self.idle_event()
-            self.general_end_event()
-            self.end_event()
+        if self.looping:
+            self.recovery_timer.on(self.max_looping_time() + 0.1)
+        else:
+            self.explicit_x = False
+            if self.getdoing() == self:
+                if loglevel >= 2:
+                    log("ac_end", self.name)
+                self.status = Action.OFF
+                self._setprev()  # turn self from doing to prev
+                self._static.doing = self.nop
+                self.idle_event()
+                self.general_end_event()
+                self.end_event()
 
     def _act(self):
         if loglevel >= 2:
@@ -559,6 +564,19 @@ class Action(object):
     def remove_delayed(self, mt):
         self.delayed.discard(mt)
 
+    def add_looping(self, mt):
+        self.looping.add(mt)
+
+    def remove_looping(self, mt):
+        self.looping.discard(mt)
+
+    def max_looping_time(self):
+        max_time = 0
+        for mt in self.looping:
+            if mt.online:
+                max_time = max(max_time, mt.timeleft())
+        return max_time
+
     def clear_delayed(self):
         count = 0
         for mt in self.delayed:
@@ -570,7 +588,10 @@ class Action(object):
             except AttributeError:
                 pass
             mt.off()
+        for mt in self.looping:
+            mt.off()
         self.delayed = set()
+        self.looping = set()
         return count
 
     @property
@@ -653,6 +674,7 @@ class Action(object):
                 raise Exception(f"Illegal action {doing} -> {self}")
             self._setprev()
         self.delayed = set()
+        self.looping = set()
         self.once_per_act = set()
         self.last_hit_target = None
         self.status = Action.STARTUP
@@ -663,68 +685,6 @@ class Action(object):
         if now() <= 3:
             log("debug", "tap", self.name, "startup", self.getstartup())
         return True
-
-
-class Repeat(Action):
-    def __init__(self, conf, parent):
-        super().__init__(f"{parent.name}-repeat", conf)
-        self.parent = parent
-        self.act_event = Event("repeat")
-        self.act_event.name = self.parent.act_event.name
-        self.act_event.base = self.parent.act_event.base
-        self.act_event.group = self.parent.act_event.group
-        self.act_event.dtype = "fs"
-        self.act_event.end = False
-        self.end_repeat_event = Event("repeat")
-        self.end_repeat_event.name = self.parent.act_event.name
-        self.end_repeat_event.base = self.parent.act_event.base
-        self.end_repeat_event.group = self.parent.act_event.group
-        self.end_repeat_event.dtype = "fs"
-        self.end_repeat_event.end = True
-        self.count = 0
-        self.extra_charge = None
-        self.count0_time = None
-
-    def can_ic(self, name, atype, can):
-        if name == self.parent.name and atype == self.parent.atype:
-            return None
-        result = can(name, atype)
-        if result is not None:
-            self.parent.end_event.on()
-            self.end_repeat_event.on()
-        return result
-
-    def can_interrupt(self, name, atype):
-        return self.can_ic(name, atype, self.parent.can_interrupt)
-
-    def can_cancel(self, name, atype):
-        if self.explicit_x:
-            self.parent.end_event.on()
-            self.end_repeat_event.on()
-            return 0.0
-        return self.can_ic(name, atype, self.parent.can_cancel)
-
-    def __call__(self):
-        self.count = 0
-        self.count0_time = now()
-        self.tap()
-
-    def _cb_act_end(self, e):
-        self.tap()
-
-    def tap(self, t=None):
-        self.count += 1
-        self._static.doing = self.nop
-        # if self.extra_charge:
-        #     log("extra_charge", now() - self.count0_time, self.extra_charge)
-        if (not self.parent.enabled) or (self.extra_charge and now() - self.count0_time > self.extra_charge):
-            self.extra_charge = None
-            self.parent.end_event.on()
-            self.end_repeat_event.on()
-            self.idle_event()
-            return False
-        else:
-            return super().tap()
 
 
 class X(Action):
@@ -801,24 +761,12 @@ class Fs(Action):
 
         self.charged_timer = Timer(self._charged)
 
-        self.act_repeat = None
-        if self.conf["repeat"]:
-            self.act_repeat = Repeat(self.conf.repeat, self)
-
         self.extra_charge = 0
         self.last_buffer = 0
 
     def _charged(self, _):
         self.extra_charge = 0
         self.charged_event()
-
-    def _cb_act_end(self, e):
-        if self.act_repeat:
-            self._setprev()
-            self.act_repeat()
-        else:
-            super()._cb_act_end(e)
-        self.last_buffer = 0
 
     def turn_off(self):
         self.charged_timer.off()
@@ -828,10 +776,6 @@ class Fs(Action):
 
     @property
     def _charge(self):
-        if self.act_repeat is not None and self.act_repeat.extra_charge is None:
-            self.act_repeat.extra_charge = self.extra_charge or None
-            self.extra_charge = 0
-            return self.conf.charge
         return self.conf.charge
 
     @property
@@ -2715,6 +2659,7 @@ class Adv(object):
                 t.loop = (gen, delay)
                 t.on(delay / self.speed())
                 return
+            t.action.remove_looping(t)
         if t.proc is not None:
             t.proc(t)
 
@@ -2796,6 +2741,8 @@ class Adv(object):
             # mt.onhit = onhit
             mt.proc = None
             mt.loop = loop
+            if loop:
+                e.action.add_looping(mt)
             if msl and not iv:
                 mt.on(msl)
             else:

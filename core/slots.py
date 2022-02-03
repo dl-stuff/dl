@@ -105,7 +105,10 @@ class ExBase:
     def __init__(self, qual) -> None:
         self.coab_id, self.chain_id = self.LOOKUP[qual]
         self.coab = self.DATA["coab"][self.coab_id]
-        self.chain = self.DATA["chain"][self.chain_id]
+        if self.chain_id is None:
+            self.chain = []
+        else:
+            self.chain = self.DATA["chain"][self.chain_id]
         self.actconds = {}
         for chain in self.chain:
             for ab in chain.get("ab", tuple()):
@@ -135,10 +138,13 @@ class CharaBase(SlotBase):
         self.coabs = {self.qual: ExBase(self.qual)}
         seen_base_id = {self.base_id}
         for coab in sorted(coab_list):
-            base_id = get_icon(coab)[0:6]
-            if base_id in seen_base_id:
-                continue
-            seen_base_id.add(base_id)
+            if coab in ExBase.GENERICS:
+                seen_base_id.add(coab)
+            else:
+                base_id = get_icon(coab)[0:6]
+                if base_id in seen_base_id:
+                    continue
+                seen_base_id.add(base_id)
             try:
                 self.coabs[coab] = ExBase(coab)
             except KeyError:

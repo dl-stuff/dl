@@ -279,6 +279,7 @@ class CondFSHold(Cond):
                 callback(e)
 
         fs_charging_timer = Timer(_checked_callback, self.required_time - 0.00001, True)
+        fs_charging_timer.name = "fs"
         Listener("fs_start", lambda _: fs_charging_timer.on())
         Listener(self.event, lambda _: fs_charging_timer.off())
 

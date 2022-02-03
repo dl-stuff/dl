@@ -654,13 +654,14 @@ class ActCond:
 
     def on(self, source, dtype, ev=1):
         self.dtype = dtype
-        if self.lvl_up_id and self.get():
-            self.off()
-            return self._adv.active_actconds.get((self.lvl_up_id, self.target)).on(source, dtype, ev=ev)
+        if self._adv.active_actconds.lvl_up_actcond(self, source, dtype, ev=1):
+            return True
         if not self.check(source):
             return False
+        state_msg = "start"
         if self.stacks == self.maxstack or self.stacks == self.count or self.refresh:
-            self.off()
+            self.off(hide_msg=True)
+            state_msg = "refresh"
         if self.cooldown:
             if self.cooldown_timer:
                 cd_timeleft = self.cooldown_timer.timeleft()
@@ -689,6 +690,7 @@ class ActCond:
             duration = self.duration * self.bufftime(dtype)
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
+            timer.reason = "timeout"
             timer.on()
             duration_repr = str(duration)
         elif self.count:
@@ -700,34 +702,36 @@ class ActCond:
         self.buff_stack[stack_key] = (timer, ev * self.get_rate())
 
         self.effect_on(source, dtype, stack_key, timer=timer)
-        self.log("start", self.text, f"stack {self.stacks}", duration_repr, f"{self.id}-{self.target}")
+        self.log(state_msg, self.text, f"stack {self.stacks}", duration_repr, f"{self.id}-{self.target}")
 
         self.actcond_event.source = source
         self.actcond_event.dtype = dtype
         self.actcond_event()
         return True
 
-    def _off(self, stack_key):
+    def _off(self, stack_key, hide_msg=False):
         timer, _ = self.buff_stack.pop(stack_key)
         if timer is not None:
             timer.off()
         self.effect_off(stack_key)
+        if hide_msg:
+            return
         timing, source = stack_key
         if source[1] is None:
             source = f"{source[0]}-N"
         else:
             source = f"{source[0]}-{source[1]}"
-        if self.lvl_down_id:
-            self._adv.active_actconds.get((self.lvl_down_id, self.target)).on(source, self.dtype)
         self.log("end", self.text, f"stack {self.stacks}", f"from {source} at {timing:<.3f}s", f"{self.id}-{self.target}")
 
-    def off(self):
+    def off(self, hide_msg=False):
         if self.buff_stack:
             stack_key = min(self.buff_stack.keys())
-            self._off(stack_key)
+            self._off(stack_key, hide_msg=hide_msg)
 
     def l_off(self, e):
         self._off(e.stack_key)
+        if getattr(e, "reason", None) == "timeout":
+            self._adv.active_actconds.lvl_down_actcond(self, e.stack_key[1])
 
     def all_off(self, e=None):
         for stack_key, (timer, _) in self.buff_stack.items():
@@ -927,6 +931,39 @@ class ActiveActconds(UserDict):
             return True
         if all((n_mod >= c_mod for n_mod, c_mod in zip(actcond.mod_list, c_actcond.mod_list))):
             c_actcond.all_off()
+            return True
+        return False
+
+    def lvl_up_actcond(self, actcond, source, dtype, ev=1):
+        if not actcond.lvl_up_id:
+            return False
+        c_actcond = actcond
+        found_actconds = [actcond]
+        while (actcond_key := (c_actcond.lvl_up_id, c_actcond.target)) in self:
+            c_actcond = self.get(actcond_key)
+            found_actconds.append(c_actcond)
+        highest_active = None
+        for idx, c_actcond in enumerate(found_actconds):
+            if c_actcond.get():
+                highest_active = idx
+        if highest_active is not None:
+            highest_actcond = found_actconds[highest_active]
+            if highest_actcond.lvl_up_id:
+                highest_actcond.off(hide_msg=True)
+                try:
+                    found_actconds[highest_active + 1].on(source, dtype, ev=ev)
+                except IndexError:
+                    actcond._adv.actcond_make(highest_actcond.lvl_up_id, highest_actcond.target, source, dtype=dtype, ev=ev)
+            else:
+                highest_actcond.on(source, dtype, ev=ev)
+            return True
+        return False
+
+    def lvl_down_actcond(self, actcond, source):
+        if not actcond.lvl_down_id:
+            return False
+        if down_actcond := self.get((actcond.lvl_down_id, actcond.target)):
+            down_actcond.on(source, actcond.dtype)
             return True
         return False
 
