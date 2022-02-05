@@ -626,6 +626,87 @@
             "cancel": {"any": 1.86667}
         }
     },
+    "Michael": {
+        "d": {
+            "name": "Michael",
+            "icon": "210168_01",
+            "att": 126,
+            "hp": 369,
+            "ele": "wind",
+            "a": [["a", 0.6], ["attcombo", 0.03, 15, 10], ["ctime", 2.5]]
+        },
+        "dx1": {
+            "startup": 0.23333,
+            "recovery": 0.73334,
+            "attr": [
+                {"cond": ["var=", ["buff2089", 1]], "dmg": 4.6, "sp": 5},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "sp": 5, "iv": 0.1, "msl": 0.33333},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.53333},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.73333},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.36667},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.56667},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.76667},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.36667},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.56667},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 0.4, "iv": 0.1, "msl": 0.76667}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.6, "dodge": 0.0, "dx2": 0.43334, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.26667,
+            "recovery": 1.03333,
+            "attr": [
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 5.3, "sp": 5},
+                {"cond": ["var=", ["buff2091", 1]], "dmg": 1.5, "sp": 5, "iv": 0.13333},
+                {"cond": ["var=", ["buff2091", 1]], "dmg": 1.5, "iv": 0.2},
+                {"cond": ["var=", ["buff2091", 1]], "dmg": 1.5, "iv": 0.26666}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.56666, "dodge": 0.0, "dx3": 0.43333, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.26667,
+            "recovery": 3.73333,
+            "attr": [
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 3.8, "sp": 5},
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 1.0, "iv": 0.56666},
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 1.0, "iv": 0.56666, "msl": 0.13333},
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 1.0, "iv": 0.56666, "msl": 0.26666},
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 1.0, "iv": 0.56666, "msl": 0.4},
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 1.0, "iv": 0.56666, "msl": 0.53333},
+                {"cond": ["var=", ["buff2090", 1]], "dmg": 1.0, "iv": 0.56666, "msl": 0.66666},
+                {"cond": ["var=", ["buff2091", 1]], "dmg": 14.8, "sp": 5, "iv": 0.6}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.06666, "dodge": 0.0, "dx1": 0.9, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 2.63333,
+            "cancel": {"any": 1.83333, "dx1": 1.66667},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"cond": ["var=", ["buff2089", 1]], "amp": ["20000", 2, 2]},
+                {"cond": ["var=", ["buff2089", 0]], "buff": ["echo", 0.4, 180.0, "-refresh"], "coei": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 1.7, "afflic": ["stormlash", 110, 0.31], "iv": 0.66667},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 1.7, "iv": 0.66667, "msl": 0.03333, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 1.7, "iv": 0.66667, "msl": 0.06667, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 1.7, "iv": 0.66667, "msl": 0.1, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 1.7, "iv": 0.66667, "msl": 0.13333, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 1.7, "iv": 0.66667, "msl": 0.16667, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 1.7, "iv": 0.66667, "msl": 0.2, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 2.65, "iv": 0.66667, "msl": 0.46667, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 2.65, "iv": 0.66667, "msl": 0.6, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 2.65, "iv": 0.66667, "msl": 0.73333, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 0]], "dmg": 2.65, "iv": 0.66667, "msl": 0.86667, "msl_spd": 1},
+                {"cond": ["var=", ["buff2089", 1]], "dmg": 14.78, "afflic": ["poison", 110, 0.436], "iv": 0.73333},
+                {"cond": ["var=", ["buff2089", 1]], "dmg": 14.78, "iv": 1.1}
+            ]
+        }
+    },
     "Midgardsormr_Zero": {
         "d": {
             "name": "Midgardsormr Zero",

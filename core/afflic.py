@@ -171,6 +171,7 @@ class AfflicUncapped(AfflicBase):
     def __init__(self, name=None, duration=12, tolerance=0.05):
         super().__init__(name, duration, tolerance)
         self.stacks = defaultdict(lambda: 0)
+        self.active_t = []
 
     def update(self):
         self.uptime()
@@ -184,6 +185,7 @@ class AfflicUncapped(AfflicBase):
         if self.stacks[e.total_success_p] == 0:
             del self.stacks[e.total_success_p]
         self.update()
+        self.active_t.remove(e)
         log("affliction", self.name, self._get)
 
     def on(self, speshul_sandy_sum=1.0):
@@ -210,7 +212,9 @@ class AfflicUncapped(AfflicBase):
             self.stacks[total_success_p] += 1
             t = Timer(self.stack_end, self.duration)
             t.total_success_p = total_success_p
+            t.max_duration = self.duration
             t.on()
+            self.active_t.append(t)
             self.update()
         log("affliction", self.name, self._get)
         self.event.rate = total_success_p

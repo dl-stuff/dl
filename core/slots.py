@@ -2,6 +2,7 @@ from enum import unique
 from itertools import chain
 from collections import defaultdict, namedtuple
 import html
+from sqlite3 import Time
 
 from conf import (
     load_json,
@@ -309,7 +310,7 @@ class DragonBase(EquipBase):
         return super().ab if self.on_ele else []
 
 
-from core.modifier import EffectBuff, Modifier, SelfAffliction, Selfbuff, SingleActionBuff
+from core.modifier import EchoBuff, EffectBuff, Modifier, SelfAffliction, Selfbuff, SingleActionBuff
 from core.timeline import Listener, Timer, now, Event
 from core.log import log
 
@@ -548,6 +549,25 @@ class Fudo_Myoo(DragonBase):
 
     def is_wrath(self):
         return not self.adv.compassion
+
+
+class Michael(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        adv.buff2089 = 1
+        adv.buff2090 = 1
+        adv.buff2091 = 0
+
+        self.michael_echo = EchoBuff("michael_echo", 0.2, 60)
+        Timer(self._start_quest_overdamage, timeout=0.0).on()
+        Listener("hit", self._combo_break_overdamage)
+
+    def _start_quest_overdamage(self, e):
+        self.michael_echo.on()
+
+    def _combo_break_overdamage(self, e):
+        if not e.kept_combo:
+            self.michael_echo.on()
 
 
 ### WIND DRAGONS ###

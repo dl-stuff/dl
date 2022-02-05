@@ -23,6 +23,8 @@ class Tension:
         self.extra_tensionable = set()
         self.not_tensionable = set()
 
+        self.permanent = False
+
     def set_disabled(self, reason):
         self.disabled_reasons.add(reason)
 
@@ -34,37 +36,45 @@ class Tension:
         return bool(self.disabled_reasons)
 
     def add(self, n=1, team=False, queue=False):
-        if self.disabled:
-            return
-        if team:
-            log(self.name, "team", n)
-        # cannot add if max stacks
-        if self.stack >= self.MAX_STACK:
-            if queue:
-                self.queued_stack = n
-            return
-        self.stack += n
-        self.has_stack.on()
-        if self.stack >= self.MAX_STACK:
-            self.stack = self.MAX_STACK
-        log(self.name, "+{}".format(n), "stack <{}>".format(int(self.stack)))
+        if self.permanent:
+            if team:
+                log(self.name, "team", n)
+        else:
+            if self.disabled:
+                return
+            if team:
+                log(self.name, "team", n)
+            # cannot add if max stacks
+            if self.stack >= self.MAX_STACK:
+                if queue:
+                    self.queued_stack = n
+                return
+            self.stack += n
+            self.has_stack.on()
+            if self.stack >= self.MAX_STACK:
+                self.stack = self.MAX_STACK
+            log(self.name, "+{}".format(n), "stack <{}>".format(int(self.stack)))
 
-        self.add_event.stack = self.stack
-        self.add_event.on()
+            self.add_event.stack = self.stack
+            self.add_event.on()
 
     def add_extra(self, n, team=False):
-        if team:
-            log("{}_extra".format(self.name), "team", n)
-        if self.stack == self.MAX_STACK:
-            return
-        self.stack += n
-        if self.stack >= self.MAX_STACK:
-            self.stack = self.MAX_STACK
-        log(
-            "{}_extra".format(self.name),
-            "+{}".format(n),
-            "stack <{}>".format(int(self.stack)),
-        )
+        if self.permanent:
+            if team:
+                log(self.name, "team", n)
+        else:
+            if team:
+                log("{}_extra".format(self.name), "team", n)
+            if self.stack == self.MAX_STACK:
+                return
+            self.stack += n
+            if self.stack >= self.MAX_STACK:
+                self.stack = self.MAX_STACK
+            log(
+                "{}_extra".format(self.name),
+                "+{}".format(n),
+                "stack <{}>".format(int(self.stack)),
+            )
 
     def on(self, e):
         if self.stack >= self.MAX_STACK and not e.name in self.not_tensionable and (e.name in self.modifier._static.damage_sources or e.name in self.extra_tensionable):
@@ -74,13 +84,14 @@ class Tension:
     def off(self, e):
         if e.name in self.active:
             self.active.discard(e.name)
-            self.has_stack.off()
-            self.stack = 0
+            if not self.permanent:
+                self.has_stack.off()
+                self.stack = 0
+                self.end_event.on()
+                if self.queued_stack:
+                    self.add(n=self.queued_stack)
+                    self.queued_stack = 0
             log(self.name, "reset", "stack <{}>".format(int(self.stack)))
-            self.end_event.on()
-            if self.queued_stack:
-                self.add(n=self.queued_stack)
-                self.queued_stack = 0
 
     allow_acl = True
 

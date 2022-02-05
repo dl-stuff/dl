@@ -1122,16 +1122,25 @@ class Crit_Combo_Resetable(ComboProcAbility):
 
     def oninit(self, adv, afrom=None):
         super().oninit(adv, afrom=afrom)
-        self.combo_crit_mod = adv.Modifier(self.name, "crit", "chance", 0.0)
+        self.combo_mod = adv.Modifier(self.name, "crit", "chance", 0.0)
 
     def combo_proc_cb(self, adv, delta):
-        self.combo_crit_mod.mod_value = min(self.limit, (adv.hits // self.threshold) * self.value)
+        self.combo_mod.mod_value = min(self.limit, (adv.hits // self.threshold) * self.value)
 
     def combo_reset_cb(self):
-        self.combo_crit_mod.mod_value = 0
+        self.combo_mod.mod_value = 0
 
 
 ability_dict["critcombo"] = Crit_Combo_Resetable
+
+
+class Att_Combo_Resetable(Crit_Combo_Resetable):
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom=afrom)
+        self.combo_mod = adv.Modifier(self.name, "att", "passive", 0.0)
+
+
+ability_dict["attcombo"] = Crit_Combo_Resetable
 
 
 class Skill_Recharge(Ability):
