@@ -35,6 +35,14 @@ class Tension:
     def disabled(self):
         return bool(self.disabled_reasons)
 
+    def set_permanent(self):
+        self.permanent = True
+        self.stack = self.MAX_STACK
+        self.has_stack.on()
+        log(self.name, "+{}".format(self.MAX_STACK), "stack <{}>".format(int(self.stack)))
+        self.add_event.stack = self.stack
+        self.add_event.on()
+
     def add(self, n=1, team=False, queue=False):
         if self.permanent:
             if team:
@@ -63,6 +71,8 @@ class Tension:
             if team:
                 log(self.name, "team", n)
         else:
+            if self.disabled:
+                return
             if team:
                 log("{}_extra".format(self.name), "team", n)
             if self.stack == self.MAX_STACK:

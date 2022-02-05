@@ -2,7 +2,6 @@ from enum import unique
 from itertools import chain
 from collections import defaultdict, namedtuple
 import html
-from sqlite3 import Time
 
 from conf import (
     load_json,
