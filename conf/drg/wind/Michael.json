@@ -1,0 +1,96 @@
+{
+    "actconds": {
+        "1360": {"aff": "stormlash", "duration": 21.0, "slip": {"value": ["mod", 0.31], "iv": 2.9}, "rate": 1.1},
+        "2089": {"coei": 1, "icon": 0, "hide": 1, "overwrite": 69},
+        "2090": {"coei": 1, "icon": 0, "hide": 1, "overwrite": 67},
+        "2091": {"coei": 1, "icon": 0, "hide": 1, "overwrite": 67},
+        "2093": {"duration": 60.0, "coei": 1, "echo": 0.2, "icon": 252, "text": "Overdamage", "refresh": 1},
+        "2109": {"coei": 1, "icon": 0, "hide": 1, "overwrite": 69},
+        "2142": {"duration": 60.0, "ele": "wind", "coei": 1, "echo": 0.2, "icon": 252, "text": "Overdamage", "refresh": 1},
+        "2144": {"duration": 180.0, "coei": 1, "echo": 0.4, "icon": 252, "text": "Overdamage", "refresh": 1},
+        "101020901": {"aff": "poison", "duration": 15.0, "slip": {"value": ["mod", 0.436], "iv": 2.9}, "rate": 1.1}
+    },
+    "d": {
+        "name": "Michael",
+        "icon": "210168_01",
+        "att": 126,
+        "hp": 369,
+        "ele": "wind",
+        "abilities": [
+            {"ab": [["mod", 0.6, "att"]]},
+            {"cond": ["event", "start"], "ab": [["hitattr", {"actcond": "2142", "target": "MYPARTY"}]]},
+            {"ab": [["ctime", 2.5]]}
+        ]
+    },
+    "ds1": {
+        "sp": 30,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "attr": [
+            {"pcond": ["actcond", "2089", "=", 1], "amp": ["20000", 2, 2], "target": "MYSELF"},
+            {"pcond": ["actcond", "2089", "=", 0], "actcond": "2144", "target": "MYPARTY"},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 1.7, "actcond": "1360", "target": "HOSTILE", "iv": 0.66667},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 1.7, "actcond": "1360", "target": "HOSTILE", "iv": 0.66667, "msl": 0.03333, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 1.7, "actcond": "1360", "target": "HOSTILE", "iv": 0.66667, "msl": 0.06667, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 1.7, "actcond": "1360", "target": "HOSTILE", "iv": 0.66667, "msl": 0.1, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 1.7, "actcond": "1360", "target": "HOSTILE", "iv": 0.66667, "msl": 0.13333, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 1.7, "actcond": "1360", "target": "HOSTILE", "iv": 0.66667, "msl": 0.16667, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 1.7, "actcond": "1360", "target": "HOSTILE", "iv": 0.66667, "msl": 0.2, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 2.65, "target": "HOSTILE", "iv": 0.66667, "msl": 0.46667, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 2.65, "target": "HOSTILE", "iv": 0.66667, "msl": 0.6, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 2.65, "target": "HOSTILE", "iv": 0.66667, "msl": 0.73333, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 2.65, "target": "HOSTILE", "iv": 0.66667, "msl": 0.86667, "msl_spd": 1},
+            {"pcond": ["actcond", "2089", "=", 1], "dmg": 14.78, "actcond": "101020901", "target": "HOSTILE", "iv": 0.73333},
+            {"pcond": ["actcond", "2089", "=", 1], "dmg": 14.78, "target": "HOSTILE", "iv": 1.1}
+        ],
+        "cancel": {"any": 1.83333, "dx1": 1.66667},
+        "sp_db": 45,
+        "uses": 1
+    },
+    "dshift": {
+        "attr": [
+            {"dmg": 2.0, "target": "HOSTILE"}
+        ]
+    },
+    "dx1": {
+        "startup": 0.0,
+        "recovery": 0.96667,
+        "attr": [
+            {"actcond": "2090"},
+            {"actcond": "2091"},
+            {"pcond": ["actcond", "2089", "=", 1], "dmg": 4.6, "sp": 5, "target": "HOSTILE", "iv": 0.23333},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 0.4, "sp": 5, "target": "HOSTILE", "iv": 0.33333, "msl": 0.33333},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 0.4, "sp": 5, "target": "HOSTILE", "iv": 0.33333, "msl": 0.33333, "blt": [2, 0.2]},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 0.4, "sp": 5, "target": "HOSTILE", "iv": 0.33333, "msl": 0.36667},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 0.4, "sp": 5, "target": "HOSTILE", "iv": 0.33333, "msl": 0.36667, "blt": [2, 0.2]},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 0.4, "sp": 5, "target": "HOSTILE", "iv": 0.33333, "msl": 0.36667},
+            {"pcond": ["actcond", "2089", "=", 0], "dmg": 0.4, "sp": 5, "target": "HOSTILE", "iv": 0.33333, "msl": 0.36667, "blt": [2, 0.2]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "dx2": 0.66667, "s": 0.0}
+    },
+    "dx2": {
+        "startup": 0.26667,
+        "recovery": 1.03333,
+        "attr": [
+            {"pcond": ["actcond", "2090", "=", 1], "dmg": 5.3, "sp": 5, "target": "HOSTILE"},
+            {"pcond": ["actcond", "2091", "=", 1], "dmg": 1.5, "sp": 5, "target": "HOSTILE", "iv": 0.13333},
+            {"pcond": ["actcond", "2091", "=", 1], "dmg": 1.5, "sp": 5, "target": "HOSTILE", "iv": 0.2},
+            {"pcond": ["actcond", "2091", "=", 1], "dmg": 1.5, "sp": 5, "target": "HOSTILE", "iv": 0.26666}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56666, "dodge": 0.0, "dx3": 0.43333, "s": 0.0}
+    },
+    "dx3": {
+        "startup": 0.26667,
+        "recovery": 3.73333,
+        "attr": [
+            {"pcond": ["actcond", "2090", "=", 1], "dmg": 3.8, "sp": 5, "target": "HOSTILE", "zone": 0.13333334028720856},
+            {"pcond": ["actcond", "2090", "=", 1], "dmg": 1.0, "sp": 5, "target": "HOSTILE", "iv": 0.56666},
+            {"pcond": ["actcond", "2090", "=", 1], "dmg": 1.0, "sp": 5, "target": "HOSTILE", "iv": 0.56666, "blt": [6, 0.13333]},
+            {"pcond": ["actcond", "2091", "=", 1], "dmg": 14.8, "sp": 5, "target": "HOSTILE", "iv": 0.6}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.06666, "dodge": 0.0, "dx1": 0.9, "s": 0.0}
+    }
+}

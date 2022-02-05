@@ -1608,12 +1608,13 @@ class Adv(object):
             )
         return total
 
-    def set_cd(self, key, timeout, proc=None):
+    def set_cd(self, key, timeout, proc=None, hidden=False):
         if not timeout or timeout <= 0:
             return
         if key is None:
             raise ValueError("Cooldown key cannot be None")
-        log("set_cd", str(key), timeout)
+        if not hidden:
+            log("set_cd", str(key), timeout)
         timeout -= 0.0001  # avoid race cond
         try:
             self._cooldowns[key].on(timeout=timeout)
@@ -1626,10 +1627,10 @@ class Adv(object):
         except KeyError:
             return False
 
-    def is_set_cd(self, key, timeout, proc=None):
+    def is_set_cd(self, key, timeout, proc=None, hidden=False):
         if self._is_cd(key):
             return True
-        self.set_cd(key, timeout, proc=proc)
+        self.set_cd(key, timeout, proc=proc, hidden=hidden)
         return False
 
     @allow_acl
