@@ -6,8 +6,7 @@ class Valyx(Adv):
     comment = "defiant spirit once every {}s".format(DEFIANT_SPIRIT_CD)
 
     def prerun(self):
-        self.energy.add(5)
-        self.energy.permanent = True
+        self.energy.set_permanent()
         self.defiant_spirit_buff = VarsBuff("defiant_spirit", "defiant_spirit", 1, 20)
         self.a1_defiant_spirit()
         Timer(self.a1_defiant_spirit, Valyx.DEFIANT_SPIRIT_CD, True).on()
