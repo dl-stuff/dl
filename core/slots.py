@@ -1,4 +1,3 @@
-from enum import unique
 from itertools import chain
 from collections import defaultdict, namedtuple
 import html
