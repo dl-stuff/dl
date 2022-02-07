@@ -43,8 +43,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111507.70469610182,
-        "team": 0.10074765501809867,
+        "dps": 114804.36941379104,
+        "team": 0.09474837957532665,
         "noaff": false,
         "nihil": false
       },
@@ -59,7 +59,7 @@
       ],
       "slots.d": "Fudo_Myoo",
       "acl": [
-        "`striking",
+        "`shielding",
         "`dragon, (dgauge>=900 and s=1) or dshift_count",
         "`s3, not buff(s3)",
         "if hits>9",
@@ -67,7 +67,7 @@
         "`s2(shielding)",
         "`s4, fsc",
         "end",
-        "`fs, xf=3"
+        "`fs, x=2"
       ],
       "dacl": [
         "dodge, x=3"
@@ -83,15 +83,15 @@
       ]
     },
     "META": {
-      "tdps": 115701.26826086275,
+      "tdps": 132783.4158551762,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79206.24995953827,
-        "team": 0.08369190438329935,
+        "dps": 93045.21363295626,
+        "team": 0.16744491229651784,
         "noaff": false,
         "nihil": true
       },
@@ -104,7 +104,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
         "`dragon, (dgauge>900 and s=1) or dshift_count",
@@ -122,9 +122,9 @@
         "`dfs, x=3"
       ],
       "coabs": [
+        "Bow",
         "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -243,8 +243,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 120288.97219077458,
-        "team": 0.33143348817679685,
+        "dps": 122025.28146780148,
+        "team": 0.3465649821779719,
         "noaff": false,
         "nihil": true
       },
@@ -259,13 +259,17 @@
         "`striking",
         "end",
         "`fs, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

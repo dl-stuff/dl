@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79958.6495154919,
+        "dps": 80062.37965540387,
         "team": 0.09922932442636169,
         "noaff": true,
         "nihil": false
@@ -71,14 +71,14 @@
       ]
     },
     "META": {
-      "tdps": 789363.1277240271,
+      "tdps": 790428.4606686452,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76968.50717744735,
+        "dps": 77068.35821378551,
         "team": 0.09922932442636169,
         "noaff": true,
         "nihil": false
@@ -90,7 +90,7 @@
       ]
     },
     "META": {
-      "tdps": 758653.662331231,
+      "tdps": 759679.1559693925,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -101,39 +101,45 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 2480.1939207659834,
-        "team": 0.04920632128295586,
+        "dps": 11539.626547074551,
+        "team": 0.0546482197702196,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "A_Dragonyule_for_Ilia",
-        "Jewels_of_the_Sun",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes",
-        "A_Kings_Pride_Staff",
-        "Promised_Piety_Staff"
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Tie_Shan_Gongzhu",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "#`dragon, buff(s3, 1)",
-        "`s2",
-        "`s1"
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s2, not is_cd(s2, 0)",
+        "`s4"
+      ],
+      "dacl": [
+        "`dodge, fsc",
+        "`dfs3, x=1",
+        "`dfs3, duration-now<16"
       ],
       "coabs": [
-        "Bow",
-        "Sha_Wujing",
-        "Sophie_Persona"
+        "Ayaha_and_Otoha",
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54607.09014852036,
+        "dps": 54678.14686959842,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -169,7 +175,7 @@
       ]
     },
     "META": {
-      "tdps": 1059353.6535276445,
+      "tdps": 789385.647033137,
       "pref": "PERSONAL"
     }
   }

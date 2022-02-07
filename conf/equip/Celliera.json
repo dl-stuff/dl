@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105954.16632020938,
+        "dps": 113423.1102257753,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -41,33 +41,18 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "if dgauge>=500 and xf=5",
-        "queue dshift_count=0",
-        "`fs",
+        "`fs, buff(s2) and dgauge>=500",
         "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count=1",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count>=2",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "end",
-        "`s2, not buff(s2)",
         "`s3, not buff(s3)",
+        "`s2, not buff(s2)",
         "`s4, xf=5",
         "`s1, buff(s2) and cancel",
         "`fsf, xf=5"
@@ -82,11 +67,11 @@
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 373287.73491167027,
+      "tdps": 402162.000508049,
       "pref": "PERSONAL"
     }
   },
@@ -138,7 +123,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62507.14774146926,
+        "dps": 62590.6655949127,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -182,7 +167,7 @@
       ]
     },
     "META": {
-      "tdps": 78853.49329827382,
+      "tdps": 79688.94656004723,
       "pref": "PERSONAL"
     }
   },
@@ -197,27 +182,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111964.48505580681,
+        "dps": 117877.54687659883,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon",
-        "`s2, not buff(s2)",
-        "`s3, not buff(s3)",
-        "`s4, xf=5",
-        "`s1, buff(s2) and cancel",
-        "`fsf, xf=5",
-        "`fs,dgauge>500"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
+      }
     },
     "META": {
-      "tdps": 389258.7776270026,
+      "tdps": 412118.1429750436,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -228,17 +200,17 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82923.34522704415,
+        "dps": 84009.53302016774,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "Moonlight_Party",
-        "A_Choice_Blend",
-        "His_Clever_Brother",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
@@ -273,8 +245,8 @@
         "Yurius"
       ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {

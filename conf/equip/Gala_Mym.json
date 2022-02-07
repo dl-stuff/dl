@@ -2,40 +2,40 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 124136.18092873428,
-        "team": 0.0,
+        "dps": 64444.30616981468,
+        "team": 0.00875720021380181,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Sweet_Surprise",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Kagutsuchi",
       "acl": [
-        "`dragon, aff_timeleft(poison)>10",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x=5 or duration-now<10",
-        "`s4, xf"
-      ],
-      "dacl": [
-        "`ds1, x=3",
-        "`sack, dshift_count<3"
+        "`dragon,      dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
+        "`s3",
+        "`s1, cancel",
+        "`s2, fscf",
+        "`s4, fscf",
+        "`fs, x=5",
+        "`dodge, fsc and s"
       ],
       "coabs": [
+        "Blade",
         "Kimono_Elisanne",
-        "Verica",
         "Yuya"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Gala_Leonidas",
+        "Student_Maribelle"
       ]
     },
     "PERSONAL": {
@@ -77,6 +77,7 @@
       ]
     },
     "META": {
+      "tdps": 6816319.520118092,
       "pref": "PERSONAL"
     }
   },

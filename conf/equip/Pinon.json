@@ -2,17 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 84779.9434605829,
-        "team": 0.14580999571713338,
+        "dps": 86244.9339312791,
+        "team": 0.14642012274522528,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Initios_Sentinel",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
+        "Wings_of_Rebellion_at_Rest",
+        "Chariot_Drift",
         "Flower_in_the_Fray",
-        "His_Clever_Brother",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
@@ -23,7 +23,7 @@
         "`s2, fsc",
         "`s4, fsc",
         "`s1, fsc or aff_timeleft(frostbite)<1",
-        "`fs2, aff(frostbite) and buff(s3)",
+        "`fs2, aff_timeleft(frostbite)>3 and buff(s3)",
         "`dodge, fsc"
       ],
       "dacl": [
@@ -79,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 495085.9209637849,
+      "tdps": 471384.39781640936,
       "pref": "PERSONAL"
     }
   },
@@ -156,48 +156,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70663.3250244941,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Initios_Sentinel",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flower_in_the_Fray",
-        "His_Clever_Brother",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<5",
-        "`dodge, fsc",
-        "`fs2, aff(frostbite)"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Grace"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "tdps": 337377.93226781447,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 60814.20526917425,
+        "dps": 72630.3056072335,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -211,6 +170,7 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, fsc",
         "`s3, fsc",
@@ -234,12 +194,8 @@
       ]
     },
     "META": {
-      "tdps": 189280.887967766,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
+      "tdps": 366954.58660202025,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -274,12 +230,25 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74025.43087932498,
+        "dps": 80359.09923759695,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "Gala_Beast_Ciella"
+      "acl": [
+        "`dragon, fsc",
+        "`s3, fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`fs2",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Gala_Mascula",
+        "Grace"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -363,35 +332,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 11580.71489462168,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
-        "`fs2, aff(frostbite)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Lazry"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 11580.71489462168,
+        "dps": 11798.777960584799,
         "team": 0.0,
         "noaff": false,
         "nihil": true

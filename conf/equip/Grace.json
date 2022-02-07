@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6395.069339419211,
-        "team": 0.2815281010972514,
+        "dps": 8059.528131670303,
+        "team": 0.2815281010972511,
         "noaff": false,
         "nihil": false
       },
@@ -36,74 +36,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46764.1267726865,
-        "team": 0.0333069921996433,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Synthetic_Dragon",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon, buff(s3) and buffstack(ro_att)=3",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
-        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
-        "`dodge, fsc"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
-      ],
-      "coabs": [
-        "Audric",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "tdps": 162633.45858276554,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 6337.727987228864,
-        "team": 0.2462854827257962,
+        "dps": 8059.528131670303,
+        "team": 0.2815281010972511,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon, fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
       "coabs": [
-        "Bow",
-        "Curran",
-        "Lathna"
+        "Lathna",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "META": {
-      "tdps": 189814.46758114494,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 1945.9638808975667,
+        "dps": 2551.168362892365,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -137,7 +109,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 18892.555989529163,
+        "dps": 18917.02293015882,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -174,8 +146,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 71794.79045298592,
-        "team": 0.03330861705837533,
+        "dps": 28567.88921587925,
+        "team": 0.054521747298933776,
         "noaff": false,
         "nihil": false
       },
@@ -221,8 +193,8 @@
       ]
     },
     "META": {
-      "tdps": 173529.98190539464,
-      "pref": "PERSONAL",
+      "tdps": 12462.07428376722,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
@@ -232,8 +204,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48970.128926593745,
-        "team": 0.0664448552828283,
+        "dps": 49033.69897712589,
+        "team": 0.06644485528282837,
         "noaff": false,
         "nihil": true
       },
@@ -268,10 +240,27 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 7407.244239114108,
+        "team": 0.2815281010972511,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 1945.9638808975667,
+        "dps": 2551.168362892365,
         "team": 0.0,
         "noaff": true,
         "nihil": true

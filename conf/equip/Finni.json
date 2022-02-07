@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78961.9371054266,
+        "dps": 108340.39350077715,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -44,25 +44,25 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, self.sr.count=1",
+        "`dragon, self.sr.count=1 and cancel",
         "`s3, not buff(s3)",
-        "`s4",
-        "if s2_autocharge_buff.get()",
+        "`s2, self.sr.count=2 and not s2_autocharge_buff.get()",
         "`s1, self.sr.count=2 and cancel",
-        "else",
-        "`s2, self.sr.count=2",
-        "end"
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
@@ -72,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 111817.2339892855,
+      "tdps": 252788.06107003166,
       "pref": "PERSONAL"
     }
   },
@@ -116,8 +116,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52722.3238762171,
-        "team": 0.09962024689694286,
+        "dps": 64179.189654558984,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -130,7 +130,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Summer_Marishiten",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, self.sr.count=1",
         "`s3",
@@ -143,7 +143,7 @@
       ],
       "coabs": [
         "Blade",
-        "Tiki",
+        "Dragonyule_Cleo",
         "Yurius"
       ],
       "share": [
@@ -152,31 +152,21 @@
       ]
     },
     "META": {
-      "tdps": 4840853.737847799,
+      "tdps": 128307.6959276525,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84484.67077152665,
+        "dps": 114399.75144300409,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon, self.sr.count=1 and cancel",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
-        "else",
-        "`s2, self.sr.count=2",
-        "end"
-      ]
+      }
     },
     "META": {
-      "tdps": 138317.75267480838,
+      "tdps": 281863.54036679975,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,29 +177,28 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75584.57431203747,
+        "dps": 81340.57743973978,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Kung_Fu_Masters",
         "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "Wings_of_Rebellion_at_Rest",
-        "A_Small_Courage",
-        "Entwined_Flames",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, cancel",
-        "`s4, cancel",
-        "`s3",
+        "`s4, x=5",
+        "`s3, x=4",
         "if s2_autocharge_buff.get()",
         "`s1, self.sr.count=2 and cancel",
         "else",
-        "`s2, self.sr.count=2",
+        "`s2, self.sr.count=2 and cancel",
         "end"
       ],
       "dacl": [
@@ -232,40 +221,31 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59607.617864916385,
-        "team": 0.09991897367690379,
-        "noaff": true,
+        "dps": 87474.69240999958,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Summer_Paladyns",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, self.sr.count=1",
+        "`dragon, self.sr.count=1 and cancel",
         "`s3, not buff(s3)",
-        "if self.sr.count=2 and cancel",
-        "`s2, not s2_autocharge_buff.get()",
-        "`s1",
-        "end",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "`s2, self.sr.count=2 and not s2_autocharge_buff.get() and cancel",
+        "`s1, self.sr.count=2 and cancel",
+        "`s4"
       ]
     },
     "META": {
-      "tdps": 36397.74837821511,
-      "pref": "TEAMBUFF",
+      "tdps": 152665.1989018186,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

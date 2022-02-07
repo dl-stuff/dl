@@ -2,128 +2,133 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 61867.70496317306,
-        "team": 0.0,
+        "dps": 81180.89838383204,
+        "team": 0.024607913102428783,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "A_Small_Courage",
-        "Saint_Starfalls_Circus",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Cupid",
       "acl": [
-        "`dragon",
+        "`dragon, cancel",
         "`s1",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
       ],
-      "dacl": [
-        "`s4, xf=5",
-        "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now<2",
-        "`s1, dgauge>=1500 and s=1"
-      ],
       "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Wand"
+        "Blade",
+        "Joker",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Seimei"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61867.70496317306,
+        "dps": 82679.92810863706,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "A_Small_Courage",
-        "Saint_Starfalls_Circus",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Cupid",
       "acl": [
-        "`dragon",
+        "`dragon, cancel",
         "`s1",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
       ],
-      "dacl": [
-        "`s4, xf=5",
-        "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now<2",
-        "`s1, dgauge>=1500 and s=1"
-      ],
       "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Wand"
+        "Blade",
+        "Joker",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Summer_Julietta"
       ]
     },
     "META": {
+      "tdps": 60916.572590508134,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71546.9839044454,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Gala_Thor",
+      "coabs": [
+        "Blade",
+        "Gun",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57977.8618786736,
+        "dps": 65140.00253358918,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Gentle_Winds",
-        "Sweet_Surprise",
+        "Extreme_Teamwork",
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
         "A_Small_Courage",
-        "Saint_Starfalls_Circus",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Beast_Volk",
-      "slots.w": "primal_dragon",
+      "slots.d": "Cupid",
       "acl": [
-        "`dragon",
+        "`dragon, cancel",
         "`s1",
         "`s2",
         "`s3",
         "`s4"
       ],
-      "dacl": [
-        "`s4, xf=5",
-        "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now<2",
-        "`s1, dgauge>=1500 and s=1"
-      ],
       "coabs": [
-        "Mona",
-        "Wand",
-        "Yukata_Lathna"
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -133,30 +138,34 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49333.54102917416,
-        "team": 0.10352518979241869,
+        "dps": 97942.65480171634,
+        "team": 0.06249926042541803,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
-        "`dragon",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s4, cancel or fsc",
-        "`s2, cancel or fsc",
-        "`fs, x=5"
+        "`s4",
+        "`s2",
+        "`s1"
       ],
       "dacl": [
-        "`s4, x=5 or fsc",
-        "`s2, fsc",
-        "`s1",
-        "`fs, x=5",
-        "`sack, duration-now>12"
+        "`ds1, x=9"
       ],
       "coabs": [
-        "Mona",
-        "Wand",
-        "Yukata_Lathna"
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -165,30 +174,35 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90674.970699657,
-        "team": 0.10233746776127271,
+        "dps": 98134.41963881631,
+        "team": 0.06244616446776576,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
-        "`dragon, s1.check()",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
         "`s1",
-        "`s4, cancel or fsc",
-        "`s2, cancel or fsc",
-        "`fs, x=5"
+        "`fsf, x=4"
       ],
       "dacl": [
-        "`s4, x=5 or fsc",
-        "`s2, fsc",
-        "`s1",
-        "`fs, x=5",
-        "sack, s=1 and s=2"
+        "`ds1, x=9"
       ],
       "coabs": [
-        "Mona",
-        "Wand",
-        "Yukata_Lathna"
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -196,7 +210,7 @@
       ]
     },
     "META": {
-      "tdps": 34807327.46078175,
+      "tdps": 3611665.474721551,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -207,35 +221,30 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69788.5490368059,
+        "dps": 75522.68264477927,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Saint_Starfalls_Circus",
+        "The_Queen_of_the_Knife",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, s1.check()",
-        "`s3",
+        "`dragon, cancel",
         "`s1",
-        "`s4, cancel or fsc",
-        "`s2, cancel or fsc",
-        "`fs, x=5"
+        "`s2",
+        "`s3",
+        "`s4",
+        "`fs, x=4"
       ],
       "dacl": [
-        "`s4, x=5 or fsc",
-        "`s2, fsc",
-        "`s1",
-        "`fs, x=5",
-        "sack, s=2 and s1.charged<s1.sp/5"
+        "ds1,x=9"
       ]
     },
     "META": {
