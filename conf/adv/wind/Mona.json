@@ -19,6 +19,19 @@
         ],
         "skillshare": {"src": "s99", "cost": 5, "sp": 8447}
     },
+    "dragonform": {
+        "dshift": {
+            "startup": 0.0,
+            "recovery": 1.8,
+            "attr": [
+                {"actcond": "1533", "target": "MYSELF"},
+                {"actcond": "1561", "target": "MYSELF"},
+                {"dmg": 2.0, "target": "HOSTILE", "iv": 1.13333}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"any": 1.76667, "s": 0.0}
+        }
+    },
     "fs": {
         "charge": 0.4,
         "startup": 0.16667,
@@ -78,9 +91,9 @@
         "startup": 0.0,
         "recovery": 1.53333,
         "attr": [
-            {"dmg": 8.25, "crit": 0.3, "target": "HOSTILE", "msl": 0.53334, "gluca": 1},
-            {"dmg": 8.25, "crit": 0.3, "target": "HOSTILE", "msl": 0.7, "gluca": 1},
-            {"dmg": 8.25, "crit": 0.3, "target": "HOSTILE", "msl": 0.86667, "gluca": 1}
+            {"dmg": 8.25, "crit": 0.3, "target": "HOSTILE", "msl": 0.53334},
+            {"dmg": 8.25, "crit": 0.3, "target": "HOSTILE", "msl": 0.7},
+            {"dmg": 8.25, "crit": 0.3, "target": "HOSTILE", "msl": 0.86667}
         ],
         "energizable": true,
         "cancel": {"any": 1.33333}

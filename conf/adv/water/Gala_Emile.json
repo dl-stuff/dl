@@ -18,21 +18,17 @@
         ],
         "skillshare": {"limit": 14}
     },
-    "dservant": {
+    "dragonform": {
         "dshift": {
+            "startup": 1.0,
+            "recovery": 4.86667,
             "attr": [
-                {"dmg": 2.25, "target": "HOSTILE"}
-            ]
-        },
-        "ds1": {
-            "sp": 30,
-            "startup": 0.0,
-            "recovery": 4.76667,
-            "attr": [
-                {"dmg": 100.0, "target": "HOSTILE", "iv": 2.02778}
+                {"dmg": 1.5, "target": "HOSTILE"},
+                {"dmg": 100.0, "target": "HOSTILE", "msl": 3.36111},
+                {"dform_stop": 1, "msl": 5.83333}
             ],
-            "sp_db": 45,
-            "uses": 1
+            "interrupt": {"s": 0.0},
+            "cancel": {"any": 4.5, "s": 0.0}
         }
     },
     "s1": {

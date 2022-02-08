@@ -21,6 +21,17 @@
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "def"]]}
         ]
     },
+    "dragonform": {
+        "dshift": {
+            "startup": 1.13333,
+            "recovery": 0.66667,
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"any": 0.53334, "s": 0.0}
+        }
+    },
     "s1": {
         "sp": 3380,
         "startup": 0.0,

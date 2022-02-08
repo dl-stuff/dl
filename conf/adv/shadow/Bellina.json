@@ -18,6 +18,17 @@
             {"cond": ["hp", "<=", 30], "ab": [["mod", 0.2, "att"], ["mod", 0.1, "aspd"]]}
         ]
     },
+    "dragonform": {
+        "dshift": {
+            "startup": 1.13333,
+            "recovery": 0.66667,
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"any": 0.63334, "s": 0.0}
+        }
+    },
     "fs_ddrive": {
         "charge": 2.0,
         "startup": 0.06667,

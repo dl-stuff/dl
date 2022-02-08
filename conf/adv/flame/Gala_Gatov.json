@@ -94,7 +94,7 @@
             {"pcond": ["actcond", "2025", "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.56667},
             {"pcond": ["actcond", "2025", "=", 0], "dmg": 5.84, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.63333},
             {"pcond": ["actcond", "2025", "=", 1], "dmg": 6.72, "actcond": "1246", "target": "HIT_OR_GUARDED_RECORD", "iv": 1.63333},
-            {"actcond_reset": "2025", "iv": 1.63333}
+            {"actcond_reset": "2025", "msl": 1.63333}
         ],
         "cancel": {"any": 1.66667}
     },
@@ -104,7 +104,7 @@
         "recovery": 1.93333,
         "attr": [
             {"actcond": "2058"},
-            {"actcond": "2059", "iv": 1.46667},
+            {"actcond": "2059", "msl": 1.46667},
             {"sp": [1.0, "%", "s2"], "target": "MYSELF", "iv": 1.46667}
         ],
         "DEBUG_attr_N1": [{"sp": [1.0, "%", "s1"], "target": "MYSELF"}, {"actcond": "291", "target": "HOSTILE", "iv": 0.03333}, {"dmg": 4.18, "actcond": "291", "target": "HOSTILE", "iv": 0.66667}, {"dmg": 4.18, "actcond": "291", "target": "HOSTILE", "iv": 0.83333}, {"dmg": 4.18, "actcond": "291", "target": "HOSTILE", "iv": 1.0}, {"dmg": 4.18, "actcond": "291", "target": "HOSTILE", "iv": 1.16667}, {"dmg": 4.18, "actcond": "291", "target": "HOSTILE", "iv": 1.33333}, {"dmg": 4.18, "actcond": "291", "target": "HOSTILE", "iv": 1.5}],
@@ -148,7 +148,7 @@
             {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.5},
             {"pcond": ["actcond", "2025", "=", 0], "dmg": 4.21, "actcond": "291", "target": "HOSTILE", "iv": 1.56667},
             {"pcond": ["actcond", "2025", "=", 1], "dmg": 4.85, "actcond": "291", "target": "HOSTILE", "iv": 1.56667},
-            {"actcond_reset": "2025", "iv": 1.66667}
+            {"actcond_reset": "2025", "msl": 1.66667}
         ],
         "cancel": {"any": 2.16667}
     },

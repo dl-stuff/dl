@@ -1,5 +1,6 @@
 {
     "actconds": {
+        "1278": {"duration": 15.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
         "1459": {"duration": 30.0, "icon": 232, "mods": [[0.2, "att", "buff"]], "alt": {"x": "enhanced"}, "text": "Upgrade", "refresh": 1}
     },
     "c": {
@@ -16,6 +17,17 @@
             {"ab": [["mod", 1.0, "affres_curse"]]},
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.1, "crit"]]}
         ]
+    },
+    "dragonform": {
+        "dshift": {
+            "startup": 1.13333,
+            "recovery": 0.66667,
+            "attr": [
+                {"dmg": 1.5, "actcond": "1278", "target": "HOSTILE"}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"any": 0.63334, "s": 0.0}
+        }
     },
     "fs": {
         "charge": 0.4,
@@ -56,7 +68,7 @@
         "startup": 0.0,
         "recovery": 2.23333,
         "attr": [
-            {"dmg": 20.7, "target": "HOSTILE", "gluca": 1, "msl": 1.06667}
+            {"dmg": 20.7, "target": "HOSTILE", "msl": 1.06667}
         ],
         "energizable": true
     },

@@ -2,7 +2,8 @@
     "actconds": {
         "1246": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%", "overwrite": 6},
         "1353": {"aff": "shadowblight", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
-        "1768": {"duration": 10.0, "coei": 1, "alt": {"x": "enhanced"}, "icon": 44, "text": "Enhanced Standard Attacks", "refresh": 1}
+        "1768": {"duration": 10.0, "coei": 1, "alt": {"x": "enhanced"}, "icon": 44, "text": "Enhanced Standard Attacks", "refresh": 1},
+        "1787": {"remove": "1768", "count": 1, "coei": 1}
     },
     "c": {
         "name": "Summer Mym",
@@ -20,18 +21,16 @@
             {"cond": ["event", "start"], "ab": [["prep", 1.0]]}
         ]
     },
-    "default": {
-        "x_max": 2
-    },
-    "fs": {
-        "charge": 0.4,
-        "startup": 0.06667,
-        "recovery": 0.96666,
-        "attr": [
-            {"dmg": 1.8, "odmg": 4.0, "sp": 400, "target": "HOSTILE"}
-        ],
-        "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"any": 0.83333, "dodge": 0.0, "s": 0.0}
+    "dragonform": {
+        "dshift": {
+            "startup": 0.55556,
+            "recovery": 1.24444,
+            "attr": [
+                {"dmg": 2.0, "target": "HOSTILE"}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"any": 1.11111, "s": 0.0}
+        }
     },
     "s1": {
         "sp": 3950,
@@ -89,23 +88,5 @@
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
         "cancel": {"any": 0.4, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_ddrive": 0.4}
-    },
-    "x1_enhanced": {
-        "startup": 0.2,
-        "recovery": 1.26667,
-        "attr": [
-            {"dmg": 0.67, "sp": 545, "target": "HOSTILE", "loop": [5, 0.13333]}
-        ],
-        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
-        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 1.26667}
-    },
-    "x2_enhanced": {
-        "startup": 0.2,
-        "recovery": 1.26667,
-        "attr": [
-            {"dmg": 0.67, "sp": 545, "target": "HOSTILE", "loop": [5, 0.13333]}
-        ],
-        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
-        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.26667}
     }
 }

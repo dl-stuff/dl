@@ -27,9 +27,6 @@
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 9072}
     },
-    "default": {
-        "x_max": 3
-    },
     "dragonform": {
         "dshift": {
             "attr": [
@@ -117,32 +114,5 @@
             {"actcond": "1527", "target": "HOSTILE", "iv": 1.1, "msl": null, "blt": ["zonecount", 0.0]}
         ],
         "cancel": {"any": 1.66667}
-    },
-    "x1": {
-        "startup": 0.3,
-        "recovery": 1.0,
-        "attr": [
-            {"dmg": 0.45, "sp": 200, "target": "HOSTILE", "loop": [3, 0.1]}
-        ],
-        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
-        "cancel": {"any": 0.86667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.4}
-    },
-    "x2": {
-        "startup": 0.1,
-        "recovery": 1.0,
-        "attr": [
-            {"dmg": 0.6, "sp": 200, "target": "HOSTILE", "loop": [3, 0.1]}
-        ],
-        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"any": 0.86667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.5}
-    },
-    "x3": {
-        "startup": 0.1,
-        "recovery": 1.13333,
-        "attr": [
-            {"dmg": 0.6, "sp": 200, "target": "HOSTILE", "loop": [5, 0.1]}
-        ],
-        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"any": 1.0, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.5}
     }
 }
