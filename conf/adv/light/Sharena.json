@@ -13,7 +13,7 @@
         "wt": "lance",
         "spiral": false,
         "abilities": [
-            {"cond": ["hp", "<", 30, 1], "ab": [["hitattr", {"actcond": "561", "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30, 1], "count": 1, "ab": [["hitattr", {"actcond": "561", "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},
             {"ab": [["mod", 0.3, "killer_paralysis"]]}
         ],

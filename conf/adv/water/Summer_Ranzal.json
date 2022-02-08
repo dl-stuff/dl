@@ -15,7 +15,7 @@
         "wt": "blade",
         "spiral": false,
         "abilities": [
-            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "302030801"]]},
+            {"cond": ["hp", "<", 30, 1], "count": 1, "ab": [["actcond", "MYSELF", "302030801"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"cond": ["event", "s1_charged"], "cd": 15.0, "ab": [["actcond", "MYSELF", "155"]]}
         ],

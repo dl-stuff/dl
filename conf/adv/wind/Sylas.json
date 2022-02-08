@@ -19,7 +19,7 @@
         "wt": "lance",
         "spiral": true,
         "abilities": [
-            {"cond": ["hp", "<", 30, 1], "cd": 15.0, "ab": [["actcond", "MYSELF", "308020801"]]},
+            {"cond": ["hp", "<", 30, 1], "cd": 15.0, "count": 3, "ab": [["actcond", "MYSELF", "308020801"]]},
             {"ab": [["mod", 1.0, "affres_freeze"]]},
             {"cond": ["selfaff", "freeze"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.15, "att"]]}

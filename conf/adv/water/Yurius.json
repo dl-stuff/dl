@@ -14,8 +14,8 @@
         "spiral": false,
         "utp": [0, 3000, 1200, 75],
         "abilities": [
-            {"cond": ["shift", "ddrive"], "ab": [["actdmg", 0.35, "-t:s"]]},
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.3, "sph"]]},
+            {"cond": ["in_shift", "ddrive", 0], "ab": [["actdmg", 0.35, "-t:s"]]},
+            {"cond": ["in_shift", "ddrive", 0], "ab": [["mod", 0.3, "sph"]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
             {"cond": ["event", "start"], "ab": [["prep", 1.0]]}
         ]

@@ -16,7 +16,7 @@
         "gun": [1],
         "utp": [0, 3000, 1200, 150],
         "abilities": [
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.25, "att"]]},
+            {"cond": ["in_shift", "ddrive", 1], "ab": [["mod", 0.25, "att"]]},
             {"ab": [["mod", 1.0, "affres_paralysis"]]},
             {"cond": ["event", "start"], "ab": [["prep", 1.0]]}
         ]

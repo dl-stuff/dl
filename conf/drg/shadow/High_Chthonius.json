@@ -10,9 +10,9 @@
         "ele": "shadow",
         "abilities": [
             {"ab": [["mod", 0.65, "att"]]},
-            {"cond": ["event", "dragon"], "ele": "shadow", "ab": [["mod", 0.2, "att"]]},
-            {"cond": ["event", "dragon"], "ele": "shadow", "ab": [["mod", 0.2, "att"]]},
-            {"cond": ["event", "dragon"], "count": 1, "ele": "shadow", "ab": [["mod", 0.3, "hp"]]}
+            {"cond": ["dshift_count", ">=", 1], "ele": "shadow", "ab": [["mod", 0.2, "att"]]},
+            {"cond": ["dshift_count", ">=", 2], "ele": "shadow", "ab": [["mod", 0.2, "att"]]},
+            {"cond": ["dshift_count", ">=", 2], "count": 1, "ele": "shadow", "ab": [["mod", 0.3, "hp"]]}
         ]
     },
     "ds1": {

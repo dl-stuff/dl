@@ -17,11 +17,11 @@
         "wt": "sword",
         "spiral": true,
         "abilities": [
-            {"cond": ["shift", "dform"], "ab": [["mod", 1.0040160642570282, "dt"], ["mod", 0.1, "aspd"]]},
+            {"cond": ["in_shift", "dform", 1], "ab": [["mod", 1.6666666666666667, "dt"], ["mod", 0.1, "aspd"]]},
             {"cond": ["selfaff", "poison"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
             {"cond": ["selfaff", "curse"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_poison"], ["mod", 1.0, "affres_curse"]]},
-            {"cond": ["hp", "<", 40, 1], "ab": [["dprep", 0.5]]}
+            {"cond": ["hp", "<", 40, 1], "count": 1, "ab": [["dprep", 0.5]]}
         ],
         "skillshare": {"src": "s1", "cost": 7, "sp": 16794}
     },

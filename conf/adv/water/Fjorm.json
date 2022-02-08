@@ -15,7 +15,7 @@
         "wt": "lance",
         "spiral": true,
         "abilities": [
-            {"cond": ["hp", "<", 30, 1], "cd": 15.0, "ab": [["hitattr", {"actcond": "101", "target": "MYPARTY"}], ["hitattr", {"actcond": "94", "target": "MYPARTY"}]]},
+            {"cond": ["hp", "<", 30, 1], "cd": 15.0, "count": 2, "ab": [["hitattr", {"actcond": "101", "target": "MYPARTY"}], ["hitattr", {"actcond": "94", "target": "MYPARTY"}]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
             {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"cond": ["event", "start"], "ab": [["prep", 1.0]]},

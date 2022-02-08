@@ -1089,7 +1089,7 @@ class Adv(object):
             self.a_dash = DashX("dash", self.conf.dash)
 
         self.active_actconds = ActiveActconds()
-        self.amps = Amp.initialize()
+        self.amps, self.amps_by_type = Amp.initialize()
 
     @property
     def ctime(self):
@@ -1118,7 +1118,7 @@ class Adv(object):
         self.heal_make(e.name, e.delta, target=e.target, fixed=True)
 
     def heal_formula(self, name, coef):
-        healstat = self.max_hp * 0.16 + self.base_att * self.mod("att") * 0.06
+        healstat = self.max_hp * 0.16 + self.base_att * Modifier.SELF.mod("att") * 0.06
         energize = 1
         # if name in self.energy.active:
         #     energize += self.energy.modifier.get()
@@ -1481,7 +1481,7 @@ class Adv(object):
         return 1 + min(self.sub_mod("fspd", "buff"), 0.50) + self.sub_mod("fspd", "passive")
 
     def enable_echo(self, name, active_time=None, mod=None, fixed_att=None):
-        new_att = fixed_att or (mod * self.base_att * self.mod("att"))
+        new_att = fixed_att or (mod * self.base_att * Modifier.SELF.mod("att"))
         if new_att >= self.echo_att:
             if active_time is not None:
                 self.disable_echo(name, active_time)
@@ -1538,10 +1538,12 @@ class Adv(object):
 
     @allow_acl
     def att_mod(self, name=None):
-        att = self.mod("att")
+        att = Modifier.SELF.mod("att")
         cc = self.crit_mod(name)
         k = self.killer_mod(name)
-        # log('att_mod', str((att, cc, k)))
+        # log("att_mod", str((att, cc, k)), str(dict(Modifier.SELF["att"])))
+        non_zero_buff_att = [mod for mod in Modifier.SELF["att"]["buff"] if mod.get()]
+        # log("att_mod", str((att, cc, k)), str(non_zero_buff_att))
         return cc * att * k
 
     def build_rates(self, as_list=True):
@@ -1734,19 +1736,25 @@ class Adv(object):
             {"amp": [amp_id, max_level, target]},
         )
 
+    def _get_amp(self, key="10000") -> Amp:
+        try:
+            return self.amps[key]
+        except KeyError:
+            return self.amps_by_type[key]
+
     @allow_acl
     def amp_lvl(self, kind=None, key="10000"):
-        try:
-            return self.active_buff_dict.get_amp(key).level(kind, adjust=kind is None)
-        except (ValueError, KeyError):
-            return 0
+        amp = self._get_amp(key=key)
+        if kind is None:
+            return amp.amp_ctx_myself.level + amp.amp_ctx_myparty.level
+        return amp.amp_ctx_lookup[kind].level
 
     @allow_acl
     def amp_timeleft(self, kind=None, key="10000"):
-        try:
-            return self.active_buff_dict.get_amp(key).timeleft(kind)
-        except (ValueError, KeyError):
-            return 0
+        amp = self._get_amp(key=key)
+        if kind is None:
+            return max(amp.amp_ctx_myself.timer.timeleft(), amp.amp_ctx_myparty.timer.timeleft())
+        return amp.amp_ctx_lookup[kind].timer.timeleft()
 
     def l_idle(self, e):
         """
@@ -2183,7 +2191,7 @@ class Adv(object):
         self.prerun()
         self.config_acl()
 
-        self.displayed_att = int(self.base_att * self.mod("att"))
+        self.displayed_att = int(self.base_att * Modifier.SELF.mod("att"))
 
         if self.conf["fleet"]:
             self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
@@ -2664,44 +2672,25 @@ class Adv(object):
         if t.proc is not None:
             t.proc(t)
 
-    # ATTR_COND = {
-    #     "hp>": lambda s, v: s.hp > v,
-    #     "hp>=": lambda s, v: s.hp >= v,
-    #     "hp<": lambda s, v: s.hp < v,
-    #     "hp<=": lambda s, v: s.hp <= v,
-    #     "rng": lambda s, v: random.random() <= v if s.FIXED_RNG is None else s.FIXED_RNG,
-    #     "hits": lambda s, v: s.hits >= v,
-    #     "zone": lambda s, v: s.zonecount >= v,
-    #     "var>=": lambda s, v: getattr(s, v[0], 0) >= v[1],
-    #     "var>": lambda s, v: getattr(s, v[0], 0) > v[1],
-    #     "var<=": lambda s, v: getattr(s, v[0], 0) <= v[1],
-    #     "var<": lambda s, v: getattr(s, v[0], 0) < v[1],
-    #     "var=": lambda s, v: getattr(s, v[0], 0) == v[1],
-    #     "var!=": lambda s, v: getattr(s, v[0], 0) != v[1],
-    #     "actcond": None,
-    #     "var<<": lambda s, v: v[1] <= getattr(s, v[0], 0) <= v[2], # between 2 values
-    #     "amp": lambda s, v: s.active_buff_dict.check_amp_cond(*v),
-    # }
-
-    # def eval_attr_cond(self, cond):
-    #     try:
-    #         return Adv.ATTR_COND[cond[0]](self, cond[1])
-    #     except KeyError:
-    #         if cond[0] == "not":
-    #             return not self.eval_attr_cond(cond[1])
-    #         if cond[0] == "and":
-    #             return all((self.eval_attr_cond(subcond) for subcond in cond[1:]))
-    #         if cond[0] == "or":
-    #             return any((self.eval_attr_cond(subcond) for subcond in cond[1:]))
-
     def _pcond_actcond(self, actcond_id, op, value):
         return globalconf.OPS[op](self.active_actconds.stacks(actcond_id), value)
 
-    def _pcond_amp(self, *args):
-        raise NotImplementedError
+    def _pcond_vars(self, varname, op, value):
+        return globalconf.OPS[op](getattr(self, varname, 0), value)
+
+    def _pcond_amp(self, amp_kind, op, value):
+        if amp := self.amps_by_type.get(amp_kind[0]):
+            return globalconf.OPS[op](amp.amp_ctx_lookup[amp_kind[1]].level, value)
+        else:
+            for amp in self.amps.values():
+                if globalconf.OPS[op](amp.amp_ctx_lookup[amp_kind[1]].level, value):
+                    return True
 
     def _pcond_and(self, pcond1, pcond2):
         return self._eval_pcond(pcond1) and self._eval_pcond(pcond2)
+
+    def _pcond_or(self, pcond1, pcond2):
+        return self._eval_pcond(pcond1) or self._eval_pcond(pcond2)
 
     def _eval_pcond(self, pcond):
         return getattr(self, f"_pcond_{pcond[0]}")(*pcond[1:])
@@ -2915,7 +2904,7 @@ class Adv(object):
 
     @allow_acl
     def aff_timeleft(self, afflictname):
-        return self.afflictions[afflictname].timeleft()
+        return self.active_actconds.aff_timeleft(afflictname)
 
     @allow_acl
     def buff(self, *args):

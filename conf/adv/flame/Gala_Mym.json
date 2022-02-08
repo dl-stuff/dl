@@ -12,9 +12,9 @@
         "wt": "lance",
         "spiral": false,
         "abilities": [
-            {"cond": ["event", "dragon"], "ab": [["hit_attr_shift"]]},
-            {"cond": ["event", "dragon"], "ab": [["actcond", "MYSELF", "513"]]},
-            {"cond": ["shift", "dform"], "ab": [["mod", 0.15, "aspd"]]},
+            {"cond": ["dshift_count", ">=", 2, 1], "ab": [["hitattr_shift"]]},
+            {"cond": ["event", "dragon"], "count": 1, "ab": [["actcond", "MYSELF", "513"]]},
+            {"cond": ["in_shift", "dform", 2], "ab": [["mod", 0.15, "aspd"]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
             {"ab": [["mod", 1.0, "affres_stun"]]},
             {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"sp": [0.5, "%", "s1"], "target": "MYSELF"}]]},
@@ -25,59 +25,49 @@
     "dragonform": {
         "dshift": {
             "attr": [
-                {"dmg": 3.0, "target": "HOSTILE"}
-            ],
-            "attr_HAS": [
-                {"dmg": 3.0, "target": "HOSTILE"}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 3.0, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 3.0, "target": "HOSTILE"}
             ]
         },
         "dx1": {
             "startup": 0.3,
             "recovery": 1.2,
             "attr": [
-                {"dmg": 4.64, "sp": 5, "target": "HOSTILE"}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 4.32, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 4.64, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
-            "cancel": {"any": 0.9, "dodge": 0.0, "dx2": 0.23333, "s": 0.0},
-            "attr_HAS": [
-                {"dmg": 4.64, "sp": 5, "target": "HOSTILE"}
-            ]
+            "cancel": {"any": 0.9, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.46667,
             "recovery": 1.66666,
             "attr": [
-                {"dmg": 5.12, "sp": 5, "target": "HOSTILE"}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 4.76, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 5.12, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
-            "cancel": {"any": 1.56666, "dodge": 0.0, "dx3": 0.23333, "s": 0.0},
-            "attr_HAS": [
-                {"dmg": 5.12, "sp": 5, "target": "HOSTILE"}
-            ]
+            "cancel": {"any": 1.56666, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
         },
         "dx3": {
             "startup": 0.33333,
             "recovery": 1.8,
             "attr": [
-                {"dmg": 6.5, "sp": 5, "target": "HOSTILE"}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 6.06, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 6.5, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
-            "cancel": {"any": 1.4, "dodge": 0.0, "dx1": 1.4, "s": 0.0},
-            "attr_HAS": [
-                {"dmg": 6.5, "sp": 5, "target": "HOSTILE"}
-            ]
+            "cancel": {"any": 1.4, "dodge": 0.0, "dx1": 1.4, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
             "recovery": 2.7,
             "attr": [
-                {"dmg": 15.12, "target": "HOSTILE", "iv": 0.93333}
-            ],
-            "attr_HAS": [
-                {"dmg": 15.12, "target": "HOSTILE", "iv": 0.93333},
-                {"dmg": 8.12, "target": "HOSTILE", "iv": 1.7},
-                {"dmg": 8.12, "target": "HOSTILE", "iv": 1.7}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 15.12, "target": "HOSTILE", "iv": 0.93333},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 15.12, "target": "HOSTILE", "iv": 0.93333},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 8.12, "target": "HOSTILE", "iv": 1.7},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 8.12, "target": "HOSTILE", "iv": 1.7}
             ],
             "cancel": {"any": 2.33333},
             "sp_db": 45,
@@ -111,6 +101,11 @@
         "sp": 5736,
         "startup": 0.0,
         "recovery": 1.63333,
-        "energizable": true
+        "attr": [
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 1.0}
+        ]
     }
 }

@@ -21,12 +21,12 @@
         "spiral": false,
         "utp": [0, 3000, 1200, 75],
         "abilities": [
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.35, "att"], ["actcond", "MYSELF", "2105"]]},
+            {"cond": ["in_shift", "ddrive", 1], "ab": [["mod", 0.35, "att"], ["actcond", "MYSELF", "2105"]]},
             {"cond": ["selfaff", "all"], "actcond": "2105", "cd": 10.0, "ab": [["hitattr", {"heal": 25, "target": "MYSELF"}]]},
             {"cond": ["aff", "all"], "cd": 8.0, "ab": [["hitattr", {"amp": ["10000", 1, 0], "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_freeze"]]},
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.75, "affres_all"]]},
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.75, "affres_all"]]}
+            {"cond": ["in_shift", "ddrive", 0], "ab": [["mod", 0.75, "affres_all"]]},
+            {"cond": ["in_shift", "ddrive", 0], "ab": [["mod", 0.75, "affres_all"]]}
         ]
     },
     "dragonform": {

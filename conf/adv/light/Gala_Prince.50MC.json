@@ -16,9 +16,9 @@
         "wt": "sword",
         "spiral": false,
         "abilities": [
-            {"cond": ["shift", "dform"], "ab": [["mod", 1.0030090270812437, "dt"], ["mod", 0.1, "aspd"]]},
+            {"cond": ["in_shift", "dform", 1], "ab": [["mod", 1.4285714285714286, "dt"], ["mod", 0.1, "aspd"]]},
             {"ab": [["mod", 1.0, "affres_poison"], ["mod", 1.0, "affres_curse"]]},
-            {"cond": ["hp", "<", 30, 1], "ab": [["dprep", 0.5]]}
+            {"cond": ["hp", "<", 30, 1], "count": 1, "ab": [["dprep", 0.5]]}
         ],
         "skillshare": {"src": "s1", "cost": 7, "sp": 16794}
     },

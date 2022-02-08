@@ -1,7 +1,7 @@
-import operator
+from functools import partial
 
 from core.modifier import Modifier
-from core.timeline import Event, Listener, Timer
+from core.timeline import Listener, Timer
 from conf import float_ceil, OPS
 from core.log import log
 
@@ -12,7 +12,7 @@ class InactiveAbility(Exception):
 
 ### Conditions
 
-CONDITONS = {}
+CONDITIONS = {}
 
 
 class Cond:
@@ -42,17 +42,16 @@ class Cond:
     def check(self, e):
         return True
 
+    def _checked_callback(self, callback, e):
+        if all((ec() for ec in self._extra_checks)) and self.check(e):
+            callback(e)
+
     def trigger(self, callback, order=1):
         if self.event is not None:
-
-            def _checked_callback(e):
-                if all((ec() for ec in self._extra_checks)) and self.check(e):
-                    callback(e)
-
-            return Listener(self.event, _checked_callback, order=order)
+            return Listener(self.event, partial(self._checked_callback, callback), order=order)
 
 
-CONDITONS["always"] = Cond
+CONDITIONS["always"] = Cond
 
 
 class CompareCond(Cond):
@@ -83,7 +82,7 @@ class CondHP(CompareCond):
         return self._op(self._adv.hp, self.value)
 
 
-CONDITONS["hp"] = CondHP
+CONDITIONS["hp"] = CondHP
 
 
 class CondHits(CompareCond):
@@ -94,7 +93,7 @@ class CondHits(CompareCond):
         return self._op(self._adv.hits, self.value)
 
 
-CONDITONS["hits"] = CondHits
+CONDITIONS["hits"] = CondHits
 
 
 class CondActcond(CompareCond):
@@ -106,7 +105,18 @@ class CondActcond(CompareCond):
         return self._op(self._adv.active_actconds.stacks(self.actcond_id), self.value)
 
 
-CONDITONS["actcond"] = CondActcond
+CONDITIONS["actcond"] = CondActcond
+
+
+class CondDragonShiftCount(CompareCond):
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__("dragon", adv, data, *args)
+
+    def get(self):
+        return self._op((0 if self._adv.conf.c["utp"] else self._adv.dshift_count), self.value)
+
+
+CONDITIONS["dshift_count"] = CondDragonShiftCount
 
 
 class CondBuffedBy(Cond):
@@ -119,22 +129,23 @@ class CondBuffedBy(Cond):
         return e.base == self.target
 
 
-CONDITONS["buffed_by"] = CondBuffedBy
+CONDITIONS["buffed_by"] = CondBuffedBy
 
 
-class CondShift(Cond):
+class CondInShift(Cond):
     def __init__(self, adv, data, *args) -> None:
         super().__init__(adv, data, *args)
         if args[0] == "dform":
             self.form_check = self._adv.dragonform.in_dform
         elif args[0] == "ddrive":
             self.form_check = self._adv.dragonform.in_ddrive
+        self.count = args[1]
 
     def get(self):
-        return self.form_check()
+        return self.form_check() and self._adv.dshift_count >= self.count
 
 
-CONDITONS["shift"] = CondShift
+CONDITIONS["in_shift"] = CondInShift
 
 
 class CondEvent(Cond):
@@ -143,7 +154,7 @@ class CondEvent(Cond):
         self.event = args[0]
 
 
-CONDITONS["event"] = CondEvent
+CONDITIONS["event"] = CondEvent
 
 
 class CondPersistentCount(Cond):
@@ -172,7 +183,7 @@ class CondHitsEvent(CondPersistentCount):
         super().__init__("hits", adv, data, *args)
 
 
-CONDITONS["hitcount"] = CondHitsEvent
+CONDITIONS["hitcount"] = CondHitsEvent
 
 
 class CondSlayer(CondPersistentCount):
@@ -180,7 +191,7 @@ class CondSlayer(CondPersistentCount):
         super().__init__("slayer", adv, data, *args)
 
 
-CONDITONS["slayer"] = CondSlayer
+CONDITIONS["slayer"] = CondSlayer
 
 
 class CondAffProc(Cond):
@@ -193,7 +204,7 @@ class CondAffProc(Cond):
         return e.atype == self.aff
 
 
-CONDITONS["aff"] = CondAffProc
+CONDITIONS["aff"] = CondAffProc
 
 
 class CondSelfAff(CondAffProc):
@@ -202,7 +213,7 @@ class CondSelfAff(CondAffProc):
         self.event = "selfaff"
 
 
-CONDITONS["selfaff"] = CondSelfAff
+CONDITIONS["selfaff"] = CondSelfAff
 
 
 class CondMult(Cond):
@@ -216,7 +227,7 @@ class CondMult(Cond):
         return min(self.max_count, getattr(self._adv, self.value, 0) // self.threshold)
 
 
-CONDITONS["mult"] = CondMult
+CONDITIONS["mult"] = CondMult
 
 
 class CondGetDP(Cond):
@@ -234,7 +245,7 @@ class CondGetDP(Cond):
         return False
 
 
-CONDITONS["get_dp"] = CondGetDP
+CONDITIONS["get_dp"] = CondGetDP
 
 
 class CondDoublebuff(Cond):
@@ -248,23 +259,10 @@ class CondDoublebuff(Cond):
         return e.actcond.is_doublebuff
 
 
-CONDITONS["doublebuff"] = CondDoublebuff
+CONDITIONS["doublebuff"] = CondDoublebuff
 
 
 class CondFSHold(Cond):
-    # def update_gozu_tenno_buff(self, t):
-    #     # will ignore cd of 15s for qol reasons
-    #     self.adv.gozu_tenno_buff.on(30)
-
-    # def oninit(self, adv):
-    #     super().oninit(adv)
-    #     adv.gozu_tenno_buff = adv.Selfbuff("gozu_tenno_buff", 0.3, 30, "flame", "ele").no_bufftime()
-
-    #     self.fs_charging_timer = Timer(self.update_gozu_tenno_buff, 3.0 - 0.00001, True)
-
-    #     Event("fs_start").trigger(lambda _: self.fs_charging_timer.on(), order=0)
-    #     Event("fs_end").trigger(lambda _: self.fs_charging_timer.off(), order=0)
-
     def __init__(self, adv, data, *args) -> None:
         self.required_time = args[0]
         if self.required_time == "cd":
@@ -274,17 +272,14 @@ class CondFSHold(Cond):
         self.event = args[1]
 
     def trigger(self, callback, order=1):
-        def _checked_callback(e):
-            if all((ec() for ec in self._extra_checks)) and self.check(e):
-                callback(e)
 
-        fs_charging_timer = Timer(_checked_callback, self.required_time - 0.00001, True)
+        fs_charging_timer = Timer(partial(self._checked_callback, callback), self.required_time - 0.00001, True)
         fs_charging_timer.name = "fs"
         Listener("fs_start", lambda _: fs_charging_timer.on())
         Listener(self.event, lambda _: fs_charging_timer.off())
 
 
-CONDITONS["fs_hold"] = CondFSHold
+CONDITIONS["fs_hold"] = CondFSHold
 
 
 ### Sub Abilities
@@ -340,7 +335,7 @@ class AbActcond(Ab):
     def __init__(self, adv, ability, *args) -> None:
         super().__init__(adv, ability)
         self.target = args[0]
-        self.actcond_list = args[1:]
+        self.actcond_list = args[1:4]
         self.max_count = ability.data.get("count")
         self.count = 0
         self.idx = 0
@@ -359,7 +354,7 @@ class AbActcond(Ab):
         self.idx = (self.idx + 1) % len(self.actcond_list)
         if self.max_count is not None:
             self.count += 1
-            if self.count > self.max_count and self.l_cond:
+            if self.count >= self.max_count and self.l_cond is not None:
                 self.l_cond.off()
 
 
@@ -381,7 +376,7 @@ class AbHitattr(Ab):
             self._adv.hitattr_make("ab", "ab", "default", aseq, hitattr, ev=getattr(e, "ev", 1))
         if self.max_count is not None:
             self.count += 1
-            if self.count > self.max_count:
+            if self.count >= self.max_count:
                 self.l_cond.off()
 
 
@@ -416,6 +411,20 @@ class AbDragonPrepCap(Ab):
 SUB_ABILITIES["dprep_cap"] = AbDragonPrepCap
 
 
+class AbHitattrShift(Ab):
+    def __init__(self, adv, ability, *args) -> None:
+        super().__init__(adv, ability, *args)
+        if self._cond is not None:
+            self.l_cond = self._cond.trigger(self._set_has, order=2)
+
+    def _set_has(self, e):
+        self._adv.hitattr_shift = 1
+        if self._cond is not None:
+            self.l_cond.off()
+
+
+SUB_ABILITIES["hitattr_shift"] = AbHitattrShift
+
 ### Ability
 class Ability:
     def __init__(self, adv, data, use_limit=False):
@@ -424,7 +433,7 @@ class Ability:
         self.data = data
         if cond := data.get("cond"):
             try:
-                self.cond = CONDITONS[cond[0]](adv, data, *cond[1:])
+                self.cond = CONDITIONS[cond[0]](adv, data, *cond[1:])
             except KeyError:
                 print(cond)
                 self.cond = None

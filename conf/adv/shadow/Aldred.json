@@ -12,8 +12,8 @@
         "spiral": false,
         "utp": [0, 3000, 1200, 150],
         "abilities": [
-            {"cond": ["shift", "ddrive"], "ab": [["actdmg", 0.3, "-t:s"]]},
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.5, "def"]]},
+            {"cond": ["in_shift", "ddrive", 0], "ab": [["actdmg", 0.3, "-t:s"]]},
+            {"cond": ["in_shift", "ddrive", 0], "ab": [["mod", 0.5, "def"]]},
             {"ab": [["mod", 0.5, "affres_blind"]]},
             {"cond": ["actcond", "519", ">=", 1], "ab": [["mod", 0.2, "att"], ["mod", 0.5, "def"]]}
         ]

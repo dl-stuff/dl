@@ -12,7 +12,7 @@
         "ele": "water",
         "abilities": [
             {"ab": [["mod", 1.0, "att"]]},
-            {"cond": ["shift", "dform"], "ab": [["actcond", "MYSELF", "2087"]]},
+            {"cond": ["in_shift", "dform", 0], "ab": [["actcond", "MYSELF", "2087"]]},
             {"ab": [["ctime", -1.0], ["mod", -0.2, "def"]]},
             {"ele": "water", "ab": [["mod", 0.15, "killer_frostbite"]]},
             {"cond": ["hits", ">=", 15, 1], "actcond": "2087", "ab": [["actgrant", 2094, "-t:x"]]}

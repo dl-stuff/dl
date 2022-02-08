@@ -22,7 +22,7 @@
             {"cond": ["hits", ">=", 15, 1], "ab": [["mod", 0.08, "att"]]},
             {"ab": [["mod", 1.0, "affres_bog"]]},
             {"cond": ["selfaff", "bog"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
-            {"cond": ["hp", "<", 30, 1], "ab": [["actcond", "MYSELF", "303031301"], ["actcond", "MYSELF", "303040501"]]}
+            {"cond": ["hp", "<", 30, 1], "count": 1, "ab": [["actcond", "MYSELF", "303031301"], ["actcond", "MYSELF", "303040501"]]}
         ],
         "skillshare": {"src": "s1", "cost": 3, "sp": 13464}
     },

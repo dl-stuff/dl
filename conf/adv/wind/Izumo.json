@@ -16,7 +16,7 @@
         "spiral": false,
         "utp": [0, 3000, 1200, 75],
         "abilities": [
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.2, "def"], ["actdmg", 0.25, "-t:s"], ["mod", 0.15, "debufftime", "-t:s"]]},
+            {"cond": ["in_shift", "ddrive", 1], "ab": [["mod", 0.2, "def"], ["actdmg", 0.25, "-t:s"], ["mod", 0.15, "debufftime", "-t:s"]]},
             {"ab": [["mod", 1.0, "affres_freeze"]]},
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "def"]]}
         ]

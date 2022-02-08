@@ -59,6 +59,7 @@ class DragonForm:
         self._shift_cost = 500
         self.shift_req = 500
         self.log_utp = False
+        self.shift_count = 0
 
         # dragonbattle
         self.is_dragonbattle = False

@@ -63,7 +63,7 @@ class Event(object):
 
     def on(self, e=None):
         for orders in self._trigger:
-            for cb in orders:
+            for cb in copy.copy(orders):
                 cb(self)
 
     def __call__(self, expand=None):
@@ -85,6 +85,9 @@ class Listener(object):
         self.__online = 0
         self.__order = order
         self.on()
+
+    def cb(self):
+        return self.__cb
 
     def __call__(self, e):
         self.__cb(e)
@@ -267,8 +270,6 @@ class Timeline(object):
         entry[-1] = Timeline.REMOVED
 
     def pop(self):
-        from pprint import pprint
-
         while self._tlist:
             timing, _, t = hq.heappop(self._tlist)
             if t is not Timeline.REMOVED:

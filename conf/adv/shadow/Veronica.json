@@ -13,8 +13,8 @@
         "wt": "wand",
         "spiral": true,
         "abilities": [
-            {"cond": ["hp", "<", 30, 1], "ab": [["hitattr", {"actcond": "892", "target": "MYPARTY"}]]},
-            {"cond": ["hp", "<", 30, 1], "ab": [["hitattr", {"actcond": "868", "target": "MYSELF"}]]},
+            {"cond": ["hp", "<", 30, 1], "count": 1, "ab": [["hitattr", {"actcond": "892", "target": "MYPARTY"}]]},
+            {"cond": ["hp", "<", 30, 1], "count": 1, "ab": [["hitattr", {"actcond": "868", "target": "MYSELF"}]]},
             {"ab": [["mod", 1.0, "affres_paralysis"]]},
             {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
             {"cond": ["event", "start"], "ab": [["prep", 1.0]]},

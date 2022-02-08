@@ -16,7 +16,7 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["prep", 0.75]]},
             {"ab": [["mod", 1.0, "affres_sleep"]]},
-            {"cond": ["hitcount", 1, "fs"], "ab": [["hitattr", {"sp": [0.25, "%"], "target": "MYSELF"}]]}
+            {"cond": ["hitcount", 1, "fs"], "count": 3, "ab": [["hitattr", {"sp": [0.25, "%"], "target": "MYSELF"}]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 16269}
     },

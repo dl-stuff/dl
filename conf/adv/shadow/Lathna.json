@@ -14,8 +14,8 @@
         "spiral": true,
         "abilities": [
             {"cond": ["event", "dragon"], "ab": [["actcond", "MYSELF", "308020801"]]},
-            {"cond": ["event", "dragon"], "ab": [["hit_attr_shift"]]},
-            {"cond": ["shift", "dform"], "ab": [["mod", 2.0, "killer_poison"]]},
+            {"cond": ["event", "dragon"], "ab": [["hitattr_shift"]]},
+            {"cond": ["in_shift", "dform", 0], "ab": [["mod", 2.0, "killer_poison"]]},
             {"ab": [["mod", 0.15, "killer_poison"]]},
             {"ab": [["mod", 1.0, "affres_paralysis"]]},
             {"cond": ["selfaff", "paralysis"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
@@ -26,61 +26,51 @@
     "dragonform": {
         "dshift": {
             "attr": [
-                {"dmg": 2.0, "target": "HOSTILE"}
-            ],
-            "attr_HAS": [
-                {"dmg": 2.0, "target": "HOSTILE"}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 2.0, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 2.0, "target": "HOSTILE"}
             ]
         },
         "dx1": {
             "startup": 0.33333,
             "recovery": 0.96667,
             "attr": [
-                {"dmg": 2.31, "sp": 5, "target": "HOSTILE"}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 2.1, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 2.31, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"s": 0.0},
-            "cancel": {"any": 0.66667, "dx2": 0.2, "s": 0.0},
-            "attr_HAS": [
-                {"dmg": 2.31, "sp": 5, "target": "HOSTILE"}
-            ]
+            "cancel": {"any": 0.66667, "dx2": 0.2, "s": 0.0}
         },
         "dx2": {
             "startup": 0.36667,
             "recovery": 1.06666,
             "attr": [
-                {"dmg": 2.54, "sp": 5, "target": "HOSTILE"}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 2.31, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 2.54, "sp": 5, "target": "HOSTILE"}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
-            "cancel": {"any": 0.63333, "dodge": 0.0, "dx3": 0.2, "s": 0.0},
-            "attr_HAS": [
-                {"dmg": 2.54, "sp": 5, "target": "HOSTILE"}
-            ]
+            "cancel": {"any": 0.63333, "dodge": 0.0, "dx3": 0.2, "s": 0.0}
         },
         "dx3": {
             "startup": 0.36667,
             "recovery": 1.66666,
             "attr": [
-                {"dmg": 1.67, "sp": 5, "target": "HOSTILE"},
-                {"dmg": 1.67, "sp": 5, "target": "HOSTILE", "iv": 0.33333}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 1.47, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 1.47, "sp": 5, "target": "HOSTILE", "iv": 0.33333},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 1.67, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 1.67, "sp": 5, "target": "HOSTILE", "iv": 0.33333}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
-            "cancel": {"any": 1.46666, "dodge": 0.0, "dx1": 1.3, "s": 0.0},
-            "attr_HAS": [
-                {"dmg": 1.67, "sp": 5, "target": "HOSTILE"},
-                {"dmg": 1.67, "sp": 5, "target": "HOSTILE", "iv": 0.33333}
-            ]
+            "cancel": {"any": 1.46666, "dodge": 0.0, "dx1": 1.3, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
             "recovery": 2.43333,
             "attr": [
-                {"dmg": 3.31, "actcond": "87", "target": "HOSTILE", "iv": 0.33333},
-                {"dmg": 3.31, "actcond": "87", "target": "HOSTILE", "iv": 0.76667}
-            ],
-            "attr_HAS": [
-                {"dmg": 3.64, "actcond": "87", "target": "HOSTILE", "iv": 0.33333},
-                {"dmg": 3.64, "actcond": "87", "target": "HOSTILE", "iv": 0.76667}
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 3.31, "actcond": "87", "target": "HOSTILE", "iv": 0.33333},
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 3.31, "actcond": "87", "target": "HOSTILE", "iv": 0.76667},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 3.64, "actcond": "87", "target": "HOSTILE", "iv": 0.33333},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 3.64, "actcond": "87", "target": "HOSTILE", "iv": 0.76667}
             ],
             "cancel": {"any": 1.93333},
             "sp_db": 45,

@@ -659,7 +659,7 @@ class ActCond:
         if not self.check(source):
             return False
         state_msg = "start"
-        if self.stacks == self.maxstack or self.stacks == self.count or self.refresh:
+        if self.stacks == self.maxstack or self.stacks == self.count or (self.stacks == 1 and self.refresh):
             self.off(hide_msg=True)
             state_msg = "refresh"
         if self.cooldown:
@@ -682,6 +682,8 @@ class ActCond:
             return True
 
         stack_key = (now(), source)
+        while stack_key in self.buff_stack:
+            stack_key = (stack_key[0] + 0.000001, *stack_key[1:])
 
         duration = -1
         duration_repr = "Forever"
@@ -703,6 +705,7 @@ class ActCond:
 
         self.effect_on(source, dtype, stack_key, timer=timer)
         self.log(state_msg, self.text, f"stack {self.stacks}", duration_repr, f"{self.id}-{self.target}")
+        self.log("debug", str(self.buff_stack))
 
         self.actcond_event.source = source
         self.actcond_event.dtype = dtype
@@ -887,7 +890,12 @@ class Amp:
 
     @staticmethod
     def initialize():
-        return {amp_id: Amp(amp_id, **data) for amp_id, data in load_json("amp.json").items()}
+        id_to_amp = {amp_id: Amp(amp_id, **data) for amp_id, data in load_json("amp.json").items()}
+        type_to_amp = {}
+        for amp in id_to_amp.values():
+            if amp.amp_id.endswith("0000"):
+                type_to_amp[amp.type] = amp
+        return id_to_amp, type_to_amp
 
     def __init__(self, amp_id, publish=None, extend=None, type=None, values=None):
         self.amp_id = amp_id
@@ -899,6 +907,12 @@ class Amp:
 
         self.amp_ctx_myself = AmpContext(self.mod_type, self.mod_order, "MYSELF", values[0 : self.publish - 1], self.log)
         self.amp_ctx_myparty = AmpContext(self.mod_type, self.mod_order, "MYPARTY", values[self.publish - 1 :], self.log)
+        self.amp_ctx_lookup = {
+            0: self.amp_ctx_myself,
+            2: self.amp_ctx_myparty,
+            "self": self.amp_ctx_myself,
+            "team": self.amp_ctx_myparty,
+        }
         self.max_level = 1
 
     def on(self, max_level, target):
@@ -917,6 +931,7 @@ class ActiveActconds(UserDict):
         self.by_source = defaultdict(dict)
         self.by_generic_target = defaultdict(dict)
         self.by_overwrite = {}
+        self.by_aff = {aff: [] for aff in AFFLICTION_LIST}
 
     def can_overwrite(self, actcond):
         if not actcond.overwrite:
@@ -978,6 +993,8 @@ class ActiveActconds(UserDict):
             self.by_generic_target[gtarget][actcond.id] = actcond
             if actcond.overwrite:
                 self.by_overwrite[(gtarget, actcond.overwrite)] = actcond
+        if actcond.aff and ENEMY in actcond.generic_target:
+            self.by_aff[actcond.aff].append(actcond)
 
     def check(self, name, aseq=None):
         if aseq is not None:
@@ -992,4 +1009,10 @@ class ActiveActconds(UserDict):
         try:
             return self.by_generic_target[target][str(actcond_id)].stacks
         except KeyError:
+            return 0
+
+    def aff_timeleft(self, afflictname):
+        try:
+            return max((actcond.timeleft() for actcond in self.by_aff[afflictname]))
+        except (KeyError, ValueError):
             return 0

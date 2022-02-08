@@ -13,7 +13,7 @@
         "abilities": [
             {"cond": ["event", "start"], "ab": [["dprep", 0.1]]},
             {"ab": [["mod", 0.5, "affres_paralysis"]]},
-            {"cond": ["shift", "dform"], "ab": [["mod", 0.3, "crit"], ["mod", -0.3, "def"]]}
+            {"cond": ["in_shift", "dform", 1], "ab": [["mod", 0.3, "crit"], ["mod", -0.3, "def"]]}
         ]
     },
     "s1": {

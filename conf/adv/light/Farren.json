@@ -12,7 +12,7 @@
         "spiral": false,
         "utp": [0, 3000, 1200, 50],
         "abilities": [
-            {"cond": ["shift", "ddrive"], "ab": [["mod", 0.2, "def"]]},
+            {"cond": ["in_shift", "ddrive", 0], "ab": [["mod", 0.2, "def"]]},
             {"ab": [["mod", 1.0, "affres_curse"]]},
             {"cond": ["amp", 2, 3, ">=", 1], "cd": 1.0, "ab": [["utprep", 0.015]]}
         ]
