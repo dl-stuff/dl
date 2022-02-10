@@ -1,6 +1,7 @@
 {
     "actconds": {
         "132": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Altered Strike"},
+        "139": {"icon": "att-buff", "mods": [[0.25, "att", "buff"]], "text": "Strength +25%"},
         "154": {"duration": 20.0, "icon": "def-buff", "mods": [[-0.1, "def", "buff"]], "debuff": 1, "text": "Defense -10%"},
         "1512": {"duration": 20.0, "icon": "att-buff", "mods": [[-0.1, "att", "buff"]], "debuff": 1, "text": "Strength -10%"},
         "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "refresh": 1},
@@ -28,6 +29,16 @@
             {"ab": [["mod", 0.15, "rcv", "-t:s"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 7316}
+    },
+    "fs_enhanced": {
+        "charge": 0.5,
+        "startup": 0.0,
+        "recovery": 1.46667,
+        "attr": [
+            {"actcond": "139", "target": "ALLY", "msl": 0.23333, "zone": 10.0}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.0, "dodge": 0.03333, "s": 0.0}
     },
     "s1": {
         "sp": 2814,

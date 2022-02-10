@@ -609,8 +609,7 @@ class ActCond:
         return sum((ev for _, ev in self.buff_stack.values()))
 
     def log(self, *args):
-        if not self.hidden:
-            log("actcond", *args)
+        log("actcond", *args)
 
     def __repr__(self) -> str:
         return f"{self.text} ({self.id}-{self.target})"
@@ -705,7 +704,6 @@ class ActCond:
 
         self.effect_on(source, dtype, stack_key, timer=timer)
         self.log(state_msg, self.text, f"stack {self.stacks}", duration_repr, f"{self.id}-{self.target}")
-        self.log("debug", str(self.buff_stack))
 
         self.actcond_event.source = source
         self.actcond_event.dtype = dtype

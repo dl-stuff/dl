@@ -59,15 +59,15 @@
             {"cond": ["cp", ">=", 2000], "ab": [["mode", "modecp"]]},
             {"cond": ["selfaff", "burn"], "cd": 5.0, "ab": [["hitattr", {"sp": [0.25, "%", "s2"], "target": "MYSELF"}], ["actcond", "MYSELF", "1575"]]},
             {"cond": ["selfaff", "burn"], "cd": 5.0, "ab": [["actcond", "MYSELF", "1505"], ["actcond", "MYSELF", "1572"]]},
-            {"cond": ["actcond", "1572", ">=", 1], "ab": [["actgrant", 291, "-t:fs"]]},
+            {"cond": ["actcond", "1572", ">=", 1], "ab": [["actgrant", "291", "-t:fs"]]},
             {"cond": ["selfaff", "burn"], "cd": 5.0, "ab": [["actcond", "MYSELF", "1573"]]},
             {"cond": ["selfaff", "burn"], "cd": 5.0, "ab": [["actcond", "MYSELF", "1574"]]},
             {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", "1571"]]},
             {"cond": ["actcond", "1571", "=", 1], "ab": [["actcond", "MYSELF", "1576"]]},
             {"cond": ["actcond", "1571", "=", 2], "ab": [["actcond", "MYSELF", "1577"]]},
             {"cond": ["actcond", "1571", "=", 3], "ab": [["actcond", "MYSELF", "1578"]]},
-            {"cond": ["actcond", "1573", ">=", 1], "ab": [["actgrant", 291, "-t:fs"]]},
-            {"cond": ["actcond", "1574", ">=", 1], "ab": [["actgrant", 291, "-t:fs"]]},
+            {"cond": ["actcond", "1573", ">=", 1], "ab": [["actgrant", "291", "-t:fs"]]},
+            {"cond": ["actcond", "1574", ">=", 1], "ab": [["actgrant", "291", "-t:fs"]]},
             {"ab": [["mod", 0.3, "killer_stormlash"]]}
         ],
         "skillshare": {"src": "s1", "cost": 6, "sp": 12658}

@@ -2,6 +2,7 @@
     "actconds": {
         "1": {"count": 1, "energy": 1, "text": "Energy Level +1"},
         "9": {"duration": 10.0, "icon": "rcv-buff", "mods": [[0.1, "rcv", "buff"]], "coei": 1, "text": "Recovery Potency +10%"},
+        "291": {"dispel": "buff"},
         "461": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dispel Strike"},
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
         "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "refresh": 1},
@@ -27,6 +28,19 @@
             {"ab": [["prep", 0.05]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 14790}
+    },
+    "fs_enhanced": {
+        "charge": 0.5,
+        "startup": 0.7,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE"},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE", "iv": 0.96667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.46667, "dodge": 0.0, "s": 0.0}
     },
     "s1": {
         "sp": 5916,

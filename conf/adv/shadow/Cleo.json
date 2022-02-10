@@ -1,5 +1,6 @@
 {
     "actconds": {
+        "291": {"dispel": "buff"},
         "461": {"count": 1, "coei": 1, "alt": {"fs": "enhanced"}, "text": "Dispel Strike"},
         "1261": {"duration": 60.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "overwrite": 8},
         "204010101": {"aff": "paralysis", "relief": 1, "count": 1, "text": "Paralysis Relief"},
@@ -23,6 +24,19 @@
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.15, "def"]]}
         ],
         "skillshare": {"src": "s1", "cost": 3, "sp": 14198}
+    },
+    "fs_enhanced": {
+        "charge": 0.5,
+        "startup": 0.7,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE"},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE", "iv": 0.36667},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "actcond": "291", "target": "HOSTILE", "iv": 0.96667}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.46667, "dodge": 0.0, "s": 0.0}
     },
     "s1": {
         "sp": 5916,

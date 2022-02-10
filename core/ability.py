@@ -19,6 +19,7 @@ class Cond:
     def __init__(self, adv, data, *args) -> None:
         self._adv = adv
         self.event = None
+        self.end_event = None
         self._extra_checks = []
         if cd := data.get("cd"):
             self._cooldown = Timer(timeout=cd - 0.0001)
@@ -34,7 +35,10 @@ class Cond:
         return False
 
     def has_actcond(self):
-        return self._adv.active_actconds.stacks(self.actcond_id) > 0
+        return self._adv.active_actconds.stacks(self._actcond_id) > 0
+
+    def extra_checks(self):
+        return all((ec() for ec in self._extra_checks))
 
     def get(self):
         return 1
@@ -42,13 +46,27 @@ class Cond:
     def check(self, e):
         return True
 
+    def end_check(self, e):
+        return True
+
+    def checked_get(self):
+        return self.extra_checks() and self.get()
+
     def _checked_callback(self, callback, e):
-        if all((ec() for ec in self._extra_checks)) and self.check(e):
+        if self.extra_checks() and self.check(e):
             callback(e)
 
     def trigger(self, callback, order=1):
         if self.event is not None:
             return Listener(self.event, partial(self._checked_callback, callback), order=order)
+
+    def _end_checked_callback(self, callback, e):
+        if self.end_check(e):
+            callback(e)
+
+    def end_trigger(self, callback, order=1):
+        if self.end_event is not None:
+            return Listener(self.end_event, partial(self._end_checked_callback, callback), order=order)
 
 
 CONDITIONS["always"] = Cond
@@ -137,8 +155,12 @@ class CondInShift(Cond):
         super().__init__(adv, data, *args)
         if args[0] == "dform":
             self.form_check = self._adv.dragonform.in_dform
+            self.event = "dragon"
+            self.end_event = "dragon_end"
         elif args[0] == "ddrive":
             self.form_check = self._adv.dragonform.in_ddrive
+            self.event = "dragondrive"
+            self.end_event = "dragondrive_end"
         self.count = args[1]
 
     def get(self):
@@ -291,13 +313,12 @@ class Ab:
         self._adv = adv
         self._ability = ability
         self._cond = ability.cond
-        self._cond_get = None if self._cond is None else self._cond.get
 
 
 class AbModifier(Ab):
     def __init__(self, adv, ability, value, mtype, morder) -> None:
         super().__init__(adv, ability)
-        self.modifier = Modifier(mtype, morder, value, self._cond_get)
+        self.modifier = Modifier(mtype, morder, value, None if self._cond is None else self._cond.checked_get)
 
 
 class AbMod(AbModifier):
@@ -342,6 +363,8 @@ class AbActcond(Ab):
         self.l_cond = None
         if self._cond is not None:
             self.l_cond = self._cond.trigger(self._actcond_on)
+            self.l_end_cond = self._cond.end_trigger(self._actcond_off)
+        self.actcond = None
 
     def _actcond_on(self, e):
         if e.name == "actcond":
@@ -350,12 +373,15 @@ class AbActcond(Ab):
         else:
             source = ("ability", None)
             dtype = "#"
-        self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, dtype=dtype, ev=getattr(e, "ev", 1))
+        self.actcond = self._adv.actcond_make(self.actcond_list[self.idx], self.target, source, dtype=dtype, ev=getattr(e, "ev", 1))
         self.idx = (self.idx + 1) % len(self.actcond_list)
         if self.max_count is not None:
             self.count += 1
             if self.count >= self.max_count and self.l_cond is not None:
                 self.l_cond.off()
+
+    def _actcond_off(self, e):
+        self.actcond.off()
 
 
 SUB_ABILITIES["actcond"] = AbActcond
@@ -424,6 +450,22 @@ class AbHitattrShift(Ab):
 
 
 SUB_ABILITIES["hitattr_shift"] = AbHitattrShift
+
+
+class AbActGrant(Ab):
+    def __init__(self, adv, ability, *args) -> None:
+        super().__init__(adv, ability, *args)
+        self.actcond_id = args[0]
+        self.action = args[1].replace("-t:", "")
+        self.l_act = Listener(self.action, self._grant_actcond, order=2)
+        self.actcond = None
+
+    def _grant_actcond(self, e=None):
+        if not self._cond or self._cond.checked_get():
+            self.actcond = self._adv.actcond_make(self.actcond_id, "HOSTILE", ("actgrant", None), dtype=self.l_act)
+
+
+SUB_ABILITIES["actgrant"] = AbActGrant
 
 ### Ability
 class Ability:

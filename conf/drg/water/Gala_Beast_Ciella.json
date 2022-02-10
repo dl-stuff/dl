@@ -13,9 +13,9 @@
         "abilities": [
             {"ab": [["mod", 1.0, "att"]]},
             {"cond": ["in_shift", "dform", 0], "ab": [["actcond", "MYSELF", "2087"]]},
-            {"ab": [["ctime", -1.0], ["mod", -0.2, "def"]]},
+            {"ab": [["ctime", 1.0], ["mod", -0.2, "def"]]},
             {"ele": "water", "ab": [["mod", 0.15, "killer_frostbite"]]},
-            {"cond": ["hits", ">=", 15, 1], "actcond": "2087", "ab": [["actgrant", 2094, "-t:x"]]}
+            {"cond": ["hits", ">=", 15, 1], "actcond": "2087", "ab": [["actgrant", "2094", "-t:x"]]}
         ]
     },
     "dfs": {
@@ -48,9 +48,9 @@
         "startup": 0.5,
         "recovery": 0.63333,
         "attr": [
-            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
-            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
-            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]}
+            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [1, 0.5]},
+            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [1, 0.5]},
+            {"dmg": 2.86, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [1, 0.5]}
         ],
         "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
         "cancel": {"any": 0.5, "dfs": 0.0, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
@@ -59,9 +59,9 @@
         "startup": 0.5,
         "recovery": 0.66667,
         "attr": [
-            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
-            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]},
-            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [6, 0.5]}
+            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [1, 0.5]},
+            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [1, 0.5]},
+            {"dmg": 3.43, "sp": 5, "fade": 0.8, "target": "HOSTILE", "blt": [1, 0.5]}
         ],
         "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
         "cancel": {"any": 0.5, "dfs": 0.0, "dodge": 0.0, "dx3": 0.13333, "s": 0.0}
