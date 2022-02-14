@@ -1,20 +1,15 @@
-import enum
-import functools
 import operator
-import sys
 import random
 from functools import reduce
 from itertools import chain, product
 from collections import OrderedDict, Counter
-from telnetlib import SE
-from tkinter import N
 
 # from core import *
 from core.config import Conf
 from core.timeline import *
 from core.log import *
 from core.modifier import *
-from core.dummy import Dummy, dummy_function
+from core.ability import make_ability
 from core.condition import Condition
 from core.slots import DragonBase, Slots
 import core.acl
@@ -2100,8 +2095,6 @@ class Adv(object):
                         for idx, attr in chain(enumerate(self.conf[dst_sn].get("attr", [])), enumerate(self.conf[dst_sn].get("phase_buff", []))):
                             if attr.get("ab"):
                                 continue
-                            if actcond_id := attr.get("actcond"):
-                                self.conf.actconds[actcond_id] = owner_conf.actconds[actcond_id]
                             hitseq.append(idx + 1)
                             modified_attr.append(attr)
                         self.conf[dst_sn]["attr"] = modified_attr
@@ -2118,6 +2111,7 @@ class Adv(object):
                     pass
                 self.conf[dst_key].owner = owner
                 self.conf[dst_key].sp = shared_sp
+                self.conf.actconds.update(owner_conf.actconds)
 
         for sn, snconf in self.conf.find(r"^d?s\d(_[A-Za-z0-9]+)?$"):
             s = S(sn, snconf)
@@ -2126,6 +2120,9 @@ class Adv(object):
             self.a_s_dict[s.base].add_action(s.group, s)
             if sn[0] == "d":
                 s.is_dragon = True
+            for ab in snconf.get("abilities", tuple()):
+                if ability := make_ability(self, ab):
+                    self.slots.abilities.append(ability)
 
         return preruns
 
