@@ -34,46 +34,45 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48496.447945642874,
-        "team": 0.03749026294559598,
+        "dps": 80468.22058598603,
+        "team": 0.06247576981394028,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "if s=2",
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
-        "end",
-        "`s3, not buff(s3) and fscf",
-        "`s2, dgauge>=500",
+        "`dragon, buff(s2) and cancel",
+        "`s3, not buff(s3)",
+        "`s2, (fsc and dgauge<=400) or dgauge>=500",
         "`s4",
-        "`s1, (xf or fscf) and buff(s3)",
-        "`fs, x=5"
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 53082.3831572344,
+      "tdps": 98837.86990862792,
       "pref": "PERSONAL"
     }
   },
@@ -92,7 +91,7 @@
       ]
     },
     "META": {
-      "tdps": 64519.286444711994,
+      "tdps": 123625.65900306337,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -141,21 +140,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54283.29453304591,
-        "team": 0.03749026294559598,
+        "dps": 83836.18466337814,
+        "team": 0.06247576981394028,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Emissaries_of_the_Heavens",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ]
+      }
     },
     "META": {
-      "tdps": 60770.24868311405,
+      "tdps": 103465.85190970026,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -166,35 +158,35 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49385.09631394995,
+        "dps": 58035.03719493609,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
         "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "Rogues_Banquet",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon",
+        "`dragon, cancel",
+        "`s4, cancel",
         "`s3",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
+        "`s1, cancel",
+        "`fs, x=5"
       ],
       "dacl": [
-        "ds1"
+        "ds1, x=3"
       ],
       "coabs": [
+        "Blade",
         "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
+        "Tiki"
       ],
       "share": [
         "Humanoid_Mercury",
@@ -212,21 +204,26 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45236.078777538256,
-        "team": 0.03749026294559598,
+        "dps": 62705.3645106595,
+        "team": 0.062476477606180976,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
         "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ]
     },
     "META": {
-      "tdps": 48750.96027423018,
+      "tdps": 74429.67180742745,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

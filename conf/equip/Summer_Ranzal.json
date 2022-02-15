@@ -34,42 +34,43 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49578.80046067747,
-        "team": 0.08296345000962642,
+        "dps": 87068.9011220436,
+        "team": 0.0665243083426084,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "Mana_Fount"
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`s1, dgauge>=500",
-        "`dragon, s=1",
+        "`dragon, cancel",
         "`s3, not buff(s3) and xf=5",
         "`s4",
-        "`s1, dgauge<=300 and xf",
-        "`s2, xf=5"
+        "`s2, xf=5",
+        "`s1, buff(s3)"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 124850.79457098356,
+      "tdps": 267773.62196954526,
       "pref": "PERSONAL"
     }
   },
@@ -88,7 +89,7 @@
       ]
     },
     "META": {
-      "tdps": 245273.82578995163,
+      "tdps": 496583.06237875845,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -145,29 +146,26 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58960.16624408018,
-        "team": 0.08296345000962642,
+        "dps": 95228.65920995091,
+        "team": 0.06649299066909407,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "acl": [
-        "`s1, dgauge>=500",
-        "`dragon, s=1",
-        "`s3, not buff(s3) and xf=5",
-        "`s4",
-        "`s1, dgauge<=300 and cancel",
-        "`s2, xf=5"
+      "dacl": [
+        "`ds1, x=3"
       ]
     },
     "META": {
-      "tdps": 147512.6592245151,
+      "tdps": 283970.29185090866,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -216,30 +214,65 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 49133.471870066816,
-        "team": 0.08296345000962642,
+        "dps": 69641.44653910182,
+        "team": 0.06660987434768814,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`s1, dgauge>=500",
-        "`dragon, s=1",
+        "`dragon, cancel",
         "`s3, not buff(s3) and xf=5",
         "`s4",
-        "`s1, dgauge<=300 and cancel",
-        "`s2, xf=5"
+        "`s2, xf=5",
+        "`s1, buff(s3)"
+      ],
+      "dacl": [
+        "`ds1"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72969.41950258556,
+        "team": 0.06649299066909407,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ]
     },
     "META": {
+      "tdps": 28472520.744676843,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,35 +2,35 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60513.95094991917,
-        "team": 0.10663085291866115,
+        "dps": 64251.39870093917,
+        "team": 0.10940228364078539,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Castle_Cheer_Corps",
         "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
-        "Summer_Paladyns",
+        "A_Small_Courage",
         "Chariot_Drift",
-        "Lord_of_the_Skies",
-        "Promised_Piety_Staff",
-        "Ravenous_Fire_Crown"
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`ex",
         "`dragon, s=2",
         "`s3, not buff(s3)",
-        "`s1",
+        "`s1, x=6 or s",
         "`s2, x=6 or (not buff(s2) and cancel)",
         "`s4, cancel",
-        "`fs, x=6 or hits=5"
+        "`fs, x=6 or hits=0"
       ],
       "dacl": [
         "`ex",
-        "`sack, not buff(s2)",
-        "`s1",
-        "`s4"
+        "`sack, not buff(s2) and x=6",
+        "`s1, x=6",
+        "`s4, x=6"
       ],
       "coabs": [
         "Blade",
@@ -44,7 +44,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66752.84239071424,
+        "dps": 67263.31376328542,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -85,14 +85,14 @@
       ]
     },
     "META": {
-      "tdps": 58509.251966259224,
-      "pref": "PERSONAL"
+      "tdps": 27530.641611062318,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65663.37316537142,
+        "dps": 66135.10919600059,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -114,7 +114,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29745.087150833664,
+        "dps": 29734.050933456223,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -157,7 +157,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35839.06000484681,
+        "dps": 35973.24391316074,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -205,7 +205,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82220.88236989477,
+        "dps": 82320.26296905256,
         "team": 0.06241346719514878,
         "noaff": false,
         "nihil": false
@@ -225,7 +225,7 @@
       ]
     },
     "META": {
-      "tdps": 490913.94854746124,
+      "tdps": 384535.4200188899,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -236,7 +236,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76638.4134607883,
+        "dps": 77097.81681079915,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -253,7 +253,7 @@
       "slots.d": "Cupid"
     },
     "META": {
-      "tdps": 151217.60793912996,
+      "tdps": 117423.6741898394,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -264,7 +264,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51973.99380665314,
+        "dps": 52036.4250304449,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -310,7 +310,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65600.37654343339,
+        "dps": 65679.5403123917,
         "team": 0.0624134671951487,
         "noaff": true,
         "nihil": false
@@ -330,8 +330,8 @@
       ]
     },
     "META": {
-      "tdps": 115032.2550799183,
-      "pref": "PERSONAL",
+      "tdps": 30393.22373877646,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -341,7 +341,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29745.087150833664,
+        "dps": 29734.050933456223,
         "team": 0.0,
         "noaff": true,
         "nihil": true

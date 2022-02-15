@@ -72,9 +72,46 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61393.24913185959,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Ciella",
+      "acl": [
+        "`dragon, xf and speed()=1.15",
+        "`s3, not buff(s3)",
+        "`s4, xf",
+        "`s2, xf",
+        "`s1, xf"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Gala_Emile",
+        "Staff",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82706.62492661439,
+        "dps": 71620.93382844904,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -96,19 +133,14 @@
         "`s3, cancel",
         "`s4, cancel"
       ],
-      "dacl": [
-        "`ds1, x=2 and crystal_arrow=2",
-        "`dfs, x=2 and ds1.check()",
-        "`dodge, fsc"
-      ],
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",
         "Tiki"
       ],
       "share": [
-        "Summer_Julietta",
-        "Karina"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -118,18 +150,21 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 171176.86200680793,
+        "dps": 119376.78000109503,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s4, xf",
+        "`s2, xf",
+        "`s1, xf"
       ]
     },
     "META": {
-      "tdps": 261965.48020635787,
+      "tdps": 176054.0845200707,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,51 +172,11 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 98523.13558186653,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Emissaries_of_the_Heavens",
-        "Wings_of_Rebellion_at_Rest",
-        "Saint_Starfalls_Circus",
-        "Snipers_Allure",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "acl": [
-        "`dragon, cancel and speed()=1.15",
-        "`s2, timeleft(s1)<4 and c_s(2, escort3)",
-        "`s3, cancel",
-        "`s1, cancel",
-        "`s4, cancel and not buff(s4)"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Akasha"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 117399.19628651641,
-        "team": 0.12447265667573149,
+        "dps": 58585.777389291856,
+        "team": 0.11890072479250657,
         "noaff": false,
         "nihil": false
       },
@@ -194,25 +189,13 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "acl": [
-        "`dragon, xf and speed()=1.15",
-        "`s3, not buff(s3)",
-        "`s4, xf",
-        "`s2, xf",
-        "`s1, xf"
-      ],
-      "coabs": [
-        "Eugene",
-        "Gala_Mascula",
-        "Tiki"
-      ],
       "share": [
         "Weapon",
         "Akasha"
       ]
     },
     "META": {
-      "tdps": 217720.48791891683,
+      "tdps": 93710.75220586288,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -223,16 +206,11 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43255.749844058155,
+        "dps": 51328.60992565676,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Tiki"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",

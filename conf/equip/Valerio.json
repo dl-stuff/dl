@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95472.68771131645,
+        "dps": 95604.5560645089,
         "team": 0.0703434022947056,
         "noaff": false,
         "nihil": false
@@ -70,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 302395.5646630186,
+      "tdps": 302862.15133936255,
       "pref": "PERSONAL"
     }
   },
@@ -89,7 +89,7 @@
       ]
     },
     "META": {
-      "tdps": 469928.6468941818,
+      "tdps": 470669.2545835831,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -171,6 +171,24 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 97859.1535931576,
+        "team": 0.0703434022947056,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 310839.5404696437,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -209,44 +227,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49464.15676597786,
-        "team": 0.04236973433228196,
+        "dps": 69762.54684975908,
+        "team": 0.040808170064668046,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`s2(entree), dgauge>=500",
         "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2(entree), dgauge<=400",
+        "`s3, cancel",
+        "`s4, cancel",
         "`s1(dessert), aff_timeleft(frostbite)>10",
-        "`dessert, x=3",
         "`s1(appetizer)",
-        "`dessert"
+        "`dessert, x=3"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Eugene",
+        "Dagger",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Humanoid_Mercury"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 300648.1387969404,
+      "tdps": 869482.1354991802,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -34,39 +34,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48781.215161662214,
-        "team": 0.07486997580867881,
-        "noaff": true,
+        "dps": 80969.41982757296,
+        "team": 0.0860344788507852,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Summer_Paladyns",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, s=2",
+        "`dragon, buff(s2) and cancel",
         "`s3, not buff(s3) and x=4",
         "`s2, (dgauge<400 and x=4) or dgauge>=500",
         "`s4",
-        "`s1, x>2",
+        "`s1",
         "`fsf, x=4"
       ],
+      "dacl": [
+        "`ds1"
+      ],
       "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+        "Eugene",
+        "Gala_Mascula",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 82089.98252214219,
+      "tdps": 152243.47044222997,
       "pref": "PERSONAL"
     }
   },
@@ -85,7 +90,7 @@
       ]
     },
     "META": {
-      "tdps": 99065.23533568457,
+      "tdps": 192783.04106555693,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -134,23 +139,30 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57939.87440389911,
-        "team": 0.0748699758086787,
+        "dps": 90664.72583713781,
+        "team": 0.0862482989918808,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 101049.88773521168,
+      "tdps": 172867.50919212808,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -161,26 +173,29 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52822.26276710711,
+        "dps": 59047.41841559347,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Kung_Fu_Masters",
         "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "Wings_of_Rebellion_at_Rest",
-        "A_Small_Courage",
-        "Entwined_Flames",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, x=4",
+        "`dragon, cancel",
         "`s4",
         "`s3",
         "`s1, cancel"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -196,6 +211,40 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70094.80533802492,
+        "team": 0.08624829899188093,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 129257.20920367664,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

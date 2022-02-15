@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89358.15641693608,
-        "team": 0.06448005536130849,
+        "dps": 92934.6708289246,
+        "team": 0.08816039123024838,
         "noaff": false,
         "nihil": false
       },
@@ -50,22 +50,23 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, s=1",
+        "`dragon, speed()=1.3 and cancel",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2, fsc",
-        "`s4, cancel",
-        "`fs, x=4 or hits=4"
+        "`s4",
+        "`s2",
+        "`s1, fsc",
+        "`fs, x=4"
       ],
       "dacl": [
-        "ds1,x=1"
+        "`ds1, x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
+        "Blade",
         "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Yuya"
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -73,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 81610.34486224779,
+      "tdps": 87845.47266687902,
       "pref": "PERSONAL"
     }
   },
@@ -92,7 +93,7 @@
       ]
     },
     "META": {
-      "tdps": 102593.30731370462,
+      "tdps": 111166.32210286312,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -179,8 +180,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 99136.42885376279,
-        "team": 0.08828067207792763,
+        "dps": 106580.1350765671,
+        "team": 0.08816039123024838,
         "noaff": false,
         "nihil": false
       },
@@ -192,22 +193,10 @@
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon, buff(s2, 3)",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`fs, x=4 or hits=0"
-      ],
-      "dacl": [
-        "`ds1, x=3"
       ]
     },
     "META": {
-      "tdps": 94877.48989646812,
+      "tdps": 103289.30249325772,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -256,20 +245,41 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40836.3517794451,
-        "team": 0.07411853650402854,
+        "dps": 65907.33615497143,
+        "team": 0.08818998191678892,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, (speed()=1.3 or duration-now<10) and cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, fsc",
+        "`fs, x=4"
+      ],
       "coabs": [
-        "Blade",
-        "Gala_Sarisse",
-        "Seimei"
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 28429.192355516097,
-      "pref": "TEAMBUFF",
+      "tdps": 57258.06404334546,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

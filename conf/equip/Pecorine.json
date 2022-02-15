@@ -140,40 +140,44 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42852.91616875551,
+        "dps": 57773.44214701483,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Adventure_in_the_Past",
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "A_Game_of_Cat_and_Boar",
         "A_Small_Courage",
-        "Mask_of_Determination_Lance",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "High_Jupiter",
       "acl": [
-        "`s3, not buff(s3) and fsc",
         "if gourmand_mode.get()",
+        "`s3, fsc",
         "`s4, fsc",
         "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
         "else",
-        "`dragon",
+        "`dragon, dshift_count=0 and s=2",
+        "`dragon, dshift_count=1",
+        "`s3",
         "`s2",
-        "end",
-        "`fs, x=1"
+        "`fs, x=1",
+        "end"
       ],
       "coabs": [
-        "Humanoid_Jupiter",
+        "Blade",
         "Mitsuhide",
         "Peony"
       ],
       "share": [
-        "Weapon",
-        "Mikoto"
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "PERSONAL": {
@@ -294,49 +298,15 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60780.06089845889,
+        "dps": 62621.88092568492,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "if gourmand_mode.get()",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge or s",
-        "else",
-        "`dragon, dshift_count=0 and s=2",
-        "`dragon, dshift_count=1",
-        "`s3",
-        "`s2",
-        "`fs, x=1",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Ilia"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61223.533982609726,
+        "dps": 63078.792588143384,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -353,7 +323,7 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60780.06089845889,
+        "dps": 62621.88092568492,
         "team": 0.0,
         "noaff": false,
         "nihil": true

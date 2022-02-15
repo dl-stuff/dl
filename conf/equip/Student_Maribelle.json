@@ -2,44 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 91652.48909210648,
-        "team": 0.04436299321922217,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Snipers_Allure",
-        "To_the_Extreme",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 94687.92530302097,
-        "team": 0.0427295378743817,
+        "dps": 90890.67300881718,
+        "team": 0.04437373885000458,
         "noaff": false,
         "nihil": false
       },
@@ -54,18 +18,60 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3) and x=5",
+        "`dragon, s=4",
+        "`s3, not buff(s3)",
         "`s4",
-        "`s2, fsc",
-        "`s1, cancel",
+        "`s2",
+        "`s1",
         "`fs, x=5",
         "`dodge, fsc"
       ],
+      "dacl": [
+        "`ds1, x=1"
+      ],
       "coabs": [
         "Gala_Sarisse",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 96052.70164057652,
+        "team": 0.037605586563354255,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=1"
+      ],
+      "coabs": [
+        "Halloween_Mym",
         "Kimono_Elisanne",
-        "Marth"
+        "Serena"
       ],
       "share": [
         "Weapon",
@@ -73,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 1858291.5171219024,
+      "tdps": 762693.9248901145,
       "pref": "PERSONAL"
     }
   },
@@ -116,7 +122,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63905.87129688273,
+        "dps": 63983.647205154804,
         "team": 0.04051863556080619,
         "noaff": false,
         "nihil": true
@@ -151,15 +157,15 @@
       ]
     },
     "META": {
-      "tdps": 492978.2479190345,
+      "tdps": 495338.16946252517,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 113347.01266872663,
-        "team": 0.04484389557080329,
+        "dps": 111956.8571064275,
+        "team": 0.044973693811415694,
         "noaff": false,
         "nihil": false
       },
@@ -173,13 +179,58 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Gala_Sarisse",
         "Kimono_Elisanne"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 115047.22360702723,
+        "team": 0.040524219809464725,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ]
+    },
     "META": {
+      "tdps": 694546.4788073136,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -198,8 +249,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79877.84454792106,
-        "team": 0.039752754043227194,
+        "dps": 79974.96046834413,
+        "team": 0.03975275404322703,
         "noaff": false,
         "nihil": true
       },
@@ -218,7 +269,7 @@
       ]
     },
     "META": {
-      "tdps": 752788.9803747337,
+      "tdps": 755668.8040382331,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -229,8 +280,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65455.21179567843,
-        "team": 0.0429035898603755,
+        "dps": 64122.659617532176,
+        "team": 0.0379105514177197,
         "noaff": false,
         "nihil": false
       },
@@ -247,8 +298,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39046.18345126039,
-        "team": 0.09644893881279872,
+        "dps": 39093.65601472698,
+        "team": 0.09644893881279862,
         "noaff": false,
         "nihil": true
       },
@@ -265,7 +316,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47076.10711572153,
+        "dps": 47133.400552373554,
         "team": 0.04313830138729455,
         "noaff": false,
         "nihil": true
@@ -299,7 +350,7 @@
       ]
     },
     "META": {
-      "tdps": 150625.16698814725,
+      "tdps": 150809.38675477784,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -310,8 +361,8 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39046.18345126039,
-        "team": 0.09644893881279872,
+        "dps": 39093.65601472698,
+        "team": 0.09644893881279862,
         "noaff": false,
         "nihil": true
       },

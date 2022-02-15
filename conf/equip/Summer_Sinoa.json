@@ -2,23 +2,23 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 77366.42455879257,
-        "team": 0.2585329665266346,
+        "dps": 82458.62196600978,
+        "team": 0.2771439600013716,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Dogs_Day",
         "A_Man_Unchanging",
-        "Bloody_Little_Queen",
         "Emissaries_of_the_Heavens",
-        "A_Small_Courage",
-        "From_Whence_He_Comes",
+        "Liber_Grimortis",
+        "The_Queen_of_the_Knife",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=1",
+        "`dragon, s=2 and aff(poison)",
         "`s3, not buff(s3) and x=5",
         "`s2, overload>2 and x>=2",
         "`s4",
@@ -28,10 +28,10 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`fs, x=3"
       ],
       "coabs": [
-        "Meene",
+        "Humanoid_Midgardsormr",
         "Mona",
         "Yukata_Lathna"
       ],
@@ -42,8 +42,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85027.56440544341,
-        "team": 0.24393433828282113,
+        "dps": 85132.2996520935,
+        "team": 0.24393433828282107,
         "noaff": false,
         "nihil": false
       },
@@ -81,15 +81,55 @@
       ]
     },
     "META": {
-      "tdps": 524784.9125754288,
+      "tdps": 80509.12800943549,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49842.18343531712,
+        "team": 0.07950203751981162,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s=2 and aff(poison)",
+        "`s3, not buff(s3) and x=5",
+        "`s2, overload>2 and x>=2",
+        "`s4",
+        "`s1",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Noelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76365.08347096622,
-        "team": 0.05422422411345433,
+        "dps": 76457.8345844937,
+        "team": 0.054224224113454386,
         "noaff": false,
         "nihil": true
       },
@@ -122,13 +162,14 @@
       ]
     },
     "META": {
+      "tdps": 1052925.3745691027,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98185.01277503752,
+        "dps": 98305.95510241388,
         "team": 0.3790009520671693,
         "noaff": false,
         "nihil": false
@@ -172,8 +213,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79543.0671726488,
-        "team": 0.054345433844846316,
+        "dps": 79639.6781854091,
+        "team": 0.05434543384484638,
         "noaff": false,
         "nihil": true
       },
@@ -187,15 +228,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45807.00592912732,
-        "team": 0.19458477875238647,
+        "dps": 45863.43007931717,
+        "team": 0.19458477875238642,
         "noaff": false,
         "nihil": false
       }
@@ -209,47 +250,17 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 38520.53888866823,
-        "team": 0.05435526356427442,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.w": "primal_dragon",
-      "acl": [
-        "`dragon",
-        "`s4",
-        "`s3",
-        "`s1",
-        "`s2, overload>2"
-      ],
-      "coabs": [
-        "Eleonora",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38433.45107316377,
-        "team": 0.054345433844846316,
+        "dps": 40826.62690439762,
+        "team": 0.06112679419897067,
         "noaff": false,
         "nihil": true
       },
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fs, x=3"
+      ],
       "coabs": [
         "Eleonora",
         "Mona",
@@ -257,11 +268,10 @@
       ]
     },
     "META": {
-      "tdps": -8859644.07645965,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
