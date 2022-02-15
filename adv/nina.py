@@ -21,6 +21,8 @@ class Nina(Adv):
             self.shopkeeper -= 34
         else:
             self.shopkeeper -= 33
+        if not self.is_set_cd("a1_amp", 45):
+            self.add_amp(max_level=1, target=2)
 
     @allow_acl
     def s(self, n, s1_kind=None):
