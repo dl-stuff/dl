@@ -1,0 +1,87 @@
+{
+    "c": {
+        "name": "Nina",
+        "icon": "100008_04_r05",
+        "att": 468,
+        "hp": 807,
+        "ele": "wind",
+        "wt": "staff",
+        "spiral": false,
+        "a": [["affres_freeze", 100.0]]
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.43333,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 3.0, "odmg": 5.95, "sp": 580},
+            {"cond": ["var>=", ["shopkeeper_charge", 1]], "dispel": 100}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": [10, "team"], "buff": ["team", 25.0, [40.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    },
+    "s1_mode2": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": [21, "team"], "buff": ["team", 25.0, [40.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    },
+    "s1_mode3": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": [21, "team"], "buff": ["team", 25.0, [40.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.56667},
+            {"relief": [["all"], 100], "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    },
+    "s1_mode4": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": [21, "team"], "buff": ["team", 25.0, [40.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.56667},
+            {"amp": ["10000", 1, 2], "iv": 1.56667},
+            {"relief": [["all"], 100], "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    },
+    "s2": {
+        "sp": 8352,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "attr": [
+            {"heal": [300, "team"], "relief": [["all"], 100], "iv": 1.33333},
+            {"sp": [1.0, "%"], "iv": 1.33333}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.43333}
+    },
+    "s99": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": [10, "team"], "buff": ["team", 25.0, [40.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    }
+}
