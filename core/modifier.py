@@ -984,18 +984,19 @@ class ActiveActconds(UserDict):
         return False
 
     def can_zone(self, actcond):
+        zone_set = set()
         for gtarget in actcond.generic_target:
-            zone_set = self.by_zone[gtarget]
-            zone_count = sum((zac.stacks for zac in zone_set))
-            if zone_count >= 4:
-                oldest_zone = None
-                for zac in zone_set:
-                    if oldest_zone is None:
-                        oldest_zone = (zac, min(zac.buff_stack.keys()))
-                    else:
-                        if (c_oldest := min(zac.buff_stack.keys())) < oldest_zone[1]:
-                            oldest_zone = (zac, c_oldest)
-                oldest_zone[0]._off(c_oldest, hide_msg=True)
+            zone_set.update(self.by_zone[gtarget])
+        zone_count = sum((zac.stacks for zac in zone_set))
+        if zone_count >= 4:
+            oldest_zone = None
+            for zac in zone_set:
+                if oldest_zone is None:
+                    oldest_zone = (zac, min(zac.buff_stack.keys()))
+                else:
+                    if (c_oldest := min(zac.buff_stack.keys())) < oldest_zone[1]:
+                        oldest_zone = (zac, c_oldest)
+            oldest_zone[0]._off(c_oldest, hide_msg=True)
         return "start"
 
     def add(self, actcond, actcond_source):
