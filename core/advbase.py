@@ -756,16 +756,16 @@ class Fs(Action):
 
         self.charged_timer = Timer(self._charged)
 
-        self.extra_charge = 0
+        self.extra_hold = 0
         self.last_buffer = 0
 
     def _charged(self, _):
-        self.extra_charge = 0
+        self.extra_hold = 0
         self.charged_event()
 
     def turn_off(self):
         self.charged_timer.off()
-        self.extra_charge = 0
+        self.extra_hold = 0
         self.charged_event()
         return super().turn_off()
 
@@ -793,7 +793,7 @@ class Fs(Action):
 
     def getstartup(self, include_buffer=True):
         startup = self._startup / self.speed()
-        return self.getcharge(include_buffer=include_buffer) + startup
+        return self.getcharge(include_buffer=include_buffer) + startup + self.extra_hold
 
     def getcharge(self, include_buffer=True):
         buffer = 0
@@ -807,13 +807,13 @@ class Fs(Action):
                 buffer = max(0, self._buffer - bufferable)
                 # log("input_buffer", prev.name, buffer, bufferable)
             self.last_buffer = buffer
-        charge = self._charge / self.charge_speed() + self.extra_charge
+        charge = self._charge / self.charge_speed()
         return buffer + charge
 
     def __call__(self):
         charge = self.getcharge()
         if super().__call__():
-            log("charge", self.name, charge, self.extra_charge)
+            log("charge", self.name, charge, self.extra_hold)
             self.charged_timer.on(charge)
             return True
         return False
@@ -1820,19 +1820,20 @@ class Adv(object):
         fsn = "fs" if n is None else f"fs{n}"
         if self.in_dform():
             fsn = "d" + fsn
-        if self.current.fs is not None:
+        if self.current.fs != globalconf.DEFAULT:
             fsn += "_" + self.current.fs
         try:
             fs_act = self.a_fs_dict[fsn]
         except KeyError:
             return False
+        fs_act.extra_hold = 0
         delta = 0
         if include_fs_anim:
             delta = fs_act.getstartup(include_buffer=False) + fs_act.getrecovery()
         else:
             delta = fs_act.getcharge(include_buffer=False)
         if delta < t:
-            fs_act.extra_charge = t - delta
+            fs_act.extra_hold = t - delta
         return self.fs(n=n)
 
     @allow_acl
@@ -2144,6 +2145,7 @@ class Adv(object):
         self.l_dash = Listener("dash", self.l_misc)
         self.l_dshift = Listener("dshift", self.l_misc)
         self.l_fs = Listener("fs", self.l_fs)
+        self.l_fs_charged = Listener("fs_charged", self.l_fs_charged)
         self.l_s = Listener("s", self.l_s)
         self.l_repeat = Listener("repeat", self.l_repeat)
         # self.l_x           = Listener(['x','x1','x2','x3','x4','x5'],self.l_x)
@@ -2511,6 +2513,7 @@ class Adv(object):
         return count
 
     def actcond_make(self, actcond_id, target, source, dtype="#", ev=1):
+        log("actcond_make", actcond_id, target, source, dtype, ev)
         if not (actcond := self.active_actconds.get((actcond_id, target))):
             actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
         self.active_actconds.add(actcond, source)
@@ -2759,11 +2762,11 @@ class Adv(object):
         else:
             return mt_b
 
-    def schedule_hits(self, e, conf, pin=None):
+    def schedule_hits(self, e, conf, pin=None, attr_key="attr"):
         final_mt = None
-        if conf["attr"]:
+        if conf[attr_key]:
             aseq = 0
-            for attr in conf["attr"]:
+            for attr in conf[attr_key]:
                 iv = attr.get("iv", 0)
                 msl = attr.get("msl", 0)
                 if blt := attr.get("blt"):
@@ -2818,10 +2821,14 @@ class Adv(object):
                 aff.off()
 
     def l_fs(self, e):
+        self.action.getdoing().clear_delayed()
         prev = self.action.getprev().name
         log("cast", e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name, f"after {prev}")
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split("_")[0])
+
+    def l_fs_charged(self, e):
+        self.schedule_hits(e.act, self.conf[e.act.name], attr_key="attr_hold")
 
     def l_s(self, e):
         self.actmod_on(e)

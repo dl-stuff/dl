@@ -1,0 +1,127 @@
+{
+    "actconds": {
+        "36": {"aff": "all", "relief": 1, "count": 1, "text": "Recovered from Afflictions"},
+        "291": {"dispel": "buff"},
+        "646": {"duration": 40.0, "slip": {"value": ["heal", 25.0], "kind": "hp", "iv": 2.9}, "coei": 1, "debuff": 1, "text": "HP Regen"},
+        "2106": {"coei": 1, "icon": 0, "hide": 1, "maxstack": 3},
+        "2131": {"coei": 1, "icon": 0, "hide": 1},
+        "2132": {"remove": "2131", "coei": 1},
+        "2133": {"coei": 1}
+    },
+    "c": {
+        "name": "Nina",
+        "icon": "100008_04_r05",
+        "att": 468,
+        "hp": 807,
+        "ele": "wind",
+        "wt": "staff",
+        "spiral": false,
+        "cp": 100,
+        "abilities": [
+            {"cond": ["sp", "s1", ">", -1], "ab": [["hitattr", {"cp": 13, "target": "MYSELF"}]]},
+            {"cond": ["cp", ">=", 33], "ab": [["actcond", "MYSELF", "2133"]]},
+            {"cond": ["cp", ">=", 66], "ab": [["actcond", "MYSELF", "2133"]]},
+            {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", "2133"], ["actcond", "MYSELF", "2132"]]},
+            {"cond": ["event", "start"], "ab": [["cprep", 1.0]]},
+            {"ab": [["mod", 1.0, "affres_freeze"]]},
+            {"cond": ["actcondend", 2106], "cd": 45.0, "ab": [["hitattr", {"amp": ["10000", 1, 2], "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s99", "cost": 6, "sp": 9169}
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.43333,
+        "recovery": 1.46667,
+        "attr": [
+            {"pcond": ["actcond", "2106", "=", 0], "dmg": 3.0, "odmg": 5.95, "sp": 580, "target": "HOSTILE"},
+            {"pcond": ["actcond", "2106", ">=", 1], "dmg": 3.0, "odmg": 5.95, "sp": 580, "actcond": "291", "target": "HOSTILE"}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.23334, "dodge": 0.0, "s": 0.0}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": 10, "actcond": "646", "target": "MYPARTY", "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333},
+        "abilities": [
+            {"cond": ["cp", ">=", 33], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 66], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", "2106"], ["actcond", "MYSELF", "2131"]]}
+        ]
+    },
+    "s1_mode2": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": 21, "actcond": "646", "target": "MYPARTY", "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333},
+        "abilities": [
+            {"cond": ["cp", ">=", 33], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 66], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", "2106"], ["actcond", "MYSELF", "2131"]]}
+        ]
+    },
+    "s1_mode3": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": 21, "actcond": "646", "target": "MYPARTY", "iv": 1.56667},
+            {"actcond": "36", "target": "MYPARTY", "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333},
+        "abilities": [
+            {"cond": ["cp", ">=", 33], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 66], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", "2106"], ["actcond", "MYSELF", "2131"]]}
+        ]
+    },
+    "s1_mode4": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": 21, "actcond": "646", "target": "MYPARTY", "iv": 1.56667},
+            {"amp": ["10000", 1, 2], "target": "MYSELF", "iv": 1.56667},
+            {"actcond": "36", "target": "MYPARTY", "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333},
+        "abilities": [
+            {"cond": ["cp", ">=", 33], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 66], "ab": [["actcond", "MYSELF", "2106"]]},
+            {"cond": ["cp", ">=", 100], "ab": [["actcond", "MYSELF", "2106"], ["actcond", "MYSELF", "2131"]]}
+        ]
+    },
+    "s2": {
+        "sp": 8352,
+        "startup": 0.0,
+        "recovery": 2.63333,
+        "attr": [
+            {"cp": -100, "actcond": "2132", "target": "MYSELF"},
+            {"heal": 300, "actcond": "36", "target": "MYPARTY", "iv": 1.33333},
+            {"sp": [1.0, "%"], "target": "MYPARTY_EXCEPT_MYSELF", "iv": 1.33333}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.43333}
+    },
+    "s99": {
+        "sp": 5916,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"heal": 10, "actcond": "646", "target": "MYPARTY", "iv": 1.56667}
+        ],
+        "energizable": true,
+        "cancel": {"any": 2.33333}
+    }
+}

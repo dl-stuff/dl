@@ -2,7 +2,7 @@ from functools import partial
 
 from core.modifier import Modifier
 from core.timeline import Listener, Timer
-from conf import float_ceil, OPS
+from conf import float_ceil, OPS, SELF
 from core.log import log
 
 
@@ -69,7 +69,35 @@ class Cond:
             return Listener(self.end_event, partial(self._end_checked_callback, callback), order=order)
 
 
-CONDITIONS["always"] = Cond
+class CondAlways(Cond):
+    def __init__(self, adv, data, *args) -> None:
+        super().__init__(adv, data, *args)
+        self._extra_checks = []
+        if cd := data.get("cd"):
+            self._cooldown = Timer(timeout=cd - 0.0001, repeat=True)
+        if actcond := data.get("actcond"):
+            self._actcond_id = actcond
+        self._can_trigger = bool(cd and actcond)
+
+    def _checked_callback(self, callback, e):
+        if self.has_actcond():
+            callback(e)
+        else:
+            self._cooldown.off()
+
+    def _activate(self, e):
+        if e.actcond.id == self._actcond_id and SELF in e.actcond.generic_target:
+            self._cooldown.on()
+            self._cooldown.process(self._cooldown)
+
+    def trigger(self, callback, order=1):
+        if self._can_trigger:
+            self._cooldown.process = partial(self._checked_callback, callback)
+            self.l_actcond = Listener("actcond", self._activate, order=order)
+            return None
+
+
+CONDITIONS["always"] = CondAlways
 
 
 class CompareCond(Cond):
