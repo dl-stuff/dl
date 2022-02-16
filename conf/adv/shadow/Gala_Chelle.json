@@ -21,8 +21,8 @@
         "abilities": [
             {"count": 10, "ab": [["actcond", "MYSELF", "1471"]]},
             {"ab": [["mod", 1.0, "affres_paralysis"], ["mod", 1.0, "affres_blind"]]},
-            {"cond": ["mult", "actcond", 1, 15], "ab": [["actdmg", 0.02, "-t:fs"]]},
-            {"cond": ["actcond", 1471, ">=", 5], "ab": [["hitattr", {"actcond": "1499", "target": "ALLY", "zone": 3000.0}]]},
+            {"cond": ["mult", "dupbuff", 1, 15], "ab": [["actdmg", 0.02, "-t:fs"]]},
+            {"cond": ["actcond", "1471", ">=", 5], "ab": [["hitattr", {"actcond": "1499", "target": "ALLY", "zone": 3000.0}]]},
             {"ab": [["actdmg", 0.45, "-t:fs"]]}
         ],
         "skillshare": {"src": "s1", "cost": 5, "sp": 9072}

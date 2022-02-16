@@ -1,14 +1,12 @@
-from collections import UserDict, UserList, defaultdict
-from functools import reduce, total_ordering
+from collections import UserDict, defaultdict
+from functools import reduce
 import operator
-from os import stat
 import random
-from typing import Dict
 
 from conf import GENERIC_TARGET, SELF, TEAM, ENEMY, AFFLICTION_LIST, AFFRES_PROFILES, load_json, wyrmprints_meta
 
 from core.timeline import Event, Timer, Listener, now
-from core.log import log, g_logs, fmt_dict
+from core.log import log, g_logs
 from core.acl import allow_acl
 
 
@@ -534,6 +532,7 @@ class ActCond:
         self.target = target
         self.generic_target = GENERIC_TARGET[self.target]
         self.dtype = None
+        self.is_zone = False
 
         self.aff = data.get("aff")
 
@@ -644,23 +643,25 @@ class ActCond:
         return self.on(e.source, e.target)
 
     @allow_acl
-    def check(self, source):
+    def check(self, zone=None):
         if self._adv.nihilism and not (self.coei or self.debuff) and (SELF in self.generic_target or TEAM in self.generic_target):
             return False
-        if not self._adv.active_actconds.can_overwrite(self):
-            return False
-        return True
+        if zone is not None and (can_zone := self._adv.active_actconds.can_zone(self)):
+            return can_zone
+        if (can_overwrite := self._adv.active_actconds.can_overwrite(self)) is not None:
+            return can_overwrite
+        if self.stacks == self.maxstack or self.stacks == self.count or (self.stacks == 1 and self.refresh):
+            self.off(hide_msg=True)
+            return "refresh"
+        return "start"
 
-    def on(self, source, dtype, ev=1):
+    def on(self, source, dtype, ev=1, zone=None):
         self.dtype = dtype
         if self._adv.active_actconds.lvl_up_actcond(self, source, dtype, ev=1):
             return True
-        if not self.check(source):
+        state_msg = self.check(zone=zone)
+        if not state_msg:
             return False
-        state_msg = "start"
-        if self.stacks == self.maxstack or self.stacks == self.count or (self.stacks == 1 and self.refresh):
-            self.off(hide_msg=True)
-            state_msg = "refresh"
         if self.cooldown:
             if self.cooldown_timer:
                 cd_timeleft = self.cooldown_timer.timeleft()
@@ -687,8 +688,12 @@ class ActCond:
         duration = -1
         duration_repr = "Forever"
         timer = None
-        if self.duration:
+        if zone:
+            self.is_zone = True
+            duration = zone
+        elif self.duration:
             duration = self.duration * self.bufftime(dtype)
+        if duration > -1:
             timer = Timer(self.l_off, duration)
             timer.stack_key = stack_key
             timer.reason = "timeout"
@@ -734,12 +739,9 @@ class ActCond:
         if getattr(e, "reason", None) == "timeout":
             self._adv.active_actconds.lvl_down_actcond(self, e.stack_key[1])
 
-    def all_off(self, e=None):
-        for stack_key, (timer, _) in self.buff_stack.items():
-            if timer is not None:
-                timer.off()
-            self.effect_off(stack_key)
-        self.buff_stack = {}
+    def all_off(self, e=None, hide_msg=False):
+        for stack_key in self.buff_stack.copy().keys():
+            self._off(stack_key, hide_msg=hide_msg)
 
     def remove_actcond(self):
         for gtarget in self.generic_target:
@@ -929,22 +931,23 @@ class ActiveActconds(UserDict):
         self.by_source = defaultdict(dict)
         self.by_generic_target = defaultdict(dict)
         self.by_overwrite = {}
+        self.by_zone = {SELF: set(), TEAM: set(), ENEMY: set()}
         self.by_aff = {aff: [] for aff in AFFLICTION_LIST}
 
     def can_overwrite(self, actcond):
         if not actcond.overwrite:
-            return True
+            return None
         c_actcond = None
         for gtarget in actcond.generic_target:
             try:
                 c_actcond = self.by_overwrite[(gtarget, actcond.overwrite)]
             except KeyError:
                 continue
-        if c_actcond is None:
-            return True
-        if all((n_mod >= c_mod for n_mod, c_mod in zip(actcond.mod_list, c_actcond.mod_list))):
-            c_actcond.all_off()
-            return True
+            if c_actcond is None:
+                return "start"
+            if all((n_mod >= c_mod for n_mod, c_mod in zip(actcond.mod_list, c_actcond.mod_list))):
+                c_actcond.all_off(hide_msg=True)
+                return "refresh"
         return False
 
     def lvl_up_actcond(self, actcond, source, dtype, ev=1):
@@ -980,6 +983,21 @@ class ActiveActconds(UserDict):
             return True
         return False
 
+    def can_zone(self, actcond):
+        for gtarget in actcond.generic_target:
+            zone_set = self.by_zone[gtarget]
+            zone_count = sum((zac.stacks for zac in zone_set))
+            if zone_count >= 4:
+                oldest_zone = None
+                for zac in zone_set:
+                    if oldest_zone is None:
+                        oldest_zone = (zac, min(zac.buff_stack.keys()))
+                    else:
+                        if (c_oldest := min(zac.buff_stack.keys())) < oldest_zone[1]:
+                            oldest_zone = (zac, c_oldest)
+                oldest_zone[0]._off(c_oldest, hide_msg=True)
+        return "start"
+
     def add(self, actcond, actcond_source):
         abs_key = (actcond.id, actcond.target)
         if abs_key not in self:
@@ -991,6 +1009,8 @@ class ActiveActconds(UserDict):
             self.by_generic_target[gtarget][actcond.id] = actcond
             if actcond.overwrite:
                 self.by_overwrite[(gtarget, actcond.overwrite)] = actcond
+            if actcond.is_zone:
+                self.by_zone[gtarget].add(actcond)
         if actcond.aff and ENEMY in actcond.generic_target:
             self.by_aff[actcond.aff].append(actcond)
 

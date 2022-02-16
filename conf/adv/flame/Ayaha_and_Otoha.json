@@ -39,15 +39,12 @@
         "abilities": [
             {"ab": [["mod", 0.25, "dt"]]},
             {"count": 5, "ab": [["actcond", "MYSELF", "1998"]]},
-            {"cond": ["actcond", 1998, ">=", 1], "ab": [["mod", 0.2, "affres_all"]]},
-            {"cond": ["actcond", 1998, ">=", 2], "ab": [["mod", 0.2, "affres_all"]]},
-            {"cond": ["actcond", 1998, ">=", 3], "ab": [["mod", 0.2, "affres_all"]]},
-            {"cond": ["actcond", 1998, ">=", 4], "ab": [["mod", 0.2, "affres_all"]]},
-            {"cond": ["actcond", 1998, ">=", 5], "ab": [["mod", 0.2, "affres_all"]]},
-            {"cond": ["sp", "s1", ">", -1], "actcond": "2086", "cd": 8.0, "ab": [["hitattr", {"amp": ["10000", 1, 0], "target": "MYSELF"}]]},
-            {"cond": ["actcond", 2000, ">=", 1], "ab": [["mod", 0.0, "att"]]},
-            {"cond": ["actcond", 2000, ">=", 2], "ab": [["mod", 0.0, "att"]]},
-            {"cond": ["actcond", 2000, ">=", 3], "ab": [["mod", 0.0, "att"]]}
+            {"cond": ["actcond", "1998", ">=", 1], "ab": [["mod", 0.2, "affres_all"]]},
+            {"cond": ["actcond", "1998", ">=", 2], "ab": [["mod", 0.2, "affres_all"]]},
+            {"cond": ["actcond", "1998", ">=", 3], "ab": [["mod", 0.2, "affres_all"]]},
+            {"cond": ["actcond", "1998", ">=", 4], "ab": [["mod", 0.2, "affres_all"]]},
+            {"cond": ["actcond", "1998", ">=", 5], "ab": [["mod", 0.2, "affres_all"]]},
+            {"cond": ["sp", "s1", ">", -1], "actcond": "2086", "cd": 8.0, "ab": [["hitattr", {"amp": ["10000", 1, 0], "target": "MYSELF"}]]}
         ],
         "skillshare": {"src": "s99", "cost": 6, "sp": 16395}
     },

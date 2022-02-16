@@ -2512,12 +2512,12 @@ class Adv(object):
                 t.on(self.conf.attenuation.delay)
         return count
 
-    def actcond_make(self, actcond_id, target, source, dtype="#", ev=1):
+    def actcond_make(self, actcond_id, target, source, dtype="#", ev=1, zone=None):
         log("actcond_make", actcond_id, target, source, dtype, ev)
         if not (actcond := self.active_actconds.get((actcond_id, target))):
             actcond = ActCond(self, actcond_id, target, self.conf.actconds[actcond_id])
         self.active_actconds.add(actcond, source)
-        actcond.on(source, dtype, ev=ev)
+        actcond.on(source, dtype, ev=ev, zone=zone)
         return actcond
 
     def unbound_hitattrs_make(self, name, attrs, dtype="#"):
@@ -2618,7 +2618,7 @@ class Adv(object):
                 self.heal_make(name, value, target)
 
         if (actcond_id := attr.get("actcond")) and (action is None or action.check_once_per_act(actcond_id, attr)):
-            self.actcond_make(actcond_id, attr.get("target"), (name, aseq), dtype=dtype, ev=ev)
+            self.actcond_make(actcond_id, attr.get("target"), (name, aseq), dtype=dtype, ev=ev, zone=attr.get("zone"))
 
         if (actcond_reset := attr.get("actcond_reset")) and (actcond := self.active_actconds.by_generic_target[SELF].get(actcond_reset)):
             actcond.all_off()

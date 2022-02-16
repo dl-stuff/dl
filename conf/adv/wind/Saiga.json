@@ -18,9 +18,9 @@
         "spiral": false,
         "gun": [2],
         "abilities": [
-            {"cond": ["actcond", 1686, ">=", 1], "ab": [["mod", 3.0, "odaccel", "-t:fs"]]},
+            {"cond": ["actcond", "1686", ">=", 1], "ab": [["mod", 3.0, "odaccel", "-t:fs"]]},
             {"cond": ["event", "fs_end"], "ab": [["actcond", "MYSELF", "1688"]]},
-            {"cond": ["actcond", 1687, ">=", 1], "ab": [["actdmg", 0.1, "-t:x"], ["mod", 0.1, "crit", "-t:x"], ["mod", 0.1, "sph", "-t:x"]]},
+            {"cond": ["actcond", "1687", ">=", 1], "ab": [["actdmg", 0.1, "-t:x"], ["mod", 0.1, "crit", "-t:x"], ["mod", 0.1, "sph", "-t:x"]]},
             {"ab": [["mod", 1.0, "affres_freeze"]]},
             {"cond": ["hp", ">=", 70], "ab": [["mod", 0.13, "att"]]}
         ],
