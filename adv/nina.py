@@ -16,12 +16,15 @@ class Nina(Adv):
             return 2
         return 3
 
-    def subtract_shopkeeper_charge(self):
+    def subtract_shopkeeper_charge(self, count):
         if self.shopkeeper_charge == 3:
-            self.shopkeeper -= 34
+            count -= 1
+            self.shopkeeper -= 34 + count * 33
         else:
-            self.shopkeeper -= 33
-        if not self.is_set_cd("a1_amp", 45):
+            self.shopkeeper -= count * 33
+        if self.shopkeeper < 0:
+            self.shopkeeper = 0
+        if not self.is_set_cd("a3_amp", 45):
             self.add_amp(max_level=1, target=2)
 
     @allow_acl
@@ -30,7 +33,7 @@ class Nina(Adv):
             if self.shopkeeper_charge > 0:
                 self.current_s["s1"] = f"mode{self.shopkeeper_charge+1}"
                 if s1_kind == "shopkeeper" and self.s1.charged < self.s1.sp:
-                    self.subtract_shopkeeper_charge()
+                    self.subtract_shopkeeper_charge(1)
                     self.s1.charged = self.s1.sp
             else:
                 self.current_s["s1"] = DEFAULT
@@ -42,7 +45,7 @@ class Nina(Adv):
         self.shopkeeper = min(100, self.shopkeeper + 13)
 
     def s2_before(self, e):
-        self.shopkeeper = 0
+        self.subtract_shopkeeper_charge(3)
 
 
 variants = {None: Nina}
