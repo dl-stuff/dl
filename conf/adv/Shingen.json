@@ -6,6 +6,7 @@
         "hp": 822,
         "ele": "wind",
         "wt": "axe",
+        "ct": "defense",
         "spiral": false,
         "a": [["affres_freeze", 100.0]]
     },
@@ -30,6 +31,19 @@
         "DEBUG_attr_N2": [{"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4}],
         "DEBUG_attr_N3": [{"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4}, {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 1.06667}],
         "DEBUG_attr_N4": [{"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.4}, {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 1.06667}, {"dmg": 8.0, "iv": 1.86667}, {"heal": 35, "iv": 1.86667}]
+    },
+    "s1_furinkazan": {
+        "sp": 2040,
+        "startup": 0.0,
+        "recovery": 5.43333,
+        "attr": [
+            {"dmg": 16.0, "iv": 2.06667},
+            {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
+            {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 2.6},
+            {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 3.66667},
+            {"dmg": 8.0, "iv": 4.46667},
+            {"heal": 35, "iv": 4.46667}
+        ]
     },
     "s1_mettle1": {
         "sp": 2040,
@@ -60,19 +74,6 @@
             {"dmg": 16.0, "iv": 2.06667},
             {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
             {"vars": ["mettle", -3, 3], "iv": 2.2},
-            {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 2.6},
-            {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 3.66667},
-            {"dmg": 8.0, "iv": 4.46667},
-            {"heal": 35, "iv": 4.46667}
-        ]
-    },
-    "s1_furinkazan": {
-        "sp": 2040,
-        "startup": 0.0,
-        "recovery": 5.43333,
-        "attr": [
-            {"dmg": 16.0, "iv": 2.06667},
-            {"afflic": ["stormlash", 120, 0.41], "iv": 2.06667},
             {"dmg": 8.0, "buff": ["debuff", -0.1, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 2.6},
             {"dmg": 8.0, "afflic": ["scorchrend", 120, 0.416], "iv": 3.66667},
             {"dmg": 8.0, "iv": 4.46667},
