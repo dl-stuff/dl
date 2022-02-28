@@ -5,6 +5,13 @@ from module.template import LowerMCAdv
 class Gala_Mym(Adv):
     def prerun(self):
         Event("dragon").listener(self.a1_on, order=0)
+        super().prerun()
+        if self.MC is None:
+            Event("s").listener(self.a1_amp)
+
+    def a1_amp(self, e):
+        if not self.is_set_cd("a1_amp", 30):
+            self.add_amp(max_level=3)
 
     def a1_on(self, e):
         if self.dshift_count == 1:
