@@ -647,7 +647,7 @@ class Gala_Elysium(DragonBase):
     def force_dp_amount(self, _):
         self.adv.dragonform.max_dragon_gauge = 1000
         self.adv.dragonform.charge_dprep(50)
-        if not self.unique_transform and self.adv.dragonform.dform_mode == -1:
+        if self.adv.dragonform.dform_mode == -1:
             self.adv.dragonform.shift_cost = 1000
 
     def oninit(self, adv):
@@ -748,7 +748,7 @@ class Gala_Bahamut(DragonBase):
     def force_dp_amount(self, _):
         self.adv.dragonform.max_dragon_gauge = 1000
         self.adv.dragonform.charge_dprep(50)
-        if not self.unique_transform and self.adv.dragonform.dform_mode == -1:
+        if self.adv.dragonform.dform_mode == -1:
             self.adv.dragonform.shift_cost = 1000
 
     def oninit(self, adv):
