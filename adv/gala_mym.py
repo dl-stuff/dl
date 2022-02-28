@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.template import LowerMCAdv
 
 
 class Gala_Mym(Adv):
@@ -18,4 +19,8 @@ class Gala_Mym(Adv):
                     pass
 
 
-variants = {None: Gala_Mym}
+class Gala_Mym_50MC(LowerMCAdv):
+    pass
+
+
+variants = {None: Gala_Mym, "50MC": Gala_Mym_50MC}

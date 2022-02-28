@@ -730,7 +730,7 @@ class SingleActionBuff(Buff):
         uses=1,
         mtype="att",
         morder=None,
-        source=None,
+        source=None
     ):
         super().__init__(name, value, -1, mtype, morder)
         self.bufftype = "self"

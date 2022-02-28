@@ -218,6 +218,10 @@ class CharaBase(SlotBase):
     def wt(self):
         return self.conf.wt
 
+    @property
+    def ct(self):
+        return self.conf.ct
+
 
 class EquipBase(SlotBase):
     def __init__(self, conf, c, qual=None):
@@ -361,6 +365,26 @@ class Nimis(DragonBase):
     def ds1_proc(self, e):
         self.adv.dragonform.charge_dprep(20)
         self.adv.dragonform.extend_shift_time(5, percent=False)
+
+
+class Styx(DragonBase):
+    def add_styx(self, _):
+        self.styx_buff._value = min(2.0, self.styx_buff.modifier.mod_value + 0.5)
+        self.styx_buff.modifier.mod_value = min(2.0, self.styx_buff.modifier.mod_value + 0.5)
+        self.styx_buff.on()
+
+    def reset_styx(self, e):
+        if e.name in self.styx_buff.active:
+            self.styx_buff._value = 0.0
+            self.styx_buff.modifier.mod_value = 0.0
+        self.o_act_off(e)
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        self.styx_buff = SingleActionBuff("d_styx_buff", 0.0, 1, "s", "buff").on()
+        self.o_act_off = self.styx_buff.act_off
+        self.styx_buff.act_off = self.reset_styx
+        Timer(self.add_styx, 10, True).on()
 
 
 class Gala_Reborn_Poseidon(Gala_Reborn):
@@ -619,6 +643,30 @@ class Gala_Chronos_Nyx(DragonBase):
             adv.dragonform.untimed_shift = True
 
 
+class Gala_Elysium(DragonBase):
+    def force_dp_amount(self, _):
+        self.adv.dragonform.max_dragon_gauge = 1000
+        self.adv.dragonform.charge_dprep(50)
+        if not self.unique_transform and self.adv.dragonform.dform_mode == -1:
+            self.adv.dragonform.shift_cost = 1000
+
+    def oninit(self, adv):
+        self.unique_transform = super().oninit(adv)
+        if adv.conf.c.ct == "attack":
+            Modifier("elysium_aura_att", "att", "passive", 0.3).on()
+        elif adv.conf.c.ct == "defense":
+            Modifier("elysium_aura_att", "att", "passive", 0.15).on()
+            Modifier("elysium_aura_def", "defense", "passive", 0.15).on()
+            Modifier("elysium_aura_hp", "maxhp", "passive", 0.15).on()
+        elif adv.conf.c.ct == "support":
+            Modifier("elysium_aura_sp", "sp", "passive", 0.30).on()
+        elif adv.conf.c.ct == "healing":
+            Modifier("elysium_aura_hp", "maxhp", "passive", 0.30).on()
+            Modifier("elysium_aura_sp", "sp", "passive", 0.15).on()
+        self.adv.dragonform.max_dragon_gauge = 0
+        Timer(self.force_dp_amount, 0.0001).on()
+
+
 ### LIGHT DRAGONS ###
 
 ### SHADOW DRAGONS ###
@@ -700,11 +748,11 @@ class Gala_Bahamut(DragonBase):
     def force_dp_amount(self, _):
         self.adv.dragonform.max_dragon_gauge = 1000
         self.adv.dragonform.charge_dprep(50)
-        if self.adv.dragonform.dform_mode == -1:
+        if not self.unique_transform and self.adv.dragonform.dform_mode == -1:
             self.adv.dragonform.shift_cost = 1000
 
     def oninit(self, adv):
-        super().oninit(adv)
+        self.unique_transform = super().oninit(adv)
         self.adv.dragonform.max_dragon_gauge = 0
         Timer(self.force_dp_amount, 0.0001).on()
 
@@ -1001,7 +1049,7 @@ class Slots:
         "water": "Gala_Reborn_Poseidon",
         "wind": "Gala_Beast_Volk",
         "light": "Gala_Reborn_Jeanne",
-        "shadow": "Gala_Cat_Sith",
+        "shadow": "Gala_Bahamut",
     }
 
     DEFAULT_WYRMPRINT = [

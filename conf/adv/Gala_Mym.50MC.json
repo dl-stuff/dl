@@ -2,13 +2,13 @@
     "c": {
         "name": "Gala Mym",
         "icon": "100010_04_r05",
-        "att": 612,
-        "hp": 898,
+        "att": 510,
+        "hp": 749,
         "ele": "flame",
         "wt": "lance",
         "ct": "attack",
-        "spiral": true,
-        "a": [["dshift_att", 0.15], ["dsalt", 1, "flamewyrm", "s2"], ["affres_burn", 100.0], ["resself_burn_att", 0.15, 10.0, 15.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["resself_sleep_att", 0.15, 10.0, 15.0], ["affres_stun", 100.0], ["affres_sleep", 100.0], ["dt", 0.25]]
+        "spiral": false,
+        "a": [["affres_burn", 100.0], ["affres_stun", 100.0], ["dt", 0.2], ["dshift_att", 0.15], ["dsalt", 1, "flamewyrm", "s2"]]
     },
     "dragonform": {
         "dshift": {
@@ -59,7 +59,6 @@
             "sp": 30,
             "startup": 0.0,
             "recovery": 2.7,
-            "cancel": {"any": 2.33333},
             "sp_db": 45,
             "uses": 1,
             "attr": [
@@ -69,7 +68,8 @@
                 {"dmg": 15.12, "iv": 0.93333},
                 {"dmg": 8.12, "iv": 1.7},
                 {"dmg": 8.12, "iv": 1.7}
-            ]
+            ],
+            "cancel": {"any": 2.33333}
         }
     },
     "s1": {
@@ -77,9 +77,9 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 8.1, "dp": 50, "dispel": 100, "iv": 0.26087},
-            {"dmg": 8.1, "iv": 0.49275},
-            {"dmg": 8.1, "iv": 0.98551},
+            {"dmg": 7.675, "dp": 50, "iv": 0.26087},
+            {"dmg": 7.675, "iv": 0.49275},
+            {"dmg": 7.675, "iv": 0.98551},
             {"buff": ["self", 0.2, 10.0, "att", "buff"], "iv": 1.5}
         ],
         "cancel": {"any": 1.68116}
@@ -89,21 +89,18 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 5.4, "afflic": ["burn", 120, 0.97], "iv": 0.73333},
-            {"dmg": 5.4, "iv": 0.8},
-            {"dmg": 5.4, "iv": 0.9},
-            {"dmg": 5.4, "iv": 1.0}
+            {"dmg": 5.175, "iv": 0.73333},
+            {"dmg": 5.175, "iv": 0.8},
+            {"dmg": 5.175, "iv": 0.9},
+            {"dmg": 5.175, "iv": 1.0}
         ]
     },
     "s2_flamewyrm": {
-        "sp": 5736,
-        "startup": 0.0,
-        "recovery": 1.63333,
         "attr": [
-            {"dmg": 6.65, "afflic": ["burn", 120, 0.97], "iv": 0.73333},
-            {"dmg": 6.65, "iv": 0.8},
-            {"dmg": 6.65, "iv": 0.9},
-            {"dmg": 6.65, "iv": 1.0}
+            {"dmg": 6.22, "iv": 0.73333},
+            {"dmg": 6.22, "iv": 0.8},
+            {"dmg": 6.22, "iv": 0.9},
+            {"dmg": 6.22, "iv": 1.0}
         ]
     }
 }
