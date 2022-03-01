@@ -17,8 +17,6 @@ class Gala_Mym(Adv):
         if self.dshift_count == 1:
             # "dragon" event is called after spd mod check in d_shift_start so this is ok
             self.dragonform.shift_spd_mod = Modifier("flamewyrm_spd", "spd", "passive", 0.15).off()
-            Selfbuff("dshift_att", 0.15, -1, "att", "buff").on()
-            self.current_s["s2"] = "flamewyrm"
         if self.dshift_count == 2:
             for act in self.dragonform.conf.values():
                 try:
