@@ -15,6 +15,7 @@ class Humanoid_Zodiark(Adv):
                 Selfbuff("spite_lv5", 0.15, 20, "killer", "passive", source="x3"),
             ],
         )
+        self.malevolent_rush = 0
 
     @property
     def spite(self):
@@ -31,11 +32,14 @@ class Humanoid_Zodiark(Adv):
 
     def s1_proc(self, e):
         self.current_x = "mode2"
+        self.malevolent_rush = 3
 
     def x_mode2_proc(self, e):
         if e.index == 3:
             self.spite_debuff.on()
-            self.current_x = DEFAULT
+            self.malevolent_rush -= 1
+            if self.malevolent_rush == 0:
+                self.current_x = DEFAULT
 
 
 variants = {None: Humanoid_Zodiark}
