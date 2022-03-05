@@ -1,0 +1,38 @@
+{
+    "c": {
+        "name": "Housekeeper Pia",
+        "icon": "110302_04_r05",
+        "att": 446,
+        "hp": 847,
+        "ele": "water",
+        "wt": "bow",
+        "ct": "defense",
+        "spiral": false,
+        "a": [["affres_stun", 100.0]]
+    },
+    "s1": {
+        "sp": 2560,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"dmg": 2.0, "afflic": ["frostbite", 120, 0.41], "iv": 1.16667},
+            {"dmg": 2.0, "iv": 1.26667},
+            {"dmg": 2.0, "iv": 1.36667},
+            {"dmg": 2.0, "iv": 1.43333},
+            {"dmg": 2.0, "iv": 1.5},
+            {"dmg": 2.0, "iv": 1.56667},
+            {"dmg": 18.0, "buff": ["affres", -0.1, 10.0, "frostbite", "-overwrite_HOSTILE76"], "coei": 1, "iv": 1.76667}
+        ],
+        "cancel": {"any": 2.66667}
+    },
+    "s2": {
+        "sp": 5500,
+        "startup": 0.0,
+        "recovery": 3.76667,
+        "attr": [
+            {"dispel": 100, "iv": 3.16667}
+        ],
+        "attr_counter": [{"dmg": 50.0, "dispel": 100, "iv": 1.16667}],
+        "cancel": {"any": 3.66667}
+    }
+}
