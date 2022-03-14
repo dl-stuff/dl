@@ -1,0 +1,196 @@
+{
+    "c": {
+        "name": "Sheila",
+        "icon": "100044_02_r05",
+        "att": 500,
+        "hp": 758,
+        "ele": "flame",
+        "wt": "dagger",
+        "ct": "attack",
+        "spiral": false,
+        "a": [["cd", 0.2], ["affres_stun", 100.0], ["affres_sleep", 100.0]]
+    },
+    "dodge_on_x": {
+        "startup": 0.0,
+        "recovery": 0.56667,
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.4, "s": 0.0}
+    },
+    "fs": {
+        "charge": 0.15,
+        "startup": 0.13333,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 0.47, "odmg": 8.4, "sp": 288},
+            {"dmg": 0.47, "odmg": 8.4, "iv": 0.13334},
+            {"dmg": 0.47, "odmg": 4.2, "iv": 0.33334}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.6}
+    },
+    "s1": {
+        "sp": 4480,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"amp": ["20000", 1, 0], "ab": 1},
+            {"dmg": 1.9, "iv": 0.56667},
+            {"buff": ["self", 0.15, 30.0, "flame_resist", "down", "-overwrite_HOSTILE26"], "coei": 1, "iv": 0.56667},
+            {"dmg": 1.9, "iv": 0.86667},
+            {"buff": ["sAlt", "enhanced", "s2", 1.7], "iv": 1.46667},
+            {"dmg": 3.8, "iv": 1.96667},
+            {"dmg": 3.8, "iv": 2.03333},
+            {"dmg": 3.8, "iv": 2.1}
+        ],
+        "cancel": {"any": 2.13333}
+    },
+    "s1_enhanced": {
+        "sp": 4480,
+        "startup": 0.0,
+        "recovery": 3.23333,
+        "attr": [
+            {"cond": ["var=", ["blazewolf", 1]], "vars": ["blazewolf", -1], "sp": [1.0, "%", "s2"], "target": "MYSELF"},
+            {"dmg": 1.9, "iv": 0.56667},
+            {"buff": ["self", 0.15, 30.0, "flame_resist", "down", "-overwrite_HOSTILE26"], "coei": 1, "iv": 0.56667},
+            {"dmg": 1.9, "iv": 0.73333},
+            {"dmg": 1.9, "iv": 1.16667},
+            {"dmg": 1.9, "iv": 1.33333},
+            {"buff": ["sAlt", "enhanced", "s2", 1.7], "iv": 1.93333},
+            {"dmg": 3.8, "iv": 2.43333},
+            {"dmg": 3.8, "iv": 2.46667},
+            {"dmg": 3.8, "iv": 2.5},
+            {"dmg": 3.8, "iv": 2.53333},
+            {"dmg": 3.8, "iv": 2.56667},
+            {"dmg": 3.8, "iv": 2.6}
+        ],
+        "cancel": {"any": 2.6}
+    },
+    "s2": {
+        "sp": 4480,
+        "startup": 0.0,
+        "recovery": 2.33333,
+        "attr": [
+            {"dmg": 2.0, "dispel": 100, "iv": 0.53333},
+            {"afflic": ["burn", 110, 0.727], "iv": 0.53333},
+            {"dmg": 2.0, "iv": 0.73333},
+            {"dmg": 2.0, "iv": 0.93333},
+            {"dmg": 2.0, "iv": 1.06667},
+            {"dmg": 2.0, "iv": 1.2},
+            {"dmg": 2.0, "iv": 1.33333},
+            {"buff": ["sAlt", "enhanced", "s1", 1.2], "msl": 1.46667},
+            {"dmg": 2.0, "iv": 1.5}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "s2_enhanced": {
+        "sp": 4480,
+        "startup": 0.0,
+        "recovery": 2.33333,
+        "attr": [
+            {"cond": ["var=", ["blazewolf", 1]], "vars": ["blazewolf", -1], "sp": [1.0, "%", "s1"], "target": "MYSELF"},
+            {"dmg": 2.5, "dispel": 100, "iv": 0.53333},
+            {"afflic": ["scorchrend", 110, 0.311], "iv": 0.53333},
+            {"dmg": 2.5, "iv": 0.73333},
+            {"dmg": 2.5, "iv": 0.93333},
+            {"dmg": 2.5, "iv": 1.06667},
+            {"dmg": 2.5, "iv": 1.2},
+            {"dmg": 2.5, "iv": 1.33333},
+            {"buff": ["sAlt", "enhanced", "s1", 1.2], "msl": 1.46667},
+            {"dmg": 2.5, "iv": 1.5}
+        ],
+        "cancel": {"any": 2.16667, "s1_enhanced": 2.0}
+    },
+    "s99": {
+        "sp": 4480,
+        "startup": 0.0,
+        "recovery": 2.33333,
+        "attr": [
+            {"dmg": 2.5, "dispel": 100, "iv": 0.53333},
+            {"afflic": ["scorchrend", 110, 0.311], "iv": 0.53333},
+            {"dmg": 2.5, "iv": 0.73333},
+            {"dmg": 2.5, "iv": 0.93333},
+            {"dmg": 2.5, "iv": 1.06667},
+            {"dmg": 2.5, "iv": 1.2},
+            {"dmg": 2.5, "iv": 1.33333},
+            {"dmg": 2.5, "iv": 1.5}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "x1": {
+        "startup": 0.1,
+        "recovery": 0.63333,
+        "attr": [
+            {"dmg": 0.75, "sp": 150}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.63333, "dodge": 0.0, "fs": 0.1, "s": 0.0, "x2": 0.3}
+    },
+    "x2": {
+        "startup": 0.1,
+        "recovery": 0.5,
+        "attr": [
+            {"dmg": 0.8, "sp": 180}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dodge": 0.0, "fs": 0.1, "s": 0.0, "x3": 0.16667}
+    },
+    "x3": {
+        "startup": 0.2,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 0.89, "sp": 250},
+            {"dmg": 0.89, "iv": 0.23333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.33333}
+    },
+    "x4": {
+        "startup": 0.0,
+        "recovery": 1.5,
+        "attr": [
+            {"cond": ["var=", ["buff2116", 1]], "amp": ["30000", 1, 0]},
+            {"cond": ["var=", ["buff2117", 1]], "amp": ["30000", 1, 0]},
+            {"dmg": 1.32, "sp": 300, "iv": 0.06667},
+            {"dmg": 1.5, "iv": 0.66667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 1.5, "dodge": 0.0, "fs": 0.2, "s": 0.0, "x5": 0.83333}
+    },
+    "x5": {
+        "startup": 0.2,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 0.46, "sp": 335},
+            {"dmg": 0.46, "iv": 0.06667},
+            {"dmg": 0.46, "iv": 0.13333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.76667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x6": 0.26667}
+    },
+    "x6": {
+        "startup": 0.0,
+        "recovery": 0.8,
+        "attr": [
+            {"dmg": 0.46, "sp": 335},
+            {"dmg": 0.46},
+            {"dmg": 0.46}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.2, "s": 0.0, "x7": 0.3}
+    },
+    "x7": {
+        "startup": 0.1,
+        "recovery": 2.23333,
+        "attr": [
+            {"vars": ["blazewolf", 1]},
+            {"dmg": 0.51, "sp": 345},
+            {"dmg": 0.51, "iv": 0.13333},
+            {"dmg": 0.51, "iv": 0.3},
+            {"dmg": 0.51, "iv": 0.53333},
+            {"dmg": 0.51, "iv": 0.7},
+            {"dmg": 2.01, "sp": 345, "iv": 1.23333}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 2.23333, "dodge": 0.0, "fs": 0.1, "s": 0.0}
+    }
+}

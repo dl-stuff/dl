@@ -854,6 +854,21 @@ class Dodge(Misc):
         self.act_event.dtype = "#"
 
 
+class DodgeOnX(Dodge):
+    def __init__(self, name, conf, act=None):
+        super().__init__(name, conf, act=act)
+        self.retain_x = None
+
+    def _cb_acting(self, e):
+        super()._cb_acting(e)
+        if isinstance(self.getprev(), X):
+            self.retain_x = self.getprev()
+
+    def _cb_act_end(self, e):
+        super()._cb_act_end(e)
+
+
+
 class Shift(Misc):
     def __init__(self, name, dform_name, conf, act=None):
         super().__init__(name, conf, act, atype="s")
@@ -1098,6 +1113,9 @@ class Adv(object):
 
         self.a_dodge = Dodge("dodge", self.conf.dodge)
         self.a_dooodge = Dodge("dooodge", self.conf.dooodge)
+        self.a_dodge_on_x = None
+        if self.conf["dodge_on_x"]:
+            self.a_dodge_on_x = DodgeOnX("dodge", self.conf.dodge_on_x)
         self.a_dash = None
         if self.conf["dash"]:
             self.a_dash = DashX("dash", self.conf.dash)
@@ -1908,6 +1926,8 @@ class Adv(object):
         prev = prev or self.action.getdoing()
         if prev is self.action.nop:
             prev = self.action.getprev()
+        if prev == self.a_dodge_on_x and prev.retain_x is not None:
+            prev = prev.retain_x
         if isinstance(prev, X):
             if prev.group == self.current_x and prev.conf["loop"]:
                 x_next = prev
@@ -1966,6 +1986,8 @@ class Adv(object):
     def dodge(self):
         if self.in_dform():
             return self.dragonform.d_dodge()
+        if self.a_dodge_on_x is not None and isinstance(self.action.getdoing(), X):
+            return self.a_dodge_on_x()
         return self.a_dodge()
 
     @allow_acl

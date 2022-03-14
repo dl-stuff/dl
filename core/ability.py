@@ -1,8 +1,10 @@
+from multiprocessing import Event
 import random
 
 from core.log import log
 from core.afflic import AFFLICT_LIST
 from conf import ELEMENTS, WEAPON_TYPES
+from core.timeline import Listener
 
 
 class Ability:
@@ -1141,6 +1143,25 @@ class Att_Combo_Resetable(Crit_Combo_Resetable):
 
 
 ability_dict["attcombo"] = Crit_Combo_Resetable
+
+
+class DPrep_Amp(Ability):
+    def __init__(self, name, value, cooldown):
+        super().__init__(name)
+        self.value = value
+        self.cooldown = cooldown - 0.00001
+
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom=afrom)
+
+        def amp_proc_cb(e):
+            if not adv.is_set_cd(afrom, self.cooldown):
+                adv.dragonform.charge_dprep(self.value)
+
+        self.l_amp = Listener("amp", amp_proc_cb).on()
+
+
+ability_dict["dpamp"] = DPrep_Amp
 
 
 class Skill_Recharge(Ability):
