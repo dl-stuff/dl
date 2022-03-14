@@ -126,19 +126,19 @@ class Sinoa(Adv):
     def buffcount(self):
         return super().buffcount + self.s1_buffcount
 
-    def dmg_formula(self, name, dmg_coef, dtype=None):
+    def dmg_formula(self, name, dmg_coef, dtype=None, ignore_def=None):
         if self.combined_states is None or name == "test":
-            return super().dmg_formula(name, dmg_coef, dtype=dtype)
+            return super().dmg_formula(name, dmg_coef, dtype=dtype, ignore_def=ignore_def)
         m_dmg = 0
         for state, state_p in self.combined_states.items():
             if state[0] == 0 and state[2] == 0:
-                m_dmg += state_p * super().dmg_formula(name, dmg_coef, dtype=dtype)
+                m_dmg += state_p * super().dmg_formula(name, dmg_coef, dtype=dtype, ignore_def=ignore_def)
                 continue
             state_mods = [
                 Modifier("sinoa_att", "att", "buff", 0.25 * state[0]),
                 Modifier("sinoa_crit", "crit", "chance", 0.25 * state[2]),
             ]
-            m_dmg += state_p * super().dmg_formula(name, dmg_coef, dtype=dtype)
+            m_dmg += state_p * super().dmg_formula(name, dmg_coef, dtype=dtype, ignore_def=ignore_def)
             for m in state_mods:
                 m.off()
         return m_dmg
