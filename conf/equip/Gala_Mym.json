@@ -2,46 +2,46 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64444.30616981468,
-        "team": 0.00875720021380181,
+        "dps": 128604.85757373746,
+        "team": 0.033332820136725776,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "The_Cutie_Competition",
-        "Chariot_Drift",
-        "To_the_Extreme",
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Kagutsuchi",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon,      dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
-        "`s3",
-        "`s1, cancel",
-        "`s2, fscf",
-        "`s4, fscf",
-        "`fs, x=5",
-        "`dodge, fsc and s"
+        "`dragon, aff_timeleft(poison)>10",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, xf"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, dshift_count<3"
       ],
       "coabs": [
-        "Blade",
         "Kimono_Elisanne",
+        "Verica",
         "Yuya"
       ],
       "share": [
-        "Gala_Leonidas",
-        "Student_Maribelle"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 124136.18092873428,
-        "team": 0.0,
+        "dps": 140439.4145615794,
+        "team": 0.03326106419117134,
         "noaff": false,
         "nihil": false
       },
@@ -77,56 +77,21 @@
       ]
     },
     "META": {
-      "tdps": 6816319.520118092,
+      "tdps": 164927894.07763308,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32028.585284058747,
-        "team": 0.01753330167929489,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "The_Cutie_Competition",
-        "Chariot_Drift",
-        "To_the_Extreme",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s3",
-        "`s1, cancel",
-        "`s2, fscf",
-        "`s4, fscf",
-        "`fs, x=5",
-        "`dodge, fsc and s"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Yuya"
-      ],
-      "share": [
-        "Gala_Leonidas",
-        "Student_Maribelle"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47954.4182758421,
-        "team": 0.011666522998296973,
+        "dps": 57371.72824093445,
+        "team": 0.05369495224759745,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
+        "Me_and_My_Bestie",
         "The_Cutie_Competition",
         "Chariot_Drift",
         "To_the_Extreme",
@@ -135,9 +100,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon,      dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
+        "`dragon",
         "`s3",
         "`s1, cancel",
         "`s2, fscf",
@@ -156,44 +119,69 @@
       ]
     },
     "META": {
-      "tdps": 2714578.7931912295,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57371.72824093445,
+        "team": 0.05369495224759745,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s1, cancel",
+        "`s2, fscf",
+        "`s4, fscf",
+        "`fs, x=5",
+        "`dodge, fsc and s"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Gala_Leonidas",
+        "Student_Maribelle"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 115519.87299787508,
-        "team": 0.10703818401204003,
+        "dps": 143262.25515904755,
+        "team": 0.14533889473947115,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Me_and_My_Bestie",
-        "The_Cutie_Competition",
         "The_Red_Impulse",
+        "A_Butlers_Smile",
         "Dueling_Dancers",
-        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, xf or fscf",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, xf or fscf",
-        "`s2, x=5",
-        "`fs, x=5",
-        "`dodge, fscf and not buff(s3)"
-      ],
-      "dacl": [
-        "ds1,x=3",
-        "sack, dshift_count=1 and x=3"
-      ],
-      "coabs": [
-        "Gala_Leonidas",
-        "Kimono_Elisanne",
-        "Yuya"
       ],
       "share": [
         "Weapon",
@@ -202,8 +190,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 140345.25758551527,
-        "team": 0.0,
+        "dps": 159423.81927202837,
+        "team": 0.03326106419117134,
         "noaff": false,
         "nihil": false
       },
@@ -218,7 +206,7 @@
       ]
     },
     "META": {
-      "tdps": 231930.1734869469,
+      "tdps": 144199.47311539022,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,10 +215,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 69693.59561696243,
-        "team": 0.0,
+        "dps": 64417.228706600305,
+        "team": 0.06104983818624441,
         "noaff": false,
         "nihil": true
       },
@@ -243,7 +231,41 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Agni",
+      "acl": [
+        "`dragon",
+        "`s3, fsc",
+        "`s1,cancel",
+        "`s2, fscf",
+        "`s4, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Seimei",
+        "Summer_Celliera"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84333.55263484515,
+        "team": 0.033310220385197306,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Apollo",
       "acl": [
         "`dragon",
         "`s3, fsc",
@@ -258,18 +280,56 @@
       ]
     },
     "META": {
+      "tdps": 717973.9847566701,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 107161.87198622845,
+        "team": 0.13182326157854365,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or duration-now<10",
+        "`s4, x=5"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
+      "coabs": [
+        "Gala_Leonidas",
+        "Verica",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103684.97860328888,
-        "team": 0.0,
+        "dps": 116321.68864533635,
+        "team": 0.03324349383512176,
         "noaff": false,
         "nihil": false
       },
@@ -304,6 +364,7 @@
       ]
     },
     "META": {
+      "tdps": 92917.81537717338,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -312,10 +373,47 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 58403.33721495743,
+        "team": 0.06083657851716059,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Holywyrms_Advent",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
+        "`s3, not dshift_count =4",
+        "`s1, cancel or dshift_count =4",
+        "`s2, fscf or dshift_count=4",
+        "`s4, fscf",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Student_Maribelle",
+        "Summer_Julietta"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43289.79887145764,
-        "team": 0.017528073713518347,
+        "dps": 50985.92092176976,
+        "team": 0.06083657851716059,
         "noaff": false,
         "nihil": true
       },
@@ -348,7 +446,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

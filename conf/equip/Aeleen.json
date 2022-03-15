@@ -197,35 +197,45 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80804.85793716183,
-        "team": 0.13229476953958266,
+        "dps": 89004.4378550746,
+        "team": 0.05197743953825485,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Sweet_Surprise",
-        "A_Small_Courage",
-        "Saint_Starfalls_Circus",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, s=2",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s2, fscf",
-        "`s4, not buff(s4)",
-        "`s1, buff(s3)",
-        "`fs, x=5"
+        "`s2",
+        "`s4",
+        "`s1",
+        "`fs, x=5 or charged_in(fs, s2)",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 83437.2046726396,
+      "tdps": 91238.3343138235,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -236,7 +246,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57576.22331078988,
+        "dps": 57728.39485503832,
         "team": 0.10107049452882289,
         "noaff": false,
         "nihil": true

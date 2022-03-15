@@ -33,8 +33,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95604.5560645089,
-        "team": 0.0703434022947056,
+        "dps": 96624.27296492312,
+        "team": 0.05907426597319355,
         "noaff": false,
         "nihil": false
       },
@@ -50,13 +50,14 @@
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`s2(entree), dgauge>=500",
-        "`dragon",
+        "`dragon, buff(s2)",
         "`s3, not buff(s3)",
         "`s4, x=3 or s",
         "`s2(entree), dgauge<=400 and x=3 or s",
         "`s1(dessert), aff_timeleft(frostbite)>10",
         "`dessert, x=3 or s",
-        "`s1(appetizer)",
+        "`dessert",
+        "`s1(appetizer), x=3 or s",
         "`dessert"
       ],
       "coabs": [
@@ -70,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 302862.15133936255,
+      "tdps": 294718.77588744345,
       "pref": "PERSONAL"
     }
   },
@@ -89,7 +90,7 @@
       ]
     },
     "META": {
-      "tdps": 470669.2545835831,
+      "tdps": 448039.620833086,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -134,54 +135,55 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35797.41303518767,
-        "team": 0.04777842728387713,
+        "dps": 64627.1608160521,
+        "team": 0.036798472626435014,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
         "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`s2(entree), dgauge>=500",
         "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2(entree), dgauge<=400",
-        "`s1(dessert), aff_timeleft(frostbite)>10",
-        "`s1(appetizer)"
+        "`s4, x=3 or s",
+        "`s3, x=3 or s",
+        "`s1(dessert), aff_timeleft(frostbite)>10 and x=3 or s",
+        "`s1(appetizer), x=3 or s",
+        "`dessert"
       ],
       "coabs": [
-        "Eugene",
+        "Dagger",
         "Pipple",
         "Tiki"
       ],
       "share": [
-        "Weapon",
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 6742448.349814292,
+      "tdps": 3305637.4154529376,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 97859.1535931576,
-        "team": 0.0703434022947056,
+        "dps": 99455.18635960807,
+        "team": 0.05907426597319355,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 310839.5404696437,
+      "tdps": 304351.25106879696,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,7 +229,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69762.54684975908,
+        "dps": 69892.9272635763,
         "team": 0.040808170064668046,
         "noaff": false,
         "nihil": true
@@ -241,7 +243,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon",
         "`s3, cancel",
@@ -257,14 +258,10 @@
         "Dagger",
         "Tiki",
         "Yurius"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 869482.1354991802,
+      "tdps": 873222.3721925444,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -300,8 +297,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32662.83526747899,
-        "team": 0.07566703716485432,
+        "dps": 38407.026424718344,
+        "team": 0.07522267933465811,
         "noaff": false,
         "nihil": true
       },

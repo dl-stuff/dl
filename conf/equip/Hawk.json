@@ -2,47 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32711.247223967035,
-        "team": 0.07025325818896942,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Dear_Diary",
-        "Super_Soaking_Androids",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, s=1 or s=4",
-        "`s3, not buff(s3)",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, xf or s",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Lowen",
-        "Templar_Hope"
-      ],
-      "share": [
-        "Weapon",
-        "Chitose"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 75001.66476381366,
-        "team": 0.05438270762042809,
+        "dps": 50758.83582932647,
+        "team": 0.16160765765873267,
         "noaff": false,
         "nihil": false
       },
@@ -57,12 +18,58 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, s=1 or s=4",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, xf or s",
-        "`s1, fsc or (s=1 or s=4)"
+        "`s4",
+        "`s2",
+        "`s1, buff(s3) and cancel",
+        "`fs, c_fs(enhanced)=2 and s=1",
+        "`fs, c_fs(enhanced)=1 and s=1 and not c_s(2, enhanced)",
+        "`fs, (x=5 and not c_fs(enhanced)) or hits=4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88260.56781924513,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2",
+        "`s1, buff(s3) and cancel",
+        "`fs, c_fs(enhanced)=2 and s=1",
+        "`fs, c_fs(enhanced)=1 and s=1 and not c_s(2, enhanced)",
+        "`fs, (x=4 and not c_fs(enhanced)) or hits=4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -75,15 +82,15 @@
       ]
     },
     "META": {
-      "tdps": 2664710.1722907377,
+      "tdps": 232054.17696920756,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78229.97736393202,
-        "team": 0.054212569114188223,
+        "dps": 84099.9625865692,
+        "team": 0.10320059019246033,
         "noaff": false,
         "nihil": true
       },
@@ -99,7 +106,7 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, s=1 or s=4",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s3, not buff(s3)",
         "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
         "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
@@ -107,8 +114,8 @@
         "`s1, fsc or (s=1 or s=4)"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
@@ -123,8 +130,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 107876.60699052212,
-        "team": 0.06249827245936774,
+        "dps": 119970.92779355482,
+        "team": 0.06238163116991372,
         "noaff": false,
         "nihil": false
       },
@@ -137,21 +144,19 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Fudo_Myoo",
       "acl": [
+        "`dragon",
         "`s3, not buff(s3)",
-        "`dragon, s=1 or s=4",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5 or fsc",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1"
+        "`s4",
+        "`s2",
+        "`s1, cancel",
+        "`fs, c_fs(enhanced)=2 and s=1",
+        "`fs, c_fs(enhanced)=1 and s=1 and not c_s(2, enhanced)",
+        "`fs, (x=5 and not c_fs(enhanced)) or hits=4"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Nino",
+        "Gala_Notte",
         "Yukata_Lathna"
       ],
       "share": [
@@ -168,43 +173,44 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 29678.294758188887,
-        "team": 0.054840763894285605,
+        "dps": 64780.71517094874,
+        "team": 0.062308343312234664,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Hastened_Squall",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2",
+        "`s1, buff(s3) and cancel",
+        "`fs, c_fs(enhanced)=2 and s=1",
+        "`fs, c_fs(enhanced)=1 and s=1 and not c_s(2, enhanced)",
+        "`fs, (x=5 and not c_fs(enhanced)) or hits=4"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
+        "Gala_Notte",
         "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Halloween_Melsa"
+        "Akasha"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 29510.189850592178,
-        "team": 0.05438270762042809,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "META": {
-      "tdps": -366996.1906230808,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

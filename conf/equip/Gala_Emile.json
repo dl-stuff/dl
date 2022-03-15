@@ -122,8 +122,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52936.42775262648,
-        "team": 0.43129429942495984,
+        "dps": 53001.02375964614,
+        "team": 0.4312942994249598,
         "noaff": false,
         "nihil": true
       },
@@ -159,8 +159,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80668.19999824827,
-        "team": 0.3583392924195701,
+        "dps": 81898.88474620137,
+        "team": 0.28906142535844626,
         "noaff": false,
         "nihil": true
       },
@@ -178,7 +178,7 @@
         "`dragon, cancel",
         "`s3",
         "`s4",
-        "`s1"
+        "`s1, amp_lvl(team)<2 or amp_timeleft(team)<3"
       ],
       "dacl": [
         "DISABLED"
@@ -194,11 +194,44 @@
       ]
     },
     "META": {
-      "tdps": 380121.5760773352,
+      "tdps": 203172.86827123724,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 73223.94781788741,
+        "team": 0.36645664317091065,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "Wings_of_Rebellion_at_Rest",
+        "A_Small_Courage",
+        "Rogues_Banquet",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Ciella",
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Xander"
+      ],
+      "share": [
+        "Fjorm",
+        "Summer_Julietta"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 77812.6148268229,
@@ -206,6 +239,12 @@
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s4",
+        "`s1"
+      ],
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",
@@ -213,6 +252,7 @@
       ]
     },
     "META": {
+      "tdps": 565291.2076243197,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -238,7 +278,7 @@
       ]
     },
     "META": {
-      "tdps": 150208.72981128524,
+      "tdps": 150191.65420095864,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -249,40 +289,56 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51419.32215423546,
-        "team": 0.43442717872740066,
+        "dps": 68102.79791091623,
+        "team": 0.4312942994249598,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "Wings_of_Rebellion_at_Rest",
-        "A_Small_Courage",
-        "Chariot_Drift",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+      "slots.d": "Gala_Beast_Ciella",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, cancel",
+        "`s4",
+        "`s1"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "share": [
-        "Catherine",
-        "Seimei"
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Tiki"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82111.4244415677,
+        "dps": 83437.53249167583,
+        "team": 0.28906142535844626,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 107814.27768652479,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79228.31826535682,
         "team": 0.3583392924195701,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 403376.98649112764,
+      "tdps": 152498.3796330617,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },
@@ -331,8 +387,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46288.48481829709,
-        "team": 0.3583392924195701,
+        "dps": 46806.27770367858,
+        "team": 0.28906142535844626,
         "noaff": false,
         "nihil": true
       },
@@ -347,6 +403,29 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46806.27770367858,
+        "team": 0.28906142535844626,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s4",
+        "`s1, amp_lvl(team)<2 or amp_timeleft(team)<3"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

@@ -2,40 +2,39 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 19102.79016937829,
-        "team": 0.11335812569869883,
-        "noaff": true,
+        "dps": 126418.82659563642,
+        "team": 0.1138076281285755,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dazzling_Duet",
         "Dragon_and_Tamer",
         "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Mask_of_Determination_Lance",
+        "Welcome_to_the_Opera",
+        "Saint_Starfalls_Circus",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Axe",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
+        "`dragon, buff(s3)",
         "`s3, not buff(s3)",
-        "if in_drg",
-        "`s1, xf",
-        "`fs3, not charged_in(x5, s1) and cancel",
-        "else",
-        "`dragon",
         "`s4",
-        "`s1, xf",
-        "`fs, x=5",
-        "end"
+        "`s1",
+        "`s2",
+        "`fs, x=5"
       ],
       "dacl": [
-        "`ds1, ds1.overcharge=2"
+        "`s4, fsc",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`fs3"
       ],
       "coabs": [
-        "Bow",
         "Grace",
-        "Ieyasu"
+        "Ieyasu",
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -44,48 +43,47 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97743.39774236562,
+        "dps": 150014.63984413873,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Crystalian_Envoy",
+        "Dragon_and_Tamer",
         "The_Lurker_in_the_Woods",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
         "Saint_Starfalls_Circus",
-        "Applelicious_Dreams",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Axe",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "Epimetheus",
       "acl": [
-        "`dragon, cancel",
+        "`dragon, xf",
         "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
+        "`s1",
+        "`s2",
+        "`s4",
         "`fs, x=5"
       ],
       "dacl": [
-        "`s4",
         "`s1, fsc",
         "`s2, fsc",
-        "`dodge, fsc",
+        "`s4, fsc",
         "`fs3"
       ],
       "coabs": [
         "Grace",
         "Ieyasu",
-        "Summer_Prince"
+        "Vania"
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 693735.9548622988,
+      "tdps": 207330.6828066451,
       "pref": "PERSONAL"
     }
   },
@@ -131,7 +129,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88228.63215233089,
+        "dps": 88386.4383955663,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -172,40 +170,25 @@
       ]
     },
     "META": {
-      "tdps": 2948237.2285230956,
+      "tdps": 2954643.1129814517,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 134420.55803120855,
-        "team": 0.10899319648295593,
+        "dps": 162554.11628953513,
+        "team": 0.09298321554979375,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "Beautiful_Nothingness",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Axe",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
+        "`dragon",
         "`s3, not buff(s3)",
-        "`dragon, cancel",
-        "`s4, cancel",
+        "`s1",
         "`s2",
-        "`s1, cancel",
-        "`fs, x=5"
-      ],
-      "dacl": [
         "`s4",
-        "`s1, fsc",
-        "`s2, fsc",
-        "`fs3"
+        "`fs, x=5 or charged_in(fs, s1)"
       ],
       "share": [
         "Weapon",
@@ -213,7 +196,6 @@
       ]
     },
     "META": {
-      "tdps": 26419161.036086466,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -266,14 +248,38 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96203.09331441337,
+        "dps": 106197.09446263942,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.d": "Epimetheus",
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`s1, fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Grace",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
     },
     "META": {
-      "tdps": 284489.1473959552,
+      "tdps": 539500.0999482191,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -284,37 +290,28 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72049.49314628821,
-        "team": 0.10776221377826439,
+        "dps": 102578.05843023927,
+        "team": 0.11084217704630349,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dazzling_Duet",
+        "A_Wonderful_Valentines",
         "Dragon_and_Tamer",
         "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Mask_of_Determination_Lance",
+        "Saint_Starfalls_Circus",
+        "An_Unfreezing_Flower_Axe",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
+        "`dragon, buff(s3)",
         "`s3, not buff(s3)",
-        "if in_drg",
-        "`s1, xf",
-        "`fs3, not charged_in(x5, s1) and cancel",
-        "else",
-        "`dragon",
+        "`s1",
+        "`s2",
         "`s4",
-        "`s1, xf",
-        "`fs, x=5",
-        "end"
-      ],
-      "coabs": [
-        "Bow",
-        "Grace",
-        "Ieyasu"
+        "`fs, x=5 or charged_in(fs, s1)"
       ],
       "share": [
         "Weapon",
@@ -322,7 +319,6 @@
       ]
     },
     "META": {
-      "tdps": 9461675.546315508,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

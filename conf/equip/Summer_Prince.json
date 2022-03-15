@@ -36,44 +36,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88673.44949345395,
-        "team": 0.07392385952785782,
+        "dps": 90633.0652099894,
+        "team": 0.08017804269741721,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "His_Clever_Brother",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, dshift_count<3 and xf",
+        "`dragon, not dshift_count or trickery<1",
         "`s3, not buff(s3)",
-        "`s2, x=5",
-        "`s1, buff(s3) and xf",
-        "`s4"
+        "`s4",
+        "`s2, xf",
+        "`s1, xf"
       ],
       "dacl": [
-        "ds1, x=1",
-        "sack"
+        "`ds1, x=3",
+        "`sack, x=3"
       ],
       "coabs": [
-        "Forte",
         "Ieyasu",
+        "Summer_Leonidas",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 694131.8566086723,
+      "tdps": 803773.2991971214,
       "pref": "PERSONAL"
     }
   },
@@ -115,7 +115,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42793.52668419405,
+        "dps": 42928.15317481044,
         "team": 0.05554497175823436,
         "noaff": false,
         "nihil": true
@@ -149,15 +149,15 @@
       ]
     },
     "META": {
-      "tdps": 2283852.1861955863,
+      "tdps": 2294759.8368191496,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 99082.79013779607,
-        "team": 0.10307867285280553,
+        "dps": 100079.84812697128,
+        "team": 0.10699852896561397,
         "noaff": false,
         "nihil": false
       },
@@ -174,14 +174,12 @@
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "`s2, xf",
-        "`s1, buff(s3) and xf",
-        "`s4"
+        "`s4, cancel",
+        "`s2, x=5",
+        "`s1, xf"
       ],
       "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
+        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Ieyasu",
@@ -200,7 +198,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65484.34200017292,
+        "dps": 65587.46731016612,
         "team": 0.0923332860794675,
         "noaff": false,
         "nihil": true
@@ -239,7 +237,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65854.32343316478,
+        "dps": 65957.52158306766,
         "team": 0.0836585513381372,
         "noaff": false,
         "nihil": true
@@ -277,7 +275,7 @@
       ]
     },
     "META": {
-      "tdps": 42650.46067969199,
+      "tdps": 42658.85746781855,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -288,8 +286,8 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65484.34200017292,
-        "team": 0.0923332860794675,
+        "dps": 54272.96152904734,
+        "team": 0.04937559499134946,
         "noaff": false,
         "nihil": true
       },
@@ -309,7 +307,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -263387.1955061462,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
@@ -347,8 +346,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65071.993081655986,
-        "team": 0.19379760044117303,
+        "dps": 60449.41587596621,
+        "team": 0.19622160260249716,
         "noaff": false,
         "nihil": false
       },
@@ -374,7 +373,7 @@
       ]
     },
     "META": {
-      "tdps": 411786.4339655416,
+      "tdps": 363194.2108641038,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -385,7 +384,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39566.77721125877,
+        "dps": 39694.58446016104,
         "team": 0.05553027506626449,
         "noaff": false,
         "nihil": true
@@ -419,7 +418,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39566.77721125877,
+        "dps": 39694.58446016104,
         "team": 0.05553027506626449,
         "noaff": false,
         "nihil": true

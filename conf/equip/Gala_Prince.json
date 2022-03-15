@@ -87,43 +87,42 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64216.30866474637,
-        "team": 0.0333324971309664,
+        "dps": 58097.636261681786,
+        "team": 0.03700131617228214,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Adventure_in_the_Past",
+        "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Mana_Fount",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Elysium",
       "acl": [
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count=2",
-        "`dragon, dshift_count=3",
+        "`dragon, cancel",
+        "`s4, fsc",
+        "`s2, fsc",
         "`s3, fsc",
-        "`s4, cancel",
-        "`s2, cancel",
         "`s1, fsc",
-        "`fs, x=4 or hits=3"
+        "`fs, x=4 or hits=0"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3"
       ],
       "coabs": [
-        "Dagger2",
-        "Peony",
-        "Raemond"
+        "Blade",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
@@ -167,56 +166,8 @@
       ]
     },
     "META": {
-      "tdps": 664026.2183992285,
+      "tdps": 763549.1746076668,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 55699.381221266805,
-        "team": 0.03333176918114471,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_Brethren",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon, cancel",
-        "`s4, fsc",
-        "`s2, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
-        "`fs, x=4 or hits=0"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
-    "META": {
-      "tdps": 919560.5338733986,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {

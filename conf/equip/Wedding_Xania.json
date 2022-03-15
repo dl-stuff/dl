@@ -112,15 +112,80 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 50339.22925072842,
-        "team": 0.07405123338253299,
+        "dps": 70607.4212895434,
+        "team": 0.2858070722548824,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, dgauge>=1000 or dshift_count",
+        "`s3, not buff(s3)",
+        "`s1, x<=4 and timeleft(s1)<5",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79338.58778440331,
+        "team": 0.141339269951769,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon, dgauge>=1000 or dshift_count",
+        "`s3, not buff(s3)",
+        "`s1, x<=4 and timeleft(s1)<5",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
     },
     "META": {
+      "tdps": 60436.76414860049,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

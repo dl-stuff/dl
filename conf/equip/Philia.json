@@ -35,21 +35,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52344.23920048901,
-        "team": 0.0543398197827088,
+        "dps": 44825.99076470331,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Dear_Diary",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
+        "Emissaries_of_the_Heavens",
         "Hastened_Squall",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
         "`s3, not buff(s3)",
         "`dragon, cancel",
@@ -59,6 +59,10 @@
         "`fs, x=5",
         "`dodge, fsc"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
@@ -66,11 +70,11 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Saiga"
       ]
     },
     "META": {
-      "tdps": 288641.2459813872,
+      "tdps": 181808.4275286057,
       "pref": "PERSONAL"
     }
   },
@@ -116,8 +120,8 @@
       ]
     },
     "META": {
-      "tdps": 8882405.380675904,
-      "pref": "PERSONAL",
+      "tdps": -44731.77115615096,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -214,19 +218,36 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61704.90178561101,
-        "team": 0.13550059093823613,
+        "dps": 89354.30011591614,
+        "team": 0.06220585365175878,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dear_Diary",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "A_Small_Courage",
-        "Bloom_of_the_Battlefield",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4, cancel",
+        "`s2",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -264,7 +285,7 @@
       ]
     },
     "META": {
-      "tdps": 286285.6332070314,
+      "tdps": 376245.7112831901,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -300,14 +321,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31315.504115544285,
-        "team": 0.0543398197827088,
+        "dps": 41439.37739880328,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 160278.88608261693,
+      "tdps": 166790.93102489496,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -338,7 +359,7 @@
       ]
     },
     "META": {
-      "tdps": 119511.62751790753,
+      "tdps": 185688.15876473766,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "IMMUNE-NORMAL-ANY",

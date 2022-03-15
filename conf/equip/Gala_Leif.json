@@ -90,49 +90,6 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 93045.21363295626,
-        "team": 0.16744491229651784,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Snipers_Allure",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "slots.w": "primal_dragon",
-      "acl": [
-        "`dragon, (dgauge>900 and s=1) or dshift_count",
-        "`s3",
-        "`s1(striking)",
-        "`s4",
-        "queue s2.check() and cancel",
-        "`s2(shielding)",
-        "`striking",
-        "end",
-        "`fs, x=2"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Bow",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
         "dps": 110517.25998417888,
         "team": 0.33497070672821627,
         "noaff": false,
@@ -174,7 +131,52 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 113569.1041830705,
+        "team": 0.311226800124637,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Snipers_Allure",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, (dgauge>900 and s=1) or dshift_count",
+        "`s3",
+        "`s1(striking)",
+        "`s4",
+        "queue s2.check() and cancel",
+        "`s2(shielding)",
+        "`striking",
+        "end",
+        "`fs, x=2"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dodge, fsc",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "META": {
+      "tdps": 128531.6797207912,
       "pref": "PERSONAL"
     }
   },
@@ -243,8 +245,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 122025.28146780148,
-        "team": 0.3465649821779719,
+        "dps": 124049.71895124904,
+        "team": 0.35031748570841614,
         "noaff": false,
         "nihil": true
       },
@@ -315,8 +317,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53463.37395486378,
-        "team": 0.13844054601542405,
+        "dps": 54179.93778045554,
+        "team": 0.13743947056321812,
         "noaff": false,
         "nihil": true
       },
@@ -339,7 +341,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

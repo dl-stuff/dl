@@ -83,10 +83,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 69381.32903719413,
-        "team": 0.07926630957731462,
+        "dps": 67759.09161537612,
+        "team": 0.1134938967870641,
         "noaff": false,
         "nihil": true
       },
@@ -102,7 +102,46 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon",
+        "`dragon, cancel and (dgauge >= 900 or dshift_count)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69404.81199393817,
+        "team": 0.07926246659478614,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Saint_Starfalls_Circus",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4",
         "`s1",
@@ -123,67 +162,92 @@
       ]
     },
     "META": {
+      "tdps": 48076.296237640054,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 77460.03338968867,
-        "team": 0.1466856010079131,
+        "dps": 89867.0231756825,
+        "team": 0.1597257048825292,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "Bloom_of_the_Battlefield",
-        "Hastened_Squall",
-        "An_Unfreezing_Flower_Deer",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, energy()=5",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s2, cancel",
-        "`s1, buff(s3)",
-        "`fs, x=5"
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Summer_Cleo"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87700.88041279111,
-        "team": 0.14278020252670803,
+        "dps": 93524.31938768244,
+        "team": 0.06637937772561842,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Sweet_Surprise",
-        "Hastened_Squall",
-        "Saint_Starfalls_Circus",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, energy()=5",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4, cancel",
-        "`s2, cancel",
+        "`s2",
         "`s1, buff(s3)",
-        "`fs, x=5"
+        "`fs, x=5 or hits=0",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 2622228.454378475,
-      "pref": "PERSONAL",
+      "tdps": 39179.86195484906,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -210,7 +274,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -1,4 +1,3 @@
-from multiprocessing import Event
 import random
 
 from core.log import log

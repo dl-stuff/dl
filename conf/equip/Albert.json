@@ -89,23 +89,23 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 54330.6338924017,
-        "team": 0.0,
+        "dps": 44335.279313782805,
+        "team": 0.012343560034539769,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
+        "Adventure_in_the_Past",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "if electrified",
         "`s1, cancel",
@@ -128,11 +128,59 @@
         "Wand"
       ],
       "share": [
-        "Ilia",
-        "Gala_Mym"
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68624.11732923063,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Adventure_in_the_Past",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s3",
+        "if x=4",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon, cancel",
+        "`s3",
+        "`s2, charged_in(2, s1)",
+        "`s4",
+        "`s1, not s2.charged>(s2.sp*(4/5))",
+        "end"
+      ],
+      "dacl": [
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 1967733.6155438758,
       "pref": "PERSONAL"
     }
   },
@@ -188,7 +236,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "if electrified",
         "`s1",
@@ -222,7 +269,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -256,7 +303,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38923.84577018974,
+        "dps": 40546.862712936454,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -298,7 +345,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

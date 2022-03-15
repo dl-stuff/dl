@@ -143,7 +143,7 @@
       "acl": [
         "`dragon, s3.phase=0 and s=2",
         "`s3",
-        "`s2, (xf=5 and dgauge<=400) or dgauge>=500",
+        "`s2, (xf=5 and dgauge<=500) or dgauge>=500",
         "`s4, xf=5",
         "`fsf, xf=5"
       ],
@@ -208,8 +208,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89341.61299750804,
-        "team": 0.03332600716609133,
+        "dps": 70088.04792149297,
+        "team": 0.03696479130747753,
         "noaff": false,
         "nihil": true
       },
@@ -222,17 +222,11 @@
         "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
-      "acl": [
-        "`dragon, s3.phase=0 and s=2",
-        "`s3",
-        "`s2, ((xf=5 and dgauge<=400) or dgauge>=500) and not is_cd(s2,0)",
-        "`s4, xf=5",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Gala_Prince",
-        "Mitsuhide",
-        "Peony"
+      "slots.d": "Gala_Elysium",
+      "dacl": [
+        "`ds1, x=1",
+        "`dodge, fsc",
+        "`dfs, x=1"
       ]
     },
     "PERSONAL": {
@@ -258,7 +252,7 @@
       ]
     },
     "META": {
-      "tdps": 381185.4468286756,
+      "tdps": 864524.1289965766,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -269,7 +263,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73563.78886863173,
+        "dps": 74263.77264941785,
         "team": 0.0,
         "noaff": true,
         "nihil": true

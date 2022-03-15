@@ -72,46 +72,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 61393.24913185959,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Wings_of_Rebellion_at_Rest",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`dragon, xf and speed()=1.15",
-        "`s3, not buff(s3)",
-        "`s4, xf",
-        "`s2, xf",
-        "`s1, xf"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "coabs": [
-        "Gala_Emile",
-        "Staff",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71620.93382844904,
+        "dps": 72370.24042628169,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -132,6 +95,9 @@
         "`s2",
         "`s3, cancel",
         "`s4, cancel"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -172,6 +138,23 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75098.95138133426,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -206,7 +189,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51328.60992565676,
+        "dps": 52467.7485636412,
         "team": 0.0,
         "noaff": false,
         "nihil": true

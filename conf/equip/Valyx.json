@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 81180.89838383204,
-        "team": 0.024607913102428783,
+        "dps": 86487.890088012,
+        "team": 0.06244616446776589,
         "noaff": false,
         "nihil": false
       },
@@ -19,25 +19,29 @@
       "slots.d": "Cupid",
       "acl": [
         "`dragon, cancel",
-        "`s1",
-        "`s2",
         "`s3, not buff(s3)",
-        "`s4"
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fsf, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=9"
       ],
       "coabs": [
         "Blade",
-        "Joker",
-        "Peony"
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Seimei"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82679.92810863706,
-        "team": 0.0,
+        "dps": 86487.890088012,
+        "team": 0.06244616446776589,
         "noaff": false,
         "nihil": false
       },
@@ -53,73 +57,56 @@
       "slots.d": "Cupid",
       "acl": [
         "`dragon, cancel",
-        "`s1",
-        "`s2",
         "`s3, not buff(s3)",
-        "`s4"
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fsf, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=9"
       ],
       "coabs": [
         "Blade",
-        "Joker",
-        "Peony"
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 60916.572590508134,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 71546.9839044454,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Gala_Thor",
-      "coabs": [
-        "Blade",
-        "Gun",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65140.00253358918,
+        "dps": 68322.91296549898,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
-        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Snipers_Allure",
+        "The_Queen_of_the_Knife",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Cupid",
+      "slots.d": "Corsaint_Phoenix",
       "acl": [
         "`dragon, cancel",
         "`s1",
         "`s2",
         "`s3",
         "`s4"
+      ],
+      "dacl": [
+        "ds1, x=2"
       ],
       "coabs": [
         "Blade",
@@ -158,23 +145,11 @@
         "`s4",
         "`s2",
         "`s1"
-      ],
-      "dacl": [
-        "`ds1, x=9"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98134.41963881631,
+        "dps": 105538.38245331561,
         "team": 0.06244616446776576,
         "noaff": false,
         "nihil": false
@@ -188,29 +163,10 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fsf, x=4"
-      ],
-      "dacl": [
-        "`ds1, x=9"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
+      "slots.d": "Corsaint_Phoenix"
     },
     "META": {
-      "tdps": 3611665.474721551,
+      "tdps": 143056608.9672007,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -221,20 +177,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75522.68264477927,
+        "dps": 81579.63941306632,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
         "`dragon, cancel",
         "`s1",
@@ -251,6 +198,32 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73713.10772186793,
+        "team": 0.06244616446776576,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

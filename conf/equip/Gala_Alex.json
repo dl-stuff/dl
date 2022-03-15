@@ -2,43 +2,40 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 82659.40246620907,
-        "team": 0.19067410138231805,
+        "dps": 42852.894612146374,
+        "team": 0.19965535495683376,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Adventure_in_the_Past",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Plaguebringer",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "Arsene",
       "acl": [
-        "queue s=4 and dgauge=1000",
-        "`s1",
-        "`dragon, x=4",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1, duration-now<3",
-        "`s4, x=5",
-        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
-        "`s1, (sr.count>1 and x=5) or sr.count=3"
+        "`dragon, fsc",
+        "`s4, aff_timeleft(poison)<2",
+        "`s2, aff_timeleft(poison)<2 and s=4",
+        "`s3, cancel",
+        "`s1, sr.count>1 and cancel",
+        "`fs, x=4"
       ],
       "dacl": [
         "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
-        "Blade",
         "Delphi",
-        "Vania"
+        "Joker",
+        "Summer_Verica"
       ],
       "share": [
         "Weapon",
-        "Sha_Wujing"
+        "Verica"
       ]
     },
     "PERSONAL": {
@@ -69,6 +66,9 @@
         "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1 or not aff(poison) and sr.count=3",
         "`s1, (sr.count>1 and x=5) or sr.count=3"
       ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
       "coabs": [
         "Blade",
         "Delphi",
@@ -80,7 +80,7 @@
       ]
     },
     "META": {
-      "tdps": 510282.6495197211,
+      "tdps": 1047078.2966203606,
       "pref": "PERSONAL"
     }
   },
@@ -191,7 +191,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 133742.23039003246,
+        "dps": 133742.2303900325,
         "team": 0.13280359486104942,
         "noaff": false,
         "nihil": false
@@ -223,7 +223,7 @@
       ]
     },
     "META": {
-      "tdps": 137029.00697147814,
+      "tdps": 137029.0069714784,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -271,7 +271,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97598.58995433181,
+        "dps": 97789.05428148647,
         "team": 0.14500561375379595,
         "noaff": false,
         "nihil": true
@@ -308,7 +308,7 @@
       ]
     },
     "META": {
-      "tdps": 997384.2324708103,
+      "tdps": 1000579.0690469864,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

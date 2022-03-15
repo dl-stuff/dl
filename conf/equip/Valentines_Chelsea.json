@@ -116,8 +116,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77879.49448473961,
-        "team": 0.055256493023754925,
+        "dps": 79340.79996704024,
+        "team": 0.06329408466144412,
         "noaff": false,
         "nihil": true
       },
@@ -133,7 +133,7 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s3",
         "`s1",
         "`s2, cancel",
@@ -151,7 +151,7 @@
       ]
     },
     "META": {
-      "tdps": 514840.3458193545,
+      "tdps": 1036356.8589575579,
       "pref": "PERSONAL"
     }
   },
@@ -166,25 +166,27 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 114734.30860644694,
-        "team": 0.0,
+        "dps": 125332.19252178467,
+        "team": 0.07380572754473587,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon, hp=0",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s1",
         "`s2, s=1",
         "`s4, xf",
-        "`fs, hits=5"
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "dacl": [
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ]
     },
     "META": {
-      "tdps": 136480.21445732017,
+      "tdps": 424801.99265387957,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,17 +197,17 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 100062.3175172376,
+        "dps": 107973.86014058309,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dear_Diary",
         "Forest_Bonds",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Hastened_Squall",
         "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
         "Applelicious_Dreams",
         "Thunderswift_Lords_Blade_Lance"
       ],
@@ -213,8 +215,8 @@
       "acl": [
         "`dragon, hp=0",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2, s=1",
+        "`s1, cancel",
+        "`s2, cancel",
         "`s4, cancel"
       ],
       "coabs": [
@@ -293,8 +295,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31692.415928483024,
-        "team": 0.07403081456268779,
+        "dps": 33323.48330912102,
+        "team": 0.03078010701155438,
         "noaff": false,
         "nihil": true
       },
@@ -314,7 +316,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 37711.923642165944,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

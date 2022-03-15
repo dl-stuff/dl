@@ -2,38 +2,73 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 88898.323175908,
-        "team": 0.14555071283984028,
+        "dps": 62677.81970613731,
+        "team": 0.1972438867675152,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Flower_in_the_Fray",
-        "The_Plaguebringer",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "The_Warrioresses",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, dgauge>=1000",
-        "`dragon, dshift_count>0",
+        "`dragon, s2.check() or duration-now<8",
         "`s3, not buff(s3)",
-        "`s2, fsc",
         "`s4, fsc",
-        "`s1, duration-now<1 and fsc",
-        "`fs, x=1 and buff(s2)",
-        "`fs, x=3 or hits=0"
+        "`s1, fsc",
+        "`s2, buff(s3)",
+        "`fs, buff(s2) or hits=2"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Grace",
-        "Mona",
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Zena"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 94394.81989112787,
+        "team": 0.0432256079249713,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Warrioresses",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon, s2.check() or duration-now<8",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1, fsc",
+        "`s2, buff(s3)",
+        "`fs, buff(s2) or hits=2"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
         "Yukata_Lathna"
       ],
       "share": [
@@ -41,91 +76,9 @@
         "Formal_Joachim"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 91909.1232324155,
-        "team": 0.04894579485052755,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Flower_in_the_Fray",
-        "The_Plaguebringer",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s2, fsc",
-        "`s1, duration-now<1",
-        "`fs, x=1 and buff(s2)",
-        "`fs, x=3 or hits=0"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "coabs": [
-        "Grace",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "META": {
-      "tdps": 31166.115754485563,
-      "pref": "TEAMBUFF"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 87237.19154913221,
-        "team": 0.04894579485052755,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s2, fsc",
-        "`s1, duration-now<1",
-        "`fs, x=1 and buff(s2)",
-        "`fs, x=3 or hits=0"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Yukata_Lathna"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 87237.19154913221,
-        "team": 0.04894579485052755,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Yukata_Lathna"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "tdps": 205930.10403275263,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -175,7 +128,7 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 104595.43825489473,
         "team": 0.24657999373593908,
@@ -192,77 +145,46 @@
         "`fs, x=1 and buff(s2)",
         "`fs, x=2 or hits=0"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Grace",
-        "Mona",
-        "Yukata_Lathna"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 113112.12195757497,
+        "team": 0.115303419597319,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s2.check() or duration-now<8",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`s2, buff(s3)",
+        "`fs, buff(s2) or hits=2"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Zena"
+      ]
+    },
     "META": {
+      "tdps": 64875.88329115854,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 111942.86584105175,
-        "team": 0.15325888960675682,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Fudo_Myoo",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, duration-now<1 and fsc",
-        "`fs, x=1 and buff(s2)",
-        "`fs, x=2 or hits=0"
-      ],
-      "dacl": [
-        "`dodge, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Nino",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 111942.86584105175,
-        "team": 0.15325888960675682,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Nino",
-        "Yukata_Lathna"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -314,8 +236,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54648.87549317398,
-        "team": 0.14555071283984028,
+        "dps": 61760.436143549334,
+        "team": 0.044011472880254594,
         "noaff": false,
         "nihil": false
       },

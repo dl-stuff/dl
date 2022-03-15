@@ -8,11 +8,14 @@
         "wt": "dagger",
         "ct": "attack",
         "spiral": false,
-        "a": [["cd", 0.2], ["affres_stun", 100.0], ["affres_sleep", 100.0]]
+        "a": [["affres_stun", 100.0], ["affres_sleep", 100.0]]
     },
     "dodge_on_x": {
         "startup": 0.0,
         "recovery": 0.56667,
+        "attr": [
+            {"dmg": 0.7, "sp": 100}
+        ],
         "interrupt": {"s": 0.0},
         "cancel": {"any": 0.4, "s": 0.0}
     },
@@ -49,6 +52,7 @@
         "startup": 0.0,
         "recovery": 3.23333,
         "attr": [
+            {"amp": ["20000", 1, 0], "ab": 1},
             {"cond": ["var=", ["blazewolf", 1]], "vars": ["blazewolf", -1], "sp": [1.0, "%", "s2"], "target": "MYSELF"},
             {"dmg": 1.9, "iv": 0.56667},
             {"buff": ["self", 0.15, 30.0, "flame_resist", "down", "-overwrite_HOSTILE26"], "coei": 1, "iv": 0.56667},

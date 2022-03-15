@@ -73,10 +73,48 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43889.80190034913,
+        "team": 0.03332176142607365,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Gala_Prince"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43475.15489827455,
-        "team": 0.03331186006901749,
+        "dps": 47286.2675918504,
+        "team": 0.03326112159052024,
         "noaff": false,
         "nihil": true
       },
@@ -100,8 +138,8 @@
       ],
       "coabs": [
         "Blade",
-        "Joker",
-        "Vania"
+        "Delphi",
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -109,7 +147,31 @@
       ]
     },
     "META": {
+      "tdps": 56010470.023620196,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45722.415440873585,
+        "team": 0.03331186006901749,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Joker"
+      ]
+    },
+    "META": {
+      "tdps": 30821818.022421934,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -191,7 +253,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s4",
@@ -217,7 +278,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73590.4129157135,
+        "dps": 73791.4236490696,
         "team": 0.06664568068232743,
         "noaff": false,
         "nihil": true
@@ -255,11 +316,11 @@
       ]
     },
     "META": {
-      "tdps": 253507783.50548825,
+      "tdps": 265313222.11410365,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

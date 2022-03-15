@@ -135,8 +135,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 127922.84665447811,
-        "team": 0.31889544805900527,
+        "dps": 128297.41860004824,
+        "team": 0.3578755759468776,
         "noaff": false,
         "nihil": true
       },
@@ -166,6 +166,7 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
+        "`dodge, fsc",
         "`dfs, x=3"
       ],
       "coabs": [
@@ -179,7 +180,7 @@
       ]
     },
     "META": {
-      "tdps": 236070.94889571762,
+      "tdps": 535864.428420482,
       "pref": "PERSONAL"
     }
   },
@@ -207,6 +208,14 @@
         "The_Warrioresses",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, (dgauge>=1000 and amp_lvl(team)) or (dshift_count and duration-now>10)",
+        "`s3",
+        "`s4, not have_buff(s4_00)",
+        "`s2",
+        "`s1",
+        "`fs"
       ]
     },
     "META": {
@@ -221,8 +230,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 130225.28315593017,
-        "team": 0.31889544805900527,
+        "dps": 130599.60777712871,
+        "team": 0.3578755759468776,
         "noaff": false,
         "nihil": true
       }

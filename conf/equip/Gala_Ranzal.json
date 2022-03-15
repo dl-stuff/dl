@@ -93,50 +93,50 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89579.84918344197,
-        "team": 0.12639388418534794,
+        "dps": 109693.48697062254,
+        "team": 0.1293259546344332,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Adventure_in_the_Past",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
-        "`dragon",
-        "`s3",
+        "`dragon, (dgauge>=900 and s=2) or dshift_count",
+        "`s3, timeleft(s3)>5",
+        "`s4, cancel",
         "`s2, fsc",
-        "`s4",
-        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
-        "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0",
-        "else",
-        "`dodge, x=5",
-        "end"
+        "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "`fs, x=4 and gauges[fs]<1000",
+        "`fs, (x=3 or hits=0) and gauges[fs]<1000 and not  c_fs(enhanced)",
+        "`dodge, x=5"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs, x=3",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Bow",
         "Mona",
-        "Wand"
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
-        "Gala_Mym",
+        "Weapon",
         "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 124840.91379580704,
+        "dps": 126188.50934866848,
         "team": 0.12451441404121057,
         "noaff": false,
         "nihil": true
@@ -169,7 +169,7 @@
       ],
       "coabs": [
         "Mona",
-        "Wand",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
@@ -178,7 +178,7 @@
       ]
     },
     "META": {
-      "tdps": 18761173.04781603,
+      "tdps": 3428220.558147273,
       "pref": "PERSONAL"
     }
   },
@@ -251,20 +251,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 129684.27200564134,
-        "team": 0.12541775509689151,
+        "dps": 134138.32934976046,
+        "team": 0.12541775509689154,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Adventure_in_the_Past",
-        "Sweet_Surprise",
-        "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "`dragon, dgauge>=900 and s=2",
         "`dragon, dshift_count>0",

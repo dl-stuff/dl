@@ -84,8 +84,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 88023.85953437383,
-        "team": 0.05435739989292512,
+        "dps": 88494.4635338463,
+        "team": 0.06808146813452194,
         "noaff": false,
         "nihil": true
       },
@@ -101,7 +101,7 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, x=5",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s3, not buff(s3)",
         "`s1, c_s(1, a) or c_s(1, c)",
         "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
@@ -124,32 +124,40 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 115041.72728428646,
-        "team": 0.0,
+        "dps": 122151.23334204774,
+        "team": 0.0970625879049597,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
+        "Dueling_Dancers",
         "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Thunderswift_Lords_Blade_Lance"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
         "`s1, c_s(1, a) or c_s(1, c)",
-        "`s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
         "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
-        "`s4, energy()<5"
+        "`s4, cancel",
+        "`fs, hits=3"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Nadine"
+        "Akasha"
       ]
     },
     "META": {
@@ -218,7 +226,14 @@
         "team": 0.05435739989292512,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "`dragon, x=5",
+        "`s3, not buff(s3)",
+        "`s1, c_s(1, a) or c_s(1, c)",
+        "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
+        "`s4"
+      ]
     },
     "META": {
       "tdps": -4963357.100578431,

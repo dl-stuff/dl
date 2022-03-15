@@ -75,9 +75,9 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 5459.822221831188,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 28762.000833321054,
+        "team": 0.03333248264957642,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
@@ -89,24 +89,23 @@
         "Beneath_the_Boughs",
         "Promised_Piety_Staff"
       ],
-      "slots.d": "Ariel",
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
       "acl": [
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s1",
-        "`s3, speed()<1.5",
+        "`s3",
         "`s4, s=1",
         "`fs,x=5"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
-        "Humanoid_Midgardsormr",
-        "Joker",
-        "Tobias"
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -116,14 +115,43 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65002.5980608146,
-        "team": 0.5006156532601006,
+        "dps": 97486.50392173966,
+        "team": 0.24986971565871208,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3) and xf",
+        "`s4, xf",
+        "`s1, xf",
+        "`s2, duration-now<2",
+        "`fsf, x=5"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Humanoid_Midgardsormr"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
     },
     "META": {
-      "tdps": 52197.031785516905,
+      "tdps": 67956.97200073252,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

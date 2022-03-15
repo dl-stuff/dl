@@ -86,9 +86,48 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64928.77230888862,
+        "team": 0.012334788764398813,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`dragon",
+        "`s3, x=2",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`dodge, x=2"
+      ],
+      "dacl": [
+        "`ds1, duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65158.87758910404,
+        "dps": 65947.6060386835,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -122,10 +161,11 @@
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 82598.3929887379,
       "pref": "PERSONAL"
     }
   },
@@ -236,7 +276,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -312,7 +352,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

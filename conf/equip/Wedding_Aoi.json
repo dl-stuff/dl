@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 100819.5922574911,
-        "team": 0.06900132836568439,
+        "dps": 77511.46296029893,
+        "team": 0.0690141455053822,
         "noaff": false,
         "nihil": false
       },
@@ -41,32 +41,30 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100819.5922574911,
-        "team": 0.06900132836568439,
+        "dps": 83467.43097511442,
+        "team": 0.06234151872856347,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, fscf",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s2, fscf",
-        "`s1, fscf and buff(s3)",
         "`s4",
-        "`fs, xf=3"
+        "`s2",
+        "`s1"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`fs"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -75,18 +73,19 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 892597.205572329,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62280.167643921915,
-        "team": 0.054332711203294574,
+        "dps": 65260.11260921927,
+        "team": 0.10641910422024084,
         "noaff": false,
         "nihil": true
       },
@@ -102,7 +101,7 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, fscf",
+        "`dragon, fscf and (dgauge >= 900 or dshift_count)",
         "`s2, fscf",
         "`s3, fscf",
         "`s1, fscf",
@@ -110,8 +109,8 @@
         "`fs, xf=3"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
@@ -126,21 +125,65 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55577.51802901541,
-        "team": 0.0740720494380561,
+        "dps": 65260.11260921927,
+        "team": 0.10641910422024084,
         "noaff": false,
         "nihil": true
       },
-      "share": [
-        "Formal_Joachim",
-        "Gala_Mym"
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, fscf and (dgauge >= 900 or dshift_count)",
+        "`s2, fscf",
+        "`s3, fscf",
+        "`s1, fscf",
+        "`s4, cancel",
+        "`fs, xf=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": 339557.96973492,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 108189.79554597799,
+        "team": 0.06234151872856347,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -173,11 +216,6 @@
       "dacl": [
         "`ds1, blood_moon=0",
         "`fs, x=3"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Yukata_Lathna"
       ]
     },
     "META": {
@@ -196,7 +234,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.w": "primal_dragon",
       "acl": [
         "`dragon, dgauge>=950 or dshift_count",
         "`s2",
@@ -208,11 +245,6 @@
       "dacl": [
         "`ds1, blood_moon=0",
         "`fs, x=3"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Yukata_Lathna"
       ]
     },
     "META": {
@@ -226,8 +258,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47707.28305069811,
-        "team": 0.0,
+        "dps": 78345.21878347904,
+        "team": 0.06245238667889531,
         "noaff": false,
         "nihil": false
       },
@@ -255,8 +287,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40351.50083545879,
-        "team": 0.06838985404626063,
+        "dps": 42513.02587154856,
+        "team": 0.11728659447435597,
         "noaff": false,
         "nihil": true
       },

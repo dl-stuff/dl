@@ -35,9 +35,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111792.15103229518,
-        "team": 0.11134219464841642,
-        "noaff": true,
+        "dps": 114265.12945978004,
+        "team": 0.10948029944382254,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -49,15 +49,18 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Leviathan",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`s3, not buff(s3)",
+        "`dragon,fsc",
         "`s1, fsc",
         "`s2, not buff(s2) and fsc",
         "`s4, fsc",
         "`dodge, fsc",
-        "`fs4",
-        "`dodge, x=4"
+        "`fs4"
+      ],
+      "dacl": [
+        "`ds1, x=2"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -70,16 +73,16 @@
       ]
     },
     "META": {
-      "tdps": 1397784.906641569,
+      "tdps": 1393221.844264522,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 105881.7130573601,
-        "team": 0.11134219464841642,
-        "noaff": true,
+        "dps": 112729.81997791132,
+        "team": 0.11042822594155254,
+        "noaff": false,
         "nihil": false
       },
       "coabs": [
@@ -89,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 1174995.4586447424,
+      "tdps": 1385400.6937919152,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -133,7 +136,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74312.47975644501,
+        "dps": 75953.56561263128,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -156,6 +159,9 @@
         "`dodge, fsc",
         "`fs4"
       ],
+      "dacl": [
+        "`ds1, x=2"
+      ],
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",
@@ -167,14 +173,14 @@
       ]
     },
     "META": {
-      "tdps": 824796.9376153729,
+      "tdps": 874037.8308711089,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 71745.868249425,
+        "dps": 71937.08110574444,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -186,7 +192,7 @@
       ]
     },
     "META": {
-      "tdps": 747785.5839621176,
+      "tdps": 753522.9387821943,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -197,8 +203,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 136531.8898191793,
-        "team": 0.11134219464841642,
+        "dps": 141528.66463537034,
+        "team": 0.10948029944382273,
         "noaff": false,
         "nihil": false
       },
@@ -210,11 +216,10 @@
         "His_Clever_Brother",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Ciella"
+      ]
     },
     "META": {
-      "tdps": 2330330.476240604,
+      "tdps": 2353504.728895324,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -242,18 +247,61 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78507.27525533903,
+        "dps": 79523.48793760249,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 731369.5374234185,
+      "tdps": 761861.0683959336,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74408.45661805199,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Wings_of_Rebellion_at_Rest",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon,fsc",
+        "`s1, fsc",
+        "`s2, not buff(s2) and fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 608384.2041256805,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },

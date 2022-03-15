@@ -83,41 +83,39 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39973.52660259607,
+        "dps": 69084.94439349775,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Dragon_Brethren",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
-        "`dragon, xf",
+        "`dragon",
         "`s3",
-        "`s1",
-        "`s4, xf or fsc",
-        "`s2, not c_fs(enhanced) and xf=5",
-        "`fs, c_fs(enhanced) and xf=3",
-        "`fsf, xf=5"
+        "`s4, xf"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1, duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
       ],
       "coabs": [
-        "Peony",
-        "Sharena",
-        "Wand"
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
-        "Summer_Celliera",
-        "Ilia"
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -155,37 +153,6 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 53164.041932619475,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, aff(flashburn) and xf or fsc",
-        "`s4",
-        "`s1, xf",
-        "`s2, not c_fs(enhanced) and xf=5",
-        "`fs, c_fs(enhanced) and xf=5",
-        "`s3, xf=5 or fsc",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -204,16 +171,44 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 28742.25042781692,
+        "dps": 69084.94439349775,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Dragon_Brethren",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4, xf"
+      ],
+      "dacl": [
+        "`ds1, duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

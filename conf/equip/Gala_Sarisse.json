@@ -102,6 +102,42 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44885.902619106404,
+        "team": 0.07368258504383379,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Cerberus",
+      "acl": [
+        "`dragon, s=1 and not s4.check()",
+        "`s3",
+        "`s2, cancel and not is_cd(s2, 3)",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Nobunaga"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50936.61720871528,
@@ -139,52 +175,8 @@
       ]
     },
     "META": {
+      "tdps": 859155.2670841846,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 50936.61720871528,
-        "team": 0.06663995279629617,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon, s=1 and not s4.check()",
-        "`s3",
-        "`s2, cancel and not is_cd(s2, 3)",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Nobunaga"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -258,30 +250,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 57687.27039734615,
-        "team": 0.06665868176457525,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Kimono_Elisanne",
-        "Nobunaga",
-        "Wand"
-      ]
-    },
-    "META": {
-      "tdps": 155773933.1647361,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -375,42 +344,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 35469.62766256379,
-        "team": 0.08054140500604444,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon, s=1 and not s4.check()",
-        "`s3",
-        "`s2, cancel and not is_cd(s2, 3)",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Nobunaga"
-      ],
-      "share": [
-        "Zace",
-        "Gala_Leonidas"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35469.62766256379,
@@ -427,7 +360,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

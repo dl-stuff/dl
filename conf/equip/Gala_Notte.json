@@ -84,45 +84,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 56578.8544190328,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Fudo_Myoo",
-      "slots.w": "primal_dragon",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s1",
-        "`s2"
-      ],
-      "dacl": [
-        "`ds1",
-        "`ds2",
-        "`sack, x=1"
-      ],
-      "coabs": [
-        "Formal_Noelle",
-        "Nino",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 105054.87906363879,
@@ -168,6 +129,35 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 99251.87928081909,
+        "team": 0.049947841588028764,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon, duration-now>3",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3) and xf",
+        "`s2, xf",
+        "`s4, cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 134677.4319397855,
@@ -188,6 +178,7 @@
       ]
     },
     "META": {
+      "tdps": 941699.9213785866,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

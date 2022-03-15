@@ -37,7 +37,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71061.76893307955,
+        "dps": 79943.66233982673,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -47,7 +47,7 @@
         "Bloody_Little_Queen",
         "Memory_of_a_Friend",
         "A_Small_Courage",
-        "Lord_of_the_Skies",
+        "His_Clever_Brother",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
@@ -67,50 +67,88 @@
       ],
       "share": [
         "Weapon",
-        "Veronica"
+        "Karina"
       ]
     },
     "META": {
-      "tdps": 307238.8002303997,
+      "tdps": 408766.996293562,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 35553.29843396864,
-        "team": 0.0,
+        "dps": 46670.70495771288,
+        "team": 0.03332519681177341,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Bloody_Little_Queen",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
+        "Candy_Couriers",
         "Beautiful_Nothingness",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Snipers_Allure",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, s=1 and duration-now<15",
+        "`dragon, s=1",
         "`s3",
         "`s1",
         "`s4, hp>0 or x>2",
-        "`fs, charged_in(fs,s1) and x=4"
+        "`fsf, x=5"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Blade",
-        "Joker",
-        "Summer_Prince"
+        "Delphi",
+        "Joker"
       ],
       "share": [
-        "Veronica",
-        "Ranzal"
+        "Gala_Mym",
+        "Formal_Noelle"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48585.286812807724,
+        "team": 0.03331688449684264,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Beautiful_Nothingness",
+        "Snipers_Allure",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, s=1",
+        "`s3",
+        "`s1",
+        "`s4, hp>0 or x>2",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Noelle"
       ]
     },
     "META": {
+      "tdps": 230330764.7799326,
       "pref": "PERSONAL"
     }
   },
@@ -165,7 +203,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73361.70173629749,
+        "dps": 73547.92263796144,
         "team": 0.03326088373724617,
         "noaff": false,
         "nihil": true
@@ -204,7 +242,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -257,10 +295,22 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37377.273107983274,
+        "team": 0.03331688449684264,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Summer_Celliera",
+        "Formal_Noelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 32345.45909268215,
-        "team": 0.0,
+        "dps": 37377.273107983274,
+        "team": 0.03331688449684264,
         "noaff": false,
         "nihil": true
       }
@@ -269,7 +319,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
