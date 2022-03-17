@@ -1,15 +1,17 @@
 {
     "actconds": {
-        "87": {"aff": "poison", "duration": 30.0, "slip": {"value": ["mod", 0.291], "iv": 2.9}, "rate": 1.2}
+        "87": {"aff": "poison", "duration": 30.0, "slip": {"value": ["mod", 0.291], "iv": 2.9}, "rate": 1.2},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"}
     },
     "d": {
         "name": "Epimetheus",
         "icon": "210112_01",
-        "att": 128,
-        "hp": 368,
+        "att": 148,
+        "hp": 388,
         "ele": "shadow",
         "abilities": [
-            {"ab": [["mod", 0.5, "att"]]},
+            {"ab": [["mod", 0.55, "att"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]},
             {"ab": [["mod", 0.2, "killer_poison"]]}
         ]
     },

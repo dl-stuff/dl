@@ -1,24 +1,34 @@
 {
     "actconds": {
+        "291": {"dispel": "buff"},
         "513": {"icon": 65, "mods": [[0.15, "att", "buff"]], "alt": {"s2": "enhanced"}, "text": "Draconic Power", "refresh": 1},
+        "1707": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%", "refresh": 1},
+        "102040901": {"aff": "burn", "duration": 12.0, "slip": {"value": ["mod", 0.97], "iv": 3.9}, "rate": 1.2},
+        "302020201": {"duration": 10.0, "icon": "att-buff", "mods": [[0.15, "att", "buff"]], "text": "Strength +15%"},
         "302020301": {"duration": 10.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
     },
     "c": {
         "name": "Gala Mym",
         "icon": "100010_04_r05",
-        "att": 510,
-        "hp": 749,
+        "att": 612,
+        "hp": 898,
         "ele": "flame",
         "wt": "lance",
-        "spiral": false,
+        "ct": "attack",
+        "spiral": true,
         "abilities": [
             {"cond": ["dshift_count", ">=", 2, 1], "ab": [["hitattr_shift"]]},
             {"cond": ["event", "dragon"], "count": 1, "ab": [["actcond", "MYSELF", "513"]]},
+            {"cd": 30.0, "ab": [["hitattr", {"amp": ["10000", 3, 0], "target": "MYSELF"}]]},
             {"cond": ["in_shift", "dform", 2], "ab": [["mod", 0.15, "aspd"]]},
             {"ab": [["mod", 1.0, "affres_burn"]]},
-            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "burn"], "cd": 15.0, "ab": [["hitattr", {"actcond": "302020201", "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
+            {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"actcond": "1707", "target": "MYSELF"}]]},
+            {"ab": [["mod", 1.0, "affres_stun"], ["mod", 1.0, "affres_sleep"]]},
             {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"sp": [0.5, "%", "s1"], "target": "MYSELF"}]]},
-            {"ab": [["mod", 0.2, "dt"]]}
+            {"cond": ["selfaff", "sleep"], "cd": 15.0, "ab": [["hitattr", {"sp": [0.5, "%", "s1"], "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.25, "dt"]]}
         ],
         "skillshare": {"src": "s1", "cost": 4, "sp": 12821}
     },
@@ -79,9 +89,9 @@
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 7.675, "dp": 50, "target": "HOSTILE", "iv": 0.26087},
-            {"dmg": 7.675, "dp": 50, "target": "HOSTILE", "iv": 0.49275},
-            {"dmg": 7.675, "dp": 50, "target": "HOSTILE", "iv": 0.98551},
+            {"dmg": 8.1, "dp": 50, "actcond": "291", "target": "HOSTILE", "iv": 0.26087},
+            {"dmg": 8.1, "dp": 50, "actcond": "291", "target": "HOSTILE", "iv": 0.49275},
+            {"dmg": 8.1, "dp": 50, "actcond": "291", "target": "HOSTILE", "iv": 0.98551},
             {"actcond": "302020301", "target": "MYSELF", "iv": 1.5}
         ],
         "cancel": {"any": 1.68116}
@@ -91,10 +101,10 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 5.175, "target": "HOSTILE", "iv": 0.73333},
-            {"dmg": 5.175, "target": "HOSTILE", "iv": 0.8},
-            {"dmg": 5.175, "target": "HOSTILE", "iv": 0.9},
-            {"dmg": 5.175, "target": "HOSTILE", "iv": 1.0}
+            {"dmg": 5.4, "actcond": "102040901", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 5.4, "actcond": "102040901", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 5.4, "actcond": "102040901", "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 5.4, "actcond": "102040901", "target": "HOSTILE", "iv": 1.0}
         ]
     },
     "s2_enhanced": {
@@ -102,10 +112,10 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.73333},
-            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.8},
-            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.9},
-            {"dmg": 6.22, "target": "HOSTILE", "iv": 1.0}
+            {"dmg": 6.65, "actcond": "102040901", "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 6.65, "actcond": "102040901", "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 6.65, "actcond": "102040901", "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 6.65, "actcond": "102040901", "target": "HOSTILE", "iv": 1.0}
         ]
     }
 }

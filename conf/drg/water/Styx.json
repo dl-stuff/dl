@@ -1,18 +1,20 @@
 {
     "actconds": {
         "946": {"coei": 1, "icon": 148, "text": "Ice Spirits", "maxstack": 3},
-        "948": {"count": 1, "icon": "s-buff", "mods": [[0.5, "s", "buff"]], "text": "Skill Damage +50%", "maxstack": 4},
-        "955": {"remove": "946", "coei": 1}
+        "955": {"remove": "946", "coei": 1},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
+        "2184": {"count": 1, "icon": 321, "mods": [[0.5, "s", "buff"]], "coei": 1, "text": "Great Cascade", "maxstack": 4}
     },
     "d": {
         "name": "Styx",
         "icon": "210130_01",
-        "att": 125,
-        "hp": 370,
+        "att": 145,
+        "hp": 390,
         "ele": "water",
         "abilities": [
-            {"cond": ["always"], "cd": 15.0, "ab": [["actcond", "MYSELF", "948"]]},
-            {"cond": ["event", "dragon_end"], "ab": [["hitattr", {"actcond": "955", "target": "MYSELF"}]]}
+            {"cond": ["always"], "cd": 10.0, "ab": [["actcond", "MYSELF", "2184"]]},
+            {"cond": ["event", "dragon_end"], "ab": [["hitattr", {"actcond": "955", "target": "MYSELF"}]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]}
         ]
     },
     "ds1": {

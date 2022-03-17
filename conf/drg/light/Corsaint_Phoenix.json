@@ -1,5 +1,6 @@
 {
     "actconds": {
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
         "104030901": {"aff": "paralysis", "duration": 13.0, "slip": {"value": ["mod", 0.883], "iv": 3.9}, "rate": 1.1},
         "201010101": {"aff": "poison", "relief": 1, "count": 1, "text": "Poison Relief"},
         "207010101": {"aff": "curse", "relief": 1, "count": 1, "text": "Curse Relief"}
@@ -7,11 +8,12 @@
     "d": {
         "name": "Corsaint Phoenix",
         "icon": "210056_01",
-        "att": 124,
-        "hp": 371,
+        "att": 144,
+        "hp": 391,
         "ele": "light",
         "abilities": [
-            {"ab": [["mod", 0.5, "att"]]},
+            {"ab": [["mod", 0.55, "att"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]},
             {"ab": [["mod", 0.2, "killer_paralysis"]]}
         ]
     },

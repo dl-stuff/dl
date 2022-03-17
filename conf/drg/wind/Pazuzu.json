@@ -1,16 +1,18 @@
 {
     "actconds": {
         "87": {"aff": "poison", "duration": 30.0, "slip": {"value": ["mod", 0.291], "iv": 2.9}, "rate": 1.2},
+        "1838": {"duration": 180.0, "icon": "att-buff", "mods": [[0.3, "att", "buff"]], "coei": 1, "text": "Surge of Strength"},
         "403040106": {"duration": 10.0, "icon": "def-buff", "mods": [[-0.05, "def", "buff"]], "debuff": 1, "text": "Defense -5%"}
     },
     "d": {
         "name": "Pazuzu",
         "icon": "210026_01",
-        "att": 126,
-        "hp": 369,
+        "att": 146,
+        "hp": 389,
         "ele": "wind",
         "abilities": [
-            {"ab": [["mod", 0.5, "att"]]},
+            {"ab": [["mod", 0.55, "att"]]},
+            {"cond": ["event", "start"], "ab": [["actcond", "MYSELF", "1838"]]},
             {"ab": [["mod", 0.2, "killer_poison"]]}
         ]
     },
