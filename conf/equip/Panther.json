@@ -44,16 +44,16 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 123155.38151846624,
-        "team": 0.018160651196678167,
+        "dps": 126122.64106909912,
+        "team": 0.02648193471973734,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "The_Cutie_Competition",
-        "The_Plaguebringer",
+        "A_Butlers_Smile",
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
@@ -71,13 +71,13 @@
         "`s4, x=5",
         "`s1, x=5",
         "`s2, x=5",
-        "if a3_buffcount<3 or dshift_timeleft<10",
+        "if dshift_timeleft<10 and duration-now>20",
         "`sack, not have_buff(s1_10) and s1.check()",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Gala_Laxi",
+        "Dagger2",
         "Kimono_Elisanne"
       ],
       "share": [
@@ -86,7 +86,7 @@
       ]
     },
     "META": {
-      "tdps": 320055.4506397264,
+      "tdps": 389308.3725890221,
       "pref": "PERSONAL"
     }
   },
@@ -128,7 +128,7 @@
       ]
     },
     "META": {
-      "tdps": 2597994.246108365,
+      "tdps": 3093996.546165593,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -219,8 +219,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 145738.62533412388,
-        "team": 0.018160651196678167,
+        "dps": 147355.69680159597,
+        "team": 0.026481934719737223,
         "noaff": false,
         "nihil": false
       },
@@ -234,10 +234,13 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Apollo",
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Kimono_Elisanne"
+      "acl": [
+        "`dragon, a3_buffcount>=2",
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s1, x=5 or s=3",
+        "`s2, x=5"
       ]
     },
     "META": {
@@ -267,10 +270,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 75406.00242370277,
-        "team": 0.03320307938072048,
+        "dps": 70744.0734399635,
+        "team": 0.0333137855442822,
         "noaff": false,
         "nihil": false
       },
@@ -296,7 +299,7 @@
         "`s4, x=5",
         "`s1, x=5",
         "`s2, x=5",
-        "if dshift_timeleft<10 and duration-now>10",
+        "if a3_buffcount<3 or (dshift_timeleft<10 and duration-now>20)",
         "`sack, not have_buff(s1_10) and s1.check()",
         "end"
       ],
@@ -310,7 +313,38 @@
         "Mikoto"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76092.02212156719,
+        "team": 0.033181586907761663,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1",
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s1, x=5 or s=3",
+        "`s2, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
     "META": {
+      "tdps": 40453886.83545814,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

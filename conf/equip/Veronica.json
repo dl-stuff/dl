@@ -35,34 +35,35 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 128890.51542262116,
+        "dps": 136411.99829586115,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Candy_Couriers",
+        "Bloody_Little_Queen",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "A_Small_Courage",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
         "Applelicious_Dreams",
-        "Thunderswift_Lords_Blade_Lance"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
+        "`dragon, s=1 and duration-now<8",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2, hp <= 50",
-        "`s1"
+        "`s4, x=5",
+        "`s1",
+        "`fs, x=4 and charged_in(fs, s1)"
       ],
       "dacl": [
-        "`ds1, x=4"
+        "`ds1"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Delphi"
+        "Berserker",
+        "Curran",
+        "Summer_Patia"
       ],
       "share": [
         "Weapon",
@@ -70,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 526781.6803404003,
+      "tdps": 573854.9064615073,
       "pref": "PERSONAL"
     }
   },
@@ -198,14 +199,34 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 129232.28187291781,
+        "dps": 143865.19942676736,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "Wings_of_Rebellion_at_Rest",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=1 and duration-now<5",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1",
+        "`fs, x=4 and charged_in(fs, s1)"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
     },
     "META": {
-      "tdps": 475755.53133541776,
+      "tdps": 566737.143154684,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -286,7 +307,7 @@
         "`s2, x=5 and (hp>=50 or hp=0)"
       ],
       "dacl": [
-        "`ds1, x=4"
+        "`ds1"
       ],
       "coabs": [
         "Curran",
