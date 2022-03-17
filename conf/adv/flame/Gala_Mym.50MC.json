@@ -1,0 +1,112 @@
+{
+    "actconds": {
+        "513": {"icon": 65, "mods": [[0.15, "att", "buff"]], "alt": {"s2": "enhanced"}, "text": "Draconic Power", "refresh": 1},
+        "302020301": {"duration": 10.0, "icon": "att-buff", "mods": [[0.2, "att", "buff"]], "text": "Strength +20%"}
+    },
+    "c": {
+        "name": "Gala Mym",
+        "icon": "100010_04_r05",
+        "att": 510,
+        "hp": 749,
+        "ele": "flame",
+        "wt": "lance",
+        "ct": "attack",
+        "spiral": false,
+        "abilities": [
+            {"cond": ["dshift_count", ">=", 2, 1], "ab": [["hitattr_shift"]]},
+            {"cond": ["event", "dragon"], "count": 1, "ab": [["actcond", "MYSELF", "513"]]},
+            {"cond": ["in_shift", "dform", 2], "ab": [["mod", 0.15, "aspd"]]},
+            {"ab": [["mod", 1.0, "affres_burn"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["selfaff", "stun"], "cd": 15.0, "ab": [["hitattr", {"sp": [0.5, "%", "s1"], "target": "MYSELF"}]]},
+            {"ab": [["mod", 0.2, "dt"]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 4, "sp": 12821}
+    },
+    "dragonform": {
+        "dshift": {
+            "attr": [
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 3.0, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 3.0, "target": "HOSTILE"}
+            ]
+        },
+        "dx1": {
+            "startup": 0.3,
+            "recovery": 1.2,
+            "attr": [
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 4.32, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 4.64, "sp": 5, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.9, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.46667,
+            "recovery": 1.66666,
+            "attr": [
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 4.76, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 5.12, "sp": 5, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.56666, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.33333,
+            "recovery": 1.8,
+            "attr": [
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 6.06, "sp": 5, "target": "HOSTILE"},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 6.5, "sp": 5, "target": "HOSTILE"}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.4, "dodge": 0.0, "dx1": 1.4, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 2.7,
+            "attr": [
+                {"pcond": ["vars", "hitattr_shift", "=", 0], "dmg": 15.12, "target": "HOSTILE", "iv": 0.93333},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 15.12, "target": "HOSTILE", "iv": 0.93333},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 8.12, "target": "HOSTILE", "iv": 1.7},
+                {"pcond": ["vars", "hitattr_shift", "=", 1], "dmg": 8.12, "target": "HOSTILE", "iv": 1.7}
+            ],
+            "cancel": {"any": 2.33333},
+            "sp_db": 45,
+            "uses": 1
+        }
+    },
+    "s1": {
+        "sp": 2914,
+        "startup": 0.0,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 7.675, "dp": 50, "target": "HOSTILE", "iv": 0.26087},
+            {"dmg": 7.675, "dp": 50, "target": "HOSTILE", "iv": 0.49275},
+            {"dmg": 7.675, "dp": 50, "target": "HOSTILE", "iv": 0.98551},
+            {"actcond": "302020301", "target": "MYSELF", "iv": 1.5}
+        ],
+        "cancel": {"any": 1.68116}
+    },
+    "s2": {
+        "sp": 5736,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 5.175, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 5.175, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 5.175, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 5.175, "target": "HOSTILE", "iv": 1.0}
+        ]
+    },
+    "s2_enhanced": {
+        "sp": 5736,
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.73333},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.8},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 0.9},
+            {"dmg": 6.22, "target": "HOSTILE", "iv": 1.0}
+        ]
+    }
+}

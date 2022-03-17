@@ -1,0 +1,54 @@
+{
+    "actconds": {
+        "291": {"dispel": "buff"},
+        "411": {"aff": "frostbite", "duration": 21.0, "slip": {"value": ["mod", 0.41], "iv": 2.9}, "rate": 1.2},
+        "2170": {"icon": "res-buff", "mods": [[0.6, "res", "buff"]], "coei": 1, "text": "60% Damage Reduction"},
+        "2226": {"duration": 10.0, "icon": 325, "mods": [[-0.1, "affres_frostbite", "buff"]], "debuff": 1, "text": "Frostbite Res -10%", "overwrite": 76},
+        "316010501": {"count": 1, "shield": {"1": 0.3}, "coei": 1, "text": "Shield"}
+    },
+    "c": {
+        "name": "Housekeeper Pia",
+        "icon": "110302_04_r05",
+        "att": 446,
+        "hp": 847,
+        "ele": "water",
+        "wt": "bow",
+        "ct": "defense",
+        "spiral": false,
+        "abilities": [
+            {"ab": [["mod", 0.2, "def"]]},
+            {"ab": [["mod", 1.0, "affres_stun"]]},
+            {"cond": ["event", "heal"], "cd": 20.0, "ab": [["hitattr", {"amp": ["20000", 2, 2], "target": "MYSELF"}]]}
+        ],
+        "skillshare": {"src": "s1", "cost": 7, "sp": 14563}
+    },
+    "s1": {
+        "sp": 2560,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"actcond": "316010501", "target": "MYPARTY_EXCEPT_MYSELF", "iv": 1.16667},
+            {"dmg": 2.0, "actcond": "411", "target": "HOSTILE", "iv": 1.16667},
+            {"dmg": 2.0, "actcond": "411", "target": "HOSTILE", "iv": 1.26667},
+            {"heal": 40, "target": "HIT_OR_GUARDED_RECORD_MYSELF", "iv": 1.36667, "msl": 0.06667},
+            {"dmg": 2.0, "actcond": "411", "target": "HOSTILE", "iv": 1.36667},
+            {"dmg": 2.0, "actcond": "411", "target": "HOSTILE", "iv": 1.43333},
+            {"dmg": 2.0, "actcond": "411", "target": "HOSTILE", "iv": 1.5},
+            {"dmg": 2.0, "actcond": "411", "target": "HOSTILE", "iv": 1.56667},
+            {"dmg": 18.0, "actcond": "2226", "target": "HOSTILE", "iv": 1.76667}
+        ],
+        "cancel": {"any": 2.66667}
+    },
+    "s2": {
+        "sp": 5500,
+        "startup": 0.0,
+        "recovery": 3.76667,
+        "attr": [
+            {"actcond": "2170", "target": "ALLY", "zone": 3.3333332538604736},
+            {"actcond": "291", "target": "HOSTILE", "iv": 3.16667},
+            {"sp": [0.1, "%"], "target": "MYPARTY_EXCEPT_MYSELF", "iv": 3.16667}
+        ],
+        "DEBUG_attr_N1": [{"dmg": 50.0, "actcond": "291", "target": "HOSTILE", "iv": 1.16667}, {"sp": [0.1, "%"], "target": "MYPARTY_EXCEPT_MYSELF", "iv": 1.5}],
+        "cancel": {"any": 3.66667}
+    }
+}
