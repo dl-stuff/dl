@@ -2,15 +2,15 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 73560.26587449916,
-        "team": 0.09340713170150601,
+        "dps": 83233.58524499308,
+        "team": 0.11980673165522983,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Kung_Fu_Masters",
-        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
         "Beautys_Secret",
         "Applelicious_Dreams",
@@ -18,12 +18,15 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, duration-now<8",
+        "`dragon, fsc",
         "`s3, not buff(s3)",
         "`s1, fsc",
         "`s2, fsc",
         "`s4, fsc",
         "`fs3"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2 and x=4"
       ],
       "coabs": [
         "Gala_Alex",
@@ -32,46 +35,46 @@
       ],
       "share": [
         "Weapon",
-        "Halloween_Melsa"
+        "Formal_Noelle"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75710.98218960053,
-        "team": 0.09335209818692396,
+        "dps": 87917.68953347436,
+        "team": 0.1047927023365644,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Kung_Fu_Masters",
-        "Moonlight_Party",
+        "Wings_of_Rebellion_at_Rest",
         "Beautiful_Nothingness",
-        "Beautys_Secret",
+        "Chariot_Drift",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, duration-now<8",
+        "`dragon",
         "`s3, not buff(s3)",
+        "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
-        "`s4, fsc",
         "`fs3"
       ],
       "coabs": [
         "Gala_Alex",
-        "Heinwald",
+        "Ieyasu",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Halloween_Melsa"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 39080119.29521065,
+      "tdps": 311981.8264013914,
       "pref": "PERSONAL"
     }
   },
@@ -116,8 +119,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57467.77584865433,
-        "team": 0.08017243883340404,
+        "dps": 57536.75097469791,
+        "team": 0.08017243883340396,
         "noaff": false,
         "nihil": true
       },
@@ -153,15 +156,15 @@
       ]
     },
     "META": {
-      "tdps": 1705009.2257249602,
+      "tdps": 1725787.3613639316,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 95673.11243012307,
-        "team": 0.13183538589012275,
+        "dps": 95787.94313117948,
+        "team": 0.13183538589012267,
         "noaff": false,
         "nihil": false
       },
@@ -174,7 +177,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -182,6 +184,9 @@
         "`s2, fsc",
         "`s4, fsc",
         "`fs3"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Gala_Alex",
@@ -193,7 +198,30 @@
         "Humanoid_Mercury"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 105616.24058688205,
+        "team": 0.10479270233656446,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Kung_Fu_Masters",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Vania"
+      ]
+    },
     "META": {
+      "tdps": 363436.47020968044,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,8 +232,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75263.63679193663,
-        "team": 0.1062818051623775,
+        "dps": 75511.16874895748,
+        "team": 0.10628180516237754,
         "noaff": false,
         "nihil": true
       },
@@ -249,10 +277,44 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70856.78509747353,
+        "team": 0.24163286603572257,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62206.877071652234,
-        "team": 0.20636505190068963,
+        "dps": 70856.78509747353,
+        "team": 0.24163286603572257,
         "noaff": false,
         "nihil": false
       },
@@ -323,8 +385,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49421.14254982521,
-        "team": 0.06639549432918962,
+        "dps": 49480.49540316768,
+        "team": 0.06639549432918947,
         "noaff": false,
         "nihil": true
       },
@@ -354,7 +416,7 @@
       ]
     },
     "META": {
-      "tdps": 59771.623077572534,
+      "tdps": 66253.65224410112,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

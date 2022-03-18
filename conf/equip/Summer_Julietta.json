@@ -33,42 +33,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61593.48499422711,
-        "team": 0.10709714667943368,
+        "dps": 97016.0889942124,
+        "team": 0.08660815472658612,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Chariot_Drift",
-        "His_Clever_Brother",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`s2, dgauge>=500",
-        "`dragon, s=2",
+        "`dragon, cancel and buff(s2)",
         "`s3, not buff(s3)",
         "`s4",
-        "`s2, dgauge<=300",
-        "`s1, cancel",
+        "`s1",
+        "`s2, cancel",
         "`fsf, x=4"
       ],
+      "dacl": [
+        "`ds1"
+      ],
       "coabs": [
-        "Gala_Mascula",
-        "Hunter_Sarisse",
-        "Summer_Estelle"
+        "Eugene",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 84739.18263793037,
+      "tdps": 145568.27121472606,
       "pref": "PERSONAL"
     }
   },
@@ -87,7 +89,7 @@
       ]
     },
     "META": {
-      "tdps": 110482.3672517647,
+      "tdps": 187381.68231785644,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -140,36 +142,30 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 103499.09689047604,
-        "team": 0.08660667325190351,
+        "dps": 106965.48243989248,
+        "team": 0.08662528675633349,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
         "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon, cancel and buff(s2)",
         "`s3, not buff(s3)",
         "`s2, cancel",
-        "`s4, x=4",
+        "`s4",
         "`s1",
         "`fsf, x=4"
       ],
       "dacl": [
         "`ds1, x=3"
-      ],
-      "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
       ],
       "share": [
         "Weapon",
@@ -177,7 +173,7 @@
       ]
     },
     "META": {
-      "tdps": 157274.52302090713,
+      "tdps": 163539.41859526516,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -188,7 +184,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65351.34041303541,
+        "dps": 65557.56620292489,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -230,25 +226,38 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59258.90018274116,
-        "team": 0.2601875258729602,
+        "dps": 82020.60767148537,
+        "team": 0.08662528675633349,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`dragon, cancel and buff(s2)",
         "`s3, not buff(s3)",
         "`s2, cancel",
-        "`s4, x=4",
-        "`s1"
+        "`s4",
+        "`s1",
+        "`fsf, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 112719.04532758205,
+      "tdps": 118493.89042720679,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

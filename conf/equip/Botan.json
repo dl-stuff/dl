@@ -95,8 +95,8 @@
         "nihil": false
       },
       "coabs": [
-        "Blade",
         "Delphi",
+        "Ieyasu",
         "Vania"
       ]
     },
@@ -110,42 +110,82 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 14729.263114826723,
-        "team": 0.0,
+        "dps": 46555.93217770351,
+        "team": 0.06652329787253511,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Crystalian_Envoy",
+        "Dragonyule_Dreaming",
         "A_Small_Courage",
         "Saint_Starfalls_Circus",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, trickery <= 1",
-        "`s3, not buff(s3) and prep",
-        "`s2",
-        "`s4, cancel",
+        "`dragon",
         "`s1",
+        "`s3, cancel",
+        "`s4, cancel",
         "`fs, x=5"
       ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2 and x=1"
+      ],
       "coabs": [
-        "Axe2",
+        "Audric",
         "Ieyasu",
-        "Vania"
+        "Summer_Prince"
       ],
       "share": [
-        "Weapon",
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49287.52798322353,
+        "team": 0.03315118232034185,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Crystalian_Envoy",
+        "Dragonyule_Dreaming",
+        "Entwined_Flames",
+        "Saint_Starfalls_Circus",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2 and x=1"
+      ],
+      "coabs": [
+        "Alberius",
+        "Delphi",
+        "Ieyasu"
+      ],
+      "share": [
+        "Gala_Mym",
         "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 81852.64135406305,
       "pref": "PERSONAL"
     }
   },
@@ -197,7 +237,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63732.7029867943,
+        "dps": 63932.68368055315,
         "team": 0.0665295769465085,
         "noaff": false,
         "nihil": true
@@ -211,7 +251,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3,cancel",
@@ -236,7 +275,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -87,8 +87,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 70629.61779015178,
-        "team": 0.132362367057093,
+        "dps": 73660.86157616979,
+        "team": 0.20687269647053586,
         "noaff": false,
         "nihil": true
       },
@@ -104,7 +104,7 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, dgauge>=1000",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s4, cancel",
@@ -118,9 +118,9 @@
         "`sack, fsc"
       ],
       "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
+        "Gala_Notte",
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -129,8 +129,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73212.61196524286,
-        "team": 0.20822694244725204,
+        "dps": 78122.8628108317,
+        "team": 0.20524224225755447,
         "noaff": false,
         "nihil": true
       },
@@ -146,8 +146,7 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, dgauge>=1000",
-        "`dragon, dshift_count>0",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s2, butterflies>=9",
@@ -160,8 +159,8 @@
         "`sack, fsc"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Gala_Notte",
+        "Mona",
         "Nino"
       ],
       "share": [
@@ -170,22 +169,23 @@
       ]
     },
     "META": {
+      "tdps": 2736661.476989823,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 94931.96185122208,
-        "team": 0.430975613715656,
+        "dps": 95167.21498977373,
+        "team": 0.4322465330823503,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104067.62430053076,
-        "team": 0.1769112101698013,
+        "dps": 105080.80218553323,
+        "team": 0.17659964004782833,
         "noaff": false,
         "nihil": false
       },
@@ -208,7 +208,7 @@
       ]
     },
     "META": {
-      "tdps": 35958.057570468896,
+      "tdps": 38778.4380169283,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -219,8 +219,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77666.28666006705,
-        "team": 0.160173903075433,
+        "dps": 79494.09579650052,
+        "team": 0.20011247070185917,
         "noaff": false,
         "nihil": true
       },
@@ -241,8 +241,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81856.9237038949,
-        "team": 0.1769112101698013,
+        "dps": 82673.11936436928,
+        "team": 0.17659964004782833,
         "noaff": false,
         "nihil": false
       },
@@ -266,8 +266,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38913.40603370328,
-        "team": 0.20822694244725204,
+        "dps": 41178.09665121391,
+        "team": 0.20524224225755447,
         "noaff": false,
         "nihil": true
       }
@@ -276,7 +276,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

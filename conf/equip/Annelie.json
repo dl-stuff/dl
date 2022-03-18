@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106533.15940659902,
-        "team": 0.0624551988040577,
+        "dps": 98939.60008200842,
+        "team": 0.06245519880405762,
         "noaff": false,
         "nihil": false
       },
@@ -79,15 +79,52 @@
       ]
     },
     "META": {
-      "tdps": 395435.0776584498,
+      "tdps": 334254.5007350675,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40923.950817361656,
+        "team": 0.03333114088495505,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Saint_Starfalls_Circus",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Chronos_Nyx",
+      "acl": [
+        "`s2, s=1",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, dshift_timeleft<1 or duration-now<3",
+        "`dodge, fsc",
+        "`dfs3, x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50480.26110614381,
-        "team": 0.03332858215878774,
+        "dps": 48976.80111788551,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -100,11 +137,11 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Cupid",
+      "slots.d": "Gala_Chronos_Nyx",
       "acl": [
         "`dragon, cancel",
         "`s4, cancel",
-        "`s3, cancel",
+        "`s3",
         "`s2, cancel",
         "`s1, cancel",
         "`fs, x=5"
@@ -120,19 +157,20 @@
         "Wand"
       ],
       "share": [
-        "Summer_Celliera",
+        "Weapon",
         "Ilia"
       ]
     },
     "META": {
+      "tdps": 241601.3999736425,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 128816.70029188208,
-        "team": 0.0624551988040577,
+        "dps": 119397.38419384498,
+        "team": 0.06245519880405762,
         "noaff": false,
         "nihil": false
       },
@@ -151,6 +189,49 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80270.85997214502,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, (xf or fscf)",
+        "`s3, fscf or s",
+        "`s2, s=1",
+        "`s1, fscf",
+        "`s4",
+        "`fs, x=5 or charged_in(fs, s4)"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -181,7 +262,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39087.72280795575,
+        "dps": 45260.496770268626,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -217,7 +298,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

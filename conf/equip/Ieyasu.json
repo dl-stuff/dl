@@ -39,14 +39,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 109913.79692499305,
+        "dps": 116384.32422121722,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "A_Choice_Blend",
         "A_Small_Courage",
@@ -55,14 +55,15 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, duration-now<15 and s=1",
         "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2",
         "`s4",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fsf, xf=5 and not buff(s3)",
-        "`fs, xf=5 and buff(s3)"
+        "`s2, xf=5",
+        "`s1, xf=5 or s",
+        "`fsf, x=5"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
       ],
       "coabs": [
         "Axe2",
@@ -75,26 +76,26 @@
       ]
     },
     "META": {
-      "tdps": 690915.365733448,
+      "tdps": 738679.6844857715,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 101797.73312276995,
+        "dps": 110051.19830305183,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
         "Delphi",
-        "Joker",
+        "Gala_Alex",
         "Vania"
       ]
     },
     "META": {
-      "tdps": 631003.9797340728,
+      "tdps": 691929.6390558769,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -105,7 +106,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54990.319862641976,
+        "dps": 55063.32047691062,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -143,10 +144,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 124900.21948117462,
-        "team": 0.03331957391561086,
+        "dps": 75304.65315534975,
+        "team": 0.16264065175581574,
         "noaff": false,
         "nihil": false
       },
@@ -159,7 +160,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, xf",
         "`s3, not buff(s3)",
@@ -170,21 +170,38 @@
         "`fsf, xf=5 and not buff(s3)"
       ],
       "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
+        "ds1, x=3",
+        "sack, x=3"
       ],
       "coabs": [
+        "Axe2",
         "Summer_Prince",
-        "Vania",
-        "Yaten"
+        "Vania"
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 127101.05733571827,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
+      "tdps": 318471.44991852494,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,8 +212,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81329.98480205564,
-        "team": 0.033268795566467245,
+        "dps": 81536.05677414815,
+        "team": 0.03326879556646721,
         "noaff": false,
         "nihil": true
       },
@@ -241,43 +258,35 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68177.7928261696,
-        "team": 0.11638239930449738,
-        "noaff": false,
+        "dps": 77309.81011605327,
+        "team": 0.11278172591746219,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Dragonyule_Dreaming",
         "Emissaries_of_the_Heavens",
-        "Welcome_to_the_Opera",
+        "Moonlight_Party",
         "A_Choice_Blend",
-        "His_Clever_Brother",
+        "A_Small_Courage",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, s=2",
         "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2",
         "`s4, xf=5",
-        "`fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
-        "`fsf, xf=5 and not buff(s3)"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
+        "`s2, xf=5",
+        "`s1, xf=5 or s",
+        "`fsf, x=5"
       ],
       "coabs": [
-        "Audric",
-        "Summer_Prince",
+        "Axe2",
+        "Dagger",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Gala_Zena"
       ]
     },
     "META": {
@@ -317,7 +326,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47771.7374641333,
+        "dps": 47994.5088465774,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -349,7 +358,7 @@
       ]
     },
     "META": {
-      "tdps": 172568.54506495027,
+      "tdps": 180483.09316724405,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

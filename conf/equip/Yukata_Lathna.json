@@ -41,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103269.63741874923,
+        "dps": 103393.04268154796,
         "team": 0.012025387017940871,
         "noaff": false,
         "nihil": false
@@ -78,15 +78,55 @@
       ]
     },
     "META": {
-      "tdps": 109135.21269848174,
+      "tdps": 110955.6261906911,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 91347.740565518,
+        "team": 0.10337551596760908,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, (dgauge >= 900 or dshift_count)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, xf=5",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dagger",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71177.1127548382,
-        "team": 0.07991994937176472,
+        "dps": 94284.24172008473,
+        "team": 0.07516783666631743,
         "noaff": false,
         "nihil": true
       },
@@ -109,60 +149,30 @@
         "`s4, xf=5",
         "`fsf, xf=5"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
       "coabs": [
-        "Humanoid_Midgardsormr",
+        "Dagger",
         "Mona",
         "Wand"
       ],
       "share": [
-        "Summer_Celliera",
+        "Weapon",
         "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 104102.89776771031,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 71177.1127548382,
-        "team": 0.07991994937176472,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.w": "primal_dragon",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4, xf=5",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 119697.62677476557,
-        "team": 0.2233542876327065,
+        "dps": 119840.69166732504,
+        "team": 0.22335428763270648,
         "noaff": false,
         "nihil": false
       },
@@ -208,36 +218,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 67770.92398498398,
-        "team": 0.09532088234680958,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "A_Choice_Blend",
-        "A_Small_Courage",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Bow"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Meene"
-      ],
-      "share": [
-        "Curran",
-        "Ranzal"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93216.1469008997,
-        "team": 0.08013281122688835,
+        "dps": 100548.62759658687,
+        "team": 0.08533668840045766,
         "noaff": false,
         "nihil": true
       },
@@ -253,25 +237,20 @@
         "Dragonyule_Xainfried",
         "Gala_Notte",
         "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 1675342.6234975185,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50130.22806888098,
+        "dps": 50190.13274293263,
         "team": 0.014614188378864029,
         "noaff": false,
         "nihil": false
@@ -304,32 +283,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 48349.05522058133,
-        "team": 0.07979561140972184,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.w": "primal_dragon",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4, xf=5",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Gala_Notte",
-        "Mona"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48349.05522058133,
-        "team": 0.07979561140972184,
+        "dps": 50350.291213860684,
+        "team": 0.08512050001626904,
         "noaff": false,
         "nihil": true
       },
@@ -337,17 +294,13 @@
         "Bow",
         "Gala_Notte",
         "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

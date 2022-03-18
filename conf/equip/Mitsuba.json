@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5862.736323320123,
+        "dps": 5873.863406177546,
         "team": 0.6367366804559028,
         "noaff": true,
         "nihil": false
@@ -44,8 +44,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92246.05403893109,
-        "team": 0.023022899731720434,
+        "dps": 94805.64904839368,
+        "team": 0.022988913226934603,
         "noaff": false,
         "nihil": false
       },
@@ -72,7 +72,7 @@
       ],
       "dacl": [
         "`ds1, x=2",
-        "`sack, x=1"
+        "`sack, x=2"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 140755.05623106367,
+      "tdps": 144899.56687539155,
       "pref": "PERSONAL"
     }
   },
@@ -104,7 +104,7 @@
       ]
     },
     "META": {
-      "tdps": 194963.66242283996,
+      "tdps": 201005.4060962597,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -115,7 +115,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53024.257414363856,
+        "dps": 67022.690794511,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -129,7 +129,7 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`tempura",
         "if xf=2 and hits>19",
@@ -142,6 +142,9 @@
         "else",
         "`fs, xf=2",
         "end"
+      ],
+      "dacl": [
+        "`ds1, x=2"
       ],
       "coabs": [
         "Blade",
@@ -157,55 +160,6 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 53024.257414363856,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`tempura",
-        "if xf=2 and hits>19",
-        "`s4",
-        "`s3",
-        "`s1(sashimi), aff_timeleft(frostbite)<6",
-        "`s1(tempura)",
-        "`dragon",
-        "`fsf",
-        "else",
-        "`fs, xf=2",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -214,10 +168,6 @@
         "noaff": false,
         "nihil": false
       },
-      "dacl": [
-        "`ds1, x=2",
-        "`sack, x=2"
-      ],
       "coabs": [
         "Eugene",
         "Tiki",
@@ -225,7 +175,7 @@
       ]
     },
     "META": {
-      "tdps": 161244.22048819144,
+      "tdps": 161226.0907556668,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -236,7 +186,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69419.99901684928,
+        "dps": 71775.65101134393,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -250,7 +200,6 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`tempura",
         "if xf=2 and hits>19",
@@ -260,7 +209,7 @@
         "`dragon",
         "`fsf",
         "else",
-        "`fs, xf=2",
+        "`fs, xf=5",
         "end"
       ],
       "share": [
@@ -273,49 +222,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 70886.90086378902,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Wings_of_Rebellion_at_Rest",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`tempura",
-        "if xf=2 and hits>19",
-        "`s3",
-        "`s4",
-        "`s1(tempura)",
-        "`dragon",
-        "`fsf",
-        "else",
-        "`fs, xf=2",
-        "end"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -335,14 +241,10 @@
         "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "dacl": [
-        "`ds1, x=2",
-        "`sack, x=2"
       ]
     },
     "META": {
-      "tdps": 94552.57849874227,
+      "tdps": 94534.44876621768,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -353,7 +255,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39693.98713462275,
+        "dps": 43879.4575028603,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -364,23 +266,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39693.98713462275,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

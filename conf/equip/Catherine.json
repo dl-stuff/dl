@@ -31,7 +31,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 164051.0612562072,
+        "dps": 66607.77923403667,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -67,14 +67,14 @@
       ]
     },
     "META": {
-      "tdps": 250147.20764456954,
+      "tdps": 88535.71911731406,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82706.62492661439,
+        "dps": 72370.24042628169,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -97,9 +97,7 @@
         "`s4, cancel"
       ],
       "dacl": [
-        "`ds1, x=2 and crystal_arrow=2",
-        "`dfs, x=2 and ds1.check()",
-        "`dodge, fsc"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
@@ -107,8 +105,8 @@
         "Tiki"
       ],
       "share": [
-        "Summer_Julietta",
-        "Karina"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -118,18 +116,21 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 171176.86200680793,
+        "dps": 119376.78000109503,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s4, xf",
+        "`s2, xf",
+        "`s1, xf"
       ]
     },
     "META": {
-      "tdps": 261965.48020635787,
+      "tdps": 176054.0845200707,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -140,34 +141,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98523.13558186653,
+        "dps": 75098.95138133426,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Emissaries_of_the_Heavens",
-        "Wings_of_Rebellion_at_Rest",
-        "Saint_Starfalls_Circus",
-        "Snipers_Allure",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "acl": [
-        "`dragon, cancel and speed()=1.15",
-        "`s2, timeleft(s1)<4 and c_s(2, escort3)",
-        "`s3, cancel",
-        "`s1, cancel",
-        "`s4, cancel and not buff(s4)"
-      ],
-      "dacl": [
-        "`ds1, x=3"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Akasha"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -180,8 +158,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 117399.19628651641,
-        "team": 0.12447265667573149,
+        "dps": 58585.777389291856,
+        "team": 0.11890072479250657,
         "noaff": false,
         "nihil": false
       },
@@ -194,25 +172,13 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "acl": [
-        "`dragon, xf and speed()=1.15",
-        "`s3, not buff(s3)",
-        "`s4, xf",
-        "`s2, xf",
-        "`s1, xf"
-      ],
-      "coabs": [
-        "Eugene",
-        "Gala_Mascula",
-        "Tiki"
-      ],
       "share": [
         "Weapon",
         "Akasha"
       ]
     },
     "META": {
-      "tdps": 217720.48791891683,
+      "tdps": 93710.75220586288,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -223,16 +189,11 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43255.749844058155,
+        "dps": 52467.7485636412,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Tiki"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",

@@ -37,53 +37,52 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87135.31299286151,
-        "team": 0.05241986511687021,
+        "dps": 89718.20056648226,
+        "team": 0.06244598155400893,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "A_Small_Courage",
-        "Enter_the_Blue_Rose",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Fudo_Myoo",
+      "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3)",
-        "`s2, s1.check() and xf",
-        "`s1, s2.charged < 3763 or s=2",
-        "`s4, xf",
-        "`dodge, xf=1"
+        "`dragon, xf=2",
+        "`s3",
+        "`s4",
+        "`s2, s1.check()",
+        "`s1"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Gala_Notte",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 240630.02093832317,
+      "tdps": 288953.209390874,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79066.7773067791,
-        "team": 0.05640872046865244,
+        "dps": 89413.82026538537,
+        "team": 0.13879713570773625,
         "noaff": false,
         "nihil": true
       },
@@ -91,55 +90,15 @@
         "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "A_Small_Courage",
         "Enter_the_Blue_Rose",
+        "Snipers_Allure",
         "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, xf",
-        "`s2, s1.check() and xf",
-        "`s1, s2.charged < 3763 or s=2",
-        "`s4, xf",
-        "`s3",
-        "`dodge, xf=1"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=2"
-      ],
-      "coabs": [
-        "Bow",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Grimnir",
-        "Summer_Julietta"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 86816.43793567269,
-        "team": 0.055798370226598455,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Enter_the_Blue_Rose",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "slots.w": "primal_dragon",
-      "acl": [
-        "`dragon, xf",
+        "`dragon, s4 and  (dgauge >= 900 or dshift_count)",
         "`s3, not buff(s3)",
         "`s2, s1.check() and xf",
         "`s1, s2.charged < 3763 or s=2",
@@ -151,17 +110,57 @@
         "`dfs, x=2"
       ],
       "coabs": [
-        "Bow",
         "Mona",
-        "Wand"
+        "Wand",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 95545.33137015306,
+        "team": 0.08169187698230511,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Enter_the_Blue_Rose",
+        "Snipers_Allure",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, xf and  (dgauge >= 900 or dshift_count)",
+        "`s3, not buff(s3)",
+        "`s2, s1.check() and xf",
+        "`s1, s2.charged < 3763 or s=2",
+        "`s4, xf",
+        "`dodge, xf=1"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=2"
+      ],
+      "coabs": [
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
       ]
     },
     "META": {
-      "tdps": 12697071.443461725,
+      "tdps": 107372.09219642493,
       "pref": "PERSONAL"
     }
   },
@@ -206,44 +205,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101847.02846165515,
-        "team": 0.08577856017651285,
+        "dps": 113985.91031442715,
+        "team": 0.062445637891623634,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Fudo_Myoo",
       "acl": [
-        "`dragon, xf=1",
-        "`s3, not buff(s3) and xf=1",
-        "`s1, s2.charged<3763 or s=2",
-        "`s2, s1.check() and xf=1",
-        "`s4, xf=1",
-        "`dodge, xf=1"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Nino",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "`s3",
+        "if buff(s3)",
+        "`dragon, xf=2",
+        "`s4",
+        "`s2, s1.check()",
+        "`s1",
+        "end"
       ]
     },
     "META": {
-      "tdps": 132166.35178680054,
+      "tdps": 198575.6339437624,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -254,8 +232,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91403.90240068214,
-        "team": 0.055798370226598455,
+        "dps": 97112.02183173856,
+        "team": 0.08169187698230511,
         "noaff": false,
         "nihil": true
       }
@@ -271,8 +249,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35893.37357456159,
-        "team": 0.17108037013389052,
+        "dps": 48321.22850277118,
+        "team": 0.06244598155400882,
         "noaff": false,
         "nihil": false
       },
@@ -284,10 +262,6 @@
         "Enter_the_Blue_Rose",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {
@@ -299,35 +273,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 25268.295804593272,
-        "team": 0.10366903107587426,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, xf",
-        "`s3",
-        "`s2, s1.check() and xf",
-        "`s1",
-        "`s4, xf",
-        "`dodge, xf=1"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Seimei",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 23675.020995927094,
-        "team": 0.10366789438223296,
+        "dps": 26316.610515599703,
+        "team": 0.11261037041860639,
         "noaff": false,
         "nihil": true
       },
@@ -350,8 +299,7 @@
       ]
     },
     "META": {
-      "tdps": -1401674779.1864407,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

@@ -2,35 +2,35 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39178.43626530889,
-        "team": 0.11071424457691809,
+        "dps": 41445.94624647564,
+        "team": 0.17185257883413468,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Forest_Bonds",
+        "Proper_Maintenance",
+        "From_Whence_He_Comes",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Chronos_Nyx",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, s=1",
+        "`dragon, buff(s3, 1)",
         "`s3, not buff(s3)",
-        "`s2, s1.charged<s1.sp/3",
+        "`s4",
         "`s1",
-        "`s4, cancel",
-        "`fs,x=5"
+        "`s2",
+        "`fs, x=5"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<2"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Blade",
-        "Mitsuhide",
+        "Gala_Zena",
         "Peony"
       ],
       "share": [
@@ -76,35 +76,70 @@
       ]
     },
     "META": {
-      "tdps": 1139472.761570196,
+      "tdps": 481704.3106226089,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 31457.994267333055,
+        "dps": 33908.96524480691,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife",
+        "A_Small_Courage",
+        "The_Nobles_Day_Off",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2, s1.charged<s1.sp/3",
+        "`s3",
+        "`s2",
         "`s1",
         "`s4, cancel",
-        "`fs,x=5"
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Grimnir",
+        "Ilia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35906.326009626595,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Nobles_Day_Off",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, s=1",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
@@ -113,7 +148,7 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Ilia"
       ]
     },
     "META": {

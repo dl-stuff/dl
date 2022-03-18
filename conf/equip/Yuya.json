@@ -2,41 +2,44 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 84908.38179224434,
-        "team": 0.18131902491614701,
+        "dps": 82003.08556851765,
+        "team": 0.20163722413202223,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Brothers_in_Arms",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "Honest_Repose",
+        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Amaterasu_Oblation",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x=5",
-        "`s4, x=5"
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2, x=5"
+      ],
+      "dacl": [
+        "ds1, x=1"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
+        "Seimei",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97555.21397789265,
+        "dps": 98224.79262645727,
         "team": 0.08746809231097633,
         "noaff": false,
         "nihil": false
@@ -63,8 +66,8 @@
         "dodge, x=2"
       ],
       "coabs": [
-        "Blade",
         "Gala_Sarisse",
+        "Kimono_Elisanne",
         "Seimei"
       ],
       "share": [
@@ -73,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 134754.46470897974,
+      "tdps": 142084.87705211155,
       "pref": "PERSONAL"
     }
   },
@@ -118,8 +121,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 110574.2509687686,
-        "team": 0.04993106046221448,
+        "dps": 112568.72752855188,
+        "team": 0.04999268440384873,
         "noaff": false,
         "nihil": false
       },
@@ -133,20 +136,24 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon,s1",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
+        "`s4",
         "`s1",
-        "`s4, xf",
         "`s2, x=5"
       ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
       "coabs": [
-        "Blade",
+        "Halloween_Mym",
         "Kimono_Elisanne",
         "Wand"
       ]
     },
     "META": {
-      "tdps": 195344.1419325989,
+      "tdps": 201561.111364932,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,40 +200,37 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84908.38179224434,
-        "team": 0.18131902491614701,
+        "dps": 82284.55837582705,
+        "team": 0.18584517058770061,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Brothers_in_Arms",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "Jewels_of_the_Sun",
+        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Amaterasu_Oblation",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x=5",
-        "`s4, x=5"
+      "dacl": [
+        "ds1, x=1"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
+        "Seimei",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 17823.698895107336,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

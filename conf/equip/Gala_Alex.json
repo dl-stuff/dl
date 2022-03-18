@@ -2,42 +2,40 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 95255.03066455838,
-        "team": 0.14923788481849332,
+        "dps": 42852.894612146374,
+        "team": 0.19965535495683376,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "His_Clever_Brother",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
         "Snipers_Allure",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "Arsene",
       "acl": [
-        "queue s=4 and dgauge=1000",
-        "`s1",
-        "`dragon, x=4",
-        "end",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, not aff(poison)",
-        "`s1"
+        "`dragon, fsc",
+        "`s4, aff_timeleft(poison)<2",
+        "`s2, aff_timeleft(poison)<2 and s=4",
+        "`s3, cancel",
+        "`s1, sr.count>1 and cancel",
+        "`fs, x=4"
       ],
       "dacl": [
         "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
-        "Blade",
         "Delphi",
-        "Vania"
+        "Joker",
+        "Summer_Verica"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Verica"
       ]
     },
     "PERSONAL": {
@@ -65,8 +63,11 @@
         "`s3, not buff(s3)",
         "`s1, duration-now<3",
         "`s4, x=5",
-        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
+        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1 or not aff(poison) and sr.count=3",
         "`s1, (sr.count>1 and x=5) or sr.count=3"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Blade",
@@ -79,7 +80,7 @@
       ]
     },
     "META": {
-      "tdps": 1072662.8791351304,
+      "tdps": 1047078.2966203606,
       "pref": "PERSONAL"
     }
   },
@@ -207,13 +208,9 @@
       "acl": [
         "`dragon, aff(frostbite) and cancel",
         "`s3, not buff(s3)",
-        "`s1, duration-now<3",
         "`s4, x=5",
         "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
         "`s1, (sr.count>1 and x=5) or sr.count=3 or duration-now<4"
-      ],
-      "dacl": [
-        "ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Ieyasu",
@@ -274,8 +271,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97312.0825879088,
-        "team": 0.14467712237041933,
+        "dps": 97789.05428148647,
+        "team": 0.14500561375379595,
         "noaff": false,
         "nihil": true
       },
@@ -303,7 +300,7 @@
       "coabs": [
         "Dagger2",
         "Ieyasu",
-        "Joker"
+        "Wand"
       ],
       "share": [
         "Gala_Mym",
@@ -311,11 +308,34 @@
       ]
     },
     "META": {
-      "tdps": 987139.1468481887,
+      "tdps": 1000579.0690469864,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78762.1538705552,
+        "team": 0.11908220195841362,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 474912.98803650204,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },

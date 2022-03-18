@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3564.2797991338794,
-        "team": 0.7707452158700916,
+        "dps": 4370.304497567135,
+        "team": 0.7971357426861141,
         "noaff": true,
         "nihil": false
       },
@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 3564.2797991338794,
-        "team": 0.7707452158700916,
+        "dps": 6757.182366989848,
+        "team": 0.6663837662587221,
         "noaff": true,
         "nihil": false
       },
@@ -47,7 +47,7 @@
         "Bellathorna",
         "From_Whence_He_Comes"
       ],
-      "slots.d": "Freyja",
+      "slots.d": "Fudo_Myoo",
       "slots.w": "void",
       "acl": [
         "`s3",
@@ -56,46 +56,25 @@
         "`fs, x=4 and fs_prep_c",
         "`fsf, x=4"
       ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Tobias",
-        "Templar_Hope"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 3159.7287970773386,
-        "team": 0.7707452158700916,
-        "noaff": true,
-        "nihil": false
-      },
       "coabs": [
         "Bow",
         "Ku_Hai",
         "Tobias"
+      ],
+      "share": [
+        "Tobias",
+        "Templar_Hope"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "tdps": 18255.004127973334,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 1903.9525732953691,
+        "dps": 2535.284073989817,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -147,7 +126,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon, s=2",
         "`s3, not buff(s3)",
@@ -168,7 +146,53 @@
       ]
     },
     "META": {
-      "tdps": 149144.26908346513,
+      "tdps": 140411.51609469898,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75708.4589819438,
+        "team": 0.12097364817172522,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2",
+        "`fsf, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 105504.51594837008,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

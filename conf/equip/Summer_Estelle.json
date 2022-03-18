@@ -34,45 +34,43 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46444.30244916977,
-        "team": 0.13223074645784422,
-        "noaff": true,
+        "dps": 75453.44166873045,
+        "team": 0.12364676318867852,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "if s=2",
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
-        "end",
+        "`dragon, buff(s2) and cancel",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, x>3",
-        "`s2, dgauge>=500 or (dgauge<=450 and x>2)"
+        "`s2, (dgauge<=400 and x>2) or dgauge>=500",
+        "`s1, x>2",
+        "`s4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ds1"
       ],
       "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+        "Eugene",
+        "Nurse_Aeleen",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 73538.52660299993,
+      "tdps": 135673.75922039672,
       "pref": "PERSONAL"
     }
   },
@@ -160,21 +158,26 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51881.774190315075,
-        "team": 0.13223074645784422,
+        "dps": 82316.033208183,
+        "team": 0.12105522566370282,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ]
     },
     "META": {
-      "tdps": 85672.28205929435,
+      "tdps": 149849.55381815156,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,31 +196,63 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40408.49907333552,
-        "team": 0.03852571757270179,
+        "dps": 61298.048546814316,
+        "team": 0.03883823081382433,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count>=2",
-        "`s3, not buff(s3)",
+        "`dragon, cancel",
+        "`s3",
         "`s4",
         "`s1"
       ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Dragonyule_Cleo",
         "Tiki"
       ]
     },
     "META": {
-      "tdps": 7051057.030534605,
+      "tdps": 13572177.142944044,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56341.48595855879,
+        "team": 0.12364676318867854,
+        "noaff": false,
+        "nihil": false
+      },
+      "dacl": [
+        "`ds1, x=3"
+      ]
+    },
+    "META": {
+      "tdps": 93826.88504495128,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

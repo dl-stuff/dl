@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6395.069339419211,
-        "team": 0.2815281010972514,
+        "dps": 8059.528131670303,
+        "team": 0.2815281010972511,
         "noaff": false,
         "nihil": false
       },
@@ -36,15 +36,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46764.1267726865,
-        "team": 0.0333069921996433,
-        "noaff": true,
+        "dps": 61042.3580246995,
+        "team": 0.03333197655095449,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
         "The_Synthetic_Dragon",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Applelicious_Dreams",
@@ -52,58 +52,34 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, buff(s3) and buffstack(ro_att)=3",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
-        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
-        "`dodge, fsc"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
+        "if buffstack(ro_att)<3",
+        "`s1, hp>40",
+        "`s2, hp<40",
+        "`fs, x=5 and buff(s3)",
+        "end",
+        "`s4"
       ],
       "coabs": [
-        "Audric",
-        "Forte",
-        "Ieyasu"
+        "Dagger2",
+        "Ieyasu",
+        "Summer_Prince"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 162633.45858276554,
+      "tdps": 213471.62446586136,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 6337.727987228864,
-        "team": 0.2462854827257962,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Bow",
-        "Curran",
-        "Lathna"
-      ]
-    },
-    "META": {
-      "tdps": 189814.46758114494,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 1945.9638808975667,
+        "dps": 2551.168362892365,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -137,7 +113,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 18892.555989529163,
+        "dps": 18917.02293015882,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -174,28 +150,19 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 71794.79045298592,
-        "team": 0.03330861705837533,
+        "dps": 73519.22170141798,
+        "team": 0.03333197655095445,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "The_Synthetic_Dragon",
         "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
+        "A_Small_Courage",
+        "His_Clever_Brother",
         "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Ieyasu",
-        "Summer_Prince"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
+        "Savage_Hawk_Lance"
       ]
     },
     "META": {
@@ -206,34 +173,11 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 6393.349384300855,
-        "team": 0.2659513856647164,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Bow",
-        "The_Prince",
-        "Tobias"
-      ]
-    },
-    "META": {
-      "tdps": 173529.98190539464,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48970.128926593745,
-        "team": 0.0664448552828283,
+        "dps": 49195.16774187346,
+        "team": 0.06644485528282837,
         "noaff": false,
         "nihil": true
       },
@@ -268,10 +212,77 @@
       }
     }
   },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50648.12351768618,
+        "team": 0.03333197655095449,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Synthetic_Dragon",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "if buffstack(ro_att)<3",
+        "`s1, hp>40",
+        "`s2, hp<40",
+        "`fs, x=5 and buff(s3)",
+        "end",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54408.81829155787,
+        "team": 0.033273930267244164,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Bridal_Dragon",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
+    },
+    "META": {
+      "tdps": 64787864.674319305,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 1945.9638808975667,
+        "dps": 2551.168362892365,
         "team": 0.0,
         "noaff": true,
         "nihil": true

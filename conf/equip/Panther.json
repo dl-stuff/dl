@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 86475.3026392959,
-        "team": 0.10605299411507305,
+        "dps": 94470.35737251541,
+        "team": 0.10778582111212635,
         "noaff": false,
         "nihil": false
       },
@@ -18,19 +18,22 @@
       ],
       "slots.d": "Horus",
       "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3) and x=5",
+        "`dragon, a3_buffcount>=2",
+        "`s3, not buff(s3)",
         "`s4, x=5",
-        "`s1, x=5",
+        "`s1, x=5 or s",
         "`s2, x=5"
       ],
       "dacl": [
-        "`s4",
+        "`s4, x=5",
         "`s1, x=5",
-        "`s2, x=5"
+        "`s2, x=5",
+        "if a3_buffcount<3 or dshift_timeleft<5",
+        "`sack, not have_buff(s1_10) and s1.check()",
+        "end"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Dagger2",
         "Halloween_Mym",
         "Marth"
       ],
@@ -41,16 +44,16 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 126946.41821699595,
-        "team": 0.02156464224244187,
+        "dps": 126122.64106909912,
+        "team": 0.02648193471973734,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "The_Cutie_Competition",
-        "The_Plaguebringer",
+        "A_Butlers_Smile",
         "To_the_Extreme",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
@@ -68,13 +71,13 @@
         "`s4, x=5",
         "`s1, x=5",
         "`s2, x=5",
-        "if a3_buffcount<3 or dshift_timeleft<10",
+        "if dshift_timeleft<10 and duration-now>20",
         "`sack, not have_buff(s1_10) and s1.check()",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Gala_Laxi",
+        "Dagger2",
         "Kimono_Elisanne"
       ],
       "share": [
@@ -83,8 +86,54 @@
       ]
     },
     "META": {
-      "tdps": 479014.1443250251,
+      "tdps": 389308.3725890221,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40460.99959927227,
+        "team": 0.04999073782718747,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`fs"
+      ],
+      "dacl": [
+        "`fs"
+      ],
+      "coabs": [
+        "Gala_Leonidas",
+        "Kimono_Elisanne",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 3093996.546165593,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -125,8 +174,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51772.97205014423,
-        "team": 0.06169997194132063,
+        "dps": 52057.77240559044,
+        "team": 0.06150650011149271,
         "noaff": false,
         "nihil": true
       },
@@ -163,15 +212,15 @@
       ]
     },
     "META": {
-      "tdps": 691317.6996212861,
+      "tdps": 697384.5531127295,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 141867.61941564365,
-        "team": 0.02156464224244187,
+        "dps": 147355.69680159597,
+        "team": 0.026481934719737223,
         "noaff": false,
         "nihil": false
       },
@@ -184,10 +233,14 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Kimono_Elisanne"
+      "slots.d": "Apollo",
+      "acl": [
+        "`dragon, a3_buffcount>=2",
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s1, x=5 or s=3",
+        "`s2, x=5"
       ]
     },
     "META": {
@@ -201,15 +254,12 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54280.3553684449,
-        "team": 0.06169997194132063,
+        "dps": 60149.28166471671,
+        "team": 0.06150650011149271,
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "Cerberus",
-      "dacl": [
-        "ds1,x=3"
-      ]
+      "slots.d": "Apollo"
     },
     "META": {
       "pref": "PERSONAL",
@@ -220,10 +270,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 75406.00242370277,
-        "team": 0.03320307938072048,
+        "dps": 70744.0734399635,
+        "team": 0.0333137855442822,
         "noaff": false,
         "nihil": false
       },
@@ -249,12 +299,12 @@
         "`s4, x=5",
         "`s1, x=5",
         "`s2, x=5",
-        "if dshift_timeleft<10 and duration-now>10",
+        "if a3_buffcount<3 or (dshift_timeleft<10 and duration-now>20)",
         "`sack, not have_buff(s1_10) and s1.check()",
         "end"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Dagger2",
         "Kimono_Elisanne",
         "Marth"
       ],
@@ -263,7 +313,38 @@
         "Mikoto"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76092.02212156719,
+        "team": 0.033181586907761663,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1",
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s1, x=5 or s=3",
+        "`s2, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
     "META": {
+      "tdps": 40453886.83545814,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

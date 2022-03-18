@@ -108,33 +108,36 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44584.55278863161,
-        "team": 0.0,
+        "dps": 61991.857480976505,
+        "team": 0.06665255854177532,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
+        "Entwined_Flames",
         "Saint_Starfalls_Circus",
-        "Snipers_Allure",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon",
-        "`s3",
+        "`dragon, s",
+        "`s1",
         "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
+        "`s3",
+        "`s4",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2 and x=3"
       ],
       "coabs": [
         "Delphi",
         "Ieyasu",
-        "Vania"
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -145,75 +148,44 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44584.55278863161,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Saint_Starfalls_Circus",
-        "Snipers_Allure",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Vania"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 118174.02973353806,
-        "team": 0.12874224639438633,
+        "dps": 89533.960541479,
+        "team": 0.1500920948933709,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Luck_of_the_Draw",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, xf",
+        "`s2",
+        "`s1",
+        "`fs, x=5 or charged_in(fs, s2) or hits=0"
+      ],
+      "dacl": [
+        "`ds1, x=3",
+        "`sack, x=3"
+      ],
       "coabs": [
+        "Cleo",
         "Ieyasu",
-        "Summer_Prince",
-        "Yaten"
+        "Vania"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
@@ -234,7 +206,7 @@
       ]
     },
     "META": {
-      "tdps": 177356.83414871572,
+      "tdps": 342945.35278709576,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -279,7 +251,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76592.9010792561,
+        "dps": 76700.27463784236,
         "team": 0.06656846708297467,
         "noaff": false,
         "nihil": true
@@ -293,7 +265,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3",
@@ -316,7 +287,7 @@
       ]
     },
     "META": {
-      "tdps": 69449475.12890619,
+      "tdps": 70552465.2317958,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -444,8 +415,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38594.17753855197,
-        "team": 0.0,
+        "dps": 45334.074548125616,
+        "team": 0.06651825501113699,
         "noaff": false,
         "nihil": true
       },
@@ -477,7 +448,7 @@
       ]
     },
     "META": {
-      "tdps": 57144.755333765235,
+      "tdps": 337444.7910158025,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

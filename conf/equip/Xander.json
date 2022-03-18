@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87668.33742370043,
-        "team": 0.07166794334856112,
+        "dps": 88731.94514998967,
+        "team": 0.07177757390635109,
         "noaff": false,
         "nihil": false
       },
@@ -55,6 +55,50 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, buff(s3)",
+        "`s4, cancel",
+        "`fs, x=1 and not have_buff(s1_12)"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Xainfried",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 66746.90722687896,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38786.293412439045,
+        "team": 0.06657947714248873,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon",
         "`s3, not buff(s3) and fsc",
@@ -76,15 +120,9 @@
         "Akasha"
       ]
     },
-    "META": {
-      "tdps": 56996.93392981896,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56775.775536364774,
+        "dps": 56879.59227030409,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -125,6 +163,7 @@
       ]
     },
     "META": {
+      "tdps": 271754.89556854044,
       "pref": "PERSONAL"
     }
   },
@@ -152,26 +191,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 109751.73617772087,
+        "dps": 118794.16476749422,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2",
-        "`s4, cancel and energy()<5",
-        "`fs, x=1 and not buff(s1, default)"
-      ],
-      "dacl": [
-        "`ds1,x=3",
-        "`sack, x=3"
-      ],
       "coabs": [
-        "Hunter_Sarisse",
+        "Tiki",
         "Xainfried",
         "Yurius"
       ],
@@ -181,7 +208,7 @@
       ]
     },
     "META": {
-      "tdps": 113031.943130279,
+      "tdps": 157809.12251535343,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -192,8 +219,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55629.81634029602,
-        "team": 0.09991069094348433,
+        "dps": 58532.98947759666,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       }
@@ -202,31 +229,27 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68971.83627060721,
-        "team": 0.20194279126003786,
+        "dps": 83614.3308009403,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon, fsc or x=5",
-        "`s3, not buff(s3) and fsc",
-        "`s1, buff(s3)",
-        "`s2",
-        "`s4, energy()<5 and cancel",
-        "`fs, x=3 and not buff(s1, default)"
-      ],
+      "slots.d": "Gala_Beast_Ciella",
       "coabs": [
-        "Gala_Mascula",
-        "Hunter_Sarisse",
+        "Tiki",
+        "Xainfried",
         "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -240,8 +263,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43381.15884875906,
-        "team": 0.09993166339751332,
+        "dps": 41086.86333687555,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -262,7 +285,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

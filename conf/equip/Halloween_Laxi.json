@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 47702.12149668943,
-        "team": 0.17601564401738792,
+        "dps": 49725.34849353758,
+        "team": 0.17601564401738784,
         "noaff": false,
         "nihil": false
       },
@@ -77,15 +77,15 @@
       ]
     },
     "META": {
-      "tdps": 673623.7466230938,
+      "tdps": 655851.6825664396,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 72564.46885537963,
-        "team": 0.14214305809819797,
+        "dps": 74664.87090294735,
+        "team": 0.14295154835015464,
         "noaff": false,
         "nihil": false
       },
@@ -95,25 +95,21 @@
         "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Lance"
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, s=1",
+        "`dragon, buff(s3, 1) and s=1",
         "`s3",
-        "`s2",
-        "`s1, aff_timeleft(flashburn)<1",
+        "`s2, cancel",
+        "`s1, dgauge>=500 and buff(s3, 1)",
         "`s4, not buff(s4, 2)",
         "`fs"
       ],
-      "dacl": [
-        "`ds1, cancel and dshift_timeleft<1",
-        "`dodge, fsc",
-        "`fs3"
-      ],
       "coabs": [
         "Blade",
-        "Gala_Audric",
+        "Gala_Prince",
         "Peony"
       ],
       "share": [
@@ -122,7 +118,7 @@
       ]
     },
     "META": {
-      "tdps": 648052.20993033,
+      "tdps": 615564.2420007795,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -133,7 +129,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32718.41532278125,
+        "dps": 35335.289454677084,
         "team": 0.04901103907980544,
         "noaff": false,
         "nihil": true
@@ -208,11 +204,19 @@
       ]
     },
     "META": {
-      "tdps": 975216.6524460091,
+      "tdps": 921823.0868120559,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70945.80675465614,
+        "team": 0.17601564401738784,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 164310.6280936295,
@@ -238,6 +242,7 @@
       ]
     },
     "META": {
+      "tdps": 1225031.073732083,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -246,6 +251,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40262.11203070269,
+        "team": 0.04901103907980544,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 112680.24378996118,
@@ -281,6 +294,7 @@
       ]
     },
     "META": {
+      "tdps": 1477588.1743975866,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

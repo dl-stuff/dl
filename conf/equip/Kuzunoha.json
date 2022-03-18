@@ -2,27 +2,30 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54545.61826384209,
+        "dps": 58855.09967352447,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon",
+        "`dragon, aff(frostbite)",
         "`s3, not buff(s3)",
-        "`s1, not buff(s1)",
-        "`s4",
-        "`fsf, x=4 and s1.charged=sp_val(4)"
+        "`s1, not buff(s1) and x=5",
+        "`s4"
+      ],
+      "dacl": [
+        "ds1, x=2",
+        "dodge, x=2"
       ],
       "coabs": [
         "Halloween_Mym",
@@ -36,27 +39,30 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54545.61826384209,
+        "dps": 58855.09967352447,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
+        "Pecorines_Grand_Adventure",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Entwined_Flames",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon",
+        "`dragon, aff(frostbite)",
         "`s3, not buff(s3)",
-        "`s1, not buff(s1)",
-        "`s4",
-        "`fsf, x=4 and s1.charged=sp_val(4)"
+        "`s1, not buff(s1) and x=5",
+        "`s4"
+      ],
+      "dacl": [
+        "ds1, x=2",
+        "dodge, x=2"
       ],
       "coabs": [
         "Halloween_Mym",
@@ -75,7 +81,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 19781.485340467523,
+        "dps": 19950.13963981348,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -117,7 +123,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64961.080754883005,
+        "dps": 65683.09312292625,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -131,7 +137,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -155,7 +160,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33076.23707850193,
+        "dps": 33237.7279469676,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -170,6 +175,23 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20952.755485766604,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

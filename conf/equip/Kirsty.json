@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5277.644991819011,
-        "team": 0.8445374726206414,
+        "dps": 5986.462287890916,
+        "team": 0.8441449111983186,
         "noaff": false,
         "nihil": false
       },
@@ -72,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 153817.73990832292,
+      "tdps": 152926.91999798693,
       "pref": "PERSONAL"
     }
   },
@@ -141,8 +141,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 112004.56483872487,
-        "team": 0.05603918863968715,
+        "dps": 123475.00868814798,
+        "team": 0.11090100178480465,
         "noaff": false,
         "nihil": true
       },
@@ -158,8 +158,8 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, fscf",
-        "`s3, not buff(s3)",
+        "`dragon, fscf and (dgauge >= 900 or dshift_count)",
+        "`s3, not buff(s3) and cancel",
         "`s4,  x=5",
         "`s2, x=5 or dgauge>=500",
         "`s1",
@@ -167,7 +167,8 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1 and x=3"
+        "`dodge, fsc",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Mona",
@@ -180,7 +181,7 @@
       ]
     },
     "META": {
-      "tdps": 440584.75553836016,
+      "tdps": 2540964.267240702,
       "pref": "PERSONAL"
     }
   },
@@ -207,6 +208,23 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 125964.30780133262,
+        "team": 0.11090100178480465,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -275,8 +293,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45238.8174300045,
-        "team": 0.05603918863968715,
+        "dps": 50488.10711981174,
+        "team": 0.11090100178480465,
         "noaff": false,
         "nihil": true
       }

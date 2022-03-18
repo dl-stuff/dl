@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105954.16632020938,
+        "dps": 113637.26909897543,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -41,33 +41,18 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Ciella",
       "acl": [
-        "if dgauge>=500 and xf=5",
-        "queue dshift_count=0",
-        "`fs",
+        "`fs, buff(s2) and dgauge>=500",
         "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count=1",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count>=2",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "end",
-        "`s2, not buff(s2)",
         "`s3, not buff(s3)",
+        "`s2, not buff(s2)",
         "`s4, xf=5",
         "`s1, buff(s2) and cancel",
         "`fsf, xf=5"
@@ -82,11 +67,11 @@
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 373287.73491167027,
+      "tdps": 402989.91945653566,
       "pref": "PERSONAL"
     }
   },
@@ -138,21 +123,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62507.14774146926,
+        "dps": 82766.89233188643,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_Brethren",
-        "Emissaries_of_the_Heavens",
+        "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "if dgauge>=500 and xf",
         "queue",
@@ -168,11 +153,10 @@
         "`fsf, xf=5"
       ],
       "dacl": [
-        "ds1,x=3",
-        "sack, x=2 and dshift_count=3 and duration-now<3"
+        "ds1,x=2"
       ],
       "coabs": [
-        "Dagger",
+        "Dragonyule_Cleo",
         "Tiki",
         "Yurius"
       ],
@@ -182,7 +166,7 @@
       ]
     },
     "META": {
-      "tdps": 78853.49329827382,
+      "tdps": 281517.5825067347,
       "pref": "PERSONAL"
     }
   },
@@ -197,27 +181,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111964.48505580681,
+        "dps": 118094.70822606982,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon",
-        "`s2, not buff(s2)",
-        "`s3, not buff(s3)",
-        "`s4, xf=5",
-        "`s1, buff(s2) and cancel",
-        "`fsf, xf=5",
-        "`fs,dgauge>500"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
+      }
     },
     "META": {
-      "tdps": 389258.7776270026,
+      "tdps": 412957.66922683676,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -228,21 +199,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82923.34522704415,
+        "dps": 84180.17166469185,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Holywyrms_Advent",
-        "Moonlight_Party",
-        "A_Choice_Blend",
-        "His_Clever_Brother",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dshift_count=0",
@@ -267,14 +228,9 @@
         "`s3, xf>3",
         "`fsf, xf=5"
       ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
-      ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {

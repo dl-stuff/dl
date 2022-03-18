@@ -85,17 +85,17 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68783.03543219305,
-        "team": 0.16628570686700284,
+        "dps": 70453.71380093727,
+        "team": 0.1662857068670028,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Adventure_in_the_Past",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "Bloom_of_the_Battlefield",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
@@ -114,8 +114,8 @@
         "`fs, x=3"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
@@ -128,16 +128,37 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 84287.78509115714,
-        "team": 0.3173541422050255,
+        "dps": 89427.06340864615,
+        "team": 0.21234672618442443,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, fsc or buff(s2)",
+        "`s1, fsc or buff(s2)",
+        "`fs, x=4 or hits=2"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Gala_Notte",
+        "Humanoid_Midgardsormr",
         "Yukata_Lathna"
       ],
       "share": [
@@ -145,7 +166,46 @@
         "Akasha"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 103862.0827339887,
+        "team": 0.07828754646441502,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon, buff(s2)",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel",
+        "`s1",
+        "`fs, x=4 or hits=2"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
     "META": {
+      "tdps": 107676.47061164294,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -161,15 +221,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
       "acl": [
         "`dragon, s=2",
         "`s2",

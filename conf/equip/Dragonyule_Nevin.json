@@ -144,8 +144,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79811.93413993195,
-        "team": 0.2648423843511907,
+        "dps": 84084.95502475367,
+        "team": 0.26208101461905875,
         "noaff": false,
         "nihil": true
       },
@@ -162,16 +162,18 @@
       "slots.w": "primal_dragon",
       "acl": [
         "if not unlocked",
+        "`s3, cancel",
+        "`s4, x=5",
         "`s2, x=5",
-        "`s1",
+        "`s1, x=5",
         "else",
+        "`s3, timeleft(s3)<5",
         "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
         "`dragon, (dgauge>=900 or dshift_count) and fsc",
-        "`s4, (x=5 or s) and aff_timeleft(poison)<1",
+        "`s4, cancel",
         "`s2, divine_dagger=0",
         "`s1, divine_dagger=0",
         "`fs4, charged_in(fs, s2) and divine_dagger=4",
-        "`s3, x=5",
         "end"
       ],
       "dacl": [
@@ -184,12 +186,12 @@
         "Yukata_Lathna"
       ],
       "share": [
-        "Summer_Celliera",
+        "Weapon",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 150680.53129397283,
+      "tdps": 405601.68307115685,
       "pref": "PERSONAL"
     }
   },
@@ -265,24 +267,71 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 98698.71473794265,
-        "team": 0.17460796105857776,
+        "dps": 101392.00179552981,
+        "team": 0.356490399517596,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.w": "primal_dragon",
+      "acl": [
+        "if not unlocked",
+        "`s3, x=5",
+        "`s4, x=5",
+        "`s2, x=5",
+        "`s1, x=5",
+        "else",
+        "`fs4, dgauge>=900 or (dgauge>=500 and dshift_count)",
+        "`dragon, (dgauge>=900 or dshift_count) and fsc",
+        "`s4, cancel",
+        "`s2, divine_dagger=0",
+        "`s1, divine_dagger=0",
+        "`fs4, charged_in(fs, s2) and divine_dagger=4",
+        "end"
+      ],
       "coabs": [
+        "Humanoid_Midgardsormr",
         "Mona",
-        "Nino",
-        "Wand"
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 108850.17599937912,
+        "team": 0.35367228729421546,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 2646514.2665265175,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -397,10 +446,6 @@
         "`s1, divine_dagger=0",
         "`fs4, charged_in(fs, s2) and divine_dagger=4",
         "end"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {

@@ -2,30 +2,67 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63525.54519216676,
-        "team": 0.05491180705173672,
+        "dps": 69675.79552751657,
+        "team": 0.11132497979781078,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "A_Small_Courage",
-        "Hastened_Squall",
+        "The_Plaguebringer",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1"
+        "`s1",
+        "`s4"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76614.47590941479,
+        "team": 0.07719199673484833,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, (dgauge >= 900 or dshift_count)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -37,83 +74,16 @@
         "Formal_Noelle"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 67027.44748096309,
-        "team": 0.05431293814522935,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Saiga"
-      ]
-    },
     "META": {
-      "tdps": 5847527.314816809,
+      "tdps": 203283.73787602957,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 52934.09165589131,
-        "team": 0.0739641428122598,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon",
-        "`s1",
-        "`s3, cancel",
-        "`s4",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70689.72699244415,
-        "team": 0.054330948593861596,
+        "dps": 81239.65715070667,
+        "team": 0.11300713230636983,
         "noaff": false,
         "nihil": true
       },
@@ -129,16 +99,21 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s1",
         "`s3, cancel",
         "`s4",
         "`fsf, x=4"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dodge, fsc",
+        "`dfs, x=3"
+      ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Humanoid_Midgardsormr",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -146,50 +121,13 @@
       ]
     },
     "META": {
-      "tdps": 904368.1399491323,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 94928.63645416658,
-        "team": 0.062493536653315106,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Fudo_Myoo",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=4",
-        "`s1, buff(s3)",
-        "`s4"
-      ],
-      "dacl": [
-        "`ds1, dshift_timeleft<1"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100256.88851221775,
+        "dps": 103250.13357943544,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -206,12 +144,12 @@
       "slots.d": "Fudo_Myoo",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3) and x=4",
+        "`s3, not buff(s3)",
         "`s1, buff(s3)",
         "`s4"
       ],
       "dacl": [
-        "`ds1, dshift_timeleft<1"
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -224,7 +162,6 @@
       ]
     },
     "META": {
-      "tdps": 85260.85005573955,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -233,18 +170,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 57338.816838775776,
-        "team": 0.0739641428122598,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77843.48309298311,
-        "team": 0.054374920729708114,
+        "dps": 85621.83202893707,
+        "team": 0.061045654718782774,
         "noaff": false,
         "nihil": true
       },
@@ -261,52 +190,23 @@
       ]
     },
     "META": {
-      "tdps": 1046732.0329412695,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 43671.57172982016,
-        "team": 0.05485612717622111,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Applelicious_Dreams",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4"
-      ],
-      "share": [
-        "Weapon",
-        "Saiga"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43729.47652040609,
-        "team": 0.05431293814522935,
+        "dps": 49075.65869956272,
+        "team": 0.07719199673484833,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 106601.54620612,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -317,8 +217,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36678.22166696421,
-        "team": 0.07397100096356474,
+        "dps": 42235.75323756388,
+        "team": 0.11300713230636983,
         "noaff": false,
         "nihil": true
       },
@@ -332,7 +232,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

@@ -2,19 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 117001.10572286947,
+        "dps": 117075.11307734481,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
+        "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "Luck_of_the_Draw",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -22,11 +22,7 @@
         "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
-        "if not buff(s3)",
-        "`fs, x=5",
-        "else",
-        "`fs, x=4",
-        "end"
+        "`fs, x=4"
       ],
       "coabs": [
         "Blade",
@@ -40,19 +36,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117001.10572286947,
+        "dps": 117075.11307734481,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Adventure_in_the_Past",
-        "Emissaries_of_the_Heavens",
+        "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "Luck_of_the_Draw",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -60,11 +56,7 @@
         "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
-        "if not buff(s3)",
-        "`fs, x=5",
-        "else",
-        "`fs, x=4",
-        "end"
+        "`fs, x=4"
       ],
       "coabs": [
         "Blade",
@@ -81,10 +73,48 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43889.80190034913,
+        "team": 0.03332176142607365,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Gala_Prince"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43475.15489827455,
-        "team": 0.03331186006901749,
+        "dps": 47286.2675918504,
+        "team": 0.03326112159052024,
         "noaff": false,
         "nihil": true
       },
@@ -108,8 +138,8 @@
       ],
       "coabs": [
         "Blade",
-        "Joker",
-        "Vania"
+        "Delphi",
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -117,14 +147,38 @@
       ]
     },
     "META": {
+      "tdps": 56010470.023620196,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45722.415440873585,
+        "team": 0.03331186006901749,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Joker"
+      ]
+    },
+    "META": {
+      "tdps": 30821818.022421934,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 126098.53136802652,
-        "team": 0.14355523921462204,
+        "dps": 126374.01971858228,
+        "team": 0.14355523921462224,
         "noaff": false,
         "nihil": false
       },
@@ -174,7 +228,7 @@
       ]
     },
     "META": {
-      "tdps": 176602.55268917518,
+      "tdps": 174683.51196267188,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -199,7 +253,6 @@
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s4",
@@ -225,7 +278,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73590.4129157135,
+        "dps": 73791.4236490696,
         "team": 0.06664568068232743,
         "noaff": false,
         "nihil": true
@@ -263,11 +316,11 @@
       ]
     },
     "META": {
-      "tdps": 253507783.50548825,
+      "tdps": 265313222.11410365,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

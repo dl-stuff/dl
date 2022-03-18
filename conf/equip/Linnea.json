@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51845.73205350389,
+        "dps": 51907.64972713457,
         "team": 0.049853928203414784,
         "noaff": true,
         "nihil": false
@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71194.4180404127,
+        "dps": 81671.43187109973,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -47,24 +47,27 @@
         "A_Man_Unchanging",
         "Sweet_Surprise",
         "The_Lurker_in_the_Woods",
+        "A_Choice_Blend",
         "Beautiful_Nothingness",
-        "Flowers_Under_the_Moon",
-        "Mask_of_Determination_Lance",
+        "An_Unfreezing_Flower_Axe",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Epimetheus",
       "acl": [
-        "`s3, not buff(s3) and fsc",
+        "`dragon, duration-now<10",
+        "`s3, not buff(s3)",
         "`s4",
         "`s2",
-        "`s1, buff(s3)",
-        "`fs3",
-        "`fs, hits=0 or x=5"
+        "`s1",
+        "`fs3"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
+        "Axe2",
         "Delphi",
-        "Grace",
-        "Vania"
+        "Grace"
       ],
       "share": [
         "Weapon",
@@ -72,14 +75,14 @@
       ]
     },
     "META": {
-      "tdps": 388107.55108327663,
+      "tdps": 597019.7979690288,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55784.6813395822,
+        "dps": 55851.210476540466,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -111,7 +114,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58903.09351403382,
+        "dps": 58973.34168757443,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -148,7 +151,7 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55784.6813395822,
+        "dps": 55851.210476540466,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -168,50 +171,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 84890.9366657782,
-        "team": 0.09885967018107282,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "A_Choice_Blend",
-        "Beautiful_Nothingness",
-        "An_Unfreezing_Flower_Axe",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "#`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs3"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
-      ],
-      "coabs": [
-        "Grace",
-        "Summer_Prince",
-        "Yaten"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101013.25423461705,
-        "team": 0.0955974441885814,
+        "dps": 104141.56333307043,
+        "team": 0.1034651418139054,
         "noaff": false,
         "nihil": false
       },
@@ -224,32 +187,40 @@
         "An_Unfreezing_Flower_Axe",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs3"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
-      ],
       "coabs": [
-        "Grace",
-        "Summer_Prince",
-        "Yaten"
+        "Axe2",
+        "Dagger",
+        "Grace"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Gala_Zena"
       ]
     },
     "META": {
-      "tdps": 4942121.608357972,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88719.28396553078,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Dagger",
+        "Grace",
+        "Vania"
+      ]
+    },
+    "META": {
+      "tdps": 738389.8433880033,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -298,8 +269,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82876.85122372804,
-        "team": 0.057132481953596305,
+        "dps": 82975.7692876511,
+        "team": 0.05713248195359627,
         "noaff": false,
         "nihil": true
       },
@@ -334,7 +305,7 @@
       ]
     },
     "META": {
-      "tdps": 3840768.7394036623,
+      "tdps": 3848072.7644585497,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -345,8 +316,8 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66234.5648879433,
-        "team": 0.033176484132047025,
+        "dps": 66388.55484807189,
+        "team": 0.03317648413204699,
         "noaff": false,
         "nihil": true
       },
@@ -368,7 +339,7 @@
       ]
     },
     "META": {
-      "tdps": 943308.0601439832,
+      "tdps": 947414.5740347317,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
@@ -379,9 +350,9 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51845.73205350389,
-        "team": 0.049853928203414784,
-        "noaff": true,
+        "dps": 51446.382311075526,
+        "team": 0.09997479994177351,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -423,7 +394,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40111.32518977719,
+        "dps": 40159.16219059979,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -436,7 +407,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49797.033029583414,
+        "dps": 49856.444880483796,
         "team": 0.05794640254893647,
         "noaff": false,
         "nihil": true
@@ -478,7 +449,7 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40111.32518977719,
+        "dps": 40159.16219059979,
         "team": 0.0,
         "noaff": false,
         "nihil": true

@@ -886,6 +886,21 @@ class Dodge(Misc):
         self.act_event.dtype = "#"
 
 
+class DodgeOnX(Dodge):
+    def __init__(self, name, conf, act=None):
+        super().__init__(name, conf, act=act)
+        self.retain_x = None
+
+    def _cb_acting(self, e):
+        super()._cb_acting(e)
+        if isinstance(self.getprev(), X):
+            self.retain_x = self.getprev()
+
+    def _cb_act_end(self, e):
+        super()._cb_act_end(e)
+
+
+
 class Shift(Misc):
     def __init__(self, name, dform_name, conf, act=None):
         super().__init__(name, conf, act, atype="s")
@@ -1079,6 +1094,9 @@ class Adv(object):
 
         self.a_dodge = Dodge("dodge", self.conf.dodge)
         self.a_dooodge = Dodge("dooodge", self.conf.dooodge)
+        self.a_dodge_on_x = None
+        if self.conf["dodge_on_x"]:
+            self.a_dodge_on_x = DodgeOnX("dodge", self.conf.dodge_on_x)
         self.a_dash = None
         if self.conf["dash"]:
             self.a_dash = DashX("dash", self.conf.dash)
@@ -1851,6 +1869,8 @@ class Adv(object):
         prev = prev or self.action.getdoing()
         if prev is self.action.nop:
             prev = self.action.getprev()
+        if prev == self.a_dodge_on_x and prev.retain_x is not None:
+            prev = prev.retain_x
         if isinstance(prev, X):
             if prev.group == self.current.x and prev.conf["loop"]:
                 x_next = prev
@@ -1909,6 +1929,8 @@ class Adv(object):
     def dodge(self):
         if self.in_dform():
             return self.dragonform.d_dodge()
+        if self.a_dodge_on_x is not None and isinstance(self.action.getdoing(), X):
+            return self.a_dodge_on_x()
         return self.a_dodge()
 
     @allow_acl
@@ -2432,11 +2454,14 @@ class Adv(object):
         e.ret = e.dmg
         return
 
-    def dmg_formula(self, name, dmg_coef, dtype=None, actcond_dmg=False):
-        dmg_mod = self.dmg_mod(name, dtype=dtype, actcond_dmg=actcond_dmg)
+    def dmg_formula(self, name, dmg_coef, dtype=None, ignore_def=False):
+        dmg_mod = self.dmg_mod(name, dtype=dtype)
         att = self.att_mod(name)
-        armor = 10 * self.def_mod()
-        ex = Modifier.SELF.mod("ex")
+        if ignore_def:
+            armor = 10
+        else:
+            armor = 10 * self.def_mod()
+        ex = self.mod("ex")
         ele = self.ele_mod()
         # log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
@@ -2461,13 +2486,13 @@ class Adv(object):
             depth=t.depth,
         )
 
-    def dmg_make(self, name, coef, dtype=None, fixed=False, hitmods=None, attenuation=None, depth=0):
+    def dmg_make(self, name, coef, dtype=None, fixed=False, hitmods=None, attenuation=None, depth=0, ignore_def=False):
         if coef <= 0.01:
             return 0
         if hitmods is not None:
             for m in hitmods:
                 m.on()
-        count = self.dmg_formula(name, coef, dtype=dtype) if not fixed else coef
+        count = self.dmg_formula(name, coef, dtype=dtype, ignore_def=ignore_def) if not fixed else coef
         if hitmods is not None:
             for m in hitmods:
                 m.off()
@@ -2549,6 +2574,7 @@ class Adv(object):
                 attenuation = (attr["fade"], self.conf.attenuation.hits, hitmods)
             else:
                 attenuation = None
+            ignore_def = attr.get("idef")
             if self.berserk_mode and "odmg" in attr:
                 hitmods.append(Modifier("ex", "odgauge", attr["odmg"] - 1))
             if "crit" in attr:
@@ -2562,10 +2588,10 @@ class Adv(object):
             if "extra" in attr:
                 for _ in range(min(attr["extra"], round(self.buffcount))):
                     self.add_combo(dmg_name)
-                    self.dmg_make(dmg_name, attr["dmg"], dtype=dtype, attenuation=attenuation)
+                    self.dmg_make(dmg_name, attr["dmg"], dtype=dtype, attenuation=attenuation, ignore_def=ignore_def)
             else:
                 self.add_combo(dmg_name)
-                self.dmg_make(dmg_name, attr["dmg"], dtype=dtype, attenuation=attenuation)
+                self.dmg_make(dmg_name, attr["dmg"], dtype=dtype, attenuation=attenuation, ignore_def=ignore_def)
 
         if onhit:
             onhit(name, base, group, aseq, dtype)

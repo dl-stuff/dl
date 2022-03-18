@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96980.13828033545,
-        "team": 0.12547332597474303,
+        "dps": 97097.45296373915,
+        "team": 0.12547332597474317,
         "noaff": false,
         "nihil": false
       },
@@ -53,9 +53,9 @@
         "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4",
+        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba) and s2.check",
         "`s2",
         "`s1",
-        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba)",
         "`fsf, x=5"
       ],
       "dacl": [
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 245226.27027663976,
+      "tdps": 245533.56518615445,
       "pref": "PERSONAL"
     }
   },
@@ -92,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 332550.4840556563,
+      "tdps": 332966.9033013156,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -101,113 +101,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 2217.6734415348656,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s2, new_dish=3",
-        "`s3",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Tobias"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33806.24437833324,
-        "team": 0.054848963267958836,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "Sweet_Surprise",
-        "A_Choice_Blend",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "slots.w": "void",
-      "acl": [
-        "`dragon, cancel",
-        "`s4, cancel",
-        "`s3, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Eleonora",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 103682.17630412063,
-        "team": 0.1739755680358422,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Fudo_Myoo",
-      "dacl": [
-        "`ds1, dshift_timeleft<1"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 84380.21190678772,
-        "team": 0.06113617817290019,
+        "dps": 75009.21304520965,
+        "team": 0.07919117294435708,
         "noaff": false,
         "nihil": true
       },
@@ -223,17 +120,96 @@
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, cancel",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
-        "`s2",
-        "`s1",
-        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba)",
-        "`fsf, x=5"
+        "`s1"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
         "`dfs, x=3"
+      ],
+      "coabs": [
+        "Axe2",
+        "Gala_Notte",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81826.1871071208,
+        "team": 0.06111079256719611,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 377037.0932307549,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 116408.3056268819,
+        "team": 0.17460343089406904,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Fudo_Myoo",
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s2, xf or fsc",
+        "`s4",
+        "`s1",
+        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba)"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -242,14 +218,45 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Gala_Zena"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84480.8242421297,
+        "team": 0.06113617817290023,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba)",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -264,8 +271,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65105.71015234283,
-        "team": 0.24098345947727456,
+        "dps": 65184.45118457705,
+        "team": 0.2409834594772746,
         "noaff": false,
         "nihil": false
       },
@@ -284,7 +291,7 @@
       ]
     },
     "META": {
-      "tdps": 231981.55526698555,
+      "tdps": 232277.2899519937,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -295,8 +302,8 @@
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65105.71015234283,
-        "team": 0.24098345947727456,
+        "dps": 65184.45118457705,
+        "team": 0.2409834594772746,
         "noaff": false,
         "nihil": false
       },
@@ -314,9 +321,9 @@
         "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4",
+        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba) and s2.check",
         "`s2",
         "`s1",
-        "`fs, charged_in(fs, s2) and c_fs(foragermitsuba)",
         "`fsf, x=5"
       ],
       "dacl": [
@@ -337,17 +344,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 2217.6734415348656,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 11891.61305630566,
+        "dps": 16022.733159562571,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -386,7 +385,7 @@
   "IMMUNE-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11891.61305630566,
+        "dps": 16022.733159562571,
         "team": 0.0,
         "noaff": false,
         "nihil": true

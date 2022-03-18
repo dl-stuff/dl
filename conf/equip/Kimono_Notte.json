@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60716.292794767345,
-        "team": 0.06529288637128255,
+        "dps": 68772.76266499395,
+        "team": 0.06934175406890196,
         "noaff": false,
         "nihil": false
       },
@@ -16,19 +16,19 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
       "acl": [
+        "`dragon, cancel",
         "`s3, not buff(s3)",
-        "`dragon, buff(s3)",
-        "`s2",
-        "`s4"
+        "`s2, butterflies>=9 and x=3",
+        "`s4, s=2"
       ],
       "dacl": [
         "`ds2, x=3",
-        "`ds1, x=3"
+        "`ds1, not aff(flashburn)"
       ],
       "coabs": [
-        "Blade",
+        "Halloween_Laxi",
         "Mitsuhide",
         "Peony"
       ],
@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60716.292794767345,
-        "team": 0.06529288637128255,
+        "dps": 71994.00421433362,
+        "team": 0.06540250611009321,
         "noaff": false,
         "nihil": false
       },
@@ -51,21 +51,21 @@
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
       "acl": [
+        "`dragon, cancel",
         "`s3, not buff(s3)",
-        "`dragon, buff(s3)",
-        "`s2",
-        "`s4"
+        "`s2, butterflies>=7 and x=3",
+        "`s4, s=2"
       ],
       "dacl": [
         "`ds2, x=3",
-        "`ds1, x=3"
+        "`ds1, x=3 or duration-now<3"
       ],
       "coabs": [
-        "Blade",
+        "Halloween_Laxi",
         "Mitsuhide",
         "Peony"
       ],
@@ -75,7 +75,195 @@
       ]
     },
     "META": {
+      "tdps": 817730.0802140397,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38340.65338709566,
+        "team": 0.018440965043821134,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Elysium",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s2, butterflies>=9 and x=3",
+        "`s4, s=2"
+      ],
+      "dacl": [
+        "`ds2, x=3",
+        "`ds1, not aff(flashburn)"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49712.14182272044,
+        "team": 0.014758217554580387,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Cupid",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s2, butterflies>=9 and x=3",
+        "`s4, s=2"
+      ],
+      "dacl": [
+        "`ds2, x=3",
+        "`ds1, not aff(flashburn)"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 3087773.046848015,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 73979.63045519327,
+        "team": 0.06950628354202777,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, butterflies>=9 and x=3",
+        "`s4, x=3"
+      ],
+      "dacl": [
+        "`ds1, x=3 and duration-now<3",
+        "`ds2, x=3"
+      ],
+      "coabs": [
+        "Halloween_Laxi",
+        "Joker",
+        "Peony"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86782.05929496713,
+        "team": 0.06540250611009311,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Corsaint_Phoenix"
+    },
+    "META": {
+      "tdps": 3119669.390486015,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53165.23561840667,
+        "team": 0.01475542176778218,
+        "noaff": false,
+        "nihil": true
+      },
+      "dacl": [
+        "`ds2",
+        "`ds1, x=3 or duration-now<3"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60981.05736419083,
+        "team": 0.06540250611009307,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Applelicious_Dreams",
+        "Savage_Hawk_Lance"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

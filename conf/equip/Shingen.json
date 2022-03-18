@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 75946.17478373947,
+        "dps": 76039.72375698981,
         "team": 0.07025489155123509,
         "noaff": false,
         "nihil": false
@@ -39,7 +39,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 132351.9752880663,
+        "dps": 132741.34659009907,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -75,15 +75,15 @@
       ]
     },
     "META": {
-      "tdps": 802873.6399541881,
+      "tdps": 807084.3407644893,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89897.1438356106,
-        "team": 0.0,
+        "dps": 105878.85035539627,
+        "team": 0.07924848679452826,
         "noaff": false,
         "nihil": true
       },
@@ -96,10 +96,10 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Fudo_Myoo",
+      "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon, cancel",
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s3, cancel",
         "`s4, cancel",
         "`s1",
@@ -113,7 +113,7 @@
       ],
       "coabs": [
         "Mona",
-        "Wand",
+        "Nino",
         "Yukata_Lathna"
       ],
       "share": [
@@ -123,7 +123,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108837.94435128501,
+        "dps": 108970.00252441094,
         "team": 0.06897530859469157,
         "noaff": false,
         "nihil": true
@@ -163,6 +163,7 @@
       ]
     },
     "META": {
+      "tdps": 300895.4102503369,
       "pref": "PERSONAL"
     }
   },
@@ -208,7 +209,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 151788.69176019955,
+        "dps": 152257.71571460346,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -243,7 +244,7 @@
       ]
     },
     "META": {
-      "tdps": 297037.5585618366,
+      "tdps": 300638.79332339036,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -252,35 +253,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 119295.11066247246,
-        "team": 0.07617210922338595,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon",
-        "`s3, timeleft(s3)<5",
-        "`s4",
-        "`s1, mettle or furinkazan_mode.get()",
-        "`s2",
-        "`fs, x=5 and mettle < 3"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs, x=3"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 121523.84429615989,
+        "dps": 121671.29486557891,
         "team": 0.07557022822306941,
         "noaff": false,
         "nihil": true
@@ -299,7 +274,6 @@
       ]
     },
     "META": {
-      "tdps": 3702947.3143616575,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -318,7 +292,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 112541.23267501287,
+        "dps": 112891.18550366918,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -334,7 +308,7 @@
       ]
     },
     "META": {
-      "tdps": 1011832.5239941232,
+      "tdps": 1018064.4748418068,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -345,7 +319,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38494.63535530202,
+        "dps": 38541.34269850361,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -362,7 +336,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

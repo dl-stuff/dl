@@ -85,10 +85,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 68599.45029253098,
-        "team": 0.07405988533641227,
+        "dps": 71730.35601267981,
+        "team": 0.1074758149779495,
         "noaff": false,
         "nihil": true
       },
@@ -96,15 +96,56 @@
         "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "A_Small_Courage",
+        "Hastened_Squall",
         "Saint_Starfalls_Circus",
         "Applelicious_Dreams",
-        "Savage_Hawk_Bow"
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "slots.w": "primal_dragon",
       "acl": [
-        "`dragon",
+        "`dragon, (dgauge >= 900 or dshift_count)",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Humanoid_Midgardsormr",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87859.18154230271,
+        "team": 0.06820045219038606,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "Saint_Starfalls_Circus",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "slots.w": "primal_dragon",
+      "acl": [
+        "`dragon, (dgauge >= 900 or dshift_count)",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s1, cancel",
@@ -113,9 +154,9 @@
         "`fs, x=3"
       ],
       "coabs": [
-        "Bow",
-        "Gala_Notte",
-        "Mona"
+        "Mona",
+        "Nino",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -123,6 +164,7 @@
       ]
     },
     "META": {
+      "tdps": 410660.12851013313,
       "pref": "PERSONAL"
     }
   },
@@ -164,15 +206,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "Saint_Starfalls_Circus",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "if brewing_storm.level<5",
         "`s1, xf or fsc",
@@ -192,18 +225,13 @@
       "dacl": [
         "`ds1, blood_moon=0",
         "`fs, x=3"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Wand"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -276,16 +304,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "Saint_Starfalls_Circus",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "slots.w": "primal_dragon",
       "acl": [
         "if brewing_storm.level<5",
         "`s1, xf or fsc",
@@ -319,15 +337,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "Saint_Starfalls_Circus",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "if brewing_storm.level<5",
         "`s1, xf or fsc",
@@ -358,7 +367,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 67994.37060429117,
-        "team": 0.13025151244008376,
+        "dps": 64787.83673224715,
+        "team": 0.1338818974991422,
         "noaff": true,
         "nihil": false
       },
@@ -18,21 +18,21 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
+        "`dragon",
         "`fs, now=0",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s4",
-        "`dragon"
+        "`s4"
       ],
       "dacl": [
         "`s4",
-        "`s2, dgauge>=1600 and x=4",
+        "`s2",
         "`s1, x=4"
       ],
       "coabs": [
-        "Blade",
+        "Halloween_Laxi",
         "Peony",
-        "Wand"
+        "Raemond"
       ],
       "share": [
         "Weapon",
@@ -78,8 +78,8 @@
       ]
     },
     "META": {
-      "tdps": 36273.42396396078,
-      "pref": "TEAMBUFF"
+      "tdps": 59240.28829051439,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -167,7 +167,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84435.10110887191,
+        "dps": 91269.479273359,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -181,6 +181,7 @@
         "Applelicious_Dreams",
         "Mask_of_Determination_Bow"
       ],
+      "slots.d": "Corsaint_Phoenix",
       "acl": [
         "`dragon, x=5",
         "`s3, not buff(s3)",
@@ -198,7 +199,7 @@
       ]
     },
     "META": {
-      "tdps": 126222.95278255251,
+      "tdps": 197798.5301656,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -209,7 +210,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69551.50667452793,
+        "dps": 74364.76279228114,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -223,6 +224,7 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Corsaint_Phoenix",
       "acl": [
         "`dragon",
         "`s4, x=5",
@@ -256,7 +258,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67994.37060429117,
+        "dps": 70091.13225073631,
         "team": 0.13025151244008376,
         "noaff": true,
         "nihil": false
@@ -272,16 +274,21 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
+        "`dragon",
         "`fs, now=0",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s4",
-        "`dragon"
+        "`s4"
       ],
       "dacl": [
         "`s4",
         "`s2, dgauge>=1600 and x=4",
         "`s1, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Laxi",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -289,6 +296,7 @@
       ]
     },
     "META": {
+      "tdps": 1460807.9948038887,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

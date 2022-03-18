@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 92254.6479574859,
-        "team": 0.3197509734483335,
+        "dps": 92382.09665211833,
+        "team": 0.3197509734483334,
         "noaff": false,
         "nihil": false
       },
@@ -40,14 +40,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116376.7920575386,
-        "team": 0.03324972692982129,
+        "dps": 117071.63906786045,
+        "team": 0.03328268479721182,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
+        "Emissaries_of_the_Heavens",
         "Wings_of_Rebellion_at_Rest",
         "Dueling_Dancers",
         "Entwined_Flames",
@@ -64,7 +64,7 @@
         "`s1, masterctrl_buff.get() and x=4"
       ],
       "dacl": [
-        "`ds1, x=3"
+        "`ds1, x=2"
       ],
       "coabs": [
         "Eugene",
@@ -77,15 +77,15 @@
       ]
     },
     "META": {
-      "tdps": 84195.59912279143,
+      "tdps": 86185.95283965458,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62614.41203352817,
-        "team": 0.033325686799909535,
+        "dps": 65758.4157861173,
+        "team": 0.033326226428214756,
         "noaff": false,
         "nihil": true
       },
@@ -105,6 +105,9 @@
         "`s4",
         "`s2",
         "`s1, masterctrl_buff.get() and x=4"
+      ],
+      "dacl": [
+        "`ds1, x=2"
       ],
       "coabs": [
         "Dragonyule_Cleo",
@@ -153,27 +156,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 125679.2827486241,
-        "team": 0.03324972692982129,
+        "dps": 126551.7296098016,
+        "team": 0.03328268479721182,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "Wings_of_Rebellion_at_Rest",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Applelicious_Dreams",
-        "Testament_of_Eternity"
-      ],
-      "dacl": [
-        "`ds1, x=3",
-        "`dfs3"
-      ]
+      }
     },
     "META": {
-      "tdps": 144952.56784806988,
+      "tdps": 147950.77405625556,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -184,19 +174,26 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67771.85892033059,
-        "team": 0.033299017264952,
+        "dps": 73829.2954907944,
+        "team": 0.03328071324645907,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "Wings_of_Rebellion_at_Rest",
-        "A_Choice_Blend",
-        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4"
       ]
     },
     "META": {
@@ -210,17 +207,17 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 85313.65786825691,
-        "team": 0.03328656020337916,
+        "dps": 94555.62252215801,
+        "team": 0.0333094519227586,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "Wings_of_Rebellion_at_Rest",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
@@ -233,6 +230,9 @@
         "`fs, charged_in(fs, s2) and x=4",
         "`s1, masterctrl_buff.get() and x=4"
       ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
       "coabs": [
         "Eugene",
         "Tiki",
@@ -241,14 +241,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87654.27944790681,
-        "team": 0.03324972692982129,
+        "dps": 95984.62162645883,
+        "team": 0.03328268479721182,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ]
     },
     "META": {
-      "tdps": 63546390.357414775,
+      "tdps": 53386348.93026249,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -257,44 +266,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 48265.56378659814,
-        "team": 0.033325686799909535,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Moonlight_Party",
-        "OneWinged_Journey",
-        "Wings_of_Rebellion_at_Rest",
-        "A_Choice_Blend",
-        "Beautiful_Nothingness",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Gala_Beast_Ciella",
-      "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, masterctrl_buff.get() and x=4"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48265.56378659814,
-        "team": 0.033325686799909535,
+        "dps": 49681.13029825606,
+        "team": 0.033326226428214756,
         "noaff": false,
         "nihil": true
       }

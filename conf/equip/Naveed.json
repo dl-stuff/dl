@@ -47,7 +47,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101901.97176599478,
+        "dps": 103724.79056542866,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -56,15 +56,14 @@
         "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "FirstRate_Hospitality",
-        "To_the_Extreme",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "queue now=0",
-        "`fs",
         "`s2",
         "`s3",
         "`s4",
@@ -74,8 +73,10 @@
         "`s2",
         "`s1",
         "`s4, cancel or dgauge>=500",
-        "`fs, x=4",
-        "`fs, cancel and charged_in(fs, s2)"
+        "`fs, x=4 or charged_in(fs, s2)"
+      ],
+      "dacl": [
+        "`ds1, x=1"
       ],
       "coabs": [
         "Gala_Sarisse",
@@ -88,7 +89,7 @@
       ]
     },
     "META": {
-      "tdps": 359290.3354290156,
+      "tdps": 376475.5014513059,
       "pref": "PERSONAL"
     }
   },
@@ -135,8 +136,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 102876.01762614545,
-        "team": 0.11846317381726247,
+        "dps": 108440.45986531653,
+        "team": 0.14091562841540947,
         "noaff": false,
         "nihil": false
       },
@@ -144,30 +145,43 @@
         "Emissaries_of_the_Heavens",
         "Me_and_My_Bestie",
         "The_Cutie_Competition",
-        "A_Small_Courage",
         "FirstRate_Hospitality",
-        "Mask_of_Determination_Bow",
+        "To_the_Extreme",
+        "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "queue prep and not buff(s3)",
+        "queue now=0",
         "`s2",
         "`s3",
         "`s4",
         "`s1",
         "end",
-        "`dragon",
-        "`s2, naveed_bauble<5 or (naveed_bauble=5 and cancel)",
+        "`dragon, s=2",
+        "`s4, buff(s2)",
+        "`s2",
         "`s1",
-        "`s4, fsc",
-        "`fs, x=4",
-        "`fs, cancel and charged_in(fs, s2)"
+        "`fs, x=4 or charged_in(fs, s2)"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 115931.8223429609,
-        "team": 0.0,
+        "dps": 116392.06845024263,
+        "team": 0.10579241111650792,
         "noaff": false,
         "nihil": false
       },
@@ -175,8 +189,8 @@
         "Emissaries_of_the_Heavens",
         "Me_and_My_Bestie",
         "The_Cutie_Competition",
-        "The_Plaguebringer",
-        "To_the_Extreme",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
         "Applelicious_Dreams",
         "Testament_of_Eternity"
       ],
@@ -192,15 +206,19 @@
         "`s4, fsc",
         "`s2",
         "`s1",
-        "`fs, x=4"
+        "`fs, x=4 or charged_in(fs, s2)"
       ],
       "dacl": [
         "`ds1, x=2",
         "`dodge, x=2"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 110209.81707745674,
+      "tdps": 226391.8056611169,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,8 +229,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75201.56331613289,
-        "team": 0.0,
+        "dps": 75740.57159035471,
+        "team": 0.0087667413747911,
         "noaff": false,
         "nihil": true
       },
@@ -225,6 +243,7 @@
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Apollo",
       "acl": [
         "`dragon, fsc",
         "`s2, naveed_bauble<5",
@@ -252,75 +271,43 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 68547.2224660192,
-        "team": 0.11846317381726247,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "FirstRate_Hospitality",
-        "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "queue prep and not buff(s3)",
-        "`s2",
-        "`s3",
-        "`s4",
-        "`s1",
-        "end",
-        "`dragon",
-        "`s2, naveed_bauble<5 or (naveed_bauble=5 and cancel)",
-        "`s1",
-        "`s4, fsc",
-        "`fs, x=4",
-        "`fs, cancel and charged_in(fs, s2)"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68547.2224660192,
-        "team": 0.11846317381726247,
+        "dps": 82921.95117653802,
+        "team": 0.10579241111650792,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
+        "Moonlight_Party",
+        "Worthy_Rivals",
         "FirstRate_Hospitality",
+        "To_the_Extreme",
         "Applelicious_Dreams",
-        "Mask_of_Determination_Bow"
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "queue prep and not buff(s3)",
+        "queue now=0",
         "`s2",
         "`s3",
         "`s4",
         "`s1",
         "end",
-        "`dragon",
-        "`s2, naveed_bauble<5 or (naveed_bauble=5 and cancel)",
-        "`s1",
+        "`dragon, s=2",
         "`s4, fsc",
-        "`fs, x=4",
-        "`fs, cancel and charged_in(fs, s2)"
+        "`s2",
+        "`s1",
+        "`fs, x=4 or charged_in(fs, s2)"
       ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Wand"
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {

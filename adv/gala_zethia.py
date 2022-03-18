@@ -2,20 +2,6 @@ from core.advbase import *
 from module.template import Adv_INFUTP
 
 
-class DodgeOnX(Dodge):
-    def __init__(self, name, conf, act=None):
-        super().__init__(name, conf, act=act)
-        self.retain_x = None
-
-    def _cb_acting(self, e):
-        super()._cb_acting(e)
-        if isinstance(self.getprev(), X):
-            self.retain_x = self.getprev()
-
-    def _cb_act_end(self, e):
-        super()._cb_act_end(e)
-
-
 class Gala_Zethia(Adv):
     DISABLE_DACL = True
 
@@ -25,8 +11,6 @@ class Gala_Zethia(Adv):
         # s1 sp slowdown
         self.s1sp = 0
         self.s1.autocharge_init(self.s1_autocharge).on()
-        # dodge from x
-        self.a_dodge_on_x = DodgeOnX("dodge", self.conf.dodge_on_x)
         # bahamut
         self._servant_actions = {name: ServantAction(name, conf, self) for name, conf in self.conf.dservant.items()}
         Event("dragondrive").listener(self.start_servant)
@@ -39,20 +23,6 @@ class Gala_Zethia(Adv):
     @property
     def skills(self):
         return (self.s1, self.s3, self.s4)
-
-    def _next_x(self):
-        doing = self.action.getdoing()
-        if doing == self.action.nop:
-            doing = self.action.getprev()
-        if doing == self.a_dodge_on_x and doing.retain_x is not None:
-            return super()._next_x(prev=doing.retain_x)
-        return super()._next_x()
-
-    @allow_acl
-    def dodge(self):
-        if isinstance(self.action.getdoing(), X):
-            return self.a_dodge_on_x()
-        return self.a_dodge()
 
     def s1_autocharge(self, t):
         s1_sp = 34000 * (3 - self.s1sp)

@@ -31,7 +31,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88845.01974910116,
+        "dps": 92135.5456275275,
         "team": 0.13328882875249767,
         "noaff": false,
         "nihil": false
@@ -64,7 +64,7 @@
       ],
       "coabs": [
         "Blade",
-        "Summer_Celliera",
+        "Catherine",
         "Tiki"
       ],
       "share": [
@@ -73,14 +73,14 @@
       ]
     },
     "META": {
-      "tdps": 293796.21763025183,
+      "tdps": 305792.95584298985,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60308.94003331926,
+        "dps": 77815.30579145499,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -88,13 +88,13 @@
       "slots.a": [
         "Bloody_Little_Queen",
         "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
+        "Wings_of_Rebellion_at_Rest",
         "A_Small_Courage",
-        "His_Clever_Brother",
+        "Snipers_Allure",
         "Applelicious_Dreams",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gala_Beast_Ciella",
       "acl": [
         "`dragon",
         "`s3",
@@ -103,6 +103,9 @@
         "`s1, cancel",
         "`dodge, fsc",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "ds1,x=2"
       ],
       "coabs": [
         "Blade",
@@ -121,37 +124,44 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91453.00022089257,
-        "team": 0.1205771289804899,
+        "dps": 111041.33706688935,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
       "acl": [
-        "`dragon,s=1",
-        "queue prep",
-        "`s3",
-        "`fs",
-        "`s1",
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
         "`s4",
-        "end",
-        "`s2, cancel",
-        "`s4, fsc",
-        "`s1, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`s2",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, x=3"
       ],
       "coabs": [
-        "Gala_Mascula",
-        "Hunter_Sarisse",
-        "Xander"
+        "Eugene",
+        "Tiki",
+        "Xainfried"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 289870.4976975726,
+      "tdps": 252175.69796054522,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -162,11 +172,30 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62775.096412828294,
+        "dps": 83699.67882153038,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Wings_of_Rebellion_at_Rest",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Applelicious_Dreams",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, cancel",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -227,7 +256,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46630.7373672767,
+        "dps": 50877.699247253426,
         "team": 0.0,
         "noaff": false,
         "nihil": true
