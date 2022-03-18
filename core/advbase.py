@@ -1456,7 +1456,7 @@ class Adv(object):
         if dtype == "s":
             if not actcond_dmg:
                 try:
-                    mod *= 1 if self.a_s_dict[name].owner is None else self.skill_share_att
+                    mod *= 1 if self.a_s_dict[name].owner is None else self.skillshare_att
                 except:
                     pass
             return mod * Modifier.SELF.mod("s")
@@ -2078,13 +2078,12 @@ class Adv(object):
         if len(self.skillshare_list) < 2:
             self.skillshare_list.insert(0, "Weapon")
 
-        from conf import load_adv_json
         from core.simulate import load_adv_module
 
         self_data = self.conf.c.skillshare
         share_limit = self_data["limit"] or 10
         sp_modifier = self_data["mod_sp"] or 1
-        self.skill_share_att = self_data["mod_att"] or 0.7
+        self.skillshare_att = self_data["mod_att"] or 0.7
         share_costs = 0
 
         for idx, owner in enumerate(self.skillshare_list):
@@ -2454,8 +2453,8 @@ class Adv(object):
         e.ret = e.dmg
         return
 
-    def dmg_formula(self, name, dmg_coef, dtype=None, ignore_def=False):
-        dmg_mod = self.dmg_mod(name, dtype=dtype)
+    def dmg_formula(self, name, dmg_coef, dtype=None, actcond_dmg=False, ignore_def=False):
+        dmg_mod = self.dmg_mod(name, dtype=dtype, actcond_dmg=actcond_dmg)
         att = self.att_mod(name)
         if ignore_def:
             armor = 10
