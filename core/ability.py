@@ -75,13 +75,15 @@ class CondAlways(Cond):
         self._extra_checks = []
         if cd := data.get("cd"):
             self._cooldown = Timer(timeout=cd - 0.0001, repeat=True)
-        if actcond := data.get("actcond"):
-            self._actcond_id = actcond
-        self._can_trigger = bool(cd and actcond)
+        self._actcond_id = data.get("actcond")
+        self._count = data.get("count", -1)
+        self._can_trigger = bool(cd and (self._actcond_id or self._count))
 
     def _checked_callback(self, callback, e):
-        if self.has_actcond():
+        if self._actcond_id is None or self.has_actcond() and self._count != 0:
             callback(e)
+            if self._count > 0:
+                self._count -= 1
         else:
             self._cooldown.off()
 
@@ -93,11 +95,16 @@ class CondAlways(Cond):
     def trigger(self, callback, order=1):
         if self._can_trigger:
             self._cooldown.process = partial(self._checked_callback, callback)
-            self.l_actcond = Listener("actcond", self._activate, order=order)
+            if self._actcond_id is not None:
+                self.l_actcond = Listener("actcond", self._activate, order=order)
+            else:
+                self._cooldown.name = "dauntless"
+                self._cooldown.on()
             return None
 
 
 CONDITIONS["always"] = CondAlways
+CONDITIONS["dauntless"] = CondAlways
 
 
 class CompareCond(Cond):
@@ -490,7 +497,7 @@ class AbActGrant(Ab):
 
     def _grant_actcond(self, e=None):
         if not self._cond or self._cond.checked_get():
-            self.actcond = self._adv.actcond_make(self.actcond_id, "HOSTILE", ("actgrant", None), dtype=self.l_act)
+            self.actcond = self._adv.actcond_make(self.actcond_id, "HOSTILE", ("actgrant", None), dtype=self.action)
 
 
 SUB_ABILITIES["actgrant"] = AbActGrant

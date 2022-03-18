@@ -776,7 +776,7 @@ class ActCond:
 
         if self.alt:
             for act, group in self.alt.items():
-                self._adv.current.set_action(act, group)
+                self._adv.current.set_action(act, group, buff=self)
             if self.alt_has_s and timer is not None:
                 self.l_s.on()
                 self.l_s_end.on()

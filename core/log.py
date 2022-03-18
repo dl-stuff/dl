@@ -3,6 +3,7 @@ import re
 from collections import defaultdict
 import core.timeline
 from conf import DRG
+import copy
 
 DACT_NAME = re.compile(r"(?:ds\d+(?:_[A-Za-z0-9]+)?|dfs\d*(?:_[A-Za-z0-9]+)?|dx(\d)+(?:_[A-Za-z0-9]+)?)")
 

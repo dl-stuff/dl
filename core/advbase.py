@@ -22,14 +22,14 @@ class CurrentActions:
     def __init__(self, in_dform) -> None:
         self._in_dform = in_dform
         self._act = {
-            "x": [globalconf.DEFAULT],
-            "fs": [globalconf.DEFAULT],
-            "s1": [globalconf.DEFAULT],
-            "s2": [globalconf.DEFAULT],
-            "s3": [globalconf.DEFAULT],
-            "s4": [globalconf.DEFAULT],
-            "ds1": [globalconf.DEFAULT],
-            "ds2": [globalconf.DEFAULT],
+            "x": [(globalconf.DEFAULT, None)],
+            "fs": [(globalconf.DEFAULT, None)],
+            "s1": [(globalconf.DEFAULT, None)],
+            "s2": [(globalconf.DEFAULT, None)],
+            "s3": [(globalconf.DEFAULT, None)],
+            "s4": [(globalconf.DEFAULT, None)],
+            "ds1": [(globalconf.DEFAULT, None)],
+            "ds2": [(globalconf.DEFAULT, None)],
         }
 
     @property
@@ -67,22 +67,23 @@ class CurrentActions:
         return self.get("ds2")
 
     def get(self, act):
-        return self._act[act][-1]
+        return self._act[act][-1][0]
 
-    def set_action(self, act, group):
+    def get_buff(self, act) -> ActCond:
+        return self._act[act][-1][1]
+
+    def set_action(self, act, group, buff=None):
         try:
             if self._act[act][-1] == group:
                 return
-            self._act[act] = [g for g in self._act[act] if g != group]
-            self._act[act].append(group)
-            # log("debug", "set_action", act, group, self._act[act])
+            self._act[act] = [g for g in self._act[act] if g[0] != group]
+            self._act[act].append((group, buff))
         except KeyError:
             pass
 
     def unset_action(self, act, group):
         try:
-            self._act[act] = [g for g in self._act[act] if g != group]
-            # log("debug", "unset_action", act, group, self._act[act])
+            self._act[act] = [g for g in self._act[act] if g[0] != group]
         except KeyError:
             pass
 
@@ -898,7 +899,6 @@ class DodgeOnX(Dodge):
 
     def _cb_act_end(self, e):
         super()._cb_act_end(e)
-
 
 
 class Shift(Misc):
@@ -1890,7 +1890,7 @@ class Adv(object):
             if prev.status == Action.RECOVERY and self.dragonform.dform_mode == -1 and not self.dragonform.untimed_shift and x_next.getstartup() >= self.dshift_timeleft:
                 return self.sack()
         elif not x_next.enabled:
-            self.current.x = globalconf.DEFAULT
+            self.current.set_action("x", globalconf.DEFAULT)
             x_next = self.a_x_dict[self.current.x][1]
         return x_next()
 
@@ -2883,8 +2883,9 @@ class Adv(object):
 
     @allow_acl
     def c_fs(self, group):
-        if self.current.fs == group and self.alt_fs_buff is not None:
-            return self.alt_fs_buff.uses
+        if self.current.fs == group:
+            if (fs_buff := self.current.get_buff("fs")) is not None:
+                return fs_buff.count
         return 0
 
     @allow_acl
