@@ -1,13 +1,11 @@
 from functools import partial
 
+from more_itertools import pad_none
+
 from core.modifier import Modifier
 from core.timeline import Listener, Timer
 from conf import float_ceil, OPS, SELF
 from core.log import log
-
-
-class InactiveAbility(Exception):
-    pass
 
 
 ### Conditions
@@ -16,7 +14,7 @@ CONDITIONS = {}
 
 
 class Cond:
-    def __init__(self, adv, data, *args) -> None:
+    def __init__(self, adv, data) -> None:
         self._adv = adv
         self.event = None
         self.end_event = None
@@ -70,8 +68,8 @@ class Cond:
 
 
 class CondAlways(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__(adv, data)
         self._extra_checks = []
         if cd := data.get("cd"):
             self._cooldown = Timer(timeout=cd - 0.0001, repeat=True)
@@ -108,13 +106,14 @@ CONDITIONS["dauntless"] = CondAlways
 
 
 class CompareCond(Cond):
-    def __init__(self, event, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
-        self._op = OPS[args[0]]
-        self.value = args[1]
+    def __init__(self, event, adv, data, op_key, value, *args, **kwargs) -> None:
+        super().__init__(adv, data)
+        self._op = OPS[op_key]
+        self.value = value
         self.event = event
+        self.end_event = event
         try:
-            self.moment = bool(args[2])
+            self.moment = bool(args[0])
         except IndexError:
             self.moment = False
         self.current_state = False
@@ -122,14 +121,24 @@ class CompareCond(Cond):
     def check(self, e):
         # check is true only when here is a change from current state
         new_state = self.get()
+        if not new_state:
+            return False
+        result = self.current_state != new_state
+        self.current_state = new_state
+        return result
+
+    def end_check(self, e):
+        new_state = self.get()
+        if new_state:
+            return False
         result = self.current_state != new_state
         self.current_state = new_state
         return result
 
 
 class CondHP(CompareCond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__("hp", adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__("hp", adv, data, *args, **kwargs)
 
     def get(self):
         return self._op(self._adv.hp, self.value)
@@ -139,8 +148,8 @@ CONDITIONS["hp"] = CondHP
 
 
 class CondHits(CompareCond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__("hits", adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__("hits", adv, data, *args, **kwargs)
 
     def get(self):
         return self._op(self._adv.hits, self.value)
@@ -150,9 +159,9 @@ CONDITIONS["hits"] = CondHits
 
 
 class CondActcond(CompareCond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__("actcond", adv, data, *args[1:])
-        self.actcond_id = args[0]
+    def __init__(self, adv, data, actcond_id, *args, **kwargs) -> None:
+        super().__init__("actcond", adv, data, *args, **kwargs)
+        self.actcond_id = actcond_id
 
     def get(self):
         return self._op(self._adv.active_actconds.stacks(self.actcond_id), self.value)
@@ -162,8 +171,8 @@ CONDITIONS["actcond"] = CondActcond
 
 
 class CondDragonShiftCount(CompareCond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__("dragon", adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__("dragon", adv, data, *args, **kwargs)
 
     def get(self):
         return self._op((0 if self._adv.conf.c["utp"] else self._adv.dshift_count), self.value)
@@ -172,10 +181,25 @@ class CondDragonShiftCount(CompareCond):
 CONDITIONS["dshift_count"] = CondDragonShiftCount
 
 
+class CondAmp(CompareCond):
+    def __init__(self, adv, data, amp_ctx, amp_type, *args, **kwargs) -> None:
+        super().__init__("amp", adv, data, *args, end_event="amp", **kwargs)
+        self.amp_ctx = amp_ctx
+        self.amp_type = amp_type
+
+    def get(self):
+        if amp := self._adv.amps_by_type[self.amp_type]:
+            return self._op(amp.amp_ctx_lookup[self.amp_ctx].level, self.value)
+        return False
+
+
+CONDITIONS["amp"] = CondAmp
+
+
 class CondBuffedBy(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
-        self.target = args[0]
+    def __init__(self, adv, data, target, *args, **kwargs) -> None:
+        super().__init__(adv, data)
+        self.target = target
         self.event = "s"
 
     def check(self, e):
@@ -186,17 +210,17 @@ CONDITIONS["buffed_by"] = CondBuffedBy
 
 
 class CondInShift(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
-        if args[0] == "dform":
+    def __init__(self, adv, data, shift_kind, count, *args, **kwargs) -> None:
+        super().__init__(adv, data)
+        if shift_kind == "dform":
             self.form_check = self._adv.dragonform.in_dform
             self.event = "dragon"
             self.end_event = "dragon_end"
-        elif args[0] == "ddrive":
+        elif shift_kind == "ddrive":
             self.form_check = self._adv.dragonform.in_ddrive
             self.event = "dragondrive"
             self.end_event = "dragondrive_end"
-        self.count = args[1]
+        self.count = count
 
     def get(self):
         return self.form_check() and self._adv.dshift_count >= self.count
@@ -206,23 +230,23 @@ CONDITIONS["in_shift"] = CondInShift
 
 
 class CondEvent(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
-        self.event = args[0]
+    def __init__(self, adv, data, event, *args, **kwargs) -> None:
+        super().__init__(adv, data)
+        self.event = event
 
 
 CONDITIONS["event"] = CondEvent
 
 
 class CondPersistentCount(Cond):
-    def __init__(self, event, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
+    def __init__(self, event, adv, data, threshold, *args, **kwargs) -> None:
+        super().__init__(adv, data)
         self.event = event
-        self.threshold = args[0]
+        self.threshold = threshold
         self.count = 0
         self.target = None
-        if len(args) > 1:
-            self.target = args[1]
+        if args:
+            self.target = args[0]
 
     def check(self, e):
         if self.target is not None and not e.name.startswith(self.target):
@@ -236,26 +260,26 @@ class CondPersistentCount(Cond):
 
 
 class CondHitsEvent(CondPersistentCount):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__("hits", adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__("hits", adv, data, *args, **kwargs)
 
 
 CONDITIONS["hitcount"] = CondHitsEvent
 
 
 class CondSlayer(CondPersistentCount):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__("slayer", adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__("slayer", adv, data, *args, **kwargs)
 
 
 CONDITIONS["slayer"] = CondSlayer
 
 
 class CondAffProc(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
+    def __init__(self, adv, data, aff, *args, **kwargs) -> None:
+        super().__init__(adv, data)
         self.event = "aff"
-        self.aff = args[0]
+        self.aff = aff
 
     def check(self, e):
         return e.atype == self.aff
@@ -265,8 +289,8 @@ CONDITIONS["aff"] = CondAffProc
 
 
 class CondSelfAff(CondAffProc):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__(adv, data, *args, **kwargs)
         self.event = "selfaff"
 
 
@@ -274,11 +298,11 @@ CONDITIONS["selfaff"] = CondSelfAff
 
 
 class CondMult(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
-        self.value = args[0]
-        self.threshold = args[1]
-        self.max_count = args[2]
+    def __init__(self, adv, data, value, threshold, max_count, *args, **kwargs) -> None:
+        super().__init__(adv, data)
+        self.value = value
+        self.threshold = threshold
+        self.max_count = max_count
 
     def get(self):
         return min(self.max_count, getattr(self._adv, self.value, 0) // self.threshold)
@@ -288,10 +312,10 @@ CONDITIONS["mult"] = CondMult
 
 
 class CondGetDP(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
+    def __init__(self, adv, data, threshold, *args, **kwargs) -> None:
+        super().__init__(adv, data)
         self.event = "dp"
-        self.threshold = args[0]
+        self.threshold = threshold
         self.cache = 0
 
     def check(self, e):
@@ -306,8 +330,8 @@ CONDITIONS["get_dp"] = CondGetDP
 
 
 class CondDoublebuff(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        super().__init__(adv, data, *args)
+    def __init__(self, adv, data, *args, **kwargs) -> None:
+        super().__init__(adv, data)
         self.event = "actcond"
 
     def check(self, e):
@@ -320,13 +344,13 @@ CONDITIONS["doublebuff"] = CondDoublebuff
 
 
 class CondFSHold(Cond):
-    def __init__(self, adv, data, *args) -> None:
-        self.required_time = args[0]
+    def __init__(self, adv, data, required_time, event, *args, **kwargs) -> None:
+        self.required_time = required_time
         if self.required_time == "cd":
             self.required_time = data["cd"]
             del data["cd"]
-        super().__init__(adv, data, *args)
-        self.event = args[1]
+        super().__init__(adv, data)
+        self.event = event
 
     def trigger(self, callback, order=1):
 
@@ -344,7 +368,7 @@ SUB_ABILITIES = {}
 
 
 class Ab:
-    def __init__(self, adv, ability, *args) -> None:
+    def __init__(self, adv, ability) -> None:
         self._adv = adv
         self._ability = ability
         self._cond = ability.cond
@@ -357,41 +381,38 @@ class AbModifier(Ab):
 
 
 class AbMod(AbModifier):
-    def __init__(self, adv, ability, *args) -> None:
-        if len(args) == 3:
-            super().__init__(adv, ability, args[0], args[1], args[2].replace("-t:", ""))
-        else:
-            super().__init__(adv, ability, args[0], args[1], "passive")
+    def __init__(self, adv, ability, value, mtype, *args, act=None, **kwargs) -> None:
+        super().__init__(adv, ability, value, mtype, act or "passive")
 
 
 SUB_ABILITIES["mod"] = AbMod
 
 
 class AbActdmg(AbModifier):
-    def __init__(self, adv, ability, *args) -> None:
-        self.target = args[1].replace("-t:", "")
-        if len(args) == 3:
-            super().__init__(adv, ability, args[0], self.target, args[2])
-        else:
-            super().__init__(adv, ability, args[0], self.target, "passive")
+    def __init__(self, adv, ability, mtype, *args, act=None, **kwargs) -> None:
+        self.target = act
+        morder = "passive"
+        if args:
+            morder = args[0]
+        super().__init__(adv, ability, mtype, self.target, morder)
 
 
 SUB_ABILITIES["actdmg"] = AbActdmg
 
 
 class AbCtime(AbModifier):
-    def __init__(self, adv, ability, *args) -> None:
-        super().__init__(adv, ability, args[0], "ctime", "passive")
+    def __init__(self, adv, ability, value, *args, **kwargs) -> None:
+        super().__init__(adv, ability, value, "ctime", "passive")
 
 
 SUB_ABILITIES["ctime"] = AbCtime
 
 
 class AbActcond(Ab):
-    def __init__(self, adv, ability, *args) -> None:
+    def __init__(self, adv, ability, target, *args, **kwargs) -> None:
         super().__init__(adv, ability)
-        self.target = args[0]
-        self.actcond_list = args[1:4]
+        self.target = target
+        self.actcond_list = args[0:3]
         self.max_count = ability.data.get("count")
         self.count = 0
         self.idx = 0
@@ -423,12 +444,11 @@ SUB_ABILITIES["actcond"] = AbActcond
 
 
 class AbHitattr(Ab):
-    def __init__(self, adv, ability, *args) -> None:
+    def __init__(self, adv, ability, *args, **kwargs) -> None:
         super().__init__(adv, ability)
         self.hitattrs = args
         self.max_count = ability.data.get("count")
         self.count = 0
-        self.l_cond = None
         if self._cond is not None:
             self.l_cond = self._cond.trigger(self._actcond_on)
 
@@ -445,9 +465,9 @@ SUB_ABILITIES["hitattr"] = AbHitattr
 
 
 class AbDragonPrep(Ab):
-    def __init__(self, adv, ability, *args) -> None:
-        super().__init__(adv, ability, *args)
-        self.value = args[0]
+    def __init__(self, adv, ability, value, *args, **kwargs) -> None:
+        super().__init__(adv, ability)
+        self.value = value
         if self._cond is not None:
             self.l_cond = self._cond.trigger(self._dprep)
 
@@ -459,9 +479,9 @@ SUB_ABILITIES["dprep"] = AbDragonPrep
 
 
 class AbDragonPrepCap(Ab):
-    def __init__(self, adv, ability, *args) -> None:
-        super().__init__(adv, ability, *args)
-        self.value = args[0]
+    def __init__(self, adv, ability, value, *args, **kwargs) -> None:
+        super().__init__(adv, ability)
+        self.value = value
         if self._cond is not None:
             self.l_cond = self._cond.trigger(self._dprep_max, order=2)
 
@@ -473,8 +493,8 @@ SUB_ABILITIES["dprep_cap"] = AbDragonPrepCap
 
 
 class AbHitattrShift(Ab):
-    def __init__(self, adv, ability, *args) -> None:
-        super().__init__(adv, ability, *args)
+    def __init__(self, adv, ability, *args, **kwargs) -> None:
+        super().__init__(adv, ability)
         if self._cond is not None:
             self.l_cond = self._cond.trigger(self._set_has, order=2)
 
@@ -488,10 +508,10 @@ SUB_ABILITIES["hitattr_shift"] = AbHitattrShift
 
 
 class AbActGrant(Ab):
-    def __init__(self, adv, ability, *args) -> None:
-        super().__init__(adv, ability, *args)
-        self.actcond_id = args[0]
-        self.action = args[1].replace("-t:", "")
+    def __init__(self, adv, ability, actcond_id, *args, act=None, **kwargs) -> None:
+        super().__init__(adv, ability)
+        self.actcond_id = actcond_id
+        self.action = act
         self.l_act = Listener(self.action, self._grant_actcond, order=2)
         self.actcond = None
 
@@ -501,6 +521,26 @@ class AbActGrant(Ab):
 
 
 SUB_ABILITIES["actgrant"] = AbActGrant
+
+
+# ["altskill", "enhanced", "-t:s1"]
+class AbAltSkill(Ab):
+    def __init__(self, adv, ability, group, *args, act=None, **kwargs) -> None:
+        super().__init__(adv, ability)
+        self.s_base = act
+        self.s_group = group
+        if self._cond is not None:
+            self.l_on_cond = self._cond.trigger(self._altskill_on)
+            self.l_off_cond = self._cond.end_trigger(self._altskill_off)
+
+    def _altskill_on(self, e=None):
+        self._adv.current.set_action(self.s_base, self.s_group)
+
+    def _altskill_off(self, e=None):
+        self._adv.current.unset_action(self.s_base, self.s_group)
+
+
+SUB_ABILITIES["altskill"] = AbAltSkill
 
 ### Ability
 class Ability:
@@ -512,14 +552,24 @@ class Ability:
             try:
                 self.cond = CONDITIONS[cond[0]](adv, data, *cond[1:])
             except KeyError:
-                print(cond)
+                print("not impl cond", cond)
                 self.cond = None
         self.abs = []
         if ab_lst := data.get("ab"):
             for ab in ab_lst:
+                args = []
+                act = None
+                for arg in ab[1:]:
+                    if isinstance(arg, str) and arg.startswith("-t:"):
+                        if act is not None:
+                            raise ValueError("ability should only have 1 target")
+                        act = arg.replace("-t:", "")
+                    else:
+                        args.append(arg)
                 try:
-                    sub_ab = SUB_ABILITIES[ab[0]](adv, self, *ab[1:])
+                    sub_ab = SUB_ABILITIES[ab[0]](adv, self, *args, act=act)
                 except KeyError:
+                    print("not impl ab", ab)
                     continue
                 if use_limit and isinstance(sub_ab, AbModifier):
                     sub_ab.modifier.limit_group = data.get("lg")

@@ -37,4 +37,4 @@ class Humanoid_Mercury(Adv):
             self.bubble_shield.off()
 
 
-variants = {None: Humanoid_Mercury}
+variants = {None: Adv}

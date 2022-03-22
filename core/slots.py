@@ -482,7 +482,7 @@ class Slots:
         self.d = None
         self.w = None
         self.a = None
-        self.abilities = {}
+        self.abilities = []
 
     def __str__(self):
         return ",".join(
@@ -538,7 +538,6 @@ class Slots:
         return self.c.hp + self.d.hp + self.w.hp + self.a.hp
 
     def oninit(self, adv=None):
-        self.abilities = []
         for slot in (self.c, self.d, self.w):
             for ab in slot.abilities:
                 if ability := make_ability(adv, ab):

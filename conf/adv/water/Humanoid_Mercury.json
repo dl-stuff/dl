@@ -96,8 +96,20 @@
         ],
         "cancel": {"any": 1.66667},
         "abilities": [
-            {"cond": ["amp", 2, 2, ">=", 1], "ab": [["altskill", "default", "-t:s1"]]}
+            {"cond": ["amp", 2, 2, ">=", 1], "ab": [["altskill", "enhanced", "-t:s1"]]}
         ]
+    },
+    "s1_enhanced": {
+        "sp": 2800,
+        "startup": 0.0,
+        "recovery": 2.96667,
+        "attr": [
+            {"dmg": 6.0, "dp": 50, "actcond": "411", "target": "HOSTILE", "iv": 0.3},
+            {"dmg": 6.0, "dp": 50, "actcond": "411", "target": "HOSTILE", "iv": 0.56667},
+            {"dmg": 6.0, "dp": 50, "actcond": "411", "target": "HOSTILE", "iv": 1.13333},
+            {"dmg": 6.0, "dp": 50, "actcond": "411", "target": "HOSTILE", "iv": 1.8}
+        ],
+        "cancel": {"any": 2.66667}
     },
     "s2": {
         "sp": 8000,

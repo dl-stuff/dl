@@ -915,10 +915,13 @@ class Amp:
         }
         self.max_level = 1
 
+        self.event = Event("amp")
+
     def on(self, max_level, target):
         if will_publish := (target == 2 or self.amp_ctx_myself.on(self.publish - 1, publish=True)):
             self.max_level = max(self.max_level, max_level)
             self.amp_ctx_myparty.on(self.max_level, extend=self.extend if max_level < self.max_level else None)
+        self.event()
         self.log(will_publish=int(will_publish))
 
     def log(self, will_publish=0):
