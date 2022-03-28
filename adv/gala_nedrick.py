@@ -24,7 +24,7 @@ class Gala_Nedrick(Adv):
     def set_hp(self, hp, **kwargs):
         if self.soul_charge:
             self._hp = self.max_hp
-            return
+            return 0
         super().set_hp(hp, **kwargs)
 
     def add_oblivion_overload(self, t=None):
