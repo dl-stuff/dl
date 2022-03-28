@@ -8,6 +8,7 @@ class Gala_Nedrick(Adv):
         self.dragonform.max_dragon_gauge = 500
         self.dragonform.charge_dprep(100)
         self.dragonform.max_dragon_gauge = 1000
+        self.dragonform.shift_cost = 1000
 
     def prerun(self):
         Timer(self.force_dp_amount, 0.0001).on()
