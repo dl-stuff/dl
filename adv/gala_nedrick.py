@@ -2,6 +2,8 @@ from core.advbase import *
 
 
 class Gala_Nedrick(Adv):
+    soul_charge = 0
+
     def force_dp_amount(self, _):
         self.dragonform.max_dragon_gauge = 500
         self.dragonform.charge_dprep(100)
