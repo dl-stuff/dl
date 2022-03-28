@@ -31,10 +31,14 @@ class Origa(SigilAdv):
             return self.a_dodge_on_x()
         return self.a_dodge()
 
-    def s2_proc(self, e):
+    def a_sigil_unlock(self):
+        super().a_sigil_unlock()
+        self.dragonform.utp_gauge = 0
+        self.dragonform.unset_disabled("origa_a1")
+
+    def s2_before(self, e):
         if not self.unlocked:
             self.a_update_sigil(-300)
-            self.dragonform.unset_disabled("origa_a1")
 
 
 variants = {None: Origa}

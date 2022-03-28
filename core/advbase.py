@@ -868,7 +868,6 @@ class DodgeOnX(Dodge):
         super()._cb_act_end(e)
 
 
-
 class Shift(Misc):
     def __init__(self, name, dform_name, conf, act=None):
         super().__init__(name, conf, act, atype="s")
@@ -2587,7 +2586,7 @@ class Adv(object):
         if not self.berserk_mode and self.echo > 1:
             if attenuation is not None:
                 rate, pierce, hitmods = attenuation
-                echo_count = self.dmg_formula_echo(coef / (rate ** depth))
+                echo_count = self.dmg_formula_echo(coef / (rate**depth))
             else:
                 echo_count = self.dmg_formula_echo(coef)
             # self.dmg_proc(name, echo_count)
@@ -3001,19 +3000,23 @@ class Adv(object):
         else:
             return mt_b
 
-    def schedule_hits(self, e, conf, pin=None):
+    def schedule_hits(self, e, conf, pin=None, attr_key="attr", all_mt=None):
         final_mt = None
-        if conf["attr"]:
+        if conf[attr_key]:
             prev_attr = None
-            for aseq, attr in enumerate(conf["attr"]):
+            for aseq, attr in enumerate(conf[attr_key]):
                 if isinstance(attr, str):
                     attr = getattr(self, attr, 0)
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
                         res_mt = self.do_hitattr_make(e, aseq + repeat, prev_attr, pin=pin)
+                        if all_mt is not None:
+                            all_mt.append(res_mt)
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin)
                     prev_attr = attr
+                    if all_mt is not None:
+                        all_mt.append(res_mt)
                 final_mt = self.compare_mt(res_mt, final_mt)
         return final_mt
 

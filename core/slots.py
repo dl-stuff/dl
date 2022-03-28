@@ -3,6 +3,7 @@ from collections import defaultdict, namedtuple
 import html
 
 from conf import (
+    DRG,
     load_json,
     wyrmprints,
     weapons,
@@ -366,15 +367,23 @@ class Primal_Brunhilda(DragonBase):
         if self.adv.dragonform.dform_mode == -1:
             self.adv.dragonform.shift_cost = 1000
 
-    def dfs_before(self, e):
-        if not self.adv.is_set_cd("pbh_dfs", 7.5):
-            # self.adv.dragonform.extend_shift_time(5, percent=False)
-            cur_d = self.adv.dragonform.shift_end_timer.timeleft()
-            effect_d = min(7.5, cur_d)
-            delta_t = effect_d * 3 / 4
-            log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
-            if delta_t > 0.001:
-                self.adv.dragonform.shift_end_timer.add(delta_t)
+    def dfs_hit1(self, *args):
+        cur_d = self.adv.dragonform.shift_end_timer.timeleft()
+        effect_d = min(7.5, now() - self.last_dfs, cur_d)
+        delta_t = effect_d * 3 / 4
+        log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
+        if delta_t > 0.001:
+            self.adv.dragonform.shift_end_timer.add(delta_t)
+        self.last_dfs = now()
+
+    def l_dfs(self, e):
+        if e.group == DRG:
+            for mt in self.t_dfs_dmg:
+                if mt.actmod:
+                    self.adv.actmod_off(mt)
+                mt.off()
+            self.t_dfs_dmg = []
+            self.adv.schedule_hits(e, self.adv.conf[e.name], pin=e.name.split("_")[0], attr_key="attr_zone", all_mt=self.t_dfs_dmg)
 
     def oninit(self, adv):
         self.unique_transform = super().oninit(adv)
@@ -389,7 +398,7 @@ class Primal_Brunhilda(DragonBase):
                     "heart_aflame_lv2",
                     [
                         Selfbuff("heart_aflame_lv2_sd", 0.3, 5, "s", "buff", source="ability"),
-                        AffEdgeBuff("heart_aflame_lv2_scortch", 0.3, 5, affname="scorchrend", source="ability"),
+                        AffEdgeBuff("heart_aflame_lv2_scorch", 0.3, 5, affname="scorchrend", source="ability"),
                         AffEdgeBuff("heart_aflame_lv2_burn", 0.3, 5, affname="burn", source="ability"),
                     ],
                 ),
@@ -397,6 +406,12 @@ class Primal_Brunhilda(DragonBase):
         )
 
         Listener("s_end", lambda _: self.adv.pbh_heart_aflame.on(), order=2).on()
+
+        if not self.unique_transform:
+            Listener("fs", self.l_dfs, order=2).on()
+            self.adv.rebind_function(self, "dfs_hit1", "dfs_hit1", overwrite=True)
+            self.t_dfs_dmg = []
+            self.last_dfs = 0
 
 
 ### FLAME DRAGONS ###
