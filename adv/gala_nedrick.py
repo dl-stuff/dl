@@ -18,8 +18,14 @@ class Gala_Nedrick(Adv):
         self.oblivion_overload = 0
         self.oblivion_overload_timer = Timer(self.add_oblivion_overload)
         self.oblivion_overload_att = Modifier("oo_att", "att", "buff", 0.0)
-        self.oblivion_overload_crit = Modifier("oo_att", "crit", "chance", 0.0)
-        self.oblivion_overload_sd = Modifier("oo_att", "att", "buff", 0.0)
+        self.oblivion_overload_crit = Modifier("oo_cc", "crit", "chance", 0.0)
+        self.oblivion_overload_sd = Modifier("oo_sd", "s", "buff", 0.0)
+
+    def set_hp(self, hp, **kwargs):
+        if self.soul_charge:
+            self._hp = self.max_hp
+            return
+        super().set_hp(hp, **kwargs)
 
     def add_oblivion_overload(self, t=None):
         self.oblivion_overload += 1
