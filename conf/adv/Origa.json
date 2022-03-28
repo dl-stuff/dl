@@ -1,0 +1,115 @@
+{
+    "c": {
+        "name": "Origa",
+        "icon": "100043_02_r05",
+        "att": 511,
+        "hp": 750,
+        "ele": "water",
+        "wt": "wand",
+        "ct": "attack",
+        "spiral": false,
+        "a": [["a", 0.2, "ddrive"], ["affres_all", 50.0], ["affres_all", 50.0], ["affnumkiller", [0.25, 0.3, 0.35, 0.4]]],
+        "utp": [0, 3000, 1200, 75, 300]
+    },
+    "dodge_on_x": {
+        "startup": 0.0,
+        "recovery": 0.63333,
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.6, "s": 0.0, "x1_ddrive": 0.4, "x2_ddrive": 0.4, "x3_ddrive": 0.4, "x4_ddrive": 0.4, "x5_ddrive": 0.4}
+    },
+    "s1": {
+        "sp": 3750,
+        "startup": 0.0,
+        "recovery": 2.7,
+        "attr": [
+            {"dmg": 11.84, "afflic": ["frostbite", 120, 0.41], "iv": 0.96667}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "s1_ddrive": {
+        "sp": 3750,
+        "startup": 0.0,
+        "recovery": 2.7,
+        "attr": [
+            {"dmg": 4.39, "afflic": ["frostbite", 120, 0.41], "iv": 1.0},
+            {"dmg": 4.39, "afflic": ["bog", 110], "iv": 1.03333},
+            {"dmg": 4.39, "afflic": ["freeze", 120], "iv": 1.06667}
+        ],
+        "cancel": {"any": 2.16667}
+    },
+    "s2": {
+        "sp": 4000,
+        "startup": 0.0,
+        "recovery": 2.1,
+        "attr": [
+            {"utp": 3000, "iv": 0.8}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "s2_ddrive": {
+        "sp": 6170,
+        "startup": 0.0,
+        "recovery": 1.9,
+        "attr": [
+            {"dmg": 15.47, "iv": 1.2},
+            {"utp": 500, "iv": 1.2}
+        ]
+    },
+    "x1_ddrive": {
+        "startup": 0.0,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 0.83, "sp": 130, "msl": 0.66667, "msl_spd": 1},
+            {"dmg": 0.1, "msl": 0.96667, "msl_spd": 1},
+            {"dmg": 0.1, "msl": 1.26667, "msl_spd": 1}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.13333, "s": 0.0, "x2_ddrive": 0.26667}
+    },
+    "x2_ddrive": {
+        "startup": 0.0,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 0.42, "sp": 200, "msl": 0.66667, "msl_spd": 1},
+            {"dmg": 0.1, "msl": 0.96667, "msl_spd": 1},
+            {"dmg": 0.1, "msl": 1.26667, "msl_spd": 1},
+            {"dmg": 0.42, "msl": 0.66667, "msl_spd": 1},
+            {"dmg": 0.1, "msl": 0.96667, "msl_spd": 1},
+            {"dmg": 0.1, "msl": 1.26667, "msl_spd": 1}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_ddrive": 0.46667}
+    },
+    "x3_ddrive": {
+        "startup": 0.0,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 1.51, "sp": 400}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_ddrive": 0.76667}
+    },
+    "x4_ddrive": {
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 2.08, "sp": 430}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_ddrive": 0.66667}
+    },
+    "x5_ddrive": {
+        "startup": 0.0,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 2.75, "sp": 600, "msl": 0.33333},
+            {"dmg": 0.1, "msl": 0.46666},
+            {"dmg": 0.1, "msl": 0.59999},
+            {"dmg": 0.1, "msl": 0.73333},
+            {"dmg": 0.1, "msl": 0.86666},
+            {"dmg": 0.1, "msl": 0.99999}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_ddrive": 1.83333}
+    }
+}

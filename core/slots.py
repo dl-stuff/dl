@@ -312,7 +312,7 @@ class DragonBase(EquipBase):
         return super().ab if self.on_ele else []
 
 
-from core.modifier import EchoBuff, EffectBuff, Modifier, SelfAffliction, Selfbuff, SingleActionBuff
+from core.modifier import EchoBuff, EffectBuff, Modifier, MultiLevelBuff, SelfAffliction, Selfbuff, SingleActionBuff, MultiBuffManager, AffEdgeBuff
 from core.timeline import Listener, Timer, now, Event
 from core.log import log
 
@@ -356,6 +356,47 @@ class Gozu_Tenno(DragonBase):
 class Gala_Reborn_Agni(Gala_Reborn):
     def oninit(self, adv):
         super().oninit(adv, "gagni_buff", "flame")
+
+
+class Primal_Brunhilda(DragonBase):
+    def force_dp_amount(self, _):
+        self.adv.dragonform.max_dragon_gauge = 500
+        self.adv.dragonform.charge_dprep(100)
+        self.adv.dragonform.max_dragon_gauge = 1000
+        if self.adv.dragonform.dform_mode == -1:
+            self.adv.dragonform.shift_cost = 1000
+
+    def dfs_before(self, e):
+        if not self.adv.is_set_cd("pbh_dfs", 7.5):
+            # self.adv.dragonform.extend_shift_time(5, percent=False)
+            cur_d = self.adv.dragonform.shift_end_timer.timeleft()
+            effect_d = min(7.5, cur_d)
+            delta_t = effect_d * 3 / 4
+            log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
+            if delta_t > 0.001:
+                self.adv.dragonform.shift_end_timer.add(delta_t)
+
+    def oninit(self, adv):
+        self.unique_transform = super().oninit(adv)
+        self.adv.dragonform.max_dragon_gauge = 0
+        Timer(self.force_dp_amount, 0.0001).on()
+
+        self.adv.pbh_heart_aflame = MultiLevelBuff(
+            "heart_aflame",
+            [
+                Selfbuff("heart_aflame_lv1", 0.1, 10, "s", "buff", source="ability"),
+                MultiBuffManager(
+                    "heart_aflame_lv2",
+                    [
+                        Selfbuff("heart_aflame_lv2_sd", 0.3, 5, "s", "buff", source="ability"),
+                        AffEdgeBuff("heart_aflame_lv2_scortch", 0.3, 5, affname="scorchrend", source="ability"),
+                        AffEdgeBuff("heart_aflame_lv2_burn", 0.3, 5, affname="burn", source="ability"),
+                    ],
+                ),
+            ],
+        )
+
+        Listener("s_end", lambda _: self.adv.pbh_heart_aflame.on(), order=2).on()
 
 
 ### FLAME DRAGONS ###
@@ -645,8 +686,9 @@ class Gala_Chronos_Nyx(DragonBase):
 
 class Gala_Elysium(DragonBase):
     def force_dp_amount(self, _):
+        self.adv.dragonform.max_dragon_gauge = 500
+        self.adv.dragonform.charge_dprep(100)
         self.adv.dragonform.max_dragon_gauge = 1000
-        self.adv.dragonform.charge_dprep(50)
         if self.adv.dragonform.dform_mode == -1:
             self.adv.dragonform.shift_cost = 1000
 
@@ -663,7 +705,6 @@ class Gala_Elysium(DragonBase):
         elif adv.conf.c.ct == "healing":
             Modifier("elysium_aura_hp", "maxhp", "passive", 0.30).on()
             Modifier("elysium_aura_sp", "sp", "passive", 0.15).on()
-        self.adv.dragonform.max_dragon_gauge = 0
         Timer(self.force_dp_amount, 0.0001).on()
 
 
@@ -746,14 +787,14 @@ class Gala_Reborn_Nidhogg(Gala_Reborn):
 
 class Gala_Bahamut(DragonBase):
     def force_dp_amount(self, _):
+        self.adv.dragonform.max_dragon_gauge = 500
+        self.adv.dragonform.charge_dprep(100)
         self.adv.dragonform.max_dragon_gauge = 1000
-        self.adv.dragonform.charge_dprep(50)
         if self.adv.dragonform.dform_mode == -1:
             self.adv.dragonform.shift_cost = 1000
 
     def oninit(self, adv):
         self.unique_transform = super().oninit(adv)
-        self.adv.dragonform.max_dragon_gauge = 0
         Timer(self.force_dp_amount, 0.0001).on()
 
 

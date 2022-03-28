@@ -154,6 +154,32 @@
                 ],
                 "phase_coei": true
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Raging Conflagration",
+                "icon": "302148_01_60101",
+                "att": 1870,
+                "hp": 251,
+                "ele": "flame",
+                "wt": "blade",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "a": [["ctime", 2.5]]
+            },
+            "s3": {
+                "sp": 7227,
+                "startup": 0.0,
+                "recovery": 2.86667,
+                "attr": [
+                    {"dmg": 3.54, "iv": 0.3},
+                    {"dmg": 3.54, "iv": 0.63333},
+                    {"dmg": 3.54, "iv": 1.1},
+                    {"buff": ["self", 0.2, 15.0, "att", "buff"], "iv": 2.23333},
+                    {"buff": [["self", 0.15, 90.0, "att", "buff"], ["self", 0.05, 90.0, "spd", "buff"], "-refresh"], "coei": 1, "iv": 2.23333}
+                ],
+                "cancel": {"any": 2.56667}
+            }
         }
     },
     "light": {

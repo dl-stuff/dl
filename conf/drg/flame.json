@@ -592,10 +592,10 @@
         "d": {
             "name": "Konohana Sakuya",
             "icon": "210082_01",
-            "att": 121,
-            "hp": 374,
+            "att": 141,
+            "hp": 394,
             "ele": "flame",
-            "a": [["a", 0.2], ["s", 0.9]]
+            "a": [["hp", 0.2], ["a", 0.2], ["s", 1.0]]
         },
         "dx1": {
             "startup": 0.4,
@@ -637,6 +637,84 @@
                 {"buff": ["next", 0.4, 1, "s", "buff", "-refresh"], "iv": 1.76667}
             ],
             "cancel": {"any": 2.66667}
+        }
+    },
+    "Primal_Brunhilda": {
+        "d": {
+            "name": "Primal Brunhilda",
+            "icon": "210177_01",
+            "att": 127,
+            "hp": 369,
+            "ele": "flame",
+            "a": [["a", 1.0], ["dt", 1.0]]
+        },
+        "dfs": {
+            "charge": 0.8,
+            "startup": 0.56667,
+            "recovery": 1.33333,
+            "attr": [
+                {"dmg": 2.5, "sp": 10, "msl": 0.9},
+                {"dmg": 2.5, "msl": 1.8},
+                {"dmg": 2.5, "msl": 2.7},
+                {"dmg": 2.5, "msl": 3.6},
+                {"dmg": 2.5, "msl": 4.5},
+                {"dmg": 2.5, "msl": 5.4},
+                {"dmg": 2.5, "msl": 6.3},
+                {"dmg": 2.5, "msl": 7.2},
+                {"dmg": 2.5, "msl": 8.1}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "s": 0.0}
+        },
+        "dx1": {
+            "startup": 0.5,
+            "recovery": 0.86667,
+            "attr": [
+                {"dmg": 5.68, "sp": 5}
+            ],
+            "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+            "cancel": {"any": 0.66667, "dodge": 0.0, "dx2": 0.26667, "fs": 0.0, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.66667,
+            "recovery": 2.03333,
+            "attr": [
+                {"dmg": 9.64, "sp": 5}
+            ],
+            "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+            "cancel": {"any": 1.0, "dodge": 0.0, "dx3": 0.66666, "fs": 0.0, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.76923,
+            "recovery": 3.43077,
+            "attr": [
+                {"dmg": 6.76, "sp": 5},
+                {"dmg": 6.76, "msl": 0.4},
+                {"dmg": 6.76, "msl": 0.8}
+            ],
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.79487, "dfs": 0.0, "dodge": 0.0, "dx4": 1.64103, "s": 0.0}
+        },
+        "dx4": {
+            "startup": 0.51282,
+            "recovery": 2.22051,
+            "attr": [
+                {"dmg": 18.26, "sp": 5, "msl": 0.4, "msl_spd": 1}
+            ],
+            "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+            "cancel": {"any": 1.02564, "dodge": 0.0, "dx1": 0.89744, "fs": 0.0, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 3.43333,
+            "cancel": {"any": 3.33333, "dx1": 3.0},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"afflic": ["burn", 110, 0.727, 60.0], "iv": 1.73333},
+                {"dmg": 28.0, "afflic": ["scorchrend", 110, 0.311, 60.0], "iv": 1.73333}
+            ]
         }
     },
     "Prometheus": {
