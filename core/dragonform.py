@@ -378,6 +378,11 @@ class DragonFormUTP(DragonForm):
         self.max_utp_gauge = utp_params[1]
         self.utp_shift_req = utp_params[2]
         self.utp_drain = utp_params[3]
+        try:
+            self.utp_regen = utp_params[4]
+            self.last_shift_end = 0
+        except IndexError:
+            self.utp_regen = None
         self.utp_infinte = False
         self.utp_event = Event("utp")
         self.log_utp = True
@@ -415,6 +420,8 @@ class DragonFormUTP(DragonForm):
             self.utp_gauge = self.max_utp_gauge
         elif self.status and self.shift_end_timer.online:
             self.utp_gauge = self.shift_end_timer.timeleft() * self.utp_drain
+        elif self.utp_regen and not self.status:
+            self.utp_gauge = min(self.max_utp_gauge, (now() - self.last_shift_end) * self.utp_regen)
         gauge_before = self.utp_gauge
         # use utp_gauge from here on
         self.utp_gauge = max(0, min(self.max_utp_gauge, gauge_before + value))
@@ -560,4 +567,5 @@ class DragonFormUTP(DragonForm):
         if self.dform_mode == 1:
             return super().d_shift_end(e=e, reason=reason)
         self.ddrive_end_reason = reason
+        self.last_shift_end = now()
         return False
