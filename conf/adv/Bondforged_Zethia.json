@@ -1,0 +1,119 @@
+{
+    "c": {
+        "name": "Bondforged Zethia",
+        "icon": "100054_02_r05",
+        "att": 510,
+        "hp": 751,
+        "ele": "light",
+        "wt": "wand",
+        "ct": "attack",
+        "spiral": false,
+        "a": [["affres_poison", 100.0], ["affres_curse", 100.0], ["s", 0.2]],
+        "suffixmap": {"mode2": "power_of_bonds"}
+    },
+    "s1": {
+        "sp": 2800,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "attr": [
+            {"dmg": 8.0, "afflic": ["flashburn", 120, 0.416], "iv": 1.0},
+            {"dmg": 8.0, "iv": 1.16667},
+            {"dmg": 8.0, "iv": 1.36667}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "s1_bonds": {
+        "sp": 2800,
+        "startup": 0.0,
+        "recovery": 3.0,
+        "attr": [
+            {"dmg": 18.0, "dispel": 100, "iv": 1.33333},
+            {"dmg": 3.6, "afflic": ["flashburn", 120, 0.416], "iv": 1.33333},
+            {"dmg": 3.6, "iv": 1.33333},
+            {"dmg": 3.6, "iv": 1.33333},
+            {"dmg": 3.6, "iv": 1.33333},
+            {"dmg": 3.6, "iv": 1.33333}
+        ]
+    },
+    "s2": {
+        "sp": 4200,
+        "startup": 0.0,
+        "recovery": 2.8,
+        "cancel": {"any": 2.5},
+        "attr": [
+            {"amp": ["30000", 3, 2], "ab": 1, "cd": 30.0}
+        ]
+    },
+    "s2_bonds": {
+        "sp": 1,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "attr": [
+            {"amp": ["30000", 3, 2], "ab": 1, "cd": 30.0},
+            {"heal": [100, "team"], "iv": 1.0}
+        ],
+        "energizable": true,
+        "cancel": {"any": 1.76667}
+    },
+    "s99": {
+        "sp": 2800,
+        "startup": 0.0,
+        "recovery": 2.46667,
+        "attr": [
+            {"dmg": 8.0, "afflic": ["flashburn", 120, 0.416], "iv": 1.0},
+            {"dmg": 8.0, "iv": 1.16667},
+            {"dmg": 8.0, "iv": 1.36667}
+        ],
+        "cancel": {"any": 1.76667}
+    },
+    "x1": {
+        "startup": 0.33333,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 1.53, "sp": 180}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.16, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.16667}
+    },
+    "x2": {
+        "startup": 0.33333,
+        "recovery": 1.1,
+        "attr": [
+            {"dmg": 1.66, "sp": 220},
+            {"dmg": 1.66, "msl": 0.3}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.4}
+    },
+    "x3": {
+        "startup": 0.33333,
+        "recovery": 1.03334,
+        "attr": [
+            {"dmg": 1.66, "sp": 270},
+            {"dmg": 1.66, "msl": 0.3}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x4": 0.23334}
+    },
+    "x4": {
+        "startup": 0.33333,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 1.8, "sp": 310, "msl": 0.16667, "msl_spd": 1}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.26667}
+    },
+    "x5": {
+        "startup": 0.33333,
+        "recovery": 3.36667,
+        "attr": [
+            {"dmg": 0.4, "sp": 425},
+            {"dmg": 0.4, "msl": 0.3},
+            {"dmg": 0.4, "msl": 0.6},
+            {"dmg": 2.0, "msl": 2.43333}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.1}
+    }
+}

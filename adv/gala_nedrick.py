@@ -23,6 +23,7 @@ class Gala_Nedrick(Adv):
         self.oblivion_overload_att = Modifier("oo_att", "att", "buff", 0.0)
         self.oblivion_overload_crit = Modifier("oo_cc", "crit", "chance", 0.0)
         self.oblivion_overload_sd = Modifier("oo_sd", "s", "buff", 0.0)
+        self.oblivion_overload_damage_timer = Timer(self.oblivion_overload_damage, 2.9, True)
 
     def set_hp(self, hp, **kwargs):
         if self.soul_charge:
@@ -44,9 +45,13 @@ class Gala_Nedrick(Adv):
             self.oblivion_overload_crit.mod_value = 0.2
             self.oblivion_overload_sd.mod_value = 0.2
 
+    def oblivion_overload_damage(self, t=None):
+        self.add_hp(-2 * self.oblivion_overload)
+
     def a1_dragon_end(self, e):
         self.s2.set_enabled(True)
         self.add_oblivion_overload()
+        self.oblivion_overload_damage_timer.on()
 
     def s2_proc(self, e):
         if self.soul_charge < 3:

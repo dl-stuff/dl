@@ -1,0 +1,185 @@
+{
+    "c": {
+        "name": "Bondforged Prince",
+        "icon": "100001_14_r05",
+        "att": 504,
+        "hp": 755,
+        "ele": "wind",
+        "wt": "sword",
+        "ct": "attack",
+        "spiral": false,
+        "a": [["affres_freeze", 100.0], ["affres_bog", 100.0]]
+    },
+    "dodge": {
+        "startup": 0.0,
+        "recovery": 0.86667,
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.6, "s": 0.0}
+    },
+    "dragonform": {
+        "dshift": {
+            "recovery": 0.63333,
+            "attr": [
+                {"dmg": 1.5}
+            ]
+        },
+        "dx1": {
+            "startup": 0.5,
+            "recovery": 1.46667,
+            "attr": [
+                {"dmg": 2.1, "dispel": 100, "sp": 5},
+                {"dmg": 2.1, "msl": 0.16667, "msl_spd": 1}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.83333, "dodge": 0.0, "dx2": 0.2, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 0.5,
+            "recovery": 1.43333,
+            "attr": [
+                {"dmg": 3.3, "dispel": 100, "sp": 5},
+                {"dmg": 3.3, "msl": 0.16667, "msl_spd": 1}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.83333, "dodge": 0.0, "dx3": 0.16667, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.73333,
+            "recovery": 1.03334,
+            "attr": [
+                {"dmg": 4.5, "dispel": 100, "sp": 5},
+                {"dmg": 4.5, "msl": 0.13333}
+            ],
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.76667, "dodge": 0.0, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 3.86667,
+            "cancel": {"any": 3.33333, "dx1": 3.16667},
+            "sp_db": 45,
+            "uses": 2,
+            "attr": [
+                {"dmg": 0.6, "buff": ["self", 0.15, -1, "wind_resist", "down", "-overwrite_HOSTILE22"], "coei": 1, "dispel": 100, "iv": 0.73333},
+                {"dmg": 0.6, "iv": 0.83333},
+                {"dmg": 0.6, "iv": 0.93333},
+                {"dmg": 0.6, "iv": 1.03333},
+                {"dmg": 0.6, "iv": 1.13333},
+                {"dmg": 0.6, "iv": 1.23333},
+                {"dmg": 0.6, "iv": 1.33333},
+                {"dmg": 0.6, "iv": 1.4},
+                {"dmg": 0.6, "iv": 1.5},
+                {"dmg": 0.6, "iv": 1.6},
+                {"dmg": 0.6, "iv": 1.7},
+                {"dmg": 0.6, "iv": 1.8},
+                {"dmg": 0.6, "iv": 1.9},
+                {"dmg": 0.6, "iv": 2.0},
+                {"dmg": 0.6, "iv": 2.1},
+                {"dmg": 1.95, "afflic": ["stun", 110], "iv": 2.26667},
+                {"dmg": 1.95, "iv": 2.26667, "msl": 0.9},
+                {"dmg": 1.95, "iv": 2.26667},
+                {"dmg": 1.95, "iv": 2.26667, "msl": 0.9},
+                {"dmg": 1.95, "iv": 2.26667},
+                {"dmg": 1.95, "iv": 2.26667, "msl": 0.9},
+                {"dmg": 3.0, "iv": 2.4},
+                {"dmg": 3.0, "iv": 2.56667},
+                {"dmg": 3.0, "iv": 2.66667},
+                {"dmg": 3.0, "iv": 2.76667}
+            ]
+        }
+    },
+    "fs": {
+        "charge": 0.05,
+        "startup": 0.14957,
+        "recovery": 1.55043,
+        "attr": [
+            {"cond": ["var=", ["x4_jump", 0]], "dmg": 1.73, "odmg": 5.34, "sp": 285},
+            {"cond": ["var=", ["x4_jump", 0]], "dmg": 0.71, "odmg": 5.34, "iv": 0.15043},
+            {"cond": ["var=", ["x4_jump", 1]], "dmg": 6.02, "odmg": 2.0, "sp": 285, "iv": 0.25043}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.38376, "x5": 0.48376}
+    },
+    "s1": {
+        "sp": 3050,
+        "startup": 0.0,
+        "recovery": 3.13333,
+        "attr": [
+            {"dmg": 2.3, "drg": 1, "dp": 50, "iv": 1.06667},
+            {"dmg": 2.3, "drg": 1, "iv": 1.06667},
+            {"dmg": 2.3, "drg": 1, "iv": 1.06667},
+            {"dmg": 2.3, "drg": 1, "iv": 1.06667},
+            {"dmg": 2.3, "drg": 1, "iv": 1.06667},
+            {"dmg": 10.85, "afflic": ["stormlash", 120, 0.41], "iv": 1.83333}
+        ],
+        "cancel": {"any": 2.83333}
+    },
+    "s2": {
+        "sp": 7200,
+        "startup": 0.0,
+        "recovery": 3.16667,
+        "attr": [
+            {"dmg": 2.71, "drg": 1, "afflic": ["stun", 100, 6.0, 5.0], "iv": 1.16667},
+            {"dmg": 2.71, "drg": 1, "iv": 1.16667},
+            {"dmg": 2.71, "drg": 1, "iv": 1.16667},
+            {"dmg": 2.71, "drg": 1, "iv": 1.16667},
+            {"dmg": 2.71, "drg": 1, "iv": 1.16667},
+            {"dmg": 2.71, "drg": 1, "iv": 1.16667},
+            {"dmg": 2.71, "drg": 1, "iv": 1.16667},
+            {"dmg": 2.71, "drg": 1, "iv": 1.16667},
+            {"dmg": 20.25, "odmg": 2.0, "iv": 1.76667}
+        ],
+        "cancel": {"any": 2.33333}
+    },
+    "x1": {
+        "startup": 0.0,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 0.65, "sp": 150},
+            {"dmg": 0.65, "iv": 0.16667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "fs": 0.16667, "s": 0.0, "x2": 0.43333}
+    },
+    "x2": {
+        "startup": 0.16667,
+        "recovery": 0.86666,
+        "attr": [
+            {"dmg": 0.84, "sp": 150},
+            {"dmg": 0.84, "iv": 0.16666}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.33333}
+    },
+    "x3": {
+        "startup": 0.26667,
+        "recovery": 0.73333,
+        "attr": [
+            {"dmg": 2.54, "sp": 260, "msl": 0.13333, "msl_spd": 1}
+        ],
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.33333}
+    },
+    "x4": {
+        "startup": 0.4,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 1.7, "sp": 320},
+            {"dmg": 0.3, "iv": 0.26667},
+            {"dmg": 2.45, "iv": 0.26667, "msl": 0.5}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.46667, "s": 0.0, "x5": 0.46667}
+    },
+    "x5": {
+        "startup": 0.5,
+        "recovery": 1.03333,
+        "attr": [
+            {"dmg": 0.5, "drg": 1, "dispel": 100, "sp": 400},
+            {"dmg": 5.2, "drg": 1}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.5, "fs": 0.5, "s": 0.0}
+    }
+}
