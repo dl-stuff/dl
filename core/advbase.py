@@ -1925,8 +1925,8 @@ class Adv(object):
         prev = prev or self.action.getdoing()
         if prev is self.action.nop:
             prev = self.action.getprev()
-        if prev == self.a_dodge_on_x and prev.retain_x is not None:
-            prev = prev.retain_x
+        if (retain_x := getattr(prev, "retain_x", None)) is not None:
+            prev = retain_x
         if isinstance(prev, X):
             if prev.group == self.current_x and prev.conf["loop"]:
                 x_next = prev
