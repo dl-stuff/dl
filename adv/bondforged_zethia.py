@@ -12,8 +12,7 @@ class Bondforged_Zethia(Adv):
             source="s2",
         )
         self.a1_heal_listener = Listener("hp", self.a1_heal)
-        self.bondforged_might = Modifier("bondforged_might", "s", "passive", 0.4)
-        self.bondforged_might.get = lambda: 0.4 if self.power_of_bonds.get() else 0
+        self.bondforged_might = Modifier("bondforged_might", "s", "passive", 0.4, get=self.power_of_bonds.get)
 
     def a1_heal(self, e):
         if e.hp <= 30 and (e.hp - e.delta) > 30 and not self.is_set_cd("bondforged_auspex", 45):
@@ -21,7 +20,7 @@ class Bondforged_Zethia(Adv):
 
     def set_hp(self, hp, percent=True, can_die=False, ignore_dragon=False, source=None):
         revive = False
-        if can_die and self.power_of_bonds.get:
+        if can_die and self.power_of_bonds.get():
             can_die = False
             revive = True
         super().set_hp(hp, percent, can_die, ignore_dragon, source)
@@ -31,6 +30,7 @@ class Bondforged_Zethia(Adv):
     def s2_proc(self, e):
         if e.group == DEFAULT:
             self.power_of_bonds.on()
+            self.s2.charge(1)
         else:
             self.power_of_bonds.off()
 
