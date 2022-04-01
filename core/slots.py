@@ -393,13 +393,13 @@ class Primal_Brunhilda(DragonBase):
         self.adv.pbh_heart_aflame = MultiLevelBuff(
             "heart_aflame",
             [
-                Selfbuff("heart_aflame_lv1", 0.1, 10, "s", "buff", source="ability"),
+                Selfbuff("heart_aflame_lv1", 0.1, 10, "s", "buff", source="s_end"),
                 MultiBuffManager(
                     "heart_aflame_lv2",
                     [
-                        Selfbuff("heart_aflame_lv2_sd", 0.3, 5, "s", "buff", source="ability"),
-                        AffEdgeBuff("heart_aflame_lv2_scorch", 0.3, 5, affname="scorchrend", source="ability"),
-                        AffEdgeBuff("heart_aflame_lv2_burn", 0.3, 5, affname="burn", source="ability"),
+                        Selfbuff("heart_aflame_lv2_sd", 0.3, 5, "s", "buff", source="s_end"),
+                        AffEdgeBuff("heart_aflame_lv2_scorch", 0.3, 5, affname="scorchrend", source="s_end"),
+                        AffEdgeBuff("heart_aflame_lv2_burn", 0.3, 5, affname="burn", source="s_end"),
                     ],
                 ),
             ],

@@ -22,8 +22,8 @@ class Bondforged_Prince(Adv):
         super().doconfig()
         self.a_fs_dict["fs"] = FsOnX("fs", self.a_fs_dict["fs"].conf)
         self.a_dodge_on_x = self.a_fs_dict["fs"]
-        Event("dragon").listener(lambda: self.add_amp(amp_id="30000", max_level=3, target=2)
-        
+        Event("dragon").listener(lambda _: self.add_amp(amp_id="30000", max_level=3, target=2))
+
     def prerun(self):
         if self.condition("tempest charge"):
             self.dragonform.charge_dprep(50)
