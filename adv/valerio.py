@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.template import StanceAdv, RngCritAdv
+from module.template import LowerMCAdv, StanceAdv, RngCritAdv
 
 
 class Valerio(StanceAdv, RngCritAdv):
@@ -56,4 +56,8 @@ class Valerio_RNG(Valerio):
         Selfbuff("a1", 0.10, 20, "spd", "buff").on()
 
 
-variants = {None: Valerio, "RNG": Valerio_RNG}
+class Valerio_50MC(LowerMCAdv):
+    pass
+
+
+variants = {None: Valerio, "RNG": Valerio_RNG, "50MC": Valerio_50MC}
