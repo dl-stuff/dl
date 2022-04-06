@@ -16,6 +16,12 @@ class Valerio(StanceAdv, RngCritAdv):
         self.config_rngcrit(cd=10, ev=20)
         self.a1_buff = Selfbuff("a1", 0, 20, "spd", "buff")
         self.a1_stack = 0
+        if self.MC is None:
+            Event("s").listener(self.a1_amp)
+
+    def a1_amp(self, e):
+        if not self.is_set_cd("a1_amp", 10):
+            self.add_amp(max_level=2)
 
     def rngcrit_cb(self, mrate=None):
         if self.nihilism:
