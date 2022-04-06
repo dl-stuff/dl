@@ -56,7 +56,7 @@ class Valerio_RNG(Valerio):
         Selfbuff("a1", 0.10, 20, "spd", "buff").on()
 
 
-class Valerio_50MC(LowerMCAdv):
+class Valerio_50MC(Valerio, LowerMCAdv):
     pass
 
 
