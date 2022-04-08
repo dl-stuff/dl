@@ -3,6 +3,8 @@ from module.template import LowerMCAdv, StanceAdv, RngCritAdv
 
 
 class Valerio(StanceAdv, RngCritAdv):
+    STANCE_THRESHOLD = 10
+
     def prerun(self):
         self.config_stances(
             {
@@ -10,7 +12,7 @@ class Valerio(StanceAdv, RngCritAdv):
                 "entree": ModeManager(group="entree", x=True, s1=True, s2=True),
                 "dessert": ModeManager(group="dessert", x=True, s1=True, s2=True),
             },
-            hit_threshold=10,
+            hit_threshold=self.STANCE_THRESHOLD,
         )
 
         self.config_rngcrit(cd=10, ev=20)
@@ -57,7 +59,7 @@ class Valerio_RNG(Valerio):
 
 
 class Valerio_50MC(Valerio, LowerMCAdv):
-    pass
+    STANCE_THRESHOLD = 20
 
 
 variants = {None: Valerio, "RNG": Valerio_RNG, "50MC": Valerio_50MC}
