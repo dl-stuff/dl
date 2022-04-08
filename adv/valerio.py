@@ -10,7 +10,7 @@ class Valerio(StanceAdv, RngCritAdv):
                 "entree": ModeManager(group="entree", x=True, s1=True, s2=True),
                 "dessert": ModeManager(group="dessert", x=True, s1=True, s2=True),
             },
-            hit_threshold=20,
+            hit_threshold=10,
         )
 
         self.config_rngcrit(cd=10, ev=20)
