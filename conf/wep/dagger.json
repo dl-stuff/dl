@@ -407,6 +407,34 @@
                 ],
                 "phase_coei": true
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Shaderuler's Fang",
+                "icon": "303151_01_60501",
+                "att": 1728,
+                "hp": 287,
+                "ele": "shadow",
+                "wt": "dagger",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "a": [["ctime", 2.5]]
+            },
+            "s3": {
+                "sp": 6590,
+                "startup": 0.0,
+                "recovery": 2.46667,
+                "attr": [
+                    {"dmg": 1.73, "iv": 0.23333},
+                    {"dmg": 1.73, "iv": 0.4},
+                    {"dmg": 1.73, "iv": 0.66667},
+                    {"dmg": 1.73, "iv": 0.83333},
+                    {"dmg": 1.73, "iv": 1.53333},
+                    {"buff": ["self", 0.2, 15.0, "att", "buff"], "iv": 2.2},
+                    {"buff": [["self", 0.15, 90.0, "att", "buff"], ["self", 0.05, 90.0, "spd", "buff"], "-refresh"], "coei": 1, "iv": 2.2}
+                ],
+                "cancel": {"any": 2.26667}
+            }
         }
     },
     "water": {

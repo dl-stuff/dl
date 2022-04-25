@@ -404,6 +404,34 @@
                 ],
                 "phase_coei": true
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Primal Hex",
+                "icon": "301163_01_60501",
+                "att": 1764,
+                "hp": 284,
+                "ele": "shadow",
+                "wt": "sword",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "a": [["ctime", 2.5]]
+            },
+            "s3": {
+                "sp": 6163,
+                "startup": 0.0,
+                "recovery": 3.26667,
+                "attr": [
+                    {"dmg": 1.65, "iv": 0.33333},
+                    {"dmg": 1.65, "iv": 0.46667},
+                    {"dmg": 1.65, "iv": 0.9},
+                    {"dmg": 1.65, "iv": 1.16667},
+                    {"dmg": 1.65, "iv": 1.96667},
+                    {"buff": ["self", 0.2, 15.0, "att", "buff"], "iv": 2.7},
+                    {"buff": [["self", 0.15, 90.0, "att", "buff"], ["self", 0.05, 90.0, "spd", "buff"], "-refresh"], "coei": 1, "iv": 2.7}
+                ],
+                "cancel": {"any": 3.03333}
+            }
         }
     },
     "water": {

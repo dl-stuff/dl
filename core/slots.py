@@ -485,7 +485,7 @@ class AC011_Garland(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         if adv.condition("maintain shield"):
-            Timer(lambda _: adv.Modifier("d_1_dauntless", "att", "passive", 0.30).on(), 15).on()
+            Timer(lambda _: adv.Modifier("d_1_dauntless", "att", "passive", 0.35).on(), 15).on()
 
 
 class Summer_Konohana_Sakuya(DragonBase):
