@@ -291,7 +291,7 @@ def get_adv_wp_list():
         display_name = data["name"] + " " + ab_str
         wplists[RARITY_MAP[data["rarity"]]][wp] = display_name
     result["wyrmprints"] = wplists
-    result["skillshare"] = {k: {"fullname": get_fullname(k), **v} for k, v in skillshare.items()}
+    result["skillshare"] = {k: {"fullname": get_fullname(k), **v} for k, v in skillshare.items() if v.get("s")}
     return jsonify(result)
 
 
