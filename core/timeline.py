@@ -188,6 +188,7 @@ class Timer(object):
         # core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
         if self.pause_time > 0:
             self.pause_time += time
+            return self.pause_time
         else:
             self.timeout += time
             self.timing += time
