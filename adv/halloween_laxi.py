@@ -5,14 +5,18 @@ MAX_CLOCKWORK_GAUGE = 1000000000
 
 class Halloween_Laxi(Adv):
     def prerun(self):
+        self.conf["acl"] = """
+            `s1
+            `fs
+        """
         self.clockwork_timer = Timer(self.clockwork_off, 15.0)
         self.clockwork_listeners = (
             Listener("fs_start", lambda _: self.clockwork_timer.resume(), order=0),
             Listener("fs_end", lambda _: self.clockwork_timer.pause(), order=0),
         )
         self.clockwork_regen = Timer(self.clockwork_on, 10.0)
-        self.l_clockwork_regen_s = Listener("s", self.clockwork_regen.pause, order=0)
-        self.l_clockwork_regen_s_end = Listener("s_end", self.clockwork_regen.resume, order=0)
+        self.l_clockwork_regen_s = Listener("s", lambda _: self.clockwork_regen.pause(), order=0)
+        self.l_clockwork_regen_s_end = Listener("s_end", lambda _: self.clockwork_regen.resume(), order=0)
         self.clockwork_on()
 
         self.a3_edge_buffs = []
