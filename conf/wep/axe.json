@@ -285,6 +285,34 @@
                 ],
                 "phase_coei": true
             }
+        },
+        "primal_dragon": {
+            "w": {
+                "name": "Indomitable Thundercrash",
+                "icon": "304147_01_60401",
+                "att": 1852,
+                "hp": 292,
+                "ele": "light",
+                "wt": "axe",
+                "series": "Primal Dragon",
+                "tier": 2,
+                "a": [["ctime", 2.5]]
+            },
+            "s3": {
+                "sp": 8260,
+                "startup": 0.0,
+                "recovery": 4.33333,
+                "attr": [
+                    {"dmg": 2.26, "iv": 0.56667},
+                    {"dmg": 2.26, "iv": 1.2},
+                    {"dmg": 2.26, "iv": 1.86667},
+                    {"dmg": 2.26, "iv": 2.53333},
+                    {"dmg": 2.26, "iv": 3.76667},
+                    {"buff": ["self", 0.2, 15.0, "att", "buff"], "iv": 4.0},
+                    {"buff": [["self", 0.15, 90.0, "att", "buff"], ["self", 0.05, 90.0, "spd", "buff"], "-refresh"], "coei": 1, "iv": 4.0}
+                ],
+                "cancel": {"any": 4.06667}
+            }
         }
     },
     "shadow": {
